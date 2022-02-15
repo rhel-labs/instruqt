@@ -1,0 +1,28 @@
+slug: rhel-system-roles
+type: track
+title: rhel-system-roles
+teaser: Configuring and updating system configurations with System Roles. This track
+  has an estimated duration for completion of 10 minutes.
+description: |-
+  # Duration:
+  This track has an estimated time for completion of 10 minutes. The track will remain online for 50 minutes.
+  # Goal:
+  After completing this scenario, users will be able to configure systems using Red Hat Enterprise Linux (RHEL) System Roles.
+
+  # Concepts included in this scenario:
+  - Installing software needed for RHEL System Roles
+  - Configuring a system using RHEL System Roles
+  - Adding new configuration using RHEL System Roles to apply to systems
+  - Applying updated configuration settings to systems
+
+  # Example Usecase:
+  You have a set of database servers, these servers need kernel settings and time settings applied to them. Additionally, you want to record terminal sessions for auditing. When a change needs to be made to the configuration, you want to apply the changes to all your database servers to keep them all updated with the same configuration options.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags: []
+owner: rhel
+developers:
+- myee@redhat.com
+private: true
+published: false
+show_timer: true
+skipping_enabled: true

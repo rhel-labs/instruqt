@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# This script runs when the platform solve the challenge.
+#
+# The platform determines if the script was successful using the exit code of this
+# script. If the exit code is not 0, the script fails. 
+#
+
+subscription-manager repos --enable=ansible-2.9-for-rhel-8-x86_64-rpms
+yum -y install ansible rhel-system-roles
