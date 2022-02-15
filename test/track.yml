@@ -1,0 +1,17 @@
+slug: test
+id: jc35qjmmymau
+type: track
+title: test
+teaser: A short description of the track.
+description: |-
+  A long description of the track.
+
+  You can use any GitHub flavoured markdown.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags: []
+owner: rhel
+developers:
+- myee@redhat.com
+private: true
+published: false
+checksum: "2201624417144814745"

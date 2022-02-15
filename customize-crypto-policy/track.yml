@@ -1,0 +1,28 @@
+slug: customize-crypto-policy
+id: heed2mkez48p
+type: track
+title: Customize the system-wide cryptographic policy
+description: |
+  # Goal:
+  After completing this scenario, you will be able to customize Red Hat Enterprise
+  Linux's system-wide cryptographic policies.  The scenario uses the Apache web server
+  as the example application.
+
+  # Concepts included in this scenario:
+  * Verify the current system-wide cryptographic policy setting
+  * Make customizations to cryptography methods included in a policy
+  * Restart applications after applying a policy modifier to named policy
+  * Verify that the application settings comply with the modified cryptographic policies
+
+  # Example Use case:
+  Your security team wants to start using FUTURE crypto policy, but the applications still need time to catch up. Your team needs to modify the FUTURE crypto policy to balance the needs of the security and application teams.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+tags:
+- rhel
+owner: rhel
+developers:
+- myee@redhat.com
+private: true
+published: false
+checksum: "16752268055392188091"

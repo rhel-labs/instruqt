@@ -1,0 +1,61 @@
+#!/bin/bash
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+   echo "Waiting for Instruqt to finish booting the VM"
+   sleep 1
+done
+
+yum remove -y google-rhui-client-rhel8.noarch
+yum clean all
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force
+
+echo "Adding wheel" > /root/post-run.log
+usermod -aG wheel rhel
+
+echo "setting password" >> /root/post-run.log
+echo redhat | passwd --stdin rhel
+
+echo "adding cockpit" >> /root/post-run.log
+yum -y install cockpit cockpit-packagekit
+
+echo "starting cockpit" >> /root/post-run.log
+systemctl start cockpit
+
+echo "exclude=kernel*" >> /etc/yum.conf
+
+# echo "upgrading to RHEL 8.4" >> /root/post-run.log
+# sudo yum update -y
+
+echo "Install PCP packages" >> /root/post-run.log
+sudo yum install pcp-zeroconf -y
+sudo yum install cockpit-pcp -y
+
+echo "restart cockpit" >> /root/post-run.log
+systemctl restart cockpit
+
+echo "Install Stress-NG" >> /root/post-run.log
+sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+sudo yum install -y stress-ng
+
+echo "DONE" >> /root/post-run.log
+
+touch /root/post-run.log.done
+
+n=1
+GREEN='\033[0;32m' 
+NC='\033[0m' # No Color
+
+while [ ! -f /root/post-run.log.done ] ;
+do
+      if test "$n" = "1"
+      then
+	    clear
+            n=$(( n+1 ))	 # increments $n
+      else
+	    printf "."
+      fi
+      sleep 2
+done
+clear
+echo -e "${GREEN}Ready to start your scenario${NC}"

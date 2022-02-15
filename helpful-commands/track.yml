@@ -1,0 +1,35 @@
+slug: helpful-commands
+id: yvaatjd0wtut
+type: track
+title: helpful-commands
+description: |
+  # Overview:
+
+  Faced with a blinking cursor on your command line, Linux can be intimidating to
+  new users who do not know where to start. This lab is designed to show you a
+  series of must-know commands that will prove useful on all facets of system
+  administration, from finding files to checking the status of system resources.
+
+  # Goal:
+
+  Build a toolbox of basic commands useful to every Linux user.
+
+  # Concepts included in this scenario:
+  * Viewing file contents with `cat`
+  * Viewing the last 10 lines of a file with `tail`
+  * Appending command outputs to a file with the `>>` operator
+  * Locating files that match certain criteria using `find` and `locate`
+  * Using `grep` with other commands to isolate a portion of their output
+  * Checking disk space with `df`
+  * Viewing and managing processes with `ps` and `top`
+  * Using `free` to view information about the system memory usage
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+tags:
+- rhel
+owner: rhel
+developers:
+- myee@redhat.com
+private: true
+published: false
+checksum: "7727709450456253317"

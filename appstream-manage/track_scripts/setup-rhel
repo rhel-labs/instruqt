@@ -1,0 +1,12 @@
+#!/bin/bash
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+   echo "Waiting for Instruqt to finish booting the VM"
+   sleep 1
+done
+yum remove -y google-rhui-client-rhel8.noarch
+yum clean all
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force
+
+dnf install -y tree

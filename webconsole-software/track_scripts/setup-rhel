@@ -1,0 +1,27 @@
+#!/bin/bash
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+   echo "Waiting for Instruqt to finish booting the VM"
+   sleep 1
+done
+
+yum remove -y google-rhui-client-rhel8.noarch
+yum clean all
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force
+
+echo "Adding wheel" > /root/post-run.log
+usermod -aG wheel rhel
+
+echo "setting password" >> /root/post-run.log
+echo redhat | passwd --stdin rhel
+
+echo "adding cockpit" >> /root/post-run.log
+yum -y install cockpit cockpit-packagekit
+
+echo "starting cockpit" >> /root/post-run.log
+systemctl start cockpit
+
+echo "exclude=kernel*" >> /etc/yum.conf
+
+echo "DONE" >> /root/post-run.log

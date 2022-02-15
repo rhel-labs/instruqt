@@ -1,0 +1,61 @@
+#!/bin/bash
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+   echo "Waiting for Instruqt to finish booting the VM"
+   sleep 1
+done
+
+yum remove -y google-rhui-client-rhel8.noarch
+yum clean all
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force
+dnf groupinstall -y "Development Tools"
+
+#Create an output file
+touch /root/post-run.log
+
+#Download the SQL Query script
+wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/pcp-intro/createUser.sql
+
+wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/pcp-intro/CSNoIndex.sql
+wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/pcp-intro/CSIndex.sql
+mkdir /root/Scripts/
+mv CSIndex.sql /root/Scripts/
+mv CSNoIndex.sql /root/Scripts/
+
+#Download the install script and run it
+curl -o /root/install_sql.sh https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/pcp-intro/install_sql2019.sh
+sudo chmod +x ./install_sql.sh
+
+sudo ./install_sql.sh &>> /root/post-run.log
+export HOSTNAME=`hostname --all-fqdns`
+
+firewall-cmd --zone=public --add-service=https --permanent
+firewall-cmd --reload
+
+systemctl --now enable httpd
+
+#Install python and unixODBC dependant packages
+sudo yum install gcc-c++ python3-devel unixODBC-devel -y
+sudo pip3 install pyodbc
+
+#Create a done file to signal we have finished
+touch /root/post-run.log.done
+
+n=1
+GREEN='\033[0;32m' 
+NC='\033[0m' # No Color
+
+while [ ! -f /root/post-run.log.done ] ;
+do
+      if test "$n" = "1"
+      then
+	    clear
+            n=$(( n+1 ))	 # increments $n
+      else
+	    printf "."
+      fi
+      sleep 2
+done
+clear
+echo -e "${GREEN}Ready to start your scenario${NC}"

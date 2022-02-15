@@ -1,0 +1,23 @@
+slug: webconsole-software
+id: 0aauyibyx3dy
+type: track
+title: Update a Red Hat Enterprise Linux host with the Web Console
+description: |+
+  # Goal:
+  After completing this scenario, users will be able to apply system updates to Red Hat Enterprise Linux 8 systems.
+
+  # Concepts included in this scenario:
+  * Authenticating to the **Web Console**
+  * Inspect available updates using the **Software Updates** application
+  * Apply software updates using the **Software Updates** application
+
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+tags:
+- rhel
+owner: rhel
+developers:
+- myee@redhat.com
+private: true
+published: false
+checksum: "14955938759171750799"
