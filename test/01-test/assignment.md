@@ -14,4 +14,3 @@ tabs:
 difficulty: basic
 timelimit: 86400
 ---
-The quick brown fox jumps over the lazy dogs.
