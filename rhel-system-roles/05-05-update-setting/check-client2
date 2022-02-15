@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# This script runs when the platform check the challenge.
+#
+# The platform determines if the script was successful using the exit code of this
+# script. If the exit code is not 0, the script fails. 
+#
+
+if ! [[ $(cat /proc/sys/vm/swappiness) = 10 ]]; then
+  #echo "swappiness is 20"
+  fail-message "The swappiness kernel parameter has not been set correctly with the kernel settings system role on client2."
+  exit 1
+fi
