@@ -1,0 +1,8 @@
+#/bin/bash
+
+# Create an output file
+touch /root/post-run.log
+# dd running in background
+nohup /usr/bin/dd if=/dev/zero of=/dev/null &>/dev/null & disown
+# Create a done file to signal we have finished
+touch /root/post-run.log.done

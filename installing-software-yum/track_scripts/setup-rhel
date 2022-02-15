@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# modify pam files
+sed -i '/^#/{G;}' /etc/pam.d/password-auth
+sed -i '/^#/{G;}' /etc/pam.d/system-auth
+# install httpd
+dnf install -y httpd

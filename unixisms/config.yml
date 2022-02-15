@@ -1,0 +1,8 @@
+version: "3"
+virtualmachines:
+- name: rhel
+  image: instruqt-redhat/rhel-latest
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-2

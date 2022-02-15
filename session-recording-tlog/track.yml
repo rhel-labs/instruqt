@@ -1,0 +1,30 @@
+slug: session-recording-tlog
+id: pyfzqfx4ahh4
+type: track
+title: Configuring Terminal Session Recording
+description: |
+  # Goal:
+  After completing this scenario, users will be able to enable Terminal
+  Session Recording and review recorded sessions.
+
+  # Concepts included in this scenario:
+  * Installing software for Terminal Session Recording
+  * Enabling and recording terminal sessions
+  * List recorded sessions
+  * Replay recorded sessions using Web Console
+  * Replay recorded sessions using the __tlog__ command
+
+  # Example Usecase:
+  An administrator on your team is having difficulty performing a task on a
+  machine.  You would like to review what has been done to see the state of
+  the machine and task.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+tags:
+- rhel
+owner: rhel
+developers:
+- ehendric@redhat.com
+private: false
+published: true
+checksum: "643620562273752354"
