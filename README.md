@@ -2,6 +2,8 @@
 
 ## Introduction
 
+This is a repository of all the Instruqt labs created by the RHEL TMM team. All the live labs can be found here: <https://play.instruqt.com/rhel>
+
 ## Latest RHEL GCP Image
 
 ```yml
