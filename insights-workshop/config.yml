@@ -1,7 +1,7 @@
 version: "3"
 virtualmachines:
 - name: rhel
-  # image: instruqt-redhat/rhel-latest
+  # image: projects/tmm-instruqt-11-26-2021/global/images/rhel-8-5-tmm-22-01-v1
   # image: projects/tmm-instruqt-11-26-2021/global/images/rhel-redhat-tmm-20211210
   image: projects/tmm-instruqt-11-26-2021/global/images/rhel-8-5-tmm-22-01-v1
   shell: /bin/bash
