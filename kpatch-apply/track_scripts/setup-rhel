@@ -27,4 +27,5 @@ echo "exclude=kernel*" >> /etc/yum.conf
 echo "DONE" >> /root/post-run.log
 dnf install -y tree
 
-
+grubby --set-default-index=1
+reboot
