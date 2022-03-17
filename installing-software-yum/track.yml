@@ -19,7 +19,7 @@ tags:
 - rhel
 owner: rhel
 developers:
-- null
+- myee@redhat.com
 private: false
 published: true
 skipping_enabled: true
@@ -466,4 +466,4 @@ challenges:
     hostname: rhel
   difficulty: basic
   timelimit: 600
-checksum: "7758850370816491140"
+checksum: "2751279184095461890"

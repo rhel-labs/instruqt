@@ -1,5 +1,6 @@
 ---
 slug: step1
+id: wkjgaombabke
 type: challenge
 title: Step 1
 notes:

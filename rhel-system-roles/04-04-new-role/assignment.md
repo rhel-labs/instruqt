@@ -1,5 +1,6 @@
 ---
 slug: 04-new-role
+id: 9q5x0fsx4eeo
 type: challenge
 title: Adding a new role and settings
 teaser: Configuring and updating system configurations with System Roles.

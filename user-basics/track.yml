@@ -26,7 +26,8 @@ tags:
 owner: rhel
 developers:
 - ehendric@redhat.com
+- myee@redhat.com
 private: false
 published: true
 skipping_enabled: true
-checksum: "10826994389545990920"
+checksum: "179031856616208489"

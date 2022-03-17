@@ -1,5 +1,6 @@
 ---
 slug: 01-subscribe-ansible
+id: hgfyzlfmhsem
 type: challenge
 title: Add the Ansible repository.
 teaser: Add the Ansible repository to your server.

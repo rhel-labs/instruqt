@@ -20,6 +20,6 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
-private: true
-published: false
-checksum: "14930950443520321050"
+private: false
+published: true
+checksum: "6908835225728792057"

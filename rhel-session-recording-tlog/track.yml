@@ -1,4 +1,5 @@
 slug: rhel-session-recording-tlog
+id: crnykfybjdro
 type: track
 title: rhel/session-recording-tlog
 description: |
@@ -24,5 +25,6 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
-private: true
-published: false
+private: false
+published: true
+checksum: "18206228745696458788"

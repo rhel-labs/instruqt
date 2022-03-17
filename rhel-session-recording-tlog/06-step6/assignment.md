@@ -1,5 +1,6 @@
 ---
 slug: step6
+id: 8agjtqjxd8dx
 type: challenge
 title: Step 6
 tabs:

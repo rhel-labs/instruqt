@@ -1,5 +1,6 @@
 ---
 slug: 05-update-setting
+id: 1bwhcz44kcjh
 type: challenge
 title: Update an existing setting
 teaser: Update an existing setting

@@ -1,5 +1,6 @@
 ---
 slug: step7
+id: dkfzkszkqnku
 type: challenge
 title: Step 7
 tabs:

@@ -1,5 +1,6 @@
 ---
 slug: step2
+id: ytjbj2hfqxc3
 type: challenge
 title: Step 2
 tabs:

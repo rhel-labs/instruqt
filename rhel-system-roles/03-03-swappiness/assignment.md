@@ -1,5 +1,6 @@
 ---
 slug: 03-swappiness
+id: nzslxqav3vzn
 type: challenge
 title: Verify the system roles and configurations were applied.
 teaser: Verify the system roles and configurations were applied.

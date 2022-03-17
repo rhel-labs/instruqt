@@ -1,4 +1,5 @@
 slug: rhel-system-roles
+id: yjkfwzaxndfo
 type: track
 title: rhel-system-roles
 teaser: Configuring and updating system configurations with System Roles. This track
@@ -22,7 +23,8 @@ tags: []
 owner: rhel
 developers:
 - myee@redhat.com
-private: true
-published: false
+private: false
+published: true
 show_timer: true
 skipping_enabled: true
+checksum: "11699764946478949060"
