@@ -27,4 +27,3 @@ echo "exclude=kernel*" >> /etc/yum.conf
 echo "DONE" >> /root/post-run.log
 dnf install -y tree
 
-
