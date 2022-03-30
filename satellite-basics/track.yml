@@ -1,12 +1,11 @@
-slug: satellite
-id: onqnmpp8tjlg
+slug: satellite-basics
+id: bj383eviboot
 type: track
-title: satellite
-teaser: A short description of the track.
-description: |-
-  A long description of the track.
-
-  You can use any GitHub flavoured markdown.
+title: Satellite Basics
+teaser: Learn the basics of using Red Hat Satellite.
+description: Red Hat Satellite manages Red Hat Enterprise Linux hosts, including patching,
+  content management, provisioning and more. In this lab, we'll learn the basics of
+  managing hosts with Satellite.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags: []
 owner: rhel
@@ -14,4 +13,4 @@ developers:
 - myee@redhat.com
 private: false
 published: false
-checksum: "3378603259607630139"
+checksum: "6156155182465432683"
