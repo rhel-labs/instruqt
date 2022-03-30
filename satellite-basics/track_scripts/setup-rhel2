@@ -1,0 +1,45 @@
+#!/bin/bash
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+# This has to be run after installation. 
+# source /etc/profile.d/bash_completion.sh
+# dnf install -y osbuild-composer composer-cli cockpit-composer
+# systemctl enable --now httpd
+systemctl enable --now cockpit.socket
+# systemctl enable --now osbuild-composer.socket
+
+firewall-cmd --add-service=cockpit --permanent
+firewall-cmd --reload
+
+#need to start cockpit for VMs, Image Builder.
+yum install yum-utils bind-utils -y
+yum-config-manager --disable google-cloud-sdk
+yum-config-manager --disable google-compute-engine
+yum remove -y google-rhui-client*
+yum clean all
+
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=image_builder --org=12451665 --force
+
+echo "Adding wheel" > /root/post-run.log
+usermod -aG wheel rhel
+
+echo "setting password" >> /root/post-run.log
+echo redhat | passwd --stdin rhel
+
+echo "DONE" >> /root/post-run.log
+
+# Add an entry to the /etc/hosts file for the satellite server if it doesn't already exist.
+tee -a /root/set_satellite_hostname.sh << EOF
+#!/bin/bash
+SATELLITE=\$(nslookup satellite | awk '/^Address: / { print \$2 }')
+grep -qxF "\$SATELLITE satellite.lab" /etc/hosts || echo "\$SATELLITE satellite.lab" >> /etc/hosts
+EOF
+
+chmod +x /root/set_satellite_hostname.sh
+
+echo -e "\n/root/set_satellite_hostname.sh" >> /root/.bashrc

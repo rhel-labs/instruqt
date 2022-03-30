@@ -1,0 +1,17 @@
+slug: satellite
+id: onqnmpp8tjlg
+type: track
+title: satellite
+teaser: A short description of the track.
+description: |-
+  A long description of the track.
+
+  You can use any GitHub flavoured markdown.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags: []
+owner: rhel
+developers:
+- myee@redhat.com
+private: false
+published: false
+checksum: "3378603259607630139"

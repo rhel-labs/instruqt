@@ -1,0 +1,26 @@
+#!/bin/bash
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+yum install yum-utils bind-utils -y
+yum-config-manager --disable google-cloud-sdk
+yum-config-manager --disable google-compute-engine
+yum remove -y google-rhui-client*
+yum clean all
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=image_builder --org=12451665 --force
+
+echo "Adding wheel" > /root/post-run.log
+usermod -aG wheel rhel
+
+echo "setting password" >> /root/post-run.log
+echo redhat | passwd --stdin rhel
+
+echo "DONE" >> /root/post-run.log
+
+export LOCALHOST=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1') > /dev/null 2>&1
+
+grep -qxF "${LOCALHOST} satellite.lab" /etc/hosts || echo "${LOCALHOST} satellite.lab" >> /etc/hosts
