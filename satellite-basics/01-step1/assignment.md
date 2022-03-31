@@ -29,7 +29,6 @@ tabs:
 difficulty: basic
 timelimit: 2400
 ---
-## The Lab Environment
 <!-- markdownlint-disable MD033 -->
 The lab environment consists of the following
 
@@ -38,7 +37,10 @@ The lab environment consists of the following
 
 ![lab environment](../assets/satellite-basics-environment.png)
 
-### Log into the Web UI
+>_NOTE:_ To make the inline images larger, expand this window.
+![Menu Slider](../assets/slider.png)
+
+## <ins>Log into the Web UI</ins>
 
 First, we'll log into the Red Hat Satellite Web User Interface (UI). Satellite has been preinstalled and installation is out of scope for this lab.
 
@@ -60,18 +62,18 @@ You'll need the following credentials to log into the Satellite Web UI.
 
 ```text
 Username: satadmin
-Password: bc31c9a6-9ff0-11ec-9587-00155d1b0702 
+Password: bc31c9a6-9ff0-11ec-9587-00155d1b0702
 ```
 
 You can copy and paste each of them below.
 
-<pre class=file>
+```bash
 satadmin
-</pre>
+```
 
-<pre class=file>
+```bash
 bc31c9a6-9ff0-11ec-9587-00155d1b0702
-</pre>
+```
 
 Now click `Log In`.
 
@@ -80,3 +82,23 @@ Now click `Log In`.
 You will be taken to the main dashboard.
 
 ![dashboard](../assets/main-menu.png)
+
+## <ins>Access the RHEL Hosts</ins>
+
+At the top of the screen, you'll find tabs for the hosts `rhel1` and `rhel2`. Terminal and Web Console access are provided.
+
+![hosts-tabs](../assets/hosts-tabs.png)
+
+The credentials for these hosts are the following:
+
+Username:
+
+```bash
+rhel
+```
+
+Password:
+
+```bash
+redhat
+```
