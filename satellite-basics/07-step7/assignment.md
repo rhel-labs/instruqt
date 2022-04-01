@@ -1,11 +1,12 @@
 ---
-slug: step4
+slug: step7
+id: yv5wwjog2ddt
 type: challenge
-title: 
-teaser: 
+title: test
+teaser: test
 notes:
 - type: text
-  contents: 
+  contents: test
 tabs:
 - title: Satellite Server
   type: terminal
@@ -28,5 +29,5 @@ tabs:
 difficulty: basic
 timelimit: 2400
 ---
-## something
+## <ins>C</ins>
 <!-- markdownlint-disable MD033 -->

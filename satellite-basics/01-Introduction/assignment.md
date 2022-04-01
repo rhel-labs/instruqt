@@ -1,5 +1,5 @@
 ---
-slug: step1
+slug: introduction
 id: 10r5zlttjohg
 type: challenge
 title: Familiarize yourself with the Lab Environment.

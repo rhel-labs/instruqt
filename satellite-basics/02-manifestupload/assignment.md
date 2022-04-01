@@ -1,5 +1,5 @@
 ---
-slug: step2
+slug: manifestupload
 id: eco0rlrenhyz
 type: challenge
 title: Upload a manifest to the Satellite server.

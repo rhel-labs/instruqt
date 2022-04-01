@@ -1,9 +1,10 @@
 ---
-slug: step3
+slug: syncrepos
+id: ldbnzx1qymok
 type: challenge
 title: Synchronize Red Hat repositories
 teaser: Synchronize Red Hat repositories
-notes: 
+notes:
 - type: text
   contents: In this step, we'll synchronize content from Red Hat repositories.
 tabs:
@@ -55,5 +56,4 @@ Expand the menu widgets to see a detailed report on the sync status.
 
 ![syncstatusdetailed](../assets/syncstatusdetailed.png)
 
->_NOTE:_
-The BaseOS and AppStream repos for RHEL8 take approximately 15 minutes to synchronize.
+>_NOTE:_ The BaseOS and AppStream repos for RHEL8 take approximately 15 minutes to synchronize.
