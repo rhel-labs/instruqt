@@ -37,8 +37,7 @@ The lab environment consists of the following
 
 ![lab environment](../assets/satellite-basics-environment.png)
 
->_NOTE:_ To make the inline images larger, expand this window.
-![Menu Slider](../assets/slider.png)
+>_NOTE:_ To make the inline images larger, expand this window. ![Menu Slider](../assets/slider.png)
 
 ## <ins>Log into the Web UI</ins>
 
