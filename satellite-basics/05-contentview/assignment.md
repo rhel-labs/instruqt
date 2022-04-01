@@ -56,3 +56,11 @@ Click `Save`.
 The content view will proceed to be published.
 
 ![publishing](../assets/publishing.png)
+
+Promote this content view to the `Test` lifecycle environment by clicking `Promote`.
+
+![promote](../assets/promote.png)
+
+Select `Test` and then click `Promote Version`.
+
+![promoteversion](../assets/promoteversion.png)

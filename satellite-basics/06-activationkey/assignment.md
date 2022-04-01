@@ -31,4 +31,14 @@ timelimit: 2400
 ---
 <!-- markdownlint-disable MD033 -->
 
-An Activation Key is required to register a host to Satellite. To create one, 
+An Activation Key is required to register a host to Satellite. To create one, navigate to the `Activation Keys` menu.
+
+![akmenu](../assets/akmenu.png)
+
+Click on `Create Activation Key`.
+
+![createak](../assets/createak.png)
+
+We'll name this activation key `RHEL8`, select the `Test` environment, select the `RHEL8` content view and then click `save`.
+
+![akcreation](../assets/akcreation.png)
