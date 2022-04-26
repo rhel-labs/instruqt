@@ -7,6 +7,6 @@ virtualmachines:
     TERM: xterm
   machine_type: n1-standard-1
   allow_external_ingress:
-    - http
-    - https
-    - high-ports
+  - http
+  - https
+  - high-ports

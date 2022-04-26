@@ -48,7 +48,7 @@ df -hP
 ```
 
 ```
-yum list installed
+dnf list installed
 ```
 
 Now that you have some data in a recorded session, you can log out of the
