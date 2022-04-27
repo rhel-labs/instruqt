@@ -33,7 +33,15 @@ Login using the credentials below:
 
 Login: __rhel-df93__
 
+```bash
+rhel-df93
+```
+
 Password: __Redhat1!__
+
+```bash
+Redhat1!
+```
 
 ![Red Hat Login screen](../assets/redhat-login-new.png)
 
