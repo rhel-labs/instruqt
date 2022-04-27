@@ -1,14 +1,12 @@
 slug: sql-server-crypto-policy
 id: rmzrxixnvbnt
 type: track
-title: Red Hat Enterprise Linux Crypto Policy and Transparent Data Encryption (TDE)
-  With SQL Server
+title: Red Hat Enterprise Linux Crypto Policy With SQL Server
 description: |
   # Goal:
   After completing this scenario, users will be able to use, and modify
   Red Hat Enterprise Linux's system-wide cryptographic policy applied to
-  Microsoft SQL Server, and encrypt a database in SQL Server using SQL Server's
-  Transparent Data Encryption (TDE) feature.
+  Microsoft SQL Server.
 
   # Concepts included in this scenario:
   * Verify the current system-wide cryptographic policy setting
@@ -28,4 +26,4 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-checksum: "16106980978635674931"
+checksum: "5527835209926927420"
