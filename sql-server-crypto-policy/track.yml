@@ -14,7 +14,6 @@ description: |
   * Verify the current system-wide cryptographic policy setting
   * Change the current cryptographic policy setting
   * Connect to SQL Server using a strongly encrypted TLS connection
-  * Configure TDE in SQL Server to encrypt a database at rest
 
   # Example Use case:
   Your security team requires using stronger cryptography algorithms with
