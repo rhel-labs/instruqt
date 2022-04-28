@@ -2,7 +2,7 @@
 slug: step2
 id: 3u2oprj3no0n
 type: challenge
-title: Step 2
+title: Inspecting container access and SELinux policies
 tabs:
 - title: Terminal
   type: terminal
@@ -18,8 +18,6 @@ tabs:
 difficulty: basic
 timelimit: 120
 ---
-# Inspecting container access and SELinux policies
-
 In 'Pane 1' of the lab interface, use a `podman exec` command to create an interactive shell inside the running container.
 
 ```bash

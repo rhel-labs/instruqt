@@ -2,7 +2,7 @@
 slug: step3
 id: p32zmlmedrlm
 type: challenge
-title: Step 3
+title: Generating SELinux container policies with Udica
 tabs:
 - title: Terminal
   type: terminal
@@ -18,8 +18,6 @@ tabs:
 difficulty: basic
 timelimit: 120
 ---
-# Generating SELinux container policies with Udica
-
 To create the custom SELinux security policy, Udica scans the container JSON
 file to discover which Linux capabilities are required by the container. The
 network ports are a similar situation where Udica uses the SELinux userspace

@@ -2,7 +2,7 @@
 slug: step4
 id: y9y7c3kluds5
 type: challenge
-title: Step 4
+title: Verifying the SELinux container policies with Udica
 tabs:
 - title: Terminal
   type: terminal
@@ -18,8 +18,6 @@ tabs:
 difficulty: basic
 timelimit: 120
 ---
-# Verifying the SELinux container policies with Udica
-
 You can verify the policies generated using Udica for the container and enforced by SELinux.
 
 Query the SELinux policy on the container host to search for allow enforcement rules applied to access */home* directory.

@@ -2,7 +2,7 @@
 slug: step5
 id: zsbeponiarc1
 type: challenge
-title: Step 5
+title: Re-inspect the running container
 tabs:
 - title: Terminal
   type: terminal
@@ -18,8 +18,6 @@ tabs:
 difficulty: basic
 timelimit: 240
 ---
-# Re-inspect the running container
-
 In 'Pane 1' of the lab interface, exec into the running container and start a bash shell
 
 ```bash
