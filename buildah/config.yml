@@ -1,0 +1,20 @@
+version: "3"
+virtualmachines:
+- name: rhel
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-8-5-03-02-2022-1
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-2
+- name: client1
+  image: instruqt-redhat/rhel-latest
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-2
+- name: client2
+  image: instruqt-redhat/rhel-latest
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-2

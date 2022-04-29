@@ -1,0 +1,27 @@
+#!/bin/bash
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+yum -y install buildah podman
+buildah rm -a
+setsebool -P container_manage_cgroup true
+
+systemctl stop httpd
+systemctl disable httpd
+
+podman image rm rhel8-httpd
+
+yum remove -y google-rhui-client*
+yum clean all
+
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=image_builder --org=12451665 --force
+
+echo "Adding wheel" > /root/post-run.log
+usermod -aG wheel rhel
+
+echo "setting password" >> /root/post-run.log
+echo redhat | passwd --stdin rhel
