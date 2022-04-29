@@ -56,7 +56,7 @@ chroot ${scratchmnt} systemctl enable httpd
 Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /usr/lib/systemd/system/httpd.service.
 </pre>
 
-Deploying web content to the container image can be done using a `cp` command on the host to the working container mount point.
+Deploying web content to the container image can be done using a `cp` command on the host to the working container mount point. We've included an html index file in /root called `index2.html`.
 
 ```bash
 cp index2.html ${scratchmnt}/var/www/html/index.html

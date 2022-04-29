@@ -5,7 +5,7 @@ do
     sleep 1
 done
 
-yum -y install buildah podman
+yum -y install buildah podman tmux
 buildah rm -a
 setsebool -P container_manage_cgroup true
 
@@ -25,3 +25,25 @@ usermod -aG wheel rhel
 
 echo "setting password" >> /root/post-run.log
 echo redhat | passwd --stdin rhel
+
+cat >> ~/index1.html <<-EOF
+
+<!DOCTYPE html>
+<head>
+  <title>Welcome to a container!</title>
+</head>
+<body>
+<h1>You've deployed your new web application into a UBI based container!</h1>
+</body>
+EOF
+
+cat >> ~/index2.html <<-EOF
+
+<!DOCTYPE html>
+<head>
+  <title>Welcome to a container!</title>
+</head>
+<body>
+<h1>You've deployed your new web application into a container from scratch!</h1>
+</body>
+EOF

@@ -6,15 +6,3 @@ virtualmachines:
   environment:
     TERM: xterm
   machine_type: n1-standard-2
-- name: client1
-  image: instruqt-redhat/rhel-latest
-  shell: /bin/bash
-  environment:
-    TERM: xterm
-  machine_type: n1-standard-2
-- name: client2
-  image: instruqt-redhat/rhel-latest
-  shell: /bin/bash
-  environment:
-    TERM: xterm
-  machine_type: n1-standard-2

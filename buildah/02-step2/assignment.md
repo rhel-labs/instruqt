@@ -54,7 +54,7 @@ buildah run ubi-init-working-container -- systemctl enable httpd
 Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /usr/lib/systemd/system/httpd.service.
 </pre>
 
-Deploying web content to the container image can be done using the `buildah copy` subcommand.
+Deploying web content to the container image can be done using the `buildah copy` subcommand. In the /root directory we've included an html index file `index1.html`. Copy this file into the container with `buildah copy` with the command below.
 
 ```bash
 buildah copy ubi-init-working-container index1.html /var/www/html/index.html
