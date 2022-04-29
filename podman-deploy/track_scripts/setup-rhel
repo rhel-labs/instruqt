@@ -1,0 +1,45 @@
+#!/bin/bash
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+dnf install -y tree buildah podman tmux
+
+yum remove -y google-rhui-client*
+yum clean all
+
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=image_builder --org=12451665 --force
+
+echo "Adding wheel" > /root/post-run.log
+usermod -aG wheel rhel
+
+echo "setting password" >> /root/post-run.log
+echo redhat | passwd --stdin rhel
+
+echo "DONE" >> /root/post-run.log
+
+set -ex
+
+# start new container from scratch
+newcontainer=$(buildah from scratch)
+scratchmnt=$(buildah mount ${newcontainer})
+
+# install the packages
+yum install --installroot ${scratchmnt} httpd --releasever 8 --setopt=module_platform_id="platform:el8" -y
+
+# Clean up yum cache
+if [ -d "${scratchmnt}" ]; then
+  rm -rf "${scratchmnt}"/var/cache/yum
+fi
+
+# configure container label and entrypoint
+buildah config --label name=rhel8-httpd ${newcontainer}
+buildah config --port 80 --cmd "/usr/sbin/httpd -DFOREGROUND" ${newcontainer}
+
+# commit the image
+buildah unmount ${newcontainer}
+buildah commit ${newcontainer} rhel8-httpd
+
