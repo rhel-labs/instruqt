@@ -1,6 +1,6 @@
 ---
 slug: step1
-id: hjcip6rgyews
+id: grdlzxs91n5w
 type: challenge
 title: Red Hat Enterprise Linux Open Lab
 notes:
@@ -16,7 +16,7 @@ notes:
 
     <blockquote>
     <p>
-    <strong>NOTE:</strong> This lab environment will expire in about 30 minutes.
+    <strong>NOTE:</strong> This lab environment will expire in about 60 minutes.
     </p>
     </blockquote>
 tabs:
@@ -29,7 +29,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 3400
+timelimit: 3600
 ---
 Welcome to this open lab expierence for Red Hat Enterprise Linux.
 
