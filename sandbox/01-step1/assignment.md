@@ -33,7 +33,7 @@ timelimit: 3600
 ---
 Welcome to this open lab expierence for Red Hat Enterprise Linux.
 
-The system displayed beside this text is a Red Hat Enterprise Linux 8
+The system displayed beside this text is a Red Hat Enterprise Linux 9
 system registered with Subscription Manager.
 
 An unpriveleged user also exists on the system.
