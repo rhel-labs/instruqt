@@ -37,4 +37,5 @@ In the output, you will notice that we have a new image in the repository which 
 <pre class="file">
 REPOSITORY                            TAG           IMAGE ID       CREATED       SIZE
 mcr.microsoft.com/mssql/rhel/server   2019-latest   c9ce21305ef5   3 weeks ago    1.58 GB
+localhost/rhel8-httpd                 latest        69aac470f62d   3 months ago   617 MB
 </pre>

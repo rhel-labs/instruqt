@@ -1,7 +1,7 @@
 slug: sql-server-cstore
 id: h9u4whykxpfv
 type: track
-title: Red Hat Enterprise Linux Crypto Policy With SQL Server
+title: Red Hat Enterprise Linux with SQL Server Columnstores
 description: |
   # Goal:
   After completing this scenario, users will be able to use, and modify RHEL tuned profiles using tuned-adm, and see the impact of that change with Microsoft SQL Server's columnstore feature.
@@ -23,4 +23,4 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-checksum: "7825942500680317561"
+checksum: "1424648239373450930"

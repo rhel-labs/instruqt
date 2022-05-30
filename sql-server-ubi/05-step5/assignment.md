@@ -16,12 +16,7 @@ tabs:
 difficulty: basic
 timelimit: 900
 ---
-Launch an interactive bash shell in the container connecting to database instance 0 (*mssqlDB0*)
-
-```bash
-podman exec -it mssqlDB0 "/bin/bash"
-
-```## Query In-Memory OLTP data in SQL Server
+## Query In-Memory OLTP data in SQL Server
 
 Run the script to create the in-memory table and load data
 

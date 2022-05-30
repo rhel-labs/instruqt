@@ -63,3 +63,18 @@ set the appropriate user ownership for the script directory created to uid:10001
 ```bash
 chown -R 10001:0 /var/mssql/scripts
 ```
+
+Use *podman* to list the container images available on the host system
+
+```bash
+podman images
+```
+
+<pre class="file">
+REPOSITORY              TAG      IMAGE ID       CREATED       SIZE
+localhost/rhel8-httpd   latest   69aac470f62d   3 months ago   617 MB
+</pre>
+
+*Podman* is available on the host system, and there is only a single RHEL 8 apache image available to use.
+
+To run SQL Server in a container, download the SQL Server container images.
