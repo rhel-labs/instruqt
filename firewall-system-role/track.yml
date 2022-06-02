@@ -13,6 +13,9 @@ description: |
   * Open an arbitrary port.
   * Configure port forwarding.
 
+  Please read this blog post for more technical details on using the firewall system role.
+  https://www.redhat.com/en/blog/automating-firewall-configuration-rhel-system-roles
+
   Automation can help increase efficiency, save time, and improve consistency, which is why Red Hat Enterprise Linux (RHEL) includes features that help automate many tasks. RHEL 9.0 and 8.6 introduce a new firewall RHEL System Role for automating the management of the RHEL firewall.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags: []
@@ -21,4 +24,4 @@ developers:
 - myee@redhat.com
 private: true
 published: false
-checksum: "9360984367291390122"
+checksum: "15110943077823574621"

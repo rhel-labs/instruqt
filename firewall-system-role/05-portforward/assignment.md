@@ -19,7 +19,7 @@ In this challenge we'll forward incoming tcp requests on port 9999 to 12345.
 
 In the `rhel` terminal, add the lines `- forward_port: '9999/tcp;12345;'` and
         `state: enabled`.
-        
+
 <pre>
 all:
   hosts:
@@ -64,3 +64,5 @@ nc rhelvm 9999
 ![ncport9999](../assets/portforward.png)
 
 Type `ctrl-c` to exit `nc`.
+
+For more details on using the firewall system role, please read this blog post: <https://www.redhat.com/en/blog/automating-firewall-configuration-rhel-system-roles>
