@@ -20,7 +20,7 @@ Now we'll install system roles.
 Enter the following command.
 
 ```bash
-dnf install rhel-system-roles ansible-core -y
+dnf install rhel-system-roles -y
 ```
 
 ![dnfinstall](../assets/dnfinstallsystemroles.png)

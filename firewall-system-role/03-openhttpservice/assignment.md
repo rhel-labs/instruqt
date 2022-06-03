@@ -31,7 +31,7 @@ firewall-cmd --list-all
 In the `rhelvm` terminal, run `nc -l 80`. This command runs the utility `netcat` and tells it to listen for incoming traffic on port 80.
 
 ```bash
-ns -l 80
+nc -l 80
 ```
 
 ![nclistening](../assets/nclistening.png)

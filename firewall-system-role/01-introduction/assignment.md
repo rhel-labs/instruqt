@@ -24,11 +24,11 @@ This lab is composed of two hosts.
 
 ![lab](../assets/hosts.png)
 
-In this lab, we will use the host `rhel` as the "control node" or the node where we will create and run the firewall system role before we apply it to `rhelvm`.
+In this lab, we will use the host `rhel` as the "control node" or the node where we will install and run the firewall system role. Firewall changes will be applied to `rhelvm`.
 
 We'll perform the following 3 tasks.
 
-1) We will create and apply a firewall system role that will open the appropriate port to access web servers on `rhelvm`. This exercise is to show how to open firewall ports by service.
+1) We will use the firewall system role to open the appropriate port to access web servers on `rhelvm`. This exercise is to show how to open firewall ports by service.
 
 2) As well, we will also use the firewall system role to open port 9999 on `rhelvm` to enable inbound tcp connections. This exercise is to show how to open an arbitrary firewall port.
 
