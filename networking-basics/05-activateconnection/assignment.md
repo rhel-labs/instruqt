@@ -12,7 +12,7 @@ tabs:
   type: terminal
   hostname: host1
 difficulty: basic
-timelimit: 200
+timelimit: 60
 ---
 ## Activating the connection
 
@@ -27,7 +27,7 @@ nmcli con up ethernet1
 Run the following to check the ip address and dhcp settings are correctly configured.
 
 ```bash
-nmstatectl show enp7s0 | grep -A 10 ipv4 
+nmstatectl show enp7s0 | grep -A 10 ipv4
 ```
 
 ![configuredstatic](../assets/configuredstatic.png)

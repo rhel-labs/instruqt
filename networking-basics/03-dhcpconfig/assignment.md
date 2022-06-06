@@ -12,7 +12,7 @@ tabs:
   type: terminal
   hostname: host1
 difficulty: basic
-timelimit: 7200
+timelimit: 60
 ---
 ## Dynamic IP configuration with DHCP
 

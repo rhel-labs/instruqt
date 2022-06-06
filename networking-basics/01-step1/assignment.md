@@ -12,10 +12,6 @@ notes:
     will walk you through creating your own network connection from scratch and
     modifying key parameters to control how that network connection behaves.
 
-    You will use two terminal tabs: `host01` and `host02`. You will carry out the
-    connection configuration on `host01`, and then at the end you will switch to
-    `host02` to test that the connection was successfully set up.
-
     # Goal:
 
     After completing this scenario, users will be able to configure the IP, hostname,
@@ -34,7 +30,7 @@ tabs:
   type: external
   url: https://host1.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 3600
+timelimit: 3300
 ---
 ## What is NetworkManager?
 

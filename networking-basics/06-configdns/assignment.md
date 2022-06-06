@@ -8,7 +8,7 @@ tabs:
   type: terminal
   hostname: host1
 difficulty: basic
-timelimit: 200
+timelimit: 60
 ---
 ## Configuring DNS
 
