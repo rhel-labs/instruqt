@@ -1,6 +1,8 @@
 version: "3"
-containers:
+virtualmachines:
 - name: rhel
-  image: redhat/ubi8
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-8-5-03-02-2022-1
   shell: /bin/bash
-  memory: 2048
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-1
