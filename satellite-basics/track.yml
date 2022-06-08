@@ -12,5 +12,5 @@ owner: rhel
 developers:
 - myee@redhat.com
 private: false
-published: false
-checksum: "1156223202333701855"
+published: true
+checksum: "161174209048120066"
