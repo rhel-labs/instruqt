@@ -30,3 +30,4 @@ echo "export LANG=en_US.UTF-8" >> /root/.bashrc
 hammer -u satadmin -p bc31c9a6-9ff0-11ec-9587-00155d1b0702 subscription upload --file manifest_instruqt-satellite-basics-6.10_20220404T174101Z.zip --organization-title "Acme Org" > /dev/null 2>&1
 rm -rf /root/manifest_instruqt-satellite-basics-6.10_20220404T174101Z.zip
 
+hammer subscription refresh-manifest --organization "Acme Org"
