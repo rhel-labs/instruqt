@@ -42,18 +42,18 @@ out the [Service Administration Basics lab](https://lab.redhat.com/service-admin
 The output of this command is often very lengthy, so this is a great chance
 to apply what you just learned a few steps ago. Using the pipe operator (`|`),
 pipe the output of `ps aux` into the `grep` command to search for a specific
-process. Search for the `tail -f` process that you started in step 2:
+process. Search for the `sshd` process.:
 
 ```
-ps aux | grep tail
+ps aux | grep sshd
 ```
 
 <pre class=file>
-root       10046  0.0  0.0   7344   928 pts/1    S+   19:26   0:00 tail -f /var/log/messages
-root       10051  0.0  0.0  12136  1136 pts/0    S+   19:26   0:00 grep --color=auto tail
+root        1441  0.0  0.2  16120  9688 ?        Ss   14:35   0:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+root        1708  0.0  0.0   6412  2116 pts/0    S+   14:47   0:00 grep --color=auto sshd
 </pre>
 
-Here the search finds the `tail -f` process, but the second line of this output
+Here the search finds the `sshd` process, but the second line of this output
 shows that the search also finds itself.
 
 `ps` is great for showing a snapshot of the active processes and their

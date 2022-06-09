@@ -21,28 +21,21 @@ useful for viewing recent entries in log files. Take a look at the final
 ten lines of the _boot_ log.
 
 ```
-tail /var/log/boot.log
+tail /var/log/audit/audit.log
 ```
 
 <pre class=file>
-Starting Enable periodic update of entitlement certificates....
-Starting Dynamic System Tuning Daemon...
-Starting Network Manager Wait Online...
-Starting Hostname Service...
-[  OK  ] Started Enable periodic update of entitlement certificates..
-[  OK  ] Started Permit User Sessions.
-Starting Hold until boot process finishes up...
-Starting Terminate Plymouth Boot Screen...
-[  OK  ] Started Command Scheduler.
-[  OK  ] Started OpenSSH server daemon.
+type=SERVICE_STOP msg=audit(1654785357.108:201): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=user@0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1654785357.127:202): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=user-runtime-dir@0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=ADD_GROUP msg=audit(1654785383.760:203): pid=1576 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=add-group acct="google-sudoers" exe="/usr/sbin/groupadd" hostname=? addr=? terminal=? res=failed'UID="root" AUID="unset"
+type=ADD_GROUP msg=audit(1654785443.806:204): pid=1587 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=add-group acct="google-sudoers" exe="/usr/sbin/groupadd" hostname=? addr=? terminal=? res=failed'UID="root" AUID="unset"
+type=ADD_GROUP msg=audit(1654785503.853:205): pid=1591 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=add-group acct="google-sudoers" exe="/usr/sbin/groupadd" hostname=? addr=? terminal=? res=failed'UID="root" AUID="unset"
 </pre>
 
 If you wish to then see the entire file, a text viewer like `less` or `view`
 will show the entire file.
 
 Adding the `-f` option will follow the log file so that you can see new entries.
-Run this command in Terminal 2 to open an updating view of the _messages_ log, which
-will display system information:
 
 ```
 tail -f /var/log/messages
