@@ -21,7 +21,8 @@ difficulty: basic
 timelimit: 600
 ---
 To get started, an already created playbook has been created that uses both the kernel-settings and session recording system roles. You can inspect the contents of this lab provided playbook to get some more information about what it will do on your system.
-```
+
+```bash
 cat soe.yml
 ```
 
@@ -52,13 +53,13 @@ The `vars` under the kernel_settings_sysctl section are the values of parameters
 
 Before you run the playbook and adjust the settings of the system, verify the current setting for one of the playbook affected values `vm.swappiness`.
 
-```
+```bash
 cat /proc/sys/vm/swappiness
 ```
 
 The output should be
 <pre>
-30
+60
 </pre>
 
 After you run the playbook, the swappiness value should be updated to be 20.

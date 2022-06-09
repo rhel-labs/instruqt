@@ -6,5 +6,4 @@
 # script. If the exit code is not 0, the script fails. 
 #
 
-subscription-manager repos --enable=ansible-2.9-for-rhel-8-x86_64-rpms
-yum -y install ansible rhel-system-roles
+dnf -y install rhel-system-roles

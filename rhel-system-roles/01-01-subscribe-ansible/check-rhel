@@ -16,12 +16,6 @@
 #  exit 1
 #fi
 
-if ! [[ $(rpm -q ansible | grep ansible) = *ansible* ]]; then
-  #echo "FAIL: The Ansible package is not installed."
-  fail-message "The Ansible package is not installed. Try reinstalling."
-  exit 1
-fi
-
 if ! [[ $(rpm -q rhel-system-roles | grep rhel-system-roles) = *rhel-system-roles* ]]; then
   #echo "FAIL: The rhel-system-roles package is not installed."
   fail-message "The rhel-system-roles package is not installed."

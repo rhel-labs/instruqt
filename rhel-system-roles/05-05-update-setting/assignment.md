@@ -24,15 +24,16 @@ Now that you have a working ansible playbook to standardize the configuration of
 
 Update the swappiness value in the playbook to be set to 10. This will lower the kernel's preference for utilizing swap space. You might make this change because you are running a workload, like a database, that benefits from having more data kept in memory rather than being swapped out to the swap space.
 
-```
+```bash
 sed -ie 's/value: 20/value: 10/' soe.yml
 ```
 
 In the above command, you used sed to make an inline edit to the soe.yml file. You can verify that the change was correctly made by looking at the playbook contents.
 
-```
+```bash
 cat soe.yml
 ```
+
 <pre>
 ---
 - hosts: localhost, clients
@@ -62,9 +63,10 @@ cat soe.yml
 
 Now that the settings have been updated, run the playbook again so that the changes applied to the three systems.
 
-```
+```bash
 ansible-playbook soe.yml -i hosts.ini
 ```
+
 <pre>
 PLAY [localhost, clients] **********************************************************************************************************************
 
@@ -83,9 +85,10 @@ localhost                  : ok=29   changed=2    unreachable=0    failed=0    s
 
 After the playbook has completed, you can verify that the change has been applied to the system.
 
-```
+```bash
 ssh client1 cat /proc/sys/vm/swappiness
 ```
+
 <pre>
 10
 </pre>
