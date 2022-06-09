@@ -1,8 +1,8 @@
-version: '2'
+version: "3"
 virtualmachines:
-- environment:
-    TERM: xterm
+- name: rhel
   image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-0-05-26-2022-1
-  machine_type: n1-standard-1
-  name: rhel
   shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-1
