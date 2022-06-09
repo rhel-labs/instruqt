@@ -42,7 +42,7 @@ Installing:
 Complete!
 </pre>
 
-This subcommand acts like the RUN directive in an Containerfile.  Since the `yum` command includes a switch, we need to use the `--` syntax to tell `buildah run` there are no buildah options to look for past this point.
+This subcommand acts like the RUN directive in an Containerfile.  Since the `yum` command includes a switch `-y`, we need to use the `--` syntax to tell `buildah run` there are no buildah options to look for past this point.
 
 Once the packages are installed in the working container, enable `httpd` to start when the container is run via systemd using the `buildah run` subcommand.
 
@@ -72,7 +72,7 @@ These options to `buildah config` are equivalent to the EXPOSE and CMD directive
 
 > _NOTE:_  As we're using systemd to start the service, use the `--cmd` option not `--entrypoint`.
 
-Once the contents of the working container are complete, and the metadata has been updated, save the working container as the target application image using `buildah commit`.
+Once the contents of the working container are complete, and the metadata has been updated, save the working container as the target application image using `buildah commit`. We are naming the contianer `el-httpd1`.
 
 ```bash
 buildah commit ubi-init-working-container el-httpd1

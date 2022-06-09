@@ -29,9 +29,9 @@ localhost/el-httpd1                        latest   b04fe2c73b03   24 seconds ag
 registry.access.redhat.com/ubi8/ubi-init   latest   8c376a94293d   2 weeks ago      231 MB
 </pre>
 
-Note the name matches what was set using `buildah commit`.
+Note the name matches what was set using `buildah commit`. The `localhost` prepended to the name of the image indicates that the image is stored locally.
 
-`Podman` and `buildah` use the same storage locations on the host, which lets us immediately run the image we just built via `podman`.
+`podman` and `buildah` use the same storage locations on the host, which lets us immediately run the image we just built via `podman`.
 
 ```bash
 podman run -d -p 80:80 el-httpd1
