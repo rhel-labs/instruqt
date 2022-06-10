@@ -7,7 +7,7 @@ notes:
 - type: text
   contents: |+
     # Goal:
-    After completing this scenario, users will be able to apply system updates to Red Hat Enterprise Linux 8 systems.
+    After completing this scenario, users will be able to apply system updates to Red Hat Enterprise Linux 9 systems.
 
     # Concepts included in this scenario:
     * Authenticating to the **Web Console**

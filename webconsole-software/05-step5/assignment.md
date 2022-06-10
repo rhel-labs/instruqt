@@ -24,5 +24,3 @@ When you are ready, apply the available updates by clicking the __Install All Up
 Again you are asked to restart the system, this time, you can, if you choose to do so.
 
 Now your system reports that it has been updated and requires a `Reboot` or `Restart services`.
-
-![Apply All Software Updates](../assets/Up-to-date.png)
