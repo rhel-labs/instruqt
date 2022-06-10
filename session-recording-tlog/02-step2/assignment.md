@@ -29,6 +29,12 @@ Password: __redhat__
 
 >**NOTE:** Problems accessing the Web Console or logging in? For best results, copy and paste the URL into Google Chrome.
 
+Next, turn on administrative access. Click on the `Turn on administrative access` button.
+
+![adminaccess](../assets/webconsoleadminaccess.png)
+
+Enter the Password `redhat`.
+
 Now that you are logged into the Web console, and because you have installed
 the __cockpit-session-recording__ rpm package, you can now select the
 *Session Recording* option in the left-side navigation menu.
