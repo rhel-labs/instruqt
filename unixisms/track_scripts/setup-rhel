@@ -22,3 +22,4 @@ dnf install -y man-db
 /usr/bin/sed -i 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
 
 mv /etc/yum.repos.d/google-cloud.repo /root
+timedatectl set-timezone America/New_York
