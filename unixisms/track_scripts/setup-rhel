@@ -1,4 +1,6 @@
 #!/bin/bash
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force
 
 dnf install -y man-db
 
@@ -18,3 +20,5 @@ dnf install -y man-db
     /^[^#].*wheel/s/^/#/
     ' /etc/sudoers
 /usr/bin/sed -i 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
+
+mv /etc/yum.repos.d/google-cloud.repo /root

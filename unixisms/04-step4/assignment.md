@@ -32,11 +32,11 @@ su - rhel
 Then, try to access the following file:
 
 ```
-cat /etc/tcsd.conf
+cat /etc/shadow
 ```
 
 <pre class=file>
-cat: /etc/tcsd.conf: Permission denied
+cat: /etc/shadow: Permission denied
 </pre>
 
 This configuration file's permissions prevent __rhel__ from reading its contents.
@@ -44,20 +44,28 @@ However, __rhel__ is part of the _wheel_ group, so you can circumvent this
 permissions issue temporarily by prepending `sudo` to your previous command:
 
 ```
-sudo cat /etc/tcsd.conf
+sudo cat /etc/shadow
 ```
 
 <pre class=file>
 << OUTPUT ABRIDGED >>
-#
-# Option: disable_ipv6
-# Values: 0 or 1
-# Description: This options determines if the TCSD will bind itself to the
-# machine's local IPv6 addresses in order to receive requisitions through
-# its TCP port. Value of 1 disables IPv6 support, so clients cannot reach
-# TCSD using that protocol.
-#
-#  disable_ipv6 = 0
+root:!*::0:99999:7:::
+bin:*:18849:0:99999:7:::
+daemon:*:18849:0:99999:7:::
+adm:*:18849:0:99999:7:::
+lp:*:18849:0:99999:7:::
+sync:*:18849:0:99999:7:::
+shutdown:*:18849:0:99999:7:::
+halt:*:18849:0:99999:7:::
+mail:*:18849:0:99999:7:::
+operator:*:18849:0:99999:7:::
+games:*:18849:0:99999:7:::
+ftp:*:18849:0:99999:7:::
+nobody:*:18849:0:99999:7:::
+systemd-coredump:!!:19136::::::
+dbus:!!:19136::::::
+polkitd:!!:19136::::::
+tss:!!:19136::::::
 </pre>
 
 `sudo` allowed you to access the contents of the file without changing the
