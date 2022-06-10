@@ -1,8 +1,23 @@
 #!/bin/bash
-
+set -euxo pipefail
 # Create an output file
 touch /root/post-run.log
-# install nfs-utils package for showmount
-yum install -y nfs-utils
+
 # Create a done file to signal we have finished
 touch /root/post-run.log.done
+
+dnf remove -y google-rhui-client*
+dnf clean all
+
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force
+
+dnf install -y nfs-utils rpcbind
+
+echo "Adding wheel" > /root/post-run.log
+usermod -aG wheel rhel
+
+echo "setting password" >> /root/post-run.log
+echo redhat | passwd --stdin rhel
+
+echo "DONE" >> /root/post-run.log

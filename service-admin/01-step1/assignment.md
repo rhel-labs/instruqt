@@ -66,13 +66,11 @@ root           4  0.0  0.0      0     0 ?        I<   16:09   0:00 [rcu_par_gp]
 
 This output is very extensive, so often when you call this command you want to
 pipe the output into `grep` to search for a specific phrase. To practice this,
-start a process in Terminal 2 and then search for it in the original
-terminal. The `dd` command can be used to create an indefinite process in
-Terminal 2. The command below begins copying data from a file of infinite zeros
-into a file that discards all inputs, so the process will continue indefinitely.
+start a process, background it, and then search for it in the original
+terminal. The `dd` command can be used to create an indefinite process. The command below begins copying data from a file of infinite zeros into a file that discards all inputs, so the process will continue indefinitely. The `&` sends the process into the background so that we do not interact with it in the terminal.
 
 ```
-dd if=/dev/zero of=/dev/null
+dd if=/dev/zero of=/dev/null &
 ```
 
 When you run this command, you will not see an output as the process will
@@ -88,5 +86,4 @@ USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 root        3790  101  0.0   7352   944 pts/1    R+   17:38   0:01 dd if=/dev/zero of=/dev/null
 </pre>
 
->_NOTE:_ The first command in this line will print the column headers for `ps aux` so that you can see what each entry means. The second command searches for a process called `dd `, where the single quotes ensure the trailing space is part of the search criteria. Enclosing the first "d" in square brackets prevents the `grep` search from finding itself when it looks through the process list.
-Take note of the second column, the Process ID. This ID is how you interact with the process, as it can be used in other commands as a unique reference to this process. Now you know how to find a process. The next step will walk you through terminating this indefinite process.
+>_NOTE:_ The first command in this line will print the column headers for `ps aux` so that you can see what each entry means. The second command searches for a process called `dd `, where the single quotes ensure the trailing space is part of the search criteria. Enclosing the first "d" in square brackets prevents the `grep` search from finding itself when it looks through the process list. Take note of the second column, the Process ID. This ID is how you interact with the process, as it can be used in other commands as a unique reference to this process. Now you know how to find a process. The next step will walk you through terminating this indefinite process.
