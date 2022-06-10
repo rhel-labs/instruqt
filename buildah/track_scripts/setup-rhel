@@ -20,6 +20,8 @@ yum clean all
 subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=image_builder --org=12451665 --force
 
+dnf install -y tmux
+
 echo "Adding wheel" > /root/post-run.log
 usermod -aG wheel rhel
 

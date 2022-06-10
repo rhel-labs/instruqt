@@ -20,24 +20,21 @@ In order to install `httpd` in the scratch container, use `yum` on the host with
 > _NOTE:_ Setting the `releasever` and `module_platform_id` are required as this will be operating in a chroot environment where `yum` config files are not available.
 
 ```bash
-yum install --installroot ${scratchmnt} httpd --releasever 8 --setopt=module_platform_id="platform:el8" -y
+yum install --installroot ${scratchmnt} httpd --releasever 9 --setopt=module_platform_id="platform:el9" -y
 ```
 
 <pre class="file">
-Updating Subscription Management repositories.
-Unable to read consumer identity
-This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register.
-Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)               2.4 MB/s | 7.0 MB     00:02
-Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)                  1.3 MB/s | 3.7 MB     00:02
-Red Hat Enterprise Linux 8 for x86_64 - Supplementary (RPMs)            23 kB/s |  78 kB     00:03
+Red Hat Enterprise Linux 9 for x86_64 - AppStream (RPMs)               2.4 MB/s | 7.0 MB     00:02
+Red Hat Enterprise Linux 9 for x86_64 - BaseOS (RPMs)                  1.3 MB/s | 3.7 MB     00:02
+Red Hat Enterprise Linux 9 for x86_64 - Supplementary (RPMs)            23 kB/s |  78 kB     00:03
 Last metadata expiration check: 0:00:01 ago on Fri 17 May 2019 03:41:34 PM EDT.
 Dependencies resolved.
 =======================================================================================================
  Package                 Arch   Version                         Repository                        Size
 =======================================================================================================
 Installing:
- httpd                   x86_64 2.4.37-11.module+el8.0.0+2969+90015743
-                                                                rhel-8-for-x86_64-appstream-rpms 1.4 M
+ httpd                   x86_64 2.4.37-11.module+el9.0.0+2969+90015743
+                                                                rhel-9-for-x86_64-appstream-rpms 1.4 M
 
 << OUTPUT ABRIDGED >>
 
