@@ -36,7 +36,7 @@ for that package.
 running `yum update` without any other arguments apply updates for all
 packages on your system (including YUM itself).
 
-At the time of writing this lab, the __bash__ package required an update. Let's update __bash__. Use the `-y` option to automatically say yes to any prompts for the purposes of this lab. 
+At the time of writing this lab, the __bash__ package required an update. Let's update __bash__. Use the `-y` option to automatically say yes to any prompts for the purposes of this lab.
 
 Feel free to update any package listed.
 
