@@ -66,5 +66,5 @@ In 'Pane 1' tab of the lab interface, create a new container runtime from
 the image which uses the new, custom container policy
 
 ```bash
-CONTAINER=$(podman run --security-opt label=type:my_container.process -v /home:/home:ro -v/var/spool:/var/spool:rw -d -p 80:80 -it registry.access.redhat.com/ubi8/ubi)
+CONTAINER=$(podman run --security-opt label=type:my_container.process -v /home:/home:ro -v/var/spool:/var/spool:rw -d -p 80:80 -it registry.access.redhat.com/ubi9/ubi)
 ```

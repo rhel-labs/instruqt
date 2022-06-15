@@ -5,7 +5,6 @@ do
     sleep 1
 done
 
-dnf -y install buildah podman tmux
 
 yum remove -y google-rhui-client*
 yum clean all
@@ -13,6 +12,7 @@ yum clean all
 subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=image_builder --org=12451665 --force
 
+dnf -y install buildah podman tmux
 echo "Adding wheel" > /root/post-run.log
 usermod -aG wheel rhel
 

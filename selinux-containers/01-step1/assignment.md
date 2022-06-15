@@ -55,10 +55,10 @@ Install the udica and setools-console packages on the container host
 yum install -y udica setools-console
 ```
 
-Get the latest RHEL8 UBI image
+Get the latest RHEL9 UBI image
 
 ```bash
-podman pull registry.access.redhat.com/ubi8/ubi:latest
+podman pull registry.access.redhat.com/ubi9/ubi:latest
 ```
 
 Use `podman` to list the available container images
@@ -73,7 +73,7 @@ accesses to /var/spool through to the host's /var/spool read-write, and binds th
 host's port 80 to pass traffic to the container's port 80.
 
 ```bash
-CONTAINER=$(podman run -v /home:/home:ro -v /var/spool:/var/spool:rw -d -p 80:80 -it registry.access.redhat.com/ubi8/ubi)
+CONTAINER=$(podman run -v /home:/home:ro -v /var/spool:/var/spool:rw -d -p 80:80 -it registry.access.redhat.com/ubi9/ubi)
 ```
 
 >_NOTE:_ The home directory is mounted with read-only access, and the /var/spool/ directory is mounted with read-write access.
@@ -86,7 +86,7 @@ podman ps; CONTAINERID=$(podman ps | grep registry.access.redhat.com | cut -b 1-
 
 <pre class="file">
 CONTAINER ID  IMAGE                         COMMAND               CREATED        STATUS           PORTS               NAMES
-e47a11d3e2c5  registry.access.redhat.com/ubi8/ubi:latest  /bin/bash  3 seconds ago  Up 2 seconds ago0.0.0.0:80->80/tcp  naughty_golick
+e47a11d3e2c5  registry.access.redhat.com/ubi9/ubi:latest  /bin/bash  3 seconds ago  Up 2 seconds ago0.0.0.0:80->80/tcp  naughty_golick
 </pre>
 
 When using SELinux, container processes get assigned a container type called 'container_t'. Verify the SELinux type assigned to the running container
