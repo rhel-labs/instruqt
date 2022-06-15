@@ -6,6 +6,8 @@ This is a repository of all the Instruqt labs created by the RHEL TMM team. All 
 
 ## Latest RHEL GCP Image
 
-```yml
-image: projects/tmm-instruqt-11-26-2021/global/images/rhel-8-5-tmm-22-02-v1
-```
+<https://github.com/rhel-labs/packer-gcp>
+
+## Helper Script
+
+<https://github.com/rhel-labs/instruqt-update-helper>
