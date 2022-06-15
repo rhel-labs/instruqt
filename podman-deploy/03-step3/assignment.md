@@ -29,7 +29,7 @@ podman ps -a
 
 <pre class="file">
 CONTAINER ID  IMAGE                         COMMAND    CREATED      STATUS                    PORTS  NAMES
-df54b664f133  localhost/rhel8-httpd:latest  /bin/bash  2 hours ago  Exited (0) 5 seconds ago         heuristic_cray
+df54b664f133  localhost/rhel9-httpd:latest  /bin/bash  2 hours ago  Exited (0) 5 seconds ago         heuristic_cray
 </pre>
 
 Notice the __STATUS__ field is now reported as Exited.

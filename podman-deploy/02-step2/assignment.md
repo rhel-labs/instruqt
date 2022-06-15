@@ -15,16 +15,16 @@ tabs:
 difficulty: basic
 timelimit: 60
 ---
-The __rhel8-httpd__ container includes a bash shell.  In this step, you will
+The __rhel9-httpd__ container includes a bash shell.  In this step, you will
 deploy the container in an interactive fashion, which will allow you to run commands within the deployed container. Use *Pane 0*.
 
 ```bash
-podman run -it rhel8-httpd /bin/bash
+podman run -it rhel9-httpd /bin/bash
 ```
 
 You should now be looking at a generic bash shell prompt:
 <pre class="file">
-bash-4.4#
+bash-5.1#
 </pre>
 
 In *Pane 0*, the displayed shell is running inside the container image, not the host operating system.  To confirm this, take a look at the mounted filesystems:
@@ -57,7 +57,7 @@ podman ps -a
 
 <pre class="file">
 CONTAINER ID  IMAGE                         COMMAND               CREATED         STATUS                    PORTS                   NAMES
-df54b664f133  localhost/rhel8-httpd:latest  /bin/bash             34 seconds ago  Up 33 seconds ago                                 heuristic_cray
+df54b664f133  localhost/rhel9-httpd:latest  /bin/bash             34 seconds ago  Up 33 seconds ago                                 heuristic_cray
 </pre>
 
 __Note:__ Your CONTAINER ID and NAMES will be different than the output displayed above as each container is assigned a unique ID and Name.

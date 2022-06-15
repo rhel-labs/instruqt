@@ -5,13 +5,14 @@ do
     sleep 1
 done
 
-dnf install -y tree buildah podman tmux
 
 yum remove -y google-rhui-client*
 yum clean all
 
 subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=image_builder --org=12451665 --force
+
+dnf install -y tree buildah podman tmux
 
 echo "Adding wheel" > /root/post-run.log
 usermod -aG wheel rhel
@@ -28,7 +29,7 @@ newcontainer=$(buildah from scratch)
 scratchmnt=$(buildah mount ${newcontainer})
 
 # install the packages
-yum install --installroot ${scratchmnt} httpd --releasever 8 --setopt=module_platform_id="platform:el8" -y
+yum install --installroot ${scratchmnt} httpd --releasever 9 --setopt=module_platform_id="platform:el9" -y
 
 # Clean up yum cache
 if [ -d "${scratchmnt}" ]; then
@@ -36,10 +37,10 @@ if [ -d "${scratchmnt}" ]; then
 fi
 
 # configure container label and entrypoint
-buildah config --label name=rhel8-httpd ${newcontainer}
+buildah config --label name=rhel9-httpd ${newcontainer}
 buildah config --port 80 --cmd "/usr/sbin/httpd -DFOREGROUND" ${newcontainer}
 
 # commit the image
 buildah unmount ${newcontainer}
-buildah commit ${newcontainer} rhel8-httpd
+buildah commit ${newcontainer} rhel9-httpd
 
