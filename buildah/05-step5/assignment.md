@@ -43,10 +43,10 @@ Complete!
 
 Many more packages required than using the base image, but we have `httpd` and `systemd` but not other tools like `yum`.
 
-To enable `httpd` to start when the container is run using systemd, we can use the container mount point like a normal `chroot`.
+To enable `httpd` to start when the container is run using systemd, use the following `buildah` command.
 
 ```bash
-chroot ${scratchmnt} systemctl enable httpd
+buildah run working-container systemctl enable httpd
 ```
 
 <pre class="file">
@@ -64,10 +64,6 @@ After installing packages and adding the index file, unmount the filesystem with
 ```bash
 buildah unmount working-container
 ```
-
-<pre class="file">
-b0ace0c1867f080c790357dd0c606c6919c163c308065c2323d3ddc148740eb1
-</pre>
 
 To expose the web server port and set systemd to start when the container is run, modify the metadata with the `buildah config` subcommand.
 

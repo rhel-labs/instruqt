@@ -24,10 +24,10 @@ podman images
 ```
 
 <pre class="file">
-REPOSITORY                                 TAG      IMAGE ID       CREATED              SIZE
-localhost/el-httpd2                        latest   d074aab93289   About a minute ago   505 MB
-localhost/el-httpd1                        latest   b04fe2c73b03   6 minutes ago        279 MB
-registry.access.redhat.com/ubi8-init       latest   8c376a94293d   2 weeks ago          231 MB
+REPOSITORY                                TAG         IMAGE ID      CREATED         SIZE
+localhost/el-httpd2                       latest      076c3116b4c1  40 seconds ago  299 MB
+localhost/el-httpd1                       latest      c08e21fe69a5  16 minutes ago  299 MB
+registry.access.redhat.com/ubi9/ubi-init  latest      849d803e50eb  32 hours ago    247 MB
 </pre>
 
 Note the name matches what was set using `buildah commit`.
@@ -49,8 +49,8 @@ podman ps
 ```
 
 <pre class="file">
-CONTAINER ID  IMAGE                       COMMAND     CREATED         STATUS             PORTS               NAMES
-561019c2a69f  localhost/el-httpd2:latest  /sbin/init  13 seconds ago  Up 13 seconds ago  0.0.0.0:80->80/tcp  suspicious_sammet
+CONTAINER ID  IMAGE                       COMMAND         CREATED        STATUS            PORTS               NAMES
+2a1cd10a719a  localhost/el-httpd2:latest  /usr/sbin/init  8 seconds ago  Up 8 seconds ago  0.0.0.0:80->80/tcp  youthful_hertz
 </pre>
 
 Note the ports and command match the metadata set using `buildah config`.
@@ -58,20 +58,46 @@ Note the ports and command match the metadata set using `buildah config`.
 Inspect the image metadata for the application container using `buildah inspect`.
 
 ```bash
-buildah inspect localhost/el-httpd2
+buildah inspect localhost/el-httpd2 | grep -A 8 rootfs
 ```
 
 <pre class="file">
-"rootfs": {
+--
+        "rootfs": {
             "type": "layers",
             "diff_ids": [
-                "sha256:6d0bba8b32ffa211bb78d415b96d67dd7955cb30b1f86555d9c9f0da9a914626"
+                "sha256:89cadc3789b9f5ab3768f50d578a389e2719cf9981b585e70ca409b8b143defc"
             ]
         },
+        "history": [
+            {
+                "created": "2022-06-15T15:55:04.662511309Z",
+--
+        "rootfs": {
+            "type": "layers",
+            "diff_ids": [
+                "sha256:89cadc3789b9f5ab3768f50d578a389e2719cf9981b585e70ca409b8b143defc"
+            ]
+        },
+        "history": [
+            {
+                "created": "2022-06-15T15:55:04.662511309Z",
 </pre>
 
 Look for the `rootfs` section in the JSON output. You will see the single layer created by the `buildah commit` subcommand.
 
-Click on the ***Container httpd*** tab to see the index.html deployed into the application container.
+Run the following `curl` command to check that the container is serving a web page.
 
->_NOTE:_ You may need to hit the *refresh* icon to see the new page.
+```bash
+curl localhost:80
+```
+
+<pre class="file">
+<!DOCTYPE html>
+<head>
+  <title>Welcome to a container!</title>
+</head>
+<body>
+<h1>You've deployed your new web application into a container from scratch!</h1>
+</body>
+</pre>

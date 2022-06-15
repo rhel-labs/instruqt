@@ -41,7 +41,7 @@ The Red Hat Enterprise Linux 8 Universal Base Image is provided as the starting 
 To build an application container from the `ubi-init` base image, we will create a working container with `buildah`.  A working container is a temporary container used as the target for buildah commands.
 
 ```bash
-buildah from registry.access.redhat.com/ubi8/ubi-init
+buildah from registry.access.redhat.com/ubi9/ubi-init
 ```
 
 <pre class="file">

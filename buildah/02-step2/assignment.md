@@ -24,18 +24,34 @@ buildah run ubi-init-working-container -- yum -y install httpd
 <pre class="file">
 Updating Subscription Management repositories.
 Unable to read consumer identity
-This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register.
-Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)               2.4 MB/s | 7.0 MB     00:02
-Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)                  1.3 MB/s | 3.7 MB     00:02
-Red Hat Enterprise Linux 8 for x86_64 - Supplementary (RPMs)            23 kB/s |  78 kB     00:03
-Last metadata expiration check: 0:00:01 ago on Fri 17 May 2019 03:41:34 PM EDT.
+Subscription Manager is operating in container mode.
+
+This system is not registered with an entitlement server. You can use subscription-manager to register.
+
+Red Hat Enterprise Linux 9 for x86_64 - BaseOS (RPMs)                                       2.7 MB/s | 2.1 MB     00:00
+Red Hat Enterprise Linux 9 for x86_64 - AppStream (RPMs)                                     10 MB/s | 7.8 MB     00:00
+Red Hat Universal Base Image 9 (RPMs) - BaseOS                                              255 kB/s | 541 kB     00:02
+Red Hat Universal Base Image 9 (RPMs) - AppStream                                           680 kB/s | 1.4 MB     00:02
+Red Hat Universal Base Image 9 (RPMs) - CodeReady Builder                                   7.9 kB/s |  12 kB     00:01
 Dependencies resolved.
-=======================================================================================================
- Package                 Arch   Version                         Repository                        Size
-=======================================================================================================
+============================================================================================================================
+ Package                      Architecture     Version                     Repository                                  Size
+============================================================================================================================
 Installing:
- httpd                   x86_64 2.4.37-30.module+el8.0.0+2969+90015743
-                                                                rhel-8-for-x86_64-appstream-rpms 1.4 M
+ httpd                        x86_64           2.4.51-7.el9_0              rhel-9-for-x86_64-appstream-rpms           1.5 M
+Installing dependencies:
+ apr                          x86_64           1.7.0-11.el9                rhel-9-for-x86_64-appstream-rpms           127 k
+ apr-util                     x86_64           1.6.1-20.el9                rhel-9-for-x86_64-appstream-rpms            98 k
+ apr-util-bdb                 x86_64           1.6.1-20.el9                rhel-9-for-x86_64-appstream-rpms            15 k
+ httpd-filesystem             noarch           2.4.51-7.el9_0              rhel-9-for-x86_64-appstream-rpms            17 k
+ httpd-tools                  x86_64           2.4.51-7.el9_0              rhel-9-for-x86_64-appstream-rpms            88 k
+ libbrotli                    x86_64           1.0.9-6.el9                 rhel-9-for-x86_64-baseos-rpms              317 k
+ mailcap                      noarch           2.1.49-5.el9                rhel-9-for-x86_64-baseos-rpms               35 k
+ redhat-logos-httpd           noarch           90.4-1.el9                  rhel-9-for-x86_64-appstream-rpms            18 k
+Installing weak dependencies:
+ apr-util-openssl             x86_64           1.6.1-20.el9                rhel-9-for-x86_64-appstream-rpms            17 k
+ mod_http2                    x86_64           1.15.19-2.el9               rhel-9-for-x86_64-appstream-rpms           153 k
+ mod_lua                      x86_64           2.4.51-7.el9_0              rhel-9-for-x86_64-appstream-rpms            63 k
 
 << OUTPUT ABRIDGED >>
 
