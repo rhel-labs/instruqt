@@ -26,18 +26,17 @@ buildah run ubi-working-container -- yum -y install moon-buggy
 <pre class="file">
 <<< OUTPUT ABRIDGED>>>
 
-==========================================================================================================================================
- Package                    Architecture          Version                           Repository                                       Size
-==========================================================================================================================================
+==============================================================================================
+ Package        Architecture       Version                 Repository          Size
+==============================================================================================
 Installing:
- moon-buggy                 x86_64                1.0.51-25.el8                     epel                                             81 k
+ moon-buggy     x86_64             1.0.51-30.el9           epel                79 k
 
 <<< OUTPUT ABRIDGED >>>
 
 Installed:
-  lsa-lib-1.2.4-5.el8.x86_64     audiofile-1:0.3.6-23.el8.x86_64
-  esound-libs-1:0.2.41-22.el8.x86_64    flac-libs-1.3.2-9.el8.x86_64
-  libogg-2:1.3.2-10.el8.x86_64    moon-buggy-1.0.51-25.el8.x86_64
+  alsa-lib-1.2.6.1-3.el9.x86_64     audiofile-1:0.3.6-30.el9.x86_64   esound-libs-1:0.2.41-27.el9.x86_64   flac-libs-1.3.3-9.el9.x86_64   libogg-2:1.3.4-6.el9.x86_64  
+  moon-buggy-1.0.51-30.el9.x86_64  
 
 Complete!
 </pre>

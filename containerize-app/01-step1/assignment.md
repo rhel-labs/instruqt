@@ -53,14 +53,15 @@ By executing the command below, your system will download the Standard UBI
 image from Red Hat's registry.
 
 ```bash
-buildah from registry.access.redhat.com/ubi8/ubi
+buildah from registry.access.redhat.com/ubi9/ubi
 ```
 
 <pre class="file">
 Getting image source signatures
-Copying blob 77c58f19bd6e done
-Copying blob 47db82df7f3f done
-Copying config a1f8c96997 done
+Checking if image destination supports signatures
+Copying blob 2c9b1d3d1a0a done  
+Copying blob f95ee31bf3b7 done  
+Copying config 46720ac964 done  
 Writing manifest to image destination
 Storing signatures
 ubi-working-container

@@ -32,25 +32,29 @@ In the command below, `buildah` is going to run a command on the
 `ubi-working-container` image.  The `--` indicates that the command should be
 executed from within the container, which means the results will be applied into
 the container image.  Lastly, you are providing the `yum` command to install a
-package that defines all of the repositories from EPEL, `epel-release-latest-8`.
+package that defines all of the repositories from EPEL, `epel-release-latest-9`.
 
 ```bash
-buildah run ubi-working-container -- yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+buildah run ubi-working-container -- yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 ```
 
 <pre class="file">
 <<< OUTPUT ABRIDGED >>>
 
-==========================================================================================================================================
- Package                            Architecture                 Version                         Repository                          Size
-==========================================================================================================================================
+======================================================================================================================================
+ Package                                       Architecture                            Version                                    Repository                                     Size
+======================================================================================================================================
 Installing:
- epel-release                       noarch                       8-10.el8                         @commandline                        22 k
+ epel-release                                  noarch                                  9-2.el9                                    @commandline                                   17 k
+
+Transaction Summary
+======================================================================================================================================
+Install  1 Package
 
 <<< OUTPUT ABRIDGED >>>
 
 Installed:
-  epel-release-8-10.el8.noarch
+  epel-release-9-2.el9.noarch
 
 Complete!
 </pre>
