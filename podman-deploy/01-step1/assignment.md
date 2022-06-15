@@ -28,7 +28,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 1600
+timelimit: 3320
 ---
 >**Note:** In the `Terminal` tab in the upper left corner of the Instruqt web page, there are 2 shell sessions launched. To switch between the 2 shell sessions, press Ctrl-B and an arrow key pointing to the session you wish to become active.
 
