@@ -59,9 +59,9 @@ Finally, verify that you can connect to SQL Server
 Microsoft SQL Server 2019 (RTM-CU8) (KB4577194) - 15.0.4073.23 (X64)
         Sep 23 2020 16:03:08
         Copyright (C) 2019 Microsoft Corporation
-        Enterprise Evaluation Edition (64-bit) on Linux (Red Hat Enterprise Linux 8.5) <X64>
+        Enterprise Evaluation Edition (64-bit) on Linux (Red Hat Enterprise Linux 8.6) <X64>
 
 (1 rows affected)
 </pre>
 
-By the above output, we have confirmed that we can connect to SQL Server, and confirm that we are running SQL Server 2019 on Red Hat Enterprise Linux 8.5
+By the above output, we have confirmed that we can connect to SQL Server, and confirm that we are running SQL Server 2019 on Red Hat Enterprise Linux 8.6

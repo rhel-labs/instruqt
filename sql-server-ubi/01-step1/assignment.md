@@ -45,7 +45,7 @@ There are 3 terminal tabs that will be used in this lab - a terminal on the cont
 
 In this lab, we will be spinning up 3 instances of SQL Server, each running in a container.
 
-On the host system, create a directory to store the script to be used for SQL Server In-memory OLTP dataset
+In the *Terminal* tab, on the host system, create a directory to store the script to be used for SQL Server In-memory OLTP dataset
 
 ```bash
 mkdir -p /var/mssql/scripts
@@ -57,24 +57,10 @@ Copy the script file from the /root directory to the newly created scripts direc
 cp ./imoltp.sql /var/mssql/scripts/
 ```
 
-> **NOTE:** In SQL Server 2019, the container runs using a non-root user by default. The default user is *mssql* with uid *10001*. Modify and
-set the appropriate user ownership for the script directory created to uid:10001 that maps to the *mssql* user.
+> **NOTE:** In SQL Server 2019, the container runs using a non-root user by default. The default user is *mssql* with uid *10001*. Modify and set the appropriate user ownership for the script directory created to uid:10001 that maps to the *mssql* user.
 
 ```bash
 chown -R 10001:0 /var/mssql/scripts
 ```
 
-Use *podman* to list the container images available on the host system
-
-```bash
-podman images
-```
-
-<pre class="file">
-REPOSITORY              TAG      IMAGE ID       CREATED       SIZE
-localhost/rhel8-httpd   latest   69aac470f62d   3 months ago   617 MB
-</pre>
-
-*Podman* is available on the host system, and there is only a single RHEL 8 apache image available to use.
-
-To run SQL Server in a container, download the SQL Server container images.
+Next we'll download the SQL Server container images.

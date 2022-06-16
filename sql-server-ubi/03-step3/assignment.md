@@ -20,7 +20,7 @@ timelimit: 900
 
 ### Deploying a container as root user
 
-In the *Terminal Server* tab of the lab interface, create a container runtime using podman in the root user context - passing in-container access to the created script directory, and mapping the host port (1400) to the container's port (1433). TCP port *1433* is the default port for SQL Server.
+In the *Terminal SQL Server* tab of the lab interface, create a container runtime using podman in the root user context - passing in-container access to the created script directory, and mapping the host port (1400) to the container's port (1433). TCP port *1433* is the default port for SQL Server.
 
 Pass in the flag to programatically accept the EULA agreement, and setup SQL Server with the provided sa account password.
 Set the hostname of the container to *mssqlcontainer0*

@@ -18,7 +18,7 @@ timelimit: 900
 ---
 ## Connect to SQL Server running in the container
 
-Launch an interactive bash shell in the container connecting to database instance 0 (*mssqlDB0*)
+In the *Terminal* tab, launch an interactive bash shell in the container connecting to database instance 0 (*mssqlDB0*)
 
 ```bash
 podman exec -it mssqlDB0 "/bin/bash"
