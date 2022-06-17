@@ -17,7 +17,7 @@ timelimit: 60
 ---
 Running an interactive container is all well and good, however, if the container is offering applications or services, you do not need to interact with it.
 
-The __rhel8-httpd__ container, for example, is configured with an Apache web server running within it.  You will create a new instance of this container in a detached mode.  Further, the command provided will configure port forwarding for the Apache web server so that connections to the host's port 8081 will redirect to the running container's port 80 (Apache service).
+The __rhel9-httpd__ container, for example, is configured with an Apache web server running within it.  You will create a new instance of this container in a detached mode.  Further, the command provided will configure port forwarding for the Apache web server so that connections to the host's port 8081 will redirect to the running container's port 80 (Apache service).
 
 ```bash
 podman run -dt -p 8081:80/tcp rhel9-httpd
@@ -36,4 +36,12 @@ CONTAINER ID  IMAGE                         COMMAND               CREATED       
 
 Observe that the __STATUS__ is __Up__ and there is a new section in the output __PORTS__ that indicates the port forwarding defined for the container.
 
-You can also now connect to the web server running on the container by using the __Container Service__ tab at the top of your lab interface.  This tab should now display the Apache test page, being served by the httpd daemon running in the container.
+Test the webserver on the container with `curl`.
+
+```bash
+curl localhost:8081
+```
+
+This should now display the Apache test page, being served by the httpd daemon running in the container.
+
+![apache](../assets/apache.png)

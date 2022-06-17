@@ -33,5 +33,3 @@ podman ps -a
 CONTAINER ID  IMAGE                         COMMAND               CREATED        STATUS                     PORTS                   NAMES
 2b2571efec6f  localhost/rhel9-httpd:latest  /usr/sbin/httpd -...  9 minutes ago  Exited (0) 50 seconds ago  0.0.0.0:8081->80/tcp  priceless_mahavira
 </pre>
-
-Also, if you access the __Container Service__ tab in the lab interface, it will now report unable to connect; as the container offering the Apache web server is no longer available.
