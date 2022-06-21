@@ -25,10 +25,10 @@ kpatch list
 
 <pre class="file">
 Loaded patch modules:
-kpatch_4_18_0_305_1_1 [enabled]
+kpatch_4_18_0_348_12_2_1_2 [enabled]
 
 Installed patch modules:
-kpatch_4_18_0_305_1_1 (4.18.0-305.el8.x86_64)
+kpatch_4_18_0_348_12_2_1_2 (4.18.0-348.12.2.el8_5.x86_64)
 </pre>
 
 From the list output, you can see that the kpatch installed in the previous
