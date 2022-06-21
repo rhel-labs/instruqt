@@ -43,7 +43,7 @@ at all of the aviailable kpatch packages avaiable from the Red Hat Enterprise
 Linux repos.
 
 ```bash
-yum list available kpatch-patch*348*
+dnf list available kpatch-patch*348*
 ```
 
 <pre class='file'>
