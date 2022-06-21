@@ -54,7 +54,7 @@ system downtime to apply a kernel update to address the CVE.
 To get started, install the `kpatch` package:
 
 ```bash
-yum -y install kpatch-patch
+yum -y install kpatch
 ```
 
 Now that the `kpatch` application is installed, you can verify that the
