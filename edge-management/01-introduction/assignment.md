@@ -15,7 +15,7 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 1200
+timelimit: 8400
 ---
 In this lab, we will introduce the usage of Red Hat Edge Management.
 >_NOTE:_ To make the inline images larger, expand this window. ![Menu Slider](../assets/slider.png)
