@@ -24,10 +24,8 @@ tabs:
   type: terminal
   hostname: rhel
 - title: RHEL Web Console
-  type: service
-  hostname: rhel
-  path: /
-  port: 9090
+  type: external
+  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 3600
 ---

@@ -7,9 +7,13 @@ notes:
 - type: text
   contents: This is an example of a challenge.
 tabs:
-- title: Shell
+tabs:
+- title: Terminal
   type: terminal
   hostname: rhel
+- title: RHEL Web Console
+  type: external
+  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 3600
 ---
