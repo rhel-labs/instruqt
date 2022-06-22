@@ -13,7 +13,7 @@ echo "adding cockpit" >> /root/post-run.log
 yum -y install cockpit cockpit-packagekit
 
 echo "starting cockpit" >> /root/post-run.log
-systemctl start cockpit
+systemctl --now enable cockpit
 
 echo "trashing GCP repos" >> /root/post-run.log
 mv /etc/yum.repos.d/google-cloud.repo /root
