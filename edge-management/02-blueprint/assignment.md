@@ -33,11 +33,11 @@ Click `Create new image`.
 
 ![details](../assets/imagedetails.png)
 
-1) Ensure the Red Hat Enterprise Linux (RHEL) 8.5 is selected.
+1) Ensure the Red Hat Enterprise Linux (RHEL) 9 is selected.
 2) Make sure RHEL for Edge Installer (.iso) is checked.
 3) Click `Next`.
 
-![options](../assets/imageoptions.png)
+![options](../assets/rhel9image.png)
 
 Use the following credentials for logging into the edge device.
 
@@ -69,7 +69,7 @@ Click `Next`.
 
 Click `Create image`.
 
-![createimagefinal](../assets/createimagefinal.png)
+![createimagefinal](../assets/createimage2.png)
 
 The image creation process will take about 15 minutes to complete. Refresh this page to update the status.
 
