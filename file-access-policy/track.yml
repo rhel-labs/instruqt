@@ -21,6 +21,7 @@ icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags: []
 owner: rhel
 developers:
+- sboulden@redhat.com
 - myee@redhat.com
 private: false
 published: true
