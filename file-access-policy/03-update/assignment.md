@@ -1,12 +1,12 @@
 ---
-slug: apply
-id: m3fknhr6o0jo
+slug: Update
+id: v3ftjsr1o2mn
 type: challenge
-title: Apply the File Access Policy
-teaser: Apply the File Access Policy
+title: Update the File Access Policy
+teaser: Update the File Access Policy
 notes:
 - type: text
-  contents: Apply the File Access Policy
+  contents: Update the File Access Policy
 tabs:
 - title: rhel
   type: terminal
@@ -15,49 +15,9 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 10
+timelimit: 4
 ---
-Now that we've seen how the daemon is configured, let's see it in action.
-
-Switch to the user `rhel`.
-
-```bash
-su - rhel
-```
-
-In the user's home directory is a compiled binary, `cowsay`. There is nothing inherently malicious about this binary, though it provides a good example for our application control workflow.
-
-You should have no problems executing the `cowsay` binary:
-
-```bash
-./cowsay "mooooo"
-```
-
-Let's start up fapolicyd and see what happens:
-
-```bash
-sudo systemctl start fapolicyd
-```
-
-The password is `redhat`.
-
-```bash
-redhat
-```
-
-Now run the `cowsay` command again.
-
-```bash
-./cowsay "mooooo"
-```
-
-You'll obtain the following error.
-
-![opnotpermitted](../assets/opnotpermitted.png)
-
-Great! Because the `cowsay` binary isn't in the RPM database, or the file-backed trust database configured at `/etc/fapolicyd/fapolicyd.trust`, the execution is blocked.
-
-What if we know that this binary is trusted, and we want to allow it on the system? We have a couple of options:
+What if we know that the `cowsay` binary is trusted, and we want to allow it on the system? We have a couple of options:
 
 * We could create a RPM spec file for the binary, build an RPM, sign it, and install it into the RPM database
 * We can update the file-backed trust database
