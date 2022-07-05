@@ -1,24 +1,26 @@
 slug: in-place-upgrades
+id: vijyvfkqhfzw
 type: track
 title: test
 teaser: Performing an in-place upgrade with LEAPP
 description: |-
-      After completing this scenario, users will be able to upgrade from one major version of Red Hat Enterprise Linux to the next. (Example RHEL 8 to RHEL 9)
+  After completing this scenario, users will be able to upgrade from one major version of Red Hat Enterprise Linux to the next. (Example RHEL 8 to RHEL 9)
 
-    # Concepts included in this scenario:
-    * Configure system for Extended Update Support (EUS) updates
-    * Run pre-upgrade analysis and troubleshoot
-    * Perform an in-place upgrade with LEAPP
+  # Concepts included in this scenario:
+  * Configure system for Extended Update Support (EUS) updates
+  * Run pre-upgrade analysis and troubleshoot
+  * Perform an in-place upgrade with LEAPP
 
-    # Example Usecase:
-    A Systems Administrator needs to upgrade deployed Red Hat Enterprise Linux servers from their current version to the latest major version to take advantage of a longer lifecycle and new features without needing to perform a clean install.
+  # Example Usecase:
+  A Systems Administrator needs to upgrade deployed Red Hat Enterprise Linux servers from their current version to the latest major version to take advantage of a longer lifecycle and new features without needing to perform a clean install.
 
-    Note: This process works similarly for RHEL 7 and 8.
+  Note: This process works similarly for RHEL 7 and 8.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags:
-  - rhel
+- rhel
 owner: rhel
 developers:
 - ehendric@redhat.com
 private: true
 published: false
+checksum: "8374817892603580981"

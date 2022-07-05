@@ -1,5 +1,6 @@
 ---
 slug: step3
+id: 31dsb4tpfgsy
 type: challenge
 title: Step 3
 tabs:
@@ -47,7 +48,7 @@ Check completed.
         Check all generated results messages and notify user about them.
 
 ============================================================
-                     UPGRADE INHIBITED                      
+                     UPGRADE INHIBITED
 ============================================================
 
 Upgrade has been inhibited due to the following problems:
@@ -55,21 +56,21 @@ Upgrade has been inhibited due to the following problems:
 Consult the pre-upgrade report for details and possible remediation.
 
 ============================================================
-                     UPGRADE INHIBITED                      
+                     UPGRADE INHIBITED
 ============================================================
 
 
 Debug output written to /var/log/leapp/leapp-preupgrade.log
 
 ============================================================
-                           REPORT                           
+                           REPORT
 ============================================================
 
 A report has been generated at /var/log/leapp/leapp-report.json
 A report has been generated at /var/log/leapp/leapp-report.txt
 
 ============================================================
-                       END OF REPORT                        
+                       END OF REPORT
 ============================================================
 
 Answerfile has been generated at /var/log/leapp/answerfile
@@ -132,14 +133,14 @@ Check completed.
 Debug output written to /var/log/leapp/leapp-preupgrade.log
 
 ============================================================
-                           REPORT                           
+                           REPORT
 ============================================================
 
 A report has been generated at /var/log/leapp/leapp-report.json
 A report has been generated at /var/log/leapp/leapp-report.txt
 
 ============================================================
-                       END OF REPORT                        
+                       END OF REPORT
 ============================================================
 
 Answerfile has been generated at /var/log/leapp/answerfile

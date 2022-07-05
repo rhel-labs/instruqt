@@ -3,6 +3,6 @@ virtualmachines:
 - environment:
     TERM: xterm
   image: projects/tmm-instruqt-11-26-2021/global/images/rhel-8-6-05-10-2022-1
-  machine_type: n1-highmem-1
+  machine_type: n1-highmem-2
   name: rhel
   shell: /bin/bash

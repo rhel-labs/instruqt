@@ -1,5 +1,6 @@
 ---
 slug: step1
+id: fuwubwmiqpfp
 type: challenge
 title: Step 1
 notes:
@@ -18,7 +19,6 @@ notes:
     For additional information refer to the leapp tool's documentation: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/upgrading_from_rhel_8_to_rhel_9/index
 
     Note: This process works similarly for RHEL 7 and 8.
-
 tabs:
 - title: Terminal
   type: terminal
@@ -77,7 +77,7 @@ Updating Subscription Management repositories.
 17 files removed
 
 Updating Subscription Management repositories.
-Red Hat Enterprise Linux 8 for x86_64 - AppStream(RPMs)       53 MB/s |  45 MB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - AppStream(RPMs)       53 MB/s |  45 MB     00:00
 Red Hat Enterprise Linux 8 for x86_64 - AppStream - Extended Update Support (RPMs)
 ...
 Complete!

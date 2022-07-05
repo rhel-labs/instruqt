@@ -1,5 +1,6 @@
 ---
 slug: step4
+id: xe2s164p1oix
 type: challenge
 title: Step 4
 tabs:
@@ -47,7 +48,7 @@ Debug output written to /var/log/leapp/leapp-upgrade.log
 
 </pre>
 
-The upgrade has only been _staged_; it has not been completed at this point. A reboot is required for the RHEL 9-based initial RAM disk image (initramfs), upgrades all packages and automatically reboots to the RHEL 9 system. 
+The upgrade has only been _staged_; it has not been completed at this point. A reboot is required for the RHEL 9-based initial RAM disk image (initramfs), upgrades all packages and automatically reboots to the RHEL 9 system.
 
 ```
 reboot
