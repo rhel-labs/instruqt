@@ -1,5 +1,5 @@
-slug: image-builder
-id: 9rqv9exrm3nw
+slug: imagebuilder
+id: iwllxzqbgftq
 type: track
 title: Using Web Console to build virtual machine images [Image Builder]
 description: |+
@@ -25,4 +25,4 @@ developers:
 - ehendric@redhat.com
 private: false
 published: true
-checksum: "6422544211224153818"
+checksum: "12511939019541830280"
