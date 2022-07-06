@@ -76,3 +76,4 @@ EOF
 chmod 600 r4ekey
 
 echo "192.168.122.128 rhelvm" >> /etc/hosts
+
