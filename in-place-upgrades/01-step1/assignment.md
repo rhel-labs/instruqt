@@ -31,16 +31,19 @@ timelimit: 1800
 ---
 # Configure a system for Extended Update Support (EUS)
 
-What is Extended Update Support? EUS is an optional offering for Red Hat Enterprise Linux (RHEL) subscribers. With EUS, Red Hat provides backports of Critical and Important impact1 security updates and urgent-priority bug fixes for a predefined set of minor releases of Red Hat Enterprise Linux. EUS enables customers to remain with the same minor release of Red Hat Enterprise Linux for 24 months, allowing for stable production environments for mission-critical applications. (Source: <a href="https://access.redhat.com/articles/rhel-eus">RHEL EUS Overview</a>)
+What is Extended Update Support?
+EUS is an optional offering for Red Hat Enterprise Linux (RHEL) subscribers. With EUS, Red Hat provides backports of Critical and Important impact1 security updates and urgent-priority bug fixes for a predefined set of minor releases of Red Hat Enterprise Linux. EUS enables customers to remain with the same minor release of Red Hat Enterprise Linux for 24 months, allowing for stable production environments for mission-critical applications.
 
-First, let's verify the version of RHEL we are running:
+(Source: https://access.redhat.com/articles/rhel-eus)
+
+First, you will need to verify the version of RHEL we are running:
 
 ```
 cat /etc/redhat-release
 ```
 
 <pre class=file>
-# cat /etc/redhat-release 
+# cat /etc/redhat-release
 Red Hat Enterprise Linux release 8.6 (Ootpa)
 </pre>
 
@@ -65,7 +68,7 @@ subscription-manager release --list
 8.6
 </pre>
 
-Next, enable the EUS-specific repositories and disable the regular repos:
+Next, enable the EUS-specific repositories and disable the regular repositories:
 
 ```
 subscription-manager repos --enable rhel-8-for-x86_64-baseos-eus-rpms --enable rhel-8-for-x86_64-appstream-eus-rpms
@@ -97,7 +100,7 @@ Note: Your system's output may vary slightly from the example:
 <pre class=file>
 # dnf clean all
 Updating Subscription Management repositories.
-17 files removed
+27 files removed
 
 Updating Subscription Management repositories.
 Red Hat Enterprise Linux 8 for x86_64 - AppStream(RPMs)       53 MB/s |  45 MB     00:00
