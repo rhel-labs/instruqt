@@ -11,21 +11,44 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 300
+timelimit: 2100
 ---
-# Log in to the Web Console
+## Log in to the Web Console
 
-Click on the tab titled *Web Console* at the top of your lab system interface.
-Selecting this tab will pop out the lab system's web console.
+Click on the tab titled **RHEL Web Console** at the top of  your lab system interface. Selecting this tab will open the lab system's Web Console in a
+new browser tab or window.
 
-Once the login page is presented, use the following credentials to log into the web console:
+![web console](../assets/pop-out-2.png)
 
-Username: __rhel__
-Password: __redhat__
+Click `Advanced`
+
+![Connection not private](../assets/connection-not-private.png)
+
+Then click `Proceed to rhel.xxxx.instruqt.io`
+
+![Proceed](../assets/proceed.png)
+
+Once the login page is presented, use the following credentials to log into the Web Console:
+
+Username: **rhel**\
+Password: **redhat**
 
 ![Web Console Login](../assets/Web-console-login.png)
 
-# Navigate to Image Builder application
+Now that you are logged into the Web Console, we must turn on administrative access.
+
+Click `Turn on administrative access`.
+
+![admin access](../assets/turn-on-admin.png)
+
+Next do the following:
+
+1) Enter the password: **redhat**
+2) Click `Authenticate`
+
+![auth](../assets/auth.png)
+
+## Navigate to Image Builder application
 
 After logging into the Web Console, you'll be looking at the Overview tab. Navigate to the Image Builder tab, as shown below:
 
