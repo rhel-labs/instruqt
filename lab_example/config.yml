@@ -3,8 +3,8 @@ virtualmachines:
 - environment:
     TERM: xterm
   image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-0-06-13-2022-1
-  machine_type: n1-highmem-2
-  name: rhel
+  machine_type: n1-standard-2
+  name: host1
   shell: /bin/bash
   allow_external_ingress:
     - http
