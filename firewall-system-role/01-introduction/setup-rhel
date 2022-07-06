@@ -1,4 +1,6 @@
 #!/bin/sh
+ssh rhelvm subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force
+
 TMUX='' tmux new-session -d -s 'firewall-testing' > /dev/null 2>&1
 tmux split-window -v 'ssh -o "StrictHostKeyChecking no" rhelvm; clear'
 tmux select-layout even-vertical
