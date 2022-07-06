@@ -1,0 +1,13 @@
+#!/bin/bash
+# Create an output file
+touch /root/post-run.log
+# configure rhel account
+usermod -aG wheel rhel
+echo redhat | passwd --stdin rhel
+# setup webui
+yum -y install cockpit cockpit-packagekit
+firewall-cmd --add-service=cockpit --permanent
+firewall-cmd --reload
+systemctl enable --now cockpit.socket
+# Create a done file to signal we have finished
+touch /root/post-run.log.done
