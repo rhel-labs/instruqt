@@ -73,18 +73,19 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 Disklabel type: gpt
 Disk identifier: D209C89E-EA5E-4FBD-B161-B461CCE297E0
 
-Device       Start      End  Sectors  Size Type
-/dev/nbd0p1   2048     4095     2048    1M BIOS boot
-/dev/nbd0p2   4096   208895   204800  100M EFI System
-/dev/nbd0p3 208896 20971486 20762591  9.9G Linux filesystem
+Device        Start      End  Sectors  Size Type
+/dev/nbd0p1    2048     4095     2048    1M BIOS boot
+/dev/nbd0p2    4096   413695   409600  200M EFI System
+/dev/nbd0p3  413696  1437695  1024000  500M Linux extended boot
+/dev/nbd0p4 1437696 20971486 19533791  9.3G Linux filesystem
 </pre>
 
-The partition of the disk is `/dev/nbd0p1`
+The partition of the disk is `/dev/nbd0p4`
 
 Mount the partition to some mountpoint (in this case `/mnt`) -
 
 ```
-mount /dev/nbd0p3 /mnt
+mount /dev/nbd0p4 /mnt
 ```
 
 Temporarily change the root directory of the bash shell to be the directory holding the contents of
@@ -103,8 +104,8 @@ rpm -q nodejs nginx
 ```
 
 <pre class="file">
-nodejs-10.23.1-1.module+el8.3.0+9502+012d8a97.x86_64
-nginx-1.14.1-9.module+el8.0.0+4108+af250afe.x86_64</pre>
+nodejs-16.14.0-4.el9_0.x86_64
+nginx-1.20.1-10.el9.x86_64</pre>
 
 From the above output, you can verify that both the `nodejs` and `nginx` packages were
 installed into this machine image.
