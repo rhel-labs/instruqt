@@ -1,6 +1,6 @@
 ---
 slug: step5
-id: gninlcupqhbr
+id: c62nq1r5czp0
 type: challenge
 title: Step 5
 tabs:
@@ -13,46 +13,47 @@ tabs:
 difficulty: basic
 timelimit: 300
 ---
-# Building an Image
+# Review and access images
 
-You are now ready to build your first image of this new Red Hat Enterprise
-Linux build with Node.js and NGINX packages installed.  Click the *Create image*
-button near the top of the interface.
+In the previous step, you started a build of your __node-app-server__ machine
+image.  Now it is time to check on the build process.
 
-![Create image](../assets/Create-Image.png)
+Return to the main Image Builder page by either selecting *Image Builder* in the
+navigation menu or by using *Back to Blueprints* in the breadcrumbs.
 
-The resulting dialog will ask several questions about how to build the image.
-The first, and most important question is *Type*.  There are several different
-output types supported by Image Builder:
-* Amazon Web Services (.raw)
-* OpenStack (.qcow2)
-* QEMU Image (.qcow2)
-* RHEL for Edge Commit (.tar)
-* RHEL for Edge Container (.tar)
-* RHEL for Edge Installer (.iso)
-* Disk Archive (.tar)
-* Microsoft Azure (.vhd)
-* VMware VSphere (.vmdk)
+![Back to Image Builder Homepage](../assets/Back-to-ImageBuilder.png)
 
-For this lab, select the *Type* as __QEMU Image (.qcow2)__ this makes a
-virtual machine image that is compatible with the native virtualization
-provided as part of Red Hat Enterprise Linux. However, you can see from the
-list that you can make images for cloud providers or other virtualization
-hypervisors.
+On the main Image Builder page, you can see your blueprint, *node-app-server*,
+click on this blueprint to see the details.
 
-![Selecting a format](../assets/image-create.png)
+![Selecting node-app-server](../assets/Main-page.png)
 
-Once you have specified the __QEMU Image (.qcow2)__ as the *Type* select
-the *Create* button to create an image of this output format.
+On the *node-app-server* page you can see several options for working with
+this blueprint including:
+* Edit Packages
+* Create image
+* Customizations
+* Packages
+* Images
 
-![Clicking Create](../assets/image-create-confirm.png)
+We both *Edited Packages* and *Create image* earlier.  Now it is time to use
+the *Images* tab to look at the images that are either being built or have
+been built.
 
-Depending on the output format selected in this step, there may be additional
-options available.  For example, when a cloud provider format is selected,
-you can select to *Upload image* to the cloud provider, which will use
-credentials you provide to automatically upload the completed image to the
-selected cloud provider.  This feature allows you to further streamline the
-workflow of building images, then deploying them as instances.
+![Accessing the image queue](../assets/node-app-server-page.png)
 
-You may see a temporary notice on the page that says the new image has been
-added to the build queue.  You will find that queue next.
+Depending on how long it has taken you to reach this stage, you may see that
+the image you started in a previous step has already completed building (as
+shown in the screenshot), is still building, or is queued to be built.
+
+From here on the *Images* list, you can view the status of images or, if the
+image has completed building, download it using the *...* button.  If the image
+has failed to build, or you are just curious on what Image Builder has done,
+you can view the *Logs* of the build as well.
+
+![Image Queue](../assets/images-queue.png)
+
+Congratulations on making your first image!
+
+Now that you have completed making your first image, feel free to try out making
+*Customizations* or maybe *Edit Packages* to further customize the blueprint.
