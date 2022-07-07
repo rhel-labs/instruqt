@@ -26,24 +26,27 @@ Click the hyperlink or browse to [cloud.redhat.com](https://cloud.redhat.com) to
 
 Click the _Log in to your Red Hat account_ button.
 
-
 ![cloud.redhat.com Login](../assets/cloud.redhat.com-homepage-v2.png)
-
 
 Login using the credentials below:
 
-Login: __rhel-df93__
+Login:
 
-Password: __Redhat1!__
+```bash
+rhel-df93
+```
+
+Password:
+
+```bash
+Redhat1!
+```
 
 ![Red Hat Login screen](../assets/redhat-login-01.png)
-
 
 ![Red Hat Password screen](../assets/redhat-login-02.png)
 
 Once you are logged in, using the credentials provided above, navigate to
 _Red Hat Enterprise Linux_ in the left-side navigation menu.
 
-
 ![cloud.redhat.com Homepage](../assets/cloud.redhat.com-homepage-postlogin-v2.png)
-

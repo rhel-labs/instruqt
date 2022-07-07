@@ -23,16 +23,13 @@ Insights data that applies to this host.
 
 ![Host Insights](../assets/host-homepage-v2.png)
 
-There may be several recommendations listed for this system.  Scroll down through the
-list until you reach the one entitled _Decreased security: Yum GPG verification disabled (Red Hat repos)_
+There may be several recommendations listed for this system.  Scroll down through the list until you reach the one entitled _Decreased security: OpenSSH PermitRootLogin settings_
 
-![NetworkManager Insight](../assets/decreased-security-gpg.png)
+![SSH Root Login Decreased Vulnerability](../assets/sshrootlogininsights.png)
 
-From the _Detected issues_ section of the recommendation, you can see that this recommendation
-is being triggered by the machine running with a GPG verification disabled for the `rhel-8-for-x86_64-baseos-rpms` software repository.
+From the _Detected issues_ section of the recommendation, you can see that this recommendation is being triggered by the machine running with the `PermitRootLogin` setting set to `yes`.
 
-![NetworkManager Insight issue](../assets/detected-issue.png)
+![NetworkManager Insight issue](../assets/sshrootlogininsightsdetectedissue.png)
 
 In the _Steps to resolve_ section of the recommendation, step-by-step
-guidance on how to resolve the issue is provided.  In this case, to change the `gpgcheck=0` key-value pair to `gpgcheck=1`.
-
+guidance on how to resolve the issue is provided.  In this case, we will follow the recommendation to set `PermitRootLogin no`.
