@@ -36,5 +36,3 @@ found your machine hostname with the `hostname` command.
 ![View your machine](../assets/inventory-homepage-v2.png)
 
 >_NOTE:_ Your host may not be the first one listed, as depicted in the graphic above.  You may find it necessary to use the _Find system by name_ search function at the top of the list of hosts to more quickly find your system.
-
-

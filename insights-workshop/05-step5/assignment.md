@@ -17,30 +17,24 @@ timelimit: 900
 ---
 # Remediating the reported Insight
 
-You will follow the recommendation and apply the required change to secure updates from the updated package to the `rhel-8-for-x86_64-baseos-rpms` software repository.
+We'll apply the recommendation to disallow `root` logins via SSH. Run the following command.
 
-```
-sed -i '/\[rhel-8-for-x86_64-baseos-rpms\]/,/^ *\[/ s/gpgcheck = 0/gpgcheck = 1/' /etc/yum.repos.d/redhat.repo
+```bash
+sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
 ```
 
 To view the results, enter the following command.
 
-```
-grep -A 4 rhel-8-for-x86_64-baseos-rpms /etc/yum.repos.d/redhat.repo
+```bash
+cat /etc/ssh/sshd_config | grep PermitRootLogin
 ```
 
-<pre class=file>
-[rhel-8-for-x86_64-baseos-rpms]
-name = Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)
-baseurl = https://cdn.redhat.com/content/dist/rhel8/$releasever/x86_64/baseos/os
-enabled = 1
-gpgcheck = 1
-</pre>
+![Fixed SSH](../assets/sshrootlogininsightsremedy.png)
 
 Force a Red Hat Insights checkin so that a new batch of system data
 is uploaded to Insights.
 
-```
+```bash
 insights-client
 ```
 
