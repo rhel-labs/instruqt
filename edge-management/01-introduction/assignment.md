@@ -22,7 +22,7 @@ In this lab, we will introduce the usage of Red Hat Edge Management.
 
  First, let's access the hybrid cloud console.
 
-Click the hyperlink or browse to [cloud.redhat.com/beta/edge](https://cloud.redhat.com/beta/edge) to access Red Hat's software as a service web portal.
+Click the hyperlink or browse to [cloud.redhat.com/beta/edge](https://console.redhat.com/edge/fleet-management) to access Red Hat's software as a service web portal.
 
 >_NOTE:_ This will open an additional browser window or tab.
 
