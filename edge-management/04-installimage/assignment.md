@@ -74,18 +74,12 @@ There you'll see the terminal window of the VM and you can watch the automatic i
 
 ![installvm](../assets/install.png)
 
-When the installation has completed, go back to the `rhel` terminal and get the ip address of the edge device.
+When the installation has completed, go back to the `rhel` terminal and into the edge device. Copy and paste the following.
 
 ```bash
-virsh net-dhcp-leases default
-```
-
-![ipaddresses](../assets/ipaddresses.png)
-
-SSH into the edge device.
-
-```bash
-ssh -i /root/r4ekey rhel@<address>
+imagename=$(virsh -q list | awk '{print $2}')
+ip=$(virsh -q domifaddr $imagename | awk '{print $4}' | cut -d/ -f 1)
+ssh -i /root/r4ekey rhel@$ip
 ```
 
 ![ssh](../assets/ssh.png)
@@ -96,24 +90,16 @@ Switch to the root user.
 sudo -i
 ```
 
+Change the hostname of the edge device to something unique.
+
+```bash
+hostnamectl set-hostname edgemgmt-$(uuidgen | cut -c 32-)
+```
+
 Connect the edge device with the hybrid cloud management console.
 
 ```bash
-rhc connect
-```
-
-Use the following credentials.
-
-Login
-
-```bash
-rhel-0ab2
-```
-
-Password
-
-```bash
-Redhat1!
+rhc connect --username rhel-0ab2 --password Redhat1!
 ```
 
 ![rhc](../assets/rhcconnect.png)
