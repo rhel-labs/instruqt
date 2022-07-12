@@ -1,55 +1,45 @@
 ---
 slug: step4
-id: xe2s164p1oix
+id: aaawxeyeytx6
 type: challenge
 title: Step 4
 tabs:
-- title: Terminal
+- title: rhel
   type: terminal
-  hostname: rhel
+  hostname: host1
+- title: Host Web Console
+  type: external
+  url: https://host1.${_SANDBOX_ID}.instruqt.io:9090/machines#/vm/console?name=rhelvm&connection=system
 difficulty: basic
 timelimit: 1800
 ---
-# Running the upgrade
+# Verifying the upgrade
 
-Now that you have verified the RHEL system meets all the expected conditions, it is time to kick off the upgrade process:
+Once the new initramfs image is in place, packages updates run, and SELinux relabel completion, the system will perform one final reboot. Once that is done, you will be logged into the system's terminal once more. Switch back to the terminal tab. Finally, we will verify the update was successful by looking at the release file we referenced earlier in the lab:
 
 ```
-leapp upgrade --target 9.0
+cat /etc/redhat-release
 ```
 
-Note: This process will take awhile.
+Note that we are now running the latest version of RHEL 9!
 
 <pre class=file>
-# leapp upgrade --target 9.0
-==> Processing phase `configuration_phase`
-====> * ipu_workflow_config
-        IPU workflow config actor
-==> Processing phase `FactsCollection`
-====> * storage_scanner
-        Provides data about storage settings.
+# cat /etc/redhat/release
+Red Hat Enterprise Linux release 9.0 (Plow)
+</pre>
+
+OPTIONAL: You may also review the log file if you so choose. The full output is available at /var/log/leapp/leapp-upgrade.log
+
+```
+less /var/log/leapp/leapp-upgrade.log
+```
+
+<pre class=file>
+# less /var/log/leapp/leapp-upgrade.log
 
 ... output truncated ...
 
-Downloading Packages:
-Running transaction check
-Transaction check succeeded.
-Running transaction test
-Transaction test succeeded.
-Complete!
-====> * add_upgrade_boot_entry
-        Add new boot entry for Leapp provided initramfs.
-A reboot is required to continue. Please reboot your system.
-
-
-Debug output written to /var/log/leapp/leapp-upgrade.log
-
-... output truncated ...
 
 </pre>
 
-The upgrade has only been _staged_; it has not been completed at this point. A reboot is required for the RHEL 9-based initial RAM disk image (initramfs), upgrades all packages and automatically reboots to the RHEL 9 system.
-
-```
-reboot
-```
+There are other methods for upgrading to the latest version of RHEL using the leapp tooling including the Web Console and Satellite. For those operations, refer to the documentation on Red Hat's website.

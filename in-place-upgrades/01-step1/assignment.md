@@ -2,41 +2,64 @@
 slug: step1
 id: fuwubwmiqpfp
 type: challenge
-title: Step 1
+title: Introduction
 notes:
 - type: text
   contents: |
+    # Overview
+
     After completing this scenario, users will be able to upgrade from one major version of Red Hat Enterprise Linux to the next. (Example RHEL 8 to RHEL 9)
 
-    # Concepts included in this scenario:
-    * Configure system for Extended Update Support (EUS)
+    ## Concepts included in this scenario:
+
     * Run pre-upgrade analysis and troubleshoot
     * Perform an in-place upgrade with LEAPP
 
+    ## Example Usecase:
 
-    # Example Usecase:
     A Systems Administrator needs to upgrade deployed Red Hat Enterprise Linux servers from their current version to the latest major version to take advantage of a longer lifecycle and new features without needing to perform a clean install.
 
-
-    For additional information refer to the leapp tool's documentation: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/upgrading_from_rhel_8_to_rhel_9/index
-
+    For additional information refer to the leapp tool's documentation:
+    https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/upgrading_from_rhel_8_to_rhel_9/index
 
     Note: This process works similarly for RHEL 7 and 8.
 tabs:
-- title: Terminal
+- title: rhel
   type: terminal
-  hostname: rhel
+  hostname: host1
+- title: Host Web Console
+  type: external
+  url: https://host1.${_SANDBOX_ID}.instruqt.io:9090/machines#/vm/console?name=rhelvm&connection=system
 difficulty: basic
 timelimit: 1800
 ---
-# Configure a system for Extended Update Support (EUS)
+# What is Leapp?
 
-What is Extended Update Support?
-EUS is an optional offering for Red Hat Enterprise Linux (RHEL) subscribers. With EUS, Red Hat provides backports of Critical and Important impact1 security updates and urgent-priority bug fixes for a predefined set of minor releases of Red Hat Enterprise Linux. EUS enables customers to remain with the same minor release of Red Hat Enterprise Linux for 24 months, allowing for stable production environments for mission-critical applications.
+TODO
 
-(Source: https://access.redhat.com/articles/rhel-eus)
+## Upgrade vs. Fresh Install
 
-First, you will need to verify the version of RHEL we are running:
+TODO
+
+# Installing Leapp
+
+Before moving into the package install, it is highly recommended that you ensure all the packages on your system are on the latest version available. Do a dnf update to make certain this is the case. (Note your output may vary.)
+
+```
+dnf update -y
+```
+
+<pre class=file>
+# dnf update -y
+Updating Subscription Management repositories.
+Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)                                                                                                                                                          3.8 MB/s |  45 MB     00:11    
+Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)                                                                                                                                                             4.2 MB/s |  49 MB     00:11    
+
+... output truncated ...
+
+</pre>
+
+Now that your system has all of its updates, It is time to start the process towards an in-place upgrade. Leapp is a supported operation for RHEL which means support tickets can be opened in case obstacles are encountered. It also means that the leapp utility is available straight from the Red Hat package repository. First, verify the version of Red Hat Enterprise Linux that you have installed:
 
 ```
 cat /etc/redhat-release
@@ -47,64 +70,48 @@ cat /etc/redhat-release
 Red Hat Enterprise Linux release 8.6 (Ootpa)
 </pre>
 
-In order to see which releases are available for your system's current operating system, you will use the `subscription-manager` command:
+Use the DNF package manager to install leapp and its dependencies:
 
 ```
-subscription-manager release --list
-```
-
-<pre class=file>
-# sudo subscription-manager release --list
-+-------------------------------------------+
-          Available Releases
-+-------------------------------------------+
-8
-8.0
-8.1
-8.2
-8.3
-8.4
-8.5
-8.6
-</pre>
-
-Next, enable the EUS-specific repositories and disable the regular repositories:
-
-```
-subscription-manager repos --enable rhel-8-for-x86_64-baseos-eus-rpms --enable rhel-8-for-x86_64-appstream-eus-rpms
+dnf install -y leapp-upgrade
 ```
 
 <pre class=file>
-Repository 'rhel-8-for-x86_64-baseos-eus-rpms' is enabled for this system.
-Repository 'rhel-8-for-x86_64-appstream-eus-rpms' is enabled for this system.
-</pre>
-
-```
-subscription-manager repos --disable rhel-8-for-x86_64-baseos-rpms --disable rhel-8-for-x86_64-appstream-rpms
-```
-
-<pre class=file>
-Repository 'rhel-8-for-x86_64-baseos-rpms' is disabled for this system.
-Repository 'rhel-8-for-x86_64-appstream-rpms' is disabled for this system.
-</pre>
-
-With the latest EUS repositories configured, you will need to update all packages to their latest version before proceeding with the in-place upgrade:
-
-```
-dnf clean all
-dnf update -y
-```
-
-Note: Your system's output may vary slightly from the example:
-
-<pre class=file>
-# dnf clean all
+# dnf install leapp-upgrade
 Updating Subscription Management repositories.
-27 files removed
+Last metadata expiration check: 0:17:05 ago on Tue 05 Jul 2022 11:34:56 AM EDT.
+Dependencies resolved.
+==============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+ Package                                                                                                                      Architecture                                                                                            Version                                                                                                         Repository                                                                                                                         Size
+==============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+Installing:
+ leapp-upgrade-el8toel9                                                                                                       noarch                                                                                                  0.16.0-6.el8_6                                                                                                  rhel-8-for-x86_64-appstream-rpms                                                                                                  603 k
+Installing dependencies:
+ leapp                                                                                                                        noarch                                                                                                  0.14.0-1.el8_6                                                                                                  rhel-8-for-x86_64-appstream-rpms                                                                                                   31 k
+ leapp-deps                                                                                                                   noarch                                                                                                  0.14.0-1.el8_6                                                                                                  rhel-8-for-x86_64-appstream-rpms                                                                                                   14 k
+ leapp-upgrade-el8toel9-deps                                                                                                  noarch                                                                                                  0.16.0-6.el8_6                                                                                                  rhel-8-for-x86_64-appstream-rpms                                                                                                   29 k
+ python3-leapp                                                                                                                noarch                                                                                                  0.14.0-1.el8_6                                                                                                  rhel-8-for-x86_64-appstream-rpms                                                                                                  173 k
 
-Updating Subscription Management repositories.
-Red Hat Enterprise Linux 8 for x86_64 - AppStream(RPMs)       53 MB/s |  45 MB     00:00
-Red Hat Enterprise Linux 8 for x86_64 - AppStream - Extended Update Support (RPMs)
-...
+Transaction Summary
+==============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+Install  5 Packages
+
+Total download size: 851 k
+Installed size: 2.1 M
+Downloading Packages:
+
+... output truncated ...
+
 Complete!
+</pre>
+
+Verify the install was successful
+
+```
+leapp --version
+```
+
+<pre class=file>
+# leapp --version
+leapp version 0.14.0
 </pre>
