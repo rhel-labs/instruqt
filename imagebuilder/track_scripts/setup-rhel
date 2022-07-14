@@ -73,3 +73,4 @@ yum -y install cockpit cockpit-packagekit
 firewall-cmd --add-service=cockpit --permanent
 firewall-cmd --reload
 systemctl enable --now cockpit.socket
+dnf update -y
