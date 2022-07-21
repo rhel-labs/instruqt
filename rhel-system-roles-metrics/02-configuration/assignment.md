@@ -30,7 +30,7 @@ tabs:
   url: https://rhel3.${_SANDBOX_ID}.instruqt.io:9090
 - title: RHEL Grafana Console
   type: external
-  url: https://rhel.${_SANDBOX_ID}.instruqt.io:3000
+  url: http://rhel.${_SANDBOX_ID}.instruqt.io:3000
 difficulty: basic
 timelimit: 60
 ---
@@ -98,3 +98,5 @@ EOF
 cd metrics
 ansible-playbook metrics.yml -b -i inventory.yml
 ```
+
+![metrics completed](../assets/metrics_success.png)

@@ -76,3 +76,6 @@ dnf install -y cockpit
 systemctl --now enable cockpit.socket
 firewall-cmd --add-service=cockpit --permanent
 firewall-cmd --reload
+
+subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
+dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
