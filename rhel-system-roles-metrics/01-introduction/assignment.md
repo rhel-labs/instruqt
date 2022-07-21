@@ -1,5 +1,6 @@
 ---
 slug: introduction
+id: ufdneafyxydc
 type: challenge
 title: Introduction
 teaser: I just want to see if this works
@@ -25,6 +26,9 @@ tabs:
 - title: RHEL3 Web Console
   type: external
   url: https://rhel3.${_SANDBOX_ID}.instruqt.io:9090
+- title: RHEL Grafana Console
+  type: external
+  url: https://rhel.${_SANDBOX_ID}.instruqt.io:3000
 difficulty: basic
 timelimit: 86400
 ---

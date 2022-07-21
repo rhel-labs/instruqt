@@ -1,7 +1,7 @@
-slug: test
-id: jc35qjmmymau
+slug: rhel-system-roles-metrics
+id: szhhxllg5wcg
 type: track
-title: test
+title: RHEL System Roles Metrics
 teaser: A short description of the track.
 description: |-
   A long description of the track.
@@ -12,6 +12,6 @@ tags: []
 owner: rhel
 developers:
 - myee@redhat.com
-private: true
+private: false
 published: false
-checksum: "10853622483822232172"
+checksum: "537031679640178814"

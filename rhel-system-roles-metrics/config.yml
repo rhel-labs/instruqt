@@ -1,0 +1,32 @@
+version: '3'
+virtualmachines:
+- environment:
+    TERM: xterm
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-0-06-13-2022-1
+  machine_type: n1-highmem-2
+  name: rhel
+  shell: /bin/bash
+  allow_external_ingress:
+    - http
+    - https
+    - high-ports
+- environment:
+    TERM: xterm
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-0-06-13-2022-1
+  machine_type: n1-highmem-2
+  name: rhel2
+  shell: /bin/bash
+  allow_external_ingress:
+    - http
+    - https
+    - high-ports
+- environment:
+    TERM: xterm
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-0-06-13-2022-1
+  machine_type: n1-highmem-2
+  name: rhel3
+  shell: /bin/bash
+  allow_external_ingress:
+    - http
+    - https
+    - high-ports

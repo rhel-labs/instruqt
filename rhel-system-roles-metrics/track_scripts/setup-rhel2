@@ -76,10 +76,3 @@ dnf install -y cockpit
 systemctl --now enable cockpit.socket
 firewall-cmd --add-service=cockpit --permanent
 firewall-cmd --reload
-
-tee -a /root/.ssh/config << EOF
-Host *
-    StrictHostKeyChecking no
-EOF
-
-chmod 400 /root/.ssh/config
