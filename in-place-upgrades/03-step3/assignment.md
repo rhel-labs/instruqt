@@ -15,13 +15,11 @@ timelimit: 1800
 ---
 # Running the upgrade
 
-Now that you have verified the RHEL system meets all the expected conditions, it is time to kick off the upgrade process:
+Now that you have verified the RHEL system meets all the expected conditions, it is time to kick off the upgrade process: (Note: This process will take awhile.)
 
 ```
 leapp upgrade --target 9.0
 ```
-
-Note: This process will take awhile.
 
 <pre class=file>
 # leapp upgrade --target 9.0

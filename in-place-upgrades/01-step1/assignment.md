@@ -35,15 +35,13 @@ timelimit: 1800
 ---
 # What is Leapp?
 
-TODO
+Red Hat Leapp provides existing Red Hat Enterprise Linux 7 and 8 instances to upgrade from one major version to the next. This can be done on a one-to-one basis or en mass with a tool like Satellite. The Leapp tooling also includes a pre-upgrade assistant that makes it easy to identify breaking changes or warn about potential issues before any lasting changes are made to the system.
 
-## Upgrade vs. Fresh Install
-
-TODO
+Before diving in, the question you have to ask is: is this workload worth executing a rebuild from scratch? That process can be tedious and time consuming. Doing an in-place upgrade retains the subscription, installed packages, user data, and configurations all while saving the time and resources required to deploy fresh.
 
 # Installing Leapp
 
-Before moving into the package install, it is highly recommended that you ensure all the packages on your system are on the latest version available. Do a dnf update to make certain this is the case. (Note your output may vary.)
+To get started, it is highly recommended that you update all packages on your system to the latest version available. Do a dnf update to make certain this is the case. (Note your output may vary.)
 
 ```
 dnf update -y

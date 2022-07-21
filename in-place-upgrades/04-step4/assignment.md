@@ -15,7 +15,7 @@ timelimit: 1800
 ---
 # Verifying the upgrade
 
-Once the new initramfs image is in place, packages updates run, and SELinux relabel completion, the system will perform one final reboot. Once that is done, you will be logged into the system's terminal once more. Switch back to the terminal tab. Finally, we will verify the update was successful by looking at the release file we referenced earlier in the lab:
+Once the new initramfs image is in place, package updates run, and SELinux relabel completion, the system will perform one final reboot. Once that is done, you will be logged into the system's terminal once more. Switch back to the terminal tab. Finally, we will verify the update was successful by looking at the release file we referenced earlier in the lab:
 
 ```
 cat /etc/redhat-release
