@@ -1,0 +1,14 @@
+version: "3"
+virtualmachines:
+- environment:
+    TERM: xterm
+  image: centos-cloud/centos-7
+  machine_type: n2-standard-2
+  name: host
+  shell: /bin/bash
+- environment:
+  TERM: xterm
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-79-post-c2r
+  machine_type: n2-standard-2
+  name: host2
+  shell: /bin/bash

@@ -1,0 +1,24 @@
+slug: convert2rhel
+id: x3zfsjtkmgw1
+type: track
+title: Introduction to Convert2RHEL
+description: |+
+  # Goal:
+  After completing this scenario, users will be able to convert a CentOS Linux instance to a Red Hat Enterprise Linux instance.
+
+  # Concepts included in this scenario:
+  * Subscribing to additional repositories
+  * Convert2RHEL utility
+
+  # Example Usecase:
+  In order to standardize your infrasturcture under a single platform, you need to convert your RPM-based servers over to Red Hat Enterprise Linux.
+
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- ehendric@redhat.com
+private: false
+published: false
+checksum: "7535524880515672027"
