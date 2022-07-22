@@ -3,12 +3,11 @@ slug: configuration
 id: dvq6gaxcphzv
 type: challenge
 title: Configure the playbook.
-teaser: We'll configure the playbook to configure the Metrics role by writing a series
-  of configuations yaml files.
+teaser: We'll configure a playbook to configure the Metrics role.
 notes:
 - type: text
-  contents: We'll configure the playbook to configure the Metrics role by writing
-    a series of configuations yaml files.
+  contents: We'll configure a playbook to configure the Metrics role by writing a
+    series of configuation yaml files.
 tabs:
 - title: rhel
   type: terminal
@@ -19,15 +18,6 @@ tabs:
 - title: rhel3
   type: terminal
   hostname: rhel3
-- title: RHEL Web Console
-  type: external
-  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
-- title: RHELs Web Console
-  type: external
-  url: https://rhels.${_SANDBOX_ID}.instruqt.io:9090
-- title: RHEL3 Web Console
-  type: external
-  url: https://rhel3.${_SANDBOX_ID}.instruqt.io:9090
 - title: RHEL Grafana Console
   type: external
   url: http://rhel.${_SANDBOX_ID}.instruqt.io:3000
@@ -86,19 +76,19 @@ metrics_monitored_hosts:  "{{ groups['servers'] }}"
 EOF
 ```
 
-Create the main playbook file. Notice that we are using both the `metrics` and `firewall` system roles.
+Create the main playbook file. Notice that we are using both the `metrics` and `firewall` system roles. Earlier, we specified ports to open for the `pmcd` and `grafana` services in the inventory.
 
 ```bash
 tee -a ~/metrics/metrics.yml << EOF
 - name: Use metrics system role to configure PCP metrics recording
   hosts: servers
-  roles: 
+  roles:
     - redhat.rhel_system_roles.metrics
     - redhat.rhel_system_roles.firewall
 
 - name: Use metrics system role to configure Grafana
   hosts: metrics_monitor
-  roles: 
+  roles:
     - redhat.rhel_system_roles.metrics
     - redhat.rhel_system_roles.firewall
 EOF
