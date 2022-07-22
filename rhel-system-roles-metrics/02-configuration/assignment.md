@@ -31,7 +31,7 @@ Let's create a directory to store our playbook as well as a sub-directory to sto
 mkdir -p metrics/group_vars
 ```
 
-Next, we'll create an inventory file for the playbook. This inventory file contains a list of hosts and the role they will be assigned when the playbook is run. The inventory file also contains the ports that we will open to enable PCP and Grafana.
+Next, we'll create an inventory file for the playbook. This inventory file contains a list of hosts and the role they will be assigned when the playbook is run as well as all the variables required to be set. These include things like PCP retention settings, and the ports that we will open to enable PCP and Grafana.
 
 > _NOTE:_ A `README` document for RHEL System Roles is available in the `/usr/share/doc/rhel-system-roles/metrics` directory, including example playbooks.
 
@@ -47,6 +47,7 @@ all:
         firewall:
           - service: pmcd
             state: enabled
+        metrics_retention_days: 7
     metrics_monitor:
       hosts:
         rhel:
@@ -54,27 +55,20 @@ all:
         firewall:
           - service: grafana
             state: enabled
+        metrics_graph_service: yes
+        metrics_query_service: yes
+        metrics_retention_days: 7
+        metrics_monitored_hosts:  "{{ groups['servers'] }}"
 EOF
 ```
 
 We'll configure PCP to retain 7 days worth of performance data for the `servers` specified in the inventory.
 
-```bash
-tee -a ~/metrics/group_vars/servers.yml << EOF
-metrics_retention_days: 7
-EOF
-```
+![servers retention](../assets/serversretention.png)
 
-Create a configuration for the `metrics_monitor` server. The following file designates the `rhel` host to run the `metrics_graph_service` and `metrics_query_service` which are the Grafana and Redis software packages respectively.
+The following variables designate the `rhel` host to run the `metrics_graph_service` and `metrics_query_service` which are the Grafana and Redis software packages respectively.
 
-```bash
-tee -a ~/metrics/group_vars/metrics_monitor.yml << EOF
-metrics_graph_service: yes
-metrics_query_service: yes
-metrics_retention_days: 7
-metrics_monitored_hosts:  "{{ groups['servers'] }}"
-EOF
-```
+![metrics monitor](../assets/metricsmonitor.png)
 
 Create the main playbook file. Notice that we are using both the `metrics` and `firewall` system roles. Earlier, we specified ports to open for the `pmcd` and `grafana` services in the inventory.
 
@@ -93,7 +87,6 @@ tee -a ~/metrics/metrics.yml << EOF
     - redhat.rhel_system_roles.firewall
 EOF
 ```
-
 Now run the playbook.
 
 ```bash
