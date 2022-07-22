@@ -32,6 +32,16 @@ tabs:
 difficulty: basic
 timelimit: 86400
 ---
+In this lab there are 3 hosts. Below is a description of them and their purpose.
+
+| Host | Description |
+|------|-----------------------------------------------------|
+| `rhel` | Control node where the metrics system role will run. As well, Grafana will be installed here. |
+| `rhel2` | RHEL9 host where we will collect metrics from.      |
+| `rhel3` | RHEL9 host where we will collect metrics from.      |
+
+We'll start by installing RHEL System Roles on `rhel`
+
 First, click on the menu tab labelled `rhel`.
 
 ![rhel tab](../assets/rhel_tab.png)
