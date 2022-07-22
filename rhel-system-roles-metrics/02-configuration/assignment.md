@@ -87,6 +87,7 @@ tee -a ~/metrics/metrics.yml << EOF
     - redhat.rhel_system_roles.firewall
 EOF
 ```
+
 Now run the playbook.
 
 ```bash
