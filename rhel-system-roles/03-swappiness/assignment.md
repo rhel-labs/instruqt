@@ -1,5 +1,5 @@
 ---
-slug: 03-swappiness
+slug: swappiness
 id: nzslxqav3vzn
 type: challenge
 title: Verify the system roles and configurations were applied.

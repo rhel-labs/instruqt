@@ -1,7 +1,7 @@
 slug: rhel-system-roles
 id: yjkfwzaxndfo
 type: track
-title: rhel-system-roles
+title: Build a Standard Operating Environment with RHEL System Roles
 teaser: Configuring and updating system configurations with System Roles. This track
   has an estimated duration for completion of 10 minutes.
 description: |-
@@ -19,7 +19,8 @@ description: |-
   # Example Usecase:
   You have a set of database servers, these servers need kernel settings and time settings applied to them. Additionally, you want to record terminal sessions for auditing. When a change needs to be made to the configuration, you want to apply the changes to all your database servers to keep them all updated with the same configuration options.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
-tags: []
+tags:
+- ""
 owner: rhel
 developers:
 - myee@redhat.com
@@ -27,4 +28,4 @@ private: false
 published: true
 show_timer: true
 skipping_enabled: true
-checksum: "10863694537118664239"
+checksum: "10353164251314458826"

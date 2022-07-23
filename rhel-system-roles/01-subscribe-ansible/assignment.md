@@ -1,5 +1,5 @@
 ---
-slug: 01-subscribe-ansible
+slug: subscribe-ansible
 id: hgfyzlfmhsem
 type: challenge
 title: Add the Ansible repository.
