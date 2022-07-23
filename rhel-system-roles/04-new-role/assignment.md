@@ -1,5 +1,5 @@
 ---
-slug: 04-new-role
+slug: new-role
 id: 9q5x0fsx4eeo
 type: challenge
 title: Adding a new role and settings

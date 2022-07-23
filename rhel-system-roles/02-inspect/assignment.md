@@ -1,5 +1,5 @@
 ---
-slug: 02-inspect
+slug: inspect
 id: debcr82qaz3j
 type: challenge
 title: Inspecting a pre-made example and applying it.
