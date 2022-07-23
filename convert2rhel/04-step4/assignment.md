@@ -4,9 +4,11 @@ id: 0ac72zgtxj1t
 type: challenge
 title: Step 4
 notes:
+- type: video
+  url: ../assets/demo-c2r.mp4
 - type: text
   contents: |
-    < embedded video>
+    ![Convert2RHEL Video](../assets/demo-c2r.mp4)
 
     With the convert2rhel utility running, the system will now replace the CentOS signed packages with Red Hat signed versions. The system will reboot a few times first to boot into a temporary environment from which to make these changes, a second time to perform a relabel on SELinux contexts, and a final time in order to boot into the newly created RHEL environment.
 
