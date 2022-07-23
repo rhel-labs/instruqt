@@ -1,0 +1,33 @@
+slug: rhel-system-roles-metrics
+id: szhhxllg5wcg
+type: track
+title: Monitor your Red Hat Enterprise Linux Infrastructure with RHEL System Roles
+  Metrics role
+teaser: Learn how RHEL System Roles can automatically configure a systems monitoring
+  infrastructure for you.
+description: |
+  # Overview:
+  In this lab, we'll set up a Grafana server to visualize performance metrics collected with Performance Co-Pilot, running on Red Hat Enterprise Linux hosts.
+
+  Grafana is an open source project that enables the querying and visualization of performance data.
+  Performance Co-Pilot is a system performance analysis toolkit that collects metrics.
+
+  # Goal:
+
+  Configure and install and systems monitoring infrastructure with RHEL System Roles Metrics role.
+
+  # Concepts included in this scenario:
+
+  * Create an Ansible playbook to run the Metrics System Role.
+  * Use the Metrics System Role will configure and install Performance Co-Pilot (PCP) on RHEL9 hosts.
+  * Use the Metrics System Role will configure and install Grafana on a specified host to visualize the PCP data.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- ""
+- systemrole
+owner: rhel
+developers:
+- myee@redhat.com
+private: false
+published: false
+checksum: "8565134062112612426"
