@@ -1,11 +1,14 @@
 ---
 slug: addanotherhost
+id: 1zyvs3cktv8b
 type: challenge
 title: Add another host to be monitored
-teaser: We'll add another host to be monitored collected and monitored by the Grafana host.
+teaser: We'll add another host to be monitored collected and monitored by the Grafana
+  host.
 notes:
 - type: text
-  contents: Configure a playbook to install PCP on a new host and add it to be collected and monitored by the Grafana host.
+  contents: Configure a playbook to install PCP on a new host and add it to be collected
+    and monitored by the Grafana host.
 tabs:
 - title: rhel
   type: terminal
