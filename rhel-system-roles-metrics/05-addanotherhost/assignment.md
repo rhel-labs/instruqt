@@ -7,8 +7,8 @@ teaser: We'll add another host to be monitored collected and monitored by the Gr
   host.
 notes:
 - type: text
-  contents: Configure a playbook to install PCP on a new host and add it to be collected
-    and monitored by the Grafana host.
+  contents: Configure a playbook to install PCP on a new host and configure it to
+    be collected and monitored by the Grafana host.
 tabs:
 - title: rhel
   type: terminal
@@ -28,24 +28,6 @@ tabs:
 difficulty: basic
 timelimit: 60
 ---
-
-```bash
-all:
-  children:
-    servers:
-      hosts:
-        rhel4:
-      vars:
-        firewall:
-          - service: pmcd
-            state: enabled
-        metrics_retention_days: 7
-    metrics_monitor:
-      hosts:
-        rhel:
-      vars:
-        metrics_monitored_hosts:  "{{ groups['servers'] }}"
-```
 
 So far we have configured 2 RHEL hosts (`rhel2`, `rhel3`) to be monitored and have their performance metrics collected by host running Grafana and Redis (`rhel`). We'll now edit the play book to configure and add another host `rhel4`. This exercise is useful as you add more and more hosts to your datacenter.
 
@@ -74,7 +56,7 @@ EOF
 The following configuration file will configure the playbook to run on `rhel4` and `rhel` but skip configuring the firewall on `rhel` since we've already done it. Copy and paste this to the cli and press enter.
 
 ```bash
-tee -a ~/metrics/metrics.yml << EOF
+tee -a ~/metrics/metrics-rhel4.yml << EOF
 - name: Use metrics system role to configure PCP metrics recording
   hosts: servers
   roles:
@@ -88,7 +70,17 @@ tee -a ~/metrics/metrics.yml << EOF
 EOF
 ```
 
-Now go back to the Grafana dashboard. You should be able to see `rhel4` has been added and metrics are being collected.
+Run the playbook with the following command to execute the modified playbook.
+
+```bash
+ansible-playbook ~/metrics/metrics-rhel4.yml -b -i ~/metrics/addrhel4.yml
+```
+
+Now go back to the Grafana dashboard.
+
+Refresh the page on your browser.
+
+You should be able to see `rhel4` has been added and metrics are being collected.
 
 ![rhel4](../assets/rhel4.png)
 
