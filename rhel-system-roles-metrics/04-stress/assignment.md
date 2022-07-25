@@ -46,11 +46,3 @@ When these `stress` tests are complete, go back to the Grafana dashboard and vie
 You can also experiment with the dash board scales and intervals.
 
 ![dash](../assets/scales.png)
-
-Congratulations on completing this lab!
-
-For more information on RHEL System Roles, please consider browsing the following:
-
-- [Automate performance metrics collection and visualization with RHEL System Roles](https://www.redhat.com/en/blog/automate-performance-metrics-collection-and-visualization-rhel-system-roles)
-- [Red Hat Enterprise Linux System Roles blog series](https://www.redhat.com/en/blog/red-hat-enterprise-linux-system-roles).
-- [Administration and configuration tasks using System Roles in RHEL](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/administration_and_configuration_tasks_using_system_roles_in_rhel)

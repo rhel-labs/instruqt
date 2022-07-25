@@ -28,7 +28,7 @@ timelimit: 60
 Let's create a directory to store our playbook as well as a sub-directory to store playbook variables.
 
 ```bash
-mkdir -p metrics/group_vars
+mkdir -p metrics
 ```
 
 Next, we'll create an inventory file for the playbook. This inventory file contains a list of hosts and the role they will be assigned when the playbook is run as well as all the variables required to be set. These include things like PCP retention settings, and the ports that we will open to enable PCP and Grafana.
