@@ -30,7 +30,7 @@ There are several different combinations of arguments that can be used to execut
 In order to automate this process as much as possible, you will kick off the conversion using the activation key combination from #3 above: convert2rhel --org <organization_ID> --activationkey <activation_key>
 
 ```
-convert2rhel --org 12451665 --activationkey Instruqt_system_registration -y
+convert2rhel --org 12451665 --activationkey convert2rhel -y
 ```
 
 Note: This process will take some time!
