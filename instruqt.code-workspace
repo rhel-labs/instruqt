@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../instruqt-update-helper"
+		},
+		{
+			"path": "../rhel-labs"
 		}
 	]
 }
