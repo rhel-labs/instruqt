@@ -35,8 +35,10 @@ installed.  By installing the plugin for Web Console, all of the other
 required packages will also be installed.
 
 ```
-yum install -y cockpit-composer
+yum install cockpit-composer
 ```
+
+Type `y` to confirm the installation fo the software.
 
 Now that the software is installed, restart the web console so that it picks up
 the newly installed plugin for image builder.
