@@ -8,7 +8,7 @@ notes:
   contents: |
     # Goal:
 
-    After completing this scenario, users will better understand the performance observability tools provided in Red Hat Enterprise Linux 8.
+    After completing this scenario, users will better understand the performance observability tools provided in Red Hat Enterprise Linux.
 
     # Concepts included in this scenario:
     * Install bcc-tools

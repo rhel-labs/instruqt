@@ -5,7 +5,7 @@ title: Performance observability in practice with bcc-tools
 description: |
   # Goal:
 
-  After completing this scenario, users will better understand the performance observability tools provided in Red Hat Enterprise Linux 8.
+  After completing this scenario, users will better understand the performance observability tools provided in Red Hat Enterprise Linux.
 
   # Concepts included in this scenario:
   * Install bcc-tools
@@ -26,6 +26,7 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
+- smcbrien@redhat.com
 private: false
 published: true
-checksum: "13718453147327938241"
+checksum: "16827406825477118974"
