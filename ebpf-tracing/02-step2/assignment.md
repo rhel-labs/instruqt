@@ -20,13 +20,26 @@ In __pane 5__, run the following command.
 yum install -y bpftool
 ```
 
-Next, run `bpftool` to verify that no eBPF programs are currently loaded in the kernel.  If there are no eBPF programs in use, the tool will return no output.
+Next, run `bpftool` to see what eBPF programs are currently loaded in the kernel.  If there are no eBPF programs in use, the tool will return no output.
 
 ```bash
 bpftool prog list
 ```
 
-The tool should have provided no output, indicating that no eBPF tools are running in the environment.
+<pre class="file">
+20: cgroup_device  tag 40ddf486530245f5  gpl
+loaded_at 2022-07-27T20:03:44+0000  uid 0
+xlated 504B  jited 309B  memlock 4096B
+pids systemd(1)
+21: cgroup_skb  tag 6deef7357e7b4530  gpl
+loaded_at 2022-07-27T20:03:44+0000  uid 0
+xlated 64B  jited 54B  memlock 4096B
+pids systemd(1)
+
+<<< OUTPUT ABRIDGED >>>
+</pre>
+
+The tool likely provided output, similar to that displayed above. Reviewing that output, the eBPF tools already running are related to the cgroup2 implementation on the machine. You will add to this list by launching additional tools, but is always good to know what is already in-place on the system before adding additional tooling to the machine.
 
 Now, launch some bcc-tools applications in the separate, provided terminals. You will use these to observe our sample workload in a following step.
 
