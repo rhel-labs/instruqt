@@ -34,11 +34,13 @@ So far we have configured 2 RHEL hosts (`rhel2`, `rhel3`) to be monitored and ha
 The following configuration file will install PCP on the host `rhel4`. As well, it will tell the `rhel` Grafana host to monitor `rhel4`, in addition to the other hosts. Copy and paste this to the cli and press enter.
 
 ```bash
-tee -a ~/metrics/addrhel4.yml << EOF
+tee ~/metrics/inventory.yml << EOF
 all:
   children:
     servers:
       hosts:
+        rhel2:
+        rhel3:
         rhel4:
       vars:
         firewall:
@@ -49,36 +51,39 @@ all:
       hosts:
         rhel:
       vars:
+        firewall:
+          - service: grafana
+            state: enabled
+        metrics_graph_service: yes
+        metrics_query_service: yes
+        metrics_retention_days: 7
         metrics_monitored_hosts:  "{{ groups['servers'] }}"
 EOF
 ```
 
-The following configuration file will configure the playbook to run on `rhel4` and `rhel` but skip configuring the firewall on `rhel` since we've already done it. Copy and paste this to the cli and press enter.
+You may notice the only change made has been to add `rhel4` to this section:
 
-```bash
-tee -a ~/metrics/metrics-rhel4.yml << EOF
-- name: Use metrics system role to configure PCP metrics recording
-  hosts: servers
-  roles:
-    - redhat.rhel_system_roles.metrics
-    - redhat.rhel_system_roles.firewall
-
-- name: Use metrics system role to configure Grafana
-  hosts: metrics_monitor
-  roles:
-    - redhat.rhel_system_roles.metrics
-EOF
+```yaml
+all:
+  children:
+    servers:
+      hosts:
+        rhel2:
+        rhel3:
+        rhel4:
 ```
+
+You may ask yourself why we did not remove the originally configured hosts or the Grafana configuration. The reason is because RHEL System Roles are based on Ansible. Ansible playbooks are designed to be run multiple times ensuring that the same result is obtained on each target host. Therefore, running the playbook multiple times on the same hosts should obtain the same result on each host.
 
 Run the playbook with the following command to execute the modified playbook.
 
 ```bash
-ansible-playbook ~/metrics/metrics-rhel4.yml -b -i ~/metrics/addrhel4.yml
+ansible-playbook ~/metrics/metrics.yml -b -i ~/metrics/inventory.yml
 ```
 
 Now go back to the Grafana dashboard.
 
-Refresh the page on your browser.
+Refresh the dashboard page on your browser.
 
 You should be able to see `rhel4` has been added and metrics are being collected.
 
