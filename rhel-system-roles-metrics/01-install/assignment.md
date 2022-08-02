@@ -32,7 +32,7 @@ In this lab there are 4 hosts. Below is a description of them and their purpose.
 | `rhel3` | RHEL9 host where we will collect metrics from.      |
 | `rhel4` | RHEL9 host where we will collect metrics from.      |
 
-Initially we will configure the first 3 hosts. After, we will add `rhel4` to the monitoring system since it is likely you will need to add additional hosts to your monitoring system well after the initial installation and configuration has taken place.
+Initially we will configure the first 3 hosts. After, we will add `rhel4` to the observability system since it is likely you will need to add additional hosts to your infrastructure well after the initial installation and configuration has taken place.
 
 We'll start by installing RHEL System Roles on `rhel`
 
