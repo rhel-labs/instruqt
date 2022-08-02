@@ -30,13 +30,13 @@ There are several different combinations of arguments that can be used to execut
 In order to automate this process as much as possible, you will kick off the conversion using the activation key combination from #3 above: convert2rhel --org <organization_ID> --activationkey <activation_key>
 
 ```
-convert2rhel --org 12451665 --activationkey Instruqt_system_registration -y
+convert2rhel --org 12451665 --activationkey Instruqt_system_registration
 ```
 
 Note: This process will take some time!
 
 <pre class='file'>
-# convert2rhel --org 12451665 --activationkey convert2rhel -y
+# convert2rhel --org 12451665 --activationkey convert2rhel
 
 [07/22/2022 18:40:54] TASK - [Prepare: Show Red Hat software EULA] ******************************
 The following text is a copy of the November 18, 2019 version of Red Hat GPLv2-Based End User License Agreement (EULA) [1].
@@ -61,6 +61,12 @@ WARNING - In order to boot the RHEL kernel, restart of the system is needed.
 </pre>
 
 Now that the conversion has been staged successfully, you will need to reboot the system in order to put the changes into effect.
+
+>**Note:** The above process can be automated by adding a `-y` argument to your command!
+
+<pre class='file'>
+# convert2rhel --org 12451665 --activationkey convert2rhel -y
+</pre>
 
 ```
 reboot
