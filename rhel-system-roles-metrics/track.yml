@@ -1,9 +1,10 @@
 slug: rhel-system-roles-metrics
 id: szhhxllg5wcg
 type: track
-title: Visualize performance on your Red Hat Enterprise Linux Infrastructure with RHEL System Roles
-  Metrics role
-teaser: Learn how RHEL System Roles can automatically configure an observability infrastructure for you.
+title: Visualize performance on your Red Hat Enterprise Linux Infrastructure with
+  RHEL System Roles Metrics role
+teaser: Learn how RHEL System Roles can automatically configure an observability infrastructure
+  for you.
 description: |
   # Overview:
   In this lab, we'll set up a Grafana server to visualize performance metrics collected with Performance Co-Pilot, running on Red Hat Enterprise Linux hosts.
@@ -29,4 +30,4 @@ developers:
 - myee@redhat.com
 private: false
 published: false
-checksum: "17725292516006084277"
+checksum: "18404521421212613659"
