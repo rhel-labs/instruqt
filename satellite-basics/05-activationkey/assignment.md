@@ -39,6 +39,6 @@ Click on `Create Activation Key`.
 
 ![createak](../assets/createak.png)
 
-We'll name this activation key `RHEL8`, select the `Test` environment, select the `RHEL8` content view and then click `save`.
+We'll name this activation key `RHEL9`, select the `Test` environment, select the `RHEL9` content view and then click `save`.
 
 ![akcreation](../assets/akcreation.png)

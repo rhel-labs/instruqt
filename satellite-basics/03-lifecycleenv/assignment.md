@@ -46,7 +46,7 @@ However, a more complex application life cycle might have further stages, such a
 - Beta Release
 - Production
 
-To find out more about lifecyce environments, please refer to [Satellite documentation](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/html/content_management_guide/creating_an_application_life_cycle).
+To find out more about lifecyce environments, please refer to [Satellite documentation](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.11/html/managing_content/creating_an_application_life_cycle_content-management.)
 
 Navigate to the `Lifecycle Environments` menu.
 

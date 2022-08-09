@@ -38,7 +38,10 @@ Click on `Content Views`.
 Click on `Create New View`.
 ![createnewview](../assets/createcontentview.png)
 
-We'll name this content view `RHEL8`. Click `Save` to save it.
+We'll name this content view `RHEL9`. Click `Create content view` to save it.
+
+> **NOTE:** Please ensure that you type `RHEL9` in capital letters. We'll need this value in step 6 of this lab.
+
 ![createcv](../assets/createcv.png)
 
 Add the `BaseOS` and `AppStream` repos. Click `Add Repositories`.
@@ -49,18 +52,12 @@ Click `Publish New Version`.
 
 ![publish](../assets/publish.png)
 
-Click `Save`.
+Next we'll complete the following steps to publish and promote the content view.
 
-![save](../assets/save.png)
+1) Click the sliding `Promote` button.
+2) Select the lifecycle environment you wish to promote the content view to. In this case it is `Test`.
+3) Click `Next` to review the task.
 
-The content view will proceed to be published.
+![publishing wizard](../assets/publishwizard.png)
 
-![publishing](../assets/publishing.png)
-
-Promote this content view to the `Test` lifecycle environment by clicking `Promote`.
-
-![promote](../assets/promote.png)
-
-Select `Test` and then click `Promote Version`.
-
-![promoteversion](../assets/promoteversion.png)
+Review the details and then click `Finish`.

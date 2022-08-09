@@ -36,7 +36,7 @@ Navigate to the Red Hat Repositories menu by clicking on `Red Hat Repositories` 
 
 ![rhrepos](../assets/redhatrepositories.png)
 
-The Red Hat Repositories menu will provide a list of available repositories. You can choose to synchronize whatever you want. In this lab we'll synchronize the `BaseOS` and `AppStream` repos for RHEL 8.
+The Red Hat Repositories menu will provide a list of available repositories. You can choose to synchronize whatever you want. In this lab we'll synchronize the `BaseOS` and `AppStream` repos for RHEL 9.
 
 ![baseosappstreamrepos](../assets/baseosappstream.png)
 
@@ -56,4 +56,4 @@ Expand the menu widgets to see a detailed report on the sync status.
 
 ![syncstatusdetailed](../assets/syncstatusdetailed.png)
 
->_NOTE:_ The BaseOS and AppStream repos for RHEL8 take approximately 15 minutes to synchronize.
+>_NOTE:_ The BaseOS and AppStream repos take approximately 15 minutes to synchronize.
