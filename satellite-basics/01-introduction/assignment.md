@@ -27,13 +27,13 @@ tabs:
   type: external
   url: https://rhel2.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 2400
+timelimit: 2398
 ---
 <!-- markdownlint-disable MD033 -->
 The lab environment consists of the following
 
-- 1 Red Hat Satellite 6.10 Server (Satellite is preinstalled)
-- 2 Red Hat Enterprise Linux 8.5 hosts.
+- 1 Red Hat Satellite 6.11 Server (Satellite is preinstalled)
+- 2 Red Hat Enterprise Linux 9 hosts.
 
 ![lab environment](../assets/satellite-basics-environment.png)
 
@@ -58,11 +58,6 @@ Next click on `Proceed`.
 ![proceed](../assets/proceed.png)
 
 You'll need the following credentials to log into the Satellite Web UI.
-
-```text
-Username: satadmin
-Password: bc31c9a6-9ff0-11ec-9587-00155d1b0702
-```
 
 You can copy and paste each of them below.
 

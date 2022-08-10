@@ -3,9 +3,23 @@ id: bj383eviboot
 type: track
 title: Satellite Basics
 teaser: Learn the basics of using Red Hat Satellite.
-description: Red Hat Satellite manages Red Hat Enterprise Linux hosts, including patching,
-  content management, provisioning and more. In this lab, we'll learn the basics of
+description: |2
+
+  # Overview:
+  Red Hat Satellite manages Red Hat Enterprise Linux hosts, including patching, content management, provisioning and more. In this lab, we'll learn the basics of
   managing hosts with Satellite.
+
+  # Goal:
+
+  Configure a new Satellite server to manage RHEL hosts.
+
+  # Concepts included in this scenario:
+
+  * Synchronizing content to Satellite.
+  * Configuring Satellite to provide content to RHEL hosts.
+  * Adding hosts to be managed by Satellite.
+  * Updating hosts' errata.
+  * Install software on multiple hosts.  
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags: []
 owner: rhel
@@ -13,4 +27,5 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-checksum: "4730861165937393049"
+show_timer: true
+checksum: "11021265167341922991"

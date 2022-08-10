@@ -67,6 +67,10 @@ In the Satellite Web UI, navigate to `All Hosts` to view the newly registered ho
 
 ![webuiregistered](../assets/webuiregistered.png)
 
-You can check that your host repos are configured for the Satellite server by entering the following `cat /etc/yum.repos.d/redhat.repo`
+You can check that your host repos are configured for the Satellite server `satellite.lab` by entering the following:
+
+```bash
+cat /etc/yum.repos.d/redhat.repo
+```
 
 ![repolist](../assets/repolist.png)
