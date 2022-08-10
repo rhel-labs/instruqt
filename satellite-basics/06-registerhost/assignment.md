@@ -31,33 +31,35 @@ timelimit: 2400
 ---
 <!-- markdownlint-disable MD033 -->
 
-Navigate to the `Register Host` menu.
+Now we'll register the hosts `rhel1` and `rhel2` to our Satellite server. We'll use the command line interface to generate a registration command in this lab. It is also possible to generate a registration command from the Satellite WebUI but due to the limitations of DNS in this lab environment, we'll use the cli utility `hammer` to simplify the process.
 
-![reghost](../assets/reghostmenu.png)
+Click on the `Satellite Server` tab.
 
-Check the `Insecure` check box then click on `Advanced`.
+![satellite tab](../assets/satellite-tab.png)
 
-![reghost1](../assets/reghost1.png)
+Copy and paste the following command into the terminal.
 
-Next, select the `RHEL8` activation key, check `Ignore errors`, check `Force`, and then click `Generate`.
+```bash
+hammer host-registration generate-command --activation-key RHEL9 --force 1 --insecure 1 --organization "Acme Org" --location "Vancouver"
+```
 
-![reghost2](../assets/reghost2.png)
+Copy the output by highlighting the selected text. Once the primary click mouse, button is released, the text will be automatically saved to the clipboard.
 
-After clicking `Generate`, a curl command will be generated. Copy and paste this command by clicking on the copy icon.
+![copypaste](../assets/copypaste.gif)
 
-![reghost3](../assets/reghost3.png)
+Now click on the `rhel1` tab.
 
-![copied](../assets/copied.png)
+![rhel1 tab](../assets/rhel1.png)
 
-Go into the terminal of one of the rhel hosts (rhel1 or rhel2) and paste this command.
+Right click and select paste to paste the command into the terminal. Finally type enter to execute the registration command.
 
->_NOTE:_ You may need to click on the refresh button to revive the terminal. ![refresh](../assets/refresh.png)
+![rhel1 regging](../assets/registrationrhel1.gif)
 
-![registering](../assets/registering.png)
+When your host is registered, the output will resemble something similar below.
 
-When `rhel1` is registered, the following message will display in the terminal.
+![registered](../assets/registrationofhost.png)
 
-![registered](../assets/registered.png)
+Register `rhel2` with the Satellite server by pasting the registration command into the CLI of `rhel2`.
 
 In the Satellite Web UI, navigate to `All Hosts` to view the newly registered host.
 
@@ -65,16 +67,10 @@ In the Satellite Web UI, navigate to `All Hosts` to view the newly registered ho
 
 ![webuiregistered](../assets/webuiregistered.png)
 
-You can check that your host repos are configured for the Satellite server by entering the following `cat /etc/yum.repos.d/redhat.repo`
+You can check that your host repos are configured for the Satellite server `satellite.lab` by entering the following:
+
+```bash
+cat /etc/yum.repos.d/redhat.repo
+```
 
 ![repolist](../assets/repolist.png)
-
-Finally, you can update your host by entering `dnf update`.
-
-![dnfupdate](../assets/dnfupdate.png)
-
-![dnfupdate2](../assets/dnfupdate2.png)
-
-After updating the host, the status should turn green.
-
-![updated](../assets/updated.png)

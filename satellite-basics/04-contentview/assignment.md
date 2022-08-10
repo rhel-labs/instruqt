@@ -31,6 +31,12 @@ timelimit: 2400
 ---
 <!-- markdownlint-disable MD033 -->
 
+In this challenge we'll create a Content View. Red Hat Satellite uses Content Views to create customized repositories from the repositories. You can use Content Views to define which software versions a particular environment uses. For example, a Production environment might use a Content View containing older package versions, while a Development environment might use a Content View containing newer package versions.
+
+Since this is a basic introduction to Satellite, we will only create a Content View for the purpose of providing content to RHEL hosts, without regard for Test, Production lifecycle use cases.
+
+To learn more about Content Views and how to use them to manage content for different lifecycle environments, please see [Managing Content Views](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.11/html/managing_content/managing_content_views_content-management) in Satellite documentation.
+
 Click on `Content Views`.
 
 ![contentview](../assets/contentview.png)
@@ -38,7 +44,10 @@ Click on `Content Views`.
 Click on `Create New View`.
 ![createnewview](../assets/createcontentview.png)
 
-We'll name this content view `RHEL8`. Click `Save` to save it.
+We'll name this content view `RHEL9`. Click `Create content view` to save it.
+
+> **NOTE:** Please ensure that you type `RHEL9` in capital letters. We'll need this value in step 6 of this lab.
+
 ![createcv](../assets/createcv.png)
 
 Add the `BaseOS` and `AppStream` repos. Click `Add Repositories`.
@@ -49,18 +58,12 @@ Click `Publish New Version`.
 
 ![publish](../assets/publish.png)
 
-Click `Save`.
+Next we'll complete the following steps to publish and promote the content view.
 
-![save](../assets/save.png)
+1) Click the sliding `Promote` button.
+2) Select the lifecycle environment you wish to promote the content view to. In this case it is `Test`.
+3) Click `Next` to review the task.
 
-The content view will proceed to be published.
+![publishing wizard](../assets/publishwizard.png)
 
-![publishing](../assets/publishing.png)
-
-Promote this content view to the `Test` lifecycle environment by clicking `Promote`.
-
-![promote](../assets/promote.png)
-
-Select `Test` and then click `Promote Version`.
-
-![promoteversion](../assets/promoteversion.png)
+Review the details and then click `Finish`.

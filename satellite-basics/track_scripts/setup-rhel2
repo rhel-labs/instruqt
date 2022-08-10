@@ -15,12 +15,9 @@ systemctl enable --now cockpit.socket
 firewall-cmd --add-service=cockpit --permanent
 firewall-cmd --reload
 
-#need to start cockpit for VMs, Image Builder.
-yum install yum-utils bind-utils -y
-yum-config-manager --disable google-cloud-sdk
-yum-config-manager --disable google-compute-engine
-yum remove -y google-rhui-client*
-yum clean all
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force
+dnf install bind-utils -y
 
 echo "Adding wheel" > /root/post-run.log
 usermod -aG wheel rhel
@@ -40,3 +37,6 @@ EOF
 chmod +x /root/set_satellite_hostname.sh
 
 echo -e "\n/root/set_satellite_hostname.sh" >> /root/.bashrc
+
+mv /etc/yum.repos.d/google-cloud.repo /root
+timedatectl set-timezone America/New_York
