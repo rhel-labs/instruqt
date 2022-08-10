@@ -1,5 +1,6 @@
 ---
 slug: conclusion
+id: umyalvylx8x4
 type: challenge
 title: Conclusion
 teaser: Yay we've reached the end.
