@@ -93,6 +93,7 @@ When the installation has completed, click on the terminal of `rhel1` or `rhel2`
 ```bash
 tmux
 ```
+
 tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. [tmux documentation is available here](https://github.com/tmux/tmux/wiki).
 
 ![tmux](../assets/2022-08-10_09-02-46.gif)
