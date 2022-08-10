@@ -56,4 +56,4 @@ Expand the menu widgets to see a detailed report on the sync status.
 
 ![syncstatusdetailed](../assets/syncstatusdetailed.png)
 
->_NOTE:_ The BaseOS and AppStream repos take approximately 15 minutes to synchronize.
+>_NOTE:_ The BaseOS and AppStream repos take approximately 5 minutes to synchronize.

@@ -31,7 +31,11 @@ timelimit: 1
 ---
 <!-- markdownlint-disable MD033 -->
 
-> preamble on why we're using host collections
+We'll install software on our hosts using a Host Collection.
+
+A host collection is a group of content hosts. This feature enables you to perform the same action on multiple hosts at once. These actions can include the installation, removal, and update of packages and errata, change of assigned life cycle environment, and change of Content View. You can create host collections to suit your requirements, and those of your company. For example, group hosts in host collections by function, department, or business unit.
+
+For more information on Host Collections, please see [Configuring Host Collections](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.11/html/managing_hosts/configuring_host_collections_managing-hosts).
 
 First we'll create a Host Collection. Click on `Host Collections` in the menu.
 
@@ -60,7 +64,7 @@ Select the hosts we want to install `tmux` on, then click `Add Selected`.
 
 ![add selected](../assets/hcaddrhel9hosts.png)
 
-You'll be taken back to the `Host Collections` menu. Click on the host collection we just created.
+Go back to the `Host Collections` menu. Click on the host collection we just created.
 
 ![click on tmux installation](../assets/clickontmuxinstallation.png)
 
@@ -89,5 +93,6 @@ When the installation has completed, click on the terminal of `rhel1` or `rhel2`
 ```bash
 tmux
 ```
+tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. [tmux documentation is available here](https://github.com/tmux/tmux/wiki).
 
 ![tmux](../assets/2022-08-10_09-02-46.gif)

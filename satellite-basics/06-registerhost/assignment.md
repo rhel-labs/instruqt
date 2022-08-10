@@ -33,7 +33,7 @@ timelimit: 2400
 
 Now we'll register the hosts `rhel1` and `rhel2` to our Satellite server. We'll use the command line interface to generate a registration command in this lab. It is also possible to generate a registration command from the Satellite WebUI but due to the limitations of DNS in this lab environment, we'll use the cli utility `hammer` to simplify the process.
 
-Click on the Satellite tab.
+Click on the `Satellite Server` tab.
 
 ![satellite tab](../assets/satellite-tab.png)
 
@@ -59,7 +59,7 @@ When your host is registered, the output will resemble something similar below.
 
 ![registered](../assets/registrationofhost.png)
 
-Repeat the process with `rhel2`.
+Register `rhel2` with the Satellite server by pasting the registration command into the CLI of `rhel2`.
 
 In the Satellite Web UI, navigate to `All Hosts` to view the newly registered host.
 

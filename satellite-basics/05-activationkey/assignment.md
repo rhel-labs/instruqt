@@ -31,7 +31,11 @@ timelimit: 2400
 ---
 <!-- markdownlint-disable MD033 -->
 
-An Activation Key is required to register a host to Satellite. To create one, navigate to the `Activation Keys` menu.
+Activation keys provide a method to automate system registration and subscription attachment. You can create multiple keys and associate them with different environments and Content Views. For example, you might create a basic activation key with a subscription for Red Hat Enterprise Linux workstations and associate it with Content Views from a particular environment.
+
+You can use activation keys during content host registration to improve the speed, simplicity and consistency of the process. Note that activation keys are used only when hosts are registered. If changes are made to an activation key, it is applicable only to hosts that are registered with the amended activation key in the future. The changes are not made to existing hosts.
+
+To create an activation key, navigate to the `Activation Keys` menu.
 
 ![akmenu](../assets/akmenu.png)
 
@@ -40,5 +44,7 @@ Click on `Create Activation Key`.
 ![createak](../assets/createak.png)
 
 We'll name this activation key `RHEL9`, select the `Test` environment, select the `RHEL9` content view and then click `save`.
+
+> __NOTE__: The name of the activation key will be used in the next step of this lab to add hosts. The names must match or the hosts will not be registered.
 
 ![akcreation](../assets/akcreation.png)

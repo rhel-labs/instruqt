@@ -73,3 +73,11 @@ To return to the job status page, click `Back to Job`.
 When the job is complete, the page will look like this.
 
 ![complete job status](../assets/completejobstatus.png)
+
+Go to Hosts > All Hosts.
+
+![all hosts](../assets/allhosts.png)
+
+All hosts managed by Satellite should display in a green font signifying all hosts are up to date and there are no errors logged.
+
+![green](../assets/green.png)
