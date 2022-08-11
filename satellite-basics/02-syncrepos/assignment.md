@@ -38,7 +38,20 @@ Navigate to the Red Hat Repositories menu by clicking on `Red Hat Repositories` 
 
 The Red Hat Repositories menu will provide a list of available repositories. You can choose to synchronize whatever you want. In this lab we'll synchronize the `BaseOS` and `AppStream` repos for RHEL 9.
 
-![baseosappstreamrepos](../assets/baseosappstream.png)
+Red Hat Enterprise Linux 9 is distributed through two main repositories:
+
+* BaseOS
+* AppStream
+
+Both repositories are required for a basic RHEL installation, and are available with all RHEL subscriptions.
+
+Content in the BaseOS repository is intended to provide the core set of the underlying OS functionality that provides the foundation for all installations. This content is available in the RPM format and is subject to support terms similar to those in previous releases of RHEL. For more information, see the Scope of Coverage Details document.
+
+Content in the AppStream repository includes additional user-space applications, runtime languages, and databases in support of the varied workloads and use cases.
+
+Click on the `Recommended Repositories` button to create a more succinct view of available repos.
+
+![baseosappstreamrepos](../assets/2022-08-11_09-02-27.gif)
 
 Next, we'll navigate to the `Products` menu.
 
