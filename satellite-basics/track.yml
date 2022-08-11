@@ -8,6 +8,8 @@ description: |
   Red Hat Satellite manages Red Hat Enterprise Linux hosts, including patching, content management, provisioning and more. In this lab, we'll learn the basics of
   managing hosts with Satellite.
 
+  This lab is estimated to take 30 minutes. This lab is provisioned with a lifetime of 4 hours.
+
   # Goal:
 
   Configure a new Satellite server to manage RHEL hosts.
@@ -17,8 +19,8 @@ description: |
   * Synchronizing content to Satellite.
   * Configuring Satellite to provide content to RHEL hosts.
   * Adding hosts to be managed by Satellite.
-  * Updating hosts' errata.
-  * Install software on multiple hosts.
+  * Updating hosts' errata (patching).
+  * Installing new software on multiple hosts.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags: []
 owner: rhel
