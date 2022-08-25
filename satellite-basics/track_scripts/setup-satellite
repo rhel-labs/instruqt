@@ -30,4 +30,4 @@ echo "export LANG=en_US.UTF-8" >> /root/.bashrc
 hammer -u satadmin -p bc31c9a6-9ff0-11ec-9587-00155d1b0702 subscription upload --file /home/myee/manifest_satellite-6.11-instruqt_20220808T155041Z.zip --organization "Acme Org" > /dev/null 2>&1
 rm -rf /home/myee/manifest_satellite-6.11-instruqt_20220808T155041Z.zip
 
-#hammer subscription refresh-manifest --organization "Acme Org"
+hammer subscription refresh-manifest --organization "Acme Org"
