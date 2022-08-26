@@ -30,7 +30,7 @@ The result should be the following.
 </pre>
 As expected, the setting is now 20 instead of what it started as in the beginning of the lab.
 
-To verify that session recording is now working, ssh to the system as the rhel user with the password of redhat.
+To verify that session recording is now working, ssh to the system as the rhel user.
 ```
 ssh rhel@localhost
 ```

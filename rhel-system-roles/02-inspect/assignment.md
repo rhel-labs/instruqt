@@ -59,7 +59,7 @@ cat /proc/sys/vm/swappiness
 
 The output should be
 <pre>
-60
+30
 </pre>
 
 After you run the playbook, the swappiness value should be updated to be 20.
