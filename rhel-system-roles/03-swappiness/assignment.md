@@ -47,7 +47,7 @@ Assuming locale environment is lost and charset is UTF-8
 
 ATTENTION! Your session is being recorded!
 
-[rhel@rhel ~]$ 
+[rhel@rhel ~]$
 </pre>
 To complete this section enter the following.
 ```
