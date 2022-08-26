@@ -36,11 +36,18 @@ ssh rhel@localhost
 ```
 Here's the output.
 <pre>
-Warning: Permanently added 'localhost' (ECDSA) to the list of known hosts.
-rhel@localhost's password: redhat
-
+# ssh rhel@localhost
+The authenticity of host 'localhost (::1)' can't be established.
+ED25519 key fingerprint is SHA256:8xzWvasYF07l4QRxYXlX6kr8h4Iqfm/4x+3srCkIdfo.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'localhost' (ED25519) to the list of known hosts.
+Locale charset is ANSI_X3.4-1968 (ASCII)
+Assuming locale environment is lost and charset is UTF-8
 
 ATTENTION! Your session is being recorded!
+
+[rhel@rhel ~]$ 
 </pre>
 To complete this section enter the following.
 ```
