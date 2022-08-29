@@ -13,5 +13,3 @@ timedatectl set-timezone America/New_York
 yum install -y dnf
 yum clean all
 dnf update -y
-
-EOF
