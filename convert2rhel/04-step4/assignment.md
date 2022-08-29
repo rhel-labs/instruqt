@@ -13,7 +13,7 @@ notes:
     With the convert2rhel utility running, the system will now replace the CentOS signed packages with Red Hat signed versions. The system will reboot a few times first to boot into a temporary environment from which to make these changes, a second time to perform a relabel on SELinux contexts, and a final time in order to boot into the newly created RHEL environment.
 
     # Disclaimer:
-    The Convert2RHEL process can take upwards of 15 minutes to run.
+    The Convert2RHEL process can take upwards of 15 minutes to run. Instead of waiting for that process to complete, a second server has been running the conversion in the background. This lab will now connect to that second system to complete the conversion process.
 tabs:
 - title: Terminal
   type: terminal
