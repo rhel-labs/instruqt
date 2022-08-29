@@ -15,12 +15,12 @@ notes:
     * Run pre-upgrade analysis and troubleshoot
     * Perform an in-place upgrade with LEAPP
 
+    For additional information refer to the leapp tool's documentation:
+    https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/upgrading_from_rhel_7_to_rhel_8/index
+    
     ## Example Usecase:
 
     A Systems Administrator needs to upgrade deployed Red Hat Enterprise Linux servers from their current version to the next major version to take advantage of a longer lifecycle and new features without needing to perform a clean install.
-
-    For additional information refer to the leapp tool's documentation:
-    https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/upgrading_from_rhel_7_to_rhel_8/index
 
     Note: This process works similarly for RHEL 8 and 9.
 tabs:
