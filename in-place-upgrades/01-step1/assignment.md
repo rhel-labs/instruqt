@@ -8,7 +8,7 @@ notes:
   contents: |
     # Overview
 
-    After completing this scenario, users will be able to upgrade from one major version of Red Hat Enterprise Linux to the next. (Example RHEL 8 to RHEL 9)
+    After completing this scenario, users will be able to upgrade from one major version of Red Hat Enterprise Linux to the next. (Example RHEL 7 to RHEL 8)
 
     ## Concepts included in this scenario:
 
@@ -17,19 +17,16 @@ notes:
 
     ## Example Usecase:
 
-    A Systems Administrator needs to upgrade deployed Red Hat Enterprise Linux servers from their current version to the latest major version to take advantage of a longer lifecycle and new features without needing to perform a clean install.
+    A Systems Administrator needs to upgrade deployed Red Hat Enterprise Linux servers from their current version to the next major version to take advantage of a longer lifecycle and new features without needing to perform a clean install.
 
     For additional information refer to the leapp tool's documentation:
-    https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/upgrading_from_rhel_8_to_rhel_9/index
+    https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/upgrading_from_rhel_7_to_rhel_8/index
 
-    Note: This process works similarly for RHEL 7 and 8.
+    Note: This process works similarly for RHEL 8 and 9.
 tabs:
 - title: rhel
   type: terminal
-  hostname: host1
-- title: Host Web Console
-  type: external
-  url: https://host1.${_SANDBOX_ID}.instruqt.io:9090/machines#/vm/console?name=rhelvm&connection=system
+  hostname: rhel
 difficulty: basic
 timelimit: 1800
 ---
@@ -41,23 +38,9 @@ Before diving in, the question you have to ask is: is this workload worth execut
 
 # Installing Leapp
 
-To get started, it is highly recommended that you update all packages on your system to the latest version available. Do a dnf update to make certain this is the case. (Note your output may vary.)
+To get started, it is highly recommended that you update all packages on your system to the latest version available. (Note: for this lab, updates have already been run for you.)
 
-```
-dnf update -y
-```
-
-<pre class=file>
-# dnf update -y
-Updating Subscription Management repositories.
-Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)                                                                                                                                                          3.8 MB/s |  45 MB     00:11    
-Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)                                                                                                                                                             4.2 MB/s |  49 MB     00:11    
-
-... output truncated ...
-
-</pre>
-
-Now that your system has all of its updates, It is time to start the process towards an in-place upgrade. Leapp is a supported operation for RHEL which means support tickets can be opened in case obstacles are encountered. It also means that the leapp utility is available straight from the Red Hat package repository. First, verify the version of Red Hat Enterprise Linux that you have installed:
+Leapp is a supported operation for RHEL which means support tickets can be opened in case obstacles are encountered. It also means that the leapp utility is available straight from the Red Hat package repository. First, verify the version of Red Hat Enterprise Linux that you have installed:
 
 ```
 cat /etc/redhat-release
@@ -65,7 +48,7 @@ cat /etc/redhat-release
 
 <pre class=file>
 # cat /etc/redhat-release
-Red Hat Enterprise Linux release 8.6 (Ootpa)
+Red Hat Enterprise Linux release 7.9 (Maipo)
 </pre>
 
 Use the DNF package manager to install leapp and its dependencies:
@@ -76,34 +59,34 @@ dnf install -y leapp-upgrade
 
 <pre class=file>
 # dnf install leapp-upgrade
-Updating Subscription Management repositories.
-Last metadata expiration check: 0:17:05 ago on Tue 05 Jul 2022 11:34:56 AM EDT.
-Dependencies resolved.
-==============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
- Package                                                                                                                      Architecture                                                                                            Version                                                                                                         Repository                                                                                                                         Size
-==============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
-Installing:
- leapp-upgrade-el8toel9                                                                                                       noarch                                                                                                  0.16.0-6.el8_6                                                                                                  rhel-8-for-x86_64-appstream-rpms                                                                                                  603 k
-Installing dependencies:
- leapp                                                                                                                        noarch                                                                                                  0.14.0-1.el8_6                                                                                                  rhel-8-for-x86_64-appstream-rpms                                                                                                   31 k
- leapp-deps                                                                                                                   noarch                                                                                                  0.14.0-1.el8_6                                                                                                  rhel-8-for-x86_64-appstream-rpms                                                                                                   14 k
- leapp-upgrade-el8toel9-deps                                                                                                  noarch                                                                                                  0.16.0-6.el8_6                                                                                                  rhel-8-for-x86_64-appstream-rpms                                                                                                   29 k
- python3-leapp                                                                                                                noarch                                                                                                  0.14.0-1.el8_6                                                                                                  rhel-8-for-x86_64-appstream-rpms                                                                                                  173 k
-
-Transaction Summary
-==============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
-Install  5 Packages
-
-Total download size: 851 k
-Installed size: 2.1 M
-Downloading Packages:
+Red Hat Enterprise Linux 7 Server - Supplementary from RHUI (Debug RPMs)                                                                                                           5.5 kB/s | 512  B     00:00
+Red Hat Enterprise Linux 7 Server - Optional from RHUI (RPMs)                                                                                                                       62 MB/s |  44 MB     00:00
 
 ... output truncated ...
+
+Installing:
+ leapp-upgrade-el7toel8                                   noarch                              0.16.0-8.el7_9                                rhui-rhel-7-server-rhui-extras-rpms                              781 k
+Installing dependencies:
+ leapp-deps                                               noarch                              0.14.0-1.el7_9                                rhui-rhel-7-server-rhui-extras-rpms                              9.9 k
+ python2-leapp                                            noarch                              0.14.0-1.el7_9                                rhui-rhel-7-server-rhui-extras-rpms                              168 k
+ leapp                                                    noarch                              0.14.0-1.el7_9                                rhui-rhel-7-server-rhui-extras-rpms                               27 k
+ leapp-upgrade-el7toel8-deps                              noarch                              0.16.0-8.el7_9                                rhui-rhel-7-server-rhui-extras-rpms                               25 k
+ pciutils                                                 x86_64                              3.5.1-3.el7                                   rhui-rhel-7-server-rhui-rpms                                      93 k
+
+Transaction Summary
+===================================================================================================================================================================================================================
+Install  6 Packages
+
+... output truncated ...
+
+Installed:
+  leapp-upgrade-el7toel8-0.16.0-8.el7_9.noarch    leapp-deps-0.14.0-1.el7_9.noarch    python2-leapp-0.14.0-1.el7_9.noarch    leapp-0.14.0-1.el7_9.noarch    leapp-upgrade-el7toel8-deps-0.16.0-8.el7_9.noarch
+  pciutils-3.5.1-3.el7.x86_64
 
 Complete!
 </pre>
 
-Verify the install was successful
+Verify the install was successful:
 
 ```
 leapp --version

@@ -1,12 +1,12 @@
 version: '3'
 virtualmachines:
-- environment:
-    TERM: xterm
-  image: projects/tmm-instruqt-11-26-2021/global/images/nested-virt-9-0-20220708
+- name: rhel
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-7-9-tmm-22-02-v1
   machine_type: n2-standard-2
-  name: host1
   shell: /bin/bash
-  allow_external_ingress:
-  - http
-  - https
-  - high-ports
+  environment:
+    TERM: xterm
+  #allow_external_ingress:
+  #- http
+  #- https
+  #- high-ports
