@@ -57,7 +57,7 @@ google-osconfig-agent-20220711.00-g1.el7.x86_64          N/A              google
 google-cloud-sdk-396.0.0-1.x86_64                        N/A              google-cloud-sdk
 
 
-Continue with the system conversion? [y/n]: 
+Continue with the system conversion? [y/n]:
 </pre>
 
 You'll be asked to confirm several the process at several steps. Type a `y` and hit enter to continue the process.
