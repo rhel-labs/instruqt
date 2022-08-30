@@ -17,7 +17,7 @@ notes:
 
     For additional information refer to the leapp tool's documentation:
     https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/upgrading_from_rhel_7_to_rhel_8/index
-    
+
     ## Example Usecase:
 
     A Systems Administrator needs to upgrade deployed Red Hat Enterprise Linux servers from their current version to the next major version to take advantage of a longer lifecycle and new features without needing to perform a clean install.
@@ -26,7 +26,7 @@ notes:
 tabs:
 - title: rhel
   type: terminal
-  hostname: rhel
+  hostname: host
 difficulty: basic
 timelimit: 1800
 ---
@@ -51,37 +51,64 @@ cat /etc/redhat-release
 Red Hat Enterprise Linux release 7.9 (Maipo)
 </pre>
 
-Use the DNF package manager to install leapp and its dependencies:
+First, you need to enable the rhel-7-server repositories using the subscription-manager command:
+
+```
+subscription-manager repos --enable rhel-7-server-rpms
+subscription-manager repos --enable rhel-7-server-extras-rpms
+```
+
+Tip: You can actually combine these two commands into one!
+
+<pre class=file>
+# subscription-manager repos --enable rhel-7-server-rpms --enable rhel-7-server-extras-rpms
+Repository 'rhel-7-server-rpms' is enabled for this system.
+Repository 'rhel-7-server-extras-rpms' is enabled for this system.
+</pre>
+
+Next, use the DNF package manager to install leapp and its dependencies:
 
 ```
 dnf install -y leapp-upgrade
 ```
 
 <pre class=file>
-# dnf install leapp-upgrade
-Red Hat Enterprise Linux 7 Server - Supplementary from RHUI (Debug RPMs)                                                                                                           5.5 kB/s | 512  B     00:00
-Red Hat Enterprise Linux 7 Server - Optional from RHUI (RPMs)                                                                                                                       62 MB/s |  44 MB     00:00
-
-... output truncated ...
-
-Installing:
- leapp-upgrade-el7toel8                                   noarch                              0.16.0-8.el7_9                                rhui-rhel-7-server-rhui-extras-rpms                              781 k
-Installing dependencies:
- leapp-deps                                               noarch                              0.14.0-1.el7_9                                rhui-rhel-7-server-rhui-extras-rpms                              9.9 k
- python2-leapp                                            noarch                              0.14.0-1.el7_9                                rhui-rhel-7-server-rhui-extras-rpms                              168 k
- leapp                                                    noarch                              0.14.0-1.el7_9                                rhui-rhel-7-server-rhui-extras-rpms                               27 k
- leapp-upgrade-el7toel8-deps                              noarch                              0.16.0-8.el7_9                                rhui-rhel-7-server-rhui-extras-rpms                               25 k
- pciutils                                                 x86_64                              3.5.1-3.el7                                   rhui-rhel-7-server-rhui-rpms                                      93 k
-
-Transaction Summary
+# dnf install -y leapp-upgrade
+Last metadata expiration check: 0:05:16 ago on Tue 30 Aug 2022 05:23:46 PM UTC.
+Dependencies resolved.
 ===================================================================================================================================================================================================================
-Install  6 Packages
+ Package                                                     Arch                                   Version                                        Repository                                                 Size
+===================================================================================================================================================================================================================
+Installing:
+ leapp-upgrade-el7toel8                                      noarch                                 0.16.0-8.el7_9                                 rhel-7-server-extras-rpms                                 781 k
+Installing dependencies:
+ pciutils                                                    x86_64                                 3.5.1-3.el7                                    rhel-7-server-rpms                                         93 k
+ leapp-deps                                                  noarch                                 0.14.0-1.el7_9                                 rhel-7-server-extras-rpms                                 9.9 k
+ python2-leapp                                               noarch                                 0.14.0-1.el7_9                                 rhel-7-server-extras-rpms                                 168 k
+ leapp                                                       noarch                                 0.14.0-1.el7_9                                 rhel-7-server-extras-rpms                                  27 k
+ leapp-upgrade-el7toel8-deps                                 noarch                                 0.16.0-8.el7_9                                 rhel-7-server-extras-rpms                                  25 k
+
 
 ... output truncated ...
+
+Running transaction
+  Preparing        :                                                                                                                                                                                           1/1
+  Installing       : leapp-deps-0.14.0-1.el7_9.noarch                                                                                                                                                          1/6
+  Installing       : python2-leapp-0.14.0-1.el7_9.noarch                                                                                                                                                       2/6
+  Installing       : pciutils-3.5.1-3.el7.x86_64                                                                                                                                                               3/6
+  Installing       : leapp-upgrade-el7toel8-deps-0.16.0-8.el7_9.noarch                                                                                                                                         4/6
+  Installing       : leapp-0.14.0-1.el7_9.noarch                                                                                                                                                               5/6
+  Installing       : leapp-upgrade-el7toel8-0.16.0-8.el7_9.noarch                                                                                                                                              6/6
+  Verifying        : pciutils-3.5.1-3.el7.x86_64                                                                                                                                                               1/6
+  Verifying        : leapp-deps-0.14.0-1.el7_9.noarch                                                                                                                                                          2/6
+  Verifying        : python2-leapp-0.14.0-1.el7_9.noarch                                                                                                                                                       3/6
+  Verifying        : leapp-0.14.0-1.el7_9.noarch                                                                                                                                                               4/6
+  Verifying        : leapp-upgrade-el7toel8-0.16.0-8.el7_9.noarch                                                                                                                                              5/6
+  Verifying        : leapp-upgrade-el7toel8-deps-0.16.0-8.el7_9.noarch                                                                                                                                         6/6
 
 Installed:
-  leapp-upgrade-el7toel8-0.16.0-8.el7_9.noarch    leapp-deps-0.14.0-1.el7_9.noarch    python2-leapp-0.14.0-1.el7_9.noarch    leapp-0.14.0-1.el7_9.noarch    leapp-upgrade-el7toel8-deps-0.16.0-8.el7_9.noarch
-  pciutils-3.5.1-3.el7.x86_64
+  leapp-upgrade-el7toel8-0.16.0-8.el7_9.noarch             pciutils-3.5.1-3.el7.x86_64        leapp-deps-0.14.0-1.el7_9.noarch        python2-leapp-0.14.0-1.el7_9.noarch        leapp-0.14.0-1.el7_9.noarch
+  leapp-upgrade-el7toel8-deps-0.16.0-8.el7_9.noarch
 
 Complete!
 </pre>

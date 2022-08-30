@@ -1,0 +1,15 @@
+#!/bin/bash
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+yum install -y dnf curl bash-completion vim-enhanced
+dnf remove -y google-rhui-client*
+
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=image_builder --org=12451665 --force
+
+dnf clean all
+dnf update -y

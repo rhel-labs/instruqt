@@ -13,11 +13,11 @@ notes:
     The Leapp utility has staged all of the updates. Now, it is performing several actions inside a temporary environment. This includes creating a new initramfs image, relabeling SELinux contexts, and well as cleaning up any remaining RHEL 7 packages.
 
     # Disclaimer:
-    The Leapp process can take upwards of 15 minutes to run.
+    The Leapp process can take upwards of 15 minutes to run. Instead of waiting for that process to complete, a second server has been running the upgrade in the background. This lab will now connect to that second system to complete the conversion process.
 tabs:
 - title: rhel
   type: terminal
-  hostname: rhel
+  hostname: host2
 difficulty: basic
 timelimit: 1800
 ---

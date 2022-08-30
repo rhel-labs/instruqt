@@ -6,7 +6,7 @@ title: Step 3
 tabs:
 - title: rhel
   type: terminal
-  hostname: rhel
+  hostname: host
 difficulty: basic
 timelimit: 1800
 ---
