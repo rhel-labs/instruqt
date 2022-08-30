@@ -11,5 +11,6 @@ dnf remove -y google-rhui-client*
 subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=image_builder --org=12451665 --force
 
+mv /etc/yum.repos.d/google-cloud.repo /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel-testing.repo /tmp/
 dnf clean all
 dnf update -y
