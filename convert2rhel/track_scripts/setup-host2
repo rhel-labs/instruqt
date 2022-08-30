@@ -5,10 +5,9 @@ do
     sleep 1
 done
 
-yum remove -y google-rhui-client*
-yum clean all
-yum update -y
-yum install -y curl tree bash-completion vim-enhanced
+yum install -y dnf curl bash-completion vim-enhanced
+dnf remove -y google-rhui-client*
+dnf clean all
+dnf update -y
 
 mv /etc/yum.repos.d/google-cloud.repo /root
-timedatectl set-timezone America/New_York
