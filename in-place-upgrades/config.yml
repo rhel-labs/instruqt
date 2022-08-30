@@ -7,7 +7,7 @@ virtualmachines:
   environment:
     TERM: xterm
 - name: host2
-  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-leapp-post7-v1
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-leapp-post7-v3
   machine_type: n2-standard-2
   shell: /bin/bash
   environment:
