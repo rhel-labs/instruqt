@@ -6,7 +6,7 @@ do
 done
 
 yum install -y curl bash-completion vim-enhanced
-dnf remove -y google-rhui-client*
+yum remove -y google-rhui-client*
 mv /etc/yum.repos.d/google-cloud.repo /root
-dnf clean all
-dnf update -y
+yum clean all
+yum update -y
