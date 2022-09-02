@@ -8,7 +8,7 @@ tabs:
   type: terminal
   hostname: host
 difficulty: basic
-timelimit: 1800
+timelimit: 600
 ---
 # Running the pre-upgrade assistant and resolving issues
 

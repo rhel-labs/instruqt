@@ -28,7 +28,7 @@ tabs:
   type: terminal
   hostname: host
 difficulty: basic
-timelimit: 1800
+timelimit: 600
 ---
 # What is Leapp?
 
