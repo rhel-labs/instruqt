@@ -97,6 +97,7 @@ reboot
 
 With the convert2rhel utility running, the system will now replace the CentOS signed packages with Red Hat signed versions. The system will reboot a few times first to boot into a temporary environment from which to make these changes, a second time to perform a relabel on SELinux contexts, and a final time in order to boot into the newly created RHEL environment.
 
+>**Disclaimer:**
 This process will take some time, you can watch it through to completion, or tab RHEL2 has a second system that has been running a conversion in the background. The remaining steps can be executed on that system:
 
 First, verify that the system is in fact running Red Hat Enterprise Linux:
