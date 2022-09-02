@@ -4,7 +4,7 @@ id: 31dsb4tpfgsy
 type: challenge
 title: Step 2
 tabs:
-- title: rhel
+- title: RHEL
   type: terminal
   hostname: host
 difficulty: basic

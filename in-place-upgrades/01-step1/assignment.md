@@ -24,7 +24,7 @@ notes:
 
     Note: This process works similarly for RHEL 8 and 9.
 tabs:
-- title: rhel
+- title: RHEL
   type: terminal
   hostname: host
 difficulty: basic
@@ -56,9 +56,10 @@ First, you need to enable the rhel-7-server repositories using the subscription-
 ```
 subscription-manager repos --enable rhel-7-server-rpms
 subscription-manager repos --enable rhel-7-server-extras-rpms
+
 ```
 
-Tip: You can actually combine these two commands into one!
+>**Pro Tip:** You can actually combine these two commands into one!
 
 <pre class=file>
 # subscription-manager repos --enable rhel-7-server-rpms --enable rhel-7-server-extras-rpms

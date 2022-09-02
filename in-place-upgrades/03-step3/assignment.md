@@ -4,9 +4,12 @@ id: xe2s164p1oix
 type: challenge
 title: Step 3
 tabs:
-- title: rhel
+- title: RHEL
   type: terminal
   hostname: host
+- title: RHEL2
+  type: terminal
+  hostname: host2
 difficulty: basic
 timelimit: 600
 ---
