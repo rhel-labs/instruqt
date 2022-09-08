@@ -1,7 +1,8 @@
 ---
-slug: introduction
+slug: test
+id: kb7kphvxdber
 type: challenge
-title: Introduction
+title: test
 teaser: I just want to see if this works
 notes:
 - type: text

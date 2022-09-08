@@ -5,10 +5,9 @@ do
     sleep 1
 done
 
-yum remove -y google-rhui-client*
 yum clean all
-subscription-manager config --rhsm.manage_repos=1
-subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force
+bash /root/subman.sh
+rm -f /root/subman.sh
 
 echo "Adding wheel" > /root/post-run.log
 usermod -aG wheel rhel
