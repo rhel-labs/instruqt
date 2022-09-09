@@ -100,7 +100,8 @@ __COMMENT__
 URL=\$1
 # grab the redirect url from the API
 #INIT_REDIRECT_URL=\$(curl -s --basic --proxy \${PROXY_URL} -u "\${PROXY_USER}:\${PROXY_PASS}" --proxy-user "\${PROXY_USER}:\${PROXY_PASS}" "\$URL")
-INIT_REDIRECT_URL=\$(curl -s --basic "\$URL")
+#INIT_REDIRECT_URL=\$(curl -s --basic "\$URL")
+INIT_REDIRECT_URL=\$(curl -s --basic -u "\${EDGEMGMT_USER}:\${EDGEMGMT_PASS}" "\$URL")
 # clean up the html encoding
 REDIRECT_URL=\$(echo \$INIT_REDIRECT_URL | grep -Eo "(http|https)://[a-zA-Z0-9./?=_%&:;-]*" | sed 's/amp;//g')
 # grab the basic URL
