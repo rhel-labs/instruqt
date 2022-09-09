@@ -33,10 +33,18 @@ Click the `rhel` tab in the Instruqt lab webpage.
 
 ![rheltab](../assets/rheltab.png)
 
+Change into the `images` directory.
+
+```bash
+cd /images
+```
+
+Due to the limitations of the lab environment, you will download the edge install iso with a specially created script.
+
 Enter the following command.
 
 ```bash
-wget -c "<copied URL>" -O /images/image1.iso
+./dl_edge_iso "<copied URL>"
 ```
 
 The image download will begin.
