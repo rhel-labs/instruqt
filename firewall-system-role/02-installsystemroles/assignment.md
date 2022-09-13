@@ -17,13 +17,14 @@ timelimit: 60
 
 Now we'll install system roles.
 
+Make sure you are in the pane containing the `rhel` terminal session (type `ctrl-b + arrow key` to move between panes).
 Enter the following command.
 
 ```bash
 dnf install rhel-system-roles -y
 ```
 
-![dnfinstall](../assets/dnfinstallsystemroles.png)
+![dnfinstall](../assets/dnfinstallsystemroles2.png)
 
 The resulting output will look similar to the output below.
 
