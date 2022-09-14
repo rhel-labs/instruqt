@@ -16,8 +16,6 @@ usermod -aG wheel rhel
 echo "setting password" >> /root/post-run.log
 echo redhat | passwd --stdin rhel
 
-#dnf module install virt -y
-#dnf install -y tmux nc virt-install cockpit-machines libguestfs-tools-c
 dnf install -y tmux nc
 
 systemctl enable --now libvirtd
