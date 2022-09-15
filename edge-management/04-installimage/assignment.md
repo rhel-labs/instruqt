@@ -104,10 +104,10 @@ rhc connect --username rhel-0ab2 --password Redhat1!
 
 ![rhc](../assets/rhcconnect.png)
 
-Now run insights-client.
+Now run `insights-client --register`.
 
 ```bash
-insights-client
+insights-client --register
 ```
 ![insights client](../assets/insights-client.png)
 
