@@ -1,21 +1,18 @@
 ---
-slug: example
+slug: introduction
 type: challenge
-title: Example Challenge
-teaser: Example challenge.
+title: Introduction to the Lab
+teaser: Lean about this lab.
 notes:
 - type: text
-  contents: This is an example of a challenge.
+  contents: Learn about this lab.
 tabs:
 tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
-  type: external
-  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 3600
+timelimit: 3360
 ---
 blah blah blah
 

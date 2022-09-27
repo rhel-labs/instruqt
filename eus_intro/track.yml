@@ -1,15 +1,21 @@
-slug: test
+slug: eus_intro
 type: track
-title: test
-teaser: A short description of the track.
+title: Introduction to Extended Update Support
+teaser: 
 description: |-
-  A long description of the track.
+  Whether you want more control over your lifecycle, need a longer support window, or are tied to a specific minor release, Extended Update Support (EUS) allows your Red Hat Enterprise Linux servers to stay on the same minor version for 2 years.
 
-  You can use any GitHub flavoured markdown.
+  # Tasks included in this scenario:
+  * Identify current minor version and available versions of RHEL
+  * Add EUS entitlement to a server
+  * Update to the latest EUS release
+
+  # Additional Reading:
+  https://access.redhat.com/articles/rhel-eus
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags: []
 owner: rhel
 developers:
-- myee@redhat.com
-private: true
+- ehendric@redhat.com
+private: false
 published: false

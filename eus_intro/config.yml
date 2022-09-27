@@ -6,7 +6,3 @@ virtualmachines:
   machine_type: n1-standard-2
   name: host1
   shell: /bin/bash
-  allow_external_ingress:
-    - http
-    - https
-    - high-ports
