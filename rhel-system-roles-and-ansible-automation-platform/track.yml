@@ -1,0 +1,17 @@
+slug: rhel-system-roles-and-ansible-automation-platform
+id: 4bzjash23iub
+title: Deploying RHEL System Roles with Ansible Automation Platform
+teaser: A short description of the track.
+description: |-
+  A long description of the track.
+
+  You can use any GitHub flavoured markdown.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags: []
+owner: rhel
+developers:
+- myee@redhat.com
+private: false
+published: false
+show_timer: true
+checksum: "8264735152045069010"
