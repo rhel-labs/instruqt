@@ -4,5 +4,5 @@ virtualmachines:
     TERM: xterm
   image: projects/tmm-instruqt-11-26-2021/global/images/rhel-8-4-08-30-2022-3
   machine_type: n1-standard-2
-  name: host1
+  name: rhel
   shell: /bin/bash

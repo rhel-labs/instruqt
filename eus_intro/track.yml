@@ -1,7 +1,6 @@
-slug: eus_intro
-type: track
+slug: eus-intro
+id: ahdcr5artr2u
 title: Introduction to Extended Update Support
-teaser: 
 description: |-
   Whether you want more control over your lifecycle, need a longer support window, or are tied to a specific minor release, Extended Update Support (EUS) allows your Red Hat Enterprise Linux servers to stay on the same minor version for 2 years.
 
@@ -19,3 +18,4 @@ developers:
 - ehendric@redhat.com
 private: false
 published: false
+checksum: "16494662622716078772"
