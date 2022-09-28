@@ -21,7 +21,7 @@ virtualmachines:
   - https
   - high-ports
 - name: aap
-  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-0-09-27-2022-aap
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-0-09-27-2022-2-aap
   shell: /bin/bash
   environment:
     TERM: xterm

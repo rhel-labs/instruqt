@@ -1,0 +1,3 @@
+#!/bin/bash
+# Set up basic AAP configuration.
+/bin/ansible-playbook -i /root/aap_instruqt/inventory.yml /root/aap_instruqt/playbooks/aap_setup.yml
