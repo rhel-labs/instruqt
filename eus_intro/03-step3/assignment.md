@@ -2,7 +2,7 @@
 slug: step3
 id: sp6femphn2qm
 type: challenge
-title: Introduction to Extended Update Support
+title: Upgrading between EUS releases
 tabs:
 - title: Terminal
   type: terminal
@@ -10,8 +10,6 @@ tabs:
 difficulty: basic
 timelimit: 1140
 ---
-# Upgrading between EUS releases
-
 While EUS versions are supported for 24 months, it is a good practice to stay on as current a release as possible. Moving between minor releases is the best practice. However, some environments require recertification or are running software that the vendor only certifies specific minor releases of Red Hat Enterprise Linux. In those circumstances, upgrading between EUS releases is the necessary balance.
 
 You will use the `subscription-manager` command to specify which version of RHEL your server will need to use:
