@@ -1,5 +1,6 @@
 ---
 slug: step2
+id: 5jhbc4ugy0mh
 type: challenge
 title: Introduction to Extended Update Support
 tabs:
@@ -7,12 +8,12 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 3360
+timelimit: 1140
 ---
 Now that you have identified the most recent EUS version, enable the EUS-specific repositories and disable the regular repositories:
 
 ```
-subscription-manager repos --enable rhel-8-for-x86_64-baseos-eus-rpms 
+subscription-manager repos --enable rhel-8-for-x86_64-baseos-eus-rpms
 subscription-manager repos --enable rhel-8-for-x86_64-appstream-eus-rpms
 ```
 

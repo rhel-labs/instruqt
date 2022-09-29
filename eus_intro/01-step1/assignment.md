@@ -1,5 +1,6 @@
 ---
 slug: step1
+id: mn4dexksswet
 type: challenge
 title: Introduction to Extended Update Support
 notes:
@@ -19,7 +20,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 3360
+timelimit: 1140
 ---
 # What is Extended Update Support (EUS)?
 

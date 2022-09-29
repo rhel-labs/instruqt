@@ -1,5 +1,6 @@
 ---
 slug: step3
+id: sp6femphn2qm
 type: challenge
 title: Introduction to Extended Update Support
 tabs:
@@ -7,7 +8,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 3360
+timelimit: 1140
 ---
 # Upgrading between EUS releases
 
@@ -45,8 +46,8 @@ dnf clean all && dnf update -y
 Updating Subscription Management repositories.
 17 files removed
 Updating Subscription Management repositories.
-Red Hat Enterprise Linux 8 for x86_64 - BaseOS - Extended Update Support (RPMs)                                                                                                     61 MB/s |  52 MB     00:00    
-Red Hat Enterprise Linux 8 for x86_64 - AppStream - Extended Update Support (RPMs)                                                                                                  72 MB/s |  47 MB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - BaseOS - Extended Update Support (RPMs)                                                                                                     61 MB/s |  52 MB     00:00
+Red Hat Enterprise Linux 8 for x86_64 - AppStream - Extended Update Support (RPMs)                                                                                                  72 MB/s |  47 MB     00:00
 Last metadata expiration check: 0:00:08 ago on Thu 29 Sep 2022 09:56:46 PM UTC.
 
 ... Output Truncated ...
