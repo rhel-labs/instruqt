@@ -2,7 +2,7 @@
 slug: step2
 id: 5jhbc4ugy0mh
 type: challenge
-title: Introduction to Extended Update Support
+title: Converting a System to EUS Repositories
 tabs:
 - title: Terminal
   type: terminal

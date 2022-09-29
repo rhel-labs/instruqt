@@ -48,6 +48,7 @@ subscription-manager release --list
 8.4
 8.5
 8.6
+8.7
 </pre>
 
 Next, you will want to verify the version of RHEL we are running:

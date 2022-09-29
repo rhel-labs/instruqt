@@ -1,6 +1,5 @@
 slug: convert2rhel
 id: x3zfsjtkmgw1
-type: track
 title: Introduction to Convert2RHEL
 description: |+
   # Goal:
@@ -22,4 +21,4 @@ developers:
 - smcbrien@redhat.com
 private: false
 published: false
-checksum: "14483222237350693219"
+checksum: "194417025520832782"
