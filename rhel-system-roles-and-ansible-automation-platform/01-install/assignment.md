@@ -6,7 +6,7 @@ title: Install RHEL System Roles
 teaser: In this challenge we'll install RHEL System Roles.
 notes:
 - type: text
-  contents: We'll install RHEL System Roles on our control node `rhel`.
+  contents: Welcome to the lab
 tabs:
 - title: AAP
   type: terminal
@@ -37,3 +37,47 @@ In this lab there are 4 hosts. Below is a description of them and their purpose.
 | `rhel` | RHEL9 host where we will collect metrics from.      |
 | `rhel2` | RHEL9 host where we will collect metrics from.      |
 | `rhel3` | RHEL9 host where we will collect metrics from.      |
+
+Ansible Automation Platform (AAP) has already been installed on the `aap` host. A basic configuration has already been performed.
+
+Launch a new browser tab for the AAP web interface by clicking on the AAP Console button on the navigation bar.
+
+![aap button](../assets/aapbutton.png)
+
+Log into AAP with the following credentials.
+
+>**Username**
+>
+>```yaml
+>rhel
+>```
+>
+>**Password**
+>
+>```yaml
+>redhat
+>```
+
+PAH
+>**Username**
+>
+>```yaml
+>admin
+>```
+>
+>**Password**
+>
+>```yaml
+>ansible123!
+>``
+
+
+```bash
+rhel-0ab2
+```
+
+Password
+
+```bash
+Redhat1!
+```

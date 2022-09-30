@@ -1,3 +1,18 @@
 #!/bin/bash
 # Set up basic AAP configuration.
 /bin/ansible-playbook -i /root/aap_instruqt/inventory.yml /root/aap_instruqt/playbooks/aap_setup.yml
+
+mkdir /var/lib/awx/projects/test_project/collections
+
+tee -a /var/lib/awx/projects/test_project/playbook.yml << EOF 
+---
+- name: Run timesync System Role
+  hosts: all
+  roles:
+    - redhat.rhel_system_roles.timesync
+EOF
+
+cp -ar /usr/share/ansible/collections/ansible_collectrions/ /var/lib/awx/projects/test_project/collections
+
+chown awx:awx -R /var/lib/awx/projects/test_project
+chcon -R system_u:object_r:container_file_t:s0 /var/lib/awx/projects/test_project
