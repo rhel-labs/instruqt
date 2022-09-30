@@ -1,18 +1,13 @@
 #!/bin/bash
 # Set up basic AAP configuration.
+git pull -C /root/aap_instruqt/
 /bin/ansible-playbook -i /root/aap_instruqt/inventory.yml /root/aap_instruqt/playbooks/aap_setup.yml
 
-mkdir -p /var/lib/awx/projects/test_project/collections
+mkdir -p /var/lib/awx/projects/demo_project/collections
+git clone https://github.com/myee111/aap_demo_ansiblefest.git /var/lib/awx/projects/demo_project/
 
-tee -a /var/lib/awx/projects/test_project/playbook.yml << EOF 
----
-- name: Run timesync System Role
-  hosts: all
-  roles:
-    - redhat.rhel_system_roles.timesync
-EOF
+# Copy the rhel-system-roles collection into demo_project
+cp -ar /usr/share/ansible/collections/ansible_collections/ /var/lib/awx/projects/demo_project/collections
 
-cp -ar /usr/share/ansible/collections/ansible_collections/ /var/lib/awx/projects/test_project/collections
-
-chown awx:awx -R /var/lib/awx/projects/test_project
-chcon -R system_u:object_r:container_file_t:s0 /var/lib/awx/projects/test_project
+chown awx:awx -R /var/lib/awx/projects/demo_project
+chcon -R system_u:object_r:container_file_t:s0 /var/lib/awx/projects/demo_project
