@@ -84,6 +84,6 @@ EOF
 
 chmod 400 /root/.ssh/config
 
-subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
-dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-dnf -y install stress
+# subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
+# dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+# dnf -y install stress
