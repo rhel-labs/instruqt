@@ -20,9 +20,6 @@ tabs:
 - title: rhel3
   type: terminal
   hostname: rhel3
-- title: RHEL Grafana Console
-  type: external
-  url: http://rhel.${_SANDBOX_ID}.instruqt.io:3000
 - title: AAP Console
   type: external
   url: https://aap.${_SANDBOX_ID}.instruqt.io
