@@ -47,9 +47,8 @@ Updating Subscription Management repositories.
 Red Hat Enterprise Linux 8 for x86_64 - BaseOS - Extended Update Support (RPMs)                                                                                                     61 MB/s |  52 MB     00:00
 Red Hat Enterprise Linux 8 for x86_64 - AppStream - Extended Update Support (RPMs)                                                                                                  72 MB/s |  47 MB     00:00
 Last metadata expiration check: 0:00:08 ago on Thu 29 Sep 2022 09:56:46 PM UTC.
-
 ... Output Truncated ...
-
+Complete
 </pre>
 
 Finally, verify that the update was successful:
