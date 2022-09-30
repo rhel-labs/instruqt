@@ -77,17 +77,14 @@ timedatectl set-timezone America/Vancouver
 # firewall-cmd --add-service=cockpit --permanent
 # firewall-cmd --reload
 
-subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
-dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-dnf -y install stress rhel-system-roles
+# subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
+# dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+# dnf -y install stress rhel-system-roles
 
 tee -a /root/.ssh/config << EOF
 Host *
     StrictHostKeyChecking no
 EOF
-
-# Sync the git repo
-/root/git clone 
 
 # Load the manifest
 /bin/ansible-playbook -i /root/aap_instruqt/inventory.yml /root/aap_instruqt/playbooks/register_aap.yml

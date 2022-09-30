@@ -1,13 +1,17 @@
 #!/bin/bash
 # Set up basic AAP configuration.
-git clone https://github.com/myee111/aap_demo_ansiblefest.git /var/lib/awx/projects/demo_project/
+
 git -C /root/aap_instruqt/ pull origin master
 /bin/ansible-playbook -i /root/aap_instruqt/inventory.yml /root/aap_instruqt/playbooks/aap_setup.yml
 
-mkdir -p /var/lib/awx/projects/demo_project/collections
+mkdir -p /var/lib/awx/projects/aap_demo_project/collections
 
 # Copy the rhel-system-roles collection into demo_project
-cp -ar /usr/share/ansible/collections/ansible_collections/ /var/lib/awx/projects/demo_project/collections
+cp -ar /usr/share/ansible/collections/ansible_collections/ /var/lib/awx/projects/aap_demo_project/collections
 
-chown awx:awx -R /var/lib/awx/projects/demo_project
-chcon -R system_u:object_r:container_file_t:s0 /var/lib/awx/projects/demo_project
+chown awx:awx -R /var/lib/awx/projects/aap_demo_project
+chcon -R system_u:object_r:container_file_t:s0 /var/lib/awx/projects/aap_demo_project
+
+# git clone https://github.com/myee111/aap_demo_ansiblefest.git /var/lib/awx/projects/demo_project/
+git clone https://github.com/myee111/aap_demo_ansiblefest.git /root/
+cp -ar /root/aap_demo_ansiblefest /var/lib/awx/projects/aap_demo_project/
