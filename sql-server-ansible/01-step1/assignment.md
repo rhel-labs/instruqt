@@ -6,13 +6,13 @@ title: Step 1
 notes:
 - type: text
   contents: |
-    # Goal:
+  # Goal:
     After completing this scenario, users will be able to use Ansible playbooks
     to install and configure Microsoft SQL Server on Red Hat Enterprise Linux (RHEL).
 
     # Concepts included in this scenario:
-    * Verify whether ansible is installed on the system
-    * Downloading the ansible role for SQL Server from ansible galaxy
+    * Verifying whether ansible is installed on the system
+    * Installing the ansible collection for SQL Server
     * Viewing and editing the ansible playbook variables
     * Running the playbook to install and configure Microsoft SQL Server on RHEL 8
     * Login to SQL Server and query a table
@@ -31,7 +31,7 @@ timelimit: 900
 ---
 ## Validate the environment
 
->For this scenario, we have started installing ansible in the background. The background task will take between 2-5 minutes to complete.
+>For this scenario, `ansible-core` has been installed on the system.
 
 RHEL System Roles is a collection of Ansible roles and modules that provide a stable and consistent configuration interface to automate and manage multiple releases of Red Hat Enterprise Linux. In this step of the lab, we will validate if Ansible is available in the environment.
 
@@ -41,7 +41,7 @@ To check if ansible installation is complete, we can use the following command -
 ansible --version
 ```
 
-You should see output like below -
+You should see the output below -
 
 <pre class="file">
   config file = /etc/ansible/ansible.cfg
