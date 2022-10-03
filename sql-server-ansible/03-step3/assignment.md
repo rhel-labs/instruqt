@@ -32,3 +32,4 @@ mssql_password: "p@55w0rD"
 ...
 </pre>
 
+You'll also notice that ``site.yml`` includes the firewall RHEL system role, which opens the mssql port.  You can learn more about the firewall RHEL system role in the `Red Hat Enterprise Linux Firewall System Role` lab. 
