@@ -5,8 +5,8 @@ do
     sleep 1
 done
 
-yum remove -y google-rhui-client*
-yum clean all
+# yum remove -y google-rhui-client*
+# yum clean all
 subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force
 
