@@ -10,7 +10,7 @@ tabs:
 difficulty: basic
 timelimit: 900
 ---
-# Download the Ansible Role
+# Install the Ansible Role
 
 Ansible uses the concept of **roles** to better allow modular code and avoid repeating yourself. A role is simply a folder structure that Ansible knows where to load vars files, tasks and handlers from.
 
