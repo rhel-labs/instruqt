@@ -10,6 +10,6 @@ dnf install -y rhel-system-roles
 /bin/ansible-playbook -i /root/aap_instruqt/inventory.yml /root/aap_instruqt/playbooks/aap_setup.yml
 
 mkdir -p /var/lib/awx/projects/_6__demo_project/collections
-cp -ar /usr/share/ansible/collections/ansible_collections/* /var/lib/awx/projects/_6__demo_project/collections
+cp -ar /usr/share/ansible/collections/ansible_collections/ /var/lib/awx/projects/_6__demo_project/collections
 chown awx:awx -R /var/lib/awx/projects/_6__demo_project
 chcon -R system_u:object_r:container_file_t:s0 /var/lib/awx/projects/_6__demo_project
