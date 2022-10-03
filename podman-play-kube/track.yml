@@ -1,0 +1,24 @@
+slug: podman-play-kube
+title: Generate and Import Kubernetes definiteions with Podman
+description: |
+  # Goal:
+  After completing this scenario, users will be able to use podman to create a kubernetes pod definition, and also import a kubernetes pod definition into Podman.
+
+  # Concepts included in this scenario:
+  * Verify whether podman is installed on the system
+  * Create a pod in podman
+  * Run a container inside of a pod in podman
+  * Export a pod's definition from Podman, to a kubernetes definition
+  * Import a kubernetes definition into podman
+
+  # Example Use case:
+  Your container developers would like to be able to mimmic a production container deployment on a smaller scale test system.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+tags:
+- rhel
+owner: rhel
+developers:
+- nlager@redhat.com
+private: false
+published: true
