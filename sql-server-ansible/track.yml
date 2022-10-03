@@ -1,6 +1,5 @@
 slug: sql-server-ansible
 id: noidp4duvlyk
-type: track
 title: Installing and configuring Microsoft SQL Server on Red Hat Enterprise Linux
   using RHEL System Roles
 description: |
@@ -9,8 +8,8 @@ description: |
   to install and configure Microsoft SQL Server on Red Hat Enterprise Linux (RHEL).
 
   # Concepts included in this scenario:
-  * Verify whether ansible is installed on the system
-  * Downloading the ansible role for SQL Server from ansible galaxy
+  * Verifying whether ansible is installed on the system
+  * Installing the ansible collection for SQL Server
   * Viewing and editing the ansible playbook variables
   * Running the playbook to install and configure Microsoft SQL Server on RHEL 8
   * Login to SQL Server and query a table
@@ -27,6 +26,7 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
+- nlager@redhat.com
 private: false
 published: true
-checksum: "9442908582376018492"
+checksum: "125639859276878838"
