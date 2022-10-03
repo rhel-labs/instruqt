@@ -87,7 +87,8 @@ Host *
 EOF
 
 # Load the manifest
+git -C /root/aap_instruqt/ pull origin master
 /bin/ansible-playbook -i /root/aap_instruqt/inventory.yml /root/aap_instruqt/playbooks/register_aap.yml
 
 # Delete the manifest
-rm -f /root/manifest_instruqt_aap_20220927T195338Z.zip
+#rm -f /root/manifest_instruqt_aap_20220927T195338Z.zip

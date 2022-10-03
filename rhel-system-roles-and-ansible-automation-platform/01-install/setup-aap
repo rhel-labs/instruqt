@@ -2,17 +2,12 @@
 # Set up basic AAP configuration.
 dnf install -y rhel-system-roles
 
-mkdir -p /var/lib/awx/projects/aap_demo_project/collections
-
 git clone https://github.com/myee111/aap_demo_ansiblefest.git /root/aap_demo_ansiblefest
-cp -ar /root/aap_demo_ansiblefest /var/lib/awx/projects/aap_demo_project/
 
-chown awx:awx -R /var/lib/awx/projects/aap_demo_project
-chcon -R system_u:object_r:container_file_t:s0 /var/lib/awx/projects/aap_demo_project
-
-git -C /root/aap_instruqt/ pull origin master
 /bin/ansible-playbook -i /root/aap_instruqt/inventory.yml /root/aap_instruqt/playbooks/aap_setup.yml
 
+mkdir -p /var/lib/awx/projects/*__aap_demo_project/collections
+cp -ar /root/aap_demo_ansiblefest /var/lib/awx/projects/aap_demo_project/
 cp -ar /usr/share/ansible/collections/ansible_collections/ /var/lib/awx/projects/*__aap_demo_project/collections
 
 chown awx:awx -R /var/lib/awx/projects/aap_demo_project
