@@ -6,7 +6,7 @@ title: Step 1
 notes:
 - type: text
   contents: |
-  # Goal:
+    # Goal:
     After completing this scenario, users will be able to use Ansible playbooks
     to install and configure Microsoft SQL Server on Red Hat Enterprise Linux (RHEL).
 
