@@ -57,7 +57,7 @@ In Ansible, the inventory represents machines that Ansible will manage. In this 
 echo "[sqlgroup]" > myhosts
 ```
 
-Next, add the host to the group.You can have multiple machines under a group, but for this scenario we will have only one machine (i.e. localhost).
+Next, add the host to the group.  You can have multiple machines under a group, but for this scenario we will have only one machine (i.e. localhost).
 
 ```bash
 echo localhost ansible_connection=local >> myhosts
