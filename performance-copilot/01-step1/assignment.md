@@ -1,23 +1,24 @@
 ---
 slug: step1
+id: sdpmhuxswwy4
 type: challenge
 title: Step 1
 notes:
 - type: text
   contents: |
-  # Introduction to Performance Co-Pilot
-  
-  ## Goal:
-  After completing this scenario, users will be able to understand the basics of Performance Co-Pilot (PCP) in RHEL, and use PCP to analyze system performance.
+    # Introduction to Performance Co-Pilot
 
-  ## Concepts included in this scenario:
-  * Install Performance Co-Pilot (PCP) packages on RHEL
-  * Analyze critical system resources using PCP
-  * Using Web Console to review PCP data
+    ## Goal:
+    After completing this scenario, users will be able to understand the basics of Performance Co-Pilot (PCP) in RHEL, and use PCP to analyze system performance.
 
-  ## Additional Reading
-  * [Monitoring and managing system status and performance](https://access.redhat.com/documentation/gu-in/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/setting-up-pcp_monitoring-and-managing-system-status-and-performance#doc-wrapper)
-  * [Performance observability in practice with bcc-tools](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/monitoring_and_managing_system_status_and_performance/monitoring-performance-with-performance-co-pilot_monitoring-and-managing-system-status-and-performance)
+    ## Concepts included in this scenario:
+    * Install Performance Co-Pilot (PCP) packages on RHEL
+    * Analyze critical system resources using PCP
+    * Using Web Console to review PCP data
+
+    ## Additional Reading
+    * [Monitoring and managing system status and performance](https://access.redhat.com/documentation/gu-in/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/setting-up-pcp_monitoring-and-managing-system-status-and-performance#doc-wrapper)
+    * [Performance observability in practice with bcc-tools](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/monitoring_and_managing_system_status_and_performance/monitoring-performance-with-performance-co-pilot_monitoring-and-managing-system-status-and-performance)
 tabs:
 - title: Terminal
   type: terminal
@@ -25,7 +26,7 @@ tabs:
 difficulty: basic
 timelimit: 900
 ---
-## Installing the PCP tools 
+## Installing the PCP tools
 
 Performance Co-Pilot (PCP) is a suite of tools, services, and libraries for monitoring, visualizing, storing, and analyzing system-level performance measurements.
 

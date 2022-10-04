@@ -1,9 +1,9 @@
 slug: performance-copilot
-type: track
+id: ps474lw9xsmv
 title: Performance Co-Pilot (PCP) on Red Hat Enterprise Linux
 description: |
   # Introduction to Performance Co-Pilot
-  
+
   ## Goal:
   After completing this scenario, users will be able to understand the basics of Performance Co-Pilot (PCP) in RHEL, and use PCP to analyze system performance.
 
@@ -24,3 +24,5 @@ developers:
 - ehendric@redhat.com
 private: false
 published: true
+maintenance: true
+checksum: "13097146320181247531"

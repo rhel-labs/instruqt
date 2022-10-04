@@ -1,5 +1,6 @@
 ---
 slug: step4
+id: uaseto3lbmdp
 type: challenge
 title: Step 4
 tabs:
@@ -14,7 +15,7 @@ timelimit: 900
 ---
 ## Troubleshooting high memory usage
 
-In the course of this lab, you have enabled the PCP tools for CLI or web UI utilization. Now, you will put those pieces together to see what happens to a system while memory constrained.
+Over the course of this lab, you have enabled the PCP tools for CLI or web UI utilization. Now, you will put those pieces together to see what happens to a system while memory constrained.
 
 
 

@@ -1,5 +1,6 @@
 ---
 slug: step3
+id: 6t2a4bvxwsyq
 type: challenge
 title: Step 3
 tabs:
@@ -37,6 +38,6 @@ On the dashboard, you will see the CPU and Memory usage of your system update li
 
 <screenshot: metrics>
 
-The services, processes, and disks are hyperlinks that take you either to more detailed graphics, the appropriate web console screen, or even the system logs. This allows for a more unified troubleshooting experience. 
+The services, processes, and disks are hyperlinks that take you either to more detailed graphics, the appropriate web console screen, or even the system logs. This allows for a more unified troubleshooting experience.
 
 In the final step, you will start several processes and utilize the PCP suite to observe its impact on system resources.
