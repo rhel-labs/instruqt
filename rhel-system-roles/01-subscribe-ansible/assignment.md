@@ -2,11 +2,11 @@
 slug: subscribe-ansible
 id: hgfyzlfmhsem
 type: challenge
-title: Add the Ansible repository.
-teaser: Add the Ansible repository to your server.
+title: Install rhel-system-roles.
+teaser: Install rhel-system-roles on your server.
 notes:
 - type: text
-  contents: 'Step 1: Configuring prerequisite repositories and packages.'
+  contents: 'Step 1: Install rhel-system-roles on your server'
 tabs:
 - title: Shell
   type: terminal
