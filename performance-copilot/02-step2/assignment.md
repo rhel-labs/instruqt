@@ -14,10 +14,10 @@ timelimit: 900
 
 PCP can collect and show a host of different system kernel metrics.
 
-Display the kernel metrics on the host with a short description using `pminfo` :
+To display all the enabled performance metrics and include a short description, you can use the `pminfo` command:
 
 ```bash
-pminfo -t kernel.all
+pminfo -t
 ```
 
 <pre class="file">
@@ -47,7 +47,7 @@ Check out `man pminfo` if you are interested in more details about the `pminfo` 
 
 ## Monitoring performance using PCP
 
-The `pmrep` utility takes any of the available metrics and reports them in ASCII tables.
+The `pmval` utility takes any of the available metrics and reports them in ASCII tables.
 
 For instance, this command reports idle processor utilization for each CPU on the host, every 1 second in a 5 second window :
 
@@ -71,3 +71,13 @@ interval:  1.00 sec
                0.9692                0.9892
                0.9692                0.9891
 </pre>
+
+You are also able to get a live view of performance in a top-like view:
+
+```bash
+pcp htop
+```
+
+Once you note the running processes, use CTRL+C to exit.
+
+This step barely scratches the surface of what's available in the PCP command line tools. In the next step, we'll look at similar tools but from the Web Console.

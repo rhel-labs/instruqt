@@ -21,10 +21,10 @@ One of the easiest ways to observe the performance status of a RHEL server is vi
 dnf install -y cockpit-pcp
 ```
 
-Then restart the cockpit socket:
+Then start the web console:
 
 ```bash
-systemctl restart cockpit.socket
+systemctl enabled --now cockpit.socket
 ```
 
 In the second tab, you can now login to the web console.
@@ -32,12 +32,12 @@ In the second tab, you can now login to the web console.
 User: rhel
 Password: redhat
 
-<screenshot: dashboard>
+![Cockpit Dashboard](../assets/cockpit_dashboard.png)
 
 On the dashboard, you will see the CPU and Memory usage of your system update live. To dive in deeper, you can click on `View details and history`
 
-<screenshot: metrics>
-
 The services, processes, and disks are hyperlinks that take you either to more detailed graphics, the appropriate web console screen, or even the system logs. This allows for a more unified troubleshooting experience.
+
+![Performance Metrics](../assets/cockpit_pef.png)
 
 In the final step, you will start several processes and utilize the PCP suite to observe its impact on system resources.
