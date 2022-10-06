@@ -24,7 +24,7 @@ dnf install -y cockpit-pcp
 Then start the web console:
 
 ```bash
-systemctl enabled --now cockpit.socket
+systemctl enable --now cockpit.socket
 ```
 
 In the second tab, you can now login to the web console.

@@ -72,12 +72,6 @@ interval:  1.00 sec
                0.9692                0.9891
 </pre>
 
-You are also able to get a live view of performance in a top-like view:
 
-```bash
-pcp htop
-```
 
-Once you note the running processes, use CTRL+C to exit.
-
-This step barely scratches the surface of what's available in the PCP command line tools. In the next step, we'll look at similar tools but from the Web Console.
+These are just a couple of examples, but in the next step, we'll look at similar tools but from the Web Console.

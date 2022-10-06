@@ -5,10 +5,10 @@ do
    sleep 1
 done
 
-dnf install stress-ng && dnf remove -y google-rhui-client*
+dnf remove -y google-rhui-client*
 mv /etc/yum.repos.d/google-cloud.repo /root
 subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force
-dnf clean all
+dnf clean all && dnf install -y stress-ng
 echo "rhel:redhat" | chpasswd
 echo "rhel     ALL=(ALL)     NOPASSWD: ALL" > /etc/sudoers.d/rhel
