@@ -30,6 +30,7 @@ systemctl enable --now cockpit.socket
 In the second tab, you can now login to the web console.
 
 User: rhel
+
 Password: redhat
 
 ![Cockpit Dashboard](../assets/cockpit_dashboard.png)

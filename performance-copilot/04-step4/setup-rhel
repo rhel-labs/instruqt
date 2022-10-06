@@ -1,2 +1,2 @@
 #!/bin/bash
-/usr/bin/stress-ng --cpu 2 &
+nohup /usr/bin/stress-ng --cpu 2 > stress.out 2> stress.err < /dev/null & disown
