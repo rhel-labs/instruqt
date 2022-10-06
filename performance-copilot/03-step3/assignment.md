@@ -38,6 +38,6 @@ On the dashboard, you will see the CPU and Memory usage of your system update li
 
 The services, processes, and disks are hyperlinks that take you either to more detailed graphics, the appropriate web console screen, or even the system logs. This allows for a more unified troubleshooting experience.
 
-![Performance Metrics](../assets/cockpit_pef.png)
+![Performance Metrics](../assets/cockpit_perf.png)
 
 In the final step, you will start several processes and utilize the PCP suite to observe its impact on system resources.

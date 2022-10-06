@@ -25,4 +25,5 @@ developers:
 private: false
 published: true
 maintenance: true
-checksum: "13097146320181247531"
+show_timer: true
+checksum: "15557439900587718093"

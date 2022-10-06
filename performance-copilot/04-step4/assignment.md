@@ -18,5 +18,3 @@ timelimit: 900
 Over the course of this lab, you have enabled the PCP tools for CLI and web UI utilization. Now, you will put those pieces together to see what happens to a system while CPU constrained.
 
 In the background, the server has kicked off a proces that is putting a heavy strain on the CPUs.
-
->**NOTE:** This final exercise was adapted from the [Setting up PCP documentation](https://access.redhat.com/documentation/gu-in/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/setting-up-pcp_monitoring-and-managing-system-status-and-performance#troubleshooting-high-memory-usage_setting-up-pcp). Follow the link to learn additional details.
