@@ -1,11 +1,13 @@
 ---
 slug: cockpit
+id: kxcgn8r6we7i
 type: challenge
 title: Log in to RHEL hosts.
 teaser: Log in to RHEL hosts.
 notes:
 - type: text
-  contents: Log in to the other RHEL hosts and examine the configurations made by RHEL System Roles.
+  contents: Log in to the other RHEL hosts and examine the configurations made by
+    RHEL System Roles.
 tabs:
 - title: AAP
   type: terminal

@@ -1,5 +1,6 @@
 ---
 slug: grafana
+id: mkrsr6f02ke5
 type: challenge
 title: Log in to Grafana.
 teaser: Log in to Grafana.
