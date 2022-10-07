@@ -28,7 +28,7 @@ tabs:
   type: external
   url: https://rhel3.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 3599
+timelimit: 3538
 ---
 In this lab there are 4 hosts. Below is a description of them and their purpose.
 
