@@ -26,7 +26,7 @@ tabs:
   type: external
   url: https://rhel3.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 60
+timelimit: 1
 ---
 
 In the previous challenge, we installed Grafana on `rhel` and PCP on `rhel2` and `rhel3`.
