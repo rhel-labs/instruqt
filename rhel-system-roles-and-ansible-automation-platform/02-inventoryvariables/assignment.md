@@ -84,24 +84,24 @@ Expland the `Variables` text area.
 
 ![expand](../assets/expland.png)
 
-1) Copy the following yaml code block and paste it into the `Variables` text area.
+Copy the following yaml code block and paste it into the `Variables` text area.
 
-```yaml
----
-timesync_ntp_servers:
-  - hostname: 2.rhel.pool.ntp.org
-    iburst: yes
+  ```yaml
+  ---
+  timesync_ntp_servers:
+    - hostname: 2.rhel.pool.ntp.org
+      iburst: yes
 
-sshd:
-  MaxAuthTries: "3"
-  LoginGraceTime: "60"
+  sshd:
+    MaxAuthTries: "3"
+    LoginGraceTime: "60"
 
-tlog_scope_sssd: all
+  tlog_scope_sssd: all
 
-crypto_policies_policy: DEFAULT:NO-SHA1
-```
+  crypto_policies_policy: DEFAULT:NO-SHA1
+  ```
 
-2) Click `Done`.
+Click `Done`.
 
 ![variables text area paste](../assets/copypastedonevariables.png)
 
@@ -177,13 +177,13 @@ Click on `Hosts`.
 
 Next, add `rhel` to the group:
 
-1) Click on `Add`.
-2) Select `Add existing host`.
+Click on `Add`.
+Select `Add existing host`.
 
 ![add existing host](../assets/metricsserveraddexistinghost.png)
 
-3) Click on `rhel`.
-4) Click `Save`.
+Click on `rhel`.
+Click `Save`.
 
 ![add existing host 2](../assets/metricsserveraddexistinghost2.png)
 
