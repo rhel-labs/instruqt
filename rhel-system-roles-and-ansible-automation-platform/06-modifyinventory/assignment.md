@@ -34,16 +34,12 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-
-<<<<<<< Updated upstream
-=======
 > __NOTE:__ To automatically make changes, run the following ansible playbook. If you wish to learn how to configure the RHEL system roles, please continue without running the ansible playbook.
 
 ```bash
 ansible-playbook -i /root/aap_instruqt/inventory.yml /root/aap_instruqt/playbooks/modify.yml
 ```
 
->>>>>>> Stashed changes
 Navigate to the `Production Hosts` inventory in the `Inventories` menu. Click on `Edit`.
 
 ![production hosts](../assets/modifyprodhosts.png)
