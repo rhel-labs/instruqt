@@ -1,6 +1,5 @@
 slug: satellite-basics
 id: bj383eviboot
-type: track
 title: Satellite Basics
 teaser: Learn the basics of using Red Hat Satellite.
 description: |
@@ -29,4 +28,4 @@ developers:
 private: false
 published: true
 show_timer: true
-checksum: "14319258027599589452"
+checksum: "4512275789995868367"

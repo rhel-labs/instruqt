@@ -12,7 +12,7 @@ tabs:
   hostname: rhel
   path: /root
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 ## View and edit the Ansible Playbook
 

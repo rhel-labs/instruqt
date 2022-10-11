@@ -1,6 +1,5 @@
 slug: ebpf-tracing
 id: 76ozcl8orx9p
-type: track
 title: Performance observability in practice with bcc-tools
 description: |
   # Goal:
@@ -29,4 +28,4 @@ developers:
 - smcbrien@redhat.com
 private: false
 published: true
-checksum: "6974986211566562138"
+checksum: "15643106255076241319"

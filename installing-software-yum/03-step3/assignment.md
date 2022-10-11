@@ -8,7 +8,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 600
+timelimit: 1
 ---
 # Using `yum history` to roll back a transaction
 

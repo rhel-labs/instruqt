@@ -1,6 +1,5 @@
 slug: sandbox
 id: nn2ysbkldfae
-type: track
 title: Red Hat Enterprise Linux Open Lab
 description: |
   # Goal:
@@ -22,4 +21,4 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-checksum: "9054828518033482971"
+checksum: "9723166645256132213"

@@ -17,7 +17,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 600
+timelimit: 1
 ---
 The owner user and owner group will have full permissions, but others will only be able to read the file. Return to the first terminal where you are logged in as __root__. Use `chmod` to modify the permissions on __status.sh__ as discussed above:
 

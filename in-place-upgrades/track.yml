@@ -1,6 +1,5 @@
 slug: in-place-upgrades
 id: vijyvfkqhfzw
-type: track
 title: In Place Upgrades
 teaser: Performing an in-place upgrade with LEAPP
 description: |-
@@ -20,6 +19,7 @@ tags:
 owner: rhel
 developers:
 - ehendric@redhat.com
+- myee@redhat.com
 private: true
 published: false
-checksum: "4313839633191522966"
+checksum: "13473583709901993456"

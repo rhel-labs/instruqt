@@ -1,6 +1,5 @@
 slug: unixisms
 id: xcko5abq9qxn
-type: track
 title: Unusual Unixisms [Admin 101]
 description: |
   # Overview:
@@ -28,4 +27,4 @@ developers:
 private: false
 published: true
 skipping_enabled: true
-checksum: "3423140573163827032"
+checksum: "7862866696975866549"

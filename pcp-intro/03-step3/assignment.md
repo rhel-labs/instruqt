@@ -13,7 +13,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 ## Configuring PMDAs for SQL Server
 

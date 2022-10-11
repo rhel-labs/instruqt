@@ -1,6 +1,5 @@
 slug: pcp-flamegraphs
 id: hqquxrchkelx
-type: track
 title: Visualizing performance using flame graphs in Red Hat Enterprise Linux
 description: |
   # Goal:
@@ -22,4 +21,4 @@ developers:
 - myee@redhat.com
 private: true
 published: false
-checksum: "14562439456251908076"
+checksum: "3727661279764035472"

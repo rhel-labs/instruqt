@@ -13,7 +13,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 60
+timelimit: 1
 ---
 In this lab, you are going to containerize a software package that is already
 packaged in RPM format and stored in the Extra Packages for Enterprise Linux

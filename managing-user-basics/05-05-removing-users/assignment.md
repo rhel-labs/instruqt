@@ -15,7 +15,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 600
+timelimit: 1
 ---
 The `usermod` command has a lock password option (`-L`) which informs the system to stop accepting a user's login attempts.
 

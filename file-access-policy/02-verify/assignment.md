@@ -15,7 +15,7 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 4
+timelimit: 1
 ---
 Now that we've seen how the daemon is configured, let's see it in action.
 

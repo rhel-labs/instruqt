@@ -16,7 +16,7 @@ tabs:
   path: /
   port: 80
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 ## Recording performance metrics using Perf
 

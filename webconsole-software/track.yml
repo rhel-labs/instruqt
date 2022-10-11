@@ -1,6 +1,5 @@
 slug: webconsole-software
 id: 0aauyibyx3dy
-type: track
 title: Update a Red Hat Enterprise Linux host with the Web Console
 description: |+
   # Goal:
@@ -20,4 +19,4 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-checksum: "4017115826472217136"
+checksum: "802397003352996706"

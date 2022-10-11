@@ -15,7 +15,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 600
+timelimit: 1
 ---
 Like with `useradd`, you must have root access to use this command. Set the password for the guest account you created in the previous step using the following command:
 

@@ -1,6 +1,5 @@
 slug: pcp-intro
 id: dvkmxixppagt
-type: track
 title: Performance Co-Pilot (PCP) on Red Hat Enterprise Linux
 description: |
   # Goal:
@@ -22,4 +21,4 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-checksum: "8805842788182854740"
+checksum: "10632318407226006538"

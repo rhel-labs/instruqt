@@ -1,6 +1,5 @@
 slug: rhel-system-roles
 id: yjkfwzaxndfo
-type: track
 title: Build a Standard Operating Environment with RHEL System Roles
 teaser: Configuring and updating system configurations with System Roles. This track
   has an estimated duration for completion of 10 minutes.
@@ -29,4 +28,4 @@ private: false
 published: true
 show_timer: true
 skipping_enabled: true
-checksum: "11843612656957242184"
+checksum: "5465333230876818174"

@@ -8,7 +8,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 50
+timelimit: 1
 ---
 ## Connect to SQL Server with updated certificate
 

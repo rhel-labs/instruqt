@@ -13,7 +13,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 100
+timelimit: 1
 ---
 Starting from an existing base container isn't the only option available to `buildah`.  `Buildah` can create a minimal container image that contains metadata and a filesystem stub.
 

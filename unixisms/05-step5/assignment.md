@@ -16,7 +16,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 600
+timelimit: 1
 ---
 Now, let's try a few examples of converting between time formats. The `date` command is useful for displaying the current date and time of your system. The value output depends on the timezone you have configured, and the format of the output can be controlled using format strings. If you run `date` without any arguments, it will print the date and time in the following format:
 

@@ -1,6 +1,5 @@
 slug: sql-server-ansible
 id: noidp4duvlyk
-type: track
 title: Installing and configuring Microsoft SQL Server on Red Hat Enterprise Linux
   using RHEL System Roles
 description: |
@@ -29,4 +28,4 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-checksum: "9442908582376018492"
+checksum: "3515927726757039040"

@@ -13,7 +13,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 60
+timelimit: 1
 ---
 Now the software has been installed and a new container image created.  It is
 time to spawn a runtime of the container image and validate the software.  The

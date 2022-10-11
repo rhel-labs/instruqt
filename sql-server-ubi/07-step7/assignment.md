@@ -14,7 +14,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 ## Re-query In-Memory OLTP data in SQL Server
 

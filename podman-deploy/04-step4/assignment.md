@@ -13,7 +13,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 60
+timelimit: 1
 ---
 Running an interactive container is all well and good, however, if the container is offering applications or services, you do not need to interact with it.
 

@@ -8,7 +8,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 In this lab, you have now observed: host name resolution, tcp connection information, file activity (in real time), filesystem latency, and realtime hits and misses on the memory cache on a Red Hat Enterprise Linux 8 system. Tools utilizing eBPF, such as those shipped with bcc-tools in Red Hat Enterprise Linux 8, are very powerful and allow you quick access to information about the kernel and your systems.
 

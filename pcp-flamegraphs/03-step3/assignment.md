@@ -16,7 +16,7 @@ tabs:
   path: /
   port: 80
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 ## Optimizing MySQL queries on Red Hat Enterprise Linux
 

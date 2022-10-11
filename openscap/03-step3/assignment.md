@@ -13,7 +13,7 @@ tabs:
   path: /
   port: 80
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 # Scan and generate a report
 

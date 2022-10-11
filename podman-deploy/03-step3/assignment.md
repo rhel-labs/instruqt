@@ -13,7 +13,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 60
+timelimit: 1
 ---
 Switch back to *Pane 0* by type `ctrl-b` and then the up arrow key.  Exit the container's shell
 
