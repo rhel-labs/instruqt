@@ -23,7 +23,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 600
+timelimit: 1
 ---
 In this step, you will be modifying the permissions on the `status.sh` script using symbolic syntax with the `chmod` command. In the previous step, you were unable to execute __status.sh__ as __guest__. To change that, use the `chmod` command. The plus (`+`) operator will add any permissions that you specify, but it will not change any permissions that you do not explicitly set in the command. So in this case, it will give others read and execute access, but will not change the value of write access for the group. Return to the root terminal to execute this command.
 

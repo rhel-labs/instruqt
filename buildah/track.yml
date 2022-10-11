@@ -1,6 +1,5 @@
 slug: buildah
 id: 6olq5w9yvb1g
-type: track
 title: Creating images with Container Tools [buildah]
 description: |
   After completing this scenario, users will be able to build images from scratch or existing base images using **buildah** and other host based tools.
@@ -24,4 +23,4 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-checksum: "2634895506821178683"
+checksum: "17255371145474787179"

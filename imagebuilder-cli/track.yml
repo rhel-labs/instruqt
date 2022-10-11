@@ -1,6 +1,5 @@
 slug: imagebuilder-cli
 id: y8qzfruiyge9
-type: track
 title: Design and build virtual machine images using commandline tools [Image Builder]
 description: |+
   # Goal:
@@ -29,4 +28,4 @@ developers:
 private: false
 published: true
 skipping_enabled: true
-checksum: "5317399586922625113"
+checksum: "2840082517742309875"

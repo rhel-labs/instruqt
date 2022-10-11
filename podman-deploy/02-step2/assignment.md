@@ -13,7 +13,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 60
+timelimit: 1
 ---
 The __rhel9-httpd__ container includes a bash shell.  In this step, you will
 deploy the container in an interactive fashion, which will allow you to run commands within the deployed container. Use *Pane 0*.

@@ -12,7 +12,7 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 60
+timelimit: 1
 ---
 In this challenge, we will enable access to the http port 80 on `rhelvm`.
 

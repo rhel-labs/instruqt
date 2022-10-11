@@ -22,7 +22,7 @@ tabs:
   type: external
   url: http://rhel.${_SANDBOX_ID}.instruqt.io:3000
 difficulty: basic
-timelimit: 60
+timelimit: 1
 ---
 
 Let's run a stress test on `rhel2` and `rhel3`

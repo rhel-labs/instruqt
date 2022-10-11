@@ -1,6 +1,5 @@
 slug: containerize-app
 id: ljhcpt025ihl
-type: track
 title: Build an application into a container image using RHEL Container Tools
 description: |+
   # Goal:
@@ -31,4 +30,4 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-checksum: "9607713359603028975"
+checksum: "7510166369349504659"

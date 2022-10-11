@@ -4,6 +4,9 @@
 			"path": "."
 		},
 		{
+			"path": "../rhel-labs"
+		},
+		{
 			"path": "../packer-gcp"
 		}
 	]

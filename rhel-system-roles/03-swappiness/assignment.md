@@ -18,7 +18,7 @@ tabs:
   type: terminal
   hostname: client2
 difficulty: basic
-timelimit: 600
+timelimit: 1
 ---
 Now that the playbook has been applied to the system, verify that the updated settings have been applied. Below you will see we use swappiness, but you could look at any of the included parameters.
 ```

@@ -30,7 +30,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 3600
+timelimit: 3420
 ---
 
 SELinux is a technology to isolate processes/containers running on the system to mitigate attacks which take

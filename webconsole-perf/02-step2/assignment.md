@@ -11,7 +11,7 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 75
+timelimit: 1
 ---
 # Navigate to System Overview and Usage Details
 Now that you are logged into the Web Console,

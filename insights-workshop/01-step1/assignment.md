@@ -38,7 +38,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 900
+timelimit: 3420
 ---
 # Registering a machine to Red Hat Insights
 

@@ -1,6 +1,5 @@
 slug: firewall-system-role
 id: upbhehfqbd0l
-type: track
 title: Configure firewalls with RHEL System Roles
 teaser: Configure your RHEL host firewall with RHEL System Roles
 description: |
@@ -24,4 +23,4 @@ developers:
 - myee@redhat.com
 private: true
 published: false
-checksum: "11071112056182038399"
+checksum: "16219476579719570998"

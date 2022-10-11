@@ -15,7 +15,7 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 1200
+timelimit: 1
 ---
 Now we'll update the image and push the updates out to your edge device.
 

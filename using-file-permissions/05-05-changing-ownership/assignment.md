@@ -14,7 +14,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 600
+timelimit: 1
 ---
 From the root terminal, confirm that __root__ is the initial owner of the file __tasks.txt__:
 

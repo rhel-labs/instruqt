@@ -26,7 +26,7 @@ tabs:
   type: terminal
   hostname: rhel4
 difficulty: basic
-timelimit: 60
+timelimit: 1
 ---
 
 So far we have configured 2 RHEL hosts (`rhel2`, `rhel3`) to be monitored and have their performance metrics collected by host running Grafana and Redis (`rhel`). We'll now edit the play book to configure and add another host `rhel4`. This exercise is useful as you add more and more hosts to your datacenter.

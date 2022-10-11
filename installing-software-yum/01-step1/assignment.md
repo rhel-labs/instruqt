@@ -22,7 +22,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 600
+timelimit: 3420
 ---
 # What is a package manager?
 

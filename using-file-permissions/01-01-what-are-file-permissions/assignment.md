@@ -22,7 +22,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 600
+timelimit: 3420
 ---
 It is important to properly assign permissions to files and directories created on a shared system so that files are not accidentally (or maliciously) tampered with, destroyed, or executed. The next section shows you how to view the permissions of files in an example directory.
 

@@ -35,7 +35,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 3660
+timelimit: 3420
 ---
 The Red Hat Universal Base Image (UBI) is produced by Red Hat and is an easy
 place to start when containerizing applications.  If you want to read more

@@ -13,7 +13,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 600
+timelimit: 1
 ---
 The `-perm` option causes the `find` command to look at the access modes for each file. In this case you are calling `find` without a path, which means it will start looking in the current directory. First, check for files that have the permission level __755__.
 

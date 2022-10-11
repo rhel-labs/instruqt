@@ -8,7 +8,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 # Regenerate SSL certificate
 
@@ -57,4 +57,9 @@ openssl x509 -in /etc/pki/tls/certs/localhost.crt -text | grep bit
 Now that a new SSL certificate has been created using a larger public key,
 it complies with the requirements of the  FUTURE cryptographic policy.
 
-> **NOTE:** It is recommended practice to use Certificate Authority (CA) issued certificates.  If you were using a certificate from a Certificate Authority, you would need to generate a new Certificate Signature Request (csr) and submit it to your CA.  When you receive the signed certificate from your CA, you would then position it, and update any configuration files needed to reference it.
+> **NOTE:** It is recommended practice to use Certificate Authority (CA) issued
+certificates.  If you were using a certificate from a Certificate Authority,
+you would need to generate a new Certificate Signature Request (csr) and
+submit it to your CA.  When you receive the signed certificate from your CA,
+you would then position it, and update any configuration files needed to
+reference it.

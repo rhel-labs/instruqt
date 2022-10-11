@@ -27,7 +27,7 @@ tabs:
   path: /
   port: 80
 difficulty: basic
-timelimit: 900
+timelimit: 3420
 ---
 # Installing the SCAP packages
 

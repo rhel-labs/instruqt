@@ -28,7 +28,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 3564
+timelimit: 3420
 ---
 **Buildah** has two main ways to create images:
 * Using subcommands to modify contents

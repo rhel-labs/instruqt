@@ -8,7 +8,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 Let's launch two more bcc-tools in separate terminals before you start observing the sample workload:
 

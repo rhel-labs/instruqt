@@ -13,7 +13,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 60
+timelimit: 1
 ---
 At this point, the container is configured.  It is time to transition from a
 working container into a committed image.  In the command below, you will use

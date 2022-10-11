@@ -1,6 +1,5 @@
 slug: selinux-containers
 id: iasej5fcan4g
-type: track
 title: Securing containers with SELinux [Udica]
 description: |
   After completing this scenario, you will be able to run container images and generate SELinux profiles customized
@@ -26,4 +25,4 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-checksum: "8849810547087412554"
+checksum: "10754835386803333362"

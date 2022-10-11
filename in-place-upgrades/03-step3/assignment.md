@@ -11,7 +11,7 @@ tabs:
   type: terminal
   hostname: host2
 difficulty: basic
-timelimit: 1140
+timelimit: 1
 ---
 # Running the upgrade
 

@@ -27,7 +27,7 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 3600
+timelimit: 3420
 ---
 Welcome to this open lab expierence for Red Hat Enterprise Linux.
 

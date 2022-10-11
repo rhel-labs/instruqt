@@ -13,7 +13,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 60
+timelimit: 1
 ---
 Now that the yum repositories are defined within the container, you can use
 another `yum install`, executed within the container, to install the target

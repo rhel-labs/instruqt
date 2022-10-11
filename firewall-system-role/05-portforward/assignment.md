@@ -12,7 +12,7 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 60
+timelimit: 1
 ---
 
 In this challenge we'll forward incoming tcp requests on port 9999 to 12345.

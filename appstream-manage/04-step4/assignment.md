@@ -8,7 +8,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 When postgresql version 9.6 was installed the enabled flag, [e], moved to apply
 to that version of the application stream.  The other versions of postgresql
