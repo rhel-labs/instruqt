@@ -1,6 +1,5 @@
 slug: rhel-system-roles-metrics
 id: szhhxllg5wcg
-type: track
 title: Visualize performance on your Red Hat Enterprise Linux Infrastructure with
   RHEL System Roles Metrics role
 teaser: Learn how RHEL System Roles can automatically configure an observability infrastructure
@@ -30,4 +29,4 @@ developers:
 - myee@redhat.com
 private: false
 published: false
-checksum: "18404521421212613659"
+checksum: "11138325688244569551"
