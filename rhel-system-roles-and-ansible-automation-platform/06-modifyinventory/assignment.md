@@ -11,15 +11,17 @@ notes:
     that job template. We will show that it is very easy to modify configurations
     at scale with RHEL system roles and Ansible automation platform.
 tabs:
+- title: AAP Web Console
+  type: service
+  hostname: aap
+  port: 443
 - title: AAP
   type: terminal
   hostname: aap
-- title: AAP Web Console
-  type: external
-  url: https://aap.${_SANDBOX_ID}.instruqt.io
 - title: rhel Grafana Web Console
-  type: external
-  url: http://rhel.${_SANDBOX_ID}.instruqt.io:3000
+  type: service
+  hostname: rhel
+  port: 3000
 - title: rhel Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
@@ -44,6 +46,7 @@ Make the following changes:
 3) Under sshd, Change `MaxAuthTries` to `2`.
 4) Change the `LoginGraceTime` to `120`.
 5) Change `tlog_scope_sssd` to `some`.
+6) Change `tlog_group_sssd` to `wheel`. Only `wheel` users will be recorded with tlog with these settings.
 
 You can make the entire set of changes by copy and pasting the following.
 
@@ -58,6 +61,7 @@ sshd:
   LoginGraceTime: "120"
 
 tlog_scope_sssd: some
+tlog_groups_sssd: wheel
 
 crypto_policies_policy: DEFAULT:NO-SHA1
 ```

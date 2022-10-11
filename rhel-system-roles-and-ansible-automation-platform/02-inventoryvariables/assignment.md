@@ -8,15 +8,17 @@ notes:
 - type: text
   contents: Add the required inventory variables to the RHEL system roles playbook.
 tabs:
+- title: AAP Web Console
+  type: service
+  hostname: aap
+  port: 443
 - title: AAP
   type: terminal
   hostname: aap
-- title: AAP Web Console
-  type: external
-  url: https://aap.${_SANDBOX_ID}.instruqt.io
 - title: rhel Grafana Web Console
-  type: external
-  url: http://rhel.${_SANDBOX_ID}.instruqt.io:3000
+  type: service
+  hostname: rhel
+  port: 3000
 - title: rhel Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
@@ -64,9 +66,9 @@ The RHEL system roles we'll be applying to our hosts rhel, rhel2, rhel3 are:
 - redhat.rhel_system_roles.firewall - Firewall
 - redhat.rhel_system_roles.timesync - Timesync
 - redhat.rhel_system_roles.cockpit - Cockpit aka Web Console
-- redhat.rhel_system_roles.tlog - Tlog aka terminal I/O logger
+- redhat.rhel_system_roles.tlog - Tlog aka terminal session recording
 - redhat.rhel_system_roles.sshd - Secure Shell Daemon
-- redhat.rhel_system_roles.crypto_policies - Cyptographic Policies
+- redhat.rhel_system_roles.crypto_policies - System-wide Cyptographic Policies
 - redhat.rhel_system_roles.metrics - Grafana and Performance Co-pilot
 
 Let's edit the `Production Hosts`. We'll add variables that will apply to all our hosts first.
@@ -112,9 +114,9 @@ Save the variables.
 We have just configured all of our hosts to use the following RHEL system roles configurations
 
 - Timesync: custom NTP settings
-- SSH daemon: permit 3 login attempts before pausing 60 seconds
+- SSH daemon: SSH daemon: permit 3 login attempts per connection, and only allow 60 seconds for the user to authenticate
 - Terminal logger: record all users
-- Cryptographic policies: disallow SHA1
+- Cryptographic policies: use DEFAULT policy with NO-SHA1 module
 
 Next, we'll configure policies specific to the Metrics system role. We'll need to designate `rhel` as the Grafana server to collect data from `rhel2` and `rhel3`.
 

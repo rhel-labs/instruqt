@@ -9,15 +9,17 @@ notes:
   contents: Welcome to the lab. We'll orient ourselves with this environment before
     going on to learn how to deploy RHEL system roles with Ansible Automation Platform.
 tabs:
+- title: AAP Web Console
+  type: service
+  hostname: aap
+  port: 443
 - title: AAP
   type: terminal
   hostname: aap
-- title: AAP Web Console
-  type: external
-  url: https://aap.${_SANDBOX_ID}.instruqt.io
 - title: rhel Grafana Web Console
-  type: external
-  url: http://rhel.${_SANDBOX_ID}.instruqt.io:3000
+  type: service
+  hostname: rhel
+  port: 3000
 - title: rhel Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
@@ -34,10 +36,10 @@ In this lab there are 4 hosts. Below is a description of them and their purpose.
 
 | Host | Description |
 |------|-----------------------------------------------------|
-| `aap` | Control node where Ansible Automation Platform is run. As well, Grafana will be installed here. |
-| `rhel` | RHEL9 host where we will collect metrics from.      |
-| `rhel2` | RHEL9 host where we will collect metrics from.      |
-| `rhel3` | RHEL9 host where we will collect metrics from.      |
+| `aap` | Control node where Ansible Automation Platform is run.|
+| `rhel` | RHEL9 hosts that will be configured by RHEL system roles. As well, Grafana will be installed here.      |
+| `rhel2` | RHEL9 hosts that will be configured by RHEL system roles.      |
+| `rhel3` | RHEL9 hosts that will be configured by RHEL system roles.      |
 
 Ansible Automation Platform (AAP) has already been installed on the `aap` host. A basic configuration has already been performed.
 

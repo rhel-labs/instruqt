@@ -8,15 +8,17 @@ notes:
 - type: text
   contents: Apply the RHEL System Roles with Ansible Automation Platform
 tabs:
+- title: AAP Web Console
+  type: service
+  hostname: aap
+  port: 443
 - title: AAP
   type: terminal
   hostname: aap
-- title: AAP Web Console
-  type: external
-  url: https://aap.${_SANDBOX_ID}.instruqt.io
 - title: rhel Grafana Web Console
-  type: external
-  url: http://rhel.${_SANDBOX_ID}.instruqt.io:3000
+  type: service
+  hostname: rhel
+  port: 3000
 - title: rhel Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
