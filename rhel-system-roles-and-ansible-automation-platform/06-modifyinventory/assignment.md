@@ -35,6 +35,12 @@ difficulty: basic
 timelimit: 1
 ---
 
+> __NOTE:__ To automatically make changes, run the following ansible playbook.
+
+```bash
+ansible-playbook -i /root/aap_instruqt/inventory.yml /root/aap_instruqt/playbooks/modify.yml
+```
+
 Navigate to the `Production Hosts` inventory in the `Inventories` menu. Click on `Edit`.
 
 ![production hosts](../assets/modifyprodhosts.png)
@@ -109,3 +115,9 @@ cat /etc/sssd/conf.d/sssd-session-recording.conf
 ```
 
 ![sssd](../assets/sssdconf.png)
+
+> __NOTE:__ To automatically make changes, run the following ansible playbook.
+
+```bash
+ansible-playbook -i /root/aap_instruqt/inventory.yml /root/aap_instruqt/playbooks/modify.yml
+```
