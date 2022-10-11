@@ -8,11 +8,11 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 ## Connect to SQL Server and Query Data
 
-Now, let's open up the sqlcmd shell prompt connected to the **pubs** database created by the ansible playbook in SQL Server.  A sample data set has been created for you in `InstPubs.sql`, we will import it in this step.
+Now, let's open up the sqlcmd shell prompt connected to the **pubs** database created by the ansible playbook in SQL Server.
 
 If you haven't changed the sa password in the previous step, you should be able to successfully execute the command below and run the script to install the pubs data in the testDB database.
 

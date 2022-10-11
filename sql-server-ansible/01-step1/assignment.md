@@ -11,8 +11,8 @@ notes:
     to install and configure Microsoft SQL Server on Red Hat Enterprise Linux (RHEL).
 
     # Concepts included in this scenario:
-    * Verifying whether ansible is installed on the system
-    * Installing the ansible collection for SQL Server
+    * Verify whether ansible is installed on the system
+    * Downloading the ansible role for SQL Server from ansible galaxy
     * Viewing and editing the ansible playbook variables
     * Running the playbook to install and configure Microsoft SQL Server on RHEL 8
     * Login to SQL Server and query a table
@@ -27,11 +27,11 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 900
+timelimit: 3420
 ---
 ## Validate the environment
 
->For this scenario, `ansible-core` has been installed on the system.
+>For this scenario, we have started installing ansible in the background. The background task will take between 2-5 minutes to complete.
 
 RHEL System Roles is a collection of Ansible roles and modules that provide a stable and consistent configuration interface to automate and manage multiple releases of Red Hat Enterprise Linux. In this step of the lab, we will validate if Ansible is available in the environment.
 
@@ -41,7 +41,7 @@ To check if ansible installation is complete, we can use the following command -
 ansible --version
 ```
 
-You should see the output below -
+You should see output like below -
 
 <pre class="file">
   config file = /etc/ansible/ansible.cfg
@@ -57,7 +57,7 @@ In Ansible, the inventory represents machines that Ansible will manage. In this 
 echo "[sqlgroup]" > myhosts
 ```
 
-Next, add the host to the group.  You can have multiple machines under a group, but for this scenario we will have only one machine (i.e. localhost).
+Next, add the host to the group.You can have multiple machines under a group, but for this scenario we will have only one machine (i.e. localhost).
 
 ```bash
 echo localhost ansible_connection=local >> myhosts

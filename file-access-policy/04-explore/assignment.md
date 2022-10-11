@@ -1,6 +1,6 @@
 ---
-slug: Explore
-id: g3asv34uy6ju
+slug: explore
+id: 9awbr1y6xpk3
 type: challenge
 title: Explore fapolicyd integrity
 teaser: Explore fapolicyd integrity
@@ -15,7 +15,7 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 4
+timelimit: 1
 ---
 Let's take a quick look at fapolicyd and integrity. The `more` command is installed via the RPM database, so it's trusted to execute on the system:
 

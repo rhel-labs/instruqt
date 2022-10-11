@@ -1,6 +1,5 @@
 slug: file-access-policy
 id: 9ekrw6gbv4uk
-type: track
 title: File Access Policy
 teaser: Deploy and manage application control on Red Hat Enterprise Linux systems.
 description: |-
@@ -21,8 +20,8 @@ icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags: []
 owner: rhel
 developers:
-- sboulden@redhat.com
 - myee@redhat.com
+- sboulden@redhat.com
 private: false
 published: true
-checksum: "6921777476644993917"
+checksum: "99088862188498025"

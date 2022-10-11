@@ -26,7 +26,7 @@ tabs:
   url: https://cloud.redhat.com
   new_window: true
 difficulty: basic
-timelimit: 900
+timelimit: 3420
 ---
 ## Registering a machine to the Red Hat Insights service
 

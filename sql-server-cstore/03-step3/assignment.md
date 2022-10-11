@@ -11,7 +11,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 75
+timelimit: 1
 ---
 # Columnstore Indexes in SQL Server
 

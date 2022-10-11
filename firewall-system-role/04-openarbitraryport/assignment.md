@@ -12,7 +12,7 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 60
+timelimit: 1
 ---
 
 In this challenge we'll open port 9999 on `rhelvm`.

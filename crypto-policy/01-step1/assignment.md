@@ -25,7 +25,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 900
+timelimit: 3420
 ---
 # Validate the Environment
 Using the provided system terminal session, validate the initial environment.

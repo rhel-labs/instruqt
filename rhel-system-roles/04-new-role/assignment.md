@@ -18,7 +18,7 @@ tabs:
   type: terminal
   hostname: client2
 difficulty: basic
-timelimit: 600
+timelimit: 1
 ---
 In this step, you will be making changes to the playbook. To refresh your memory, take a look at the initial playbook included by the lab.
 

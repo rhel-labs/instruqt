@@ -15,7 +15,7 @@ tabs:
   type: terminal
   hostname: host2
 difficulty: basic
-timelimit: 1140
+timelimit: 600
 ---
 
 # Understanding the Convert2RHEL command

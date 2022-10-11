@@ -8,7 +8,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 In this step, you will start running the bcc-tools to prepare for observing an active workload on the system.  In the lab environment there are several additional terminal tabs across the top of the interface, the names correspond to tools that you will run in this, and following steps.
 

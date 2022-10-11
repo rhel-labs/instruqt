@@ -12,7 +12,7 @@ tabs:
   type: terminal
   hostname: host
 difficulty: basic
-timelimit: 1140
+timelimit: 600
 ---
 
 # Installing the Convert2RHEL utility

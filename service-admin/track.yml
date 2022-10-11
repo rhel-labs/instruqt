@@ -1,6 +1,5 @@
 slug: service-admin
 id: yixn52eopvu5
-type: track
 title: Service Administration Basics [Admin 101]
 description: |
   # Overview:
@@ -31,4 +30,4 @@ developers:
 private: false
 published: true
 skipping_enabled: true
-checksum: "8907164106525814580"
+checksum: "500870374673987031"

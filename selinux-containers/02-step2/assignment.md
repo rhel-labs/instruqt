@@ -16,7 +16,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 120
+timelimit: 1
 ---
 In 'Pane 1' of the lab interface, use a `podman exec` command to create an interactive shell inside the running container.
 

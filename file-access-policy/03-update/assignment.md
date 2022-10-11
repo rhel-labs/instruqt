@@ -1,6 +1,6 @@
 ---
-slug: Update
-id: v3ftjsr1o2mn
+slug: update
+id: 48nakfxpdogc
 type: challenge
 title: Update the File Access Policy
 teaser: Update the File Access Policy
@@ -15,7 +15,7 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 4
+timelimit: 1
 ---
 What if we know that the `cowsay` binary is trusted, and we want to allow it on the system? We have a couple of options:
 

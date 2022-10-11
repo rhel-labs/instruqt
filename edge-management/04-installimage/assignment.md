@@ -15,7 +15,7 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 1200
+timelimit: 1
 ---
 We are now ready to install the image. In this lab, we'll use the built in RHEL hypervisor, libvirtd to create an edge device or VM.
 

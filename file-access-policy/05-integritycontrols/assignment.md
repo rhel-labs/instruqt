@@ -15,7 +15,7 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 4
+timelimit: 1
 ---
 To mitigate situations where a trusted binary is substituted, fapolicyd supports different types of file integrity:
 

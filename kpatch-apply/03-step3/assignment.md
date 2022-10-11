@@ -13,7 +13,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 60
+timelimit: 1
 ---
 ## Applying a Kernel Live Patch
 

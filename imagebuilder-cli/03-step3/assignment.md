@@ -15,7 +15,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 600
+timelimit: 1
 ---
 # Building a machine image
 

@@ -30,7 +30,7 @@ tabs:
   type: external
   url: https://host1.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 3300
+timelimit: 3420
 ---
 ## What is NetworkManager?
 

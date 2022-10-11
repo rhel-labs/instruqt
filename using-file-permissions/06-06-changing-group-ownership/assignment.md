@@ -13,7 +13,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 600
+timelimit: 1
 ---
 Group ownership can be changed with the `chgrp` command by adding a colon before the name of the group. Return to the root terminal to execute this command:
 

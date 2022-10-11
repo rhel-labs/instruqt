@@ -8,7 +8,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 Next, `yum` will begin installing the updates and removing old packages. To do this, `yum` is going to use the disk and memory resources; you will monitor this using `filetop`, `xfsslower` and `cachestat`.
 

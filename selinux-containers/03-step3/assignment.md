@@ -16,7 +16,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 120
+timelimit: 1
 ---
 To create the custom SELinux security policy, Udica scans the container JSON
 file to discover which Linux capabilities are required by the container. The

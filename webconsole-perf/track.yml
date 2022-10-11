@@ -1,6 +1,5 @@
 slug: webconsole-perf
 id: actx3lvr6hym
-type: track
 title: Using Web Console to Monitor Performance
 description: |
   # Goal:
@@ -18,4 +17,4 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-checksum: "6829595579402947827"
+checksum: "6551052884107219686"

@@ -12,7 +12,7 @@ tabs:
   url: https://cloud.redhat.com
   new_window: true
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 # Reviewing system Insights
 

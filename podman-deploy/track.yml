@@ -1,6 +1,5 @@
 slug: podman-deploy
 id: qkrpeidib3dc
-type: track
 title: Deploying containers using Container Tools [podman]
 description: |
   After completing this scenario, users will be able to deploy and control an already defined container image.
@@ -24,4 +23,4 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-checksum: "8227204516211159075"
+checksum: "6624973833611501082"

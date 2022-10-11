@@ -25,7 +25,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 75
+timelimit: 3420
 ---
 # Validate the SQL Environment
 

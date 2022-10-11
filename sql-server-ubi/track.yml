@@ -1,6 +1,5 @@
 slug: sql-server-ubi2
 id: vxmqay7trtvp
-type: track
 title: Microsoft SQL Server on Red Hat Enterprise Linux using Red Hat Universal Base
   Image (UBI)
 description: |+
@@ -29,4 +28,4 @@ developers:
 - myee@redhat.com
 private: true
 published: false
-checksum: "15055748057585643887"
+checksum: "1242229404708441353"

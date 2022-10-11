@@ -15,7 +15,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 600
+timelimit: 1
 ---
 Create a group called __viewers__ using the `groupadd` command. You will use the `-g` option to specify a group ID (GID), in this case 10000:
 

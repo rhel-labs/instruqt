@@ -11,7 +11,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 1000
+timelimit: 1
 ---
 # Measure CPU performance impact with tuned profiles
 

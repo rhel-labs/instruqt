@@ -15,7 +15,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 600
+timelimit: 1
 ---
 # Troubleshooting a compose
 

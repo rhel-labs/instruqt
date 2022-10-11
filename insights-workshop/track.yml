@@ -1,6 +1,5 @@
 slug: insights-workshop
 id: b7ugfrlaeayo
-type: track
 title: Resolving issues with Red Hat Insights Advisor
 description: |
   After completing this scenario, users will be able to register a system with
@@ -34,4 +33,4 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-checksum: "8026880597332629683"
+checksum: "16322161746869370651"

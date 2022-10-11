@@ -1,6 +1,5 @@
 slug: session-recording-tlog
 id: pyfzqfx4ahh4
-type: track
 title: Configuring Terminal Session Recording
 description: |
   # Goal:
@@ -28,4 +27,4 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-checksum: "3329561781848392361"
+checksum: "9734474381435965428"
