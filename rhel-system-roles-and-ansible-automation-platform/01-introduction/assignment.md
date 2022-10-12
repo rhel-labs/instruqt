@@ -41,6 +41,8 @@ In this lab there are 4 hosts. Below is a description of them and their purpose.
 | `rhel2` | RHEL9 hosts that will be configured by RHEL system roles.      |
 | `rhel3` | RHEL9 hosts that will be configured by RHEL system roles.      |
 
+![aap lab](../assets/aaplab.png)
+
 Ansible Automation Platform (AAP) has already been installed on the `aap` host. A basic configuration has already been performed.
 
 Launch a new browser tab for the AAP web interface by clicking on the AAP Console button on the navigation bar.
