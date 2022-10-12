@@ -42,7 +42,7 @@ time for these applications to upgrade, my
 recommendation is to disallow TLS (1.0,
 and 1.1), and not allow SHA-1 hash usage.
 
-**NOTE** We should still allow 2048 bit 
+**NOTE** We should still allow 2048 bit
 ciphers usage for a certain period of time
 until all applications can be upgraded
 to use 3072 bit keys.

@@ -1,6 +1,5 @@
 slug: customize-crypto-policy
 id: heed2mkez48p
-type: track
 title: Customize the system-wide cryptographic policy
 description: |
   # Goal:
@@ -23,6 +22,7 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
+- nlager@redhat.com
 private: false
 published: true
-checksum: "6736756154487545077"
+checksum: "5847904087593553790"
