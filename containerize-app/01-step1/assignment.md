@@ -29,11 +29,11 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
+- title: Containerized Web App
   type: service
   hostname: rhel
   path: /
-  port: 9090
+  port: 8080
 difficulty: basic
 timelimit: 3420
 ---
