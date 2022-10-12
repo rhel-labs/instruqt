@@ -31,7 +31,7 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-> __NOTE:__ To automatically configure the inventory, run the following ansible playbook. If you wish to learn how to configure the RHEL system roles, please continue without running the ansible playbook.
+> __NOTE:__ To automatically configure the inventory, run the following ansible playbook in the AAP terminal. If you wish to learn how to configure the RHEL system roles, please continue without running the ansible playbook.
 
 ```bash
 ansible-playbook -i /root/aap_instruqt/inventory.yml /root/aap_instruqt/playbooks/setup.yml
