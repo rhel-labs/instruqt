@@ -8,7 +8,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 Time to observe what happens when `yum` does an update from a system perspective! In __pane 5__ in the terminal, run:
 

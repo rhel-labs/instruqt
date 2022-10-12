@@ -22,7 +22,7 @@ tabs:
   type: external
   url: http://rhel.${_SANDBOX_ID}.instruqt.io:3000
 difficulty: basic
-timelimit: 60
+timelimit: 1
 ---
 
 Let's create a directory to store our playbook as well as a sub-directory to store playbook variables.

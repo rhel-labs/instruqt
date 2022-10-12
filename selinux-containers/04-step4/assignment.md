@@ -16,7 +16,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 120
+timelimit: 1
 ---
 You can verify the policies generated using Udica for the container and enforced by SELinux.
 

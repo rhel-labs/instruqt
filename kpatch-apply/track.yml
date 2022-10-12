@@ -1,6 +1,5 @@
 slug: kpatch-apply
 id: xws2szn833hj
-type: track
 title: Reducing unplanned maintenance with Kernel Live Patching
 description: |
   # Goal:
@@ -34,4 +33,4 @@ developers:
 - smcbrien@redhat.com
 private: false
 published: true
-checksum: "9363711546067818978"
+checksum: "14541725076946361489"

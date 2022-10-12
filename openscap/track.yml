@@ -1,6 +1,5 @@
 slug: openscap
 id: 0q3oe3ljehyx
-type: track
 title: Using OpenSCAP for security compliance and vulnerability scanning
 description: |
   After completing this scenario, you will be able to run tools based on the Security Content Automation Protocol (SCAP) standard for compliance and vulnerability scanning
@@ -23,4 +22,4 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-checksum: "2668504468305442044"
+checksum: "8327108163673720725"

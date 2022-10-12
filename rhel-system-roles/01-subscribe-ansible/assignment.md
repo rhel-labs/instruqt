@@ -2,11 +2,11 @@
 slug: subscribe-ansible
 id: hgfyzlfmhsem
 type: challenge
-title: Install rhel-system-roles.
-teaser: Install rhel-system-roles on your server.
+title: Add the Ansible repository.
+teaser: Add the Ansible repository to your server.
 notes:
 - type: text
-  contents: 'Step 1: Install rhel-system-roles on your server'
+  contents: 'Step 1: Configuring prerequisite repositories and packages.'
 tabs:
 - title: Shell
   type: terminal
@@ -18,7 +18,7 @@ tabs:
   type: terminal
   hostname: client2
 difficulty: basic
-timelimit: 600
+timelimit: 3420
 ---
 Red Hat Enterprise Linux System Roles are a collection of supported Ansible roles that ensure consistent workflows and streamline the execution of manual tasks.
 

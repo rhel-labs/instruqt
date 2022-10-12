@@ -13,7 +13,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 600
+timelimit: 1
 ---
 # Running commands as __root__ vs using `sudo`
 

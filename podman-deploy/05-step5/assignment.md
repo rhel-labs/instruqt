@@ -13,7 +13,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 60
+timelimit: 1
 ---
 Unlike interactive containers, detached containers are stopped using __podman stop <CONTAINER ID>__.
 

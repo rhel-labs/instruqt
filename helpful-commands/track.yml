@@ -1,6 +1,5 @@
 slug: helpful-commands
 id: yvaatjd0wtut
-type: track
 title: helpful-commands
 description: |
   # Overview:
@@ -32,4 +31,4 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-checksum: "10056042534063054684"
+checksum: "4954946068106509410"

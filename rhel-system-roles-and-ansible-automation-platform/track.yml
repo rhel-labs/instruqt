@@ -1,0 +1,33 @@
+slug: rhel-system-roles-and-ansible-automation-platform
+id: 4bzjash23iub
+title: Deploying RHEL System Roles with Ansible Automation Platform
+teaser: Learn how to apply RHEL system roles at scale with Ansible Automation Platform
+description: |-
+  # Duration
+  This track has an estimated time for completion of 20 minutes.
+  # Goal
+  Learn how to apply RHEL system roles at scale with Ansible Automation Platform. This lab will show how to configure multiple applications on Red Hat Enterprise linux hosts, such as:
+  - Grafana
+  - Performance Co-pilot
+  - Firewalld
+  - Cryptographic Policies
+  - Web Console
+  - Terminal I/O Logger
+  - Timesync (with Chrony)
+  # Concepts
+  - Configure the inventory required to apply the RHEL system roles.
+  - Modify the configuration of the RHEL system roles through the inventory.
+  - Reapply the RHEL system roles.
+  # Example Usecase
+  - You have multiple hosts that must conform to a standard operating environment.
+  - You want to configure an ovservability infrastructure to monitor the performance of your hosts.
+  Please not that this lab will not review Ansible Automation Platform configuration. Please see our [Ansible labs for self-paced interactive labs](https://www.ansible.com/products/ansible-training).
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags: []
+owner: rhel
+developers:
+- myee@redhat.com
+private: false
+published: false
+show_timer: true
+checksum: "15781263324503371713"

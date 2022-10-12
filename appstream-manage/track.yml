@@ -1,6 +1,5 @@
 slug: appstream-manage
 id: o0qmghgcbtri
-type: track
 title: Managing software from an application stream
 description: |+
   # Goal:
@@ -28,4 +27,4 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-checksum: "7820992285308484130"
+checksum: "12967963714685974542"

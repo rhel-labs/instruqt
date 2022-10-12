@@ -16,7 +16,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 240
+timelimit: 1
 ---
 In 'Pane 1' of the lab interface, exec into the running container and start a bash shell
 

@@ -1,6 +1,5 @@
 slug: using-file-permissions
 id: 7sxmpp4hpeoz
-type: track
 title: Using file permissions [Admin 101]
 teaser: Control access to file content using the Linux file permission system.
 description: |-
@@ -28,4 +27,4 @@ developers:
 private: false
 published: true
 skipping_enabled: true
-checksum: "16230991013475802965"
+checksum: "2056945283148855659"

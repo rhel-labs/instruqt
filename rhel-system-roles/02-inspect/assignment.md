@@ -18,7 +18,7 @@ tabs:
   type: terminal
   hostname: client2
 difficulty: basic
-timelimit: 600
+timelimit: 1
 ---
 To get started, an already created playbook has been created that uses both the kernel-settings and session recording system roles. You can inspect the contents of this lab provided playbook to get some more information about what it will do on your system.
 

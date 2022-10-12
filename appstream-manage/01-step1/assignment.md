@@ -27,7 +27,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 900
+timelimit: 3420
 ---
 Determine the available versions of postgresql.
 

@@ -12,7 +12,7 @@ tabs:
   type: terminal
   hostname: host1
 difficulty: basic
-timelimit: 60
+timelimit: 1
 ---
 ## Activating the connection
 

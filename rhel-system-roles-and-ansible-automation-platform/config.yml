@@ -1,0 +1,44 @@
+version: "3"
+virtualmachines:
+- name: rhel
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-0-06-13-2022-1
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-1
+  allow_external_ingress:
+  - http
+  - https
+  - high-ports
+- name: rhel2
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-0-06-13-2022-1
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-1
+  allow_external_ingress:
+  - http
+  - https
+  - high-ports
+- name: aap
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-0-09-27-2022-2-aap
+  #image: red-hat-mbu/automationhub-signing
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-highmem-2
+  allow_external_ingress:
+  - http
+  - https
+  - high-ports
+- name: rhel3
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-0-06-13-2022-1
+  # image: red-hat-mbu/automationhub-signing
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-1
+  allow_external_ingress:
+  - http
+  - https
+  - high-ports

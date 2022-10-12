@@ -8,7 +8,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 An update to the web application running on this system requires features available in postgresql version 10.
 To accomplish this you will ultimately remove postgresql 9.6 and install postgresql 10, however, there are some

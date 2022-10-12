@@ -16,7 +16,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 600
+timelimit: 1
 ---
 Recall from the previous step that __status.sh__ has the following permissions:
 

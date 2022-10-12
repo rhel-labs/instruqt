@@ -11,7 +11,7 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 ## Reviewing a recorded session in Web Console
 

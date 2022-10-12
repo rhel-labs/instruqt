@@ -18,7 +18,7 @@ tabs:
   type: terminal
   hostname: client2
 difficulty: basic
-timelimit: 600
+timelimit: 1
 ---
 Now that you have a working ansible playbook to standardize the configuration of settings on your system, suppose that you realize one of the settings needs to be changed.
 

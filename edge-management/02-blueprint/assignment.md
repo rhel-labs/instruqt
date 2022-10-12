@@ -15,7 +15,7 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 2800
+timelimit: 1
 ---
 We'll create an operating system image to install on our edge device.
 
