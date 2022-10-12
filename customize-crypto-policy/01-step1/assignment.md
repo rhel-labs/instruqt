@@ -35,8 +35,15 @@ After my last e-mail recommending 3072 bit public keys, I have received few conc
 
 To continue supporting these applications running on our platform, and to provide more time for these applications to upgrade, my recommendation is to disallow TLS (1.0, and 1.1), and not allow SHA-1 hash usage.
 
+<<<<<<< HEAD
+**NOTE** We should still allow 2048 bit
+ciphers usage for a certain period of time
+until all applications can be upgraded
+to use 3072 bit keys.
+=======
 **NOTE** We should still allow 2048 bit ciphers usage for a certain period of
 time until all applications can be upgraded to use 3072 bit keys.
+>>>>>>> 14f8d7814c64c451d6f9b21107984676dca83b51
 
 -CSO
 </pre>

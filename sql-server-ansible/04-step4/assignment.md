@@ -8,7 +8,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 1
+timelimit: 900
 ---
 ## Run the Ansible Playbook
 
@@ -20,7 +20,7 @@ ansible-playbook -i myhosts site.yml
 
 > The playbook has several tasks, and some tasks could take a bit longer than usual.
 
-The output of the run playbook should look like below:
+Running the playbook should produce output similar to the following:
 
 <pre class="file">
 PLAY [all] ***************************************************************************************

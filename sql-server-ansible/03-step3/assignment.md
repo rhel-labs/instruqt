@@ -12,7 +12,7 @@ tabs:
   hostname: rhel
   path: /root
 difficulty: basic
-timelimit: 1
+timelimit: 900
 ---
 ## View and edit the Ansible Playbook
 
@@ -23,7 +23,7 @@ A play is a set of tasks mapped to a set of hosts.
 
 **Editing variables in a playbook**
 
-Click to edit ``site.yml`` in the inline editor.
+You should notice a new tab in which you can edit ``site.yml`` in the inline editor.
 
 This file has several variables, and one example variable that you might optionally want to change is the database sa password.
 <pre class="file">
@@ -32,3 +32,4 @@ mssql_password: "p@55w0rD"
 ...
 </pre>
 
+You'll also notice that ``site.yml`` includes the firewall RHEL system role, which opens the mssql port.  You can learn more about the firewall RHEL system role in the <a target="new" href="https://lab.redhat.com/tracks/firewall-system-role">Red Hat Enterprise Linux Firewall System Role lab</a>.
