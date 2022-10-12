@@ -8,18 +8,17 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 1
+timelimit: 900
 ---
-# Download the Ansible Role
+# Install the Ansible Role
 
 Ansible uses the concept of **roles** to better allow modular code and avoid repeating yourself. A role is simply a folder structure that Ansible knows where to load vars files, tasks and handlers from.
 
-Ansible makes it easily share roles with the community or download roles that have been created by other members of the community using [Ansible Galaxy](https://galaxy.ansible.com/).
+Red Hat Enterprise Linux provides some of these roles in the form of Collections.  Microsoft SQLServer is one of these. You can install this collection via your package manager.
 
-To access Ansible Galaxy, ansible ships with a command line tool called **ansible-galaxy** that can be used to install roles in a specific role directory
+We are also installing `rhel-system-roles` so we can take advantage of the firewalll system role later.
 
 ```
-ansible-galaxy collection install microsoft.sql --force
+dnf install -y ansible-collection-microsoft-sql rhel-system-roles
 ```
 
-> **NOTE:** The role from ansible-galaxy is not yet supported, and we plan to add support for this in a future version of RHEL.

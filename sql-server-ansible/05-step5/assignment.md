@@ -8,7 +8,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 1
+timelimit: 900
 ---
 ## Verify that Microsoft SQL Server is installed on the machine
 
