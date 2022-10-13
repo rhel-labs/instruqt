@@ -1,5 +1,6 @@
 ---
 slug: step1
+id: 4oogr5jympio
 type: challenge
 title: Step 1
 notes:
@@ -15,7 +16,7 @@ notes:
     * Forward ports to containers within pods.
 
     # Example Use case:
-    An administrator wants to run a service on a podman container host, that has dependent services. 
+    An administrator wants to run a service on a podman container host, that has dependent services.
 tabs:
 - title: Terminal
   type: terminal

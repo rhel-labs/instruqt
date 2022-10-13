@@ -21,6 +21,6 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-skipping_enabled: true
-checksum: "6682733243741253329"
 show_timer: true
+skipping_enabled: true
+checksum: "12679448548513115632"

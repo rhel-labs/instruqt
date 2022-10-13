@@ -1,6 +1,5 @@
 slug: sql-server-insights
 id: mjutw4g8j2ks
-type: track
 title: Using Red Hat Insights With SQL Server
 description: |
   After completing this scenario, users will be able to register a system with Red Hat Insights and resolve a recommendation provided for Microsoft SQL Server running on the machine.
@@ -23,5 +22,5 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-checksum: "17467986983974377867"
 show_timer: true
+checksum: "13126469701748701360"
