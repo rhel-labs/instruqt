@@ -26,3 +26,4 @@ developers:
 private: false
 published: true
 checksum: "12822820189229384966"
+show_timer: true

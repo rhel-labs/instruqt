@@ -25,3 +25,4 @@ developers:
 private: false
 published: true
 checksum: "99088862188498025"
+show_timer: true

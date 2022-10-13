@@ -13,3 +13,4 @@ developers:
 - myee@redhat.com
 private: true
 published: false
+show_timer: true
