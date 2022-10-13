@@ -21,3 +21,4 @@ developers:
 - nlager@redhat.com
 private: false
 published: true
+show_timer: true

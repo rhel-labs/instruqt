@@ -25,8 +25,5 @@ developers:
 - nlager@redhat.com
 private: false
 published: true
-<<<<<<< HEAD
-checksum: "5847904087593553790"
-=======
 checksum: "18133575457513597026"
->>>>>>> 14f8d7814c64c451d6f9b21107984676dca83b51
+show_timer: true

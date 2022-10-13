@@ -30,3 +30,4 @@ private: false
 published: true
 skipping_enabled: true
 checksum: "9876687099915792438"
+show_timer: true
