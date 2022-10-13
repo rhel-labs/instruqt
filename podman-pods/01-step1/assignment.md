@@ -6,21 +6,20 @@ notes:
 - type: text
   contents: |
     # Goal:
-    After completing this scenario, users will be able to use podman to create a kubernetes pod definition, and also import a kubernetes pod definition into Podman.
+    After completing this scenario users will be able to create podman pods, create containers within those pods, and forward ports to the services those containers run.
 
     # Concepts included in this scenario:
     * Verify whether podman is installed on the system
     * Create a pod in podman
     * Run a container inside of a pod in podman
-    * Export a pod's definition from Podman, to a kubernetes definition
-    * Import a kubernetes definition into podman
+    * Forward ports to containers within pods.
 
     # Example Use case:
-    Your container developers would like to be able to mimmic a production container deployment on a smaller scale test system.
+    An administrator wants to run a service on a podman container host, that has dependent services. 
 tabs:
 - title: Terminal
   type: terminal
-  hostname: rhel1
+  hostname: rhel
 difficulty: basic
 timelimit: 900
 ---
