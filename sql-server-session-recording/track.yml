@@ -1,6 +1,5 @@
 slug: sql-server-session-recording
 id: o0ee1uvboxfv
-type: track
 title: Terminal Session Recording and SQL Server Auditing
 description: |
   # Goal:
@@ -28,4 +27,4 @@ developers:
 - myee@redhat.com
 private: false
 published: true
-checksum: "11793109620009936295"
+checksum: "12654101116566056398"

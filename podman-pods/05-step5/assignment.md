@@ -1,5 +1,6 @@
 ---
 slug: step5
+id: dpvzwwxbtjno
 type: challenge
 title: Step 5
 tabs:

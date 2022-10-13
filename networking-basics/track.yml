@@ -1,6 +1,5 @@
 slug: networking-basics
 id: qwgqhuzajkj0
-type: track
 title: Networking Basics
 description: |
   # Overview:
@@ -28,5 +27,5 @@ developers:
 - myee@redhat.com
 private: true
 published: false
-checksum: "4829390437129941025"
 show_timer: true
+checksum: "7537496743973677440"
