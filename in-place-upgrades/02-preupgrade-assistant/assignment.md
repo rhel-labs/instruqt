@@ -1,8 +1,8 @@
 ---
-slug: step2
+slug: preupgrade-assistant
 id: 31dsb4tpfgsy
 type: challenge
-title: Step 2
+title: Running the Pre-upgrade Assistant
 tabs:
 - title: RHEL
   type: terminal

@@ -1,8 +1,8 @@
 ---
-slug: step1
+slug: install-leapp
 id: fuwubwmiqpfp
 type: challenge
-title: Introduction
+title: Installing Leapp
 notes:
 - type: text
   contents: |
@@ -28,7 +28,7 @@ tabs:
   type: terminal
   hostname: host
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
 # What is Leapp?
 

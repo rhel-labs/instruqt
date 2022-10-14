@@ -1,8 +1,8 @@
 ---
-slug: step3
+slug: upgrading
 id: xe2s164p1oix
 type: challenge
-title: Step 3
+title: Running the Upgrade
 tabs:
 - title: RHEL
   type: terminal
