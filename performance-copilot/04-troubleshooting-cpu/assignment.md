@@ -1,5 +1,5 @@
 ---
-slug: troubleshooting-high-cpu
+slug: troubleshooting-cpu
 id: uaseto3lbmdp
 type: challenge
 title: Troubleshooting High CPU
