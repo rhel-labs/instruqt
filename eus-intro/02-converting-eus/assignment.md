@@ -1,5 +1,5 @@
 ---
-slug: step2
+slug: converting-eus
 id: 5jhbc4ugy0mh
 type: challenge
 title: Converting a System to EUS Repositories

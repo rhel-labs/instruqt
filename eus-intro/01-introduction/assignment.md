@@ -1,5 +1,5 @@
 ---
-slug: step1
+slug: introduction
 id: mn4dexksswet
 type: challenge
 title: Introduction to Extended Update Support

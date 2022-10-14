@@ -1,5 +1,5 @@
 ---
-slug: step3
+slug: upgrading-eus
 id: sp6femphn2qm
 type: challenge
 title: Upgrading between EUS releases
