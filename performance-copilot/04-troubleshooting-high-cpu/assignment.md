@@ -1,8 +1,8 @@
 ---
-slug: step4
+slug: troubleshooting-high-cpu
 id: uaseto3lbmdp
 type: challenge
-title: Step 4
+title: Troubleshooting High CPU
 tabs:
 - title: Terminal
   type: terminal
@@ -11,7 +11,7 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 900
+timelimit: 2
 ---
 ## Troubleshooting high CPU usage
 

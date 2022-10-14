@@ -1,14 +1,14 @@
 ---
-slug: step2
+slug: pcp-system-metrics
 id: wqzwhuf3kjve
 type: challenge
-title: Step 2
+title: Using PCP for System Metrics
 tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 900
+timelimit: 2
 ---
 ## Using PCP for system metrics
 

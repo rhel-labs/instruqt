@@ -1,8 +1,8 @@
 ---
-slug: step3
+slug: pcp-web-console
 id: 6t2a4bvxwsyq
 type: challenge
-title: Step 3
+title: Utilizing PCP with the Web Console
 tabs:
 - title: Terminal
   type: terminal
@@ -11,7 +11,7 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 900
+timelimit: 2
 ---
 ## Utilizing PCP with the Web Console
 

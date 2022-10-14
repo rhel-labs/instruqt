@@ -1,8 +1,8 @@
 ---
-slug: step1
+slug: installing-pcp
 id: sdpmhuxswwy4
 type: challenge
-title: Step 1
+title: Installing the PCP Tools
 notes:
 - type: text
   contents: |
@@ -24,7 +24,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 900
+timelimit: 3000
 ---
 ## Installing the PCP tools
 
