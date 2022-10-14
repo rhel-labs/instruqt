@@ -67,7 +67,8 @@ sshd:
   LoginGraceTime: "120"
 
 tlog_scope_sssd: some
-tlog_groups_sssd: wheel
+tlog_groups_sssd: 
+  - "wheel"
 
 crypto_policies_policy: DEFAULT:NO-SHA1
 ```
