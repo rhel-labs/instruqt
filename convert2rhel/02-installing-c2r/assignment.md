@@ -1,8 +1,8 @@
 ---
-slug: step2
+slug: installing-c2r
 id: 1xt3c7zvsueu
 type: challenge
-title: Step 2
+title: Installing Convert2RHEL
 notes:
 - type: text
   contents: |
@@ -12,7 +12,7 @@ tabs:
   type: terminal
   hostname: host
 difficulty: basic
-timelimit: 600
+timelimit: 2
 ---
 
 # Installing the Convert2RHEL utility

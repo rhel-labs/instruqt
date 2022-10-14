@@ -1,8 +1,8 @@
 ---
-slug: step1
+slug: introduction
 id: ujri9ug22z4k
 type: challenge
-title: Step 1
+title: Introduction
 notes:
 - type: text
   contents: |
@@ -20,7 +20,7 @@ tabs:
   type: terminal
   hostname: host
 difficulty: basic
-timelimit: 600
+timelimit: 3000
 ---
 
 # What is Convert2RHEL

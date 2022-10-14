@@ -1,8 +1,8 @@
 ---
-slug: step3
+slug: running-c2r
 id: 5loxag2y1kvy
 type: challenge
-title: Step 3
+title: Running Convert2RHEL
 notes:
 - type: text
   contents: |
@@ -15,7 +15,7 @@ tabs:
   type: terminal
   hostname: host2
 difficulty: basic
-timelimit: 600
+timelimit: 2
 ---
 
 # Understanding the Convert2RHEL command
