@@ -48,7 +48,7 @@ Navigate to the `Production Hosts` inventory in the `Inventories` menu. Click on
 Make the following changes:
 
 1) Modify the NTP server to `ca.pool.ntp.org`.
-2) Set `iburst` to `no`.
+2) Set `iburst` to `false`.
 3) Under sshd, Change `MaxAuthTries` to `2`.
 4) Change the `LoginGraceTime` to `120`.
 5) Change `tlog_scope_sssd` to `some`.
@@ -60,7 +60,7 @@ You can make the entire set of changes by copy and pasting the following.
 ---
 timesync_ntp_servers:
   - hostname: ca.pool.ntp.org
-    iburst: no
+    iburst: false
 
 sshd:
   MaxAuthTries: "2"
@@ -114,10 +114,4 @@ cat /etc/ssh/sshd_config.d/00-ansible_system_role.conf
 cat /etc/sssd/conf.d/sssd-session-recording.conf
 ```
 
-![sssd](../assets/sssdconf.png)
-
-> __NOTE:__ To automatically make changes, run the following ansible playbook.
-
-```bash
-ansible-playbook -i /root/aap_instruqt/inventory.yml /root/aap_instruqt/playbooks/modify.yml
-```
+![sssd](../assets/tlogchanged.png)
