@@ -52,7 +52,7 @@ Make the following changes:
 3) Under sshd, Change `MaxAuthTries` to `2`.
 4) Change the `LoginGraceTime` to `120`.
 5) Change `tlog_scope_sssd` to `some`.
-6) Change `tlog_group_sssd` to `wheel`. Only `wheel` users will be recorded with tlog with these settings.
+6) Change `tlog_groups_sssd` to `wheel`. Only `wheel` users will be recorded with tlog with these settings.
 
 You can make the entire set of changes by copy and pasting the following.
 
@@ -69,8 +69,6 @@ sshd:
 tlog_scope_sssd: some
 tlog_groups_sssd:
   - "wheel"
-
-crypto_policies_policy: DEFAULT:NO-SHA1
 ```
 
 Go back to `Templates` and launch the `Apply RHEL System Roles` job by clicking on the rocket icon.
