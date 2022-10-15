@@ -69,8 +69,6 @@ sshd:
 tlog_scope_sssd: some
 tlog_groups_sssd: 
   - "wheel"
-
-crypto_policies_policy: DEFAULT:NO-SHA1
 ```
 
 Go back to `Templates` and launch the `Apply RHEL System Roles` job by clicking on the rocket icon.
