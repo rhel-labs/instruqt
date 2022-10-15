@@ -52,7 +52,7 @@ Make the following changes:
 3) Under sshd, Change `MaxAuthTries` to `2`.
 4) Change the `LoginGraceTime` to `120`.
 5) Change `tlog_scope_sssd` to `some`.
-6) Change `tlog_group_sssd` to `wheel`. Only `wheel` users will be recorded with tlog with these settings.
+6) Change `tlog_groups_sssd` to `wheel`. Only `wheel` users will be recorded with tlog with these settings.
 
 You can make the entire set of changes by copy and pasting the following.
 
@@ -67,7 +67,8 @@ sshd:
   LoginGraceTime: "120"
 
 tlog_scope_sssd: some
-tlog_group_sssd: "wheel"
+tlog_groups_sssd: 
+  - "wheel"
 
 crypto_policies_policy: DEFAULT:NO-SHA1
 ```
