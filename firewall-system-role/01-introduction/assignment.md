@@ -38,6 +38,6 @@ We'll perform the following 3 tasks.
 
 >_NOTE:_ In the `rhel` tab in the upper left corner of the Instruqt web page, there are 2 shell sessions launched. To switch between the 2 shell sessions, press Ctrl-B and an arrow key pointing to the session you wish to become active.
 
-Go to the pane containing the `rhel` terminal session. Use `ctrl-b + arrow key` to move between the panes.
+Go to the pane containing the `rhel` terminal session. Use `ctrl-b` and then press the `arrow key` to move in the direction of the desired pane.
 
 ![terminalsessions](../assets/terminalsessions.png)

@@ -62,4 +62,6 @@ nc rhelvm 9999
 
 ![ncport9999](../assets/ncport9999.png)
 
+In the image above the phrase was typed: `the quick brown fox jumps over the lazy dogs` followed by the `enter` key.
+
 Type `ctrl-c` to exit `nc`.
