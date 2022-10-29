@@ -29,4 +29,5 @@ developers:
 - parmstro@redhat.com
 private: false
 published: false
-checksum: "14105418804986965506"
+show_timer: true
+checksum: "6353385199975565948"

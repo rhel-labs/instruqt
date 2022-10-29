@@ -16,7 +16,7 @@ subscription-manager register --activationkey=Instruqt_system_registration --org
 # BEGIN: Track setup code
 # get our sample code and testaudit
 
-yum -y install wget ansible-core
+yum -y install wget ansible-core rhel-system-roles
 ansible-galaxy collection install ansible.posix
 
 mkdir files
@@ -38,12 +38,16 @@ wget $SOURCE_URL/files/shadow.sh
 wget $SOURCE_URL/files/smb.conf
 wget $SOURCE_URL/files/testapp.c
 wget $SOURCE_URL/files/testapp.service
+wget $SOURCE_URL/files/.vimrc
 cd ..
+
+systemctl enable --now cockpit.socket
 
 ansible-playbook -i inventory setup-lab.yml
 
 # END: Track setup code
 
+n=1
 GREEN='\033[0;32m' 
 NC='\033[0m' # No Color
 

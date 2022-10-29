@@ -6,7 +6,7 @@ title: Introduction
 notes:
 - type: text
   contents: |
-    # History:
+    ## History:
     In this exercise, we are going to introduce you to Security Enhanced Linux, commonly known as SELinux.
 
     SELinux is an implementation of the Flux Advanced Security Kernel (FLASK) system security architecture. FLASK implements a mandatory access control (MAC) architecture. Its goal is to provide an administratively-defined security policy that can control all subjects and objects on the system, basing decisions on all security-relevant information. FLASK security control is built on the concept of least privilege, in which, a process is given exactly the permissions it needs to perform its given task and no more. The Flask model allows an administrator to express a security policy in a naturally flowing manner like parts in a sentence. The architecture uses type enforcement (TE) and role-based access control (RBAC) to provide fine-grained control that is transparent to users and applications.
@@ -24,7 +24,8 @@ timelimit: 21600
 ### Some SELinux Basics
 
 >All current Red Hat Enterprise Linux operating systems are shipped to install with SELinux enabled and in enforcing mode.
-| Use the divider to the left (<< over there) to give you more room to read or see the instructions.
+
+> << **The line here is a sliding divider. Use it to give you more room to read or see the instructions.**
 
 Lets find verify that SELinux is on and in enforcing mode.
 ```bash
@@ -32,7 +33,7 @@ sudo getenforce
 ```
 
 You should see the output below.
-<pre class="file">$ sudo getenforce
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">$ sudo getenforce
 Enforcing
 </pre>
 
@@ -80,10 +81,10 @@ sudo semanage permissive --delete httpd_t
 ```
 
 It returns the rather long output below telling us we have removed the last module with permissive mode in the listing...
-<pre class="file">libsemanage.semanage_direct_remove_key: Removing last permissive_httpd_t module (no other permissive_httpd_t module exists at another priority).
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">libsemanage.semanage_direct_remove_key: Removing last permissive_httpd_t module (no other permissive_httpd_t module exists at another priority).
 </pre>
 
 ### IMPORTANT
-Permissive mode is very important for SELinux practioners as it still checks all policy and logs any potential violations, but it doesn't enforce the denials. The action continues normally and is fully logged. This allows an administrator to find out what SELinux rules a particular application is hitting and helps in our efforts to define an appropriate policy.
+**Permissive mode is very important** for SELinux practioners as it still checks all policy and **only logs any potential violations**, but it **doesn't enforce the denials**. The **action continues normally** and is fully logged. This allows an administrator to find out what SELinux rules a particular application is hitting and helps in our efforts to define an appropriate policy.
 
 In the next section we will see what happens when SELinux policy logs a violation and how we can identify it.
