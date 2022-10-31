@@ -25,7 +25,7 @@ tabs:
 - title: RHEL Web Console
   type: external
   url: https://selinux1.${_SANDBOX_ID}.instruqt.io:9090
-difficulty: basic
+difficulty: intermediate
 timelimit: 1
 ---
 ### Examining Context

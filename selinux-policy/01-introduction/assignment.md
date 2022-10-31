@@ -18,7 +18,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: selinux1
-difficulty: basic
+difficulty: intermediate
 timelimit: 21600
 ---
 ### Some SELinux Basics

@@ -21,7 +21,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: selinux1
-difficulty: basic
+difficulty: intermediate
 timelimit: 1
 ---
 SELinux messages are logged to the system journal and in **/var/log/audit/audit.log** file.
