@@ -20,31 +20,33 @@ timelimit: 1
 ### The Last Interface
 
 We are just about done. List the remaining denials. Only 4 or so entries!
-```
+
+```bash
 ausearch --message AVC --start recent
 ```
+
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">----
 time->Mon Oct 31 01:17:50 2022
 type=PROCTITLE msg=audit(1667179070.329:2758): proctitle="/usr/local/sbin/testapp"
 type=SYSCALL msg=audit(1667179070.329:2758): arch=c000003e syscall=262 success=yes exit=0 a0=ffffff9c a1=7fe240f7497b a2=7fe2402ba270 a3=0 items=0 ppid=1 pid=156808 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="testapp" exe="/usr/local/sbin/testapp" subj=system_u:system_r:testapp_t:s0 key=(null)
-type=AVC msg=audit(1667179070.329:2758): avc:  denied  { getattr } for  pid=156808 comm="testapp" path="/etc/resolv.conf" dev="sda2" ino=50340168 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1
+type=AVC msg=audit(1667179070.329:2758): <strong style="color: red">avc:  denied  { getattr }</strong> for  pid=156808 comm="testapp" <strong style="color: red">path="/etc/resolv.conf"</strong> dev="sda2" ino=50340168 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1
 ----
 time->Mon Oct 31 01:17:50 2022
 type=PROCTITLE msg=audit(1667179070.335:2759): proctitle="/usr/local/sbin/testapp"
 type=SYSCALL msg=audit(1667179070.335:2759): arch=c000003e syscall=257 success=yes exit=7 a0=ffffff9c a1=7fe240f7497b a2=80000 a3=0 items=0 ppid=1 pid=156808 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="testapp" exe="/usr/local/sbin/testapp" subj=system_u:system_r:testapp_t:s0 key=(null)
-type=AVC msg=audit(1667179070.335:2759): avc:  denied  { open } for  pid=156808 comm="testapp" path="/etc/resolv.conf" dev="sda2" ino=50340168 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1
-type=AVC msg=audit(1667179070.335:2759): avc:  denied  { read } for  pid=156808 comm="testapp" name="resolv.conf" dev="sda2" ino=50340168 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1
+type=AVC msg=audit(1667179070.335:2759): <strong style="color: red">avc:  denied  { open }</strong> for  pid=156808 comm="testapp" <strong style="color: red">path="/etc/resolv.conf"</strong> dev="sda2" ino=50340168 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1
+type=AVC msg=audit(1667179070.335:2759): <strong style="color: red">avc:  denied  { read }</strong> for  pid=156808 comm="testapp" <strong style="color: red">name="resolv.conf"</strong> dev="sda2" ino=50340168 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1
 ----
 time->Mon Oct 31 01:18:00 2022
 type=PROCTITLE msg=audit(1667179080.614:2785): proctitle="/usr/local/sbin/testapp"
 type=SYSCALL msg=audit(1667179080.614:2785): arch=c000003e syscall=262 success=yes exit=0 a0=ffffff9c a1=7fe240f7497b a2=7fe2402ba270 a3=0 items=0 ppid=1 pid=156808 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="testapp" exe="/usr/local/sbin/testapp" subj=system_u:system_r:testapp_t:s0 key=(null)
-type=AVC msg=audit(1667179080.614:2785): avc:  denied  { getattr } for  pid=156808 comm="testapp" path="/etc/resolv.conf" dev="sda2" ino=50340168 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1
+type=AVC msg=audit(1667179080.614:2785): <strong style="color: red">avc:  denied  { getattr }</strong> for  pid=156808 comm="testapp" <strong style="color: red">path="/etc/resolv.conf"</strong> dev="sda2" ino=50340168 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1
 ----
 time->Mon Oct 31 01:18:00 2022
 type=PROCTITLE msg=audit(1667179080.614:2786): proctitle="/usr/local/sbin/testapp"
 type=SYSCALL msg=audit(1667179080.614:2786): arch=c000003e syscall=257 success=yes exit=7 a0=ffffff9c a1=7fe240f74c5e a2=80000 a3=0 items=0 ppid=1 pid=156808 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="testapp" exe="/usr/local/sbin/testapp" subj=system_u:system_r:testapp_t:s0 key=(null)
-type=AVC msg=audit(1667179080.614:2786): avc:  denied  { open } for  pid=156808 comm="testapp" path="/etc/hosts" dev="sda2" ino=50343045 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1
-type=AVC msg=audit(1667179080.614:2786): avc:  denied  { read } for  pid=156808 comm="testapp" name="hosts" dev="sda2" ino=50343045 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1</pre>
+type=AVC msg=audit(1667179080.614:2786): <strong style="color: red">avc:  denied  { open }</strong> for  pid=156808 comm="testapp" <strong style="color: red">path="/etc/hosts"</strong> dev="sda2" ino=50343045 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1
+type=AVC msg=audit(1667179080.614:2786): <strong style="color: red">avc:  denied  { read }</strong> for  pid=156808 comm="testapp" <strong style="color: red">name="hosts"</strong> dev="sda2" ino=50343045 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1</pre>
 
 It seems that we can't read /etc/resolv.conf or /etc/hosts. Use your favourite approach on this one, audit2allow or a search.
 
@@ -58,7 +60,7 @@ OK. If you take a look at
 - and search for the file
 You find that the interface specified by *-R* ends up encapsulating the allow statements specified when using *-N*
 
-Edit. Compile. Restart app. Test.
+Write. Compile. Restart. Test.
 
 Your testapp.te file should look like this.
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">policy_module(testapp, 1.0.0)
@@ -81,39 +83,45 @@ permissive testapp_t;
 allow testapp_t self:process { fork };
 allow testapp_t self:fifo_file rw_fifo_file_perms;
 allow testapp_t self:unix_stream_socket create_stream_socket_perms;
-allow testapp_t var_run_t:file { create open write };  # added in challenge selinux-policy2
+allow testapp_t var_run_t:file { create open write };
 
-allow testapp_t self:tcp_socket { connect create getattr getopt setopt }; # added in challenge selinux-policy3
-allow testapp_t self:udp_socket { connect create getattr setopt };        # added in challenge selinux-policy3
+allow testapp_t self:tcp_socket { connect create getattr getopt setopt };
+allow testapp_t self:udp_socket { connect create getattr setopt };
 
-corenet_tcp_connect_http_port(testapp_t)   # added in challenge selinux-policy3
+corenet_tcp_connect_http_port(testapp_t)
 
 domain_use_interactive_fds(testapp_t)
 
 files_read_etc_files(testapp_t)
-files_rw_pid_dirs(testapp_t)   # added in challenge selinux-policy2
+files_rw_pid_dirs(testapp_t)
 
-kernel_read_system_state(testapp_t) # added in challenge selinux-policy2
+kernel_read_system_state(testapp_t)
 
 logging_send_syslog_msg(testapp_t)
 
-miscfiles_read_generic_certs(testapp_t) # added in challenge selinux-policy3
+miscfiles_read_generic_certs(testapp_t)
 miscfiles_read_localization(testapp_t)
 
-sysnet_read_config(testapp_t) # added this line now</pre>
+<strong style="color: red">sysnet_read_config(testapp_t)</strong></pre>
 
-sudo ausearch -m AVC --start 01:32:00
-<pre class="file" style="white-space: pre-wrap; font-family:monospace;">
-\<no matches\></pre>
+Compile. Restart. Test.
 
-The final test! Let's comment out the **permissive testapp_t;** line in declarations and recompile and test.
+```
+sudo ausearch -m AVC --start
+```
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">no matches</pre>
 
-<pre class="file" style="white-space: pre-wrap; font-family:monospace;">sudo ausearch -m AVC --start 01:32:00
-\<no matches\>
+No AVCs!!
+
+The final test! Let's turn on enforcement. Comment out the **permissive testapp_t;** line in declarations of testapp.te, recompile the policy and test.
+
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">sudo ausearch -m AVC --start recent
+no matches
+
 # systemctl status testapp
 ● testapp.service - Testing SELinux app
      Loaded: loaded (/usr/lib/systemd/system/testapp.service; disabled; vendor preset: disabled)
-     Active: <b>active (running)</b> since Mon 2022-10-31 01:37:27 UTC; 7min ago
+     Active: <strong style="color: green">active (running)</strong> since Mon 2022-10-31 01:37:27 UTC; 7min ago
     Process: 157288 ExecStart=/usr/local/sbin/testapp (code=exited, status=0/SUCCESS)
    Main PID: 157289 (testapp)
       Tasks: 1 (limit: 21954)
