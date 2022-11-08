@@ -29,7 +29,7 @@ tabs:
 difficulty: basic
 timelimit: 3000
 ---
-Welcome to this open lab expierence for Red Hat Enterprise Linux.
+Welcome to this open lab experience for Red Hat Enterprise Linux.
 
 The system displayed beside this text is a Red Hat Enterprise Linux 9
 system registered with Subscription Manager.
