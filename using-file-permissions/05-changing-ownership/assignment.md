@@ -1,5 +1,5 @@
 ---
-slug: 05-changing-ownership
+slug: changing-ownership
 id: nns3sgpndgdz
 type: challenge
 title: Changing file ownership
@@ -16,6 +16,12 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
+Exit the `guest` account.
+
+```
+exit
+```
+
 From the root terminal, confirm that __root__ is the initial owner of the file __tasks.txt__:
 
 ```
@@ -29,7 +35,11 @@ ls -l tasks.txt
 The third and fourth column of this output are the user and group that own the file. Right now, __root__ is the owner in both cases. Switch to the guest terminal and attempt to read the file:
 
 ```
-cat tasks.txt
+su - guest
+```
+
+```
+cat /srv/tasks.txt
 ```
 
 <pre class=file>
@@ -39,13 +49,21 @@ cat: tasks.txt: Permission denied
 This read operation is denied, as __guest__ does not have read permission. Returning to the root terminal, change the user that owns __tasks.txt__ to __guest__:
 
 ```
+exit
+```
+
+```
 chown guest tasks.txt
 ```
 
 Repeating the search shows that the owner (column 3) has been updated:
 
 ```
-ls -l tasks.txt
+su - guest
+```
+
+```
+ls -l /srv/tasks.txt
 ```
 
 <pre class=file>
@@ -55,7 +73,11 @@ ls -l tasks.txt
 Now that __guest__ owns the file instead of __root__, this user has permission to read the file without reconfiguring the access modes.
 
 ```
-cat tasks.txt
+su - guest
+```
+
+```
+cat /srv/tasks.txt
 ```
 
 <pre class=file>
@@ -65,3 +87,9 @@ cat tasks.txt
 </pre>
 
 The fourth column of the `ls -l` output is the group which owns the file. The next step will walk you through changing group ownership.
+
+Exit the `guest` account.
+
+```
+exit
+```
