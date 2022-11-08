@@ -22,7 +22,7 @@ timelimit: 1
 We are just about done. List the remaining denials. Only 4 or so entries!
 
 ```bash
-ausearch --message AVC --start recent
+TIME=`date +%T`;export TIME; sudo systemctl restart testapp; sudo ausearch -m AVC -ts $TIME
 ```
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">----
@@ -106,8 +106,8 @@ miscfiles_read_localization(testapp_t)
 
 Compile. Restart. Test.
 
-```
-sudo ausearch -m AVC --start
+```bash
+TIME=`date +%T`;export TIME; sudo systemctl restart testapp; sudo ausearch -m AVC -ts $TIME
 ```
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">no matches</pre>
 
@@ -115,7 +115,11 @@ No AVCs!!
 
 The final test! Let's turn on enforcement. Comment out the **permissive testapp_t;** line in declarations of testapp.te, recompile the policy and test.
 
-<pre class="file" style="white-space: pre-wrap; font-family:monospace;">sudo ausearch -m AVC --start recent
+```bash
+TIME=`date +%T`;export TIME; sudo systemctl restart testapp; sudo ausearch -m AVC -ts $TIME
+```
+
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 no matches
 
 # systemctl status testapp

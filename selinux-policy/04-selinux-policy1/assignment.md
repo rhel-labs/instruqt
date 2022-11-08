@@ -8,7 +8,7 @@ notes:
   contents: |
     In the previous challenge we learned what SELinux context is, how to list context for different operating system objects, how to search for it in policy, how to change context on an object and how to reset it to the default.
 
-    In this exercise, we will start writing a simple SELinux policy using context to confine a custom application.
+    In this exercise, we will start writing a simple SELinux policy using type enforcement to confine a custom application.
 
     The sample application is a simple C program that pulls the current weather for each of the worldwide Red Hat offices from a weather site. The code for the sample application is already compiled and running on your system. You can find the source in the /root/selinuxlab directory.
 
@@ -25,7 +25,7 @@ tabs:
 difficulty: intermediate
 timelimit: 1
 ---
-### Generate a generic SELinx policy
+### Generate a default SELinx policy
 
 We will normally use source control, like git, to manage our policy content and follow good DevSecOps practice as we work through creating the policy. In our workshop we will not be using source control. Let's just isolate our code in a directory.
 
@@ -57,7 +57,7 @@ What we should see is that the command has created a number of files in the poli
 4. **testapp_selinux.spec** the selinux policy is packaged as an rpm for distribution for you automatically. The spec file defines the rpm build.
 5. **testapp.sh** is a Red Hat provided script that compiles and loads the SELinux policy module.
 
-**Compile the policy framework**
+**Compile the default policy**
 
 Run the testapp.sh script to compile the SELinux base policy and cause it to load into the security server. These scripts need to run as root.
 
@@ -65,8 +65,8 @@ Run the testapp.sh script to compile the SELinux base policy and cause it to loa
 sudo /root/selinuxlab/policy/testapp.sh
 ```
 
-You should see the process start with something like the following.
 > You may see a bunch of lines that state **Error: duplicate definition of ...**. These can safely be ignored.
+You should see the process start with something like the following.
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">Building and Loading Policy
 <strong style="color: red">+ make -f /usr/share/selinux/devel/Makefile testapp.pp
@@ -82,7 +82,7 @@ rm tmp/testapp.mod tmp/testapp.mod.fc
 ...
 </pre>
 
- The process builds the source and binary rpms, installs rpm and writes the resulting files to the policy directory. The rpm files allows you to easily redistribute the SELinux policy with your application installation and automation.
+ The process builds the source and binary rpms, installs rpm and writes the resulting files to the policy directory. The rpm files allow you to easily redistribute the SELinux policy with your application installation and automation.
 
  <pre class="file" style="white-space: pre-wrap; font-family:monospace;">...
 ...
@@ -115,7 +115,7 @@ when a process labeled *init_t* starts a binary labeled *testapp_exec_t* the sys
 
 Labels, transitions, etc.. are defined in the policy database. You can view them using the **sesearch** utility. Check out the man page for all the switches and how they work, but for now try this.
 
-```
+```bash
 sesearch --type_trans --source init_t --target testapp_exec_t
 ```
 

@@ -16,7 +16,7 @@ notes:
     - WHEN should we change policy to allow the behaviour?, and most importantly
     - HOW we search for SELinux messages efficiently!
 
-    In Red Hat Enterprise Linux many activities are logged by default. SELinux denials are one of those things. SELinux configuration is loaded at boot time and SELinux policy decisions are cached for very fast access. Remember that SELinux information is stored in the xattrs of every file, so as soon as anything is touched, that information is loaded as part of the objects attributes. The cache that stores the decision information is called the **Access Vector Cache** or **AVC**. When an AVC entry is checked and the access is denied, that denial is logged with an entry of type=AVC. The AVCs tell us a lot about how our applications are behaving with SELinux.
+    In Red Hat Enterprise Linux many activities are logged by default. SELinux denials are one of those things. SELinux configuration is loaded at boot time. Remember that SELinux information is stored in the xattrs of every file, so as soon as anything is touched, that information is loaded as part of the object's attributes. As the system loads, the information about each subject (process) and what actions they are allowed to do to what target (process or file) are determined by the SELinux Security Server reading and applying Security Policy to the subject. A cache exists that stores this decision information to increase performance. The cache is always checked first. It is called the **Access Vector Cache** or **AVC**. When an AVC entry is checked and the access is denied, that denial is logged with an entry of type=AVC. The AVCs tell us a lot about how our applications are behaving with SELinux.
 
     Let's figure out how to find AVCs first. Ready for the challenge?
 tabs:
@@ -30,10 +30,13 @@ SELinux messages are logged to the system journal and in the **/var/log/audit/au
 
 Awesome. **WHERE**. Check.
 
-The **ausearch** command is used to search the audit.log file for various message types. Take a look at the command below. It uses the message argument to look for SELinux Policy Load events, the interpret argument to make the output more human readable, and --just-one to say give me only one result item.
+The **ausearch** command is used to search the audit.log file for various message types. Take a look at the command below. It uses the *message* argument to look for SELinux Policy Load events, the *interpret* argument to make the output more human readable, and *--just-one* to say give me only one result item.
+
 ```bash
 sudo ausearch --message MAC_POLICY_LOAD --interpret --just-one
 ```
+
+> Elements in the output that you should focus on are highlighted in red. Your output may be slightly different.
 
 You should see the output below.
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">----
@@ -56,9 +59,10 @@ You can limit your search to a time period, like today (-ts | --start == time st
 sudo ausearch --message avc --interpret --start today
 ```
 
-NOTE: We have a fresh system, so, you won't see anything with these commands yet. We will use them a lot in later exercises.
+> NOTE: We have a fresh system, so, you won't see anything with these commands yet. We will use them a lot in later exercises.
 
 The key word recent means in the last 10 minutes.
+
 ```bash
 sudo ausearch --message avc --interpret --start recent
 ```

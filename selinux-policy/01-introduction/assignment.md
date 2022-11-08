@@ -7,11 +7,11 @@ notes:
 - type: text
   contents: |
     ## History:
-    In this exercise, we are going to introduce you to Security Enhanced Linux, commonly known as SELinux.
+    In this workshop, we are going to introduce you to Security Enhanced Linux, commonly known as SELinux.
 
-    SELinux is an implementation of the Flux Advanced Security Kernel (FLASK) system security architecture. FLASK implements a mandatory access control (MAC) architecture. Its goal is to provide an administratively-defined security policy that can control all subjects and objects on the system, basing decisions on all security-relevant information. FLASK security control is built on the concept of least privilege, in which, a process is given exactly the permissions it needs to perform its given task and no more. The Flask model allows an administrator to express a security policy in a naturally flowing manner like parts in a sentence. The architecture uses type enforcement (TE) and role-based access control (RBAC) to provide fine-grained control that is transparent to users and applications.
+    SELinux is an implementation of the Flux Advanced Security Kernel (FLASK) system security architecture. FLASK implements a mandatory access control (MAC) architecture. Its goal is to provide an administratively-defined security policy that can control all subjects and objects on the system, basing decisions on all security-relevant information. FLASK security control is built on the concept of least privilege, in which, a process is given exactly the permissions it needs to perform its given task and no more. The FLASK model allows an administrator to express a security policy in a naturally flowing manner like parts in a sentence. The architecture uses type enforcement (TE) and role-based access control (RBAC) to provide fine-grained control that is transparent to users and applications.
 
-    The SELinux project was created by the US National Security Agency (NSA) to integrate FLASK technology into the Linux kernel. To drive the technology further, the NSA research team needed to transfer the technology to a larger developer and user community. Integration was challenging and went through several iterations. The necessity for a modular approach to security in the kernel motivated the creation of the Linux Security Modules (LSM) framework. And, at the suggestion of Linus Torvalds, SELinux leveraged LSM its implementation. SELinux code using LSM was integrated into the 2.6.x kernel. This kernel release provided the necessary full support for LSM and extended attributes (xattrs) in the ext3 file system. SELinux uses the xattrs to store security context information. The xattr namespace provides a useful separation for multiple security modules existing on the same system. Now SELinux is a standard feature of the Linux kernel.
+    The SELinux project was created by the US National Security Agency (NSA) to integrate FLASK technology into the Linux kernel. To drive the technology further, the NSA research team needed to transfer the technology to a larger developer and user community. Integration was challenging and went through several iterations. The necessity for a modular approach to security in the kernel motivated the creation of the Linux Security Modules (LSM) framework. And, at the suggestion of Linus Torvalds, SELinux leveraged LSM in its implementation. SELinux uses the extended attributes of the file system (xattrs) to store security context information. The xattr namespace provides a useful separation for multiple security modules existing on the same system. SELinux code using LSM was integrated into the 2.6.x kernel. This kernel release provided the necessary full support for LSM and extended attributes in the ext3 file system to implement the model. Now, SELinux is a standard feature of the Linux kernel.
 
     Much of the work to get the kernel ready for the SElinux LSM, as well as subsequent SELinux development, has been a joint effort between the NSA, Red Hat, and the community of SELinux developers. For more on this history you can read the [NSA security policies report](https://media.defense.gov/2021/Jul/29/2002815730/-1/-1/0/FLEXIBLE-SUPPORT-FOR-SECURITY-POLICIES-INTO-LINUX-FEB2001-REPORT.PDF)
 
@@ -30,9 +30,9 @@ timelimit: 21540
 
 >All current Red Hat Enterprise Linux operating systems are shipped to install with SELinux enabled and in enforcing mode.
 
-> << **The line here is a sliding divider. Use it to give yourself more screen to read or see the instructions.**
+> << **The line here on the left is a sliding divider. Use it to give yourself more screen to read or see the instructions.**
 
-At runtime, in general, SELinux can hold one of two states for the system. **Enforcing mode**, where SELinux security policy is loaded and enforced across the system. And, **Permissive mode**, where SELinux policy is loaded, checked, and logged, but *not enforced*.
+At runtime, when enabled, SELinux can hold one of two states for the system. **Enforcing mode**, where SELinux security policy is loaded and enforced across the system. And, **Permissive mode**, where SELinux policy is loaded, checked, and logged, but *not enforced*.
 
 Let's verify that SELinux is on and in enforcing mode. The **getenforce** command is used to list the current mode of SELinux.
 ```bash
@@ -48,7 +48,7 @@ OK, let's change the SELinux mode to permissive. The **setenforce** command gove
 ```bash
 sudo setenforce permissive
 ```
-Use getenforce to list the current mode. You should now see that the output has changed. Just use up arrow to find and replay the getenforce command. Save yourself a copy and paste. :-)
+Use getenforce to list the current mode. Just use up arrow to find and replay the getenforce command. Save yourself a copy and paste. :-) You should now see that the output has changed.
 
 <pre class="file">$ sudo getenforce
 Permissive
@@ -64,30 +64,32 @@ You can provide the word **enforcing** or **permissive** in any combination of c
 Enforcing
 </pre>
 
-To make permanent changes to the system so that the states above survive a reboot, we edit the **/etc/selinux/config** file. There are two control statements. The statements start with **SELINUX=** and **SELINUXTYPE=**, each of these statements has three possible values.
+To make permanent changes to the system so that the states above survive a reboot, we edit the **/etc/selinux/config** file. There are two control statements. The statements start with **SELINUX=** and **SELINUXTYPE=**. Each of these statements has three possible values.
 
 SELINUX= can take one of these three values:
-  - enforcing - SELinux security policy is enforced.
+  - enforcing - SELinux security policy is enforced. (Default)
   - permissive - SELinux prints warnings instead of enforcing.
   - disabled - No SELinux policy is loaded.
 
-> **NOTE:** On RHEL version 8.x and lower disabled actually disables SELinux entirely in the kernel. In RHEL 9 and later, SELinux is still turned on in the kernel, however, no policy is loaded at boot time (i.e. there are no rules to apply so nothing is impacted by SELinux). To ensure SELinux is disabled in the kernel, selinux=0 is added to the kernel command line.
+> **NOTE:** On RHEL version 8.x and lower, the value *disabled* actually disables SELinux in the kernel. In RHEL 9 and later, if the value *disabled* is specified, SELinux is still turned on in the kernel, however, no policy is loaded at boot time (no rules, no denials). On Red Hat Enterprise Linux 9 and later, to ensure SELinux is disabled in the kernel, add selinux=0 to the kernel command line.
 
 SELINUXTYPE= can take one of these three values:
-  - targeted - Targeted processes are protected,
+  - targeted - Targeted processes are protected. (Default)
   - minimum - Modification of targeted policy. Only selected processes are protected.
   - mls - Multi Level Security protection.
 
-Only one policy can be active at any given time. You must reboot and possibly relabel the system if you change the policy type.q
+Only one policy can be active at any given time. You must reboot and possibly relabel the system if you change the policy type.
 
 ### Managing individual applications
 
 It is useful sometimes to manage an individual configuration while we are testing a policy or if an application with a policy has changed and we need to track its new behaviour. We can manage the scope of enforcement on an individual process using the **semanage** command. We refer to a scope of enforcement in SELinux as a **domain** or **context**. For example *httpd_t* is the domain that defines web server access. Let's set the httpd_t domain to permissive mode using the semanage command.
+
 ```bash
 sudo semanage permissive --add httpd_t
 ```
 
 This command adds the httpd_t domain to the list assigned SELinux Permissive mode. We can check that the domains was added to the Permissive Types using the semanage command with *--list*. Later, we will see how to add this to a policy.
+
 ```bash
 sudo semanage permissive --list
 ```
@@ -101,6 +103,7 @@ httpd_t
 </pre>
 
 Changing it back is easy using semanage again.
+
 ```bash
 sudo semanage permissive --delete httpd_t
 ```

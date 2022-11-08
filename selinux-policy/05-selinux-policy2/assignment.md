@@ -6,11 +6,11 @@ title: SELinux Policy 2
 notes:
 - type: text
   contents: |
-    In the previous challenge, we built a policy template, compiled it and saw the test application be transitioned to run in the context assigned by the policy.
+    In the previous challenge, we built a policy template, compiled it and saw the test application transition to run in the context assigned by the policy.
 
-    In this challenge, we will examine the AVCs generated when our testapp starts to run under the policy and update the policy to allow it to run without AVCs.
+    In this challenge, we will examine the Access Vector Cache denials (AVCs) generated when our testapp starts to run under the policy. We will edit the policy to allow it to run without AVCs.
 
-    We will use the **ausearch** command to find the AVCs in the audit log. We will interpret these events in turn and then find the appropriate *allow statement* or SELinux *policy interface* to permit the action. We will update our policy file to add the allow statements and interfaces, recompile the policy and test our application. This is the iterative process that we will follow for the remainder of the workshop. We will discover a variety of methods to understand and interpret the violations and modify our policy
+    We will use the **ausearch** command to find the AVCs in the audit log. We will interpret these events one at a time and find the appropriate *allow statement* or SELinux *policy interface* to permit the action. We will update our policy file to add the allow statements and interfaces, recompile the policy and test our application. This is the iterative process that we will follow for the remainder of the workshop. We will discover a variety of methods to understand and interpret the denials and modify our policy
 
     Let's start by finding the AVCs. Time for the next challenge.
 tabs:
@@ -25,9 +25,9 @@ timelimit: 1
 ---
 ### Check for the AVC denials
 
-Our service app is up and running, but in the policy is hard coded to make it run in Permissive mode. The system does not stop it from accessing any requested objects, but it logs all the SELinux violations in /var/log/audit/audit.log
+Our service app is up and running, SELinux is in enforcing mode, but in the policy is hard coded to allow our application to run in Permissive mode. The system does not stop *testapp* from accessing any requested objects, but it logs all the SELinux policy violations in /var/log/audit/audit.log
 
-To start building our policy we will look in the audit log for messages of type AVC that happened today. We use the **ausearch** command.
+To start modifying our policy to allow the actions required by our application we will look in the audit log for messages of type AVC that happened today. We use the **ausearch** command.
 
 ```bash
 sudo ausearch --message AVC --start today
@@ -48,13 +48,19 @@ type=SYSCALL msg=audit(1667167638.686:2321): arch=c000003e syscall=257 success=y
 A long, long list...
 </pre>
 
-Let's just focus in in the first AVC message. We can use the filter from the ausearch command to retrieve just one entry, the first one, for the timeframe. The ausearch command takes a time (hh:mm:ss), or reference (today | recent) for the *--start* argument.
+Let's just focus in in the first AVC message. To do this we can use the filter from the ausearch command to retrieve just one entry, the first one, from the desired timeframe. The ausearch command takes a time in format *hh:mm:ss*, or reference (today | recent) for the *--start* argument.
 
 ```bash
 ausearch --message AVC --just-one --start recent
 ```
 
-> **IMPORTANT** Remember that recent means in the last 10 minutes and today means after 00:00:00 on the system clock. You will find it useful, especially if you are a fast typer, to use *'date +%T'* to print a time to the screen **right after** you restart the testapp and substitute that in your **ausearch --start** command so that you are only looking at logs generated since the last policy compile. **--just-one** returns the first AVC that occurs after the time specified by start.
+> **IMPORTANT** Use the command *'date +%T'* to print a time to the screen **right after** you restart the testapp and substitute that in your **ausearch --start** command. Remember that *recent* means in the last 10 minutes and *today* means after 00:00:00 on the system clock. You want to be sure that you are only looking at logs generated since the last restart of your application. **--just-one** returns the first AVC that occurs after the time specified by start.
+
+We can pull this all into one line using bash.
+
+```bash
+TIME=`date +%T`;export TIME; sudo systemctl restart testapp; sudo ausearch --message AVC --just-one --start $TIME
+```
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">----
 time->Tue Nov  1 03:36:46 2022
@@ -99,9 +105,11 @@ require {
 <strong style="color: red">allow testapp_t var_run_t:file { create open write };
 files_rw_pid_dirs(testapp_t)</strong></pre>
 
+Here you see one allow statement and one interface. The allow statement says, "Any process labelled *testapp_t* can access a *file* labelled *var_run_t* for the actions *create, open, write*. The interface appears to be for creating policy that allows read and write access to directories used for pid files. It is being passed our testapp_t type as a parameter.
+
 **Where to find interface information**
 
-The interface definitions that we need to find are provided as part of the *selinux-policy-devel* package. This should be installed on your system already. The files for the definitions are stored in */usr/share/selinux/devel/include*. Like our own policy interfaces, they are stored in files with the *\*.if* extention. We need to find the interfaces that allow manipulating pid files. The command audit2allow *-R* looks at the interfaces that have been built from these files to find matches. We can also search through the files ourselves to find interfaces that we want to add to our policy. For now let's use the recommendation from audit2allow and modify the testapp.te file. Open the policy with the vim editor.
+The interfaces are really macros that implement allow statments and additional macros to more easily build policy and promote reuse. The interface definitions are provided as part of the *selinux-policy-devel* package. This should be installed on your system already. The files for the definitions are stored in */usr/share/selinux/devel/include*. Like our own policy interfaces, they are stored in files with the *\*.if* extention. The command audit2allow *-R* looks at the interfaces that have been built from these files to find matches. We can also search through the files ourselves to find interfaces that we want to add to our policy. For now let's use the recommendation from audit2allow and modify the testapp.te file. Open the policy with the vim editor.
 
 ```bash
 vim /root/selinuxlab/policy/testapp.te
@@ -138,13 +146,11 @@ logging_send_syslog_msg(testapp_t)
 
 miscfiles_read_localization(testapp_t)</pre>
 
-Add our recommendations to the end of the policy file under the testapp local policy section
+Use the editor to add the audit2allow recommendations to the end of the policy file under the testapp local policy section
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 allow testapp_t var_run_t:file { create open write };
 files_rw_pid_dirs(testapp_t)</pre>
-
-Save the file (use :wq!).
 
 Traditionally, for readability and searching, we try to add the elements in alphabetical order. The resulting file should look like this.
 
@@ -180,12 +186,13 @@ logging_send_syslog_msg(testapp_t)
 miscfiles_read_localization(testapp_t)</pre>
 
 OK. Ensure your file is saved and run the testapp.sh script again.
+To save the file, press escape, then type :wq! and press enter.
 
 ```bash
 ./testapp.sh
 ```
 
-You should see the successful compilation of your policy. I truncated the output.
+You should see the successful compilation of your policy. The output below is truncated.
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">Building and Loading Policy
 + make -f /usr/share/selinux/devel/Makefile testapp.pp
@@ -202,18 +209,11 @@ Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.Xm82Fg
 ++ jobs -p
 + exit 0</pre>
 
-Run **date +%T** just before testing to get a convenient place to search the audit.log file from. Now, restart the testapp service. And the moment of truth, check to see if the AVC is still there. **Copy and paste the time generated by *date* after the last command**.
+**REMINDER**
+Run **date +%T** just before restarting your testapp. Use the output of the command in your ausearch command.
 
 ```bash
-date +%T
-```
-
-```bash
-systemctl restart testapp
-```
-
-```bash
-ausearch --message AVC --just-one --start
+TIME=`date +%T`;export TIME; sudo systemctl restart testapp; sudo ausearch --message AVC --just-one --start $TIME
 ```
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">----
@@ -265,16 +265,9 @@ logging_send_syslog_msg(testapp_t)
 miscfiles_read_localization(testapp_t)</pre>
 
 OK. Ensure your file is saved and run the testapp.sh script again. Run **date +%T** again to get a new time. Now, restart the testapp service. And the moment of truth, check to see if the AVC is still there.
-```bash
-date +%T
-```
 
 ```bash
-systemctl restart testapp
-```
-
-```bash
-ausearch --message AVC --start <time_from_above> | grep meminfo | wc -l
+TIME=`date +%T`;export TIME; sudo systemctl restart testapp; sudo ausearch --message AVC --start $TIME | grep meminfo | wc -l;
 ```
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">0</pre>

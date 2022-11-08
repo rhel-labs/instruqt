@@ -12,7 +12,7 @@ notes:
 
     Find. Interpret. Write. Compile. Restart. Test.
 
-    Remember, everything in the operating system is an object and has a label and context. This includes network ports. Similar interfaces exist for handling passing our context to the kernel for network access.
+    Remember, everything in the operating system is an object and has a label and context. This includes network ports. Similar interfaces exist for passing our context to the kernel to allow network access.
 
     Let's look at the next AVC. Start your challenge!
 tabs:
@@ -27,10 +27,10 @@ timelimit: 1
 ---
 ### Checking for Network AVC denials.
 
-Let's get next AVC that happened since our most recent restart. If you need to, restart the service again to get a good starting point.
+Let's find the next AVC that happened since our most recent restart. If you need to, restart the service again to get a good starting point.
 
 ```bash
-ausearch --message AVC --just-one --start <your_time_here>
+TIME=`date +%T`;export TIME; sudo systemctl restart testapp; sudo ausearch --message AVC --just-one --start $TIME;
 ```
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">----
@@ -65,6 +65,11 @@ When we do, using *less* and a search, we see the interface definition below.
 ```bash
 less /usr/share/selinux/devel/include/system/miscfiles.if
 ```
+Now search for "Read generic" within the file by typing:
+
+```bash
+/Read generic
+```
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">interface(`miscfiles_read_generic_certs',`
         gen_require(`
@@ -76,7 +81,9 @@ less /usr/share/selinux/devel/include/system/miscfiles.if
         read_lnk_files_pattern($1, cert_t, cert_t)
 ')</pre>
 
-The interface we need is **miscfiles_read_generic_certs**. We can see that this inferface is performing a number of additional calls for us to allow us to get the job done. Let's add it to our testapp.te file, recompile and test. Again pass testapp_t as the parameter passed to interface. Your testapp.te file should look like this.
+The interface we need is **miscfiles_read_generic_certs**. We can see that this macro has an allow statement and additional calls that allow the process to access the appropriate files. Let's add it to our testapp.te file. As in the previous examples, pass testapp_t as the parameter in the interface call.
+
+Your testapp.te file should look like this.
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">policy_module(testapp, 1.0.0)
 
@@ -114,27 +121,28 @@ miscfiles_read_localization(testapp_t)</pre>
 
 > ASIDE: miscfiles_read_generic_certs() replaces miscfiles_read_certs(). When you run audit2allow -R it recommends miscfiles_read_certs(). When you compile the template, the sepolicy compiler throws a warning letting you know that you should use miscfiles_read_generic_certs().
 
-You should have this down by now. Run testapp.sh, get a time, search the audit.log for a relevant search term like *openssl* or *pki*. Make sure that there are no more coming up.
+Run testapp.sh, get a time, search the audit.log for a relevant search term like *openssl* or *pki*. Make sure that there are no more coming up.
 
 ```bash
-ausearch --message AVC --start <your_time_here> | grep openssl | wc -l
+TIME=`date +%T`;export TIME; sudo systemctl restart testapp; ausearch --message AVC --start $TIME | grep openssl | wc -l
 ```
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">0</pre>
 
 ```bash
-ausearch --message AVC --start <your_time_here> | grep openssl | wc -l
+TIME=`date +%T`;export TIME; sudo systemctl restart testapp; ausearch --message AVC --start $TIME | grep pki | wc -l
 ```
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">0</pre>
 
 Another one down. Next!
 
-If we take a look at the output from the following, we see lots of AVCs with getattr, getopt, create, connect, etc.. on tcp/udp sockets and ports. Since our testapp is trying to pull data from a website, that seems logical and critical for the application to function. Let's dig in a little. If you were to examine testapp.c you would discover that we are pulling from the https version of the site. So let's see if there is an AVC for port 443 and what audit2allow suggests.
+If we take a look at the output from the following, we see lots of AVCs with getattr, getopt, create, connect, etc.. on tcp/udp sockets and ports. Since our testapp is trying to pull data from a website, that seems logical and critical for the application to function. Let's dig in a little. If you were to examine testapp.c you would discover that we are pulling from the https version of the site.
+
+So let's see if there is an AVC for port 443 and what audit2allow suggests.
 
 ```bash
-ausearch --message AVC --start recent | grep 'dest=443'
-ausearch --message AVC --start recent | grep 'dest=443' | audit2allow
+TIME=`date +%T`;export TIME; sudo systemctl restart testapp; sleep 15; ausearch --message AVC --start $TIME | grep 'dest=443' | audit2allow -R
 ```
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">----
@@ -150,9 +158,11 @@ require {
 
 OK, we can add that to our policy file. What about the tcp / udp sockets
 
-<pre class="file" style="white-space: pre-wrap; font-family:monospace;">sudo ausearch -m AVC -ts recent | egrep 'tcp|udp' | audit2allow -R
+```bash
+sudo ausearch -m AVC -ts $TIME | egrep 'tcp|udp' | audit2allow -R
+```
 
-require {
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">require {
         type testapp_t;
         class udp_socket { connect create getattr setopt };
         class tcp_socket { connect create getattr getopt setopt };
@@ -208,13 +218,13 @@ miscfiles_read_localization(testapp_t)
 OK. Save your file and run the testapp.sh script again. **Restart** the testapp service. And check your results.
 
 ```bash
-sudo ausearch -m AVC --start <your_time> | egrep 'tcp|udp' | wc -l
+TIME=`date +%T`;export TIME; sudo systemctl restart testapp; sudo ausearch -m AVC -ts $TIME | egrep 'tcp|udp' | wc -l
 ```
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">0</pre>
 
 ```bash
-sudo ausearch -m AVC -ts 01:15:54 | grep 'dest=443' | wc -l
+TIME=`date +%T`;export TIME; sudo systemctl restart testapp; sudo ausearch -m AVC -ts $TIME | grep 'dest=443' | wc -l
 ```
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">0</pre>

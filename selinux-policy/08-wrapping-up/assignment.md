@@ -17,6 +17,11 @@ notes:
     - combine the above into a policy that allows us to run a custom application in Enforcing mode.
 
     We hope that you enjoyed the workshop. Look for more security topics coming in future.
+tabs:
+- title: Labs
+  type: website
+  url: https://lab.redhat.com
+  new_window: true
 difficulty: intermediate
 timelimit: 1
 ---
