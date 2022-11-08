@@ -1,5 +1,5 @@
 ---
-slug: 01-what-are-file-permissions
+slug: what-are-file-permissions
 id: kg8izoev0o1f
 type: challenge
 title: What are file permissions?
@@ -22,7 +22,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
 It is important to properly assign permissions to files and directories created on a shared system so that files are not accidentally (or maliciously) tampered with, destroyed, or executed. The next section shows you how to view the permissions of files in an example directory.
 

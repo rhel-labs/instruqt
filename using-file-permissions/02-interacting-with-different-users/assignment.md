@@ -1,5 +1,5 @@
 ---
-slug: 02-interacting-with-different-users
+slug: interacting-with-different-users
 id: eqlj1dxwvlwq
 type: challenge
 title: Interacting with a file from different user accounts

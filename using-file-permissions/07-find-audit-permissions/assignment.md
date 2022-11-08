@@ -1,5 +1,5 @@
 ---
-slug: 07-find-audit-permissions
+slug: find-audit-permissions
 id: 7qn94deb2lnn
 type: challenge
 title: Auditing permissions
@@ -54,7 +54,11 @@ find -perm -755 -type f -exec chmod 600 {} \;
 To verify that access has been removed, try to read one of the files as the guest account. Switch to the __guest__ terminal and run this command:
 
 ```
-cat proprietary/contract01.txt
+su - guest
+```
+
+```
+cat /srv/proprietary/contract01.txt
 ```
 
 <pre class=file>

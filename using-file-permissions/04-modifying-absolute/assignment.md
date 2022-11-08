@@ -1,5 +1,5 @@
 ---
-slug: 04-modifying-aboslute
+slug: modifying-absolute
 id: buys41zo6wcp
 type: challenge
 title: Changing permissions (absolute)
@@ -21,7 +21,16 @@ timelimit: 1
 ---
 The owner user and owner group will have full permissions, but others will only be able to read the file. Return to the first terminal where you are logged in as __root__. Use `chmod` to modify the permissions on __status.sh__ as discussed above:
 
-```chmod 774 status.sh
+Exit the guest account.
+
+```
+exit
+```
+
+Now change the permission of `status.sh`.
+
+```
+chmod 774 status.sh
 ```
 
 Confirm that this change has succeeded by checking the access mode for __status.sh__
@@ -37,6 +46,11 @@ ls -l status.sh
 Now, from the guest terminal, verify that you do not have permission to execute the status script as __guest__:
 
 ```
+su - guest
+```
+
+```
+cd /srv
 ./status.sh
 ```
 

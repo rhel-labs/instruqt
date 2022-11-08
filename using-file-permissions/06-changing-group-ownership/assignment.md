@@ -1,5 +1,5 @@
 ---
-slug: 06-changing-group-ownership
+slug: changing-group-ownership
 id: hmwnvyeqkynq
 type: challenge
 title: Changing Group Ownership
