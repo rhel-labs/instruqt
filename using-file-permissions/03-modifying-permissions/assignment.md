@@ -27,11 +27,7 @@ timelimit: 1
 ---
 In this step, you will be modifying the permissions on the `status.sh` script using symbolic syntax with the `chmod` command. In the previous step, you were unable to execute __status.sh__ as __guest__. To change that, use the `chmod` command. The plus (`+`) operator will add any permissions that you specify, but it will not change any permissions that you do not explicitly set in the command. So in this case, it will give others read and execute access, but will not change the value of write access for the group. Return to the root terminal to execute this command.
 
-First we'll exit the `guest` account.
-
-```bash
-exit
-```
+Go back to the **top pane** where you're logged in as `root`.
 
 Now change the permission of `status.sh`.
 
@@ -45,28 +41,17 @@ Verify that this command succeeded using `ls -l`, specifying that you want to on
 ls -l status.sh
 ```
 
-<pre class=file>
--rwxr-xr-x. 1 root root  66 Jun  2 22:42 status.sh
-</pre>
+![changed](../assets/changedpermissionstatussh.png)
 
 >_NOTE:_ Just as `o+rx` added read and execute permissions for others, `chmod` accepts the `-` argument to take away permissions. For example, `o-w` would remove write privileges from others while leaving the read and execute values untouched. The `=` argument can be used to explicitly set all permissions symbolically.
 
-Now the __guest__ user will be able to read and execute __status.sh__. Switch back to the guest terminal:
+Now the __guest__ user will be able to read and execute __status.sh__. Switch back to the guest terminal below and re-run the status script:
 
 ```
-su - guest
-```
-
-and re-run the status script:
-
-```
-cd /srv
 ./status.sh
 ```
 
-<pre class=file>
-status.sh successfully executed by guest
-</pre>
+![success](../assets/successfullyexecutedasguest.png)
 
 Since you added read and execute permissions, you can do more than just execute this file as __guest__. Use the `cat` command to verify that you can read this file as __guest__.
 
@@ -74,10 +59,6 @@ Since you added read and execute permissions, you can do more than just execute 
 cat status.sh
 ```
 
-<pre class=file>
-#!/bin/bash
-echo -n "status.sh successfully executed by "
-whoami
-</pre>
+![cat](../assets/catstatussh.png)
 
 Symbolic mode is the more expanded permissions format which can appeal to newer users. However, the absolute mode described in the next step can save on keystrokes if you take the time to familiarize yourself with it.

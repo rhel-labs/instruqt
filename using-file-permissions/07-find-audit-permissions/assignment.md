@@ -15,7 +15,7 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-The `-perm` option causes the `find` command to look at the access modes for each file. In this case you are calling `find` without a path, which means it will start looking in the current directory. First, check for files that have the permission level __755__.
+The `-perm` option causes the `find` command to look at the access modes for each file. In this case you are calling `find` without a path, which means it will start looking in the current directory. First, from the root terminal in the top pane, check for files that have the permission level __755__.
 
 ```
 find -perm 755
@@ -51,14 +51,10 @@ Running the `chmod` command with a level of __600__ ensures that these files are
 find -perm -755 -type f -exec chmod 600 {} \;
 ```
 
-To verify that access has been removed, try to read one of the files as the guest account. Switch to the __guest__ terminal and run this command:
+To verify that access has been removed, try to read one of the files as the guest account. Switch to the __guest__ terminal in the bottom pane and run this command:
 
 ```
-su - guest
-```
-
-```
-cat /srv/proprietary/contract01.txt
+cat proprietary/contract01.txt
 ```
 
 <pre class=file>

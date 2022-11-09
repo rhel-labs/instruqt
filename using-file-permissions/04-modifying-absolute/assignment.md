@@ -19,15 +19,7 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-The owner user and owner group will have full permissions, but others will only be able to read the file. Return to the first terminal where you are logged in as __root__. Use `chmod` to modify the permissions on __status.sh__ as discussed above:
-
-Exit the guest account.
-
-```
-exit
-```
-
-Now change the permission of `status.sh`.
+The owner user and owner group will have full permissions, but others will only be able to read the file. Return to the top pane where you are logged in as __root__. Use `chmod` to modify the permissions on __status.sh__ as previously discussed.
 
 ```
 chmod 774 status.sh
@@ -43,20 +35,13 @@ ls -l status.sh
 -rwxrwxr--. 1 root root  66 Jun  2 22:42 status.sh
 </pre>
 
-Now, from the guest terminal, verify that you do not have permission to execute the status script as __guest__:
+Now, from the guest pane below, verify that you do not have permission to execute the status script as __guest__:
 
 ```
-su - guest
-```
-
-```
-cd /srv
 ./status.sh
 ```
 
-<pre class=file>
-bash: ./status.sh: Permission denied
-</pre>
+![denied!](../assets/absolutepermissionchangedenied.png)
 
 However, if you try to read this file, you will see you do have read access as __guest__:
 
@@ -64,11 +49,7 @@ However, if you try to read this file, you will see you do have read access as _
 cat status.sh
 ```
 
-<pre class=file>
-#!/bin/bash
-echo -n "status.sh successfully executed by "
-whoami
-</pre>
+![readable](../assets/readable.png)
 
 >_NOTE:_ You can use `vi` or any other write command to verify that you do not have write access as __guest__ if you wish to verify this as well.
 

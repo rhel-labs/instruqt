@@ -28,6 +28,15 @@ It is important to properly assign permissions to files and directories created 
 
 # Displaying files and their permissions
 
+First, notice that there are two panes in the terminal. To navigate between the panes, type `ctrl-b`, release the keys, and then press the `arrow key` to move in the direction of the desired pane.
+
+![terminalsessions](../assets/panes.png)
+
+In the top pane, we'll run as user `root`. In the bottom pane we'll run as user `guest`.
+
+
+Navigate to the top pane for this exercise.
+
 For this lab, several files have been created for you to work with in the /srv directory. Use the `cd` command to navigate there:
 
 ```
@@ -39,6 +48,10 @@ The command `ls -l` can be used to look at the permissions associated with each 
 ```
 ls -l
 ```
+
+![ls output](../assets/ls-output.png)
+
+Let's look a bit closer at the permissions.
 
 <pre class=file>
 drw-r-----. 2 root root  94 Jun  2 21:08 proprietary

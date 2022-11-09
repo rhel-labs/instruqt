@@ -15,7 +15,7 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-Group ownership can be changed with the `chgrp` command by adding a colon before the name of the group. Return to the root terminal to execute this command:
+Group ownership can be changed with the `chgrp` command by adding a colon before the name of the group. Return to the root terminal in the top pane to execute this command:
 
 ```
 chown :team tasks.txt

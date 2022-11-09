@@ -26,6 +26,8 @@ echo "that are more important than what you want." > contract04.txt
 chmod 777 *.txt
 
 TMUX='' tmux new-session -d -s 'permissions' > /dev/null 2>&1
+tmux split-window -h
+tmux selectl tiled
 tmux set -g pane-border-status top
 tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
 

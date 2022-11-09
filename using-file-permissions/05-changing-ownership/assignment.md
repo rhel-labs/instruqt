@@ -16,13 +16,7 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-Exit the `guest` account.
-
-```
-exit
-```
-
-From the root terminal, confirm that __root__ is the initial owner of the file __tasks.txt__:
+From the root terminal in the top pane, confirm that __root__ is the initial owner of the file __tasks.txt__:
 
 ```
 ls -l tasks.txt
@@ -32,38 +26,30 @@ ls -l tasks.txt
 -rwxr-x---. 1 root root 117 Jun  2 23:01 tasks.txt
 </pre>
 
-The third and fourth column of this output are the user and group that own the file. Right now, __root__ is the owner in both cases. Switch to the guest terminal and attempt to read the file:
+The third and fourth column of this output are the user and group that own the file. Right now, __root__ is the owner in both cases.
+
+![thirdfourth](../assets/thirdandfourthcolumn.png)
+
+Switch to the guest terminal in the bottom pane and attempt to read the file:
 
 ```
-su - guest
-```
-
-```
-cat /srv/tasks.txt
+cat tasks.txt
 ```
 
 <pre class=file>
 cat: tasks.txt: Permission denied
 </pre>
 
-This read operation is denied, as __guest__ does not have read permission. Returning to the root terminal, change the user that owns __tasks.txt__ to __guest__:
-
-```
-exit
-```
+This read operation is denied, as __guest__ does not have read permission. Returning to the root terminal in the top pane, change the user that owns __tasks.txt__ to __guest__:
 
 ```
 chown guest tasks.txt
 ```
 
-Repeating the search shows that the owner (column 3) has been updated:
+Return to the bottom guest pane.
 
 ```
-su - guest
-```
-
-```
-ls -l /srv/tasks.txt
+ls -l tasks.txt
 ```
 
 <pre class=file>
@@ -73,11 +59,7 @@ ls -l /srv/tasks.txt
 Now that __guest__ owns the file instead of __root__, this user has permission to read the file without reconfiguring the access modes.
 
 ```
-su - guest
-```
-
-```
-cat /srv/tasks.txt
+cat tasks.txt
 ```
 
 <pre class=file>
@@ -87,9 +69,3 @@ cat /srv/tasks.txt
 </pre>
 
 The fourth column of the `ls -l` output is the group which owns the file. The next step will walk you through changing group ownership.
-
-Exit the `guest` account.
-
-```
-exit
-```
