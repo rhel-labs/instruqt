@@ -1,6 +1,6 @@
 ---
 slug: completing-conversion
-id: 5loxag2y1kvy
+id: 
 type: challenge
 title: Completing the Conversion
 notes:
