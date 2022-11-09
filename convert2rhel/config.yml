@@ -9,4 +9,4 @@ virtualmachines:
 - name: host2
   image: projects/tmm-instruqt-11-26-2021/global/images/rhel-79-post-c2r
   shell: /bin/bash
-  machine_type: n2-standard-1
+  machine_type: n1-standard-2
