@@ -52,14 +52,12 @@ Red Hat Enterprise Linux release 7.9 (Maipo)
 </pre>
 
 First, you need to enable the rhel-7-server repositories using the subscription-manager command:
+>**Pro Tip:** See how you can actually combine these two commands into one!
 
 ```
-subscription-manager repos --enable rhel-7-server-rpms
-subscription-manager repos --enable rhel-7-server-extras-rpms
+subscription-manager repos --enable rhel-7-server-rpms --enable rhel-7-server-extras-rpms
 
 ```
-
->**Pro Tip:** You can actually combine these two commands into one!
 
 <pre class=file>
 # subscription-manager repos --enable rhel-7-server-rpms --enable rhel-7-server-extras-rpms

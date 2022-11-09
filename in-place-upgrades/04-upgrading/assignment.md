@@ -84,7 +84,7 @@ cat /etc/redhat-release
 Note that we are now running the latest version of RHEL 8!
 
 <pre class=file>
-# cat /etc/redhat/release
+# cat /etc/redhat-release
 Red Hat Enterprise Linux release 8.6 (Ootpa)
 </pre>
 
