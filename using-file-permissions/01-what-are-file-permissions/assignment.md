@@ -27,7 +27,7 @@ tabs:
   hostname: rhel
   cmd: tmux attach-session -t "guest" > /dev/null 2>&1
 difficulty: basic
-timelimit: 9000
+timelimit: 3000
 ---
 
 It is important to properly assign permissions to files and directories created on a shared system so that files are not accidentally (or maliciously) tampered with, destroyed, or executed. The next section shows you how to view the permissions of files in an example directory.
