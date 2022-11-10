@@ -1,7 +1,5 @@
 #!/bin/bash
-# Create needed user and group
-useradd guest
-groupadd team
+
 
 # Create track files
 cd /srv
@@ -25,19 +23,5 @@ echo "because that is where you find the things" > contract03.txt
 echo "that are more important than what you want." > contract04.txt
 chmod 777 *.txt
 
-TMUX='' tmux new-session -d -s 'permissions' > /dev/null 2>&1
-tmux split-window -h
-tmux selectl tiled
-tmux set -g pane-border-status top
-tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
 
-cat >> ~/.bashrc <<-EOF
 
-session="permissions"
-tmux has-session -t=$session_name 2> /dev/null
-if [[ -z "$TMUX" ]]; then
-  tmux attach-session -t "$session_name" > /dev/null 2>&1
-else
-  tmux switch-client -t "$session_name" > /dev/null 2>&1
-fi
-EOF

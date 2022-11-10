@@ -13,21 +13,30 @@ notes:
 
     ![Absolute permission breakdown](https://github.com/rhel-labs/learn-katacoda/raw/master/instruqt/file-permissions/assets/absBreakdown.png)
 tabs:
-- title: Shell
+- title: Root
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "root" > /dev/null 2>&1
+- title: Guest
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "guest" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
-The owner user and owner group will have full permissions, but others will only be able to read the file. Return to the top pane where you are logged in as __root__. Use `chmod` to modify the permissions on __status.sh__ as previously discussed.
+The owner user and owner group will have full permissions, but others will only be able to read the file.
 
-```
+Return to **Root tab**.
+
+Use `chmod` to modify the permissions on __status.sh__ as previously discussed.
+
+```bash
 chmod 774 status.sh
 ```
 
 Confirm that this change has succeeded by checking the access mode for __status.sh__
 
-```
+```bash
 ls -l status.sh
 ```
 
@@ -35,9 +44,11 @@ ls -l status.sh
 -rwxrwxr--. 1 root root  66 Jun  2 22:42 status.sh
 </pre>
 
-Now, from the guest pane below, verify that you do not have permission to execute the status script as __guest__:
+Go back to the **Guest tab**.
 
-```
+Verify that you do not have permission to execute the status script as __guest__:
+
+```bash
 ./status.sh
 ```
 
@@ -45,7 +56,7 @@ Now, from the guest pane below, verify that you do not have permission to execut
 
 However, if you try to read this file, you will see you do have read access as __guest__:
 
-```
+```bash
 cat status.sh
 ```
 

@@ -9,15 +9,22 @@ notes:
   contents: The `find` command is highly versatile, but in this case you will be using
     it to locate files that have permissions that may pose security risks.
 tabs:
-- title: Shell
+- title: Root
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "root" > /dev/null 2>&1
+- title: Guest
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "guest" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
-The `-perm` option causes the `find` command to look at the access modes for each file. In this case you are calling `find` without a path, which means it will start looking in the current directory. First, from the root terminal in the top pane, check for files that have the permission level __755__.
+The `-perm` option causes the `find` command to look at the access modes for each file. In this case you are calling `find` without a path, which means it will start looking in the current directory.
 
-```
+First, from the **Root tab**, check for files that have the permission level __755__.
+
+```bash
 find -perm 755
 ```
 
@@ -31,7 +38,7 @@ This returns only a hidden OS file:
 
 Consider a situation where you have determined that any permissions above a certain level could pose a security issue. Adding a dash before the permission tells the `find` command to return anything with a permission greater than or equal to the one you are searching for.
 
-```
+```bash
 find -perm -755
 ```
 
@@ -47,13 +54,17 @@ Notice that this returns many more files. You may not have seen these files from
 
 Running the `chmod` command with a level of __600__ ensures that these files are readable and writable by the owner, but others cannot access them. Instead of running `chmod` individually on each file, you can use the `find` command to execute this permission change on any file that exceeds a certain permission level. The `-type f` option only targets files, so the directory permissions will remain unchanged. The `{} \;` at the end of the command is telling `find` to execute the `chmod` command separately on each file that matches the search criteria.
 
-```
+```bash
 find -perm -755 -type f -exec chmod 600 {} \;
 ```
 
-To verify that access has been removed, try to read one of the files as the guest account. Switch to the __guest__ terminal in the bottom pane and run this command:
+To verify that access has been removed, try to read one of the files as the guest account.
 
-```
+Switch to the __Guest tab__.
+
+Run this command to check if the `guest` account can read the file `contract01.txt`:
+
+```bash
 cat proprietary/contract01.txt
 ```
 

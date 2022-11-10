@@ -6,8 +6,11 @@ do
 done
 
 yum clean all
-bash /root/subman.sh
-rm -f /root/subman.sh
+# bash /root/subman.sh
+# rm -f /root/subman.sh
+
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
 echo "Adding wheel" > /root/post-run.log
 usermod -aG wheel rhel

@@ -19,15 +19,20 @@ notes:
 
     The upcoming sections walk through a examples of changing permissions using each of these two modes.
 tabs:
-- title: Shell
+- title: Root
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "root" > /dev/null 2>&1
+- title: Guest
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "guest" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
-In this step, you will be modifying the permissions on the `status.sh` script using symbolic syntax with the `chmod` command. In the previous step, you were unable to execute __status.sh__ as __guest__. To change that, use the `chmod` command. The plus (`+`) operator will add any permissions that you specify, but it will not change any permissions that you do not explicitly set in the command. So in this case, it will give others read and execute access, but will not change the value of write access for the group. Return to the root terminal to execute this command.
+In this step, you will be modifying the permissions on the `status.sh` script using __symbolic__ syntax with the `chmod` command. In the previous step, you were unable to execute __status.sh__ as __guest__. To change that, use the `chmod` command. The plus (`+`) operator will add any permissions that you specify, but it will not change any permissions that you do not explicitly set in the command. So in this case, it will give others read and execute access, but will not change the value of write access for the group. Return to the root terminal to execute this command.
 
-Go back to the **top pane** where you're logged in as `root`.
+Go back to the **Root tab**.
 
 Now change the permission of `status.sh`.
 
@@ -37,7 +42,7 @@ chmod o+rx status.sh
 
 Verify that this command succeeded using `ls -l`, specifying that you want to only look at __status.sh__.
 
-```
+```bash
 ls -l status.sh
 ```
 
@@ -45,7 +50,7 @@ ls -l status.sh
 
 >_NOTE:_ Just as `o+rx` added read and execute permissions for others, `chmod` accepts the `-` argument to take away permissions. For example, `o-w` would remove write privileges from others while leaving the read and execute values untouched. The `=` argument can be used to explicitly set all permissions symbolically.
 
-Now the __guest__ user will be able to read and execute __status.sh__. Switch back to the guest terminal below and re-run the status script:
+Now the __guest__ user will be able to read and execute __status.sh__. Switch back to the **Guest tab** and re-run the status script:
 
 ```
 ./status.sh

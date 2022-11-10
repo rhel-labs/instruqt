@@ -12,9 +12,14 @@ notes:
     so you will be able to clearly see whether or not a specific user can execute
     the script.'
 tabs:
-- title: Shell
+- title: Root
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "root" > /dev/null 2>&1
+- title: Guest
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "guest" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
@@ -52,21 +57,13 @@ Switch to the bottom pane in the terminal by pressing `ctrl-b`, releasing the ke
 
 ![switch](../assets/switchpanes.png)
 
-Switch users to the __guest__ account using the `su` command:
+Switch to the `Guest` tab and traverse into the `/srv` directory.
 
-```
-su - guest
-```
-
-Confirm that this command has succeeded by looking at your bash prompt, the user should be __guest__.
-
-![su guest](../assets/suguest.png)
-
-Navigate back to the directory containing the __status.sh__ script so that you can run it as this new user.
-
-```
+```bash
 cd /srv
 ```
+
+![srv guest](../assets/srvguest.png)
 
 Try executing the status script as __guest__. Since the guest account is not the user owner of the file and is not part of any owner groups, you are unable to execute this script from this user account.
 

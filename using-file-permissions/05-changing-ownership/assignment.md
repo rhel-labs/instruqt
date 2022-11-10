@@ -10,15 +10,20 @@ notes:
     align with the purpose of the file. The `chown` command can do this very easily.
     Just specify the new owner and the file you would like to change.
 tabs:
-- title: Shell
+- title: Root
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "root" > /dev/null 2>&1
+- title: Guest
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "guest" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
-From the root terminal in the top pane, confirm that __root__ is the initial owner of the file __tasks.txt__:
+From the **Root tab** confirm that __root__ is the initial owner of the file __tasks.txt__:
 
-```
+```bash
 ls -l tasks.txt
 ```
 
@@ -32,7 +37,7 @@ The third and fourth column of this output are the user and group that own the f
 
 Switch to the guest terminal in the bottom pane and attempt to read the file:
 
-```
+```bash
 cat tasks.txt
 ```
 
@@ -40,15 +45,21 @@ cat tasks.txt
 cat: tasks.txt: Permission denied
 </pre>
 
-This read operation is denied, as __guest__ does not have read permission. Returning to the root terminal in the top pane, change the user that owns __tasks.txt__ to __guest__:
+This read operation is denied, as __guest__ does not have read permission.
 
-```
+Return to the **Root tab**.
+
+Change the user that owns __tasks.txt__ to __guest__:
+
+```bash
 chown guest tasks.txt
 ```
 
-Return to the bottom guest pane.
+Return to the **Guest tab**.
 
-```
+Run the following command.
+
+```bash
 ls -l tasks.txt
 ```
 
@@ -58,7 +69,7 @@ ls -l tasks.txt
 
 Now that __guest__ owns the file instead of __root__, this user has permission to read the file without reconfiguring the access modes.
 
-```
+```bash
 cat tasks.txt
 ```
 
