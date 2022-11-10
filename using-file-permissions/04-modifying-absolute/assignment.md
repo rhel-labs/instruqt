@@ -13,29 +13,30 @@ notes:
 
     ![Absolute permission breakdown](https://github.com/rhel-labs/learn-katacoda/raw/master/instruqt/file-permissions/assets/absBreakdown.png)
 tabs:
-- title: Shell
+- title: Root
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "root" > /dev/null 2>&1
+- title: Guest
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "guest" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
-The owner user and owner group will have full permissions, but others will only be able to read the file. Return to the first terminal where you are logged in as __root__. Use `chmod` to modify the permissions on __status.sh__ as discussed above:
+The owner user and owner group will have full permissions, but others will only be able to read the file.
 
-Exit the guest account.
+Return to **Root tab**.
 
-```
-exit
-```
+Use `chmod` to modify the permissions on __status.sh__ as previously discussed.
 
-Now change the permission of `status.sh`.
-
-```
+```bash
 chmod 774 status.sh
 ```
 
 Confirm that this change has succeeded by checking the access mode for __status.sh__
 
-```
+```bash
 ls -l status.sh
 ```
 
@@ -43,32 +44,23 @@ ls -l status.sh
 -rwxrwxr--. 1 root root  66 Jun  2 22:42 status.sh
 </pre>
 
-Now, from the guest terminal, verify that you do not have permission to execute the status script as __guest__:
+Go back to the **Guest tab**.
 
-```
-su - guest
-```
+Verify that you do not have permission to execute the status script as __guest__:
 
-```
-cd /srv
+```bash
 ./status.sh
 ```
 
-<pre class=file>
-bash: ./status.sh: Permission denied
-</pre>
+![denied!](../assets/absolutepermissionchangedenied.png)
 
 However, if you try to read this file, you will see you do have read access as __guest__:
 
-```
+```bash
 cat status.sh
 ```
 
-<pre class=file>
-#!/bin/bash
-echo -n "status.sh successfully executed by "
-whoami
-</pre>
+![readable](../assets/readable.png)
 
 >_NOTE:_ You can use `vi` or any other write command to verify that you do not have write access as __guest__ if you wish to verify this as well.
 

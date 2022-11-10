@@ -10,21 +10,20 @@ notes:
     align with the purpose of the file. The `chown` command can do this very easily.
     Just specify the new owner and the file you would like to change.
 tabs:
-- title: Shell
+- title: Root
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "root" > /dev/null 2>&1
+- title: Guest
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "guest" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
-Exit the `guest` account.
+From the **Root tab** confirm that __root__ is the initial owner of the file __tasks.txt__:
 
-```
-exit
-```
-
-From the root terminal, confirm that __root__ is the initial owner of the file __tasks.txt__:
-
-```
+```bash
 ls -l tasks.txt
 ```
 
@@ -32,38 +31,36 @@ ls -l tasks.txt
 -rwxr-x---. 1 root root 117 Jun  2 23:01 tasks.txt
 </pre>
 
-The third and fourth column of this output are the user and group that own the file. Right now, __root__ is the owner in both cases. Switch to the guest terminal and attempt to read the file:
+The third and fourth column of this output are the user and group that own the file. Right now, __root__ is the owner in both cases.
 
-```
-su - guest
-```
+![thirdfourth](../assets/thirdandfourthcolumn.png)
 
-```
-cat /srv/tasks.txt
+Switch to the guest terminal in the bottom pane and attempt to read the file:
+
+```bash
+cat tasks.txt
 ```
 
 <pre class=file>
 cat: tasks.txt: Permission denied
 </pre>
 
-This read operation is denied, as __guest__ does not have read permission. Returning to the root terminal, change the user that owns __tasks.txt__ to __guest__:
+This read operation is denied, as __guest__ does not have read permission.
 
-```
-exit
-```
+Return to the **Root tab**.
 
-```
+Change the user that owns __tasks.txt__ to __guest__:
+
+```bash
 chown guest tasks.txt
 ```
 
-Repeating the search shows that the owner (column 3) has been updated:
+Return to the **Guest tab**.
 
-```
-su - guest
-```
+Run the following command.
 
-```
-ls -l /srv/tasks.txt
+```bash
+ls -l tasks.txt
 ```
 
 <pre class=file>
@@ -72,12 +69,8 @@ ls -l /srv/tasks.txt
 
 Now that __guest__ owns the file instead of __root__, this user has permission to read the file without reconfiguring the access modes.
 
-```
-su - guest
-```
-
-```
-cat /srv/tasks.txt
+```bash
+cat tasks.txt
 ```
 
 <pre class=file>
@@ -87,9 +80,3 @@ cat /srv/tasks.txt
 </pre>
 
 The fourth column of the `ls -l` output is the group which owns the file. The next step will walk you through changing group ownership.
-
-Exit the `guest` account.
-
-```
-exit
-```

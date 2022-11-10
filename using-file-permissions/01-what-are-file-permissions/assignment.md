@@ -18,27 +18,41 @@ notes:
 
     >_NOTE:_ There are three more permissions on top of the ones explained above: setuid, setgid, and sticky bit. These are much less commonly used and therefore outside of the scope of this lab, but this article on [Understanding Linux File Permissions](https://www.linux.com/training-tutorials/understanding-linux-file-permissions/) is a great place to start if you want more information on these additional permissions.
 tabs:
-- title: Shell
+- title: Root
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "root" > /dev/null 2>&1
+- title: Guest
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "guest" > /dev/null 2>&1
 difficulty: basic
-timelimit: 3000
+timelimit: 9000
 ---
+
 It is important to properly assign permissions to files and directories created on a shared system so that files are not accidentally (or maliciously) tampered with, destroyed, or executed. The next section shows you how to view the permissions of files in an example directory.
 
-# Displaying files and their permissions
+## Displaying files and their permissions
 
-For this lab, several files have been created for you to work with in the /srv directory. Use the `cd` command to navigate there:
+There are two tabs in the web interface. Click on the tab labelled `Root`.
 
-```
+![root tab](../assets/roottab.png)
+
+For this lab, several files have been created for you to work with in the `/srv` directory. Use the `cd` command to navigate there:
+
+```bash
 cd /srv
 ```
 
 The command `ls -l` can be used to look at the permissions associated with each file in the directory. The output for this can be cryptic at first, so this step will walk you through what each character means. Take a look at the contents of the current directory. Use the long listing option (`-l`) to display information about permissions for each item.
 
-```
+```bash
 ls -l
 ```
+
+![ls output](../assets/ls-output.png)
+
+Let's look a bit closer at the permissions.
 
 <pre class=file>
 drw-r-----. 2 root root  94 Jun  2 21:08 proprietary

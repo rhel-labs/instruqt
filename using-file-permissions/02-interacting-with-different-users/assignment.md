@@ -12,9 +12,14 @@ notes:
     so you will be able to clearly see whether or not a specific user can execute
     the script.'
 tabs:
-- title: Shell
+- title: Root
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "root" > /dev/null 2>&1
+- title: Guest
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "guest" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
@@ -24,35 +29,41 @@ Recall from the previous step that __status.sh__ has the following permissions:
 -rwxr-x---
 </pre>
 
-Therefore, __root__ has permission to execute this script.
+Therefore, __root__ has permission to execute this script. Run the script by copying and pasting the following into the terminal window.
 
 ```
 ./status.sh
 ```
 
-<pre class=file>
-status.sh successfully executed by root
-</pre>
+![status script run](../assets/statusscriptrun.png)
 
-Focus now on line 2, the line for __status.sh__. The first three letters of the access mode show that the owner of the file has full permissions, __rwx__, so the owner can read, write, and execute this file. Users in the group that owns this file have __r-x__, so they can read and execute but cannot write to this file. Finally, all other users have no permissions, __---__, so they are unable to read, write, or execute this file.
+Let's focus on the permissions of `status.sh`.
 
-To see this in action, switch users to the __guest__ account using the `su` command:
+![status permissions](../assets/status-sh-permissions.png)
 
-```
-su - guest
-```
+The first three letters of the access mode show that the owner of the file has full permissions, __rwx__, so the owner can read, write, and execute this file. See the image below.
 
-Confirm that this command has succeeded by looking at your bash prompt, the user should be __guest__.
+![status2](../assets/status-sh-permissions2.png)
 
-<pre class=file>
-[guest@rhel ~]$
-</pre>
+Users in the group that owns this file have __r-x__, so they can read and execute but cannot write to this file. See the image below.
 
-Navigate back to the directory containing the __status.sh__ script so that you can run it as this new user.
+![status3](../assets/status-sh-permissions3.png)
 
-```
+Finally, all other users have no permissions, __---__, so they are unable to read, write, or execute this file.
+
+![status4](../assets/status-sh-permissions4.png)
+
+Switch to the bottom pane in the terminal by pressing `ctrl-b`, releasing the keys, then pressing the down arrow.
+
+![switch](../assets/switchpanes.png)
+
+Switch to the `Guest` tab and traverse into the `/srv` directory.
+
+```bash
 cd /srv
 ```
+
+![srv guest](../assets/srvguest.png)
 
 Try executing the status script as __guest__. Since the guest account is not the user owner of the file and is not part of any owner groups, you are unable to execute this script from this user account.
 
@@ -60,8 +71,6 @@ Try executing the status script as __guest__. Since the guest account is not the
 ./status.sh
 ```
 
-<pre class=file>
-bash: ./status.sh: Permission denied
-</pre>
+![denied!](../assets/permissiondeniedasguest.png)
 
 Now that you know how files behave differently when operated on by different user accounts, the next steps will show you how to customize permissions to control this behavior.

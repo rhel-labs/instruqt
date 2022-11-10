@@ -9,21 +9,30 @@ notes:
   contents: Changing group ownership can be much more efficient than manually assigning
     owners, when there are many users that should have the same access to a file.
 tabs:
-- title: Shell
+- title: Root
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "root" > /dev/null 2>&1
+- title: Guest
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "guest" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
-Group ownership can be changed with the `chgrp` command by adding a colon before the name of the group. Return to the root terminal to execute this command:
+Group ownership can be changed with the `chgrp` command by adding a colon before the name of the group.
 
-```
+Return to the **Root tab**.
+
+Change the group permission of the __tasks.txt__ file:
+
+```bash
 chown :team tasks.txt
 ```
 
 Verify the change using `ls -l`:
 
-```
+```bash
 ls -l tasks.txt
 ```
 
