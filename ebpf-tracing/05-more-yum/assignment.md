@@ -1,8 +1,8 @@
 ---
-slug: step5
+slug: more-yum
 id: fs4r2n2inbzd
 type: challenge
-title: Step 5
+title: Yum continued
 tabs:
 - title: Terminal
   type: terminal

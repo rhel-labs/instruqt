@@ -1,8 +1,8 @@
 ---
-slug: step3
+slug: file-ops
 id: 80mgxsbvhor0
 type: challenge
-title: Step 3
+title: Observing File operations
 tabs:
 - title: Terminal
   type: terminal

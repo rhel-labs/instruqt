@@ -1,8 +1,8 @@
 ---
-slug: step6
+slug: other-tools
 id: daqbjdvzake0
 type: challenge
-title: Step 6
+title: Learn about other tools utilizing eBPF
 tabs:
 - title: Terminal
   type: terminal

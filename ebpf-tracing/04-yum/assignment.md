@@ -1,8 +1,8 @@
 ---
-slug: step4
+slug: yum
 id: scl11igw2rcz
 type: challenge
-title: Step 4
+title: Observing yum performance
 tabs:
 - title: Terminal
   type: terminal

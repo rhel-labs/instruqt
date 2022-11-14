@@ -1,8 +1,8 @@
 ---
-slug: step2
+slug: run-bcc-tools
 id: dqensh4f7pzh
 type: challenge
-title: Step 2
+title: Run bcc tools to prepare for observing an active workload.
 tabs:
 - title: Terminal
   type: terminal
