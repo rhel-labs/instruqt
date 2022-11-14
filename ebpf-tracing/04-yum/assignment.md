@@ -4,21 +4,42 @@ id: scl11igw2rcz
 type: challenge
 title: Observing yum performance
 tabs:
-- title: Terminal
+- title: yum
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "yum" > /dev/null 2>&1
+- title: gethostlatency
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "gethostlatency" > /dev/null 2>&1
+- title: tcplife
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "tcplife" > /dev/null 2>&1
+- title: filetop
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "filetop" > /dev/null 2>&1
+- title: xfsslower
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "xfsslower" > /dev/null 2>&1
+- title: cachestat
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "cachestat" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
-Time to observe what happens when `yum` does an update from a system perspective! In __pane 5__ in the terminal, run:
+Time to observe what happens when `yum` does an update from a system perspective! In the `yum` tab run:
 
-```
+```bash
 yum update -y
 ```
 
 The first thing that `yum` does is updates repository metadata. This is going to create activity on your *gethostlatency* terminal and your *tcplife* terminal as the data is being downloaded from the Red Hat Content Delivery Network (CDN). You can look at those tool outputs to see the network connections that the `yum update` establishes in real time.
 
-You will see entries on our *gethostlatency* pane (__pane 0__) similar to:
+You will see entries on our *gethostlatency* tab similar to:
 
 <pre class="file">
 TIME      PID    COMM                  LATms HOST
@@ -32,7 +53,7 @@ TIME      PID    COMM                  LATms HOST
 
 these show `yum` looking up IP addresses for localhost, subscription.rhsm.redhat.com, and cdn.redhat.com. `gethostlatency` makes it really easy to know what hosts our application is talking to.
 
-Also look at the *cachestat* pane (__pane 4__ ) and you should see output similar to:
+Also look at the *cachestat* tab and you should see output similar to:
 
 <pre class="file">
     HITS   MISSES  DIRTIES  BUFFERS_MB  CACHED_MB
@@ -47,7 +68,7 @@ Also look at the *cachestat* pane (__pane 4__ ) and you should see output simila
 
 This shows that you are operating entirely on system cache and not having to retrieve data from storage at this point in the operation.
 
-Look at your *tcplife* pane (__pane 1__) when `yum` has finished downloading packages.  You will see output similar to the sample below:
+Look at your *tcplife* tab when `yum` has finished downloading packages.  You will see output similar to the sample below:
 
 <pre class="file">
 PID   COMM       LADDR           LPORT RADDR           RPORT TX_KB RX_KB MS

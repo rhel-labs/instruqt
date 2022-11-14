@@ -4,15 +4,36 @@ id: fs4r2n2inbzd
 type: challenge
 title: Yum continued
 tabs:
-- title: Terminal
+- title: yum
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "yum" > /dev/null 2>&1
+- title: gethostlatency
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "gethostlatency" > /dev/null 2>&1
+- title: tcplife
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "tcplife" > /dev/null 2>&1
+- title: filetop
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "filetop" > /dev/null 2>&1
+- title: xfsslower
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "xfsslower" > /dev/null 2>&1
+- title: cachestat
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "cachestat" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
 Next, `yum` will begin installing the updates and removing old packages. To do this, `yum` is going to use the disk and memory resources; you will monitor this using `filetop`, `xfsslower` and `cachestat`.
 
-In the *filetop* pane (__pane 2__), you will start to see files being read and written to disk. As `yum` reads files from an rpm package, it writes them out to the disk. Below is what the read operations should look like:
+In the *filetop* tab, you will start to see files being read and written to disk. As `yum` reads files from an rpm package, it writes them out to the disk. Below is what the read operations should look like:
 
 <pre class="file">
 TID    COMM             READS  WRITES R_Kb    W_Kb    T FILE
@@ -25,7 +46,7 @@ TID    COMM             READS  WRITES R_Kb    W_Kb    T FILE
 
 From the above output, you can see in the Type column(T) that these are regular files(R). Further, you can see the counters in the READS column report greater than 0. This shows you in, real time, what `yum` is doing with files on the system.
 
-Further, on the *xfsslower* pane (__pane 3__), you will start to see XFS operations take longer than the 10ms threshold and disk operations will start to be displayed:
+Further, on the *xfsslower* tab, you will start to see XFS operations take longer than the 10ms threshold and disk operations will start to be displayed:
 
 <pre class="file">
 Tracing XFS operations slower than 10 ms
@@ -42,7 +63,7 @@ TIME     COMM           PID    T BYTES   OFF_KB   LAT(ms) FILENAME
 
 In the above output, you see the file that `yum` is working on and the latency in the LAT(ms) column, the data above shows that the longest latency was 567.45 milliseconds while accessing the packages.db-journal file. If you wish to improve the speed of `yum update` on this system by reducing latency, you may want to look at upgrading the underlying storage of this system.
 
-If you look at the *cachestat* pane (__pane 4__), you will see that the number of misses on the cache has gone up during the `yum` package installation procedure as it is starting to need access to data that is not cached:
+If you look at the *cachestat* tab, you will see that the number of misses on the cache has gone up during the `yum` package installation procedure as it is starting to need access to data that is not cached:
 
 <pre class="file">
     HITS   MISSES  DIRTIES  BUFFERS_MB  CACHED_MB

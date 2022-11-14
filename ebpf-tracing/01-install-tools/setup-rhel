@@ -1,22 +1,4 @@
-#!/bin/sh
-TMUX='' tmux new-session -d -s 'ebpf' > /dev/null 2>&1
-tmux split-window -h
-tmux split-window -h
-tmux split-window -h
-tmux split-window -h
-tmux selectl tiled
-tmux split-window -h
-tmux selectl tiled
+#!/bin/bash
+TMUX='' tmux new-session -d -s 'yum' > /dev/null 2>&1
 tmux set -g pane-border-status top
 tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
-
-cat >> ~/.bashrc <<-EOF
-
-session="ebpf"
-tmux has-session -t=$session_name 2> /dev/null
-if [[ -z "$TMUX" ]]; then
-  tmux attach-session -t "$session_name" > /dev/null 2>&1
-else
-  tmux switch-client -t "$session_name" > /dev/null 2>&1
-fi
-EOF
