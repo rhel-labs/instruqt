@@ -8,10 +8,8 @@ tabs:
   type: terminal
   hostname: rhel
 - title: RHEL Web Console
-  type: service
-  hostname: rhel
-  path: /
-  port: 9090
+  type: external
+  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
@@ -27,11 +25,7 @@ changelog is the one you installed earlier.
 rpm -q --changelog $(rpm -qa | grep kpatch-patch)
 ```
 
-<pre class="file">
-* Tue Apr 19 2022 Yannick Cote <ycote@redhat.com> [1-2.el8_5]
-- kernel: heap out of bounds write in nf_dup_netdev.c [2056875] {CVE-2022-25636}
-- kernel: use-after-free in RDMA listen() [2033364] {CVE-2021-4028}
-</pre>
+![cote](../assets/cote.png)
 
 In the above sample output, you can see that the latest entry, the first one
 listed, in the patchset was to resolve CVE-2022-25636.
