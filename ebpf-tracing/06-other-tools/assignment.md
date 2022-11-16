@@ -1,12 +1,33 @@
 ---
-slug: step6
+slug: other-tools
 id: daqbjdvzake0
 type: challenge
-title: Step 6
+title: Learn about other tools utilizing eBPF
 tabs:
-- title: Terminal
+- title: yum
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "yum" > /dev/null 2>&1
+- title: gethostlatency
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "gethostlatency" > /dev/null 2>&1
+- title: tcplife
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "tcplife" > /dev/null 2>&1
+- title: filetop
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "filetop" > /dev/null 2>&1
+- title: xfsslower
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "xfsslower" > /dev/null 2>&1
+- title: cachestat
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "cachestat" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
