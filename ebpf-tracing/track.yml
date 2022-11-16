@@ -30,6 +30,5 @@ developers:
 - smcbrien@redhat.com
 private: false
 published: true
-maintenance: true
 show_timer: true
-checksum: "14959682433908904412"
+checksum: "17922253717312696300"

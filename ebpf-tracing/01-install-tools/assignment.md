@@ -28,7 +28,7 @@ tabs:
   hostname: rhel
   cmd: tmux attach-session -t "yum" > /dev/null 2>&1
 difficulty: basic
-timelimit: 9000
+timelimit: 3000
 ---
 eBPF is an in-kernel virtual machine that allows code execution in the kernel space, in a restricted sandbox environment with access to a limited set of functions. The virtual machine executes special assembly-like code. The code is then loaded in the kernel and translated to the native machine code with just-in-time compilation. There are numerous components shipped by Red Hat that utilize the eBPF virtual machine.
 
