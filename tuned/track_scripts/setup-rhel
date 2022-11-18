@@ -1,0 +1,26 @@
+#!/bin/bash
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+
+yum remove -y google-rhui-client*
+yum clean all
+
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=image_builder --org=12451665 --force
+
+dnf -y install tmux
+echo "Adding wheel" > /root/post-run.log
+usermod -aG wheel rhel
+
+echo "setting password" >> /root/post-run.log
+echo redhat | passwd --stdin rhel
+
+echo "DONE" >> /root/post-run.log
+
+systemctl stop httpd
+systemctl disable httpd
+

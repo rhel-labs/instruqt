@@ -1,0 +1,28 @@
+slug: tuned
+title: Optimizing performance with TuneD profiles
+teaser: Improve perfomance by leveraging static and custom TuneD profiles
+description: |-
+  # Duration:
+  This track has an estimated time for completion of 15 minutes. The track will remain online for 50 minutes.
+  # Goal:
+  After completing this scenario, users will be able to install, configure and enable TuneD profiles in Red Hat Enterprise Linux.
+
+  # Concepts included in this scenario:
+  - Installing TuneD
+  - Understanding TuneD profiles
+  - Leveraging static TuneD profiles
+  - Creating custom TuneD profiles
+
+  # Example Usecase:
+  You have a new RHEL server which your database administrator is going to install Microsoft SQL Server on.  You want to ensure you have the operating system tuned for that specific workload.  By leveraging predefined TuneD profiles you can save time using the recommended settings and then you may customize the settings later with a custom tuned profile
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- ""
+owner: rhel
+developers:
+- toharris@redhat.com
+private: false
+published: true
+show_timer: true
+skipping_enabled: true
+checksum: "4114882135030766963"
