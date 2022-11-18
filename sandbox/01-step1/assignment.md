@@ -27,9 +27,9 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
-Welcome to this open lab expierence for Red Hat Enterprise Linux.
+Welcome to this open lab experience for Red Hat Enterprise Linux.
 
 The system displayed beside this text is a Red Hat Enterprise Linux 9
 system registered with Subscription Manager.

@@ -1,0 +1,33 @@
+slug: selinux-policy
+id: rmhrkpluaaab
+title: selinux-policy
+teaser: Learn the basics of creating SELinux Policy.
+description: |-
+  This workshop will walk you through the process of creating a custom policy for a source-compiled application, using the standard tooling provided in Red Hat Enterprise Linux. This is not a daunting effort. Jump in!
+
+  This is not a 15 minute lab. It is a workshop level lab that needs 4-6 hours to complete. This is designed to go with an instructor guided session but can be completed on its own.
+
+  # Goal:
+  After completing this workshop you will be able to manage SELinux configuration on a RHEL host manually and with RHEL System Roles, write a basic SELinux policy and apply that policy to the system and troubleshoot SELinux issues using logs.
+
+  # Concepts included in this scenario:
+  * Managing SELinux system configuration
+  * Understand SELinux context
+  * Create a custom SELinux policy
+  * Define rules for applications
+  * Define rules for the network
+
+  # Example Use case:
+  An administrator wants to secure a custom application using SELinux policy
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: intermediate
+tags:
+- rhel
+- security
+owner: rhel
+developers:
+- parmstro@redhat.com
+private: false
+published: false
+show_timer: true
+checksum: "10587306690545051069"

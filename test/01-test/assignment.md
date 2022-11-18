@@ -14,6 +14,7 @@ tabs:
 - title: rhel2
   type: terminal
   hostname: rhel2
+  cmd: su - rhel
 - title: rhel3
   type: terminal
   hostname: rhel3

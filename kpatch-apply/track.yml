@@ -1,6 +1,8 @@
 slug: kpatch-apply
 id: xws2szn833hj
-title: Reducing unplanned maintenance with Kernel Live Patching
+title: Reduce unplanned maintenance with Kernel live patching
+teaser: Resolve critical vulnerabilities and exposures by applying kernel live patches
+  to systems without taking downtime for maintenance.
 description: |
   # Goal:
   After completing this lab, users will be able to apply a Kernel Live Patch to
@@ -34,4 +36,4 @@ developers:
 private: false
 published: true
 show_timer: true
-checksum: "4216830320589430704"
+checksum: "4122591833796480640"

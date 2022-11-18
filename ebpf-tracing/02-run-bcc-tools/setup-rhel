@@ -1,0 +1,6 @@
+#!/bin/bash
+TMUX='' tmux new-session -d -s 'gethostlatency' '/usr/share/bcc/tools/gethostlatency' > /dev/null 2>&1
+TMUX='' tmux new-session -d -s 'tcplife' '/usr/share/bcc/tools/tcplife' > /dev/null 2>&1
+TMUX='' tmux new-session -d -s 'filetop' '/usr/share/bcc/tools/filetop' > /dev/null 2>&1
+TMUX='' tmux new-session -d -s 'xfsslower' '/usr/share/bcc/tools/xfsslower' > /dev/null 2>&1
+TMUX='' tmux new-session -d -s 'cachestat' > /dev/null 2>&1
