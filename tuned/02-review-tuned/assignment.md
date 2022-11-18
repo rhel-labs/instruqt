@@ -1,8 +1,9 @@
 ---
 slug: review-tuned
+id: 2wwtr8pa7fkz
 type: challenge
-title: Start and Review TuneD
-teaser: Start and Review TuneD.
+title: Start TuneD and review TuneD profiles
+teaser: Start TuneD and review TuneD profiles
 notes:
 - type: text
   contents: 'Step 2: Start TuneD and review profiles'
@@ -14,13 +15,13 @@ difficulty: basic
 timelimit: 1
 ---
 
-The first thing we want to do is start TuneD.  Copy and paste the command below into __> Shell__.
+The first thing we want to do is start TuneD
 
 ```bash
 systemctl start tuned
 ```
 
-Now we can take a look at what profiles are available.  Copy and paste the command below into __> Shell__.
+Now we can take a look at what profiles are available
 
 ```bash
 tuned-adm list
@@ -53,12 +54,13 @@ Current active profile: virtual-guest
 
 </pre>
 
-It looks like our active profile is `virtual-guest`. Let's go ahead and see what that profile includes
+It looks like our active profile is `virtual-guest`
 
-Copy and paste the command below into __> Shell__.
+Let's go ahead and see what that profile includes
+
 
 ```bash
-cat /usr/lib/tuned/virtual-guest/tuned.conf
+cat /usr/lib/tuned/virtual-guest/tuned.conf | grep -v \^#
 ```
 
 <pre>
@@ -77,16 +79,22 @@ vm.swappiness = 30
 
 <<< OUTPUT ABRIDGED >>>
 
+</pre>
+
 It looks like there is an include line that tells it to bring in all the changes from the throughput-performance profile and then it overrides two values `vm.dirty_ratio` and `vm.swappiness`
 
 
 Let's take a look at what is in the `throughput-performance` profile
 
-Copy and paste the command below into __> Shell__.
 
 ```bash
 cat /usr/lib/tuned/throughput-performance/tuned.conf
 ```
-You will notice that the throughput-performance profile has a lot of tunings, including the two mentioned in the virtual-guest profile.  This is the benefit of using include in our profiles.  We can inherit all these settings and then just override the few we want to update in our new profile.  The child profile settings will take precedence over the duplicate tunings in the parent profile
+
+You will notice that the throughput-performance profile has a lot of tunings, including the two mentioned in the virtual-guest profile
+
+The benefit of using include in our profiles is that we can inherit all these settings and then just override the few we want to update in our new profile
+
+The child profile settings will take precedence over the duplicate tunings in the parent profile
 
 It is important to understand this concept since we will leverage this in the next step which is creating our own custom TuneD profile

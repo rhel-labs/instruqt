@@ -1,5 +1,6 @@
 ---
 slug: install-tuned
+id: qvxupc8t14hz
 type: challenge
 title: Install and enable TuneD
 teaser: Install and enable TuneD.
@@ -42,7 +43,9 @@ tuned-utils.noarch : Various tuned utilities
 
 </pre>
 
-We see `tuned` available and there is also a `tuned-profiles-mssql` package that looks to be in-line with what we are looking for.  Let's go ahead and install both
+We see `tuned` available and there is also a `tuned-profiles-mssql` package that looks to be in-line with what we are looking for.
+
+Let's go ahead and install both
 
 Copy and paste the command below into __> Shell__.
 

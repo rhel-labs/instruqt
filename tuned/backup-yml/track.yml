@@ -1,5 +1,4 @@
 slug: tuned
-id: kmycnuy9wzzw
 title: Optimizing performance with TuneD profiles
 teaser: Improve perfomance by leveraging static and custom TuneD profiles
 description: |-
@@ -26,4 +25,4 @@ private: false
 published: true
 show_timer: true
 skipping_enabled: true
-checksum: "17034472363345586988"
+checksum: "4114882135030766963"
