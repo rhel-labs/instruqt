@@ -10,3 +10,6 @@ virtualmachines:
   - http
   - https
   - high-ports
+secrets:
+- name: ACTIVATION_KEY
+- name: SSHKEY
