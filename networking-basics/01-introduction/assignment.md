@@ -1,5 +1,5 @@
 ---
-slug: step1
+slug: introduction
 id: n59bhkezlwdf
 type: challenge
 title: Introduction
@@ -30,7 +30,7 @@ tabs:
   type: external
   url: https://host1.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
 ## What is NetworkManager?
 

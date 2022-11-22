@@ -1,7 +1,7 @@
 version: "3"
 virtualmachines:
 - name: host1
-  image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-8-6-06-02-22-1
+  image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-1-11-22-2022-6
   shell: /bin/bash
   environment:
     TERM: xterm
@@ -10,3 +10,6 @@ virtualmachines:
   - http
   - https
   - high-ports
+secrets:
+- name: ACTIVATION_KEY
+- name: SSHKEY

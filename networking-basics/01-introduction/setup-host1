@@ -1,0 +1,24 @@
+!/bin/sh
+while ! ping -c 1 -W 1 192.168.122.2; do echo "Waiting for rhelvm - network interface might be down..."; sleep 1; done
+
+echo "192.168.122.2 rhelvm" >> /etc/hosts
+ssh -o "StrictHostKeyChecking no" -i r4ekey root@rhelvm subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+
+TMUX='' tmux new-session -d -s 'networking-setup' ssh -i r4ekey root@rhelvm; clear > /dev/null 2>&1
+tmux set -g pane-border-status top
+tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
+ssh -i r4ekey root@rhelvm 'nmcli connection delete Wired\ connection\ 1'
+ssh -i r4ekey root@rhelvm 'subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force'
+cat >> ~/.bashrc <<-EOF
+
+session_name="networking-setup"
+tmux has-session -t=$session_name 2> /dev/null
+if [[ -z "$TMUX" ]]; then
+  tmux attach-session -t "$session_name" > /dev/null 2>&1
+else
+  tmux switch-client -t "$session_name" > /dev/null 2>&1
+fi
+EOF
+
+# ssh -i r4ekey root@rhelvm 'nmcli connection delete Wired\ connection\ 1'
+# ssh -i r4ekey root@rhelvm 'subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force'

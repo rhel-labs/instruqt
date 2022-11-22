@@ -1,7 +1,7 @@
 version: "3"
 virtualmachines:
 - name: rhel3
-  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-0-06-13-2022-1
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-1-11-18-2022-4
   shell: /bin/bash
   environment:
     TERM: xterm
@@ -11,7 +11,7 @@ virtualmachines:
   - https
   - high-ports
 - name: rhel2
-  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-0-06-13-2022-1
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-1-11-18-2022-4
   shell: /bin/bash
   environment:
     TERM: xterm
@@ -21,7 +21,7 @@ virtualmachines:
   - https
   - high-ports
 - name: rhel
-  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-8-4-08-30-2022-2
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-1-11-18-2022-4
   shell: /bin/bash
   environment:
     TERM: xterm
@@ -30,3 +30,6 @@ virtualmachines:
   - http
   - https
   - high-ports
+secrets:
+- name: ACTIVATION_KEY
+- name: SSHKEY
