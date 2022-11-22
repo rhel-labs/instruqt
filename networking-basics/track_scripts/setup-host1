@@ -5,7 +5,7 @@ do
     sleep 1
 done
 
-systemctl enable --now cockpit.socket
+# systemctl enable --now cockpit.socket
 
 subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
@@ -16,7 +16,7 @@ usermod -aG wheel rhel
 echo "setting password" >> /root/post-run.log
 echo redhat | passwd --stdin rhel
 
-dnf install -y tmux nc
+dnf install -y nc
 
 systemctl enable --now libvirtd
 
@@ -28,6 +28,4 @@ EOF
 
 chmod 600 r4ekey
 
-echo "192.168.122.128 rhelvm" >> /etc/hosts
-# virsh attach-interface --domain vm1 --type network --source default --model virtio --config --live
 virsh attach-interface --domain vm1 --type network --source default --model virtio
