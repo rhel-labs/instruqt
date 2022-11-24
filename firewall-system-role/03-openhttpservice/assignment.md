@@ -8,6 +8,11 @@ tabs:
 - title: rhel
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "firewall-testing"
+- title: rhelvm
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "firewall-testing-rhelvm"
 - title: rhel Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
@@ -18,7 +23,9 @@ In this challenge, we will enable access to the http port 80 on `rhelvm`.
 
 First, we'll prove to ourselves that port 80 is blocked by the firewall running on `rhelvm`.
 
-Switch to the `rhelvm` terminal using `ctrl-b` and the arrow key pointing to the right terminal.
+Switch to the `rhelvm` terminal by clicking on the rhelvm tab.
+
+![rhelvm tab](../assets/rhelvm-tab.png)
 
 Run the following in `rhelvm`.
 
@@ -27,6 +34,8 @@ firewall-cmd --list-all
 ```
 
 ![fwcmdno80](../assets/fwcmdno80.png)
+
+The output above shows that port 80 is not open.
 
 In the `rhelvm` terminal, run `nc -l 80`. This command runs the utility `netcat` and tells it to listen for incoming traffic on port 80.
 
@@ -38,13 +47,15 @@ nc -l 80
 
 `netcat` is now listening on port 80 on `rhelvm`. __***Do not exit out of `nc` in this terminal!***__
 
-Switch back to the `rhel` terminal and enter the command `nc rhelvm 80`. This tells `netcat` to connect to port 80 on `rhelvm`.
+Switch back to the `rhel` terminal.
+
+Enter the command `nc rhelvm 80`. This tells `netcat` to connect to port 80 on `rhelvm`.
 
 ```bash
 nc rhelvm 80
 ```
 
-![noroute](../assets/ncnoroutetohost.png)
+![noroute](../assets/no-route.png)
 
 `netcat` cannot connect to `rhelvm` on port 80.
 
@@ -87,7 +98,7 @@ Next, we'll create a simple Ansible playbook that tells ansible to apply the RHE
     - redhat.rhel_system_roles.firewall
 </pre>
 
-Run the following in the CLI.
+Copy paste and run the following in the CLI.
 
 ```bash
 tee -a /root/firewall.yml <<EOF
@@ -98,7 +109,7 @@ tee -a /root/firewall.yml <<EOF
 EOF
 ```
 
-Now we'll apply the system roll to `rhelvm`.
+Now we'll apply the system role to `rhelvm` by running the following command on `rhel`.
 
 ```bash
 ansible-playbook -i hosts -b firewall.yml

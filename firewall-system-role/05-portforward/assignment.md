@@ -8,6 +8,11 @@ tabs:
 - title: rhel
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "firewall-testing"
+- title: rhelvm
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "firewall-testing-rhelvm"
 - title: rhel Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
@@ -15,7 +20,7 @@ difficulty: basic
 timelimit: 1
 ---
 
-In this challenge we'll forward incoming tcp requests on port 9999 to 12345.
+In this challenge we'll forward incoming tcp requests to rhelvm on port 9999 to 12345.
 
 In the `rhel` terminal, add the lines `- forward_port: '9999/tcp;12345;'` and
         `state: enabled`.

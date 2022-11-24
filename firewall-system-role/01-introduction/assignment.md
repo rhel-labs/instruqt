@@ -11,11 +11,16 @@ tabs:
 - title: rhel
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "firewall-testing"
+- title: rhelvm
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "firewall-testing-rhelvm"
 - title: rhel Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
 
 >_NOTE:_ To make the inline images larger, expand this window. ![Menu Slider](../assets/slider.png)
@@ -36,8 +41,6 @@ We'll perform the following 3 tasks.
 
 ![afterapplying](../assets/firewallsystemrolesoverview.png)
 
->_NOTE:_ In the `rhel` tab in the upper left corner of the Instruqt web page, there are 2 shell sessions launched. To switch between the 2 shell sessions, press Ctrl-B and an arrow key pointing to the session you wish to become active.
+You can access each host by clicking on the tabs in the upper left corner of the GUI.
 
-Go to the pane containing the `rhel` terminal session. Use `ctrl-b` and then press the `arrow key` to move in the direction of the desired pane.
-
-![terminalsessions](../assets/terminalsessions.png)
+![tabs](../assets/instruqt-tab.png)

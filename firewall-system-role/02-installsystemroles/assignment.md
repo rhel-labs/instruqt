@@ -8,6 +8,11 @@ tabs:
 - title: rhel
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "firewall-testing"
+- title: rhelvm
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "firewall-testing-rhelvm"
 - title: rhel Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
@@ -17,14 +22,15 @@ timelimit: 1
 
 Now we'll install system roles.
 
-Make sure you are in the pane containing the `rhel` terminal session (type `ctrl-b + arrow key` to move between panes).
+Click the `rhel` terminal session tab.
+
+![rhel tab](../assets/rhel-tab.png)
+
 Enter the following command.
 
 ```bash
 dnf install rhel-system-roles -y
 ```
-
-![dnfinstall](../assets/dnfinstallsystemroles2.png)
 
 The resulting output will look similar to the output below.
 
