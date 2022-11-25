@@ -18,12 +18,7 @@ dnf install -y nc
 
 systemctl enable --now libvirtd
 
-tee -a /root/r4ekey << EOF 
------BEGIN OPENSSH PRIVATE KEY-----
-${SSHKEY}
------END OPENSSH PRIVATE KEY-----
-EOF
-
+echo "${SSHKEY}" > r4ekey
 chmod 600 r4ekey
 rm /root/.ssh/id_rsa
 cp /root/r4ekey /root/.ssh/id_rsa
