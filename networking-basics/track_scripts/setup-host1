@@ -20,12 +20,8 @@ dnf install -y nc
 
 systemctl enable --now libvirtd
 
-tee -a /root/r4ekey << EOF 
------BEGIN OPENSSH PRIVATE KEY-----
-${SSHKEY}
------END OPENSSH PRIVATE KEY-----
-EOF
 
+echo "${SSHKEY}" > r4ekey
 chmod 600 r4ekey
 
 virsh attach-interface --domain vm1 --type network --source default --model virtio
