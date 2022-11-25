@@ -19,6 +19,3 @@ else
   tmux switch-client -t "$session_name" > /dev/null 2>&1
 fi
 EOF
-
-# ssh -i r4ekey root@rhelvm 'nmcli connection delete Wired\ connection\ 1'
-# ssh -i r4ekey root@rhelvm 'subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force'
