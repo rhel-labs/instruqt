@@ -4,6 +4,9 @@ id: 4c2imrx1ec5x
 type: challenge
 title: Configure port forwarding
 teaser: Configure port forwarding
+notes:
+- type: text
+  contents: Forward TCP requests to port 9999 to port 12345.
 tabs:
 - title: rhel
   type: terminal

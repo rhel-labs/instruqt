@@ -4,6 +4,9 @@ id: tqwcosk2bidy
 type: challenge
 title: Enable access to the httpd service
 teaser: Enable access to the httpd service
+notes:
+- type: text
+  contents: Open the port to enable external connections to the httpd service on port 80.
 tabs:
 - title: rhel
   type: terminal

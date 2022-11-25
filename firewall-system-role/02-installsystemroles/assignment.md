@@ -4,6 +4,9 @@ id: 3anmcihgppy3
 type: challenge
 title: Install System Roles
 teaser: Install System Roles
+notes:
+- type: text
+  contents: Install the firewall RHEL system role.
 tabs:
 - title: rhel
   type: terminal

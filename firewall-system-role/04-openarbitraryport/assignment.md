@@ -4,6 +4,9 @@ id: zfgmcrojfhrz
 type: challenge
 title: Open an arbitrary port
 teaser: Open an arbitrary Port
+notes:
+- type: text
+  contents: Open an arbitrary port.
 tabs:
 - title: rhel
   type: terminal
