@@ -13,3 +13,6 @@ developers:
 - myee@redhat.com
 private: true
 published: false
+secrets:
+- name: ACTIVATION_KEY
+- name: SSHKEY
