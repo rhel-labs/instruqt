@@ -18,7 +18,7 @@ tabs:
   type: terminal
   hostname: client2
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
 Red Hat Enterprise Linux System Roles are a collection of supported Ansible roles that ensure consistent workflows and streamline the execution of manual tasks.
 
