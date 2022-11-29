@@ -1,8 +1,8 @@
 ---
-slug: step5
+slug: troubleshooting
 id: y9zff9ryrbh2
 type: challenge
-title: Step 5
+title: Troubleshooting
 notes:
 - type: text
   contents: |+

@@ -1,8 +1,8 @@
 ---
-slug: step4
+slug: inspect
 id: zparnbi5qrae
 type: challenge
-title: Step 4
+title: Inspect the image
 notes:
 - type: text
   contents: |+

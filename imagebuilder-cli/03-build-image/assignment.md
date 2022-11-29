@@ -1,8 +1,8 @@
 ---
-slug: step3
+slug: build-image
 id: zw0bwwqqffxk
 type: challenge
-title: Step 3
+title: Build a machine image
 notes:
 - type: text
   contents: |+

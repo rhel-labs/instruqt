@@ -1,8 +1,8 @@
 ---
-slug: step2
+slug: create-blueprint
 id: q5ddpngfpvek
 type: challenge
-title: Step 2
+title: Create a blueprint
 notes:
 - type: text
   contents: |
