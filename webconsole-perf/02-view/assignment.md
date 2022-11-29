@@ -1,8 +1,8 @@
 ---
-slug: step2
+slug: view
 id: k9isowbdubuz
 type: challenge
-title: Step 2
+title: View metrics and history
 tabs:
 - title: Terminal
   type: terminal
@@ -13,8 +13,7 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Navigate to System Overview and Usage Details
 Now that you are logged into the Web Console,
-Navigate to the Overview system **Usage** section, and select **View details and history**.
+Navigate to the Overview system **Usage** section, and select **View metrics and history**.
 
 ![Navigate to Software Updates](../assets/Nav-Updates-Perf.png)

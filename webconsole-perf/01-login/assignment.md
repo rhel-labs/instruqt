@@ -1,8 +1,8 @@
 ---
-slug: step1
+slug: login
 id: 2tzuyjsmcszl
 type: challenge
-title: Step 1
+title: Log into the Web Console
 notes:
 - type: text
   contents: |
@@ -20,10 +20,8 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
-## Log in to the Web Console
-
 Click on the tab titled **RHEL Web Console** at the top of  your lab system interface. Selecting this tab will open the lab system's Web Console in a
 new browser tab or window.
 
@@ -43,3 +41,16 @@ Username: **rhel**\
 Password: **redhat**
 
 ![Web Console Login](../assets/Web-console-login.png)
+
+Now that you are logged into the Web Console, we must turn on administrative access.
+
+Click `Turn on administrative access`.
+
+![admin access](../assets/turn-on-admin.png)
+
+Next do the following:
+
+1) Enter the password: **redhat**
+2) Click `Authenticate`
+
+![auth](../assets/auth.png)

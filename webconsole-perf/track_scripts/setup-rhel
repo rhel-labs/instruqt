@@ -5,10 +5,8 @@ do
    sleep 1
 done
 
-yum remove -y google-rhui-client-rhel8.noarch
-yum clean all
 subscription-manager config --rhsm.manage_repos=1
-subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
 echo "Adding wheel" > /root/post-run.log
 usermod -aG wheel rhel
@@ -16,27 +14,13 @@ usermod -aG wheel rhel
 echo "setting password" >> /root/post-run.log
 echo redhat | passwd --stdin rhel
 
-echo "adding cockpit" >> /root/post-run.log
-yum -y install cockpit cockpit-packagekit
-
-echo "starting cockpit" >> /root/post-run.log
-systemctl start cockpit
-
 echo "exclude=kernel*" >> /etc/yum.conf
 
-# echo "upgrading to RHEL 8.4" >> /root/post-run.log
-# sudo yum update -y
-
 echo "Install PCP packages" >> /root/post-run.log
-sudo yum install pcp-zeroconf -y
-sudo yum install cockpit-pcp -y
+dnf install pcp-zeroconf cockpit-pcp stress-ng -y
 
 echo "restart cockpit" >> /root/post-run.log
 systemctl restart cockpit
-
-echo "Install Stress-NG" >> /root/post-run.log
-sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-sudo yum install -y stress-ng
 
 echo "DONE" >> /root/post-run.log
 
