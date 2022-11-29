@@ -1,8 +1,8 @@
 ---
-slug: step4
+slug: perf
 id: auwsezzaxep9
 type: challenge
-title: Step 4
+title: CPU performance at-a-glance
 tabs:
 - title: Terminal
   type: terminal
@@ -13,8 +13,6 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# CPU performance at-a-glance
-
 Navigate to the system Overview, Performance metrics section
 
 Notice the graph that shows the CPU, Disk I/O and Network utilization

@@ -1,8 +1,8 @@
 ---
-slug: step3
+slug: run-stress-ng
 id: igqtjxgajzfl
 type: challenge
-title: Step 3
+title: Generate a CPU-hot workload
 tabs:
 - title: Terminal
   type: terminal
@@ -13,7 +13,6 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Generate CPU-hot workload
 
 **stress-ng** can stress various system resources such as CPU, cache, disk, memory, socket pipe I/O, scheduling and much more.
 
