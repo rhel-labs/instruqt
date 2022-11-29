@@ -1,22 +1,22 @@
 ---
-slug: step2
+slug: deploy-image
 id: b509nwihtx3h
 type: challenge
 title: Deploy a container image into an interactive container runtime
 tabs:
-- title: Terminal
+- title: Podman
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
-  type: service
+  cmd: tmux attach-session -t "podman" > /dev/null 2>&1
+- title: RHEL Host
+  type: terminal
   hostname: rhel
-  path: /
-  port: 9090
+  cmd: tmux attach-session -t "host" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
 The __rhel9-httpd__ container includes a bash shell.  In this step, you will
-deploy the container in an interactive fashion, which will allow you to run commands within the deployed container. Use *Pane 0*.
+deploy the container in an interactive fashion, which will allow you to run commands within the deployed container. In the `Podman` tab run the following:
 
 ```bash
 podman run -it rhel9-httpd /bin/bash
@@ -27,7 +27,7 @@ You should now be looking at a generic bash shell prompt:
 bash-5.1#
 </pre>
 
-In *Pane 0*, the displayed shell is running inside the container image, not the host operating system.  To confirm this, take a look at the mounted filesystems:
+In the `Podman` tab, the displayed shell is running inside the container image, not the host operating system.  To confirm this, take a look at the mounted filesystems:
 
 ```bash
 df -hP
@@ -49,15 +49,42 @@ tmpfs           909M     0  909M   0% /sys/dev
 
 You will notice that all of the filesystem contents are either memory-based (tmpfs, shm) or the overlay file associated with this runtime of the container image (overlay).
 
-Switch to *Pane 1* by typing `ctrl-b` and then the down arrow key.  *Pane `* is running on the host system.  Use this shell to verify that the container is running:
+Switch to the `RHEL Host` tab. Use this terminal to verify that the container is running:
 
 ```bash
 podman ps -a
 ```
 
-<pre class="file">
-CONTAINER ID  IMAGE                         COMMAND               CREATED         STATUS                    PORTS                   NAMES
-df54b664f133  localhost/rhel9-httpd:latest  /bin/bash             34 seconds ago  Up 33 seconds ago                                 heuristic_cray
-</pre>
+<a href="#example_image">
+ <img alt="An example image" src="../assets/rhelhostpsa.png" />
+</a>
+
+<a href="#" class="lightbox" id="example_image">
+ <img alt="An example image" src="../assets/rhelhostpsa.png" />
+</a>
 
 __Note:__ Your CONTAINER ID and NAMES will be different than the output displayed above as each container is assigned a unique ID and Name.
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox img {
+  max-height: 100%;
+}
+</style>

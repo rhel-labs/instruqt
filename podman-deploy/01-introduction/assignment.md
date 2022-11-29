@@ -1,5 +1,5 @@
 ---
-slug: step1
+slug: introduction
 id: 5tlom6jx9cfp
 type: challenge
 title: Introduction
@@ -19,24 +19,24 @@ notes:
     # Example Usecase:
     You have been asked to deploy a container running a web based application onto a server in your environment.  In addition to deploying it, you need to be able to start alternate copies and remove any non-running containers.
 tabs:
-- title: Terminal
+- title: Podman
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
-  type: service
+  cmd: tmux attach-session -t "podman" > /dev/null 2>&1
+- title: RHEL Host
+  type: terminal
   hostname: rhel
-  path: /
-  port: 9090
+  cmd: tmux attach-session -t "host" > /dev/null 2>&1
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
->**Note:** In the `Terminal` tab in the upper left corner of the Instruqt web page, there are 2 shell sessions launched. To switch between the 2 shell sessions, press Ctrl-B and an arrow key pointing to the session you wish to become active.
+In this lab we have two terminals to make navigation easier. The `Podman` terminal will be used for podman related tasks. The `RHEL Host` tab will be used for host related tasks.
 
-First, go to pane 0.
+![nav tabs](../assets/navtabs.png)
 
-![pane0](../assets/pane0.png)
+Click on the `Podman` tab.
 
-Using the top terminal session, view the container images available.
+Enter the following command to view the existing images on the RHEL host.
 
 ```bash
 podman images

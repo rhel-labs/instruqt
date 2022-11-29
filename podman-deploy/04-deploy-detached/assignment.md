@@ -1,23 +1,25 @@
 ---
-slug: step4
+slug: deploy-detached
 id: qkfydf2guyrd
 type: challenge
 title: Deploy a container image into a detached container runtime
 tabs:
-- title: Terminal
+- title: Podman
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
-  type: service
+  cmd: tmux attach-session -t "podman" > /dev/null 2>&1
+- title: RHEL Host
+  type: terminal
   hostname: rhel
-  path: /
-  port: 9090
+  cmd: tmux attach-session -t "host" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
 Running an interactive container is all well and good, however, if the container is offering applications or services, you do not need to interact with it.
 
 The __rhel9-httpd__ container, for example, is configured with an Apache web server running within it.  You will create a new instance of this container in a detached mode.  Further, the command provided will configure port forwarding for the Apache web server so that connections to the host's port 8081 will redirect to the running container's port 80 (Apache service).
+
+Run the following command in the `Podman` tab.
 
 ```bash
 podman run -dt -p 8081:80/tcp rhel9-httpd
