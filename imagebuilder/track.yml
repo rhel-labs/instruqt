@@ -25,5 +25,6 @@ developers:
 - myee@redhat.com
 private: false
 published: true
+maintenance: true
 show_timer: true
-checksum: "7392817513604492303"
+checksum: "8269961479705535588"
