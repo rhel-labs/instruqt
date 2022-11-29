@@ -1,8 +1,8 @@
 ---
-slug: step1
+slug: installation
 id: dfnx1jnxvbhy
 type: challenge
-title: Step 1
+title: Installation
 notes:
 - type: text
   contents: |+
@@ -26,7 +26,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
 # Install and enable required software
 
