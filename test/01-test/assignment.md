@@ -28,6 +28,6 @@ tabs:
   type: external
   url: https://rhel3.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 86400
+timelimit: 3000
 ---
 blah blah blah
