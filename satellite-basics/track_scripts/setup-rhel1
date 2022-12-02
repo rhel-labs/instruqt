@@ -16,7 +16,7 @@ firewall-cmd --add-service=cockpit --permanent
 firewall-cmd --reload
 
 subscription-manager config --rhsm.manage_repos=1
-subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 dnf install bind-utils -y
 
 echo "Adding wheel" > /root/post-run.log
