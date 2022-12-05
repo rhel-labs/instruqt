@@ -12,3 +12,5 @@ virtualmachines:
   shell: /bin/bash
   environment:
     TERM: xterm
+secrets:
+- name: ACTIVATION_KEY

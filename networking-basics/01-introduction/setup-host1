@@ -8,7 +8,7 @@ TMUX='' tmux new-session -d -s 'networking-setup' ssh -i r4ekey root@rhelvm; cle
 tmux set -g pane-border-status top
 tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
 ssh -i r4ekey root@rhelvm 'nmcli connection delete Wired\ connection\ 1'
-ssh -i r4ekey root@rhelvm 'subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force'
+ssh -i r4ekey root@rhelvm 'subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force'
 cat >> ~/.bashrc <<-EOF
 
 session_name="networking-setup"

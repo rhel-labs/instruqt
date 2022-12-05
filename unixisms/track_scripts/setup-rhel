@@ -1,6 +1,6 @@
 #!/bin/bash
 subscription-manager config --rhsm.manage_repos=1
-subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
 dnf install -y man-db
 

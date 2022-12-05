@@ -10,3 +10,5 @@ virtualmachines:
   name: rhel
   shell: /bin/bash
   machine_type: n1-standard-1
+secrets:
+- name: ACTIVATION_KEY
