@@ -15,14 +15,14 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
 In this lab, we will introduce the usage of Red Hat Edge Management.
 >_NOTE:_ To make the inline images larger, expand this window. ![Menu Slider](../assets/slider.png)
 
  First, let's access the hybrid cloud console.
 
-Click the hyperlink or browse to [cloud.redhat.com/beta/edge](https://console.redhat.com/edge/fleet-management) to access Red Hat's software as a service web portal.
+Click the hyperlink or browse to [cloud.redhat.com/edge/fleet-management](https://console.redhat.com/edge/fleet-management) to access Red Hat's software as a service web portal.
 
 >_NOTE:_ This will open an additional browser window or tab.
 
