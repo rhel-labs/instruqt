@@ -5,8 +5,7 @@
 #     sleep 1
 # done
 
-#dnf -y install subscription-manager
-subscription-manager register --org=12451665 --activationkey=Instruqt_system_registration --force
+subscription-manager register --org=12451665 --activationkey=${ACTIVATION_KEY} --force
 
 tee -a soe.yml << EOF
 ---

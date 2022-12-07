@@ -4,10 +4,18 @@ id: zfgmcrojfhrz
 type: challenge
 title: Open an arbitrary port
 teaser: Open an arbitrary Port
+notes:
+- type: text
+  contents: Open an arbitrary port.
 tabs:
 - title: rhel
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "firewall-testing"
+- title: rhelvm
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "firewall-testing-rhelvm"
 - title: rhel Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
