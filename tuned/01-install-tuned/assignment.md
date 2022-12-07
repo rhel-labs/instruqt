@@ -16,7 +16,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
 
 As a system administrator, you can use the TuneD application to optimize the performance profile of your system for a variety of use cases.
