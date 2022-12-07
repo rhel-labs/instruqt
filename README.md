@@ -3,7 +3,7 @@
 ## Introduction
 
 This is a repository of all the Instruqt labs created by the RHEL TMM team. All the live labs can be found here: 
-[lab.redhat.com](lab.redhat.com)
+[lab.redhat.com](https://lab.redhat.com)
 
 ## Helper Script
 
