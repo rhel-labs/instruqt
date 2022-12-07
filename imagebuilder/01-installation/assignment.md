@@ -1,8 +1,8 @@
 ---
-slug: step1
+slug: installation
 id: cof3ptr2xueq
 type: challenge
-title: Step 1
+title: Install Cockpit
 notes:
 - type: text
   contents: |+
