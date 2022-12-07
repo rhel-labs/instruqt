@@ -20,14 +20,37 @@ The first thing we want to do is start TuneD
 ```bash
 systemctl start tuned
 ```
+Now that we have started TuneD, let's make sure that it is running without issues
 
-Now we can take a look at what profiles are available
+```bash
+systemctl status tuned
+```
+
+<pre>
+● tuned.service - Dynamic System Tuning Daemon
+     Loaded: loaded (/usr/lib/systemd/system/tuned.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2022-11-21 19:34:13 UTC; 3min 7s ago
+       Docs: man:tuned(8)
+             man:tuned.conf(5)
+             man:tuned-adm(8)
+   Main PID: 2087 (tuned)
+      Tasks: 4 (limit: 21954)
+     Memory: 13.4M
+        CPU: 330ms
+     CGroup: /system.slice/tuned.service
+             └─2087 /usr/bin/python3 -Es /usr/sbin/tuned -l -P
+
+Nov 21 19:34:13 rhel systemd[1]: Starting Dynamic System Tuning Daemon...
+Nov 21 19:34:13 rhel systemd[1]: Started Dynamic System Tuning Daemon.
+</pre>
+
+We can see that the status is active (running) and that the service is enabled
+
+Lets take a look at what profiles are available
 
 ```bash
 tuned-adm list
 ```
-
-Here's what the result should look similar to.
 
 <pre>
 
@@ -56,7 +79,7 @@ Current active profile: virtual-guest
 
 It looks like our active profile is `virtual-guest`
 
-Let's go ahead and see what that profile includes
+The default profiles are kept in /usr/lib/tuned, so lets go ahead and see what the virtual-guest profile includes
 
 
 ```bash
@@ -81,14 +104,14 @@ vm.swappiness = 30
 
 </pre>
 
-It looks like there is an include line that tells it to bring in all the changes from the throughput-performance profile and then it overrides two values `vm.dirty_ratio` and `vm.swappiness`
+You will notice that there is a line that says 'include' which tells TuneD to bring in all the tunings from the throughput-performance profile and then later updates two values `vm.dirty_ratio` and `vm.swappiness`
 
 
 Let's take a look at what is in the `throughput-performance` profile
 
 
 ```bash
-cat /usr/lib/tuned/throughput-performance/tuned.conf
+cat /usr/lib/tuned/throughput-performance/tuned.conf | grep -v \^#
 ```
 
 You will notice that the throughput-performance profile has a lot of tunings, including the two mentioned in the virtual-guest profile

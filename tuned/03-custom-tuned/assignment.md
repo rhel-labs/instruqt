@@ -41,7 +41,15 @@ Next we will create a tuned.conf that includes the mssql profile and overrides t
 
 
 ```bash
-printf "[main]\nsummary=MSSQL profile for multi-instance\ninclude=mssql\n\n[vm]\ntransparent_hugepages=madvise\n" > /etc/tuned/mssql-multi/tuned.conf
+cat << EOF > /etc/tuned/mssql-multi/tuned.conf
+[main]
+summary=MSSQL profile for multi-instance
+include=mssql
+
+[vm]
+transparent_hugepages=madvise
+
+EOF
 ```
 
 Let's take a look at our new tuned.conf
