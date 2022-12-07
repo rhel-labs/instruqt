@@ -6,16 +6,22 @@ title: Install and enable TuneD
 teaser: Install and enable TuneD.
 notes:
 - type: text
-  contents: 'Step 1: Install and enable TuneD.'
+  contents: You have been tasked as a systems administrator to deploy a new RHEL 8
+    server and tune it for running Microsoft SQL Server.  This is lab you will get
+    some hands-on experience setting up TuneD to assist you with the tuning portion
+    of this task and you will create a custom TuneD profile to optimize it for your
+    use case
 tabs:
 - title: Shell
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
 
-As a system administrator, you can use the TuneD application to optimize the performance profile of your system for a variety of use cases.  The first step is we need to ensure that TuneD is installed and enabled
+As a system administrator, you can use the TuneD application to optimize the performance profile of your system for a variety of use cases.
+
+The first step is we need to ensure that TuneD is installed and enabled
 
 Let's make sure we have the `tuned` package available to install and also check for additional profiles we may be interested in. Copy and paste the command below into __> Shell__.
 

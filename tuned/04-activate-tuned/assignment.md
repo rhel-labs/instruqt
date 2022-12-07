@@ -53,7 +53,7 @@ If we run `tuned-adm active` we should see that our active profile is mssql-mult
 tuned-adm active
 ```
 
-In order to validate that our customer override is working we can check the value of transparent_hugepages
+In order to validate that our custom override is working we can check the value of transparent_hugepages
 
 ```bash
 cat /sys/kernel/mm/transparent_hugepage/enabled
@@ -66,3 +66,7 @@ always [madvise] never
 </pre>
 
 And that is it!  You now have a good understanding of the benefits of TuneD and the knowledge to create and use custom and static TuneD profiles!
+
+Some more great resources:
+- [RHEL 9 Monitoring and Performance Guide] (https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/index)
+- [Getting started with TuneD] (https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/monitoring_and_managing_system_status_and_performance/getting-started-with-tuned_monitoring-and-managing-system-status-and-performance)
