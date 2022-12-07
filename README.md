@@ -18,3 +18,11 @@ This script is used for making bulk changes to the labs like modifying all the V
 ## Requests for new labs, bugs
 
 To request new features, labs, or to report bugs, please create a new issue.
+
+## Current VM images
+
+RHEL 9.1
+`image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-1-11-18-2022-4`
+
+RHEL 9.1 with virt
+`image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-1-11-25-2022-2`
