@@ -5,8 +5,6 @@ do
    sleep 1
 done
 
-dnf remove -y google-rhui-client*.noarch
-dnf clean all
 subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
@@ -16,14 +14,4 @@ usermod -aG wheel rhel
 echo "setting password" >> /root/post-run.log
 echo redhat | passwd --stdin rhel
 
-echo "adding cockpit" >> /root/post-run.log
-dnf -y install cockpit cockpit-packagekit
-
-echo "starting cockpit" >> /root/post-run.log
-systemctl start cockpit
-
-echo "exclude=kernel*" >> /etc/yum.conf
-
 echo "DONE" >> /root/post-run.log
-
-mv /etc/yum.repos.d/google-cloud.repo /root

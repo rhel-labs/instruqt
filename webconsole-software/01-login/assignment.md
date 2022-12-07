@@ -1,8 +1,8 @@
 ---
-slug: step1
+slug: login
 id: akciiqodpbo5
 type: challenge
-title: Step 1
+title: Log into the Web Console
 notes:
 - type: text
   contents: |+
@@ -22,9 +22,8 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
-## Log in to the Web Console
 
 Click on the tab titled **RHEL Web Console** at the top of  your lab system interface. Selecting this tab will open the lab system's Web Console in a
 new browser tab or window.
@@ -41,7 +40,46 @@ Then click `Proceed to rhel.xxxx.instruqt.io`
 
 Once the login page is presented, use the following credentials to log into the Web Console:
 
-Username: **rhel**\
-Password: **redhat**
+1 - Username:
 
-![Web Console Login](../assets/Web-console-login.png)
+```bash
+rhel
+```
+
+2 - Password:
+
+```bash
+redhat
+```
+
+<a href="#login">
+ <img alt="An example image" src="../assets/Web-console-login.png" />
+</a>
+
+<a href="#" class="lightbox" id="login">
+ <img alt="An example image" src="../assets/Web-console-login.png" />
+</a>
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox img {
+  max-height: 100%;
+}
+</style>
