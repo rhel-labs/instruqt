@@ -1,8 +1,8 @@
 ---
-slug: step2
+slug: login
 id: ptrlnjxwtjcx
 type: challenge
-title: Step 2
+title: Log in to the Web Console
 tabs:
 - title: Terminal
   type: terminal
@@ -30,8 +30,17 @@ Then click `Proceed to rhel.xxxx.instruqt.io`
 
 Once the login page is presented, use the following credentials to log into the Web Console:
 
-Username: **rhel**\
-Password: **redhat**
+1 - Username:
+
+```bash
+rhel
+```
+
+2 - Password:
+
+```bash
+redhat
+```
 
 ![Web Console Login](../assets/Web-console-login.png)
 
