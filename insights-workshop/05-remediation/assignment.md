@@ -1,8 +1,8 @@
 ---
-slug: step5
+slug: remediation
 id: 3e7gkedyjhxw
 type: challenge
-title: Step 5
+title: Remediating the reported Insight
 tabs:
 - title: Terminal
   type: terminal
@@ -15,7 +15,6 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Remediating the reported Insight
 
 We'll apply the recommendation to disallow `root` logins via SSH. Run the following command.
 
@@ -31,8 +30,7 @@ cat /etc/ssh/sshd_config | grep PermitRootLogin
 
 ![Fixed SSH](../assets/sshrootlogininsightsremedy.png)
 
-Force a Red Hat Insights checkin so that a new batch of system data
-is uploaded to Insights.
+Force a Red Hat Insights checkin so that a new batch of system data is uploaded to Insights.
 
 ```bash
 insights-client

@@ -1,8 +1,8 @@
 ---
-slug: step1
+slug: registration
 id: vdoxvedzv6s2
 type: challenge
-title: Step 1
+title: Registering a machine to Red Hat Insights
 notes:
 - type: text
   contents: |
@@ -38,44 +38,34 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
-# Registering a machine to Red Hat Insights
 
-In most Red Hat Enterprise Linux 8 installations, the insights-client
-software will be installed by default.  However, the minimal package
-set does not include installing the insights-client package and other
-versions of Red Hat Enterprise Linux, while the package is available,
-will likely need it installed.  Install the insights-client package on
-the system.
+In most Red Hat Enterprise Linux 8 installations, the insights-client software will be installed by default.  However, the minimal package set does not include installing the insights-client package and other versions of Red Hat Enterprise Linux, while the package is available, will likely need it installed.  Install the insights-client package on the system.
 
-```
-yum -y install insights-client
+```bash
+dnf -y install insights-client
 ```
 
 Next, register your system with Red Hat Insights.
 
-```
+```bash
 insights-client --register
 ```
 
 <pre class=file>
-Successfully registered host rhel-2e23a
-Automatic scheduling for Insights has been enabled.
+Successfully registered host rhel-2e23a Automatic scheduling for Insights has been enabled.
 Starting to collect Insights data for rhel-2e23a
 Uploading Insights data.
 Successfully uploaded report from rhel-2e23a to account 6227255.
 View the Red Hat Insights console at https://cloud.redhat.com/insights/
 </pre>
 
-From the above output, you can observe that the system has been successfully
-registered with Red Hat Insights.  As part of the registration,
-the machine also uploads a report to Red Hat Insights so that
-it may be analyzed for any issues.
+From the above output, you can observe that the system has been successfully registered with Red Hat Insights.  As part of the registration, the machine also uploads a report to Red Hat Insights so that it may be analyzed for any issues.
 
 For future reference, make note of your system hostname.
 
-```
+```bash
 hostname
 ```
 
@@ -85,10 +75,9 @@ rhel-2e23a
 
 >_NOTE:_ Your hostname will be different than the one listed in the output above
 
-At any time in the future, you can get information about Insights registration
-by using the `--status` option to `insights-client`.
+At any time in the future, you can get information about Insights registration by using the `--status` option to `insights-client`.
 
-```
+```bash
 insights-client --status
 ```
 

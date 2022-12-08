@@ -1,8 +1,8 @@
 ---
-slug: step4
+slug: review
 id: ysyqwp3patkj
 type: challenge
-title: Step 4
+title: Reviewing system Insights
 tabs:
 - title: Terminal
   type: terminal
@@ -15,11 +15,8 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Reviewing system Insights
 
-After selecting your system from the Inventory page and reviewing some
-overall data about it, click on the _Advisor_ tab to view the Red Hat
-Insights data that applies to this host.
+After selecting your system from the Inventory page and reviewing some overall data about it, click on the _Advisor_ tab to view the Red Hat Insights data that applies to this host.
 
 ![Host Insights](../assets/host-homepage-v2.png)
 
@@ -31,5 +28,4 @@ From the _Detected issues_ section of the recommendation, you can see that this 
 
 ![NetworkManager Insight issue](../assets/sshrootlogininsightsdetectedissue.png)
 
-In the _Steps to resolve_ section of the recommendation, step-by-step
-guidance on how to resolve the issue is provided.  In this case, we will follow the recommendation to set `PermitRootLogin no`.
+In the _Steps to resolve_ section of the recommendation, step-by-step guidance on how to resolve the issue is provided.  In this case, we will follow the recommendation to set `PermitRootLogin no`.
