@@ -10,20 +10,10 @@ tabs:
 difficulty: basic
 timelimit: 2
 ---
-Now that you have identified the most recent EUS version, enable the EUS-specific repositories and disable the regular repositories:
+Now that you have identified the most recent EUS version, you will need to disable the standard repositories and enable the EUS-specific repos.
 
-```
-subscription-manager repos --enable rhel-8-for-x86_64-baseos-eus-rpms
-subscription-manager repos --enable rhel-8-for-x86_64-appstream-eus-rpms
-```
-
-**Pro Tip**: You can combine these two commands as shown below:
-
-<pre class=file>
-# subscription-manager repos --enable rhel-8-for-x86_64-baseos-eus-rpms --enable rhel-8-for-x86_64-appstream-eus-rpms
-Repository 'rhel-8-for-x86_64-baseos-eus-rpms' is enabled for this system.
-Repository 'rhel-8-for-x86_64-appstream-eus-rpms' is enabled for this system.
-</pre>
+## (Move to last step) **Pro Tip**: You can combine these two commands as shown below:
+## (Add note: There are TWO repos that need EUS registration)
 
 ```
 subscription-manager repos --disable rhel-8-for-x86_64-baseos-rpms --disable rhel-8-for-x86_64-appstream-rpms
@@ -34,7 +24,19 @@ Repository 'rhel-8-for-x86_64-baseos-rpms' is disabled for this system.
 Repository 'rhel-8-for-x86_64-appstream-rpms' is disabled for this system.
 </pre>
 
-With the latest EUS repositories configured, you will need to update all packages to their latest version before proceeding with the in-place upgrade:
+```
+subscription-manager repos --enable rhel-8-for-x86_64-baseos-eus-rpms --enable rhel-8-for-x86_64-appstream-eus-rpms
+```
+
+## Add 8.4 to repo command
+
+<pre class=file>
+# subscription-manager repos --enable rhel-8-for-x86_64-baseos-eus-rpms --enable rhel-8-for-x86_64-appstream-eus-rpms
+Repository 'rhel-8-for-x86_64-baseos-eus-rpms' is enabled for this system.
+Repository 'rhel-8-for-x86_64-appstream-eus-rpms' is enabled for this system.
+</pre>
+
+With the latest EUS repositories configured, you will need to update all packages to their latest version before proceeding 
 
 ```
 dnf clean all

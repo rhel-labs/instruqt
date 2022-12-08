@@ -23,6 +23,11 @@ developers:
 - myee@redhat.com
 private: false
 published: false
+maintenance: true
 show_timer: true
 skipping_enabled: true
+<<<<<<< Updated upstream
 checksum: "17129159099216637090"
+=======
+checksum: 
+>>>>>>> Stashed changes

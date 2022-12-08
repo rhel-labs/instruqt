@@ -24,10 +24,6 @@ Now that the conversion has been staged successfully, you will need to reboot th
 Once the system goes down for a reboot, it will not reconnect automatically. You will need to use the refresh button in the top right of your console.
 ![refresh](../assets/refresh.png)
 
-<pre class='file'>
-# convert2rhel --org 12451665 --activationkey convert2rhel -y
-</pre>
-
 ```
 reboot
 ```

@@ -81,3 +81,6 @@ WARNING - In order to boot the RHEL kernel, restart of the system is needed.
 </pre>
 
 >**Pro Tip:** The above process can be automated by adding a `-y` argument to your command!
+<pre class='file'>
+# convert2rhel --org 12451665 --activationkey convert2rhel -y
+</pre>
