@@ -1,8 +1,8 @@
 ---
-slug: step2
+slug: insights-login
 id: armxehykuxil
 type: challenge
-title: Step 2
+title: Logging into Red Hat Insights service
 tabs:
 - title: Terminal
   type: terminal
@@ -15,7 +15,6 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Logging into Red Hat Insights service
 
 >_NOTE:_ To make the inline images larger, expand this window.
 ![Menu Slider](../assets/slider.png)
@@ -46,7 +45,6 @@ Redhat1!
 
 ![Red Hat Password screen](../assets/redhat-login-02.png)
 
-Once you are logged in, using the credentials provided above, navigate to
-_Red Hat Enterprise Linux_ in the left-side navigation menu.
+Once you are logged in, using the credentials provided above, navigate to _Red Hat Enterprise Linux_ in the left-side navigation menu.
 
 ![cloud.redhat.com Homepage](../assets/cloud.redhat.com-homepage-postlogin-v2.png)
