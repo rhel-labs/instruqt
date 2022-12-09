@@ -5,14 +5,9 @@ do
     sleep 1
 done
 
-
-yum remove -y google-rhui-client*
-yum clean all
-
 subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
-dnf -y install buildah podman tmux
 echo "Adding wheel" > /root/post-run.log
 usermod -aG wheel rhel
 
@@ -27,4 +22,7 @@ setsebool -P container_manage_cgroup true
 systemctl stop httpd
 systemctl disable httpd
 
-dnf install -y tmux
+TMUX='' tmux new-session -d -s 'Terminal1' > /dev/null 2>&1
+TMUX='' tmux new-session -d -s 'Terminal2' > /dev/null 2>&1
+tmux set -g pane-border-status top
+tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
