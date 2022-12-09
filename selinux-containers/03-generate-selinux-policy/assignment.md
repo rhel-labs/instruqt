@@ -1,15 +1,17 @@
 ---
-slug: step3
+slug: generate-selinux-policy
 id: p32zmlmedrlm
 type: challenge
 title: Generating SELinux container policies with Udica
 tabs:
-- title: Terminal
+- title: Terminal 1
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "Terminal1" > /dev/null 2>&1
 - title: Terminal 2
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "Terminal2" > /dev/null 2>&1
 - title: RHEL Web Console
   type: service
   hostname: rhel
@@ -24,7 +26,7 @@ network ports are a similar situation where Udica uses the SELinux userspace
 libraries to get the correct SELinux label of a port that is used by the
 inspected container.
 
-In 'Pane 0' of the lab interface, inspect the running container using
+In the `Terminal 1` tab of the lab interface, inspect the running container using
 podman to generate a container inspection file in JSON format
 
 ```bash
@@ -56,14 +58,13 @@ load this policy into the kernel and make it active.
 semodule -i my_container.cil /usr/share/udica/templates/{base_container.cil,net_container.cil,home_container.cil}
 ```
 
-For the policies to take effect, stop and re-launch the container
+In `Terminal 1`, stop and re-launch the container so that the policies take effect.
 
 ```bash
 podman stop $CONTAINERID
 ```
 
-In 'Pane 1' tab of the lab interface, create a new container runtime from
-the image which uses the new, custom container policy
+In `Terminal 2`, create a new container runtime from the image which uses the new, custom container policy
 
 ```bash
 CONTAINER=$(podman run --security-opt label=type:my_container.process -v /home:/home:ro -v/var/spool:/var/spool:rw -d -p 80:80 -it registry.access.redhat.com/ubi9/ubi)

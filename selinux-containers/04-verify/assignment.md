@@ -1,15 +1,17 @@
 ---
-slug: step4
+slug: verify
 id: y9y7c3kluds5
 type: challenge
 title: Verifying the SELinux container policies with Udica
 tabs:
-- title: Terminal
+- title: Terminal 1
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "Terminal1" > /dev/null 2>&1
 - title: Terminal 2
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "Terminal2" > /dev/null 2>&1
 - title: RHEL Web Console
   type: service
   hostname: rhel
@@ -22,7 +24,7 @@ You can verify the policies generated using Udica for the container and enforced
 
 Query the SELinux policy on the container host to search for allow enforcement rules applied to access */home* directory.
 
-In 'Pane 1', enter the following.
+In `Terminal 1`, enter the following.
 
 ```bash
 sesearch -A -s my_container.process -t home_root_t -c dir -p read
@@ -61,3 +63,35 @@ Retrieve the SELinux type associated with TCP port 80. TCP port 80 is the port t
 ```bash
 semanage port -l | grep -w "80"
 ```
+
+<a href="#example_image">
+ <img alt="An example image" src="../assets/selinuxtype.png" />
+</a>
+
+<a href="#" class="lightbox" id="example_image">
+ <img alt="An example image" src="../assets/selinuxtype.png" />
+</a>
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox img {
+  max-height: 100%;
+}
+</style>

@@ -1,5 +1,5 @@
 ---
-slug: step1
+slug: install
 id: twvu02rumsnm
 type: challenge
 title: Software installation and configuration
@@ -16,43 +16,40 @@ notes:
     * Re-query the allow rules in the SELinux policy for the running container to ensure that actions are allowed
 
     # Example Usecase:
-    The default container type (container_t) is too restricted for certain usecases. For example, if Apache wants to read the home
-    directory, it is restricted by default. Similarly, container_t is too loose for other cases. For example, the Apache running in
-    the container can bind to any network port. Using udica can help you write a new SELinux security profiles that are customized for
+    The default container type (container_t) is too restricted for certain usecases. For example, if Apache wants to read the home directory, it is restricted by default. Similarly, container_t is too loose for other cases. For example, the Apache running in the container can bind to any network port. Using udica can help you write a new SELinux security profiles that are customized for
     your container usecase, and does not require deep SELinux expertise to craft.
 tabs:
-- title: Terminal
+- title: Terminal 1
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "Terminal1" > /dev/null 2>&1
+- title: Terminal 2
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "Terminal2" > /dev/null 2>&1
 - title: RHEL Web Console
   type: service
   hostname: rhel
   path: /
   port: 9090
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
 
-SELinux is a technology to isolate processes/containers running on the system to mitigate attacks which take
-advantage of privilege escalation. Udica is a new tool which complements the containers tools (Podman, Skopeo, Buildah, etc.)
-family supported by Red Hat to help improve the security of customers container environments.
+SELinux is a technology to isolate processes/containers running on the system to mitigate attacks which take advantage of privilege escalation. Udica is a new tool which complements the containers tools (Podman, Skopeo, Buildah, etc.) family supported by Red Hat to help improve the security of customers container environments.
 
 >_NOTE:_ This lab assumes that you have a sound understanding of SELinux basics and container fundamentals.
 
-Prior to getting started, we need certain packages such as Udica (which is a tool for generating
-SELinux policies for containers), and setools-console (which is a set of tools that can facilitate
-SELinux policy analysis). In this demo, the container runtime related packages are already installed.
+Prior to getting started, we need certain packages such as Udica (which is a tool for generating SELinux policies for containers), and setools-console (which is a set of tools that can facilitate SELinux policy analysis). In this demo, the container runtime related packages are already installed.
 
->**Note:** In the `Terminal` tab in the upper left corner of the Instruqt web page, there are 2 shell sessions launched. To switch between the 2 shell sessions, press Ctrl-B and an arrow key pointing to the session you wish to become active.
+Click on the `Terminal 1` tab.
 
-First, go to pane 0.
-
-![pane0](../assets/pane0.png)
+![Terminal 1 tab](../assets/terminal1tab.png)
 
 Install the udica and setools-console packages on the container host
 
 ```bash
-yum install -y udica setools-console
+dnf install -y udica setools-console
 ```
 
 Get the latest RHEL9 UBI image
@@ -67,10 +64,20 @@ Use `podman` to list the available container images
 podman images
 ```
 
-In 'Pane 1' of the lab interface, create a container runtime using podman which -
-passes in-container accesses to /home through to the host's /home read-only, passes in-container
-accesses to /var/spool through to the host's /var/spool read-write, and binds the
-host's port 80 to pass traffic to the container's port 80.
+</pre>
+<a href="#example_image">
+ <img alt="An example image" src="../assets/podmanimages.png" />
+</a>
+
+<a href="#" class="lightbox" id="example_image">
+ <img alt="An example image" src="../assets/podmanimages.png" />
+</a>
+
+Click on click on the `Terminal 2` tab.
+
+![Terminal 2 tab](../assets/terminal2tab.png)
+
+Create a container runtime using podman which passes in-container accesses to /home through to the host's /home read-only, passes in-container accesses to /var/spool through to the host's /var/spool read-write, and binds the host's port 80 to pass traffic to the container's port 80.
 
 ```bash
 CONTAINER=$(podman run -v /home:/home:ro -v /var/spool:/var/spool:rw -d -p 80:80 -it registry.access.redhat.com/ubi9/ubi)
@@ -78,7 +85,9 @@ CONTAINER=$(podman run -v /home:/home:ro -v /var/spool:/var/spool:rw -d -p 80:80
 
 >_NOTE:_ The home directory is mounted with read-only access, and the /var/spool/ directory is mounted with read-write access.
 
-In 'Pane 0' of the lab interface, check the status of the application container using podman and get the running container id
+Go back to `Terminal 1`.
+
+Check the status of the application container using podman and get the running container id
 
 ```bash
 podman ps; CONTAINERID=$(podman ps | grep registry.access.redhat.com | cut -b 1-12)
@@ -89,7 +98,7 @@ CONTAINER ID  IMAGE                         COMMAND               CREATED       
 e47a11d3e2c5  registry.access.redhat.com/ubi9/ubi:latest  /bin/bash  3 seconds ago  Up 2 seconds ago0.0.0.0:80->80/tcp  naughty_golick
 </pre>
 
-When using SELinux, container processes get assigned a container type called 'container_t'. Verify the SELinux type assigned to the running container
+When using SELinux, container processes get assigned a container type called 'container_t'. In `Terminal 1` Verify the SELinux type assigned to the running container.
 
 ```bash
 ps -eZ | grep container_t
@@ -113,4 +122,27 @@ SELinux root directory:         /etc/selinux
 Loaded policy name:             targeted
 Current mode:                   enforcing
 << OUTPUT ABRIDGED >>
-</pre>
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox img {
+  max-height: 100%;
+}
+</style>

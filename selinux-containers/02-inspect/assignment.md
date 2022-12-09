@@ -1,15 +1,17 @@
 ---
-slug: step2
+slug: inspect
 id: 3u2oprj3no0n
 type: challenge
 title: Inspecting container access and SELinux policies
 tabs:
-- title: Terminal
+- title: Terminal 1
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "Terminal1" > /dev/null 2>&1
 - title: Terminal 2
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "Terminal2" > /dev/null 2>&1
 - title: RHEL Web Console
   type: service
   hostname: rhel
@@ -18,7 +20,7 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-In 'Pane 1' of the lab interface, use a `podman exec` command to create an interactive shell inside the running container.
+In the `Terminal 2` tab of the lab interface, use a `podman exec` command to create an interactive shell inside the running container.
 
 ```bash
 podman exec -t -i $CONTAINER /bin/bash
@@ -36,16 +38,15 @@ cd /home; ls
 ls: cannot open directory '.': Permission denied
 </pre>
 
-In 'Pane 0' of the lab interface, query the SELinux policy to search for allow enforcement rules applied to access */home* directory
+In the `Terminal 1` tab of the lab interface, query the SELinux policy to search for allow enforcement rules applied to access */home* directory
 
 ```bash
 sesearch -A -s container_t -t home_root_t -c dir -p read
 ```
 
-The search returns NO results. Since, there is no allow rule for container_t type to get read access to the */home* directory, access
-is blocked by SELinux.
+The search returns NO results. Since, there is no allow rule for container_t type to get read access to the */home* directory, access is blocked by SELinux.
 
-In 'Pane 1' tab of the lab interface, check the container's access to the */var/spool/* directory
+In the `Terminal 2` tab of the lab interface, check the container's access to the */var/spool/* directory
 
 ```bash
 cd /var/spool/; ls
@@ -57,7 +58,7 @@ ls: cannot open directory '.': Permission denied
 
 SELinux is restricting access to the */var/spool* directory.
 
-In 'Pane 1' tab of the lab interface, check the container's write access to the */var/spool/* directory
+In the `Terminal 2` tab of the lab interface, check the container's write access to the */var/spool/* directory
 
 ```bash
 touch test
@@ -67,14 +68,13 @@ touch test
 touch: cannot touch 'test': Permission denied
 </pre>
 
-In 'Pane 0' of the lab interface, query the SELinux policy to search for allow enforcement rules applied to access */var/spool* directory
+In the `Terminal 1` tab of the lab interface, query the SELinux policy to search for allow enforcement rules applied to access */var/spool* directory
 
 ```bash
 sesearch -A -s container_t -t var_spool_t -c dir -p read
 ```
 
-The search returns NO results. Since, there is no allow rule for container_t type to get read access to the */var/spool/* directory, access
-is blocked by SELinux.
+The search returns NO results. Since, there is no allow rule for container_t type to get read access to the */var/spool/* directory, access is blocked by SELinux.
 
 Query the SELinux policy for network access for container_t types
 
