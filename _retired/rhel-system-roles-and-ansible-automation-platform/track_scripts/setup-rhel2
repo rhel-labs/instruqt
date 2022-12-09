@@ -1,0 +1,82 @@
+#!/bin/bash
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+# yum remove -y google-rhui-client*
+# yum clean all
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+
+echo "Adding wheel" > /root/post-run.log
+usermod -aG wheel rhel
+
+echo "setting password" >> /root/post-run.log
+echo redhat | passwd --stdin rhel
+
+tee -a /root/sshkey << EOF 
+-----BEGIN OPENSSH PRIVATE KEY-----
+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
+mB7wVaeUj5cAAAAJcm9vdEByaGVsAQI=
+-----END OPENSSH PRIVATE KEY-----
+EOF
+
+chmod 600 /root/sshkey
+mv /etc/yum.repos.d/google-cloud.repo /root
+timedatectl set-timezone America/Vancouver
+
+# dnf install -y cockpit
+# systemctl --now enable cockpit.socket
+# firewall-cmd --add-service=cockpit --permanent
+# firewall-cmd --reload
+
+# subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
+# dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+# dnf -y install stress

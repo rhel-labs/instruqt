@@ -8,7 +8,7 @@ done
 #dnf remove -y google-rhui-client-rhel9.noarch
 dnf clean all
 subscription-manager config --rhsm.manage_repos=1
-subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 dnf groupinstall -y "Development Tools"
 dnf install ansible rhel-system-roles
 dnf update -y

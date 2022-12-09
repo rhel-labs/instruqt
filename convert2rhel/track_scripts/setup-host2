@@ -6,7 +6,7 @@ do
 done
 
 subscription-manager config --rhsm.manage_repos=1
-subscription-manager register --activationkey=image_builder --org=12451665 --force
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
 yum install -y curl bash-completion vim-enhanced
 yum remove -y google-rhui-client*

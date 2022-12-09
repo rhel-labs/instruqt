@@ -1,14 +1,8 @@
 #!/bin/bash
 
-#dnf install -y yum-utils
-#dnf update -y
-#rpm --rebuilddb
-#dnf install -y subscription-manager
-yum remove -y google-rhui-client*
-yum clean all
 subscription-manager config --rhsm.manage_repos=1
-subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force
-#sed -i 's/\# Per.*//g' /etc/ssh/sshd_config
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+
 sed -i 's/ClientAliveInterval.*900//g' /etc/ssh/sshd_config
 sed -i '/\[rhel-9-for-x86_64-baseos-rpms\]/,/^ *\[/ s/gpgcheck = 1/gpgcheck = 0/' /etc/yum.repos.d/redhat.repo
 hostnamectl set-hostname rhel-$(uuidgen | cut -c 32-)

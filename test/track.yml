@@ -1,6 +1,5 @@
 slug: test
 id: jc35qjmmymau
-type: track
 title: test
 teaser: A short description of the track.
 description: |-
@@ -15,4 +14,4 @@ developers:
 - smcbrien@redhat.com
 private: true
 published: false
-checksum: "1423476642183587217"
+checksum: "368961353398916098"

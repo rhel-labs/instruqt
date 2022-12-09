@@ -9,7 +9,7 @@ done
 yum remove -y google-rhui-client-rhel8.noarch
 yum clean all
 subscription-manager config --rhsm.manage_repos=1
-subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
 yum -y install wget
 wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-server-cstore/CSIndex.sql

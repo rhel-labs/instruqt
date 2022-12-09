@@ -1,6 +1,8 @@
 slug: ebpf-tracing
 id: 76ozcl8orx9p
-title: Performance observability in practice with bcc-tools
+title: Performance observability in practice with bcc tools
+teaser: Use bcc tools to collect data on system activities including disk performance
+  and latency.
 description: |
   # Goal:
 
@@ -29,4 +31,4 @@ developers:
 private: false
 published: true
 show_timer: true
-checksum: "3052560380339547270"
+checksum: "13905328667500555999"

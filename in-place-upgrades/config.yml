@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 virtualmachines:
 - name: host
   image: projects/tmm-instruqt-11-26-2021/global/images/rhel-7-9-tmm-22-02-v2
@@ -8,7 +8,9 @@ virtualmachines:
     TERM: xterm
 - name: host2
   image: projects/tmm-instruqt-11-26-2021/global/images/rhel-leapp-post7-v3
-  machine_type: n2-standard-2
+  machine_type: n1-standard-2
   shell: /bin/bash
   environment:
     TERM: xterm
+secrets:
+- name: ACTIVATION_KEY

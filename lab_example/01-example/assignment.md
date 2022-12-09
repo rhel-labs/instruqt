@@ -7,7 +7,6 @@ notes:
 - type: text
   contents: This is an example of a challenge.
 tabs:
-tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
