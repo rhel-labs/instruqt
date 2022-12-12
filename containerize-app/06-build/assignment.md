@@ -1,5 +1,5 @@
 ---
-slug: step6
+slug: build
 id: tr8ezvrsckmv
 type: challenge
 title: Building a container with a different OS version and an unpackaged application
@@ -16,6 +16,7 @@ difficulty: basic
 timelimit: 1
 ---
 Pull a RHEL 8 UBI image that you will build your application into.
+
 ```bash
 buildah from registry.access.redhat.com/ubi8/ubi
 ```

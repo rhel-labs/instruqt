@@ -1,5 +1,5 @@
 ---
-slug: step9
+slug: run-again
 id: xp5ewqc3x5ek
 type: challenge
 title: Running the container and using the software

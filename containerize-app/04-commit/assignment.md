@@ -1,5 +1,5 @@
 ---
-slug: step4
+slug: commit
 id: l6d7bdfdpvev
 type: challenge
 title: Committing the new container image

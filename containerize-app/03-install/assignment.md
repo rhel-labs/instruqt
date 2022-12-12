@@ -1,5 +1,5 @@
 ---
-slug: step3
+slug: install
 id: s0nj42hpefg0
 type: challenge
 title: Installing the target software
@@ -16,11 +16,11 @@ difficulty: basic
 timelimit: 1
 ---
 Now that the yum repositories are defined within the container, you can use
-another `yum install`, executed within the container, to install the target
+another `dnf install`, executed within the container, to install the target
 software: `moon-buggy`.
 
 ```bash
-buildah run ubi-working-container -- yum -y install moon-buggy
+buildah run ubi-working-container -- dnf -y install moon-buggy
 ```
 
 <pre class="file">
@@ -42,5 +42,5 @@ Complete!
 </pre>
 
 From the above output, you can see that `moon-buggy` was successfully installed
-into the container.  The `yum` transaction also installed several required
+into the container.  The `dnf` transaction also installed several required
 pieces of software as well.
