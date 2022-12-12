@@ -1,5 +1,5 @@
 ---
-slug: step1
+slug: download
 id: 7yxqmka1ckum
 type: challenge
 title: Downloading the Universal Base Image
@@ -35,7 +35,7 @@ tabs:
   path: /
   port: 8080
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
 The Red Hat Universal Base Image (UBI) is produced by Red Hat and is an easy
 place to start when containerizing applications.  If you want to read more
@@ -45,7 +45,7 @@ for additional details.
 
 In this lab, you will be installing additional software into the container
 image, however that software runs as an interactive application.  So you will
-need `yum`, but do not need `systemd` for managing services within the
+need `dnf`, but do not need `systemd` for managing services within the
 container environment.  For that reason, you will be using the __Standard__
 UBI image (as opposed to the Minimal or Multi-service images).
 

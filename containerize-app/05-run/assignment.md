@@ -1,10 +1,13 @@
 ---
-slug: step5
+slug: run
 id: xfniocpityc8
 type: challenge
 title: Running the new containerized software
 tabs:
 - title: Terminal
+  type: terminal
+  hostname: rhel
+- title: Terminal 2
   type: terminal
   hostname: rhel
 - title: Containerized Web App

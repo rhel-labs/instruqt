@@ -1,5 +1,5 @@
 ---
-slug: step7
+slug: install-additional-software
 id: quql4u07g26a
 type: challenge
 title: Install additional pre-requisite software

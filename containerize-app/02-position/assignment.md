@@ -1,5 +1,5 @@
 ---
-slug: step2
+slug: position
 id: xz5d9zx17xlq
 type: challenge
 title: Positioning yum Repository
@@ -20,7 +20,7 @@ packaged in RPM format and stored in the Extra Packages for Enterprise Linux
 (EPEL) repository.
 
 Software often has requirements for prerequisite software that must be installed
-on the machine in order for it to work properly.  `yum` will resolve those
+on the machine in order for it to work properly.  `dnf` will resolve those
 dependencies for you, as long as it is able to locate the required packages in
 repositories defined on the machine.  The Red Hat Universal Base Image (UBI)
 downloaded in the previous step has access to some Red Hat Enterprise Linux
@@ -31,11 +31,11 @@ image.
 In the command below, `buildah` is going to run a command on the
 `ubi-working-container` image.  The `--` indicates that the command should be
 executed from within the container, which means the results will be applied into
-the container image.  Lastly, you are providing the `yum` command to install a
+the container image.  Lastly, you are providing the `dnf` command to install a
 package that defines all of the repositories from EPEL, `epel-release-latest-9`.
 
 ```bash
-buildah run ubi-working-container -- yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+buildah run ubi-working-container -- dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 ```
 
 <pre class="file">

@@ -1,5 +1,5 @@
 ---
-slug: step8
+slug: position-another
 id: itk74ew8goge
 type: challenge
 title: Position application content
@@ -19,6 +19,7 @@ Next you will pull down our application content from github and position it with
 
 
 First, clone the application content from github.  For our example, we are using a javascript based web application.
+
 ```bash
 git clone https://github.com/ellisonleao/clumsy-bird
 ```
@@ -34,6 +35,7 @@ Resolving deltas: 100% (693/693), done.
 From the above output, you can see that the clone has been successful and in the current directory, you should now see a directory called `clumsy-bird` that contains the javascript based application.
 
 Now, you will position this software within the container image you are building.
+
 ```bash
 buildah copy ubi-working-container-1 clumsy-bird /var/www/html
 ```
