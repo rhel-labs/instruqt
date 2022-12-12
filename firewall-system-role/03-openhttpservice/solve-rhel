@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# This script runs when the platform solve the challenge.
+#
+# The platform determines if the script was successful using the exit code of this
+# script. If the exit code is not 0, the script fails. 
+#
+
+tee -a /root/hosts << EOF
+all:
+  hosts:
+    rhelvm:
+  vars:
+    firewall:
+      - service: http
+        state: enabled
+EOF
+
+tee -a /root/firewall.yml <<EOF
+- name: Configure Firewall
+  hosts: all
+  roles:
+    - redhat.rhel_system_roles.firewall
+EOF
+
+ansible-playbook -i hosts -b firewall.yml
