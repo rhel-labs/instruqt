@@ -1,5 +1,5 @@
 ---
-slug: step1
+slug: create
 id: 139xozbexiac
 type: challenge
 title: Creating an application image from an existing base
@@ -22,15 +22,17 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "buildah-session" > /dev/null 2>&1
 - title: RHEL Web Console
   type: service
   hostname: rhel
   path: /
   port: 9090
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
 **Buildah** has two main ways to create images:
+
 * Using subcommands to modify contents
 * Using host tools to modify a container filesystem
 

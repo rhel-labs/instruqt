@@ -1,5 +1,5 @@
 ---
-slug: step2
+slug: appimage
 id: vmy0cfk0cxdf
 type: challenge
 title: Creating an application image from an existing base
@@ -7,6 +7,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "buildah-session" > /dev/null 2>&1
 - title: RHEL Web Console
   type: service
   hostname: rhel
