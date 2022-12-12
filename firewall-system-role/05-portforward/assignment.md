@@ -72,5 +72,3 @@ nc rhelvm 9999
 ![ncport9999](../assets/portforward.png)
 
 Type `ctrl-c` to exit `nc`.
-
-For more details on using the firewall system role, please read this blog post: <https://www.redhat.com/en/blog/automating-firewall-configuration-rhel-system-roles>
