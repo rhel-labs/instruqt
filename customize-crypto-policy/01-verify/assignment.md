@@ -1,8 +1,8 @@
 ---
-slug: step1
+slug: verify
 id: awwfmbqjysxv
 type: challenge
-title: Step 1
+title: Verify the current system-wide cryptographic policy setting
 notes:
 - type: text
   contents: |
@@ -23,7 +23,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
 ## Modify the FUTURE crypto policy
 
@@ -35,15 +35,7 @@ After my last e-mail recommending 3072 bit public keys, I have received few conc
 
 To continue supporting these applications running on our platform, and to provide more time for these applications to upgrade, my recommendation is to disallow TLS (1.0, and 1.1), and not allow SHA-1 hash usage.
 
-<<<<<<< HEAD
-**NOTE** We should still allow 2048 bit
-ciphers usage for a certain period of time
-until all applications can be upgraded
-to use 3072 bit keys.
-=======
-**NOTE** We should still allow 2048 bit ciphers usage for a certain period of
-time until all applications can be upgraded to use 3072 bit keys.
->>>>>>> 14f8d7814c64c451d6f9b21107984676dca83b51
+**NOTE** We should still allow 2048 bit ciphers usage for a certain period of time until all applications can be upgraded to use 3072 bit keys.
 
 -CSO
 </pre>
@@ -56,17 +48,36 @@ You will now check the currently active crypto policy in effect on the system -
 update-crypto-policies --show
 ```
 
+<pre class="file">
+root@rhel:~# update-crypto-policies --show
+FUTURE
+</pre>
+
 Restart Apache.
 
 ```bash
 systemctl restart httpd.service
 ```
 
+<pre class="file">
+root@rhel:~# systemctl restart httpd.service
+Job for httpd.service failed because the control process exited with error code.
+See "systemctl status httpd.service" and "journalctl -xeu httpd.service" for details.
+</pre>
+
 The Apache service has failed to start. You will now check the status of the Apache service -
 
 ```bash
 systemctl status httpd.service --no-pager
 ```
+
+<a href="#example_image">
+ <img alt="An example image" src="../assets/httpderror.png" />
+</a>
+
+<a href="#" class="lightbox" id="example_image">
+ <img alt="An example image" src="../assets/httpderror.png" />
+</a>
 
 You can see a more specific error message in the SSL error log for Apache.
 
@@ -113,7 +124,9 @@ The policy modifiers are evaluated left to right to modify the specified named p
 
 <pre class="file">
 Setting system policy to FUTURE:2048KEYS
-Note: System-wide crypto policies are applied on application start-up. It is recommended to restart the system for the change to policies to fully take place.
+Note: System-wide crypto policies are applied on application start-up.
+It is recommended to restart the system for the change of policies
+to fully take place.
 </pre>
 
 You can now verify that the new policy has been applied to the system.
@@ -125,3 +138,27 @@ update-crypto-policies --show
 <pre class="file">
 FUTURE:2048KEYS
 </pre>
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox img {
+  max-height: 100%;
+}
+</style>
