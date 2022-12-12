@@ -1,8 +1,8 @@
 ---
-slug: step4
+slug: regenerate
 id: wwlouh8roz9c
 type: challenge
-title: Step 4
+title: Regenerate SSL certificates
 tabs:
 - title: Terminal
   type: terminal
@@ -10,8 +10,6 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Regenerate SSL certificate
-
 To comply with the system-wide cryptographic policy of FUTURE, you will need
 to generate a replacement SSL certificate using an RSA key of 3072 bit length,
 or longer.
@@ -19,11 +17,11 @@ or longer.
 Before you create the updated SSL certificate, make a backup of your existing
 certificate files.
 
-```
+```bash
 cp /etc/pki/tls/private/localhost.key /etc/pki/tls/private/localhost.key.orig
 ```
 
-```
+```bash
 cp /etc/pki/tls/certs/localhost.crt /etc/pki/tls/certs/localhost.crt.orig
 ```
 
@@ -32,7 +30,7 @@ them if something unexpected happens, generate a new, replacement SSL
 certificate and public key.  The new RSA certificate will use a public key
 of of 3072 bits.
 
-```
+```bash
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:3072 -subj='/C=XX/O=Default' -keyout /etc/pki/tls/private/localhost.key -out /etc/pki/tls/certs/localhost.crt
 ```
 
@@ -46,7 +44,7 @@ writing new private key to '/etc/pki/tls/private/localhost.key'
 
 Verify the bit-length of the key to confirm that it is 3072 bit.
 
-```
+```bash
 openssl x509 -in /etc/pki/tls/certs/localhost.crt -text | grep bit
 ```
 
