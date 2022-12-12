@@ -1,8 +1,8 @@
 ---
-slug: step3
+slug: reconcile
 id: hx7rcexgvxb6
 type: challenge
-title: Step 3
+title: Reconcile service issues
 tabs:
 - title: Terminal
   type: terminal
@@ -10,8 +10,6 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Reconcile service issues
-
 You will need to restart the Apache service after changing the system-wide
 crypto policy so that it runs under the new policy.
 
@@ -19,7 +17,7 @@ crypto policy so that it runs under the new policy.
 initialized with the new cryptographic policy, however, for this exercise you
 will be individually working with the Apache web service.
 
-```
+```bash
 systemctl restart httpd.service
 ```
 
@@ -33,7 +31,7 @@ message in the SSL error log for Apache.  You will further diagnose this
 using the error messages from the command below and reconcile this in
 additional steps in the exercise.
 
-```
+```bash
 tail -2 /var/log/httpd/ssl_error_log
 ```
 

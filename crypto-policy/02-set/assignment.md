@@ -1,8 +1,8 @@
 ---
-slug: step2
+slug: set
 id: xqf9wzo7oxnd
 type: challenge
-title: Step 2
+title: Set the system-wide cryptographic policy to FUTURE
 tabs:
 - title: Terminal
   type: terminal
@@ -10,8 +10,6 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Set system-wide cryptographic policy to FUTURE
-
 The Chief Security Officer sends out the following e-mail:
 <pre class="file">
 Application and Infrastructure Administrators,
@@ -47,7 +45,7 @@ policy will configure the cryptography libraries and services used on the
 machine or by applications running on the machine such that they comply with
 the requirements set forth by the Chief Security Officer above.
 
-```
+```bash
 update-crypto-policies --set FUTURE
 ```
 
@@ -65,7 +63,7 @@ offer TLS connections at TLS 1.2 or higher.
 
 You can now verify that the new policy, FUTURE, has been applied to the system.
 
-```
+```bash
 update-crypto-policies --show
 ```
 
@@ -74,6 +72,6 @@ FUTURE
 </pre>
 
 If you are interested in more details about the cryptographic policies that
-ship with Red Hat Enterprise Linux 8:
+ship with Red Hat Enterprise Linux 9:
 
 `man crypto-policies`

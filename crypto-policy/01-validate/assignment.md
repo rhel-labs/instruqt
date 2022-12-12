@@ -1,8 +1,8 @@
 ---
-slug: step1
+slug: validate
 id: 1kn3jhyk5z36
 type: challenge
-title: Step 1
+title: Validate the environment
 notes:
 - type: text
   contents: |
@@ -25,14 +25,13 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
-# Validate the Environment
 Using the provided system terminal session, validate the initial environment.
 
 First, verify the current system-wide cryptographic policy.
 
-```
+```bash
 update-crypto-policies --show
 ```
 
@@ -52,7 +51,7 @@ those cryptography frameworks.
 
 Verify that Apache is running on the machine.
 
-```
+```bash
 systemctl status httpd.service --no-pager
 ```
 
@@ -71,7 +70,7 @@ certificate at /etc/pki/tls/certs/localhost.crt. Verify the length of the
 RSA public key used by the automatically created, self-signed SSL certificate
 file.
 
-```
+```bash
 openssl x509 -in /etc/pki/tls/certs/localhost.crt -text | grep bit
 ```
 
@@ -86,7 +85,7 @@ connection, openssl will receive a copy of the certificate to encrypt the
 connection with the service.  You will verify that a client web browser is
 utilizing the 2048 bit Public-Key certificate viewed above.
 
-```
+```bash
 openssl s_client -connect localhost:443 </dev/null 2>/dev/null | grep '^Server public key'
 ```
 
@@ -96,4 +95,3 @@ Server public key is 2048 bit
 
 Client browsers are provided the 2048 bit key and SSL certificate by the
 Apache service to encrypt their connection.
-
