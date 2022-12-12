@@ -1,5 +1,5 @@
 ---
-slug: step6
+slug: launch-final
 id: apvnzu9i9ywg
 type: challenge
 title: Launching and inspecting the application container
@@ -7,6 +7,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "buildah-session" > /dev/null 2>&1
 - title: RHEL Web Console
   type: service
   hostname: rhel

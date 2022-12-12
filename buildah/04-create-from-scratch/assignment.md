@@ -1,5 +1,5 @@
 ---
-slug: step4
+slug: create-from-scratch
 id: dxw52pb8igmv
 type: challenge
 title: Creating an application image from scratch
@@ -7,6 +7,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "buildah-session" > /dev/null 2>&1
 - title: RHEL Web Console
   type: service
   hostname: rhel
