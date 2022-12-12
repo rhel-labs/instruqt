@@ -1,8 +1,8 @@
 ---
-slug: step2
+slug: reconcile
 id: qnqdnngtd6ui
 type: challenge
-title: Step 2
+title: Reconcile service issues
 tabs:
 - title: Terminal
   type: terminal
@@ -10,7 +10,6 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-## Reconcile service issues
 
 You will need to restart the Apache service after changing the system-wide
 crypto policy so that it runs under the new policy.
