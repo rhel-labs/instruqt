@@ -98,5 +98,3 @@ public (active)
 </pre>
 
 If you want to apply the rules we created in the previous steps of this lab, simply run `ansible-playbook -i hosts -b firewall.yml` again.
-
-For more details on using the firewall system role, please read this blog post: <https://www.redhat.com/en/blog/automating-firewall-configuration-rhel-system-roles>
