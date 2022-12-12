@@ -1,5 +1,6 @@
 ---
 slug: reset
+id: 0l3ibcq7odko
 type: challenge
 title: Reset the firewall to default settings
 teaser: Reset the firewall to default settings
@@ -24,7 +25,7 @@ timelimit: 1
 
 The firewall system role can reset all settings to the default configuration found immediately after Red Hat Enterprise Linux is installed.
 
-We'll reset the firewall configuration in the `rhelvm` host. 
+We'll reset the firewall configuration in the `rhelvm` host.
 
 First, in the `rhelvm` terminal, list the current rules.
 

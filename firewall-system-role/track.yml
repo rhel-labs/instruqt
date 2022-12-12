@@ -21,7 +21,5 @@ tags: []
 owner: rhel
 developers:
 - myee@redhat.com
-private: true
-published: true
 show_timer: true
-checksum: "2283692845082012613"
+checksum: "3392554958431613006"
