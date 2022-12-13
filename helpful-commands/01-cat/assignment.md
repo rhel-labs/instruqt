@@ -1,8 +1,8 @@
 ---
-slug: step1
+slug: cat
 id: h4xdmyhstyic
 type: challenge
-title: Step 1 - Manipulating file contents
+title: Manipulating file contents
 notes:
 - type: text
   contents: |
@@ -31,14 +31,12 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
-# Manipulating file contents
 
-The first step towards modifying files is knowing which files exist. Use `ls`
-to take a look at the contents of the current directory:
+The first step towards modifying files is knowing which files exist. Use `ls` to take a look at the contents of the current directory:
 
-```
+```bash
 ls
 ````
 
@@ -47,11 +45,9 @@ root@rhel:~# ls
 quote.txt
 </pre>
 
-Use the `cat` command to quickly check what is in file `quote.txt`.
-The `cat` command is short for "concatenate", but it is much more versatile
-than that name suggests.
+Use the `cat` command to quickly check what is in file `quote.txt`. The `cat` command is short for "concatenate", but it is much more versatile than that name suggests.
 
-```
+```bash
 cat quote.txt
 ````
 
@@ -60,17 +56,15 @@ Just thinking about everything I have been through, and how huge it all feels.
 The fact that it is just a small part of something larger
 </pre>
 
-Now you can complete the quote by redirecting the output of the `echo` command.
-The command below uses the append redirection operator (`>>`) to cause the
-output of the `echo` command to be written to the end of the file _quote.txt_.
+Now you can complete the quote by redirecting the output of the `echo` command. The command below uses the append redirection operator (`>>`) to cause the output of the `echo` command to be written to the end of the file _quote.txt_.
 
-```
+```bash
 echo "makes it seem more manageable." >> quote.txt
 ````
 
 There is no output, so view the file contents once again to see this change reflected:
 
-```
+```bash
 cat quote.txt
 ````
 
@@ -84,9 +78,4 @@ The `>>` operator allows you to add to files from the command line and is partic
 useful in shell scripting. You can also use it when a command has a lengthy output
 and you want to view that output in a text editor.
 
->_NOTE:_ You may also encounter the `>` redirection operator. This operator will
-write the output to a file, overwriting the file if it already exists. By contrast,
-the `>>` operator will append the output to the specified file. The input operator
-(`<`) will redirect data as an input to whatever is called before the operator.
-The pipe operator (`|`) is used to send the output of one command to another
-command so that you can carry out an operation on the results of the first command.
+>_NOTE:_ You may also encounter the `>` redirection operator. This operator will write the output to a file, overwriting the file if it already exists. By contrast, the `>>` operator will append the output to the specified file. The input operator (`<`) will redirect data as an input to whatever is called before the operator. The pipe operator (`|`) is used to send the output of one command to another command so that you can carry out an operation on the results of the first command.
