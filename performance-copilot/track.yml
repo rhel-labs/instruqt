@@ -23,8 +23,5 @@ owner: rhel
 developers:
 - ehendric@redhat.com
 - myee@redhat.com
-private: false
-published: true
-maintenance: true
 show_timer: true
-checksum: "17128584052220049406"
+checksum: "12415955226897285067"

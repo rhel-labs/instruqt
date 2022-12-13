@@ -8,7 +8,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 2
+timelimit: 1
 ---
 ## Using PCP for system metrics
 
