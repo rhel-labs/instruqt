@@ -1,5 +1,5 @@
 ---
-slug: 05-removing-users
+slug: removing-users
 id: eltbbsrgt6jb
 type: challenge
 title: Removing Users
@@ -19,13 +19,13 @@ timelimit: 1
 ---
 The `usermod` command has a lock password option (`-L`) which informs the system to stop accepting a user's login attempts.
 
-```
+```bash
 usermod -L guest
 ```
 
 This operation does not have an output, but calling `passwd` with the summary option (`-S`) allows you to confirm this change.
 
-```
+```bash
 passwd -S guest
 ```
 
@@ -37,17 +37,17 @@ After expiring this account, __root__ will still be able to log in. However, no 
 
 >_Note:_ If you prefer, `chage` can accomplish this same functionality. Run `chage` with no arguments to see a summary of the account access features this command provides.
 
-# Deleting a user account
+## Deleting a user account
 
 Sometimes you may want to do more than just disable the account. Deleting a user is very similar to deleting a group. Running `userdel guest` removes the __guest__ account from the system. It is often the case that you would also want to delete this user's home directory. This avoids a new user account inheriting __guest__'s files when the new account inherits the user ID that used to belong to __guest__. If you do wish to delete the home directory along with the account, first back up __guest__'s files. Then, add the `-r` option to specify that you wish to delete the user's home directory along with the user account.
 
-```
+```bash
 userdel -r guest
 ```
 
 Try logging in as __guest__ to confirm the account deletion:
 
-```
+```bash
 su - guest
 ```
 
@@ -57,7 +57,7 @@ su: user guest does not exist
 
 Also confirm that the __guest__ home directory has been deleted:
 
-```
+```bash
 ls /home/guest
 ```
 

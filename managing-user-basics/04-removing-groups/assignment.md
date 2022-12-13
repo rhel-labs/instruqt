@@ -1,8 +1,8 @@
 ---
-slug: 04-removing-groups
+slug: removing-groups
 id: j3vufyz08aoi
 type: challenge
-title: Removing Groups
+title: Removing a user for a group
 teaser: Working with the `gpasswd` and `groupdel` commands
 notes:
 - type: text
@@ -14,11 +14,10 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Removing a user for a group
 
 If you want to remove a user from a group without deleting the group, run the following command:
 
-```
+```bash
 gpasswd -d guest viewers
 ```
 
@@ -28,11 +27,11 @@ Removing user guest from group viewers
 
 >_NOTE:_ This change will not take effect until the user logs in again.
 
-# Deleting a group
+## Deleting a group
 
 If instead you want to delete the group all together, run the `groupdel` command as root.
 
-```
+```bash
 groupdel viewers
 ```
 
@@ -40,7 +39,7 @@ groupdel viewers
 
 Attempting to add a user to this group will print an error message showing that it now does not exist.
 
-```
+```bash
 usermod -aG viewers guest
 ```
 

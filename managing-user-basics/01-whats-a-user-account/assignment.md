@@ -1,8 +1,8 @@
 ---
-slug: 01-whats-a-user-account
+slug: whats-a-user-account
 id: 17fjy0blvoga
 type: challenge
-title: What is a user account?
+title: Creating user accounts with useradd
 teaser: Working with the useradd command
 notes:
 - type: text
@@ -15,19 +15,18 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
-# Creating user accounts with `useradd`
 
 Add a new account called __guest__ using the `useradd` command:
 
-```
+```bash
 useradd guest
 ```
 
 Confirm the account creation by examining the __passwd__ file.
 
-```
+```bash
 grep -w guest /etc/passwd
 ```
 

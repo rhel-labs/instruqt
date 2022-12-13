@@ -1,5 +1,5 @@
 ---
-slug: 03-adding-groups
+slug: adding-groups
 id: pcxkaatrea0j
 type: challenge
 title: Adding Groups
@@ -19,7 +19,7 @@ timelimit: 1
 ---
 Create a group called __viewers__ using the `groupadd` command. You will use the `-g` option to specify a group ID (GID), in this case 10000:
 
-```
+```bash
 groupadd -g 10000 viewers
 ```
 
@@ -27,7 +27,7 @@ groupadd -g 10000 viewers
 
 Search for the group name in the `/etc/group` file to confirm this was successful:
 
-```
+```bash
 grep -w viewers /etc/group
 ```
 
@@ -41,13 +41,13 @@ This file shows the group name, the GID, and which users belong to the group. In
 
 Now that you have created this group, add the __guest__ user from the previous step to the __viewers__ group using `usermod`. You will use the secondary group option (`-G`) in conjunction with the append option (`-a`) to add __viewers__ without overwriting any existing groups associated with __guest__.
 
-```
+```bash
 usermod -aG viewers guest
 ```
 
 The `groups` command is useful for validating this change, because it lists all groups associated with a user:
 
-```
+```bash
 groups guest
 ```
 
