@@ -3,13 +3,13 @@ id: mvnt2th9ojsc
 title: Installing Software using Package Managers [Admin 101]
 description: |-
   # Overview:
-  Package managers are centralized methods of accessing software repositories. Using package managers for installing and updating software removes many opportunities for user error and automates numerous installation steps. On Red Hat Enterprise Linux, YUM is the default package manager, but you will also see RPM.
+  Package managers are centralized methods of accessing software repositories. Using package managers for installing and updating software removes many opportunities for user error and automates numerous installation steps. On Red Hat Enterprise Linux, DNF is the default package manager, but you will also see RPM.
   # Goal:
   After completing this lab, users will feel comfortable adding, removing, and updating packages.
   # Concepts included in this scenario:
-  * Install a package with `yum`
-  * Update and remove packages with `yum`
-  * Roll back a transaction with `yum history`
+  * Install a package with `dnf`
+  * Update and remove packages with `dnf`
+  * Roll back a transaction with `dnf history`
   * Use `rpm` for detailed queries
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: beginner
@@ -19,8 +19,6 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
-private: false
-published: true
 show_timer: true
 skipping_enabled: true
-checksum: "1469922083273594870"
+checksum: "6281764582207488650"
