@@ -1,5 +1,5 @@
 ---
-slug: 02-setting-account-password
+slug: setting-account-password
 id: yzeg42fdlbuy
 type: challenge
 title: Setting the Account Password
@@ -19,7 +19,7 @@ timelimit: 1
 ---
 Like with `useradd`, you must have root access to use this command. Set the password for the guest account you created in the previous step using the following command:
 
-```
+```bash
 echo rhel | passwd --stdin guest
 ```
 
@@ -29,7 +29,8 @@ Here you use a four-character password for simplicity, but it is best practice t
 
 Validate the password by using the list (`-l`) option for the `chage` command:
 
-```chage -l guest
+```bash
+chage -l guest
 ```
 
 <pre class=file>
