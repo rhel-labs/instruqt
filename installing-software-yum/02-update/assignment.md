@@ -1,8 +1,8 @@
 ---
-slug: step2
+slug: update
 id: rrse9imezbf8
 type: challenge
-title: Step 2
+title: Updating a package
 tabs:
 - title: Terminal
   type: terminal
@@ -10,13 +10,12 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Updating a package
 
 The `list` subcommand is useful for finding out which packages have available
 updates on the system.
 
-```
-yum list updates
+```bash
+dnf list updates
 ```
 
 <pre class=file>
@@ -28,20 +27,16 @@ systemd.x86_64           239-51.el8_5.3                             rhui-rhel-8-
 << OUTPUT ABRIDGED >>
 </pre>
 
-Many packages on this system have updates available. Specifying a
-package name with `yum update` will constrain this operation to only look
-for that package.
+Many packages on this system have updates available. Specifying a package name with `dnf update` will constrain this operation to only look for that package.
 
->_NOTE:_ If you instead want to make sure your entire system is up to date,
-running `yum update` without any other arguments apply updates for all
-packages on your system (including YUM itself).
+>_NOTE:_ If you instead want to make sure your entire system is up to date, running `dnf update` without any other arguments apply updates for all packages on your system (including YUM itself).
 
 At the time of writing this lab, the __bash__ package required an update. Let's update __bash__. Use the `-y` option to automatically say yes to any prompts for the purposes of this lab.
 
 Feel free to update any package listed.
 
 ```bash
-yum -y update bash
+dnf -y update bash
 ```
 
 <pre class=file>
@@ -59,14 +54,14 @@ Upgrade  1 Package
 << OUTPUT ABRIDGED >>
 </pre>
 
->_NOTE:_ You sometimes see the subcommand `upgrade` being used somewhat interchangeably with `update`. The difference between these two subcommands is that `upgrade` will remove any obsolete packages from the system. Often the configuration for YUM is such that these subcommands will both carry out the `upgrade` operation.
+>_NOTE:_ You sometimes see the subcommand `upgrade` being used somewhat interchangeably with `update`. The difference between these two subcommands is that `upgrade` will remove any obsolete packages from the system. Often the configuration for DNF is such that these subcommands will both carry out the `upgrade` operation.
 
-# Removing a package
+## Removing a package
 
 Removing a package follows the same theme of simplicity.
 
-```
-yum -y remove httpd
+```bash
+dnf -y remove httpd
 ```
 
 The extensive output shows you information about which dependent RPMs were
@@ -95,8 +90,8 @@ Complete!
 
 Use the `list` subcommand to confirm that the package has been uninstalled:
 
-```
-yum list httpd
+```bash
+dnf list httpd
 ```
 
 <pre class=file>
@@ -105,6 +100,4 @@ Available Packages
 httpd.x86_64 2.4.37-39.module+el8.4.0+9658+b87b2deb
 </pre>
 
-The package is now listed as _Available_ rather than _Installed_. The next
-step will walk you through `yum history` which provides some more powerful
-tools for rolling back package transactions.
+The package is now listed as _Available_ rather than _Installed_. The next step will walk you through `dnf history` which provides some more powerful tools for rolling back package transactions.

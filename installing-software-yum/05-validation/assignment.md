@@ -1,8 +1,8 @@
 ---
-slug: step5
+slug: validation
 id: batycjhys7gr
 type: challenge
-title: Step 5
+title: Validating package files using `rpm`
 tabs:
 - title: Terminal
   type: terminal
@@ -10,20 +10,16 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Validating package files using `rpm`
 
-If a program is suddenly misbehaving, it could be related to some key files not being
-installed properly. `rpm` has a validation option (`-V`) which will compare
-the local files with the expected files for the package. Remove a file from the
-Wireshark package to test out this validation functionality:
+If a program is suddenly misbehaving, it could be related to some key files not being installed properly. `rpm` has a validation option (`-V`) which will compare the local files with the expected files for the package. Remove a file from the Wireshark package to test out this validation functionality:
 
-```
+```bash
 rm -f /usr/share/icons/hicolor/256x256/apps/wireshark.png
 ```
 
 Use the `-V` option with `rpm` to check the file status of Wireshark.
 
-```
+```bash
 rpm -V wireshark
 ```
 
@@ -34,8 +30,8 @@ missing     /usr/share/icons/hicolor/256x256/apps/wireshark.png
 Now that you have seen there is a missing file, reinstall the Wireshark
 package to return it to its proper state:
 
-```
-yum -y reinstall wireshark
+```bash
+dnf -y reinstall wireshark
 ```
 
 <pre class=file>
@@ -50,7 +46,7 @@ x86_64 1:2.6.2-12.el8 rhel-8-for-x86_64-appstream-rpms 3.7 M
 
 Check that __wireshark.png__ has been restored:
 
-```
+```bash
 ls /usr/share/icons/hicolor/256x256/apps/
 ```
 
@@ -62,7 +58,7 @@ The command `rpm -V` is useful for more than just finding missing files.
 This command can inform the user if any files have changed since installation.
 To test this out, run the validation command on the PAM package.
 
-```
+```bash
 rpm -V pam
 ```
 
@@ -71,9 +67,4 @@ S.5....T.  c /etc/pam.d/password-auth
 S.5....T.  c /etc/pam.d/system-auth
 </pre>
 
-This query returns two files with unexpected criteria, __password-auth__ and
-__system-auth__. The first column of this output tells you that both of these
-files have an unexpected size, checksum, and
-timestamp. Both of these files are configuration files, so it makes sense
-that they would be modified after installation to suit the purpose of this
-particular system.
+This query returns two files with unexpected criteria, __password-auth__ and __system-auth__. The first column of this output tells you that both of these files have an unexpected size, checksum, and timestamp. Both of these files are configuration files, so it makes sense that they would be modified after installation to suit the purpose of this particular system.

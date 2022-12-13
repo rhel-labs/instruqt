@@ -1,8 +1,8 @@
 ---
-slug: step3
+slug: history
 id: agw3147hja2r
 type: challenge
-title: Step 3
+title: Using `dnf history` to roll back a transaction
 tabs:
 - title: Terminal
   type: terminal
@@ -10,12 +10,11 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Using `yum history` to roll back a transaction
 
-The `history` subcommand provides a summary of recent `yum` transactions.
+The `history` subcommand provides a summary of recent `dnf` transactions.
 
-```
-yum history
+```bash
+dnf history
 ```
 
 The output contains transaction IDs in the first column, which are how you reference
@@ -37,13 +36,13 @@ install or update a package, as it cleans up all of the dependencies associated
 with the package. Rollback the state of your system to before you uninstalled
 __httpd__:
 
-```
-yum -y history rollback 11
+```bash
+dnf -y history rollback 11
 ```
 
 >_NOTE:_ The number 11 here is used here to specify that the rollback the state of the system to how it was at transaction ID 6, or before you removed __httpd__.
 
-You can use other relative offsets, such as `last-3`, or you can use absolute transaction IDs. For example, `yum history rollback 2` would rollback to the transaction where __rsync__ was installed.
+You can use other relative offsets, such as `last-3`, or you can use absolute transaction IDs. For example, `dnf history rollback 2` would rollback to the transaction where __rsync__ was installed.
 
 <pre class=file>
 << OUTPUT ABRIDGED >>
@@ -62,5 +61,6 @@ This command reinstalled the RPMs that are part of __httpd__ (including
 all dependencies),
 restoring the system state to how it was before the previous transaction.
 
-There are many more subcommands that you can use to customize how YUM behaves.
+There are many more subcommands that you can use to customize how DNF behaves.
 Check out this [YUM Command Cheat Sheet for RHEL](https://access.redhat.com/sites/default/files/attachments/rh_yum_cheatsheet_1214_jcs_print-1.pdf) for more info.
+>_NOTE:_ DNF and YUM are syntactically identical. You can refer to the YUM cheat sheet for subcommands that will all work with DNF.
