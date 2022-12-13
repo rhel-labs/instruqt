@@ -1,8 +1,8 @@
 ---
-slug: step6
+slug: ps
 id: c2xebnl6zqg1
 type: challenge
-title: Step 6 - Viewing processes
+title: Viewing processes
 tabs:
 - title: Terminal
   type: terminal
@@ -10,15 +10,10 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Viewing processes
 
-Just as files organize how data is stored on Linux, processes organize all of the
-programs that are running on the system. The `ps` command (short for Process
-Status) will display information about the processes running in the current shell.
-To see all of the processes running on the system and present them in a
-user-readable format, it is common to add the `aux` options to `ps`.
+Just as files organize how data is stored on Linux, processes organize all of the programs that are running on the system. The `ps` command (short for Process Status) will display information about the processes running in the current shell. To see all of the processes running on the system and present them in a user-readable format, it is common to add the `aux` options to `ps`.
 
-```
+```bash
 ps aux
 ```
 
@@ -35,16 +30,11 @@ root          11  0.0  0.0      0     0 ?        I    15:38   0:00 [rcu_sched]
 << OUTPUT ABRIDGED >>
 </pre>
 
->_NOTE:_ There is another lab which goes into depth about `ps` and process
-management. For more info on using `ps` (including how to end processes), check
-out the [Service Administration Basics lab](https://lab.redhat.com/service-admin)
+>_NOTE:_ There is another lab which goes into depth about `ps` and process management. For more info on using `ps` (including how to end processes), check out the [Service Administration Basics lab](https://lab.redhat.com/service-admin)
 
-The output of this command is often very lengthy, so this is a great chance
-to apply what you just learned a few steps ago. Using the pipe operator (`|`),
-pipe the output of `ps aux` into the `grep` command to search for a specific
-process. Search for the `sshd` process.:
+The output of this command is often very lengthy, so this is a great chance to apply what you just learned a few steps ago. Using the pipe operator (`|`), pipe the output of `ps aux` into the `grep` command to search for a specific process. Search for the `sshd` process.:
 
-```
+```bash
 ps aux | grep sshd
 ```
 
@@ -53,14 +43,11 @@ root        1441  0.0  0.2  16120  9688 ?        Ss   14:35   0:00 sshd: /usr/sb
 root        1708  0.0  0.0   6412  2116 pts/0    S+   14:47   0:00 grep --color=auto sshd
 </pre>
 
-Here the search finds the `sshd` process, but the second line of this output
-shows that the search also finds itself.
+Here the search finds the `sshd` process, but the second line of this output shows that the search also finds itself.
 
-`ps` is great for showing a snapshot of the active processes and their
-resource usage, but sometimes it is more useful to have a utility that keeps
-updating this information in real time. `top` does just that.
+`ps` is great for showing a snapshot of the active processes and their resource usage, but sometimes it is more useful to have a utility that keeps updating this information in real time. `top` does just that.
 
-```
+```bash
 top
 ```
 

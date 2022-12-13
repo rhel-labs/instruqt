@@ -1,8 +1,8 @@
 ---
-slug: step7
+slug: free
 id: exmnks4vybca
 type: challenge
-title: Step 7 - Using `free` to view information about the system memory usage
+title: Using `free` to view information about the system memory usage
 tabs:
 - title: Terminal
   type: terminal
@@ -10,13 +10,10 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Using `free` to view information about the system memory usage
 
-Processes require memory to run, so when the system is running low on free
-memory it can slow down significantly. The `free` command is useful for quickly
-getting a summary of memory usage.
+Processes require memory to run, so when the system is running low on free memory it can slow down significantly. The `free` command is useful for quickly getting a summary of memory usage.
 
-```
+```bash
 free -h
 ```
 
@@ -30,7 +27,7 @@ Swap:      3.9Gi       0B        3.9Gi
 
 Let's launch `top` again but this time we'll run it in the background by adding a `&`.
 
-```
+```bash
 top &
 ```
 
@@ -39,11 +36,9 @@ top &
 [1] 3567
 </pre>
 
-If the available memory is very low, the fourth column of `ps au` can be
-used for finding which processes are the culprits. To sort the output by
-memory usage, add the `--sort=-%mem` option:
+If the available memory is very low, the fourth column of `ps au` can be used for finding which processes are the culprits. To sort the output by memory usage, add the `--sort=-%mem` option:
 
-```
+```bash
 ps au --sort=-%mem
 ```
 
@@ -56,19 +51,15 @@ root         805  0.0  0.0  16224  2112 ttyS0    Ss+  18:57   0:00 /sbin/agetty 
 root         804  0.0  0.0  13656  1676 tty1     Ss+  18:57   0:00 /sbin/agetty -o -p -- \u --nocl
 </pre>
 
-Suppose you no longer needed `top` and wanted to free up the resources being
-used by this process. One option would be to return to terminal that it is
-running in and quit it. However, it is simpler in most cases to use the `kill`
-command. The process ID shown in the `ps` output is how you refer to the process
-when killing it. Kill the `top` process from this terminal:
+Suppose you no longer needed `top` and wanted to free up the resources being used by this process. One option would be to return to terminal that it is running in and quit it. However, it is simpler in most cases to use the `kill` command. The process ID shown in the `ps` output is how you refer to the process when killing it. Kill the `top` process from this terminal:
 
-```
+```bash
 kill -9 $(pidof top)
 ```
 
 Here's what you should see in the terminal.
 
-```
+```bash
 root@rhel:~# ps -au
 USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 root         820  0.0  0.0  13656  1716 tty1     Ss+  18:33   0:00 /sbin/agetty -o -p -- \u --nocl
@@ -88,5 +79,4 @@ root        2699  0.0  0.1  58728  3920 pts/0    R+   18:53   0:00 ps -au
 
 This does not show any output, but you can see that `top` is no longer running.
 
-If you want more exercises on this topic, more information on process management
-can be found in the [Service Admin Basics lab](https://lab.redhat.com/service-admin).
+If you want more exercises on this topic, more information on process management can be found in the [Service Admin Basics lab](https://lab.redhat.com/service-admin).

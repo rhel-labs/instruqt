@@ -1,8 +1,8 @@
 ---
-slug: step2
+slug: tail
 id: zdwvplncife9
 type: challenge
-title: Step 2 - Viewing the end of log files with `tail`
+title: Viewing the end of log files with `tail`
 tabs:
 - title: Terminal
   type: terminal
@@ -10,17 +10,12 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Viewing the end of log files with `tail`
 
-Some files are large enough that it is not practical to display their contents
-with `cat`. A common example is log files, which are often packed full of
-information.
+Some files are large enough that it is not practical to display their contents with `cat`. A common example is log files, which are often packed full of information.
 
-Since `tail` only displays the last ten lines of a file, it is particularly
-useful for viewing recent entries in log files. Take a look at the final
-ten lines of the _boot_ log.
+Since `tail` only displays the last ten lines of a file, it is particularly useful for viewing recent entries in log files. Take a look at the final ten lines of the _boot_ log.
 
-```
+```bash
 tail /var/log/audit/audit.log
 ```
 
@@ -37,7 +32,7 @@ will show the entire file.
 
 Adding the `-f` option will follow the log file so that you can see new entries.
 
-```
+```bash
 tail -f /var/log/messages
 ```
 
@@ -60,12 +55,13 @@ Dec  8 18:37:15 rhel systemd[1]: run-rcd7035fb3d1d4176bf081e5732f65f65.service: 
 The `logger` utility will write to this _messages_ log. From the original terminal,
 write to this log:
 
-```
+```bash
 logger Hello World
 ```
 
 Check that this message was recorded.
-```
+
+```bash
 tail /var/log/messages
 ```
 
