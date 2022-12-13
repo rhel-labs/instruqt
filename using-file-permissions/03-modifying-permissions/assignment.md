@@ -52,7 +52,7 @@ ls -l status.sh
 
 Now the __guest__ user will be able to read and execute __status.sh__. Switch back to the **Guest tab** and re-run the status script:
 
-```
+```bash
 ./status.sh
 ```
 
@@ -60,7 +60,7 @@ Now the __guest__ user will be able to read and execute __status.sh__. Switch ba
 
 Since you added read and execute permissions, you can do more than just execute this file as __guest__. Use the `cat` command to verify that you can read this file as __guest__.
 
-```
+```bash
 cat status.sh
 ```
 
