@@ -1,8 +1,8 @@
 ---
-slug: step5
+slug: time
 id: zwuvqotz9gf1
 type: challenge
-title: Step 5
+title: Date and Time
 notes:
 - type: text
   contents: |
@@ -20,7 +20,7 @@ timelimit: 1
 ---
 Now, let's try a few examples of converting between time formats. The `date` command is useful for displaying the current date and time of your system. The value output depends on the timezone you have configured, and the format of the output can be controlled using format strings. If you run `date` without any arguments, it will print the date and time in the following format:
 
-```
+```bash
 date
 ```
 
@@ -30,7 +30,7 @@ Mon Dec  21 17:03:56 EDT 2021
 
 >_NOTE:_ The output should match the current date and time when you are running this lab, but it will be formatted using the Eastern Timezone since that is the default for the lab systems. Converting a date and time to epoch time is as simple as a single argument (`+%s`) with `date`. You can also specify the `-d` option to input a datetime instead of using the current one.
 
-```
+```bash
 date -d "Dec 12 2014 20:00:00" +%s
 ```
 
@@ -42,7 +42,7 @@ This will show you the epoch time corresponding to the string you input:
 
 You can convert in the reverse direction with `date` as well by using the `--date` option, then prepending a `@` symbol to the epoch time you would like to convert. This syntax specifies that you would like to know the date at the given epoch time. Try this using the epoch time you just received from the previous command:
 
-```
+```bash
 date --date @1418432400
 ```
 
@@ -62,7 +62,7 @@ type=AVC msg=audit(1600796109.687:168): avc:  denied  { read } for  pid=3912 com
 
 For this lab, we care about the second field in this error. You may recognize that ten digit number as a unix timestamp. To confirm, convert it to a standard date:
 
-```
+```bash
 date --date @1600796109
 ```
 
