@@ -1,8 +1,8 @@
 ---
-slug: step3
+slug: hidden-files
 id: dzcwlj6nyiyh
 type: challenge
-title: Step 3
+title: Accessing hidden files
 notes:
 - type: text
   contents: |
@@ -16,14 +16,13 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Accessing hidden files
 
 Any file or directory that begins with a `.` in the name will be interpreted as
 hidden, and will only show up when using the `-a` option with `ls`.
 
 List the files in your current directory:
 
-```
+```bash
 ls
 ```
 
@@ -34,7 +33,7 @@ anaconda-ks.cfg  openscap_data  original-ks.cfg
 Now, try it again with the `-a` option. Many more files and directories will
 show up, even though you have not changed where you are looking.
 
-```
+```bash
 ls -a
 ```
 
@@ -54,19 +53,19 @@ control for your local repository.
 Creating a new hidden file or directory is quite simple, just start the name with
 a `.`
 
-```
+```bash
 touch .hidden-file
 ```
 
 Now that this file is created, confirm that it only shows up when using `ls -a`:
 
-```
+```bash
 ls
 ```
 
 `anaconda-ks.cfg  openscap_data  original-ks.cfg`
 
-```
+```bash
 ls -a
 ```
 
