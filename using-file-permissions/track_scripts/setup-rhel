@@ -5,9 +5,7 @@ do
     sleep 1
 done
 
-subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
-dnf install -y tmux
 # Create needed user and group
 useradd guest
 groupadd team

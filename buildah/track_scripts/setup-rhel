@@ -5,7 +5,7 @@ do
     sleep 1
 done
 
-yum -y install buildah podman tmux
+dnf -y install buildah podman
 buildah rm -a
 setsebool -P container_manage_cgroup true
 
@@ -14,13 +14,8 @@ systemctl disable httpd
 
 podman image rm rhel8-httpd
 
-yum remove -y google-rhui-client*
-yum clean all
-
 subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
-
-dnf install -y tmux
 
 echo "Adding wheel" > /root/post-run.log
 usermod -aG wheel rhel
@@ -49,3 +44,7 @@ cat >> ~/index2.html <<-EOF
 <h1>You've deployed your new web application into a container from scratch!</h1>
 </body>
 EOF
+
+TMUX='' tmux new-session -d -s 'buildah-session' > /dev/null 2>&1
+tmux set -g pane-border-status top
+tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'

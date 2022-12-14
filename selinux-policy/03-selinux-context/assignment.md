@@ -24,9 +24,10 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: selinux1
-- title: RHEL Web Console
-  type: external
-  url: https://selinux1.${_SANDBOX_ID}.instruqt.io:9090
+- title: Cockpit Web Console
+  type: website
+  url: https://selinux1.${_SANDBOX_ID}.instruqt.io:9090/system/terminal
+  new_window: true
 difficulty: intermediate
 timelimit: 1
 ---
