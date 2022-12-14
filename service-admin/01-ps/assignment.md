@@ -1,8 +1,8 @@
 ---
-slug: step1
+slug: ps
 id: x3tdnsgrfq0f
 type: challenge
-title: Step 1
+title: What are processes?
 notes:
 - type: text
   contents: |
@@ -30,27 +30,16 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
-# What are processes?
 
-_Files_ keep track of information on a Linux system, providing a way for users
-to organize and store information. Sometimes, files contain information that
-can be run to carry out a specific operation. These kinds of files are called
-_programs_. When you run a program, the running instance is called a _process_.
-Modern Linux systems have tons of processes running at any given moment, so it
-is crucial to have a way to manage these processes.
+_Files_ keep track of information on a Linux system, providing a way for users to organize and store information. Sometimes, files contain information that can be run to carry out a specific operation. These kinds of files are called _programs_. When you run a program, the running instance is called a _process_. Modern Linux systems have tons of processes running at any given moment, so it is crucial to have a way to manage these processes.
 
-# Viewing processes
+## Viewing processes
 
-The command that lets you view processes on Linux is `ps`, short for "Process Status".
-This command will show you all processes running in the current shell if called without
-any options. However, it is frequently useful to see processes that may not
-have been started with your user ID. The command `ps aux` will show you all processes,
-including those running without a controlling terminal. This command will also give
-information about the users associated with these processes.
+The command that lets you view processes on Linux is `ps`, short for "Process Status". This command will show you all processes running in the current shell if called without any options. However, it is frequently useful to see processes that may not have been started with your user ID. The command `ps aux` will show you all processes, including those running without a controlling terminal. This command will also give information about the users associated with these processes.
 
-```
+```bash
 ps aux
 ```
 
@@ -64,20 +53,15 @@ root           4  0.0  0.0      0     0 ?        I<   16:09   0:00 [rcu_par_gp]
 << OUTPUT ABRIDGED >>
 </pre>
 
-This output is very extensive, so often when you call this command you want to
-pipe the output into `grep` to search for a specific phrase. To practice this,
-start a process, background it, and then search for it in the original
-terminal. The `dd` command can be used to create an indefinite process. The command below begins copying data from a file of infinite zeros into a file that discards all inputs, so the process will continue indefinitely. The `&` sends the process into the background so that we do not interact with it in the terminal.
+This output is very extensive, so often when you call this command you want to pipe the output into `grep` to search for a specific phrase. To practice this, start a process, background it, and then search for it in the original terminal. The `dd` command can be used to create an indefinite process. The command below begins copying data from a file of infinite zeros into a file that discards all inputs, so the process will continue indefinitely. The `&` sends the process into the background so that we do not interact with it in the terminal.
 
-```
+```bash
 dd if=/dev/zero of=/dev/null &
 ```
 
-When you run this command, you will not see an output as the process will
-continue running in the foreground until you interrupt it. Returning to the
-original terminal, run a search on `ps aux` to find this indefinite `dd` process:
+When you run this command, you will not see an output as the process will continue running in the foreground until you interrupt it. Returning to the original terminal, run a search on `ps aux` to find this indefinite `dd` process:
 
-```
+```bash
 ps aux | head -n1 ; ps aux | grep '[d]d '
 ```
 
