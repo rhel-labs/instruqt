@@ -8,7 +8,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 2
+timelimit: 1
 ---
 Now that you have identified the most recent EUS version, you will need to disable the standard repositories and enable the EUS-specific repos.
 

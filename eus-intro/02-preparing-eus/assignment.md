@@ -13,9 +13,7 @@ timelimit: 1
 
 # Preparing a system for EUS
 
-In order to see which releases are available for your system's current operating system, you will use the `subscription-manager` command:
-
-# Add Image: Show RHEL 8 Lifecycle support bar graph
+Before you subscribe your system to an EUS release, it is important to note which release your system is running. This information is stored in `/etc/redhat-release`
 
 ```
 cat /etc/redhat-release
@@ -24,6 +22,11 @@ cat /etc/redhat-release
 <pre class=file>
 Red Hat Enterprise Linux release 8.4 (Ootpa)
 </pre>
+
+At this point, your system is not configured for EUS. If you were to run a `dnf update` with this configuration, your server would update to the latest minor version (RHEL 8.7 in this case).
+
+In order to see which releases are available for your system's current operating system, you will use the `subscription-manager` command:
+
 
 ```
 # show dnf list --updates | grep (for TOTAL PACKAGES)
