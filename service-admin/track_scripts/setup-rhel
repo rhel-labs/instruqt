@@ -6,10 +6,6 @@ touch /root/post-run.log
 # Create a done file to signal we have finished
 touch /root/post-run.log.done
 
-dnf remove -y google-rhui-client*
-dnf clean all
-
-subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
 dnf install -y nfs-utils rpcbind
