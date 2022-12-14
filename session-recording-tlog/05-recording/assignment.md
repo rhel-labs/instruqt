@@ -1,8 +1,8 @@
 ---
-slug: step5
+slug: recording
 id: i8mwfd7dhxuv
 type: challenge
-title: Step 5
+title: Recording a session
 tabs:
 - title: Terminal
   type: terminal
@@ -13,11 +13,10 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Recording a session
 
 Change user to the __rhel__ user so that the session can be recorded.
 
-```
+```bash
 su - rhel
 ```
 
@@ -37,24 +36,24 @@ ATTENTION! Your session is being recorded!
 
 Run some commands in the __rhel__ user's session.
 
-```
+```bash
 ls /tmp
 ```
 
-```
+```bash
 who
 ```
 
-```
+```bash
 df -hP
 ```
 
-```
-yum list installed
+```bash
+dnf list installed
 ```
 
 Now that you have some data in a recorded session, you can log out of the user's terminal session.
-```
+
+```bash
 exit
 ```
-
