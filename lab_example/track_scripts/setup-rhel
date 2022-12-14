@@ -5,9 +5,7 @@ do
     sleep 1
 done
 
-subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
-
 
 # This is only required for labs with nested virtualization like networking-basics, rhel for edge, firewall-system-role.
 echo "${SSHKEY}" > /root/sshkey
