@@ -1,8 +1,8 @@
 ---
-slug: step1
+slug: install
 id: zzxlhhp2kg6b
 type: challenge
-title: Step 1
+title: Installing software
 notes:
 - type: text
   contents: |
@@ -29,13 +29,12 @@ tabs:
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 3420
+timelimit: 3000
 ---
-# Installing software
 
 Install two rpm packages, __cockpit-session-recording__ and __tlog__.
 
-```
+```bash
 yum install -y cockpit-session-recording tlog
 ```
 
@@ -49,7 +48,4 @@ Installed:
 Complete!
 </pre>
 
-The first package, __cockpit-session-recording__ will add an additional feature
-Web Console which you will be using to enable and configure session recording.
-The __tlog__ package will provide the tools which will be used to both record
-and view the recorded terminal sessions.
+The first package, __cockpit-session-recording__ will add an additional feature Web Console which you will be using to enable and configure session recording. The __tlog__ package will provide the tools which will be used to both record and view the recorded terminal sessions.

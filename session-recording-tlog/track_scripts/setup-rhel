@@ -5,15 +5,8 @@ touch /root/post-run.log
 usermod -aG wheel rhel
 echo redhat | passwd --stdin rhel
 
-yum remove -y google-rhui-client*
-yum clean all
-subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
 # setup webui
-yum -y install cockpit
-firewall-cmd --add-service=cockpit --permanent
-firewall-cmd --reload
-systemctl enable --now cockpit.socket
 # Create a done file to signal we have finished
 touch /root/post-run.log.done
