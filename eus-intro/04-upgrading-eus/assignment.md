@@ -10,35 +10,19 @@ tabs:
 difficulty: basic
 timelimit: 2
 ---
+
+TK = stay on 8.4 for up to 24 months, but how do you move forward?
+
 While EUS versions are supported for 24 months, it is a good practice to stay on as current a release as possible. Moving between minor releases is the best practice. However, some environments require recertification or are running software that the vendor only certifies specific minor releases of Red Hat Enterprise Linux. In those circumstances, upgrading between EUS releases is the necessary balance.
-
-You will use the `subscription-manager` command to specify which version of RHEL your server will need to use:
-
-```
-subscription-manager release
-```
-
-<pre class=file>
-Release not set
-</pre>
-
-Notice that your server currently doesn't have a release version specified. To correct that, you will need to manually specify a release:
-
-```
-subscription-manager release --set 8.6
-```
-
-<pre class=file>
-Release set to: 8.6
-</pre>
-
-Now that our system has a specified minor version. You will be able to update your packages to the appropriate versions:
 
 ```
 dnf clean all && dnf update -y
 ```
 
 **Pro Tip**: It is encouraged to use the `clean all` option during these tasks as it forces dnf to clear existing metadata and pull down an updated listing for the new repositories.
+
+# Add unsubscribe / subscribe
+# dnf list updates
 
 <pre class=file>
 Updating Subscription Management repositories.

@@ -29,35 +29,18 @@ EUS is an optional offering for Red Hat Enterprise Linux (RHEL) subscribers. Wit
 
 (Source: https://access.redhat.com/articles/rhel-eus)
 
-# Preparing a system for EUS
+# Why would you use EUS?
 
-In order to see which releases are available for your system's current operating system, you will use the `subscription-manager` command:
+TK
 
-```
-subscription-manager release --list
-```
+# Verifying Extended Update Support Availability
 
-<pre class=file>
-+-------------------------------------------+
-          Available Releases
-+-------------------------------------------+
-8
-8.0
-8.1
-8.2
-8.3
-8.4
-8.5
-8.6
-8.7
-</pre>
-
-Next, you will want to verify the version of RHEL we are running:
+TK
 
 ```
-cat /etc/redhat-release
+subscription-manager repos | grep -i eus
 ```
 
 <pre class=file>
-Red Hat Enterprise Linux release 8.4 (Ootpa)
+
 </pre>

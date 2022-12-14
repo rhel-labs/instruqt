@@ -32,7 +32,7 @@ timelimit: 3000
 ---
 # What is Leapp?
 
-Red Hat Leapp provides existing Red Hat Enterprise Linux 7 and 8 instances to upgrade from one major version to the next. This can be done on a one-to-one basis or en mass with a tool like Satellite. The Leapp tooling also includes a pre-upgrade assistant that makes it easy to identify breaking changes or warn about potential issues before any lasting changes are made to the system.
+Red Hat's leapp tool provides existing Red Hat Enterprise Linux 7 and 8 instances to an upgrade path from one major version to the next. This can be done on a one-to-one basis or en mass with a tool like Satellite. The Leapp tooling also includes a pre-upgrade assistant that makes it easy to identify breaking changes or warn about potential issues before any lasting changes are made to the system.
 
 Before diving in, the question you have to ask is: is this workload worth executing a rebuild from scratch? That process can be tedious and time consuming. Doing an in-place upgrade retains the subscription, installed packages, user data, and configurations all while saving the time and resources required to deploy fresh.
 
@@ -52,7 +52,7 @@ Red Hat Enterprise Linux release 7.9 (Maipo)
 </pre>
 
 First, you need to enable the rhel-7-server repositories using the subscription-manager command:
->**Pro Tip:** See how you can actually combine these two commands into one!
+>**Pro Tip:** See how you can actually combine these two operations into one!
 
 ```
 subscription-manager repos --enable rhel-7-server-rpms --enable rhel-7-server-extras-rpms
@@ -120,5 +120,5 @@ leapp --version
 
 <pre class=file>
 # leapp --version
-leapp version 0.14.0
+leapp version 0.15.0
 </pre>
