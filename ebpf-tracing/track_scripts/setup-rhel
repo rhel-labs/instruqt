@@ -10,3 +10,6 @@ subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 -
 
 # November 16th - libbpf got updated and broke the lab. bcc tools won't work unless libbpf is updated.
 dnf update -y libbpf
+
+# December 16th - Switching over to the rhel 9 image. Need to install tmux.
+dnf install -y tmux
