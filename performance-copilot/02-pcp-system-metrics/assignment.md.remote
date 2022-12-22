@@ -21,7 +21,7 @@ pminfo -t
 ```
 
 <pre class="file">
-...Output Truncated...
+<< OUTPUT ABRIDGED >>
 kernel.all.nprocs [total number of processes (lightweight)]
 kernel.all.pid_max [maximum process identifier from /proc/sys/kernel/pid_max]
 kernel.all.cpu.user [total user CPU time from /proc/stat for all CPUs, including guest CPU time]
@@ -40,7 +40,7 @@ kernel.all.cpu.irq.hard [hard interrupt CPU time from /proc/stat for all CPUs]
 kernel.all.interrupts.total One-line Help: Error: One-line or help text is not available
 kernel.all.interrupts.errors [interrupt error count from /proc/interrupts]
 kernel.all.softirqs.total One-line Help: Error: One-line or help text is not available
-...Output Truncated...
+<< OUTPUT ABRIDGED >>
 </pre>
 
 Check out `man pminfo` if you are interested in more details about the `pminfo` tool.
