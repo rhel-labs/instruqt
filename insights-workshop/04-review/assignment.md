@@ -7,11 +7,6 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
-  type: service
-  hostname: rhel
-  path: /
-  port: 9090
 difficulty: basic
 timelimit: 1
 ---

@@ -3,6 +3,12 @@
 subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
+echo "Adding wheel" > /root/post-run.log
+usermod -aG wheel rhel
+
+echo "setting password" >> /root/post-run.log
+echo redhat | passwd --stdin rhel
+
 sed -i 's/ClientAliveInterval.*900//g' /etc/ssh/sshd_config
 sed -i '/\[rhel-9-for-x86_64-baseos-rpms\]/,/^ *\[/ s/gpgcheck = 1/gpgcheck = 0/' /etc/yum.repos.d/redhat.repo
 hostnamectl set-hostname rhel-$(uuidgen | cut -c 32-)
