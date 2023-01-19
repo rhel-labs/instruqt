@@ -28,7 +28,7 @@ timelimit: 1
 ---
 <!-- markdownlint-disable MD033 -->
 
-You've reached the conclusion of this lab.
+You've reached the conclusion of this lab. If you would like to explore additional Satellite features, feel free to continue.
 
 For more information on Red Hat Satellite, please visit the [Red Hat Satellite landing page](https://www.redhat.com/en/technologies/management/satellite).
 

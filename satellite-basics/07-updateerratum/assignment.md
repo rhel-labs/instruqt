@@ -37,47 +37,133 @@ For more information on Red Hat Errata, [please visit this page](https://access.
 
 To view Errata in Satellite, click on `Content` and `Errata`.
 
-![errata menu bar](../assets/erratamenubar.png)
+<a href="#1">
+ <img alt="An example image" src="../assets/erratamenubar.png" />
+</a>
+
+<a href="#" class="lightbox" id="1">
+ <img alt="An example image" src="../assets/erratamenubar.png" />
+</a>
 
 You'll be taken to a page containing all the Errata contained in the repositories we originally synchronized in the second challenge of this lab.
 
 Not all of these Errata apply to the hosts we've added to this Satellite server. To view applicable and installable Errata, click on the `Applicable` and `Installable` radio boxes.
 
-![applicable and installable](../assets/applicableandinstallable.png)
+<a href="#2">
+ <img alt="An example image" src="../assets/applicableandinstallable.png" />
+</a>
+
+<a href="#" class="lightbox" id="2">
+ <img alt="An example image" src="../assets/applicableandinstallable.png" />
+</a>
 
 Let's install all the applicable Errata to our two hosts.
 
 Select all of the Errata we just filtered.
 
-![select all](../assets/selectallerrata.png)
+<a href="#3">
+ <img alt="An example image" src="../assets/selectallerrata.png" />
+</a>
+
+<a href="#" class="lightbox" id="3">
+ <img alt="An example image" src="../assets/selectallerrata.png" />
+</a>
 
 You'll be taken to the Apply Errata menu where you should do the following:
 
 1) Select the hosts to apply the Errata. In this case we'll select all hosts.
 2) Click `Next`.
 
-![apply errata wizard](../assets/applyerratawizard.png)
+<a href="#4">
+ <img alt="An example image" src="../assets/applyerratawizard.png" />
+</a>
+
+<a href="#" class="lightbox" id="4">
+ <img alt="An example image" src="../assets/applyerratawizard.png" />
+</a>
+
+Click confirm to apply the errata.
 
 To view the application of Errata in real-time, click on the host `rhel1`.
 
-![view](../assets/viewapplicationoferratahost.png)
+<a href="#5">
+ <img alt="An example image" src="../assets/viewapplicationoferratahost.png" />
+</a>
+
+<a href="#" class="lightbox" id="5">
+ <img alt="An example image" src="../assets/viewapplicationoferratahost.png" />
+</a>
 
 On the following page, you'll be able to see the application process.
 
-![process](../assets/process.png)
+<a href="#6">
+ <img alt="An example image" src="../assets/process.png" />
+</a>
+
+<a href="#" class="lightbox" id="6">
+ <img alt="An example image" src="../assets/process.png" />
+</a>
 
 To return to the job status page, click `Back to Job`.
 
-![back to job](../assets/backtojob.png)
+<a href="#7">
+ <img alt="An example image" src="../assets/backtojob.png" />
+</a>
+
+<a href="#" class="lightbox" id="7">
+ <img alt="An example image" src="../assets/backtojob.png" />
+</a>
 
 When the job is complete, the page will look like this.
 
-![complete job status](../assets/completejobstatus.png)
+<a href="#8">
+ <img alt="An example image" src="../assets/completejobstatus.png" />
+</a>
+
+<a href="#" class="lightbox" id="8">
+ <img alt="An example image" src="../assets/completejobstatus.png" />
+</a>
 
 Go to Hosts > All Hosts.
 
-![all hosts](../assets/allhosts.png)
+<a href="#9">
+ <img alt="An example image" src="../assets/allhosts.png" />
+</a>
+
+<a href="#" class="lightbox" id="9">
+ <img alt="An example image" src="../assets/allhosts.png" />
+</a>
 
 All hosts managed by Satellite should display in a green font signifying all hosts are up to date and there are no errors logged.
 
-![green](../assets/green.png)
+<a href="#10">
+ <img alt="An example image" src="../assets/green.png" />
+</a>
+
+<a href="#" class="lightbox" id="10">
+ <img alt="An example image" src="../assets/green.png" />
+</a>
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox img {
+  max-height: 100%;
+}
+</style>

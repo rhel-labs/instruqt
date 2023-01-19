@@ -50,16 +50,64 @@ To find out more about lifecyce environments, please refer to [Satellite documen
 
 Navigate to the `Lifecycle Environments` menu.
 
-![lifecycle](../assets/lifecycle-environments.png)
+<a href="#1">
+ <img alt="An example image" src="../assets/lifecycle-environments.png" />
+</a>
+
+<a href="#" class="lightbox" id="1">
+ <img alt="An example image" src="../assets/lifecycle-environments.png" />
+</a>
 
 Click on `Create Environment Path`.
 
-![envpath](../assets/createenvironment.png)
+<a href="#2">
+ <img alt="An example image" src="../assets/createenvironment.png" />
+</a>
+
+<a href="#" class="lightbox" id="2">
+ <img alt="An example image" src="../assets/createenvironment.png" />
+</a>
 
 Create a new environment. We'll call this one `test`. Then click `save` to save it.
 
-![envpath](../assets/newenvironment.png)
+<a href="#3">
+ <img alt="An example image" src="../assets/newenvironment.png" />
+</a>
+
+<a href="#" class="lightbox" id="3">
+ <img alt="An example image" src="../assets/newenvironment.png" />
+</a>
 
 The `Lifecycle Environment Paths` menu should look like this.
 
-![lifecycleenvpaths](../assets/envmenuresult.png)
+<a href="#4">
+ <img alt="An example image" src="../assets/envmenuresult.png" />
+</a>
+
+<a href="#" class="lightbox" id="4">
+ <img alt="An example image" src="../assets/envmenuresult.png" />
+</a>
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox img {
+  max-height: 100%;
+}
+</style>

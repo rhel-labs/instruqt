@@ -39,24 +39,55 @@ To learn more about Content Views and how to use them to manage content for diff
 
 Click on `Content Views`.
 
-![contentview](../assets/contentview.png)
+<a href="#1">
+ <img alt="An example image" src="../assets/contentview.png" />
+</a>
+
+<a href="#" class="lightbox" id="1">
+ <img alt="An example image" src="../assets/contentview.png" />
+</a>
 
 Click on `Create New View`.
-![createnewview](../assets/createcontentview.png)
+
+<a href="#2">
+ <img alt="An example image" src="../assets/createcontentview.png" />
+</a>
+
+<a href="#" class="lightbox" id="2">
+ <img alt="An example image" src="../assets/createcontentview.png" />
+</a>
 
 We'll name this content view `RHEL9`. Click `Create content view` to save it.
 
 > **NOTE:** Please ensure that you type `RHEL9` in capital letters. We'll need this value in step 6 of this lab.
 
-![createcv](../assets/createcv.png)
+<a href="#3">
+ <img alt="An example image" src="../assets/createcv.png" />
+</a>
+
+<a href="#" class="lightbox" id="3">
+ <img alt="An example image" src="../assets/createcv.png" />
+</a>
 
 Add the `BaseOS` and `AppStream` repos. Click `Add Repositories`.
 
-![addrepos](../assets/addrepos.png)
+<a href="#4">
+ <img alt="An example image" src="../assets/addrepos.png" />
+</a>
+
+<a href="#" class="lightbox" id="4">
+ <img alt="An example image" src="../assets/addrepos.png" />
+</a>
 
 Click `Publish New Version`.
 
-![publish](../assets/publish.png)
+<a href="#5">
+ <img alt="An example image" src="../assets/publish.png" />
+</a>
+
+<a href="#" class="lightbox" id="5">
+ <img alt="An example image" src="../assets/publish.png" />
+</a>
 
 Next we'll complete the following steps to publish and promote the content view.
 
@@ -64,6 +95,36 @@ Next we'll complete the following steps to publish and promote the content view.
 2) Select the lifecycle environment you wish to promote the content view to. In this case it is `Test`.
 3) Click `Next` to review the task.
 
-![publishing wizard](../assets/publishwizard.png)
+<a href="#6">
+ <img alt="An example image" src="../assets/publishwizard.png" />
+</a>
+
+<a href="#" class="lightbox" id="6">
+ <img alt="An example image" src="../assets/publishwizard.png" />
+</a>
 
 Review the details and then click `Finish`.
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox img {
+  max-height: 100%;
+}
+</style>

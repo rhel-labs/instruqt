@@ -39,38 +39,86 @@ For more information on Host Collections, please see [Configuring Host Collectio
 
 First we'll create a Host Collection. Click on `Host Collections` in the menu.
 
-![host collections menu bar](../assets/hostcollectionsmenubar.png)
+<a href="#1">
+ <img alt="An example image" src="../assets/hostcollectionsmenubar.png" />
+</a>
+
+<a href="#" class="lightbox" id="1">
+ <img alt="An example image" src="../assets/hostcollectionsmenubar.png" />
+</a>
 
 Click `Create Host Collection`.
 
-![create host collection](../assets/createhostcollection.png)
+<a href="#2">
+ <img alt="An example image" src="../assets/createhostcollection.png" />
+</a>
+
+<a href="#" class="lightbox" id="2">
+ <img alt="An example image" src="../assets/createhostcollection.png" />
+</a>
 
 Next, do the following:
 
 1) Name the `Host Collection`. In this case we'll name it `TMUX installation`.
 2) Click `Save`.
 
-![tmux hc](../assets/tmuxinstallationhostcollection.png)
+<a href="#3">
+ <img alt="An example image" src="../assets/tmuxinstallationhostcollection.png" />
+</a>
+
+<a href="#" class="lightbox" id="3">
+ <img alt="An example image" src="../assets/tmuxinstallationhostcollection.png" />
+</a>
 
 Click on `Hosts`.
 
-![hosts](../assets/hchosts.png)
+<a href="#4">
+ <img alt="An example image" src="../assets/hchosts.png" />
+</a>
+
+<a href="#" class="lightbox" id="4">
+ <img alt="An example image" src="../assets/hchosts.png" />
+</a>
 
 Click on `Add`.
 
-![hchostsadd](../assets/hchostsadd.png)
+<a href="#5">
+ <img alt="An example image" src="../assets/hchostsadd.png" />
+</a>
 
-Select the hosts we want to install `tmux` on, then click `Add Selected`.
+<a href="#" class="lightbox" id="5">
+ <img alt="An example image" src="../assets/hchostsadd.png" />
+</a>
 
-![add selected](../assets/hcaddrhel9hosts.png)
+Select the hosts we want to install `tmux` on, then click `Add Selected`. In this example we will install `tmux` on `rhel1` and `rhel2`.
 
-Go back to the `Host Collections` menu. Click on the host collection we just created.
+<a href="#6">
+ <img alt="An example image" src="../assets/hcaddrhel9hosts.png" />
+</a>
 
-![click on tmux installation](../assets/clickontmuxinstallation.png)
+<a href="#" class="lightbox" id="6">
+ <img alt="An example image" src="../assets/hcaddrhel9hosts.png" />
+</a>
+
+Click on the `Details` tab.
+
+<a href="#7">
+ <img alt="An example image" src="../assets/clickontmuxinstallation.png" />
+</a>
+
+<a href="#" class="lightbox" id="7">
+ <img alt="An example image" src="../assets/clickontmuxinstallation.png" />
+</a>
 
 Click on `Package Installation, Removal, and Update`.
 
-![installation](../assets/packageinstallation.png)
+<a href="#8">
+ <img alt="An example image" src="../assets/packageinstallation.png" />
+</a>
+
+<a href="#" class="lightbox" id="8">
+ <img alt="An example image" src="../assets/packageinstallation.png" />
+</a>
 
 Do the following:
 
@@ -78,15 +126,33 @@ Do the following:
 2) Click `install`.
 3) Click `yes`.
 
-![update packages menu](../assets/updatepackages.png)
+<a href="#9">
+ <img alt="An example image" src="../assets/updatepackages.png" />
+</a>
+
+<a href="#" class="lightbox" id="9">
+ <img alt="An example image" src="../assets/updatepackages.png" />
+</a>
 
 You'll be taken to the job status page.
 
-![status](../assets/statusinstall.png)
+<a href="#10">
+ <img alt="An example image" src="../assets/statusinstall.png" />
+</a>
+
+<a href="#" class="lightbox" id="10">
+ <img alt="An example image" src="../assets/statusinstall.png" />
+</a>
 
 You can check on the real-time installation progress by clicking on a host.
 
-![installtmuxstatus](../assets/installtmuxstatusonhost.png)
+<a href="#11">
+ <img alt="An example image" src="../assets/installtmuxstatusonhost.png" />
+</a>
+
+<a href="#" class="lightbox" id="11">
+ <img alt="An example image" src="../assets/installtmuxstatusonhost.png" />
+</a>
 
 When the installation has completed, click on the terminal of `rhel1` or `rhel2` and run `tmux`.
 
@@ -96,4 +162,34 @@ tmux
 
 tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. [tmux documentation is available here](https://github.com/tmux/tmux/wiki).
 
-![tmux](../assets/2022-08-10_09-02-46.gif)
+<a href="#12">
+ <img alt="An example image" src="../assets/2022-08-10_09-02-46.gif" />
+</a>
+
+<a href="#" class="lightbox" id="12">
+ <img alt="An example image" src="../assets/2022-08-10_09-02-46.gif" />
+</a>
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox img {
+  max-height: 100%;
+}
+</style>

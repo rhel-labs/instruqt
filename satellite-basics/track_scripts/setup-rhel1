@@ -1,19 +1,10 @@
 #!/bin/bash
-while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
-do
-    echo "Waiting for Instruqt to finish booting the VM"
+set -euxo pipefail
+
+until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]; do
+    echo "Waiting for instruqt bootstrap to complete"
     sleep 1
 done
-
-# This has to be run after installation. 
-# source /etc/profile.d/bash_completion.sh
-# dnf install -y osbuild-composer composer-cli cockpit-composer
-# systemctl enable --now httpd
-systemctl enable --now cockpit.socket
-# systemctl enable --now osbuild-composer.socket
-
-firewall-cmd --add-service=cockpit --permanent
-firewall-cmd --reload
 
 subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
@@ -38,5 +29,6 @@ chmod +x /root/set_satellite_hostname.sh
 
 echo -e "\n/root/set_satellite_hostname.sh" >> /root/.bashrc
 
-mv /etc/yum.repos.d/google-cloud.repo /root
 timedatectl set-timezone America/New_York
+
+dnf remove -y tmux
