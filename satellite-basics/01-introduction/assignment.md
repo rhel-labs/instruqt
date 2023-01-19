@@ -32,12 +32,16 @@ timelimit: 3420
 <!-- markdownlint-disable MD033 -->
 The lab environment consists of the following
 
-- 1 Red Hat Satellite 6.11 Server (Satellite is preinstalled)
+- 1 Red Hat Satellite 6.12.1 Server (Satellite is preinstalled)
 - 2 Red Hat Enterprise Linux 9 hosts.
 
-![lab environment](../assets/satellite-basics-environment.png)
+<a href="#1">
+ <img alt="An example image" src="../assets/satellite-basics-environment.png" />
+</a>
 
->_NOTE:_ To make the inline images larger, expand this window. ![Menu Slider](../assets/slider.png)
+<a href="#" class="lightbox" id="1">
+ <img alt="An example image" src="../assets/satellite-basics-environment.png" />
+</a>
 
 ## <ins>Log into the Web UI</ins>
 
@@ -45,24 +49,42 @@ First, we'll log into the Red Hat Satellite Web User Interface (UI). Satellite h
 
 Click on the tab labelled Satellite Web UI as shown in the image below.
 
-![web console](../assets/satellite-tab.png)
+<a href="#2">
+ <img alt="An example image" src="../assets/satellite-tab.png" />
+</a>
+
+<a href="#" class="lightbox" id="2">
+ <img alt="An example image" src="../assets/satellite-tab.png" />
+</a>
 
 A new tab will open in your web browser stating the connection is insecure. This lab has been authored and tested with Google Chrome so please try that it if doesn't load properly.
 
 Ignore the security message about insecure connections by clicking on `Advanced`.
 
-![insecure](../assets/insecure-warning.png)
+<a href="#3">
+ <img alt="An example image" src="../assets/insecure-warning.png" />
+</a>
+
+<a href="#" class="lightbox" id="3">
+ <img alt="An example image" src="../assets/insecure-warning.png" />
+</a>
 
 Next click on `Proceed`.
 
-![proceed](../assets/proceed.png)
+<a href="#4">
+ <img alt="An example image" src="../assets/proceed.png" />
+</a>
+
+<a href="#" class="lightbox" id="4">
+ <img alt="An example image" src="../assets/proceed.png" />
+</a>
 
 You'll need the following credentials to log into the Satellite Web UI.
 
 You can copy and paste each of them below.
 
 ```bash
-satadmin
+admin
 ```
 
 ```bash
@@ -71,17 +93,35 @@ bc31c9a6-9ff0-11ec-9587-00155d1b0702
 
 Now click `Log In`.
 
-![login](../assets/webuilogin.png)
+<a href="#5">
+ <img alt="An example image" src="../assets/webuilogin.png" />
+</a>
+
+<a href="#" class="lightbox" id="5">
+ <img alt="An example image" src="../assets/webuilogin.png" />
+</a>
 
 You will be taken to the main dashboard.
 
-![dashboard](../assets/main-menu.png)
+<a href="#6">
+ <img alt="An example image" src="../assets/main-menu.png" />
+</a>
+
+<a href="#" class="lightbox" id="6">
+ <img alt="An example image" src="../assets/main-menu.png" />
+</a>
 
 ## <ins>Access the RHEL Hosts</ins>
 
 At the top of the screen, you'll find tabs for the hosts `rhel1` and `rhel2`. Terminal and Web Console access are provided.
 
-![hosts-tabs](../assets/hosts-tabs.png)
+<a href="#7">
+ <img alt="An example image" src="../assets/hosts-tabs.png" />
+</a>
+
+<a href="#" class="lightbox" id="7">
+ <img alt="An example image" src="../assets/hosts-tabs.png" />
+</a>
 
 The credentials for these hosts are the following:
 
@@ -96,3 +136,27 @@ Password:
 ```bash
 redhat
 ```
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox img {
+  max-height: 100%;
+}
+</style>

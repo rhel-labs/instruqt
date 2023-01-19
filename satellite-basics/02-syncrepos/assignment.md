@@ -34,7 +34,13 @@ timelimit: 1
 
 Navigate to the Red Hat Repositories menu by clicking on `Red Hat Repositories` in the menu context below.
 
-![rhrepos](../assets/redhatrepositories.png)
+<a href="#1">
+ <img alt="An example image" src="../assets/redhatrepositories.png" />
+</a>
+
+<a href="#" class="lightbox" id="1">
+ <img alt="An example image" src="../assets/redhatrepositories.png" />
+</a>
 
 The Red Hat Repositories menu will provide a list of available repositories. You can choose to synchronize whatever you want. In this lab we'll synchronize the `BaseOS` and `AppStream` repos for RHEL 9.
 
@@ -51,22 +57,76 @@ Content in the AppStream repository includes additional user-space applications,
 
 Click on the `Recommended Repositories` button to create a more succinct view of available repos.
 
-![baseosappstreamrepos](../assets/2022-08-11_09-02-27.gif)
+<a href="#2">
+ <img alt="An example image" src="../assets/2022-08-11_09-02-27.gif" />
+</a>
+
+<a href="#" class="lightbox" id="2">
+ <img alt="An example image" src="../assets/2022-08-11_09-02-27.gif" />
+</a>
 
 Next, we'll navigate to the `Products` menu.
 
-![products](../assets/products.png)
+<a href="#3">
+ <img alt="An example image" src="../assets/products.png" />
+</a>
+
+<a href="#" class="lightbox" id="3">
+ <img alt="An example image" src="../assets/products.png" />
+</a>
 
 Select the required product (in this case `Red Hat Enterprise Linux for x86_64`) and click `Sync Selected`.
 
-![sync](../assets/synchronize.png)
+<a href="#4">
+ <img alt="An example image" src="../assets/synchronize.png" />
+</a>
+
+<a href="#" class="lightbox" id="4">
+ <img alt="An example image" src="../assets/synchronize.png" />
+</a>
 
 To view the status of the sync operation, click on `Sync Status`.
 
-![syncstatus](../assets/syncstatus.png)
+<a href="#5">
+ <img alt="An example image" src="../assets/syncstatus.png" />
+</a>
+
+<a href="#" class="lightbox" id="5">
+ <img alt="An example image" src="../assets/syncstatus.png" />
+</a>
 
 Expand the menu widgets to see a detailed report on the sync status.
 
-![syncstatusdetailed](../assets/syncstatusdetailed.png)
+<a href="#6">
+ <img alt="An example image" src="../assets/syncstatusdetailed.png" />
+</a>
+
+<a href="#" class="lightbox" id="6">
+ <img alt="An example image" src="../assets/syncstatusdetailed.png" />
+</a>
 
 >_NOTE:_ The BaseOS and AppStream repos take approximately 5 minutes to synchronize.
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox img {
+  max-height: 100%;
+}
+</style>

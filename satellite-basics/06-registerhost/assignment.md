@@ -35,7 +35,13 @@ Now we'll register the hosts `rhel1` and `rhel2` to our Satellite server. We'll 
 
 Click on the `Satellite Server` tab.
 
-![satellite tab](../assets/satellite-tab.png)
+<a href="#1">
+ <img alt="An example image" src="../assets/satellite-tab.png" />
+</a>
+
+<a href="#" class="lightbox" id="1">
+ <img alt="An example image" src="../assets/satellite-tab.png" />
+</a>
 
 Copy and paste the following command into the terminal.
 
@@ -45,27 +51,63 @@ hammer host-registration generate-command --activation-key RHEL9 --force 1 --ins
 
 Copy the output by highlighting the selected text. Once the primary click mouse, button is released, the text will be automatically saved to the clipboard.
 
-![copypaste](../assets/copypaste.gif)
+<a href="#2">
+ <img alt="An example image" src="../assets/copypaste.gif" />
+</a>
+
+<a href="#" class="lightbox" id="2">
+ <img alt="An example image" src="../assets/copypaste.gif" />
+</a>
 
 Now click on the `rhel1` tab.
 
-![rhel1 tab](../assets/rhel1.png)
+<a href="#3">
+ <img alt="An example image" src="../assets/rhel1.png" />
+</a>
+
+<a href="#" class="lightbox" id="3">
+ <img alt="An example image" src="../assets/rhel1.png" />
+</a>
 
 Right click and select paste to paste the command into the terminal. Finally type enter to execute the registration command.
 
-![rhel1 regging](../assets/registrationrhel1.gif)
+<a href="#4">
+ <img alt="An example image" src="../assets/registrationrhel1.gif" />
+</a>
+
+<a href="#" class="lightbox" id="4">
+ <img alt="An example image" src="../assets/registrationrhel1.gif" />
+</a>
 
 When your host is registered, the output will resemble something similar below.
 
-![registered](../assets/registrationofhost.png)
+<a href="#5">
+ <img alt="An example image" src="../assets/registrationofhost.png" />
+</a>
+
+<a href="#" class="lightbox" id="5">
+ <img alt="An example image" src="../assets/registrationofhost.png" />
+</a>
 
 Register `rhel2` with the Satellite server by pasting the registration command into the CLI of `rhel2`.
 
 In the Satellite Web UI, navigate to `All Hosts` to view the newly registered host.
 
-![registeredhost](../assets/registeredhost.png)
+<a href="#6">
+ <img alt="An example image" src="../assets/registeredhost.png" />
+</a>
 
-![webuiregistered](../assets/webuiregistered.png)
+<a href="#" class="lightbox" id="6">
+ <img alt="An example image" src="../assets/registeredhost.png" />
+</a>
+
+<a href="#7">
+ <img alt="An example image" src="../assets/webuiregistered.png" />
+</a>
+
+<a href="#" class="lightbox" id="7">
+ <img alt="An example image" src="../assets/webuiregistered.png" />
+</a>
 
 You can check that your host repos are configured for the Satellite server `satellite.lab` by entering the following:
 
@@ -73,4 +115,34 @@ You can check that your host repos are configured for the Satellite server `sate
 cat /etc/yum.repos.d/redhat.repo
 ```
 
-![repolist](../assets/repolist.png)
+<a href="#8">
+ <img alt="An example image" src="../assets/repolist.png" />
+</a>
+
+<a href="#" class="lightbox" id="8">
+ <img alt="An example image" src="../assets/repolist.png" />
+</a>
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox img {
+  max-height: 100%;
+}
+</style>

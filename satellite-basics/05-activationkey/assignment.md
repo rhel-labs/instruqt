@@ -37,14 +37,56 @@ You can use activation keys during content host registration to improve the spee
 
 To create an activation key, navigate to the `Activation Keys` menu.
 
-![akmenu](../assets/akmenu.png)
+<a href="#1">
+ <img alt="An example image" src="../assets/akmenu.png" />
+</a>
+
+<a href="#" class="lightbox" id="1">
+ <img alt="An example image" src="../assets/akmenu.png" />
+</a>
 
 Click on `Create Activation Key`.
 
-![createak](../assets/createak.png)
+<a href="#2">
+ <img alt="An example image" src="../assets/createak.png" />
+</a>
 
-We'll name this activation key `RHEL9`, select the `Test` environment, select the `RHEL9` content view and then click `save`.
+<a href="#" class="lightbox" id="2">
+ <img alt="An example image" src="../assets/createak.png" />
+</a>
+
+We'll name this activation key (1) `RHEL9`, select the (2) `Test` environment, select the (3) `RHEL9` content view and then click (4) `save`.
 
 > __NOTE__: The name of the activation key will be used in the next step of this lab to add hosts. The names must match or the hosts will not be registered.
 
-![akcreation](../assets/akcreation.png)
+<a href="#3">
+ <img alt="An example image" src="../assets/akcreation.png" />
+</a>
+
+<a href="#" class="lightbox" id="3">
+ <img alt="An example image" src="../assets/akcreation.png" />
+</a>
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox img {
+  max-height: 100%;
+}
+</style>

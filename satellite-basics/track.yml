@@ -25,7 +25,7 @@ tags: []
 owner: rhel
 developers:
 - myee@redhat.com
-private: false
-published: true
 show_timer: true
-checksum: "4211016059664977776"
+checksum: "10387302941462106823"
+idle_timeout: 1800
+timelimit: 7200
