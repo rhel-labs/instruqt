@@ -14,9 +14,7 @@ description: |+
 
   # Example Usecase:
 
-  A web application being deployed on Red Hat Enterprise Linux 8 requires postgresql database version 9.6.  Later, the application is updated and requires postgresql version 10 be available on the machine.
-
-  **Please Note:** The instructions to move the database stored data from postgresql 9.6 to 10 are not included in this scenario, but would likely be needed if an administrator or developer was moving a production system from using postgresql 9.6 to postgresql 10.  Additional administrative activities may be required when performing a move from one version of software to another, including, but not limited to: scheduling a maintenance for the system, notifying users/stakeholders, backing up data, testing post-change, etc.
+  A web application being deployed on Red Hat Enterprise Linux 9 requires ruby version 3.0.  Later, the application is updated and requires ruby version 3.1 be available on the machine.
 
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: beginner
@@ -25,7 +23,6 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
-private: false
-published: true
+- smcbrien@redhat.com
 show_timer: true
-checksum: "17015919154463649037"
+checksum: "8117986528166368395"
