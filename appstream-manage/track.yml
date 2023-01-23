@@ -1,21 +1,8 @@
 slug: appstream-manage
 id: o0qmghgcbtri
 title: Managing software from an application stream
-description: |+
-  # Goal:
-
-  After completing this scenario, users will be able to choose which version of a software package is enabled on a system from an application stream.
-
-  # Concepts included in this scenario:
-  * Verify the availability of an application stream
-  * Install software managed as an application stream
-  * Change to a different version of software from an application stream
-  * List all available software managed as application streams
-
-  # Example Usecase:
-
-  A web application being deployed on Red Hat Enterprise Linux 9 requires ruby version 3.0.  Later, the application is updated and requires ruby version 3.1 be available on the machine.
-
+description: Learn how to choose versions of popular and supported open source languages
+  and offer them to users through an application stream.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: beginner
 tags:
@@ -25,4 +12,4 @@ developers:
 - myee@redhat.com
 - smcbrien@redhat.com
 show_timer: true
-checksum: "8117986528166368395"
+checksum: "6694734578002727816"
