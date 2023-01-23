@@ -25,7 +25,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 3420
+timelimit: 3100
 ---
 Determine the available version of ruby available in the base RHEL 9 distribution.
 
