@@ -10,41 +10,21 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-When postgresql version 9.6 was installed the enabled flag, [e], moved to apply
-to that version of the application stream.  The other versions of postgresql
-available as application streams are not active on this machine while version
-9.6 is enabled.  This is to ensure administrators do not
-accidentally remove or install other versions of the software unintentionally.
+Now you can install ruby version 3.1 on the system.  However, it is also important to note that Application Streams often have a different lifecycle than other packages provided with Red Hat Enterprise Linux.  According to the RHEL 9 Aplications Streams Release Lifecycle section of the [Application Streams Lifecycle Page](https://access.redhat.com/support/policy/updates/rhel-app-streams-life-cycle), ruby 3.1 will be retired in March 2025. 
 
-However, you want to move to postgresql version 10.  First, you will disable
-the postgresql application streams.
+However, for our application, that is fine because we expect continued development and will likely be upgrading to an even newer version of ruby at some point during our application life.  Go ahead and install ruby 3.1 on the system:
 
 ```bash
-yum -y module disable postgresql
+dnf -y module install ruby:3.1
 ```
 
-Now that no application streams for postgresql are available, you will enable the version you want to install on the machine.
+You can verify that ruby 3.1 is now available on the system by checking the version reported by ruby:
 
 ```bash
-yum -y module enable postgresql:10
-```
-
-You should now be able to review the list of postgresql application streams and see that the desired version, 10, is now enabled, making it available to be installed on the machine.
-
-```bash
-yum module list postgresql
+ruby --version
 ```
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
-
-Red Hat Enterprise Linux 8 for x86_64-AppStream (RPMs)
-
-Name                 Stream         Profiles
-postgresql           9.6            client, server [d]
-postgresql           10 [d][e]      client, server [d]
-postgresql           12             client, server [d]
-postgresql           13             client, server [d]
-
-Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
+ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x86_64-linux]
 </pre>

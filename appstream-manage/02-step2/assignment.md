@@ -10,39 +10,31 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-To support the web application deployed on this machine, install postgresql version 9.6.
+To support the web application deployed on this machine, install ruby version 3.0. 
 
 ```bash
-yum -y module install postgresql:9.6
+dnf -y install ruby
 ```
 
-After the installation is complete, verify that postgresql version 9.6 is installed on the system.
+After the installation is complete, verify that ruby version 3.0 is installed on the system.
 
 ```bash
-yum module list postgresql
+dnf list ruby
 ```
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
-
-Red Hat Enterprise Linux 8 for x86_64-AppStream (RPMs)
-Name             Stream         Profiles
-postgresql       9.6 [e]        client, server [d] [i]
-postgresql       10 [d]         client, server [d]
-postgresql       12             client, server [d]
-postgresql       13             client, server [d]
-
-Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
+Installed Packages
+ruby.x86_64                     3.0.4-160.el9_0                      @rhel-9-for-x86_64-appstream-rpms
 </pre>
 
-Notice that version 9.6 is now marked as [e]nabled under the Stream column and is flagged as [i]nstalled in the Profiles column of the listing for postgresql.
 
-Finally, run the postgres command to inspect the version it reports.
+Finally, run the ruby command to inspect the version it reports.
 
 ```bash
-postgres --version
+ruby --version
 ```
 
 <pre class=file>
-postgres (PostgreSQL) 9.6.22
+ruby 3.0.4p208 (2022-04-12 revision 3fa771dded) [x86_64-linux]
 </pre>

@@ -18,9 +18,7 @@ notes:
 
     # Example Usecase:
 
-    A web application being deployed on Red Hat Enterprise Linux 8 requires postgresql database version 9.6.  Later, the application is updated and requires postgresql version 10 be available on the machine.
-
-    **Please Note:** The instructions to move the database stored data from postgresql 9.6 to 10 are not included in this scenario, but would likely be needed if an administrator or developer was moving a production system from using postgresql 9.6 to postgresql 10.  Additional administrative activities may be required when performing a move from one version of software to another, including, but not limited to: scheduling a maintenance for the system, notifying users/stakeholders, backing up data, testing post-change, etc.
+    A web application being deployed on Red Hat Enterprise Linux 9 requires ruby version 3.0.  Later, the application is updated and requires ruby version 3.1 be available on the machine.
 
 tabs:
 - title: Terminal
@@ -29,25 +27,17 @@ tabs:
 difficulty: basic
 timelimit: 3420
 ---
-Determine the available versions of postgresql.
+Determine the available version of ruby available in the base RHEL 9 distribution.
 
 ```bash
-yum module list postgresql
+dnf list ruby
 ```
 
 <pre class=file>
 << OUTPUT ABRIDGED >>
-
-Red Hat Enterprise Linux 8 for x86_64-AppStream (RPMs)
-Name                 Stream         Profiles
-postgresql           9.6            client, server [d]
-postgresql           10 [d]         client, server [d]
-postgresql           12             client, server [d]
-postgresql           13             client, server [d]
-
-Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
+Available Packages
+ruby.x86_64                      3.0.4-160.el9_0                      rhel-9-for-x86_64-appstream-rpms
 </pre>
 
-There are four versions of postgresql available as modules in the Application Stream, version 9.6, version 10, version 12, and version 13.
+Generally, the version of software provided with the base RHEL 9 distribution is the one that will be longer term supported for RHEL 9. For ruby, version 3.0 will be supported until the end of maintenance in 2032.
 
-postgresql version 10 is set as the default, meaning if someone installed postgresql with no specific options or arguments, version 10 would be the one installed.

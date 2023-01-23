@@ -10,37 +10,27 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-Now that the Postgres version 10 stream is enabled, install it on the system.
+Now that the ruby 3.1 is installed, you can also look at how the modular package management is reported by `dnf`.
 
 ```bash
-yum -y module install postgresql:10
-```
-
-The Postgres 10 stream should now be listed as [i]nstalled.
-
-```bash
-yum module list postgresql
+dnf module list ruby
 ```
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
-
-Red Hat Enterprise Linux 8 for x86_64-AppStream (RPMs)
-Name              Stream        Profiles
-postgresql        9.6           client, server [d]
-postgresql        10 [d][e]     client, server [d] [i]
-postgresql        12            client, server [d]
-postgresql        13            client, server [d]
+Red Hat Enterprise Linux 9 for x86_64 - AppStream (RPMs)
+Name       Stream        Profiles            Summary                                                  
+ruby       3.1 [e]       common [d] [i]      An interpreter of object-oriented scripting language     
 
 Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 </pre>
 
-Finally, check the version reported by the postgres command.
+From the above output, you can see that ruby 3.1 is the enabled `[e]` module and that it is installed `[i]` on the system.
+
+As Red Hat releases updated application streams, you will use a similar process of removing the installed application stream and installing a newer one.
+
+To see the full list of available modular packaged application streams an their versions available for your system:
 
 ```bash
-postgres --version
+dnf module list
 ```
-
-<pre class="file">
-postgres (PostgreSQL) 10.17
-</pre>
