@@ -29,5 +29,5 @@ developers:
 - myee@redhat.com
 show_timer: true
 checksum: "11841323001615191980"
-idle_timeout: 1800
+idle_timeout: 2700
 timelimit: 7200
