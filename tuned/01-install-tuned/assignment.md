@@ -7,7 +7,7 @@ teaser: Install and enable TuneD.
 notes:
 - type: text
   contents: |-
-    You have been tasked as a systems administrator to deploy a new RHEL 8 server and tune it for running Microsoft SQL Server.
+    You have been tasked as a systems administrator to deploy a new RHEL 9 server and tune it for running Microsoft SQL Server.
     In this lab you will get some hands-on experience setting up TuneD to assist you with the tuning portion of this task and you will create a custom TuneD profile to optimize it for your use case.
 tabs:
 - title: Shell
@@ -21,7 +21,7 @@ TuneD is a service that monitors your system and optimizes the performance under
 
 TuneD is distributed with a number of predefined profiles, which we will review a little later in this exercise
 
-Let's make sure we have the `tuned` package installed. 
+Let's make sure we have the `tuned` package installed.
 
 Copy and paste the command below into __> Shell__.
 
