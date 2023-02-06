@@ -15,41 +15,16 @@ difficulty: basic
 timelimit: 1
 ---
 
-The first thing we want to do is start TuneD
+As we mentioned in the beginning, TuneD is distributed with a number of predefined profiles
+
+During the installation, a profile for your system is automatically selected based on the system information.  For example, it may detect
+that you are a virtual-guest and it will select that profile for you.  However, you may decide that you would rather run something else that has
+a specific performance or power profile instead.
+
+Lets take a look at what profiles are available so we can determine what is available by default:
 
 ```bash
-systemctl start tuned
-```
-Now that we have started TuneD, let's make sure that it is running without issues
-
-```bash
-systemctl status tuned
-```
-
-<pre>
-● tuned.service - Dynamic System Tuning Daemon
-     Loaded: loaded (/usr/lib/systemd/system/tuned.service; enabled; vendor preset: enabled)
-     Active: active (running) since Mon 2022-11-21 19:34:13 UTC; 3min 7s ago
-       Docs: man:tuned(8)
-             man:tuned.conf(5)
-             man:tuned-adm(8)
-   Main PID: 2087 (tuned)
-      Tasks: 4 (limit: 21954)
-     Memory: 13.4M
-        CPU: 330ms
-     CGroup: /system.slice/tuned.service
-             └─2087 /usr/bin/python3 -Es /usr/sbin/tuned -l -P
-
-Nov 21 19:34:13 rhel systemd[1]: Starting Dynamic System Tuning Daemon...
-Nov 21 19:34:13 rhel systemd[1]: Started Dynamic System Tuning Daemon.
-</pre>
-
-We can see that the status is active (running) and that the service is enabled
-
-Lets take a look at what profiles are available
-
-```bash
-tuned-adm list
+tuned-adm list profiles
 ```
 
 <pre>
@@ -63,7 +38,6 @@ Available profiles:
 - hpc-compute                 - Optimize for HPC compute workloads
 - intel-sst                   - Configure for Intel Speed Select Base Frequency
 - latency-performance         - Optimize for deterministic performance at the cost of increased power consumption
-- mssql                       - Optimize for Microsoft SQL Server
 - network-latency             - Optimize for deterministic performance at the cost of increased power consumption, focused on low latency network performance
 - network-throughput          - Optimize for streaming network throughput, generally only necessary on older CPUs or 40G+ networks
 - optimize-serial-console     - Optimize for serial console use.
@@ -77,9 +51,9 @@ Current active profile: virtual-guest
 
 </pre>
 
-It looks like our active profile is `virtual-guest`
+It looks like our active profile is `virtual-guest` as stated on the last line, and there are a handful of profiles available to enable as well which are listed under the Available profiles
 
-The default profiles are kept in /usr/lib/tuned, so lets go ahead and see what the virtual-guest profile includes
+The default profiles are kept in /usr/lib/tuned, so lets go ahead and see what the virtual-guest profile includes:
 
 
 ```bash
@@ -104,7 +78,7 @@ vm.swappiness = 30
 
 </pre>
 
-You will notice that there is a line that says 'include' which tells TuneD to bring in all the tunings from the throughput-performance profile and then later updates two values `vm.dirty_ratio` and `vm.swappiness`
+One of the great things about TuneD profiles is the ability to inherit the tunings from another profile. Notice on the output that there is a line that starts with `include`.  This means you will bring in all the settings for the throughput-performance profile and then update two values `vm.dirty_ratio` and `vm.swappiness` which are defined under the [sysctl] heading
 
 
 Let's take a look at what is in the `throughput-performance` profile
@@ -120,4 +94,4 @@ The benefit of using include in our profiles is that we can inherit all these se
 
 The child profile settings will take precedence over the duplicate tunings in the parent profile
 
-It is important to understand this concept since we will leverage this in the next step which is creating our own custom TuneD profile
+Lets move forward with the next step and create our own TuneD profile and customize it for our use case

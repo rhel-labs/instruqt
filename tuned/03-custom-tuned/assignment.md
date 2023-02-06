@@ -15,23 +15,87 @@ difficulty: basic
 timelimit: 1
 ---
 
-Before we start, let's take a look at the `mssql` tuned profile we installed earlier
+Before we start, let's take a look at what tuned profiles are available to install in case there is a better option for our Microsoft SQL Server:
+
+```bash
+dnf list tuned-profiles*
+```
+
+<pre>
+
+root@rhel:~# dnf list tuned-profiles*
+Updating Subscription Management repositories.
+Last metadata expiration check: 0:22:07 ago on Mon 06 Feb 2023 08:35:50 PM UTC.
+Available Packages
+tuned-profiles-atomic.noarch                                                          2.19.0-1.el9                                                 rhel-9-for-x86_64-appstream-rpms
+tuned-profiles-cpu-partitioning.noarch                                                2.19.0-1.el9                                                 rhel-9-for-x86_64-baseos-rpms
+tuned-profiles-mssql.noarch                                                           2.19.0-1.el9                                                 rhel-9-for-x86_64-appstream-rpms
+tuned-profiles-oracle.noarch                                                          2.19.0-1.el9                                                 rhel-9-for-x86_64-appstream-rpms
+tuned-profiles-postgresql.noarch                                                      2.19.0-1.el9                                                 rhel-9-for-x86_64-appstream-rpms
+tuned-profiles-spectrumscale.noarch                                                   2.19.0-1.el9                                                 rhel-9-for-x86_64-appstream-rpms
+root@rhel:~#
+
+</pre>
+
+Great news!  It looks like there is a tuned-profile specifically for mssql.  Lets go ahead and install that one
+
+```bash
+dnf install tuned-profiles-mssql -y
+```
+
+Lets take a look at the contents of our new tuned profile:
 
 ```bash
 cat /usr/lib/tuned/mssql/tuned.conf
 ```
 
-You will notice here that we are including the throughput-performance profile like the virtual-guest profile did, but we have a lot more tunables which are specific to Microsoft SQL Server
+<pre>
+
+#
+# tuned configuration
+#
+
+[main]
+summary=Optimize for Microsoft SQL Server
+include=throughput-performance
+
+[cpu]
+force_latency=5
+
+[vm]
+# For multi-instance SQL deployments use 'madvise' instead of 'always'
+transparent_hugepages=always
+
+[sysctl]
+vm.swappiness=1
+vm.dirty_background_ratio=3
+vm.dirty_ratio=80
+vm.dirty_expire_centisecs=500
+vm.dirty_writeback_centisecs=100
+vm.max_map_count=1600000
+net.core.rmem_default=262144
+net.core.rmem_max=4194304
+net.core.wmem_default=262144
+net.core.wmem_max=1048576
+kernel.numa_balancing=0
+
+[scheduler]
+sched_latency_ns=60000000
+sched_migration_cost_ns=500000
+sched_min_granularity_ns=15000000
+sched_wakeup_granularity_ns=2000000
+
+</pre>
+
+You will that the mssql profile is including the throughput-performance profile like the virtual-guest profile did, but we have a lot more tunables which are specific to Microsoft SQL Server
 
 You will also notice that under the [vm] heading there is a comment that if you are running a multi-instance SQL deployment, you want to use `madvise` instead of `always` for the transparent_hugepages setting
 
-Let’s do that via a custom TuneD profile
+Lets do that via a custom TuneD profile
 
-Since we know that the mssql profile has all the settings we need and we just want to override one variable, we can create a new TuneD profile, include the mssql profile and then override the transparent_hugepages to madvise
+Since we know that the mssql profile has all the settings we need and we just want to override one variable, we can create a custom TuneD profile, include the mssql profile and then override the transparent_hugepages to `madvise`
 
-First lets create the directory for the new TuneD profile
-
-
+First we will create the directory for the new TuneD profile
 
 ```bash
 mkdir /etc/tuned/mssql-multi
