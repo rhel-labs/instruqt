@@ -61,9 +61,7 @@ cat /usr/lib/tuned/virtual-guest/tuned.conf | grep -v \^#
 ```
 
 <pre>
-
 <<< OUTPUT ABRIDGED >>>
-
 
 [main]
 summary=Optimize for running inside a virtual guest
@@ -71,17 +69,15 @@ include=throughput-performance
 
 [sysctl]
 vm.dirty_ratio = 30
-
 vm.swappiness = 30
 
 <<< OUTPUT ABRIDGED >>>
-
 </pre>
 
-One of the great things about TuneD profiles is the ability to inherit the tunings from another profile. Notice on the output that there is a line that starts with `include`.  This means you will bring in all the settings for the throughput-performance profile and then update two values `vm.dirty_ratio` and `vm.swappiness` which are defined under the [sysctl] heading
+One of the great things about TuneD profiles are the ability to inherit tunings from another profile. You will notice that on the output there is a line that starts with `include`.  This means you will bring in all the settings for the throughput-performance profile in this virtual-guest profile and then update two values `vm.dirty_ratio` and `vm.swappiness` which are defined under the [sysctl] heading
 
 
-Let's take a look at what is in the `throughput-performance` profile
+Lets take a look at what is in the `throughput-performance` profile
 
 
 ```bash
