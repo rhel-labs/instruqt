@@ -2,11 +2,11 @@
 slug: review-tuned
 id: 2wwtr8pa7fkz
 type: challenge
-title: Start TuneD and review TuneD profiles
-teaser: Start TuneD and review TuneD profiles
+title: Review TuneD profiles
+teaser: Review TuneD profiles
 notes:
 - type: text
-  contents: 'Step 2: Start TuneD and review profiles'
+  contents: 'Step 2: Review TuneD profiles'
 tabs:
 - title: Shell
   type: terminal
@@ -15,13 +15,15 @@ difficulty: basic
 timelimit: 1
 ---
 
-As we mentioned in the beginning, TuneD is distributed with a number of predefined profiles
+As we mentioned in the beginning, TuneD is distributed with a number of predefined profiles.
+
+ A profile is a set of rules that defines certain system parameters such as disk settings, kernel parameters, network optimization settings, and many other aspects of the system.
 
 During the installation, a profile for your system is automatically selected based on the system information.  For example, it may detect
 that you are a virtual-guest and it will select that profile for you.  However, you may decide that you would rather run something else that has
 a specific performance or power profile instead.
 
-Lets take a look at what profiles are available so we can determine what is available by default:
+Let's take a look at what profiles are included by default:
 
 ```bash
 tuned-adm list profiles
@@ -51,9 +53,9 @@ Current active profile: virtual-guest
 
 </pre>
 
-It looks like our active profile is `virtual-guest` as stated on the last line, and there are a handful of profiles available to enable as well which are listed under the Available profiles
+It looks like our active profile is `virtual-guest` as stated on the last line, and there are a handful of profiles available which are listed under `Available profiles`
 
-The default profiles are kept in /usr/lib/tuned, so lets go ahead and see what the virtual-guest profile includes:
+The default profiles are stored in a directory under `/usr/lib/tuned/$profilename`, so lets go ahead and see what the virtual-guest profile includes:
 
 
 ```bash

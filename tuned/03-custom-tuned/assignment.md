@@ -104,6 +104,8 @@ mkdir /etc/tuned/mssql-multi
 Next we will create a tuned.conf that includes the mssql profile and overrides transparent_hugepages to `madvise`
 
 
+Copy and paste the command below into __> Shell__.
+
 ```bash
 cat << EOF > /etc/tuned/mssql-multi/tuned.conf
 [main]

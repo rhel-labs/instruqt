@@ -29,7 +29,7 @@ Copy and paste the command below into __> Shell__.
 dnf list tuned
 ```
 
-Here's what the result should look similar to:
+The output should look similar to this:
 
 <pre>
 
@@ -42,7 +42,7 @@ root@rhel:~#
 
 </pre>
 
-We can see that `tuned` is listed under Installed Packages.  Let's make sure it is enabled:
+We can see `tuned` is listed under Installed Packages.  We should also make sure it is running and enabled:
 
 Copy and paste the command below into __> Shell__.
 
@@ -76,4 +76,4 @@ root@rhel:~#
 
 From the output above we can determine that it is active (running) and that it is enabled so it will start at boot-up time
 
-Lets move on to the next step
+Let's move on to the next step
