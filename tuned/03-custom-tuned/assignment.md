@@ -15,7 +15,7 @@ difficulty: basic
 timelimit: 1
 ---
 
-Before we start, let's take a look at what tuned profiles are available to install in case there is a better option for our Microsoft SQL Server:
+Before we start, let's take a look at what tuned profiles are available to install in case there is a better option for Microsoft SQL Server:
 
 ```bash
 dnf list tuned-profiles*
@@ -37,7 +37,7 @@ root@rhel:~#
 
 </pre>
 
-Great news!  It looks like there is a tuned-profile specifically for mssql.  Lets go ahead and install that one
+Great news!  It looks like there is a tuned-profile specifically for mssql.  Lets go ahead and install it and see what it includes
 
 ```bash
 dnf install tuned-profiles-mssql -y
@@ -87,13 +87,11 @@ sched_wakeup_granularity_ns=2000000
 
 </pre>
 
-You will that the mssql profile is including the throughput-performance profile like the virtual-guest profile did, but we have a lot more tunables which are specific to Microsoft SQL Server
+You will notice that the mssql profile is using `include` to bring in the settings from the throughput-performance profile and then updating tunables which are specific to Microsoft SQL Server
 
-You will also notice that under the [vm] heading there is a comment that if you are running a multi-instance SQL deployment, you want to use `madvise` instead of `always` for the transparent_hugepages setting
+You will also notice that under the [vm] heading there is a comment which states that if you are running a multi-instance SQL deployment, you want to use `madvise` instead of `always` for the transparent_hugepages setting
 
-Lets do that via a custom TuneD profile
-
-Since we know that the mssql profile has all the settings we need and we just want to override one variable, we can create a custom TuneD profile, include the mssql profile and then override the transparent_hugepages to `madvise`
+Since the DBA informed us we will be doing that, let's go ahead and update that parameter via a custom tuned profile
 
 First we will create the directory for the new TuneD profile
 
@@ -118,11 +116,26 @@ transparent_hugepages=madvise
 EOF
 ```
 
-Let's take a look at our new tuned.conf
+Let's review our new tuned.conf to ensure it looks correct
 
 
 ```bash
 cat /etc/tuned/mssql-multi/tuned.conf
 ```
+
+<pre>
+root@rhel:~# cat /etc/tuned/mssql-multi/tuned.conf
+[main]
+summary=MSSQL profile for multi-instance
+include=mssql
+
+[vm]
+transparent_hugepages=madvise
+
+root@rhel:~#
+</pre>
+
+
+Everything looks good!
 
 In our next lesson, we are going to activate the new profile and validate our settings
