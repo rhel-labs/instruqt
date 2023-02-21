@@ -16,14 +16,18 @@ notes:
     # Example Usecase:
     In order to standardize your infrasturcture under a single platform, you need to convert your RPM-based servers over to Red Hat Enterprise Linux.
 tabs:
-- title: Terminal
+- title: centos
   type: terminal
-  hostname: host
+  hostname: rhel
+  cmd: tmux attach-session -t "centos"
+- title: rhel Web Console
+  type: external
+  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 3000
 ---
 
-# What is Convert2RHEL
+## What is Convert2RHEL
 
 Convert2RHEL is a command line utility that allows for self-service migration between RHEL-like distributions to officially supported Red Hat Enterprise Linux instances.
 
@@ -31,13 +35,17 @@ The convert2rhel tool handles subscribing the target system to your Red Hat cust
 
 Convert2RHEL is also a supported operation which means if you run into issues with the conversion process, you can open a ticket with Red Hat Support.
 
-# Enabling the Convert2RHEL repository
+## Enabling the Convert2RHEL repository
 
 The Convert2RHEL RPM is an offical Red Hat package. Therefore it is readily availble from the Red Hat software repository (CDN). As your CentOS server is not subscribed to the Red Hat CDN, you will need to enable the Convert2RHEL repository.
 
-First, you will pull down the GPG signing key:
+First, you will pull down the GPG signing key. Click on the `centos` tab.
 
-```
+![centos tab](../assets/centos-tab.png)
+
+Run the following command:
+
+```bash
 curl -o /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release https://www.redhat.com/security/data/fd431d51.txt
 ```
 
@@ -50,7 +58,7 @@ curl -o /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release https://www.redhat.com/secur
 
 Second, download the SSL certificate:
 
-```
+```bash
 curl --create-dirs -o /etc/rhsm/ca/redhat-uep.pem https://ftp.redhat.com/redhat/convert2rhel/redhat-uep.pem
 ```
 
@@ -63,7 +71,7 @@ curl --create-dirs -o /etc/rhsm/ca/redhat-uep.pem https://ftp.redhat.com/redhat/
 
 Thirdly, download the convert2rhel repository file:
 
-```
+```bash
 curl -o /etc/yum.repos.d/convert2rhel.repo https://ftp.redhat.com/redhat/convert2rhel/7/convert2rhel.repo
 ```
 

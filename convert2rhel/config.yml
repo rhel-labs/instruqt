@@ -1,14 +1,15 @@
 version: "3"
 virtualmachines:
-- name: host
-  image: centos-cloud/centos-7
+- name: rhel
+  image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-1-02-21-2023
   shell: /bin/bash
   environment:
     TERM: xterm
-  machine_type: n2-standard-2
-- name: host2
-  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-79-post-c2r
-  shell: /bin/bash
   machine_type: n1-standard-2
+  allow_external_ingress:
+  - http
+  - https
+  - high-ports
 secrets:
 - name: ACTIVATION_KEY
+- name: SSHKEY
