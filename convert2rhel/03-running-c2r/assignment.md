@@ -12,9 +12,6 @@ tabs:
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "centos"
-- title: rhel Web Console
-  type: external
-  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 2
 ---
