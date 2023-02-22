@@ -1,0 +1,25 @@
+#!/bin/bash
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+
+echo "Adding wheel" > /root/post-run.log
+usermod -aG wheel rhel
+
+echo "setting password" >> /root/post-run.log
+echo redhat | passwd --stdin rhel
+
+#dnf install -y nc
+
+systemctl enable --now libvirtd
+
+echo "${SSHKEY}" > r4ekey
+chmod 600 r4ekey
+rm /root/.ssh/id_rsa
+cp /root/r4ekey /root/.ssh/id_rsa
+ssh-keygen -f ~/.ssh/id_rsa -y > ~/.ssh/id_rsa.pub

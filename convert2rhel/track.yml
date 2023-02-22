@@ -22,7 +22,5 @@ developers:
 - ehendric@redhat.com
 - smcbrien@redhat.com
 - myee@redhat.com
-private: false
-published: false
 show_timer: true
-checksum: "13515570057737014780"
+checksum: "10668441244418240792"

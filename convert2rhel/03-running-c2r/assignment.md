@@ -8,14 +8,18 @@ notes:
   contents: |
     With your CentOS Linux system prepared for conversion, you will now run the convert2rhel utility.
 tabs:
-- title: RHEL
+- title: centos
   type: terminal
-  hostname: host
+  hostname: rhel
+  cmd: tmux attach-session -t "centos"
+- title: rhel Web Console
+  type: external
+  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 2
 ---
 
-# Understanding the Convert2RHEL command
+## Understanding the Convert2RHEL command
 
 There are several different combinations of arguments that can be used to execute the conversion process. The main factor is registering your new RHEL system with an active subscription. Your choices are:
 
@@ -25,11 +29,11 @@ There are several different combinations of arguments that can be used to execut
 
 3) Including your organization ID and Activation Key as part of the command. This is more secure, however, finding your org-id and creating an activation key are outside the scope of this lab.
 
-# Running the Convert2RHEL utility
+## Running the Convert2RHEL utility
 
 In order to automate this process as much as possible, you will kick off the conversion using the activation key combination from #3 above: convert2rhel --org <organization_ID> --activationkey <activation_key>
 
-```
+```bash
 convert2rhel --org 12451665 --activationkey convert2rhel
 ```
 

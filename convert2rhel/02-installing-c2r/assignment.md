@@ -8,18 +8,22 @@ notes:
   contents: |
     Now that the requisite repository is enabled on your CentOS Linux system, it is time to install the Convert2RHEL utility and prepare the system for conversion.
 tabs:
-- title: Terminal
+- title: centos
   type: terminal
-  hostname: host
+  hostname: rhel
+  cmd: tmux attach-session -t "centos"
+- title: rhel Web Console
+  type: external
+  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 2
 ---
 
-# Installing the Convert2RHEL utility
+## Installing the Convert2RHEL utility
 
 Before you begin the installation process, verify that you are running CentOS Linux and on the latest minor version.
 
-```
+```bash
 cat /etc/centos-release
 ```
 
@@ -30,7 +34,7 @@ CentOS Linux release 7.9.2009 (Core)
 
 In the previous step, you enabled the Convert2RHEL software repository. That gave your CentOS Linux server access to the convert2rhel RPM package and its dependencies from the Red Hat CDN. Verify that the Convert2RHEL repo is enabled:
 
-```
+```bash
 yum repolist
 ```
 
@@ -51,7 +55,7 @@ repolist: 14,642
 
 Now that the repository has been confirmed enabled, install the convert2rhel utility:
 
-```
+```bash
 yum install -y convert2rhel
 ```
 

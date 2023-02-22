@@ -8,34 +8,39 @@ notes:
   contents: |
     With your CentOS Linux system prepared for conversion, you will now run the convert2rhel utility.
 tabs:
-- title: RHEL
+- title: centos
   type: terminal
-  hostname: host
-- title: RHEL2
+  hostname: rhel
+  cmd: tmux attach-session -t "centos"
+- title: rhel Web Console
+  type: external
+  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
+- title: rhel
   type: terminal
-  hostname: host2
+  hostname: rhel
 difficulty: basic
 timelimit: 1
 ---
 
 Now that the conversion has been staged successfully, you will need to reboot the system in order to put the changes into effect.
 
->**NOTE**
-Once the system goes down for a reboot, it will not reconnect automatically. You will need to use the refresh button in the top right of your console.
-![refresh](../assets/refresh.png)
-
-```
+```bash
 reboot
 ```
 
 With the convert2rhel utility running, the system will now replace the CentOS signed packages with Red Hat signed versions. The system will reboot a few times first to boot into a temporary environment from which to make these changes, a second time to perform a relabel on SELinux contexts, and a final time in order to boot into the newly created RHEL environment.
 
->**Disclaimer:**
-This process will take some time, you can watch it through to completion, or tab RHEL2 has a second system that has been running a conversion in the background. The remaining steps can be executed on that system:
+Click on the `rhel` tab.
+
+SSH back into the `centos` host.
+
+```bash
+ssh root@centos
+```
 
 First, verify that the system is in fact running Red Hat Enterprise Linux:
 
-```
+```bash
 cat /etc/redhat-release
 ```
 
@@ -46,7 +51,7 @@ Red Hat Enterprise Linux Server release 7.9 (Maipo)
 
 Verify that the necessary Red Hat repositories are enabled. Also, note that none of the old CentOS repos are available:
 
-```
+```bash
 yum repolist
 ```
 
@@ -67,7 +72,7 @@ repolist: 33,158
 
 Now you can review the logs from the conversion itself:
 
-```
+```bash
 less /var/log/convert2rhel/convert2rhel.log
 ```
 
