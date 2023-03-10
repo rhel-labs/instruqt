@@ -55,7 +55,15 @@ Content in the BaseOS repository is intended to provide the core set of the unde
 
 Content in the AppStream repository includes additional user-space applications, runtime languages, and databases in support of the varied workloads and use cases.
 
-Click on the `Recommended Repositories` button to create a more succinct view of available repos.
+Click on the `Recommended Repositories` button to create a more succinct view of available repos (the image below displays the button in the off position; turn it on).
+
+![recommanded repos button](../assets/recommendedrepos.png)
+
+Here's what it looks like to add the BaseOS and AppStream repos.
+
+![addedrecommended repos](../assets/addedrecommendedrepos.png)
+
+And here's an animation.
 
 <a href="#2">
  <img alt="An example image" src="../assets/2022-08-11_09-02-27.gif" />

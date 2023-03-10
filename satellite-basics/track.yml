@@ -28,6 +28,6 @@ owner: rhel
 developers:
 - myee@redhat.com
 show_timer: true
-checksum: "1312835920663068343"
+checksum: "14023393299027497136"
 idle_timeout: 2700
 timelimit: 7200

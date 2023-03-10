@@ -35,18 +35,12 @@ Now we'll register the hosts `rhel1` and `rhel2` to our Satellite server. We'll 
 
 Click on the `Satellite Server` tab.
 
-<a href="#1">
- <img alt="An example image" src="../assets/satellite-tab.png" />
-</a>
-
-<a href="#" class="lightbox" id="1">
- <img alt="An example image" src="../assets/satellite-tab.png" />
-</a>
+![satellite server tab](../assets/satellite-server-tab.png)
 
 Copy and paste the following command into the terminal.
 
 ```bash
-hammer host-registration generate-command --activation-key RHEL9 --force 1 --insecure 1 --organization "Acme Org" --location "Vancouver"
+hammer host-registration generate-command --activation-key RHEL9 --force 1 --insecure 1 --organization "Acme Org" --location "Vancouver" --setup-insights 0
 ```
 
 Copy the output by highlighting the selected text. Once the primary click mouse, button is released, the text will be automatically saved to the clipboard.
