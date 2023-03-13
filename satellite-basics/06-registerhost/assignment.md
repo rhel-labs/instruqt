@@ -43,6 +43,10 @@ Copy and paste the following command into the terminal.
 hammer host-registration generate-command --activation-key RHEL9 --force 1 --insecure 1 --organization "Acme Org" --location "Vancouver" --setup-insights 0
 ```
 
+The output of this command is a curl command similar to this:
+
+`curl -sS --insecure 'https://satellite.lab/register?activation_keys=RHEL9&force=true&location_id=2&organization_id=1&setup_insights=false' -H 'Authorization: Bearer <some bearer token>' | bash`
+
 Copy the output by highlighting the selected text. Once the primary click mouse, button is released, the text will be automatically saved to the clipboard.
 
 <a href="#2">
