@@ -1,6 +1,6 @@
 ---
 slug: guestfish
-id: r0rvtt4nesg7
+id: xoahc2x5gjd1
 type: challenge
 title: guestfish
 tabs:
@@ -13,9 +13,9 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-`guestfish` is the Guest Filesystem Shell, and is one tool that can be used to view or modify your newly created image. Today we're going to use it to check that the partition table we asked Image Builder to layout actually applied. 
+`guestfish` is the Guest Filesystem Shell, and is one tool that can be used to view or modify your newly created image. Today we're going to use it to check that the partition table we asked Image Builder to layout actually applied.
 
-First lets launch guestfish this utility is part of the libguestfs-tools package, and has already been installed on this system. 
+First lets launch guestfish this utility is part of the libguestfs-tools package, and has already been installed on this system.
 
 ```bash
 guestfish -a composer-api-ee3492f7-5d95-4c1b-a223-bbf04b9adef4-disk.qcow2
@@ -34,7 +34,7 @@ Type: ‘help’ for help on commands
 ><fs>
 </pre>
 
-Once we're at the `<fs>` prompt, we have to tell guestfish to initialize the libguestfs library and attach to the disk with the `run` command. 
+Once we're at the `<fs>` prompt, we have to tell guestfish to initialize the libguestfs library and attach to the disk with the `run` command.
 
 ```bash
 run
@@ -95,7 +95,7 @@ var
 ><fs>
 </pre>
 
-You can use `vi` to edit files, or `cat` to view them. `guestfish` is also scriptable, you can check `man guestfish` for more information. 
+You can use `vi` to edit files, or `cat` to view them. `guestfish` is also scriptable, you can check `man guestfish` for more information.
 
 In the next step we'll look at another libguestfs related tool, `virt-customize`
 

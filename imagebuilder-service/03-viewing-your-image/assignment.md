@@ -1,6 +1,6 @@
 ---
 slug: viewing-your-image
-id: xxfpnnxb2i3v
+id: o3ph6jhzvufh
 type: challenge
 title: Viewing your downloaded image
 tabs:
@@ -19,7 +19,7 @@ In the tab labelled `Terminal` you should find a RHEL 9 system.  On that system,
 composer-api-ee3492f7-5d95-4c1b-a223-bbf04b9adef4-disk.qcow2
 ```
 
-This image was built using the Image Builder service, using the same instructions that you just performed in this lab, and then pre-downloaded for the purposes of the next exercise. 
+This image was built using the Image Builder service, using the same instructions that you just performed in this lab, and then pre-downloaded for the purposes of the next exercise.
 
 Using the `file` command line utility shows us that the resulting image is a QEMU qcow2 disk image.
 

@@ -1,6 +1,6 @@
 ---
 slug: virt-customize
-id: f9xlcrxyg21y
+id: xthofgtzv34q
 type: challenge
 title: The virt-customize tool
 tabs:
@@ -13,11 +13,11 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-`virt-customize` is another libguestfs interface tool that will let you edit a disk image.  `guestfish` is great for interactive editing (and is of course able to be scripted), and `virt-customize` is better for actions that are carried out automatically.  
+`virt-customize` is another libguestfs interface tool that will let you edit a disk image.  `guestfish` is great for interactive editing (and is of course able to be scripted), and `virt-customize` is better for actions that are carried out automatically.
 
-For instance.  With `guestfish` I could either directly create, or script the creation, of a file within a guest image.  With `virt-customize` it's easier to just place an already created file, or install that file via an rpm.  These are both powerful tools, that serve similar jobs in different ways. 
+For instance.  With `guestfish` I could either directly create, or script the creation, of a file within a guest image.  With `virt-customize` it's easier to just place an already created file, or install that file via an rpm.  These are both powerful tools, that serve similar jobs in different ways.
 
-Let's improve the root security of our image by setting a default password from a file.  You can set root's password in other ways of course, `virt-customize` can even generate a random one for you.  In your home directory, there is a file called `rootpw` it contains nothing more than the password we would like to set root to. 
+Let's improve the root security of our image by setting a default password from a file.  You can set root's password in other ways of course, `virt-customize` can even generate a random one for you.  In your home directory, there is a file called `rootpw` it contains nothing more than the password we would like to set root to.
 
 ```bash
 cat ./rootpw
@@ -27,7 +27,7 @@ cat ./rootpw
 redhat1
 </pre>
 
-So we'll use `virt-customize` to set root's password to the contents of that file. 
+So we'll use `virt-customize` to set root's password to the contents of that file.
 
 ```bash
 virt-customize -a ./composer-api-ee3492f7-5d95-4c1b-a223-bbf04b9adef4-disk.qcow2 --root-password file:./rootpw
@@ -40,13 +40,13 @@ virt-customize -a ./composer-api-ee3492f7-5d95-4c1b-a223-bbf04b9adef4-disk.qcow2
 [  13.3] Finishing off
 </pre>
 
-`virt-customize` will also let us copy files in place. and set permissions.  Let's say we've got a sudoers drop-in we'd like in place on all of our systems.  In your home directory is a drop-in to allow users in the `superusers` group to control the `sshd` service. 
+`virt-customize` will also let us copy files in place. and set permissions.  Let's say we've got a sudoers drop-in we'd like in place on all of our systems.  In your home directory is a drop-in to allow users in the `superusers` group to control the `sshd` service.
 
 ```bash
 virt-customize -a ./composer-api-ee3492f7-5d95-4c1b-a223-bbf04b9adef4-disk.qcow2 --copy-in superusers:/etc/sudoers.d/
 ```
 
-Then to be safe, we should correct the permissions on the file that we just placed. 
+Then to be safe, we should correct the permissions on the file that we just placed.
 
 ```bash
 virt-customize -a ./composer-api-ee3492f7-5d95-4c1b-a223-bbf04b9adef4-disk.qcow2 --chmod 0640:/etc/sudoers.d/superusers
@@ -65,5 +65,5 @@ virt-customize -a ./composer-api-ee3492f7-5d95-4c1b-a223-bbf04b9adef4-disk.qcow2
 [  10.7] Finishing off
 </pre>
 
-Now, in the next step, we'll use guestfish again to verify our changes. 
+Now, in the next step, we'll use guestfish again to verify our changes.
 
