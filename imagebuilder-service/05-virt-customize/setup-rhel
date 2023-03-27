@@ -1,0 +1,6 @@
+echo "redhat1" > /root/rootpw
+tee -a ~/superusers << EOF
+Cmnd_Alias SERVICES = /usr/bin/systemctl start sshd, /usr/bin/systemctl stop sshd, /usr/bin/systemctl restart sshd, /usr/bin/systemctl status sshd
+
+%superusers ALL=SERVICES
+EOF
