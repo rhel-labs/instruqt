@@ -1,0 +1,51 @@
+---
+slug: hybrid-cloud-console-login
+id: mcfo9enexuqj
+type: challenge
+title: Log into the Red Hat Hybrid Cloud Console.
+teaser: Create an image that is ready to support a simple container workflow.
+notes:
+- type: text
+  contents: Log into the Red Hat Hybrid Cloud Console.
+tabs:
+- title: Red Hat Hybrid Cloud Console
+  type: website
+  url: https://console.redhat.com
+  new_window: true
+difficulty: basic
+---
+<!-- markdownlint-disable MD033 -->
+Open the hybrid cloud console by clicking on the `Red Hat Hybrid Cloud Console` tab at the top of the screen.
+
+![Red Hat Hybrid Cloud Console Tab](../assets/rh-hybrid-cloud-console-tab.png)
+
+A new web browser tab will launch, navigating to the Red Hat Hybrid Cloud Console login page.
+
+![Cloud Console Login Page](../assets/rhcloudconsoleloginpage.png)
+
+Log in with the credentials below.
+
+Red Hat login:
+
+```text
+rhte2023
+```
+
+Password:
+
+```text
+1QAZ2wsx3EDC4rfv
+```
+
+Now that you're logged in, set the environment to `beta` by clicking on the following buttons.
+
+1) The gear icon.
+2) `Use the beta release`
+
+![switch to beta](../assets/switchtobeta.png)
+
+**Note:** You can also access the beta environment by navigating to the URL https://console.redhat.com/beta
+
+When the `beta` environment is enabled, you'll see a green `beta` icon in the upper right corner of the webpage.
+
+![beta enabled](../assets/nowusingbeta.png)
