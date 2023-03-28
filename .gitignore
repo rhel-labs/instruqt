@@ -19,3 +19,4 @@ tags
 [._]*.un~
 
 instruqt.code-workspace
+.DS_Store
