@@ -17,3 +17,8 @@ tabs:
 difficulty: basic
 ---
 <!-- markdownlint-disable MD033 -->
+
+Let's navigate to the repositories menu.
+
+Click on `Services`.
+
