@@ -34,7 +34,7 @@ rhte2023
 Password:
 
 ```text
-1QAZ2wsx3EDC4rfv
+
 ```
 
 Now that you're logged in, set the environment to `beta` by clicking on the following buttons.
@@ -44,7 +44,7 @@ Now that you're logged in, set the environment to `beta` by clicking on the foll
 
 ![switch to beta](../assets/switchtobeta.png)
 
-**Note:** You can also access the beta environment by navigating to the URL https://console.redhat.com/beta
+**Note:** You can also access the beta environment by navigating to the URL <https://console.redhat.com/beta>
 
 When the `beta` environment is enabled, you'll see a green `beta` icon in the upper right corner of the webpage.
 
