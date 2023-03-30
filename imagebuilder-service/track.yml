@@ -21,8 +21,6 @@ tags:
 - Image builder
 - cloud
 owner: rhel
-private: false
-published: true
 developers:
 - nlager@redhat.com
 show_timer: true
@@ -30,4 +28,4 @@ lab_config:
   overlay: false
   width: 25
   position: right
-checksum: "9727527178134805846"
+checksum: "2671035119447012944"
