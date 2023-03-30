@@ -10,5 +10,7 @@ dnf install -y rhc >> $LOG
 subscription-manager unregister >> $LOG
 subscription-manager clean >> $LOG
 
+echo "export KEY='rhc-lab'" >> /root/.bashrc
+
 hostnamectl set-hostname rhel-$(uuidgen | cut -c 32-)
 exec $SHELL

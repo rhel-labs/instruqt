@@ -46,7 +46,7 @@ If you click on your system in the list, you will be brought to that hosts detai
 
 You can see the amount of information that insights is able to report to you about your system under the general tab.
 
-Head over to the Advisor tab, and we'll see if that Advisor service has any recommendations for our system.
+Head over to the Advisor tab, and we'll see if the Advisor service has any recommendations for our system.
 
 ![Insights Advisor Inventory Tab](../assets/insights-advisor-inv.png)
 

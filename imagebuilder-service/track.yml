@@ -21,6 +21,8 @@ tags:
 - Image builder
 - cloud
 owner: rhel
+private: false
+published: true
 developers:
 - nlager@redhat.com
 show_timer: true
