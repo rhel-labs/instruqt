@@ -8,8 +8,7 @@ description: |-
 
   # Concepts included in this scenario:
   * Connecting a system to the Red Hat Hybrid Cloud Console using rhc
-  * Connecting a system in a way that is compatible with a pay as you go cloud model
-  * Connecting a system in a way that is compatible with a bring your own subscription model
+  * Demonstration of what connecting to Red Hat with rhc gains you
 
   # Example Usecase:
   You have new RHEL systems that you would like connected to the hybrid cloud console and connected
@@ -24,6 +23,8 @@ owner: rhel
 developers:
 - nlager@redhat.com
 show_timer: true
+private: false
+published: true
 lab_config:
   overlay: false
   width: 25

@@ -6,18 +6,17 @@ title: Introduction to the remote host configuration tool
 notes:
 - type: text
   contents: |
-    After completing this scenario, users will be able to define a Red Hat Enterprise Linux blueprint
-    in the Red Hat Image Builder tool hosted on the Hybrid Cloud Console.  Then take the resulting
-    image and customize it for their needs.
+    After completing this scenario, users will have familiarity with the remote host ocnfiguration
+    tool, rhc.  rhc is a tool provided with Red Hat Enterprise Linux designed to make system
+    registration and connection to Red Hat's hosted services easier.
 
     # Concepts included in this scenario:
-    * Using the Image Builder Service to define a custom image
-    * Using local tools to further customize the resulting image
-    * Testing this image using a local virtual machine
+    * Connecting a system to the Red Hat Hybrid Cloud Console using rhc
+    * Demonstration of what connecting to Red Hat with rhc gains you
 
     # Example Usecase:
-    Your organization has specific requirements for their system builds, you would like to build
-    those requirements into a custom image that you can then deploy to your public cloud provider.
+    You have new RHEL systems that you would like connected to the hybrid cloud console and connected
+    to your Red Hat subscriptions.
 tabs:
 - title: Terminal
   type: terminal
