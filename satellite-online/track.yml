@@ -13,10 +13,10 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
-timelimit: 7120
 idle_timeout: 1800
+timelimit: 7120
 lab_config:
   overlay: true
   width: 100
   position: left
-checksum: "13272308678954695124"
+checksum: "4338824505538445786"

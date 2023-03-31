@@ -6,9 +6,10 @@ title: Configure custom repositories.
 teaser: Configure custom repositories containing custom software.
 notes:
 - type: text
-  contents: In this challenge, we'll orient ourselves with the configuration of custom repositories to add third party software to your image.
-    This feature makes it easy to add software without having to manually install
-    it after provisioning the virtual machine.
+  contents: In this challenge, we'll orient ourselves with the configuration of custom
+    repositories to add third party software to your image. This feature makes it
+    easy to add software without having to manually install it after provisioning
+    the virtual machine.
 tabs:
 - title: Red Hat Hybrid Cloud Console
   type: website

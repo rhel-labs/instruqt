@@ -1,5 +1,6 @@
 ---
 slug: create-image
+id: ll1r4is4sxfr
 type: challenge
 title: Create an image
 teaser: Create a custom image with Image Builder
@@ -71,7 +72,7 @@ Next we'll add software to the image.
 
 ![add packages](../assets/addpackages.png)
 
-We'll add some packages from custom repositories. 
+We'll add some packages from custom repositories.
 
 1) Check off the following `Custom repositories`.
 
@@ -87,7 +88,7 @@ Add packages from the custom repositories.
 1) Add the following packages.
    - ubi-init
    - openvpn
-  
+
 2) Click `Next`.
 
 ![add custom software](../assets/selectcustompackages.png)
@@ -104,4 +105,4 @@ The image build process will take about 15-20 minutes.
 
 ![image building](../assets/creatingimage.png)
 
-Proceed to the next step of this lab where we have pre-built images to continue with.
+Proceed to the next step of this lab where you may continue with pre-built images.
