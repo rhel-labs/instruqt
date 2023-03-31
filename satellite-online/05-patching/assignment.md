@@ -1,5 +1,5 @@
 ---
-slug: launch-instance
+slug: container-workflow
 id: 9tyv0z8czvc7
 type: challenge
 title: Launch an instance
@@ -90,35 +90,3 @@ Click on the `Terminal` tab.
 In the terminal, SSH into the newly provisioned AWS instance. You can copy the SSH command from the `Notepad`.
 
 ![ssh](../assets/sshinstance.png)
-
-Let's check the software we added during the image build process is in good working order.
-
-Switch to the root user.
-
-```bash
-sudo -i
-```
-
-Run the following command to check that `ubi-init` installed successfully by adding a base image. 
-
-```bash
-podman image list
-```
-
-![image list](../assets/podmanimagelist.png)
-
-Run the image in podman.
-
-```bash
-podman run e8f952a20c33 &
-```
-
-Check that the container is running.
-
-```bash
-podman container list
-```
-
-![run container](../assets/containerrun.png)
-
-We've now demonstrated that we can build an image with the tools needed for developers to create containerized workloads, using custom software repositories. This workflow can be extended for other applications including workloads such as MS SQL or SAP.

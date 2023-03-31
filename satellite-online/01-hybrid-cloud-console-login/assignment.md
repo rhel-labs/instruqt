@@ -37,15 +37,4 @@ Password:
 
 ```
 
-Now that you're logged in, set the environment to `beta` by clicking on the following buttons.
-
-1) The gear icon.
-2) `Use the beta release`
-
-![switch to beta](../assets/switchtobeta.png)
-
-**Note:** You can also access the beta environment by navigating to the URL <https://console.redhat.com/beta>
-
-When the `beta` environment is enabled, you'll see a green `beta` icon in the upper right corner of the webpage.
-
-![beta enabled](../assets/nowusingbeta.png)
+Now that you're logged in, set the environment to `beta` by clicking on the `Beta is off` button to turn beta on.
