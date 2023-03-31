@@ -99,7 +99,7 @@ Switch to the root user.
 sudo -i
 ```
 
-Run the following command to check that `ubi-init` installed successfully by adding a base image. 
+Run the following command to check that `ubi-init` installed successfully by adding a base image.
 
 ```bash
 podman image list

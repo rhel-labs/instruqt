@@ -1,14 +1,14 @@
 ---
-slug: container-workflow
-id: 9tyv0z8czvc7
+slug: patching
+id: u74cdbblrazc
 type: challenge
-title: Launch an instance
-teaser: Launch a virtual machine instance based on images created in the image builder
-  application.
+title: Patching hosts
+teaser: Patch hosts through the Red Hat Hybrid Cloud console
 notes:
 - type: text
-  contents: Launch a virtual machine in AWS, based on the image created in the image
-    builder application.
+  contents: We will create and apply patch templates in order to control the applicable
+    advisories to a system. We will also check if there is any applicable errata to
+    the system and apply it if necessary.
 tabs:
 - title: Red Hat Hybrid Cloud Console
   type: website
@@ -25,68 +25,3 @@ tabs:
 difficulty: basic
 ---
 <!-- markdownlint-disable MD033 MD026-->
-
-In the `Image Builder` menu, find the `summit-test` image. Click on `Launch`.
-
-![launch summit test](../assets/launchsummittest.png)
-
-The next menu will prefill several values to customize the VM instance. We'll need to choose the instance type `t2.medium` and click `Next`.
-
-![t2](../assets/t2medium.png)
-
-Select the SSH public key `rhte_public_key` and click `Next`.
-
-![ssh key](../assets/sshkeyselection.png)
-
-Review the details before clicking `Launch`.
-
-![review details launch](../assets/reviewdetailslaunch.png)
-
-When your instance has launched successfully, copy down the ID, DNS, and SSH command. In particular, save the SSH command.
-
-![instance launched](../assets/instancelaunched.png)
-
-**Do not close this window.**
-
-You can save the SSH command in the built in `Notepad`.
-
-T
-Then click on the `Notepad` tab.
-
-![notepad](../assets/notepadtab.png)
-
-Click on `/notes/notepad`.
-
-![notesnotepad](../assets/notesnotepad.png)
-
-Paste the SSH command into the notepad and save it by clicking on the disk icon.
-
-![save](../assets/savesshcommand.png)
-
-Return to the Launch window.
-
-![launched](../assets/instancelaunched.png)
-
-Clicking on the ID hyperlink will take you directly to the AWS console instance information page.
-
-![aws console instance](../assets/awsconsoleinstance.png)
-
-Note that the instance was assigned a **private** DNS name.
-
-![private dns](../assets/privatednsname.png)
-
-In the `Red Hat Hybrid Cloud Console`, navigate to `Inventory`.
-
-![inventory](../assets/inventory2.png)
-
-Notice that the AWS instance appears in the inventory. Recall that we configured the image to automatically register itself with Red Hat with the activation key `rhte`. When we launched the VM instance in AWS, it was automatically registered with this key.
-
-Let's log into the instance via SSH.
-
-Click on the `Terminal` tab.
-
-![terminal tab](../assets/terminaltab.png)
-
-In the terminal, SSH into the newly provisioned AWS instance. You can copy the SSH command from the `Notepad`.
-
-![ssh](../assets/sshinstance.png)
