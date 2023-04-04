@@ -14,7 +14,7 @@ notes:
     * Add EUS entitlement to a server
     * Update to the latest EUS release
 
-    ## Additional Reading:
+    ## Additional reading:
     https://access.redhat.com/articles/rhel-eus
 tabs:
 - title: Terminal

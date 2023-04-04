@@ -11,7 +11,7 @@ description: |-
   * Add EUS entitlement to a server
   * Update to the latest EUS release
 
-  ## Additional Reading:
+  ## Additional reading:
   https://access.redhat.com/articles/rhel-eus
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: beginner
@@ -20,7 +20,11 @@ tags:
 owner: rhel
 developers:
 - ehendric@redhat.com
-maintenance: true
+- smcbrien@redhat.com
 show_timer: true
 skipping_enabled: true
-checksum: "18044756503040570221"
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "1032921332867550285"
