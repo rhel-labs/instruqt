@@ -10,9 +10,9 @@ notes:
     Whether you want more control over your lifecycle, need a longer support window, or are tied to a specific minor release, Extended Update Support (EUS) allows your Red Hat Enterprise Linux servers to stay on the same minor version for up to 2 years.
 
     ## Tasks included in this scenario:
-    * Identify current minor version and available versions of RHEL
-    * Add EUS entitlement to a server
-    * Update to the latest EUS release
+    * Identify current minor version and available versions of RHEL.
+    * Add EUS entitlement to a server.
+    * Update to the latest EUS release.
 
     ## Additional reading:
     https://access.redhat.com/articles/rhel-eus
