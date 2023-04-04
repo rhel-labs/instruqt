@@ -8,7 +8,7 @@ notes:
 - type: text
   contents: |-
     You have been tasked as a systems administrator to deploy a new RHEL 9 server and tune it for running Microsoft SQL Server.
-    In this lab you will get some hands-on experience setting up TuneD to assist you with the tuning portion of this task, and you will create a custom TuneD profile to optimize it for your use case.
+    In this lab, you will get some hands-on experience setting up TuneD to assist you with the tuning portion of this task, and you will create a custom TuneD profile to optimize it for your use case.
 tabs:
 - title: Shell
   type: terminal
