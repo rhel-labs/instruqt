@@ -6,8 +6,7 @@ title: Log into the Red Hat Hybrid Cloud Console.
 teaser: Create an image that is ready to support a simple container workflow.
 notes:
 - type: text
-  contents: Log into the Red Hat Hybrid Cloud Console.
-  test second line
+  contents: Lab is loading. When fully loaded, click “Start” in the bottom right. In this exercise you will be logging into the Red Hat Console and turning on the Beta experience.
 tabs:
 - title: Red Hat Hybrid Cloud Console
   type: website
@@ -38,4 +37,5 @@ Password:
 
 ```
 
-Now that you're logged in, set the environment to `beta` by clicking on the `Beta is off` button to turn beta on.
+Now that you're logged in, set the environment to `beta` by clicking on the `Beta off` switch in the black header to turn beta on.
+![Beta switcher](../assets/betaswitcher.png)
