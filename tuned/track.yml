@@ -1,7 +1,7 @@
 slug: tuned
 id: kmycnuy9wzzw
-title: Optimizing performance with TuneD profiles
-teaser: Improve perfomance by leveraging static and custom TuneD profiles
+title: Optimize performance with TuneD profiles
+teaser: Improve performance by leveraging static and custom TuneD profiles
 description: |-
   # Duration:
   This track has an estimated time for completion of 15 minutes. The track will remain online for 50 minutes.
@@ -23,8 +23,10 @@ owner: rhel
 developers:
 - toharris@redhat.com
 - myee@redhat.com
-private: false
-published: true
 show_timer: true
 skipping_enabled: true
-checksum: "11632448784015675300"
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "700752719158345606"

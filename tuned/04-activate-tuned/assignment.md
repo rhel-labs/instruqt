@@ -6,7 +6,7 @@ title: Activate and validate custom TuneD Profile
 teaser: Activated and validate custom TuneD Profile
 notes:
 - type: text
-  contents: 'Step 4: Lets test our new custom tuned profile'
+  contents: 'Step 4: Testing our new custom tuned profile'
 tabs:
 - title: Shell
   type: terminal
@@ -15,7 +15,7 @@ difficulty: basic
 timelimit: 1
 ---
 
-Let's run `tuned-adm list` to confirm our new `mssql-multi` profile shows up
+Run `tuned-adm list` to confirm our new `mssql-multi` profile shows up
 
 
 ```bash
