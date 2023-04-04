@@ -21,16 +21,9 @@ difficulty: basic
 
 Let's navigate to the repositories menu.
 
-Click on `Services`.
+Click on the `Settings gear` and click on `Settings`.
 
-![services button](../assets/servicesbutton.png)
-
-Next, we'll navigate to the `Sources` menu.
-
-1) Type `Sources` in the search bar.
-2) Click on `Sources`.
-
-![sources](../assets/navsources.png)
+![settings gear](../assets/settingsgear.jpg)
 
 Click on `Repositories`
 
