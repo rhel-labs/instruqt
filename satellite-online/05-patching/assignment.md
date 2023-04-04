@@ -6,9 +6,7 @@ title: Patching hosts
 teaser: Patch hosts through the Red Hat Hybrid Cloud console
 notes:
 - type: text
-  contents: We will create and apply patch templates in order to control the applicable
-    advisories to a system. We will also check if there is any applicable errata to
-    the system and apply it if necessary.
+  contents: We will apply patches via the Red Hat Hybrid Cloud Console.
 tabs:
 - title: Red Hat Hybrid Cloud Console
   type: website
@@ -109,15 +107,15 @@ Click on `Execute playbook on 1 system`.
 
 ![execute on 1 system](../assets/executetheplaybookforreal.png)
 
-You can view the execution of the remediation playbook in real-time. Click on `View`.
+You can view the execution of the remediation playbook in real-time by clicking on `View`.
 
 ![view](../assets/viewexecution.png)
 
-Click on `Direct connected`.
+<!-- Click on `Direct connected`.
 
 ![direct connected](../assets/directconnected.png)
 
 Click on the `>` symbol next to the name of the host.
 
 ![execute name](../assets/executename.png)
-
+ -->

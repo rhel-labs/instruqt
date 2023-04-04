@@ -37,5 +37,6 @@ Password:
 
 ```
 
-Now that you're logged in, set the environment to `beta` by clicking on the `Beta off` switch in the black header to turn beta on.
-![Beta switcher](../assets/betaswitcher.png)
+Now that you're logged in, set the environment to `beta` by clicking on the `Beta is off` button to turn beta on.
+
+![beta](../assets/betaoff.png)
