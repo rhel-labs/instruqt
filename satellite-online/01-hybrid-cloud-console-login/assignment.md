@@ -15,7 +15,7 @@ tabs:
 difficulty: basic
 ---
 <!-- markdownlint-disable MD033 -->
-Open the [hybrid cloud console](https://console.redhat.com/) by clicking on the `Red Hat Hybrid Cloud Console` tab at the top of the screen.
+Open the hybrid cloud console by clicking on the `Red Hat Hybrid Cloud Console` tab at the top of the screen.
 
 ![Red Hat Hybrid Cloud Console Tab](../assets/rh-hybrid-cloud-console-tab.png)
 
