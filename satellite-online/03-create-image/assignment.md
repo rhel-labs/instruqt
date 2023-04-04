@@ -41,7 +41,7 @@ We'll configure the `Image output`.
 
 Configure the `Target environment`.
 
-1) Select `Use an accoutn configured from Sources`. This selects an AWS account that was preconfigured for this lab.
+1) Select `Use an account configured from Sources`. This selects an AWS account that was preconfigured for this lab.
 2) Select the source labelled `RHTE`.
 3) Observe that the `Default Region` and `Associated Account ID` are prefilled.
 4) Click on `Next`.
