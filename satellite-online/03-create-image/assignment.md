@@ -86,8 +86,8 @@ We'll add some packages from custom repositories.
 Add packages from the custom repositories.
 
 1) Add the following packages.
-   - ubi-init
-   - openvpn
+   - `ubi-init`
+   - `openvpn`
 
 2) Click `Next`.
 
