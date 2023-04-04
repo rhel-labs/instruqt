@@ -7,6 +7,7 @@ teaser: Create an image that is ready to support a simple container workflow.
 notes:
 - type: text
   contents: Log into the Red Hat Hybrid Cloud Console.
+  test second line
 tabs:
 - title: Red Hat Hybrid Cloud Console
   type: website
