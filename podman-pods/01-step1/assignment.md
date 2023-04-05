@@ -7,16 +7,16 @@ notes:
 - type: text
   contents: |
     # Goal:
-    After completing this scenario users will be able to create podman pods, create containers within those pods, and forward ports to the services those containers run.
+    After completing this scenario users will be able to create Podman pods, create containers within those pods, and forward ports to the services those containers run.
 
     # Concepts included in this scenario:
-    * Verify whether podman is installed on the system
-    * Create a pod in podman
-    * Run a container inside of a pod in podman
+    * Verify whether Podman is installed on the system
+    * Create a pod in Podman
+    * Run a container inside of a pod in Podman
     * Forward ports to containers within pods.
 
     # Example Use case:
-    An administrator wants to run a service on a podman container host, that has dependent services.
+    An administrator wants to run a service on a Podman container host that has dependent services.
 tabs:
 - title: Terminal
   type: terminal
