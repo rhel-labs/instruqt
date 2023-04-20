@@ -77,7 +77,7 @@ We'll add some packages from custom repositories.
 1) Check off the following `Custom repositories`.
 
    - `CustomRepo`
-   - `EPEL 8 Everything x86_64`
+   - `EPEL 8 Everything x86_64` or `EPEL 9 Everything x86_64` if you are building a RHEL 9 image.
 
 2) Then click `Next`.
 

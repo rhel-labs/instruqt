@@ -69,6 +69,8 @@ Return to the Launch window.
 
 Clicking on the ID hyperlink will take you directly to the AWS console instance information page.
 
+Here's the credentials for logging into the AWS account:
+
 ![aws console instance](../assets/awsconsoleinstance.png)
 
 Note that the instance was assigned a **private** DNS name.

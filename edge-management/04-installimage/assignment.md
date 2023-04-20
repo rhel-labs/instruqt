@@ -74,7 +74,7 @@ There you'll see the terminal window of the VM and you can watch the automatic i
 
 ![installvm](../assets/install.png)
 
-When the installation has completed, go back to the `rhel` terminal and into the edge device. Copy and paste the following.
+When the installation has completed, go back to the `rhel` terminal and ssh into the edge device. Copy and paste the following.
 
 ```bash
 imagename=$(virsh -q list | awk '{print $2}')

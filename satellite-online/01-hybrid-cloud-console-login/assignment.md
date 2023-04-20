@@ -6,7 +6,9 @@ title: Log into the Red Hat Hybrid Cloud Console.
 teaser: Create an image that is ready to support a simple container workflow.
 notes:
 - type: text
-  contents: Lab is loading. When fully loaded, click “Start” in the bottom right. In this exercise you will be logging into the Red Hat Console and turning on the Beta experience.
+  contents: Lab is loading. When fully loaded, click “Start” in the bottom right.
+    In this exercise you will be logging into the Red Hat Console and turning on the
+    Beta experience.
 tabs:
 - title: Red Hat Hybrid Cloud Console
   type: website

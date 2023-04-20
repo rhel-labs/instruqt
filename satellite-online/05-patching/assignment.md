@@ -119,3 +119,9 @@ Click on the `>` symbol next to the name of the host.
 
 ![execute name](../assets/executename.png)
  -->
+
+In the terminal, you will see the host disconnect the ssh session as it reboots.
+
+You can go back to the patch menu for the host and the bash package will not be listed anymore.
+
+![patched](../assets/patched-bash.png)
