@@ -27,7 +27,7 @@ difficulty: basic
 ---
 <!-- markdownlint-disable MD033 MD026-->
 
-We will now patch our system with patches that were published up to December 31 by creating a patch template with a date of December 31, 2022. We'll 
+We will now patch our system with patches that were published up to December 31 by creating a patch template with a date of December 31, 2022. We'll
 
 Go to the Patch template application.
 
@@ -56,4 +56,4 @@ Click `Submit`.
 
 ![submit template](../assets/submitpatchtemplate.png)
 
-Once the template has been created, go back to the System view in the Patch application, and click on your system, based on the private  IP address / hostname.  Note that it reports that it is using the Patch template you created, and that there are no applicable advisories or packages.  This is because the container-tools advisory was published after the date we specified in the Patch template.  
+Once the template has been created, go back to the System view in the Patch application, and click on your system, based on the private  IP address / hostname.  Note that it reports that it is using the Patch template you created, and that there are no applicable advisories or packages.  This is because the container-tools advisory was published after the date we specified in the Patch template.
