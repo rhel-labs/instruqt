@@ -25,19 +25,7 @@ A new web browser tab will launch, navigating to the Red Hat Hybrid Cloud Consol
 
 ![Cloud Console Login Page](../assets/rhcloudconsoleloginpage.png)
 
-Log in with the credentials below.
-
-Red Hat login:
-
-```text
-rhte2023
-```
-
-Password:
-
-```text
-
-```
+The login credentials will be provided in-session.
 
 Now that you're logged in, set the environment to `beta` by clicking on the `Beta is off` button to turn beta on.
 

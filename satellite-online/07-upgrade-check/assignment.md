@@ -42,3 +42,5 @@ It will take a few minutes for the job to complete.
 Go to the `activites` tab and the last job run to view the analysis.
 
 ![analysis](../assets/upgradeissues.png)
+
+This completes all lab activities.

@@ -50,7 +50,6 @@ When your instance has launched successfully, copy down the ID, DNS, and SSH com
 
 You can save the SSH command in the built in `Notepad`.
 
-T
 Then click on the `Notepad` tab.
 
 ![notepad](../assets/notepadtab.png)
@@ -69,7 +68,7 @@ Return to the Launch window.
 
 Clicking on the ID hyperlink will take you directly to the AWS console instance information page.
 
-Here's the credentials for logging into the AWS account:
+AWS credentials will be provided in-session.
 
 ![aws console instance](../assets/awsconsoleinstance.png)
 
