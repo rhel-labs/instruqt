@@ -1,0 +1,37 @@
+slug: satellite-basics-testing
+id: mo0gftdn3bj8
+title: Satellite Basics Testing
+teaser: Learn the basics of using Red Hat Satellite.
+description: |
+  # Overview:
+  Red Hat Satellite manages Red Hat Enterprise Linux hosts, including patching, content management, provisioning and more. In this lab, we'll learn the basics of
+  managing hosts with Satellite.
+
+  This lab is estimated to take 30 minutes. This lab is provisioned with a lifetime of 2 hours.
+
+  # Goal:
+
+  Configure a new Satellite server to manage RHEL hosts.
+
+  # Concepts included in this scenario:
+
+  * Synchronizing content to Satellite.
+  * Configuring Satellite to provide content to RHEL hosts.
+  * Adding hosts to be managed by Satellite.
+  * Updating hosts' errata (patching).
+  * Installing new software on multiple hosts.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- satellite
+- rhel
+owner: rhel
+developers:
+- myee@redhat.com
+show_timer: true
+idle_timeout: 2700
+timelimit: 7200
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "3638086417500899288"
