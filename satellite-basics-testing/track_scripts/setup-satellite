@@ -31,3 +31,7 @@ rm -rf /home/myee/manifest_satellite-6.10-instruqt_20230425T175412Z.zip
 hammer subscription refresh-manifest --organization "Acme Org"
 
 hostnamectl set-hostname satellite.lab
+
+export FQDN_INSTRUQT=$(ping -c 1 satellite.lab| awk -F ' ' '/from/ { print $4}')
+
+satellite-change-hostname $FQDN_INSTRUQT -u admin -p bc31c9a6-9ff0-11ec-9587-00155d1b0702 -y
