@@ -40,7 +40,7 @@ Click on the `Satellite Server` tab.
 Copy and paste the following command into the terminal.
 
 ```bash
-hammer host-registration generate-command --activation-key RHEL9 --force 1 --insecure 1 --organization "Acme Org" --location "Vancouver" --setup-insights 0
+hammer host-registration generate-command --hostgroup "Application Servers" --insecure 1 --setup-insights 0 --force 1
 ```
 
 The output of this command is a curl command similar to this:
