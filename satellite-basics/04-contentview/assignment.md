@@ -57,7 +57,13 @@ Click on `Create New View`.
  <img alt="An example image" src="../assets/createcontentview.png" />
 </a>
 
-We'll name this content view `RHEL9`. Click `Create content view` to save it.
+We'll name this content view `RHEL9`:
+
+```bash
+RHEL9
+```
+
+Click `Create content view` to save it.
 
 > **NOTE:** Please ensure that you type `RHEL9` in capital letters. We'll need this value in step 6 of this lab.
 

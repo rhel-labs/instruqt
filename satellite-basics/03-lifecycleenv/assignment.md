@@ -68,7 +68,7 @@ Click on `Create Environment Path`.
  <img alt="An example image" src="../assets/createenvironment.png" />
 </a>
 
-Create a new environment. We'll call this one `test`. Then click `save` to save it.
+Create a new environment. We'll call this one `Test`. Then click `save` to save it.
 
 <a href="#3">
  <img alt="An example image" src="../assets/newenvironment.png" />

@@ -21,7 +21,6 @@ virtualmachines:
   - https
   - high-ports
 - name: satellite
-  #image: projects/tmm-instruqt-11-26-2021/global/images/satellite-01-18-23-4
   image: projects/tmm-instruqt-11-26-2021/global/images/satellite-03-13-23
   shell: /bin/bash
   environment:
