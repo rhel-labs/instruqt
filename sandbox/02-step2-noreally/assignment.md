@@ -4,6 +4,12 @@ id: hbprlsrywlqz
 type: challenge
 title: Unstructured Lab
 teaser: Whoops, looks like you clicked next, there is no next...
+- title: Terminal
+  type: terminal
+  hostname: rhel
+- title: RHEL Web Console
+  type: external
+  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
