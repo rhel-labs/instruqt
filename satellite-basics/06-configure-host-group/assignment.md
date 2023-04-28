@@ -63,15 +63,16 @@ In the Ansible Roles menu do the following:
 We need to tell the firewall system role to allow incoming connections to port 80/tcp.
 In the Parameters menu do the following:
 
-1) Name the parameter `firewall`.
-2) Choose the type `array`.
-3) Copy and paste the following into the `value` field.
+1) Click `Add Parameter`.
+2) Name the parameter `firewall`.
+3) Choose the type `array`.
+4) Copy and paste the following into the `value` field.
 
 ```ruby
 [{"port":["80/tcp"],"state":"enabled"}]
 ```
 
-4) Click `Activation Keys`.
+5) Click `Activation Keys`.
 
 ![3](../assets/createhostgroup3.png)
 

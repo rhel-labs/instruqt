@@ -63,7 +63,7 @@ For your cut/paste convenience:
 RHEL9
 ```
 
-> __NOTE__: The name of the activation key will be used in the next step of this lab to add hosts. The names must match or the hosts will not be registered.
+> __NOTE__: The name of the activation key will be used to add hosts. The names must match or the hosts will not be registered.
 
 <a href="#3">
  <img alt="An example image" src="../assets/akcreation.png" />
