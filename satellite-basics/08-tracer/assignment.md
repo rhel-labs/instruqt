@@ -60,7 +60,7 @@ Next, we'll navigate to the `Products` menu.
 
 ![products](../assets/products.png)
 
-Click on `Red Hat Enterprise Linux for x86_64`. 
+Click on `Red Hat Enterprise Linux for x86_64`.
 
 ![rhel product click](../assets/rhelproductclick.png)
 
