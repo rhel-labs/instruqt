@@ -31,6 +31,8 @@ timelimit: 1
 ---
 <!-- markdownlint-disable MD033 -->
 
+_**NOTE:**_ Before starting this challenge, make sure that your hosts have finished rebooting from the previous challenge. You can easily check by clicking on the terminal tab to check that you have a working session with each host. ![tabs](../assets/hosttab.png)
+
 Earlier, we configured the our host group to have a system role applied to it. Specifically, port 80/tcp was to be opened.
 
 Once again, navigate to `All Hosts`.

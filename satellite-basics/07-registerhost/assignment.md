@@ -33,6 +33,8 @@ timelimit: 1
 
 Now we'll register the hosts `rhel1` and `rhel2` to our Satellite server. We'll use the command line interface to generate a registration command in this lab. It is also possible to generate a registration command from the Satellite WebUI but due to the limitations of DNS in this lab environment, we'll use the cli utility `hammer` to simplify the process.
 
+In our registration command, we'll specify that the new host should be added to the `Application Servers` host group we just created. As well, we'll ignore certificate errors (since we're using a self signed certificate) and we won't set up insights.
+
 Click on the `Satellite Server` tab.
 
 ![satellite server tab](../assets/satellite-server-tab.png)

@@ -73,6 +73,10 @@ RHEL9
  <img alt="An example image" src="../assets/akcreation.png" />
 </a>
 
+If you click on `Repository Sets`, you'll notice that this Activation Key provides access to the RHEL 9 AppStream and BaseOS repositories. This access is provided by configuring the Activation Key to use the `RHEL9` Content View.
+
+![akrepos](../assets/akrepos.png)
+
 <style>
 .lightbox {
   display: none;

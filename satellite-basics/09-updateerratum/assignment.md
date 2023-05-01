@@ -154,6 +154,8 @@ Do the following to resolve the traces.
 
 _**NOTE:**_ Resolving traces might take a few minutes, especially for a reboot, since the host will wait 60 seconds before initiating the reboot.
 
+Repeat the procedure to resolve Traces with the remaining host.
+
 <style>
 .lightbox {
   display: none;

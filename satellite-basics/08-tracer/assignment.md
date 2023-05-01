@@ -133,7 +133,7 @@ Override the `Red Hat Satellite Client 6 for RHEL 9 x86_64 RPMs` repository to `
 
 ![override](../assets/overrideenable.png)
 
-Here's the extra step we'll need to perform to enable access to the Tracer app for our existing hosts. Hosts added after the preceding steps have been performed will automatically get access.
+Here's the extra step we'll need to perform to enable access to the Tracer app for our existing hosts. New hosts added after this step will automatically get access.
 
 Go back to the `All hosts` menu.
 
@@ -147,26 +147,26 @@ Go back to the `All hosts` menu.
 
 In the `Job invocation` menu, do the following:
 
-1) Paste the following command to enable the Satellite client repository.
+1) Paste the following command to enable the Satellite client repository. This command will enable the Satellite client 6 repository and install Tracer in consecutive steps.
 
 ```bash
-dnf config-manager --set-enabled satellite-client-6-for-rhel-9-x86_64-rpms
+dnf config-manager --set-enabled satellite-client-6-for-rhel-9-x86_64-rpms && dnf install -y katello-host-tools-tracer
 ```
 
 2) Click `Submit`.
 
 ![submit to enable repo](../assets/submitjobenablerepo.png)
 
-Navigate to `All hosts`.
+<!-- Navigate to `All hosts`.
 
 ![hosts](../assets/registeredhost.png)
 
 1) Select the two new hosts.
 2) Click `Schedule Remote Job`.
 
-![rex](../assets/rexinstalltracer.png)
+![rex](../assets/rexinstalltracer.png) -->
 
-We can now install `katello-host-tools-tracer` on our hosts.
+<!-- We can now install `katello-host-tools-tracer` on our hosts.
 
 In the `Job invocation` menu, do the following.
 
@@ -178,6 +178,6 @@ dnf install -y katello-host-tools-tracer
 
 2) Click `Submit`.
 
-![install tracer](../assets/installtracer.png)
+![install tracer](../assets/installtracer.png) -->
 
-Tracer is now enabled. We'll see later in this lab how it will help us.
+Tracer is now enabled. We'll see how it will help us in the next challenge, where we apply errata updates.

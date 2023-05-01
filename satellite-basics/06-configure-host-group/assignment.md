@@ -76,6 +76,10 @@ In the Parameters menu do the following:
 
 ![3](../assets/createhostgroup3.png)
 
+_**NOTE:**_ `Host Group Parameters` are variables that can be applied by RHEL System Roles or Ansible Roles. You can find a list of available variables by clicking on Configure > Ansible > Variables. `Host Group Parameters` can help you configure subsets of hosts using RHEL System Roles with different variables, according to your requirements.
+
+![variables](../assets/variables.png)
+
 We will assign the `RHEL9` activation key to this group.
 
 1) Under `Activation Keys` enter `RHEL9`.
