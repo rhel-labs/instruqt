@@ -82,4 +82,4 @@ dnf install -y emacs
 
 ![emacs blocked](../assets/emacsinstallerror.png)
 
-Now your entire userbase will be forced to use vim.
+Now all your users will be forced to use vim.
