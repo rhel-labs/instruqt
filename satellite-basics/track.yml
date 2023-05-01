@@ -32,6 +32,6 @@ idle_timeout: 2700
 timelimit: 7200
 lab_config:
   overlay: false
-  width: 25
+  width: 50
   position: right
-checksum: "12787717773073088044"
+checksum: "10347515960724748568"
