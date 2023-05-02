@@ -2,8 +2,9 @@
 slug: filter-software
 id: ggpczlvl6b5b
 type: challenge
-title: Block software from being installed
-teaser: Block software from being installed
+title: Apply a Content View filter.
+teaser: Block software from being installed. Without these filters, a Content View
+  includes everything from the selected repositories.
 notes:
 - type: text
   contents: Block software from being installed

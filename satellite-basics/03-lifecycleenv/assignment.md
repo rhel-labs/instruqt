@@ -6,7 +6,9 @@ title: Manage Lifecycle Environments
 teaser: Manage Lifecycle Environments
 notes:
 - type: text
-  contents: Manage Lifecycle Environments
+  contents: Satellite provides methods to customize each application life cycle stage
+    so that it suits your specifications. Each stage in the application life cycle
+    is called an environment in Satellite.
 tabs:
 - title: Satellite Server
   type: terminal

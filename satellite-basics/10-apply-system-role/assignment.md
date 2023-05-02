@@ -6,7 +6,9 @@ title: Apply System Role
 teaser: Apply System Role to hosts
 notes:
 - type: text
-  contents: Apply System Role to hosts
+  contents: RHEL System Roles is a collection of Ansible roles and modules that provide
+    a stable and consistent configuration interface to automate and manage multiple
+    releases of Red Hat Enterprise Linux.
 tabs:
 - title: Satellite Server
   type: terminal
@@ -33,7 +35,7 @@ timelimit: 1
 
 _**NOTE:**_ Before starting this challenge, make sure that your hosts have finished rebooting from the previous challenge. You can easily check by clicking on the terminal tab to check that you have a working session with each host. ![tabs](../assets/hosttab.png)
 
-Earlier, we configured the our host group to have a system role applied to it. Specifically, port 80/tcp was to be opened.
+Earlier, we configured the our host group to have a system role applied to it. Specifically, port 80/tcp was to be opened. You can find out more about [RHEL System Roles here](https://access.redhat.com/articles/3050101).
 
 Once again, navigate to `All Hosts`.
 

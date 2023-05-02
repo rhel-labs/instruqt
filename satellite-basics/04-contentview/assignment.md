@@ -6,7 +6,9 @@ title: Create a content view
 teaser: Create a content view
 notes:
 - type: text
-  contents: Create a content view.
+  contents: Content Views allow you to customize content, such as RPM packages, for
+    your hosts. You can use a content view to control the access to updated software
+    to your hosts.
 tabs:
 - title: Satellite Server
   type: terminal

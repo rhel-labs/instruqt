@@ -6,7 +6,7 @@ title: Create an Activation Key
 teaser: Create an Activation Key
 notes:
 - type: text
-  contents: Create an Activation Key
+  contents: Activation Keys help you configure access to content by your hosts.
 tabs:
 - title: Satellite Server
   type: terminal
