@@ -1,6 +1,6 @@
 ---
 slug: updateerratum
-id: td98lhzckzxb
+id: l2qmabvqkuxe
 type: challenge
 title: Apply Errata to hosts
 teaser: Apply Errata to hosts
@@ -69,6 +69,10 @@ Select all of the Errata we just filtered.
  <img alt="An example image" src="../assets/selectallerrata.png" />
 </a>
 
+_**Note:**_ Increase the pager size to select all the errata.
+
+![pager](../assets/pagersize.png)
+
 You'll be taken to the Apply Errata menu where you should do the following:
 
 1) Select the hosts to apply the Errata. In this case we'll select all hosts.
@@ -134,15 +138,23 @@ Go to Hosts > All Hosts.
  <img alt="An example image" src="../assets/allhosts.png" />
 </a>
 
-All hosts managed by Satellite should display in a green font signifying all hosts are up to date and there are no errors logged.
+All hosts managed by Satellite will still display in a red font signifying there are error statuses. This is because the Tracer application has detected services that require restarting. If the kernel or systemd has been updated, the hosts will require a reboot.
 
-<a href="#10">
- <img alt="An example image" src="../assets/green.png" />
-</a>
+Click on a host (it doesn't matter which, you'll have to perform this procedure twice.)
 
-<a href="#" class="lightbox" id="10">
- <img alt="An example image" src="../assets/green.png" />
-</a>
+![error host](../assets/errorhost.png)
+
+Do the following to resolve the traces.
+
+1) Click on the `Traces` tab.
+2) Select all the services listed.
+3) Click `Restart app`.
+
+![restart](../assets/tracesrestart.png)
+
+_**NOTE:**_ Resolving traces might take a few minutes, especially for a reboot, since the host will wait 60 seconds before initiating the reboot.
+
+Repeat the procedure to resolve Traces with the remaining host.
 
 <style>
 .lightbox {

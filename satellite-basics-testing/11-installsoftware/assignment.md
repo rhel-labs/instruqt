@@ -1,6 +1,6 @@
 ---
 slug: installsoftware
-id: ku5bbjzi5xhu
+id: 6yez51tluw96
 type: challenge
 title: Install Software
 teaser: Install Software on hosts
@@ -31,7 +31,7 @@ timelimit: 1
 ---
 <!-- markdownlint-disable MD033 -->
 
-We'll install software on our hosts using a Host Collection.
+We'll install software on multiple hosts simultaneously, using a Host Collection.
 
 A host collection is a group of content hosts. This feature enables you to perform the same action on multiple hosts at once. These actions can include the installation, removal, and update of packages and errata, change of assigned life cycle environment, and change of Content View. You can create host collections to suit your requirements, and those of your company. For example, group hosts in host collections by function, department, or business unit.
 
