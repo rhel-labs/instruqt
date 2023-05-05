@@ -27,6 +27,7 @@ A new web browser tab will launch, navigating to the Red Hat Hybrid Cloud Consol
 
 The login credentials will be provided in-session.
 
-Now that you're logged in, set the environment to `beta` by clicking on the `Beta is off` button to turn beta on.
+Now that you're logged in, set the environment to `Preview` by clicking on the `Preview off` switch to turn preview on.
 
-![beta](../assets/betaoff.png)
+![previewoff](../assets/preview_off.png)
+![previewon](../assets/preview_on.png)
