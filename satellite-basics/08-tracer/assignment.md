@@ -145,17 +145,25 @@ Go back to the `All hosts` menu.
 
 ![all host](../assets/scheduleremotejob.png)
 
-In the `Job invocation` menu, do the following:
+In the `Category and Template` menu, click `Next`.
 
-1) Paste the following command to enable the Satellite client repository. This command will enable the Satellite client 6 repository and install Tracer in consecutive steps.
+![run template](../assets/runjobtemplate.png)
+
+In the `Target hosts and inputs` menu, do the following.
+
+1) Paste this command. It will enable the Satellite 6 client repo and install the Tracer software.
 
 ```bash
 dnf config-manager --set-enabled satellite-client-6-for-rhel-9-x86_64-rpms && dnf install -y katello-host-tools-tracer
 ```
 
-2) Click `Submit`.
+2) Click `Next`.
 
-![submit to enable repo](../assets/submitjobenablerepo.png)
+![target hosts](../assets/targethosts.png)
+
+Keep clicking `Next` until you reach the `Review details` menu and click `Run`.
+
+![review and run](../assets/reviewandrun.png)
 
 <!-- Navigate to `All hosts`.
 
@@ -180,4 +188,4 @@ dnf install -y katello-host-tools-tracer
 
 ![install tracer](../assets/installtracer.png) -->
 
-Tracer is now enabled. We'll see how it will help us in the next challenge, where we apply errata updates.
+Tracer is now installed. We'll see how it will help us in the next challenge, where we apply errata updates.
