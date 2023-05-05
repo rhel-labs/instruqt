@@ -6,7 +6,9 @@ title: Manage Lifecycle Environments
 teaser: Manage Lifecycle Environments
 notes:
 - type: text
-  contents: Manage Lifecycle Environments
+  contents: Satellite provides methods to customize each application life cycle stage
+    so that it suits your specifications. Each stage in the application life cycle
+    is called an environment in Satellite.
 tabs:
 - title: Satellite Server
   type: terminal
@@ -68,7 +70,7 @@ Click on `Create Environment Path`.
  <img alt="An example image" src="../assets/createenvironment.png" />
 </a>
 
-Create a new environment. We'll call this one `test`. Then click `save` to save it.
+Create a new environment. We'll call this one `Test`. Then click `save` to save it.
 
 <a href="#3">
  <img alt="An example image" src="../assets/newenvironment.png" />

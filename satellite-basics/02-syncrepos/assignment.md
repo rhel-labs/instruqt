@@ -6,7 +6,8 @@ title: Synchronize Red Hat repositories
 teaser: Synchronize Red Hat repositories
 notes:
 - type: text
-  contents: In this step, we'll synchronize content from Red Hat repositories.
+  contents: In this step, we'll synchronize Red Hat Enterprise Linux 9 BaseOS and
+    AppStream repositories from the content delivery network.
 tabs:
 - title: Satellite Server
   type: terminal
@@ -51,7 +52,7 @@ Red Hat Enterprise Linux 9 is distributed through two main repositories:
 
 Both repositories are required for a basic RHEL installation, and are available with all RHEL subscriptions.
 
-Content in the BaseOS repository is intended to provide the core set of the underlying OS functionality that provides the foundation for all installations. This content is available in the RPM format and is subject to support terms similar to those in previous releases of RHEL. For more information, see the Scope of Coverage Details document.
+Content in the BaseOS repository provides the core set of the underlying OS functionality that provides the foundation for all installations. This content is available in the RPM format and is subject to support terms similar to those in previous releases of RHEL. For more information, see the Scope of Coverage Details document.
 
 Content in the AppStream repository includes additional user-space applications, runtime languages, and databases in support of the varied workloads and use cases.
 

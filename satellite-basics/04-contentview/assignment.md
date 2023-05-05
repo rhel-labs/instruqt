@@ -6,7 +6,9 @@ title: Create a content view
 teaser: Create a content view
 notes:
 - type: text
-  contents: Create a content view.
+  contents: Content Views allow you to customize content, such as RPM packages, for
+    your hosts. You can use a content view to control the access to updated software
+    to your hosts.
 tabs:
 - title: Satellite Server
   type: terminal
@@ -57,7 +59,13 @@ Click on `Create New View`.
  <img alt="An example image" src="../assets/createcontentview.png" />
 </a>
 
-We'll name this content view `RHEL9`. Click `Create content view` to save it.
+We'll name this content view `RHEL9`:
+
+```bash
+RHEL9
+```
+
+Click `Create content view` to save it.
 
 > **NOTE:** Please ensure that you type `RHEL9` in capital letters. We'll need this value in step 6 of this lab.
 

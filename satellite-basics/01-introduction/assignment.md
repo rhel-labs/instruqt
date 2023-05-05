@@ -32,8 +32,8 @@ timelimit: 3420
 <!-- markdownlint-disable MD033 -->
 The lab environment consists of the following
 
-- 1 Red Hat Satellite 6.12.1 Server (Satellite is preinstalled)
-- 2 Red Hat Enterprise Linux 9 hosts.
+1) Red Hat Satellite 6.13.x Server (Satellite is preinstalled)
+2) Red Hat Enterprise Linux 9 hosts.
 
 <a href="#1">
  <img alt="An example image" src="../assets/satellite-basics-environment.png" />

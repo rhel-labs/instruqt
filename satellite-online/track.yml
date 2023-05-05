@@ -1,0 +1,24 @@
+slug: satellite-online
+id: b4rux9wynzev
+title: Satellite Online
+teaser: Try out the Red Hat Satellite Online experience.
+description: The Lab provides the participants with an early hands-on experience of
+  the latest upcoming technologies to help your customers Provision and Maintain RHEL
+  with Satellite Services. The focus is on the tooling that can be used to provide
+  full lifecycle management of a RHEL system, from the image creation to system instantiation
+  and maintenance.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- satellite
+owner: rhel
+developers:
+- myee@redhat.com
+show_timer: true
+skipping_enabled: true
+idle_timeout: 1800
+timelimit: 7120
+lab_config:
+  overlay: true
+  width: 80
+  position: right
+checksum: "3171473796171006506"
