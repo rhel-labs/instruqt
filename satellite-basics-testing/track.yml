@@ -1,6 +1,6 @@
 slug: satellite-basics-testing
 id: mo0gftdn3bj8
-title: Satellite Basics Testing
+title: Satellite Basics
 teaser: Learn the basics of using Red Hat Satellite.
 description: |
   # Overview:
@@ -27,11 +27,13 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
+maintenance: true
 show_timer: true
+skipping_enabled: true
 idle_timeout: 2700
 timelimit: 7200
 lab_config:
   overlay: false
-  width: 33
+  width: 50
   position: right
-checksum: "12345678910346673057"
+checksum: "10655571375011837794"

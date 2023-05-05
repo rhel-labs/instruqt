@@ -1,12 +1,12 @@
 ---
 slug: activationkey
-id: kxqalp9lcshs
+id: 96xeamx22taf
 type: challenge
 title: Create an Activation Key
 teaser: Create an Activation Key
 notes:
 - type: text
-  contents: Create an Activation Key
+  contents: Activation Keys help you configure access to content by your hosts.
 tabs:
 - title: Satellite Server
   type: terminal
@@ -57,7 +57,13 @@ Click on `Create Activation Key`.
 
 We'll name this activation key (1) `RHEL9`, select the (2) `Test` environment, select the (3) `RHEL9` content view and then click (4) `save`.
 
-> __NOTE__: The name of the activation key will be used in the next step of this lab to add hosts. The names must match or the hosts will not be registered.
+For your cut/paste convenience:
+
+```bash
+RHEL9
+```
+
+> __NOTE__: The name of the activation key will be used to add hosts. The names must match or the hosts will not be registered.
 
 <a href="#3">
  <img alt="An example image" src="../assets/akcreation.png" />
@@ -66,6 +72,10 @@ We'll name this activation key (1) `RHEL9`, select the (2) `Test` environment, s
 <a href="#" class="lightbox" id="3">
  <img alt="An example image" src="../assets/akcreation.png" />
 </a>
+
+If you click on `Repository Sets`, you'll notice that this Activation Key provides access to the RHEL 9 AppStream and BaseOS repositories. This access is provided by configuring the Activation Key to use the `RHEL9` Content View.
+
+![akrepos](../assets/akrepos.png)
 
 <style>
 .lightbox {
