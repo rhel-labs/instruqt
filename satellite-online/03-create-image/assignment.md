@@ -86,7 +86,7 @@ We'll add some packages from custom repositories.
 Add packages from the custom repositories.
 
 1) Add the following packages.
-   - `ubi-init`
+   - `libyubikey`
    - `openvpn`
 
 2) Click `Next`.
