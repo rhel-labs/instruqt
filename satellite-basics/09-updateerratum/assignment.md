@@ -69,7 +69,7 @@ Select all of the Errata we just filtered.
  <img alt="An example image" src="../assets/selectallerrata.png" />
 </a>
 
-_**Note:**_ Increase the pager size to select all the errata.
+_**Note:**_ Increase the pager size to select all the errata. If the number of errata exceed the maximum page size, you'll have to run this operation multiple times or run it from the host > content > errata menu. For the purposes of this lab, it's not necessary to apply all errata.
 
 ![pager](../assets/pagersize.png)
 
