@@ -1,15 +1,15 @@
 slug: satellite-online
 id: b4rux9wynzev
-title: Satellite Online
-teaser: Try out the Red Hat Satellite Online experience.
+title: Red Hat Enterprise Linux Services
+teaser: Try out the Red Hat Enterprise Linux Services experience.
 description: The Lab provides the participants with an early hands-on experience of
   the latest upcoming technologies to help your customers Provision and Maintain RHEL
-  with Satellite Services. The focus is on the tooling that can be used to provide
-  full lifecycle management of a RHEL system, from the image creation to system instantiation
-  and maintenance.
+  within Insights. The focus is on the tooling that can be used to provide full lifecycle
+  management of a RHEL system, from the image creation to system instantiation and
+  maintenance.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags:
-- satellite
+- insights
 owner: rhel
 developers:
 - myee@redhat.com
@@ -21,4 +21,4 @@ lab_config:
   overlay: true
   width: 60
   position: right
-checksum: "2507210882323331478"
+checksum: "11691367658179015392"
