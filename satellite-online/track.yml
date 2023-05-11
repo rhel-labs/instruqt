@@ -16,9 +16,9 @@ developers:
 show_timer: true
 skipping_enabled: true
 idle_timeout: 1800
-timelimit: 7120
+timelimit: 7200
 lab_config:
   overlay: true
-  width: 80
+  width: 60
   position: right
-checksum: "1914445443697833996"
+checksum: "2507210882323331478"
