@@ -18,14 +18,10 @@ difficulty: basic
 
 Navigate to the Image Builder application:
 
-Click on `Services`.
+1) Type `Image Builder` in the search bar.
+2) In the `Deploy` card, click `Image Builder`.
 
-![services button](../assets/servicesbutton.png)
-
-1) Type `Image` in the search bar.
-2) In the `Deploy` card, click `Images`.
-
-![deploy images](../assets/deployimages.png)
+![search bar](../assets/imagebuildersearchbar.png)
 
 Click on the `Create image` button.
 
@@ -42,7 +38,7 @@ We'll configure the `Image output`.
 Configure the `Target environment`.
 
 1) Select `Use an account configured from Sources`. This selects an AWS account that was preconfigured for this lab.
-2) Select the source labelled `RHTE`.
+2) Select the source labelled `RHTE1`.
 3) Observe that the `Default Region` and `Associated Account ID` are prefilled.
 4) Click on `Next`.
 
@@ -88,6 +84,7 @@ Add packages from the custom repositories.
 1) Add the following packages.
    - `libyubikey`
    - `openvpn`
+   - `ubi-init`
 
 2) Click `Next`.
 
