@@ -82,6 +82,8 @@ In the `Red Hat Hybrid Cloud Console`, navigate to `Inventory`.
 
 Notice that the AWS instance appears in the inventory. Recall that we configured the image to automatically register itself with Red Hat with the activation key `rhte`. When we launched the VM instance in AWS, it was automatically registered with this key.
 
+_**NOTE:**_ If you do not see your host immediately, wait a few minutes and refresh your browser. It takes AWS a few minutes to provision the VM and then a few more minutes for the host to contact Insights.
+
 Let's log into the instance via SSH.
 
 Click on the `Terminal` tab.

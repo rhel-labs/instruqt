@@ -10,3 +10,6 @@ virtualmachines:
   - http
   - https
   - high-ports
+secrets:
+- name: summit_ssh_key
+- name: ACTIVATION_KEY
