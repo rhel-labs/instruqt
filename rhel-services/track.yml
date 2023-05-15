@@ -15,10 +15,9 @@ developers:
 - myee@redhat.com
 show_timer: true
 skipping_enabled: true
-idle_timeout: 1800
 timelimit: 7200
 lab_config:
   overlay: false
   width: 50
   position: right
-checksum: "12806319300147767944"
+checksum: "8248354784395098930"
