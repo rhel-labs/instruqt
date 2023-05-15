@@ -8,7 +8,7 @@ notes:
 - type: text
   contents: Lab is loading. When fully loaded, click “Start” in the bottom right.
     In this exercise you will be logging into the Red Hat Console and turning on the
-    Beta experience.
+    Preview experience.
 tabs:
 - title: Red Hat Hybrid Cloud Console
   type: website

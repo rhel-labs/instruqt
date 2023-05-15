@@ -33,13 +33,18 @@ Navigate to the `RHEL preupgrade analysis utility` in the `Tasks` menu under `To
 
 Click on `Run task`.
 
+![run task](../assets/runtask.png)
+
 Select a RHEL8 system and click execute.
 
-![execute](../assets/executetask.png)
+<!-- ![execute](../assets/executetask.png) -->
+![execute](../assets/preupgradeanalysisrhel8.png)
 
 It will take a few minutes for the job to complete.
 
-Go to the `activites` tab and the last job run to view the analysis.
+Go to the `Activity` tab and the last job run to view the analysis.
+
+![completed](../assets/completedanalysis.png)
 
 ![analysis](../assets/upgradeissues.png)
 

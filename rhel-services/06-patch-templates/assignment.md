@@ -37,23 +37,52 @@ Click the `Create a template` button.
 
 ![create a template button](../assets/createatemplatebutton.png)
 
-Perform the following tasks in the `Create patch template` menu.
+Perform the following tasks in the `Create content template` menu.
 
+1) Pick the date `2022-12-31`.
+2) Click `Next`.
+
+![create content template](../assets/createcontenttemplate.png)
+<!--
 1) Give the template a name. In this example we'll name it `summit-template`.
 2) Set the `Patch template date` to `2022-12-31`.
 3) Click `Next`.
 
-![patch template new](../assets/newpatchtemplate.png)
+![patch template new](../assets/newpatchtemplate.png) -->
 
-In the `Select systems` menu do the following.
+<!-- In the `Select systems` menu do the following.
 
 1) Select the host you just launched in AWS.
 2) Click `Next`.
 
-![select systems](../assets/selectsystems.png)
+![select systems](../assets/selectsystems.png) -->
+
+Do the following in `Details`.
+
+1) Give the template a name.
+2) Click `Next`.
+
+![template details](../assets/templatedetails.png)
+
+In the `Systems` menu, do the following.
+
+1) Select the host you provisioned.
+2) Click `Next`.
+
+![template systems](../assets/templatesystems.png)
 
 Click `Submit`.
 
 ![submit template](../assets/submitpatchtemplate.png)
 
-Once the template has been created, go back to the System view in the Patch application, and click on your system, based on the private  IP address / hostname.  Note that it reports that it is using the Patch template you created, and that there are no applicable advisories or packages.  This is because the container-tools advisory was published after the date we specified in the Patch template.
+Once the template has been created, go back to the System view in the Patch application.
+
+![patch systems menu](../assets/patchsystemsmenu.png)
+
+Click on the system you applied the template to.
+
+![system](../assets/templateappliedsystem.png)
+
+You'll find the patch is greyed out and cannot be applied to your system. This is because the podman advisory was published after the date we specified in the Patch template.
+
+![greyed](../assets/patchfiltered.png)

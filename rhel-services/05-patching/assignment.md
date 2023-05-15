@@ -24,14 +24,6 @@ difficulty: basic
 ---
 <!-- markdownlint-disable MD033 MD026-->
 
-We need to enable Red Hat Connect on the host. In the `Terminal` tab, you should still be connected to the host via SSH as the root user. Run the following command.
-
-```bash
-rhc connect -o 11469630 -a rhte
-```
-
-![rhc connect](../assets/rhcconnect.png)
-
 To demonstrate patching, we'll downgrade `podman` and `bash` before utilizing the patching application.
 
 ```bash
