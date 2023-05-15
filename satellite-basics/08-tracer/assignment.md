@@ -7,8 +7,8 @@ teaser: When software services are updated, they may require restarting. The tra
   utility and Satellite will notify you which hosts require service restarts.
 notes:
 - type: text
-  contents: Install and enable the Tracer service to detect services that require
-    restarting.
+  contents: Install and enable the Tracer service on the hosts to detect services
+    that require restarting.
 tabs:
 - title: Satellite Server
   type: terminal
