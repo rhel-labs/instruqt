@@ -6,17 +6,17 @@ title: Introduction to the Image Builder Service
 notes:
 - type: text
   contents: |
-    After completing this scenario, users will be able to define a Red Hat Enterprise Linux blueprint
-    in the Red Hat Image Builder tool hosted on the Hybrid Cloud Console.  Then take the resulting
-    image and customize it for their needs.
-
+    After completing this scenario, users will be able to define a Red Hat Enterprise Linux 
+    blueprint in the Red Hat Image Builder tool hosted on the Hybrid Cloud Console. Users will 
+    then take the resulting image and customize it for their needs.
+  
     # Concepts included in this scenario:
-    * Using the Image Builder Service to define a custom image
-    * Using local tools to further customize the resulting image
-    * Testing this image using a local virtual machine
+    * Using the Image Builder service to define a custom image.
+    * Using local tools to further customize the resulting image.
+    * Testing this image using a local virtual machine.
 
-    # Example Usecase:
-    Your organization has specific requirements for their system builds, you would like to build
+    # Example use case:
+    Your organization has specific requirements for their system builds, and you would like to build
     those requirements into a custom image that you can then deploy to your public cloud provider.
 tabs:
 - title: Red Hat Hybrid Cloud Console
