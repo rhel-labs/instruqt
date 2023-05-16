@@ -21,8 +21,4 @@ lab_config:
   overlay: false
   width: 50
   position: right
-<<<<<<< Updated upstream
-checksum: "5030832833119914296"
-=======
-checksum: "13128717364611580752"
->>>>>>> Stashed changes
+checksum: "16375007504775436686"
