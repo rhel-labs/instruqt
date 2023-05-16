@@ -60,9 +60,9 @@ Next we'll add software to the image.
 
 1) In `Available packages` search for, and add the following software:
       - `podman`
-      - `rhc`
+      <!-- - `rhc` -->
       - `rhc-worker-playbook`
-      - `ansible-core`
+      <!-- - `ansible-core` -->
 2) You may also add any other software you wish.
 3) Click `Next`.
 
@@ -82,15 +82,15 @@ We'll add some packages from custom repositories.
 Add packages from the custom repositories.
 
 1) Add the following packages.
-   - `libyubikey`
-   - `openvpn`
-   - `ubi-init`
+   - `libyubikey` - This package sits in the EPEL repository.
+   - `openvpn` - This package also resides in the EPEL repository.
+   - `ubi-init` - This is a custom package residing in the `CustomRepo` repository and contains a ubi container image.
 
 2) Click `Next`.
 
 ![add custom software](../assets/selectcustompackages.png)
 
-Give your image a name and click `Next`.
+Give your image a name (something easily idenitfiable by you) and click `Next`.
 
 ![name image](../assets/nameimage.png)
 
