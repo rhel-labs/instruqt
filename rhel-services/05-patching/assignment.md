@@ -45,7 +45,12 @@ Navigate to the `Systems` menu in the `Patch` application.
 
 Locate your host in the list, based on its private IP address / hostname.  It should have two installable advisories (which are the packages we just downgraded).
 
-Click on the host.
+1) Select your host.
+2) Click `Remediate`.
+
+![remediate new](../assets/remediatenew.png)
+
+<!-- Click on the host.
 
 ![patchable](../assets/patchable.png)
 
@@ -64,7 +69,7 @@ Initiate the remediation by doing the following.
 1) Click on the checkbox to select `bash`.
 2) Click `Remediate`.
 
-![start remediate](../assets/startremediate.png)
+![start remediate](../assets/startremediate.png) -->
 
 You'll be asked to `Select playbook` next. This feature is designed to enable you to create customized playbooks that include remediations detected from other Insights applications, like `Compliance` for example.
 
@@ -112,8 +117,6 @@ Click on the `>` symbol next to the name of the host.
 ![execute name](../assets/executename.png)
  -->
 
-In the terminal, you will see the host disconnect the ssh session as it reboots.
+You can go back to the remediations menu which will show the host issues as resolved.
 
-You can go back to the patch menu for the host and the bash package will not be listed anymore.
-
-![patched](../assets/patched-bash.png)
+![resolved](../assets/resolved.png)

@@ -1,9 +1,9 @@
 slug: rhel-services
 id: unrekeptrpcn
-title: Red Hat Enterprise Linux Services
-teaser: Try out the Red Hat Enterprise Linux Services experience.
+title: Managing Red Hat Enterprise Linux
+teaser: Try out the Red Hat Enterprise Linux management experience in Insights.
 description: The Lab provides the participants with an early hands-on experience of
-  the latest upcoming technologies to help your customers Provision and Maintain RHEL
+  the latest upcoming technologies to help your customers provision and maintain RHEL
   within Insights. The focus is on the tooling that can be used to provide full lifecycle
   management of a RHEL system, from the image creation to system instantiation and
   maintenance.
@@ -21,4 +21,8 @@ lab_config:
   overlay: false
   width: 50
   position: right
+<<<<<<< Updated upstream
 checksum: "5030832833119914296"
+=======
+checksum: "13128717364611580752"
+>>>>>>> Stashed changes
