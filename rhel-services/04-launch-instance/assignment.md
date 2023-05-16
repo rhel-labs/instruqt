@@ -90,7 +90,7 @@ Click on the `Terminal` tab.
 
 ![terminal tab](../assets/terminaltab.png)
 
-In the terminal, SSH into the newly provisioned AWS instance. You can copy the SSH command from the `Notepad`.
+In the terminal, SSH into the newly provisioned AWS instance. You can copy the SSH command from the `Notepad`. It might take a little while to connect so please be patient.
 
 ![ssh](../assets/sshinstance.png)
 
@@ -102,7 +102,7 @@ Switch to the root user.
 sudo -i
 ```
 
-Run the following command to check that `ubi-init` installed successfully by adding a base image.
+Let's verify that we installed the `ubi-init` custom package successfully from our custom repository `CustomRepo`. Run the following command to check that a base image was added.
 
 ```bash
 podman image list
