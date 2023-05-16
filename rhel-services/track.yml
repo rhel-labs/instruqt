@@ -15,7 +15,6 @@ developers:
 - myee@redhat.com
 show_timer: true
 skipping_enabled: true
-idle_timeout: 1800
 timelimit: 7200
 lab_config:
   overlay: false

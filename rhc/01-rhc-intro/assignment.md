@@ -6,15 +6,15 @@ title: Introduction to the remote host configuration tool
 notes:
 - type: text
   contents: |
-    After completing this scenario, users will have familiarity with the remote host ocnfiguration
-    tool, rhc.  rhc is a tool provided with Red Hat Enterprise Linux designed to make system
+    After completing this scenario, users will have familiarity with the remote host configuration 
+    tool, rhc. rhc is a tool provided with Red Hat Enterprise Linux designed to make system 
     registration and connection to Red Hat's hosted services easier.
 
     # Concepts included in this scenario:
-    * Connecting a system to the Red Hat Hybrid Cloud Console using rhc
-    * Demonstration of what connecting to Red Hat with rhc gains you
+    * Connecting a system to the Red Hat Hybrid Cloud Console using rhc.
+    * Demonstration of what connecting to Red Hat with rhc gains you.
 
-    # Example Usecase:
+    # Example use case:
     You have new RHEL systems that you would like connected to the hybrid cloud console and connected
     to your Red Hat subscriptions.
 tabs:
