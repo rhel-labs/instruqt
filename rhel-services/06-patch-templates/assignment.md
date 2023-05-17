@@ -84,5 +84,3 @@ Click on the system you applied the template to.
 ![system](../assets/templateappliedsystem.png)
 
 You'll find the patch is greyed out and cannot be applied to your system. This is because the podman advisory was published after the date we specified in the Patch template.
-
-![greyed](../assets/patchfiltered.png)
