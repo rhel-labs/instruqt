@@ -32,9 +32,15 @@ timelimit: 1
 ---
 <!-- markdownlint-disable MD033 -->
 
+A powerful feature of Content Views in Red Hat Satellite is the ability to filter content. This means that you can include or exclude content from being installed by your hosts. In this challenge, we'll block the installation of emacs with a filter (since it's bloatware).
+
 Go to the Content Views menu.
 
 ![cv](../assets/contentview.png)
+
+Click on the `RHEL9` content view.
+
+![rhel9](../assets/rhel9cv.png)
 
 Do the following.
 
@@ -64,7 +70,11 @@ Configure your RPM rule in the following way.
 
 ![add rpm rule](../assets/addrpmruleemacs.png)
 
-Click `Publish new version` to publish a new version of the `RHEL9` content view containing our new `emacs` filter. The new content view will make `emacs` unavailable for hosts to install.
+Click `Publish new version` to publish a new version of the `RHEL9` content view containing our new `emacs` filter.
+
+![filter pub](../assets/publishcvfilter.png)
+
+The new content view will make `emacs` unavailable for hosts to install.
 
 1) Add a description to the content view version. In this case, `added emacs filter`.
 2) Select `Promote`.
@@ -73,7 +83,7 @@ Click `Publish new version` to publish a new version of the `RHEL9` content view
 
 ![publish](../assets/publishfiltercv.png)
 
-Ensure the details of this new version are correct and then click `Finish`.
+Ensure the details of this new version are correct and then click `Finish`. Make sure to wait for the content view to finish publishing or else the filter won't work properly.
 
 Next, go into the terminal of one of the hosts and enter the following.
 
