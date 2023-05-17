@@ -31,7 +31,7 @@ timelimit: 1
 ---
 <!-- markdownlint-disable MD033 -->
 
-Red Hat Product Errata are contain advisories on bug fixes, security, and enhancement on software installed on your RHEL host, based on analysis by Red Hat engineers. Red Hat Satellite provides a simple method for applying these fixes to hosts. We'll walk through those steps.
+Red Hat Product Errata are advisories on bug fixes, security, and enhancement on software installed on your RHEL host, based on analysis by Red Hat engineers. Red Hat Satellite provides a simple method for applying these fixes to hosts. We'll walk through those steps.
 
 For more information on Red Hat Errata, [please visit this page](https://access.redhat.com/articles/2130961).
 
@@ -47,7 +47,7 @@ To view Errata in Satellite, click on `Content` and `Errata`.
 
 You'll be taken to a page containing all the Errata contained in the repositories we originally synchronized in the second challenge of this lab.
 
-Not all of these Errata apply to the hosts we've added to this Satellite server. To view applicable and installable Errata, click on the `Applicable` and `Installable` radio boxes.
+Not all of these Errata apply to the hosts we've added to this Satellite server. To view applicable and installable Errata, click on the `Installable` radio boxes.
 
 <a href="#2">
  <img alt="An example image" src="../assets/applicableandinstallable.png" />
@@ -57,7 +57,7 @@ Not all of these Errata apply to the hosts we've added to this Satellite server.
  <img alt="An example image" src="../assets/applicableandinstallable.png" />
 </a>
 
-Let's install all the applicable Errata to our two hosts.
+Let's install all the Installable Errata to our two hosts.
 
 Select all of the Errata we just filtered.
 
@@ -69,7 +69,7 @@ Select all of the Errata we just filtered.
  <img alt="An example image" src="../assets/selectallerrata.png" />
 </a>
 
-_**Note:**_ Increase the pager size to select all the errata. If the number of errata exceed the maximum page size, you'll have to run this operation multiple times or run it from the host > content > errata menu. For the purposes of this lab, it's not necessary to apply all errata.
+_**Note:**_ Increase the page size to select all the errata. If the number of errata exceed the maximum page size, you'll have to run this operation multiple times or run it from the host > content > errata menu. For the purposes of this lab, it's not necessary to apply all errata.
 
 ![pager](../assets/pagersize.png)
 
@@ -146,13 +146,15 @@ Click on a host (it doesn't matter which, you'll have to perform this procedure 
 
 Do the following to resolve the traces.
 
-1) Click on the `Traces` tab.
+1) Click on the `Traces` tab. All the services that require restarting are listed here. If no services require restart, this list would be blank.
 2) Select all the services listed.
 3) Click `Restart app`.
 
 ![restart](../assets/tracesrestart.png)
 
 _**NOTE:**_ Resolving traces might take a few minutes, especially for a reboot, since the host will wait 60 seconds before initiating the reboot.
+
+When you view the `Traces` menu, the list will be emty signifying no services require restart.
 
 Repeat the procedure to resolve Traces with the remaining host.
 

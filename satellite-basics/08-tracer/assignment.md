@@ -88,7 +88,7 @@ Click on the `Repositories` tab.
 
 Add the repo.
 
-1) Click on `Red Hat Satellite Client 6 for RHEL 9 x86_64 RPMs`.
+1) Select the repo `Red Hat Satellite Client 6 for RHEL 9 x86_64 RPMs`.
 2) Click `Add repositories`.
 
 ![add repos](../assets/addclientrepo.png)
