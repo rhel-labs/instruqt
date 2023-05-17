@@ -6,8 +6,8 @@ title: Introduction to the remote host configuration tool
 notes:
 - type: text
   contents: |
-    After completing this scenario, users will have familiarity with the remote host configuration 
-    tool, rhc. rhc is a tool provided with Red Hat Enterprise Linux designed to make system 
+    After completing this scenario, users will have familiarity with the remote host configuration
+    tool, rhc. rhc is a tool provided with Red Hat Enterprise Linux designed to make system
     registration and connection to Red Hat's hosted services easier.
 
     # Concepts included in this scenario:

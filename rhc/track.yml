@@ -2,8 +2,8 @@ slug: rhc
 id: 7vm8ba8b5bu3
 title: The remote host configuration tool, rhc
 description: |-
-  After completing this scenario, users will have familiarity with the remote host configuration 
-  tool, rhc. rhc is a tool provided with Red Hat Enterprise Linux designed to make system 
+  After completing this scenario, users will have familiarity with the remote host configuration
+  tool, rhc. rhc is a tool provided with Red Hat Enterprise Linux designed to make system
   registration and connection to Red Hat's hosted services easier.
 
   # Concepts included in this scenario:
@@ -27,4 +27,4 @@ lab_config:
   overlay: false
   width: 25
   position: right
-checksum: "17403327938394747583"
+checksum: "2031956700873601074"

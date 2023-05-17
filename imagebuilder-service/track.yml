@@ -2,10 +2,10 @@ slug: imagebuilder-service
 id: 4vhwfoe3fuvu
 title: Building custom images with the Image Builder Service
 description: |-
-  After completing this scenario, users will be able to define a Red Hat Enterprise Linux 
-  blueprint in the Red Hat Image Builder tool hosted on the Hybrid Cloud Console. Users will 
+  After completing this scenario, users will be able to define a Red Hat Enterprise Linux
+  blueprint in the Red Hat Image Builder tool hosted on the Hybrid Cloud Console. Users will
   then take the resulting image and customize it for their needs.
-  
+
   # Concepts included in this scenario:
   * Using the Image Builder service to define a custom image.
   * Using local tools to further customize the resulting image.
@@ -28,4 +28,4 @@ lab_config:
   overlay: false
   width: 25
   position: right
-checksum: "2671035119447012944"
+checksum: "1915042764161820354"
