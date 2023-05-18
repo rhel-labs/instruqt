@@ -1,6 +1,6 @@
 ---
 slug: upgrading
-id: xe2s164p1oix
+id: ymrde958ccpn
 type: challenge
 title: Running the Upgrade
 tabs:

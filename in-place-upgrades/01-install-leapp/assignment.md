@@ -1,6 +1,6 @@
 ---
 slug: install-leapp
-id: fuwubwmiqpfp
+id: wtcmkazmqpnm
 type: challenge
 title: Installing Leapp
 notes:

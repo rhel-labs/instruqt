@@ -1,6 +1,6 @@
 ---
 slug: preupgrade-assistant
-id: 31dsb4tpfgsy
+id: ht9xnox4fxa6
 type: challenge
 title: Running the Pre-upgrade Assistant
 tabs:

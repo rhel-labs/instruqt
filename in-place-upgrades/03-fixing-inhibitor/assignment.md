@@ -1,6 +1,6 @@
 ---
 slug: fixing-inhibitor
-id: cj0ebbyjvkkx
+id: yuoi8ol4ye9d
 type: challenge
 title: Fixing inhibited results
 tabs:

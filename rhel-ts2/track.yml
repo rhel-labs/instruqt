@@ -1,0 +1,21 @@
+slug: rhel-ts2
+id: yxnqqhsuuaz3
+title: RHEL Troubleshooting Two
+teaser: Can you fix this broken RHEL system?
+description: |-
+  You've walked in to the office, and barely feel the warmth of your first mug of coffee when your boss, **Scott**, calmly walks up to you.
+
+  "Yeah, so look, theres a problem.  You were out yesterday, and... you know, I _couldn't_ bother you because of that pesky company policy thing...  Anyway, you know before being a manager, I did the same work as you, so I handled a few things for you.  You're welcome!"
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- nlager@redhat.com
+show_timer: true
+timelimit: 600
+lab_config:
+  overlay: false
+  width: 33
+  position: left
+checksum: "1406632362923658091"
