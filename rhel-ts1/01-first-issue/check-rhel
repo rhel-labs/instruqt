@@ -1,0 +1,13 @@
+if  [ "`curl localhost 2>/dev/null | grep "Business-y" `" != "<h1>Super Awesome Business-y Website!</h1>" ]
+then
+  fail-message "Sorry, this doesn't look like a SUPER BUSINESS-Y website.  I'd keep working..."  
+  exit 1
+elif [ `getenforce` == "Permissive" ]
+then
+  fail-message "Ooof, looks like you're not using a security best practice.  SELinux permissive?"
+  exit 2
+elif [ "`grep "^DocumentRoot" /etc/httpd/conf/httpd.conf`" != "DocumentRoot \"/web/html\"" ]
+then
+  fail-message "Did you move the DocumentRoot?  That's going to break our production pushes, keep working..."
+  exit 3
+fi

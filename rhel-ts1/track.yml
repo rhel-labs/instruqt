@@ -1,0 +1,24 @@
+slug: rhel-ts1
+id: 8xoqudrwlk9e
+title: RHEL Troubleshooting One
+description: |
+  # Goal:
+
+  Oh sheesh, the new guy, **Nate**, is at it again.  He just started applying ansible playbooks without paying attention to what they were doing.  Now, the systems are messed up!
+
+  Guess what?
+
+  You get to fix them!
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+tags:
+- rhel
+owner: rhel
+developers:
+- smcbrien@redhat.com
+show_timer: true
+lab_config:
+  overlay: false
+  width: 33
+  position: left
+checksum: "17551037383675832421"
