@@ -1,0 +1,25 @@
+if ! su - webteam -c 'sudo -n systemctl enable httpd>/dev/null'
+then
+  fail-message "Scott says YOU'RE FIRED!, webteam cannot use systemctl to enable httpd"
+  exit 3
+elif ! su - webteam -c 'sudo -n systemctl start httpd>/dev/null'
+then
+  fail-message "Scott says YOU'RE FIRED!, webteam cannot use systemctl to restart httpd"
+  exit 6
+elif ! su - webteam -c 'sudo -n systemctl status httpd>/dev/null'
+then
+  fail-message "Scott says YOU'RE FIRED!, webteam cannot use systemctl to check the status of httpd"
+  exit 4
+elif ! su - webteam -c 'sudo -n systemctl reload httpd>/dev/null'
+then
+  fail-message "Scott says YOU'RE FIRED!, webteam cannot use systemctl to reload httpd"
+  exit 5
+elif su - webteam -c 'sudo -n systemctl status sshd >/dev/null'
+then
+  fail-message "Scott says YOU'RE FIRED! Your sudo permissions are too broad, webteam should ONLY be able to manage to httpd service"
+  exit 1
+elif su - webteam -c 'sudo -n ls />/dev/null'
+then
+  fail-message "Scott says YOU'RE FIRED! Your sudo permissions are too broad, webteam should ONLY be able to use systemctl, and only on httpd"
+  exit 2
+fi

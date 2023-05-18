@@ -1,0 +1,2 @@
+useradd webteam
+dnf install -y httpd
