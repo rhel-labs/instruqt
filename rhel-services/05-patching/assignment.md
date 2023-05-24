@@ -27,7 +27,7 @@ difficulty: basic
 To demonstrate patching, we'll downgrade `podman` and `bash` before utilizing the patching application. In the `Terminal`, run the following command.
 
 ```bash
-dnf -y downgrade bash podman
+dnf -y downgrade bash openssh
 ```
 
 Next we'll run `insights-client` to update the host's metadata status the Red Hat Hybrid Cloud Console.
@@ -36,8 +36,9 @@ Next we'll run `insights-client` to update the host's metadata status the Red Ha
 insights-client
 ```
 
-![downgrade](../assets/downgrade.png)
-![insights-client](../assets/insights-client.png)
+![downgrade openssh bash](../assets/downgradeopensshbash.png)
+<!-- ![downgrade](../assets/downgrade.png)
+![insights-client](../assets/insights-client.png) -->
 
 Navigate to the `Systems` menu in the `Patch` application.
 
@@ -77,7 +78,7 @@ In other words, you may want to upgrade `bash` but then you might also want to r
 
 Create a new playbook.
 
-1) Select `Create a new playbook` and give it a name. In this example we'll call it `test-001`.
+1) Select `Create a new playbook` and give it a name. In this example we'll call it `test-001` (please choose a unique name).
 2) Click `Next`.
 
 Review the correct system is selected and click `Next`.
@@ -119,4 +120,4 @@ Click on the `>` symbol next to the name of the host.
 
 You can go back to the remediations menu which will show the host issues as resolved.
 
-![resolved](../assets/resolved.png)
+![resolved](../assets/resolved.png

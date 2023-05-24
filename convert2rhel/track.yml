@@ -23,4 +23,8 @@ developers:
 - smcbrien@redhat.com
 - myee@redhat.com
 show_timer: true
-checksum: "6530940868068306270"
+lab_config:
+  overlay: false
+  width: 25
+  position: right
+checksum: "15229049649885768393"
