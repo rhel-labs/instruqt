@@ -1,1 +1,0 @@
-for i in `lsof | grep deleted | grep vim| awk '{print $2}'`;do kill $i;done

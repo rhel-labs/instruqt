@@ -1,5 +1,0 @@
-if lsof | grep biglog
-then
-  fail-message "It looks like the problem still exists"
-  exit 2
-fi

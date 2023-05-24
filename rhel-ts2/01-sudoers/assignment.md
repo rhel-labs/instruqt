@@ -22,7 +22,7 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Deleted file won't delete
+# SUDO is hard
 
 **Scott**: "I put one of those drop-in things in.  Should be good to go! But they say its not working, must be a pebkac right?"
 

@@ -18,7 +18,7 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Deleted file won't delete
+# Full Filesystem
 
 **Scott**: "I don't know why you insist on running these servers with no GUI... Whatever, I'm going to go get a coffee."
 
