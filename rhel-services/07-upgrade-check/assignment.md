@@ -84,7 +84,15 @@ It will take a few minutes for the job to complete.
 
 Go to the `Activity` tab and the last job run to view the analysis.
 
+You might have to sort the Status and Run date/Time columns to find your job.
+
+![sort](../assets/sortanalysis.png)
+
+Click on the task.
+
 ![completed](../assets/completedanalysis.png)
+
+Expand the System name to view the report.
 
 ![analysis](../assets/upgradeissues.png)
 
