@@ -120,4 +120,4 @@ Click on the `>` symbol next to the name of the host.
 
 You can go back to the remediations menu which will show the host issues as resolved.
 
-![resolved](../assets/resolved.png
+![resolved](../assets/resolved.png)
