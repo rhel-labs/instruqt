@@ -24,7 +24,7 @@ difficulty: basic
 ---
 <!-- markdownlint-disable MD033 MD026-->
 
-To demonstrate patching, we'll downgrade `podman` and `bash` before utilizing the patching application. In the `Terminal`, run the following command.
+To demonstrate patching, we'll downgrade `openssh` and `bash` before utilizing the patching application. In the `Terminal`, run the following command.
 
 ```bash
 dnf -y downgrade bash openssh
