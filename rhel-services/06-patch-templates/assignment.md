@@ -35,6 +35,12 @@ First we'll downgrade `podman`. In the `Terminal`, run the following command.
 dnf -y downgrade podman
 ```
 
+Now run the `insights-client`.
+
+```bash
+insights-client
+```
+
 Go to the Systems menu in the Patch application.
 
 ![patch systems](../assets/patchsystemsmenu.png)
