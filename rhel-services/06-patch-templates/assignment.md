@@ -27,7 +27,21 @@ difficulty: basic
 ---
 <!-- markdownlint-disable MD033 MD026-->
 
-We will now patch our system with patches that were published up to December 31 by creating a patch template with a date of December 31, 2022. We'll
+We will now patch our system with patches that were published up to December 31 by creating a patch template with a date of December 31, 2022.
+
+First we'll downgrade `podman`. In the `Terminal`, run the following command.
+
+```bash
+dnf -y downgrade podman
+```
+
+Go to the Systems menu in the Patch application.
+
+![patch systems](../assets/patchsystemsmenu.png)
+
+You'll see that the host has one installable advisory.
+
+![installable advisory](../assets/oneinstallableadvisory.png)
 
 Go to the Patch template application.
 
@@ -59,7 +73,7 @@ Perform the following tasks in the `Create content template` menu.
 
 Do the following in `Details`.
 
-1) Give the template a name.
+1) Give the template a name (please make it unique).
 2) Click `Next`.
 
 ![template details](../assets/templatedetails.png)
