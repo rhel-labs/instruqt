@@ -18,6 +18,8 @@ difficulty: basic
 ---
 <!-- markdownlint-disable MD033 MD026-->
 
+In this challenge we'll show you how to configure custom repositories. Custom repositories may be used to inject third party or custom RPMs into images built with the Image builder application. This challenge is optional as we will provide pre-configured custom repositories to be used later in this lab.
+
 Let's navigate to the repositories menu.
 
 Click on the `Settings gear` and click on `Settings`.
@@ -30,7 +32,7 @@ Click on `Repositories`
 
 There are a few pre-configured repos.
 
-**At this point, you may add a custom repository or proceed to the next step.**
+_**At this point, you may add a custom repository or proceed to the next step.**_
 
 ![repos](../assets/configuredrepos.png)
 

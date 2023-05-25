@@ -70,7 +70,7 @@ Next we'll add software to the image.
 
 We'll add some packages from custom repositories.
 
-1) Check off the following `Custom repositories`.
+1) Check off the following `Custom repositories`. The `CustomRepo` repository contains the custom made `ubi-init` RPM which will install a Universal Base Image (ubi) container into your image.
 
    - `CustomRepo`
    - `EPEL 8 Everything x86_64` or `EPEL 9 Everything x86_64` if you are building a RHEL 9 image.
