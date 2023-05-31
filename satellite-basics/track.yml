@@ -28,9 +28,10 @@ owner: rhel
 developers:
 - myee@redhat.com
 show_timer: true
+idle_timeout: 3000
 timelimit: 7200
 lab_config:
   overlay: false
   width: 50
   position: right
-checksum: "17910917491167600664"
+checksum: "2900076741506905452"
