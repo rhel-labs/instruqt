@@ -66,7 +66,7 @@ After you run the playbook, the swappiness value should be updated to be 20.
 
 > <em>NOTE:</em> swappiness is a setting that determines the kernel's preference for using swap space on the system, the value is between 0-100. The smaller the value, the less preference the kernel has for utilizing swap space.
 
-Execute the playbook that includes our updated settings deployed through RHEL System roles.
+<!-- Execute the playbook that includes our updated settings deployed through RHEL System roles.
 ```
 ansible-playbook soe.yml
 ```
@@ -85,21 +85,23 @@ localhost                  : ok=16   changed=9    unreachable=0    failed=0    s
 </pre>
 After a lot of output, you can see from the output at the bottom of the snippet above, how many elements on the system were changed.
 
-You may have noticed that for session recording, the `tlog` system role managed installing the software needed for session recording in addition to executing the configuration parameters included in the playbook.
+You may have noticed that for session recording, the `tlog` system role managed installing the software needed for session recording in addition to executing the configuration parameters included in the playbook. -->
 
-Let's apply these roles to `client1` and `client2`. We need to create a `hosts.ini` file specifying the hostnames `client1` and `client2`. Both of these hosts will be part of the `clients` group.
+Let's apply these roles to `localhost`, `client1` and `client2`. We need to create a `hosts.ini` file specifying the hostnames `client1` and `client2`. Both of these hosts will be part of the `clients` group. For localhost, we'll specify that ansible should execute the playbook locally.
 
-```
+```text
 cat > hosts.ini << EOF
+localhost  ansible_connection=local
 [clients]
 client1
 client2
 EOF
 ```
 
-```
+```bash
 cat hosts.ini
 ```
+
 The `hosts.ini` should contain the following.
 
 <pre>
@@ -109,11 +111,13 @@ client2
 </pre>
 Edit the `soe.yml` playbook to add the `clients` host group. This tells ansible to apply the system roles in `soe.yml` to `localhost`, `client1`, and `client2`.
 
-```
+```bash
 sed -i '/^- hosts: localhost/ s/$/, clients/' soe.yml
 ```
+
 Check the soe.yml file.
-```
+
+```bash
 cat soe.yml
 ```
 
@@ -138,13 +142,14 @@ cat soe.yml
     - role: rhel-system-roles.tlog
 </pre>
 Now run the playbook again to apply the system roles to the clients group.
-```
+
+```bash
 ansible-playbook soe.yml -i hosts.ini
 ```
 
 Check the swappiness kernel parameter has changed on `client1` and `client2`.
 
-```
+```bash
 for i in client1 client2; do echo -n "$i : " ; ssh $i cat /proc/sys/vm/swappiness; done
 ```
 
