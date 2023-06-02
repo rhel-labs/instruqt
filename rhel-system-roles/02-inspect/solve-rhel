@@ -7,6 +7,7 @@
 #
 
 tee -a hosts.ini << EOF
+localhost  ansible_connection=local
 [clients]
 client1
 client2
