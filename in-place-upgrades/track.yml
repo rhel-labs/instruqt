@@ -1,18 +1,25 @@
 slug: in-place-upgrades
 id: vijyvfkqhfzw
-title: In Place Upgrades
+title: In Place Upgrade to RHEL 8
 teaser: Performing an in-place upgrade with LEAPP
 description: |-
-  After completing this scenario, users will be able to upgrade from one major version of Red Hat Enterprise Linux to the next. (Example RHEL 7 to RHEL 8)
+  # Overview
 
-  # Concepts included in this scenario:
+  After completing this scenario, users will be able to upgrade from one major version of Red Hat Enterprise Linux 7.9 to 8.latest
+
+  ## Concepts included in this scenario:
+
   * Run pre-upgrade analysis and troubleshoot
   * Perform an in-place upgrade with LEAPP
 
-  # Example Usecase:
+  For additional information refer to the leapp tool's documentation:
+  https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/upgrading_from_rhel_7_to_rhel_8/index
+
+  ## Example Usecase:
+
   A Systems Administrator needs to upgrade deployed Red Hat Enterprise Linux servers from their current version to the latest major version to take advantage of a longer lifecycle and new features without needing to perform a clean install.
 
-  Note: This process works similarly for RHEL 8 and 9.
+  Note: We'll be publishing a lab soon covering the process for upgrading from RHEL 8 to RHEL 9.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags:
 - rhel
@@ -20,7 +27,10 @@ owner: rhel
 developers:
 - ehendric@redhat.com
 - myee@redhat.com
-private: true
-published: false
+- nlager@redhat.com
 show_timer: true
-checksum: "5337689209423194698"
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "10980821122082631099"

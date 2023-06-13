@@ -1,0 +1,11 @@
+#!/bin/bash
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+systemctl enable --now libvirtd
+sleep 10
+virsh start rhel08
+ssh -i ~/.ssh/id_rsa root@rhel08 "subscription-manager register --activationkey='$ACTIVATIONKEY' --org=12451665 --force"

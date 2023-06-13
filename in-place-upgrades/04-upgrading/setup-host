@@ -1,0 +1,5 @@
+while ! ping -c 1 -W 1 upgraded08; do echo "Waiting for VM - network interface might be down..."; sleep 10; done
+
+TMUX='' tmux new-session -d -s 'upgraded08' 'ssh -o "StrictHostKeyChecking no" rhel@upgraded08; sudo -i; clear' > /dev/null 2>&1
+tmux set -g pane-border-status top
+tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'

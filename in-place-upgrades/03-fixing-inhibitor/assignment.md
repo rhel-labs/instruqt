@@ -1,31 +1,32 @@
 ---
 slug: fixing-inhibitor
-id: cj0ebbyjvkkx
+id: 1jx3d2n3b2fj
 type: challenge
 title: Fixing inhibited results
 tabs:
 - title: RHEL
   type: terminal
   hostname: host
+  cmd: tmux attach-session -t "rhel07"
 difficulty: basic
 timelimit: 1
 ---
 
 You saw in the last step how Leapp produced an error. In this scenario, PAM modules are not in use. It is therefore safe to skip this check. To do so, replace the commented line `# confirm =` with a true statement.
 
-```
+```bash
 sed -i 's/# confirm =/confirm = true/g' /var/log/leapp/answerfile
 ```
 
 Re-run the preupgrade check to verify the change satisfied the result
 
-```
-leapp preupgrade --target 8.6
+```bash
+leapp preupgrade --target 8.8
 
 ```
 
 <pre class=file>
-# leapp preupgrade --target 8.6
+# leapp preupgrade --target 8.8
 ==> Processing phase `configuration_phase`
 ====> * ipu_workflow_config
         IPU workflow config actor

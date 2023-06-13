@@ -5,7 +5,8 @@ do
     sleep 1
 done
 
-virsh start rhel07
+virsh start centos
+
 echo "Pausing for 15 seconds while VM boots" && sleep 15
 echo "${SSHKEY}" > r4ekey
 chmod 600 r4ekey
@@ -13,10 +14,8 @@ rm /root/.ssh/id_rsa
 cp /root/r4ekey /root/.ssh/id_rsa
 ssh-keygen -f ~/.ssh/id_rsa -y > ~/.ssh/id_rsa.pub
 
-while ! ping -c 1 -W 1 rhel07; do echo "Waiting for VM - network interface might be down..."; sleep 10; done
+while ! ping -c 1 -W 1 centos; do echo "Waiting for VM - network interface might be down..."; sleep 10; done
 
-ssh -i ~/.ssh/id_rsa rhel@rhel07 "sudo subscription-manager register --activationkey="${ACTIVATION_KEY}" --org=12451665 --force"
-
-TMUX='' tmux new-session -d -s 'rhel07' 'ssh -o "StrictHostKeyChecking no" rhel@rhel07; sudo -i; clear' > /dev/null 2>&1
+TMUX='' tmux new-session -d -s 'centos' 'ssh -o "StrictHostKeyChecking no" root@centos; clear' > /dev/null 2>&1
 tmux set -g pane-border-status top
 tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'

@@ -1,19 +1,15 @@
 ---
 slug: running-c2r
-id: 5loxag2y1kvy
+id: gnrrq9g1gpdx
 type: challenge
 title: Running Convert2RHEL
-notes:
-- type: text
-  contents: |
-    With your CentOS Linux system prepared for conversion, you will now run the convert2rhel utility.
 tabs:
 - title: centos
   type: terminal
-  hostname: rhel
+  hostname: host
   cmd: tmux attach-session -t "centos"
 difficulty: basic
-timelimit: 2
+timelimit: 1
 ---
 
 ## Understanding the Convert2RHEL command
@@ -30,8 +26,14 @@ There are several different combinations of arguments that can be used to execut
 
 In order to automate this process as much as possible, you will kick off the conversion using the activation key combination from #3 above: convert2rhel --org <organization_ID> --activationkey <activation_key>
 
+>**Pro Tip:** The above process can be automated by adding a `-y` argument to your command!
+<pre class='file'>
+# convert2rhel --org 12451665 --activationkey convert2rhel -y
+</pre>
+
 ```bash
 convert2rhel --org 12451665 --activationkey convert2rhel
+
 ```
 
 >**Note:** This process will take some time!
@@ -79,9 +81,4 @@ Conversion successful!
 
 WARNING - In order to boot the RHEL kernel, restart of the system is needed.
 
-</pre>
-
->**Pro Tip:** The above process can be automated by adding a `-y` argument to your command!
-<pre class='file'>
-# convert2rhel --org 12451665 --activationkey convert2rhel -y
 </pre>

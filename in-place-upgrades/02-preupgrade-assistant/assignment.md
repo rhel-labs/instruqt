@@ -1,12 +1,13 @@
 ---
 slug: preupgrade-assistant
-id: 31dsb4tpfgsy
+id: jtppuyrfsxln
 type: challenge
 title: Running the Pre-upgrade Assistant
 tabs:
 - title: RHEL
   type: terminal
   hostname: host
+  cmd: tmux attach-session -t "rhel07"
 difficulty: basic
 timelimit: 1
 ---
@@ -14,55 +15,58 @@ timelimit: 1
 
 Built into the leapp tool is a utility that collects data about the system, assesses upgradability, and generates a pre-upgrade report. On your lab system, perform the pre-upgrade test: (This process will take a couple minutes.)
 
-```
-leapp preupgrade --target 8.6
+```bash
+leapp preupgrade --target 8.8
+
 ```
 
 <pre class=file>
-# leapp preupgrade --target 8.6
+# leapp preupgrade --target 8.8
 ==> Processing phase `configuration_phase`
 ====> * ipu_workflow_config
         IPU workflow config actor
 ==> Processing phase `FactsCollection`
-====> * system_facts
-        Provides data about many facts from system.
-====> * scan_files_for_target_userspace
-        Scan the source system and identify files that will be copied into the target userspace when it is created.
-====> * firewalld_facts_actor
-        Provide data about firewalld
-====> * removed_pam_modules_scanner
-        Scan PAM configuration for modules that are not available in RHEL-8.
 ====> * network_manager_read_config
         Provides data about NetworkManager configuration.
+====> * storage_scanner
+        Provides data about storage settings.
+====> * sssd_facts
+        Check SSSD configuration for changes in RHEL8 and report them in model.
+====> * persistentnetnames
+        Get network interface information for physical ethernet interfaces of the original system.
+====> * scan_pkg_manager
+        Provides data about package manager (yum/dnf)
 
 ... output truncated ...
 
 ============================================================
                      UPGRADE INHIBITED
 ============================================================
-
-
+Upgrade has been inhibited due to the following problems:
+    1. Inhibitor: Missing required answers in the answer file
+Consult the pre-upgrade report for details and possible remediation.
+============================================================
+                     UPGRADE INHIBITED
+============================================================
 Debug output written to /var/log/leapp/leapp-preupgrade.log
 
 ============================================================
                            REPORT
 ============================================================
-
 A report has been generated at /var/log/leapp/leapp-report.json
 A report has been generated at /var/log/leapp/leapp-report.txt
 
 ============================================================
                        END OF REPORT
 ============================================================
-
 Answerfile has been generated at /var/log/leapp/answerfile
-#
 </pre>
 
 Notice how the upgrade was "inhibited" because the preupgrade assistant requires your input on one or more issues before it will safely proceed. The preupgrade tool has generated an answerfile in `/var/log/leapp`. Inside of this file, it has generated a true/false question regarding PAM PKCS11 modules:
 
-```
+```bash
 cat /var/log/leapp/answerfile
+
 ```
 
 <pre class=file>
