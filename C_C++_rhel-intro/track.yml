@@ -1,0 +1,29 @@
+slug: sandbox
+id: nn2ysbkldfae
+title: Red Hat Enterprise Linux Open Lab
+description: |
+  # Goal: Run a program in C or C++
+  # Overview
+
+  After completing this scenario, users will be able to configure Red Hat Enterprise Linux to run code written in C and/or C++
+
+  ## Concepts included in this scenario:
+
+  * RHEL Developer Toolset
+  * Beginner shell commands
+
+  ## Example Usecase:
+
+  You wish to build your own programs written in C or C++
+  
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+tags:
+- rhel
+owner: rhel
+developers:
+- wkibbe@redhat.com
+private: true
+published: false
+show_timer: true
+checksum: "17180193140302984678"
