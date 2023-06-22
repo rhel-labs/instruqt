@@ -1,0 +1,21 @@
+slug: sandbox
+id: nn2ysbkldfae
+title: Red Hat Enterprise Linux Open Lab
+description: |
+  # Goal:
+
+  Set up TemsorFlow
+
+  In this lab, you will learn how to install TensorFlow and run a simple ML application in Python
+
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+tags:
+- rhel
+owner: rhel
+developers:
+- wkibbe@redhat.com
+private: false
+published: true
+show_timer: true
+checksum: "17180193140302984678"
