@@ -18,7 +18,7 @@ Next, we need to ensure that pip, Python's package manager, is up to date. To do
 pip install --upgrade pip
 ```
 
-Finally, we can install TensorFlow from pip. We will use the CPU-only build of TensorFlow because we are not using a GPU for ML.
+Finally, we can install TensorFlow from pip. We will use the CPU-only build of TensorFlow because we are not using a GPU for ML on this system.
 
 ```bash
 pip install tensorflow-cpu==2.12.*
