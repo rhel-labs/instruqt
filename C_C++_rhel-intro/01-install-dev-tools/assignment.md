@@ -5,6 +5,6 @@ system registered with Subscription Manager.
 
 The first step is to install Red Hat Enterprise Linux Developer Toolset. This contains the compiler needed for C. To install, run the following command:
 ```
-yum group install "Development Tools"
+yum group install "Development Tools" -y
 ```
 When asked if you want to install, press 'y' and then press enter/return.
