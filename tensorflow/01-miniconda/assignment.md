@@ -19,7 +19,7 @@ EOF
 
 You are now ready to install Conda. To install with Yum, run the following command:
 
-```
+```bash
 yum install conda -y
 ```
 
