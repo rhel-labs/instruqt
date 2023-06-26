@@ -4,7 +4,7 @@ cd /home/C_source
 ```
 
 ```
-At this point, the command line will no longer be visible, and the Vi editing environment should consume the display. In Vi, write the following simple program in C.
+Now, run the following command to concatenate a simple "Hello World" program in C
 ```
 tee helloworld.c << EOF
 #include <stdio.h>
