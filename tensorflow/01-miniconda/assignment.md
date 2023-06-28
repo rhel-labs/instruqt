@@ -10,9 +10,9 @@ dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.r
 You are now ready to install Conda. To install, run the following commands:
 
 ```bash
-dnf install conda -y
-conda init bash
-exec $SHELL
+dnf install conda -y #installs MiniConda
+conda init bash #configures conda to our shell
+exec $SHELL #restarts the shell to finish installation of MiniConda
 ```
 
 Finally, run the following command to verify the installation of Conda. It will print out the version of Conda that is installed to confirm that the installation of Conda is complete:
