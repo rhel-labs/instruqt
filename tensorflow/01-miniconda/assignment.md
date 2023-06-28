@@ -1,16 +1,18 @@
 # step 1: install MiniConda
 
-The first step to configuring Tensorflow is to install MiniConda. before we can install it, we must add its repository to Yum (the package manager). To enable this, we need to add EPEL (Extra Packages for Enterprise Linux). EPEL is a repository derived from Fedora that provides additional development tools for RHEL
+The first step to configuring Tensorflow is to install MiniConda. before we can install it, we must add its repository to the package manager. To enable this, we need to add EPEL (Extra Packages for Enterprise Linux). EPEL is a repository derived from Fedora that provides additional development tools for RHEL
 
 ```bash
 subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
 dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm -y
 ```
 
-You are now ready to install Conda. To install with Yum, run the following command:
+You are now ready to install Conda. To install, run the following commands:
 
 ```bash
-yum install conda -y
+dnf install conda -y
+conda init bash
+exec $SHELL
 ```
 
 Finally, run the following command to verify the installation of Conda. It will print out the version of Conda that is installed to confirm that the installation of Conda is complete:
