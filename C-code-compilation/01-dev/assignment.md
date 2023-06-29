@@ -1,5 +1,5 @@
 ---
-slug: install-RHEL-developer-toolset
+slug: install-developer-toolset
 id: jtbxizsq4zmx
 type: challenge
 title: Install RHEL Developer Toolset
