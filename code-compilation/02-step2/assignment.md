@@ -1,8 +1,8 @@
 ---
-slug: step2
+slug: write-program
 id: hgwyeqlt6xgy
 type: challenge
-title: step2
+title: Write a Program
 difficulty: basic
 timelimit: 600
 ---

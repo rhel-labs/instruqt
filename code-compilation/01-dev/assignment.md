@@ -1,8 +1,8 @@
 ---
-slug: dev
+slug: install-RHEL-developer-toolset
 id: jtbxizsq4zmx
 type: challenge
-title: Dev
+title: Install RHEL Developer Toolset
 difficulty: basic
 timelimit: 600
 ---
