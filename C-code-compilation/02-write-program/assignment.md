@@ -2,7 +2,7 @@
 slug: write-program
 id: 1kyhrbhcxpna
 type: challenge
-title: Write a Program
+title: 'Step 2: Write a Program'
 tabs:
 - title: Terminal
   type: terminal
@@ -10,8 +10,6 @@ tabs:
 difficulty: basic
 timelimit: 600
 ---
-# Step 2: Write a Program
-
 A directory for your source code has been created for you. Move to the C_source directory by running the following command
 
 ```bash

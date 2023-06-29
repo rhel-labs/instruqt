@@ -17,7 +17,8 @@ description: |
 
   You wish to build your own programs written in C or C++
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
-tags: []
+tags:
+- rhel
 owner: rhel
 developers:
 - wkibbe@redhat.com
@@ -26,4 +27,4 @@ lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "12677175555924294917"
+checksum: "2204437064888260414"

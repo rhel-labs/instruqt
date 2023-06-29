@@ -2,7 +2,7 @@
 slug: run-program
 id: sgim8tlkbpvd
 type: challenge
-title: Run Your Program
+title: 'Step 3: Run Your Program'
 tabs:
 - title: Terminal
   type: terminal
@@ -10,8 +10,6 @@ tabs:
 difficulty: basic
 timelimit: 600
 ---
-# Step 3: Run Your Program
-
 First, move back into the directory containing the source code in C with the following command:
 
 ```bash

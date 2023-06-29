@@ -2,7 +2,7 @@
 slug: install-developer-toolset
 id: qdl7kbpcrruq
 type: challenge
-title: Install RHEL Developer Toolset
+title: 'Step 1: Install RHEL Developer Toolset'
 tabs:
 - title: Terminal
   type: terminal
@@ -10,8 +10,6 @@ tabs:
 difficulty: basic
 timelimit: 600
 ---
-# Step 1: Install RHEL Developer Toolset
-
 Welcome to this lab experience for Red Hat Enterprise Linux. In this Lab, you will learn how to build and run code written in C on RHEL.
 
 The system displayed beside this text is a Red Hat Enterprise Linux 9
