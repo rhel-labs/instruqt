@@ -22,7 +22,7 @@ Run the following command to create a "Hello World" program in C:
 tee helloworld.c << EOF
 #include <stdio.h>
 int main() {
-   printf("Hello, World!\n");
+   printf("Hello World!\n");
    return 0;
 }
 EOF
@@ -35,7 +35,7 @@ tee helloworld.cpp << EOF
 #include <iostream>
 using namespace std;
 int main() {
-   cout << "Hello world!" << endl;
+   cout << "Hello World!" << endl;
    return 0;
 }
 EOF
