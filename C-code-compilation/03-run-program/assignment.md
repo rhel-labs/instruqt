@@ -7,6 +7,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  workdir: /home/C_source
 difficulty: basic
 timelimit: 600
 ---
