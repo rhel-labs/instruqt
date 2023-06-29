@@ -1,6 +1,6 @@
 ---
 slug: write-program
-id: hgwyeqlt6xgy
+id: 1kyhrbhcxpna
 type: challenge
 title: Write a Program
 difficulty: basic

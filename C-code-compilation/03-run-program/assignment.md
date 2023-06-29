@@ -1,8 +1,8 @@
 ---
 slug: run-program
-id: rtm4ek421x18
+id: sgim8tlkbpvd
 type: challenge
-title: step3
+title: Run Your Program
 difficulty: basic
 timelimit: 600
 ---
