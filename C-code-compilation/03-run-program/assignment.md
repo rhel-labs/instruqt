@@ -37,5 +37,5 @@ Now, run your program with the following command:
 ```
 
 If you are interested in learning more about programming in C or C++, you can check out these helpful guides to get you started:
-C:[https://www.geeksforgeeks.org/c-programming-language/](https://www.geeksforgeeks.org/c-programming-language/)
-C++:[https://www.geeksforgeeks.org/c-plus-plus/](https://www.geeksforgeeks.org/c-plus-plus/)
+C: [https://www.geeksforgeeks.org/c-programming-language/](https://www.geeksforgeeks.org/c-programming-language/)
+C++: [https://www.geeksforgeeks.org/c-plus-plus/](https://www.geeksforgeeks.org/c-plus-plus/)
