@@ -6,7 +6,7 @@ description: |
   # Goal: Run a program in C or C++
   # Overview
 
-  After completing this scenario, users will be able to configure Red Hat Enterprise Linux to run code written in C and/or C++
+  After completing this scenario, users will be able to configure Red Hat Enterprise Linux to run code written in C and/or C++.
 
   ## Concepts included in this scenario:
 
@@ -27,4 +27,4 @@ lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "4428286679508259032"
+checksum: "6891866697998062585"
