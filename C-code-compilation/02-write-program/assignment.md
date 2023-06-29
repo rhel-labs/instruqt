@@ -33,6 +33,7 @@ If you are running a C++ program, use this instead:
 ```bash
 tee helloworld.cpp << EOF
 #include <iostream>
+using namespace std;
 int main() {
    cout << "Hello world!" << endl;
    return 0;

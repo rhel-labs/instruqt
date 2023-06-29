@@ -10,13 +10,8 @@ tabs:
 difficulty: basic
 timelimit: 600
 ---
-First, move back into the directory containing the source code in C with the following command:
 
-```bash
-cd /home/C_source
-```
-
-Then, if you are running a C program, use GCC to compile and link the source code with the following command:
+If you are running a C program, use GCC to compile and link the source code with the following command:
 
 ```bash
 gcc helloworld.c -o helloworld
