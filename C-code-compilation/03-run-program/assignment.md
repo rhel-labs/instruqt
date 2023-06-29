@@ -21,7 +21,7 @@ gcc helloworld.c -o helloworld
 If your program is in C++, use this command to compile and link the source code:
 
 ```bash
-gcc helloworld.cpp -o helloworld
+g++ helloworld.cpp -o helloworld
 ```
 
 Then, modify the permissions on the helloworld executable to allow it to be run with the following command:
@@ -37,5 +37,5 @@ Now, run your program with the following command:
 ```
 
 If you are interested in learning more about programming in C or C++, you can check out these helpful guides to get you started:
-C:[https://www.geeksforgeeks.org/c-programming-language/](https://)
-C++:[https://www.geeksforgeeks.org/c-plus-plus/](https://)
+C:[https://www.geeksforgeeks.org/c-programming-language/](https://www.geeksforgeeks.org/c-programming-language/)
+C++:[https://www.geeksforgeeks.org/c-plus-plus/](https://www.geeksforgeeks.org/c-plus-plus/)

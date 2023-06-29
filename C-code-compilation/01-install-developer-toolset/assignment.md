@@ -31,4 +31,4 @@ The RHEL Developer Subscription for Individuals includes:
 
 You can learn more about the no-cost RHEL Developer Subscription for Individuals here:
 
-[https://developers.redhat.com/articles/faqs-no-cost-red-hat-enterprise-linux#](https://)
+[https://developers.redhat.com/articles/faqs-no-cost-red-hat-enterprise-linux#](https://developers.redhat.com/articles/faqs-no-cost-red-hat-enterprise-linux#)
