@@ -3,6 +3,10 @@ slug: install-developer-toolset
 id: qdl7kbpcrruq
 type: challenge
 title: Install RHEL Developer Toolset
+tabs:
+- title: Terminal
+  type: terminal
+  hostname: rhel
 difficulty: basic
 timelimit: 600
 ---

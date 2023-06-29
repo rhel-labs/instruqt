@@ -3,6 +3,10 @@ slug: write-program
 id: 1kyhrbhcxpna
 type: challenge
 title: Write a Program
+tabs:
+- title: Terminal
+  type: terminal
+  hostname: rhel
 difficulty: basic
 timelimit: 600
 ---
