@@ -1,5 +1,5 @@
 ---
-slug: step3
+slug: run-program
 id: rtm4ek421x18
 type: challenge
 title: step3
