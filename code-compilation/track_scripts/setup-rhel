@@ -1,0 +1,3 @@
+#!/bin/bash
+#creates a directory for code
+mkdir /home/C_source
