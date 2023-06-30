@@ -2,15 +2,17 @@ slug: using-tensorflow-with-red-hat-enterprise-linux
 id: 0apwes2nvvxm
 title: Using TensorFlow with Red Hat Enterprise Linux
 description: |-
-  # Overview: In this lab, you will learn how to install TensorFlow and run a neural network-based machine learning program using Python.
+  # Overview: 
+  In this lab, you will learn how to install TensorFlow and run a neural network-based machine learning program using Python.
 
-  # Goal: After completing this scenario, users will be able to install and configure TensorFlow for Python programming using Red Hat Enterprise Linux.
+  # Goal:
+  After completing this scenario, users will be able to install and configure TensorFlow for Python programming using Red Hat Enterprise Linux.
 
   # Concepts included in this scenario:
   * Adding repositories to the package manager
   * Editing text using Vim
   * Setting up a programming environment using Conda
-  
+  * Running programs written in Python
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags: []
 owner: rhel
@@ -21,4 +23,4 @@ lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "3033856938362455513"
+checksum: "15290147724739474193"
