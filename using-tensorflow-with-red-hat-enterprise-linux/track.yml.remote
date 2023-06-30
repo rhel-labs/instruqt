@@ -1,0 +1,20 @@
+slug: using-tensorflow-with-red-hat-enterprise-linux
+id: 0apwes2nvvxm
+title: Using TensorFlow with Red Hat Enterprise Linux
+description: |-
+  # Goal:
+
+  Set up TensorFlow
+
+  In this lab, you will learn how to install TensorFlow and run a simple ML application in Python
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags: []
+owner: rhel
+developers:
+- wkibbe@redhat.com
+maintenance: true
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "6729205126288015879"
