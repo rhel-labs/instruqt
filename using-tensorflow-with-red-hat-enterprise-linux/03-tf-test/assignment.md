@@ -39,3 +39,7 @@ vim /home/TF_Source/helloTF.py
 If you are new to Vim, check out this helpful guide to learn the basics:
 
 [https://www.linuxfoundation.org/blog/blog/classic-sysadmin-vim-101-a-beginners-guide-to-vim](https://www.linuxfoundation.org/blog/blog/classic-sysadmin-vim-101-a-beginners-guide-to-vim)
+
+To learn more about TensorFlow and to learn how to use it in your own programs, check out the helpful tutorials here:
+
+[https://www.tensorflow.org/tutorials](https://www.tensorflow.org/tutorials)
