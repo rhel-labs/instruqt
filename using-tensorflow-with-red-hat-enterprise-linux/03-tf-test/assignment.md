@@ -18,7 +18,7 @@ conda activate tf
 
 If the TensorFlow environment is activated, the beginning of your command line will look like this:
 
-![](using-tensorflow-with-red-hat-enterprise-linux/assets/20230630_153341_Conda_Environment_Status_copy.png)
+![](../assets/20230630_153341_Conda_Environment_Status_copy.png)
 
 Run the following command to run a test ML program in Python that has been created for you.
 
