@@ -10,17 +10,20 @@ tabs:
 difficulty: basic
 timelimit: 600
 ---
-First, we will create a Conda environment for TensorFlow
+First, create a Conda environment for TensorFlow:
 
 ```bash
 conda create --name tf python=3.9 -y
 ```
 
-Then, we will activate our Conda environment using the following command:
+Then, activate the Conda environment using the following command:
 
 ```bash
 conda activate tf
 ```
+Your Conda environment status is shown in the command line withinin parentheses like this:
+
+![](assets/20230630_152220_Conda_Environment_Status.png)
 
 Next, we need to ensure that Pip, Python's package manager, is up to date. To do this, we can run the following command:
 
