@@ -1,4 +1,0 @@
-#!/bin/bash
-
-# ensure that we are in the right directory
-cd /home/TF_Source
