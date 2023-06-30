@@ -174,8 +174,11 @@ Each contributor holds copyright over their respective contributions.
 The project versioning (Git) records all such contribution source information. """
 
 EOF
-
-# ensure that we are in the right directory
-cd /home/TF_Source
+#init conda just to make sure it is going to work in our shell
+conda init $SHELL
+#restart the shell to be nice to Conda
+exec $SHELL
 # ensure that the conda environment is active
 conda activate tf
+# ensure that we are in the right directory
+cd /home/TF_Source
