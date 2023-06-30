@@ -182,3 +182,5 @@ exec $SHELL
 conda activate tf
 # ensure that we are in the right directory
 cd /home/TF_Source
+
+echo $dir
