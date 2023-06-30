@@ -1,6 +1,14 @@
-version: "3"
-containers:
-- name: shell
-  image: ubuntu
+version: '3'
+virtualmachines:
+- environment:
+    TERM: xterm
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-1-11-18-2022-4
+  machine_type: n1-standard-1
+  name: rhel
   shell: /bin/bash
-  memory: 256
+  allow_external_ingress:
+    - http
+    - https
+    - high-ports
+secrets:
+- name: ACTIVATION_KEY
