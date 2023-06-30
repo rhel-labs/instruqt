@@ -1,3 +1,4 @@
+#!/bin/bash
 # make a directory for tensorflow source code
 
 mkdir /home/TF_Source
@@ -173,3 +174,8 @@ Each contributor holds copyright over their respective contributions.
 The project versioning (Git) records all such contribution source information. """
 
 EOF
+
+# ensure that we are in the right directory
+cd /home/TF_Source
+# ensure that the conda environment is active
+conda activate tf
