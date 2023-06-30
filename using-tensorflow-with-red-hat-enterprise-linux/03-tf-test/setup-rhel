@@ -141,10 +141,10 @@ for step, (batch_x, batch_y) in enumerate(train_data.take(training_steps), 1):
 # Test model on validation set.
 pred = neural_net(x_test, is_training=False)
 print("Test Accuracy: %f" % accuracy(pred, y_test))
+'''
+license:
 
-#license:
-
-""" The MIT License (MIT)
+The MIT License (MIT)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -173,8 +173,8 @@ Copyright (c) 2015, the respective contributors.
 All rights reserved.
 
 Each contributor holds copyright over their respective contributions.
-The project versioning (Git) records all such contribution source information. """
-
+The project versioning (Git) records all such contribution source information. 
+'''
 EOF
 
 # ensure that the conda environment is active
