@@ -3,6 +3,10 @@ slug: miniconda
 id: ryigfzuwgg5u
 type: challenge
 title: Install Miniconda
+tabs:
+- title: Terminal
+  type: terminal
+  hostname: rhel
 difficulty: basic
 timelimit: 600
 ---

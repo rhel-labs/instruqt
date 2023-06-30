@@ -3,6 +3,10 @@ slug: tf-test
 id: 9hsixudmd0tf
 type: challenge
 title: Run a Test Program
+tabs:
+- title: Terminal
+  type: terminal
+  hostname: rhel
 difficulty: basic
 timelimit: 600
 ---

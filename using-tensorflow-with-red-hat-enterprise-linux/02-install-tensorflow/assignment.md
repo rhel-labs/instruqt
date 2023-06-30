@@ -3,6 +3,10 @@ slug: install-tensorflow
 id: yu4epayr4ayi
 type: challenge
 title: Install TensorFlow
+tabs:
+- title: Terminal
+  type: terminal
+  hostname: rhel
 difficulty: basic
 timelimit: 600
 ---
