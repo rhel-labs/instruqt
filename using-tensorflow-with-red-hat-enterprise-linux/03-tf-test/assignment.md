@@ -14,3 +14,8 @@ Run the following command to run a test ML program in Python that has been creat
 ```bash
 python3 helloTF.py 2>/dev/null
 ```
+
+Additionally, if you'd like to view or modify the code, you can do so by opening Vim, a shell-based code editor, by running the following command:
+```bash
+vim helloTF.py
+```
