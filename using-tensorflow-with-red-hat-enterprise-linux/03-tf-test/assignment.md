@@ -8,7 +8,7 @@ tabs:
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 600
+timelimit: 1400
 ---
 Ensure your TensorFlow Conda environment is enabled through the following command:
 
