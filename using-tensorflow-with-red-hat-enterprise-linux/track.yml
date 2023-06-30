@@ -6,7 +6,11 @@ description: |-
 
   Set up TensorFlow
 
-  In this lab, you will learn how to install TensorFlow and run a simple ML application in Python
+  In this lab, you will learn how to install TensorFlow and run a neural network-based machine learning program using Python.
+
+  To learn more about TensorFlow and to learn how to use it in your own programs, check out the helpful tutorials here:
+  [https://www.tensorflow.org/tutorials](https://www.tensorflow.org/tutorials)
+
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags: []
 owner: rhel
@@ -17,4 +21,4 @@ lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "273273544854521124"
+checksum: "9781801608394332478"
