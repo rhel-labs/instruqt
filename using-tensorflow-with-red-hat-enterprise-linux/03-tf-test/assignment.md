@@ -10,6 +10,10 @@ tabs:
 difficulty: basic
 timelimit: 600
 ---
+Enter your Conda environment through the following command:
+```bash
+conda activate tf
+```
 Run the following command to run a test ML program in Python that has been created for you.
 
 ```bash
