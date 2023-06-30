@@ -26,6 +26,10 @@ Run the following command to run a test ML program in Python that has been creat
 python3 /home/TF_Source/helloTF.py 2>/dev/null
 ```
 
+If you'd like to learn more about the program you just ran, you can check out the details here:
+
+[https://github.com/aymericdamien/TensorFlow-Examples/blob/master/tensorflow_v2/notebooks/3_NeuralNetworks/neural_network.ipynb](https://github.com/aymericdamien/TensorFlow-Examples/blob/master/tensorflow_v2/notebooks/3_NeuralNetworks/neural_network.ipynb)
+
 Additionally, if you'd like to view or modify the code, you can do so by opening Vim, a shell-based code editor, by running the following command:
 
 ```bash
