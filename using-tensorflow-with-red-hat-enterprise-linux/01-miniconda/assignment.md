@@ -10,7 +10,7 @@ tabs:
 difficulty: basic
 timelimit: 600
 ---
-The first step to configuring Tensorflow is to install MiniConda. before we can install it, we must add its repository to the package manager. To enable this, we need to add EPEL (Extra Packages for Enterprise Linux). EPEL is a repository derived from Fedora that provides additional development tools for RHEL.
+The first step to configure Tensorflow is to install MiniConda, a package and environment manager widely used for programming. before we can install it, we must add its repository to the package manager. To enable this, we need to add EPEL (Extra Packages for Enterprise Linux). EPEL is a repository derived from Fedora that provides additional development tools for RHEL.
 
 ```bash
 subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
