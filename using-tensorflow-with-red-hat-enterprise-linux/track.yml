@@ -5,7 +5,7 @@ teaser: A short description of the track.
 description: |-
   # Goal:
 
-  Set up TemsorFlow
+  Set up TensorFlow
 
   In this lab, you will learn how to install TensorFlow and run a simple ML application in Python
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
@@ -18,4 +18,4 @@ lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "7074717645588853237"
+checksum: "3353923557313458943"
