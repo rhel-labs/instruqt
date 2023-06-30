@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # make a directory for tensorflow source code
 
 mkdir /home/TF_Source
