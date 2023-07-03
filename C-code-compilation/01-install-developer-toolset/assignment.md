@@ -10,7 +10,7 @@ tabs:
 difficulty: basic
 timelimit: 600
 ---
-Welcome to this lab experience for Red Hat Enterprise Linux. In this Lab, you will learn how to build and run code written in C on RHEL.
+Welcome to this lab experience for Red Hat Enterprise Linux. In this Lab, you will learn how to build and run code written in C or C++ on RHEL.
 
 The system displayed beside this text is a Red Hat Enterprise Linux 9
 system registered with Subscription Manager.
