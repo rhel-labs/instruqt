@@ -10,7 +10,7 @@ tabs:
 difficulty: basic
 timelimit: 600
 ---
-Welcome to this lab experience for Red Hat Enterprise Linux. In this Lab, you will learn how to build and run code written in C on RHEL.
+Welcome to this lab experience for Red Hat Enterprise Linux. In this Lab, you will learn how to build and run code written in C or C++ on RHEL.
 
 The system displayed beside this text is a Red Hat Enterprise Linux 9
 system registered with Subscription Manager.
@@ -18,7 +18,7 @@ system registered with Subscription Manager.
 The first step is to install Red Hat Enterprise Linux Developer Toolset. This is a group of packages which contains the compiler needed for C. It is included in all RHEL subscriptions, including the free Developer Subscription for Individuals. To install, run the following command:
 
 ```bash
-yum group install "Development Tools" -y
+dnf group install "Development Tools" -y
 ```
 
 The RHEL Developer Subscription for Individuals includes:

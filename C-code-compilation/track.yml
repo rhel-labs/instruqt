@@ -6,12 +6,13 @@ description: |
   # Goal: Run a program in C or C++
   # Overview
 
-  After completing this scenario, users will be able to configure Red Hat Enterprise Linux to run code written in C and/or C++.
+  After completing this scenario, users will be able to configure Red Hat Enterprise Linux to run code written in C and C++.
 
   ## Concepts included in this scenario:
 
   * RHEL Developer Toolset
   * Beginner shell commands
+  * Compilation and execution of code
 
   ## Example Usecase:
 
@@ -27,4 +28,4 @@ lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "15888266537771434206"
+checksum: "12957383059416925920"
