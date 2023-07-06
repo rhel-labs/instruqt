@@ -1,7 +1,6 @@
 slug: get-started-with-c
 id: kd3aymebw01x
 title: Get Started with C/C++ on RHEL
-teaser: A short description of the track.
 description: |
   # Goal: Run a program in C or C++
   # Overview
@@ -28,4 +27,4 @@ lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "12957383059416925920"
+checksum: "18335170597146826977"
