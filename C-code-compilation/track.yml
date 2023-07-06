@@ -1,12 +1,11 @@
 slug: get-started-with-c
 id: kd3aymebw01x
 title: Get Started with C/C++ on RHEL
-teaser: A short description of the track.
 description: |
   # Goal: Run a program in C or C++
   # Overview
 
-  After completing this scenario, users will be able to configure Red Hat Enterprise Linux to run code written in C and/or C++.
+  After completing this scenario, users will be able to configure Red Hat Enterprise Linux to run code written in C and C++.
 
   ## Concepts included in this scenario:
 
