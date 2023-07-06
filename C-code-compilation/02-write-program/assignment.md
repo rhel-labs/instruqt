@@ -41,4 +41,4 @@ int main() {
 EOF
 ```
 
-You can use shell tools like Vi to edit your code in RHEL, but you can also use popular text editors and IDEs including Eclipse, VSCode, Sublime Text, and CLion. These make it easier to test and collaborate on your code.
+You can use shell tools like Vim to edit your code in RHEL, but you can also use popular text editors and IDEs including Eclipse, VSCode, Sublime Text, and CLion. These make it easier to test and collaborate on your code.

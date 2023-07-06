@@ -18,7 +18,7 @@ system registered with Subscription Manager.
 The first step is to install Red Hat Enterprise Linux Developer Toolset. This is a group of packages which contains the compiler needed for C. It is included in all RHEL subscriptions, including the free Developer Subscription for Individuals. To install, run the following command:
 
 ```bash
-yum group install "Development Tools" -y
+dnf group install "Development Tools" -y
 ```
 
 The RHEL Developer Subscription for Individuals includes:
