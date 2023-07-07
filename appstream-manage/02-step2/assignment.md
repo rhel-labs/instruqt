@@ -7,10 +7,11 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "Terminal1" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
-To support the web application deployed on this machine, install ruby version 3.0. 
+To support the web application deployed on this machine, install ruby version 3.0.
 
 ```bash
 dnf -y install ruby
@@ -27,7 +28,6 @@ dnf list ruby
 Installed Packages
 ruby.x86_64                     3.0.4-160.el9_0                      @rhel-9-for-x86_64-appstream-rpms
 </pre>
-
 
 Finally, run the ruby command to inspect the version it reports.
 

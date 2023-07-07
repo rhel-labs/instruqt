@@ -7,6 +7,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "Terminal1" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
@@ -23,8 +24,8 @@ dnf module list ruby
 <pre class="file">
 << OUTPUT ABRIDGED >>
 Red Hat Enterprise Linux 9 for x86_64 - AppStream (RPMs)
-Name        Stream        Profiles          Summary                                                   
-ruby        3.1           common [d]        An interpreter of object-oriented scripting language      
+Name        Stream        Profiles          Summary
+ruby        3.1           common [d]        An interpreter of object-oriented scripting language
 
 Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 </pre>
