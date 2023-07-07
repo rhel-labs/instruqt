@@ -20,3 +20,5 @@ tags
 
 instruqt.code-workspace
 .DS_Store
+.vscode
+.markdownlint.json
