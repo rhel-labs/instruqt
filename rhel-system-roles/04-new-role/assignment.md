@@ -123,9 +123,9 @@ ok: [client1]
 <<< OUTPUT ABRIDGED >>>
 
 PLAY RECAP *************************************************************************************************************************************
-client1                    : ok=36   changed=4    unreachable=0    failed=0    skipped=29   rescued=0    ignored=0   
-client2                    : ok=36   changed=4    unreachable=0    failed=0    skipped=29   rescued=0    ignored=0   
-localhost                  : ok=36   changed=4    unreachable=0    failed=0    skipped=29   rescued=0    ignored=0   
+client1                    : ok=36   changed=4    unreachable=0    failed=0    skipped=29   rescued=0    ignored=0
+client2                    : ok=36   changed=4    unreachable=0    failed=0    skipped=29   rescued=0    ignored=0
+localhost                  : ok=36   changed=4    unreachable=0    failed=0    skipped=29   rescued=0    ignored=0
 </pre>
 From the above snippet of output, you can see that only 4 items were changed once the playbook was executed. These changes should have been the updated time server settings.
 
