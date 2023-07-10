@@ -58,7 +58,7 @@ ssh -o "StrictHostKeyChecking no" rhel@client1
 ```
 <pre>
 root@rhel:~# ssh -o "StrictHostKeyChecking no" rhel@client1
-
+<<< OUTPUT ABRIDGED >>>
 ATTENTION! Your session is being recorded!
 </pre>
 Exit and continue to the next challenge.
