@@ -1,6 +1,8 @@
 slug: containerize-app
 id: ljhcpt025ihl
-title: Build an application into a container image using RHEL Container Tools
+title: Build container images with Red Hat Enterprise Linux container tools
+teaser: Add an existing application to a Red Hat universal base image container and
+  deploy it.
 description: |+
   # Goal:
   After completing this scenario, users will be able to install additional
@@ -30,4 +32,8 @@ developers:
 - myee@redhat.com
 - smcbrien@redhat.com
 show_timer: true
-checksum: "1945831010696824733"
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "15399410022083636642"
