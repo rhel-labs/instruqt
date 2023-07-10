@@ -22,7 +22,7 @@ tags:
 owner: rhel
 developers:
 - wkibbe@redhat.com
-maintenance: true
+maintenance: false
 lab_config:
   overlay: false
   width: 33
