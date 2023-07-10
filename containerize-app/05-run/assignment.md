@@ -11,11 +11,6 @@ tabs:
 - title: Terminal 2
   type: terminal
   hostname: rhel
-- title: Containerized Web App
-  type: service
-  hostname: rhel
-  path: /
-  port: 8080
 difficulty: basic
 timelimit: 1
 ---

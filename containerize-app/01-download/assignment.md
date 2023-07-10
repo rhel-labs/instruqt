@@ -30,11 +30,6 @@ tabs:
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: Containerized Web App
-  type: service
-  hostname: rhel
-  path: /
-  port: 8080
 difficulty: basic
 timelimit: 3000
 ---
@@ -61,8 +56,8 @@ buildah from registry.access.redhat.com/ubi9/ubi
 Trying to pull registry.access.redhat.com/ubi9/ubi:latest...
 Getting image source signatures
 Checking if image destination supports signatures
-Copying blob 7b3dd25bf011 done  
-Copying config 663a35613b done  
+Copying blob 7b3dd25bf011 done
+Copying config 663a35613b done
 Writing manifest to image destination
 Storing signatures
 ubi-working-container

@@ -8,11 +8,6 @@ tabs:
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: Containerized Web App
-  type: service
-  hostname: rhel
-  path: /
-  port: 8080
 difficulty: basic
 timelimit: 1
 ---
