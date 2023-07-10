@@ -38,7 +38,7 @@ From the above output, you can see that the clone has been successful and in the
 Now, you will position this software within the container image you are building.
 
 ```bash
-buildah copy ubi-working-container-1 clumsy-bird /var/www/html
+buildah copy ubi9-working-container clumsy-bird /var/www/html
 ```
 
 <pre class="file">
@@ -48,7 +48,7 @@ buildah copy ubi-working-container-1 clumsy-bird /var/www/html
 At this point, all the software needed for the container is in the image contents.  You can commit hte working container to a new container image called `clumsy-bird`.
 
 ```bash
-buildah commit ubi-working-container-1 clumsy-bird
+buildah commit ubi9-working-container clumsy-bird
 ```
 
 <pre class="file">

@@ -21,7 +21,7 @@ In this step, you will install web server software to support the web applicatio
 Install the apache web server from the configured UBI software repository.
 
 ```bash
-buildah run ubi-working-container-1 -- dnf -y install httpd
+buildah run ubi9-working-container -- dnf -y install httpd
 ```
 
 <pre class=file>
@@ -40,7 +40,7 @@ Installing:
 Next, enable the httpd service so that when the container starts, apache will also start.
 
 ```bash
-buildah run ubi-working-container-1 -- systemctl enable httpd
+buildah run uubi9-working-container -- systemctl enable httpd
 ```
 
 <pre class=file>
@@ -50,7 +50,7 @@ Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /u
 Configure the container to listen on port 80 so that traffic being sent to the container is being routed to the apache web server within the container.
 
 ```bash
-buildah config --port 80 --cmd "/usr/sbin/init" ubi-working-container-1
+buildah config --port 80 --cmd "/usr/sbin/init" ubi9-working-container
 ```
 
 In the next step, you will be positioning our github based application content into the container.

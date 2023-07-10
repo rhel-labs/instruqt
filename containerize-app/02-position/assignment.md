@@ -41,16 +41,17 @@ buildah run ubi-working-container -- dnf -y install https://dl.fedoraproject.org
 
 <pre class="file">
 <<< OUTPUT ABRIDGED >>>
-
-======================================================================================================================================
- Package                                       Architecture                            Version                                    Repository                                     Size
-======================================================================================================================================
+=========================================================================================================
+ Package                 Architecture  Version                Repository                            Size
+=========================================================================================================
 Installing:
- epel-release                                  noarch                                  9-2.el9                                    @commandline                                   17 k
+ epel-release            noarch        9-5.el9                @commandline                          18 k
+Installing weak dependencies:
+ dnf-plugins-core        noarch        4.3.0-5.el9_2          rhel-9-for-x86_64-baseos-rpms         42 k
 
 Transaction Summary
-======================================================================================================================================
-Install  1 Package
+=========================================================================================================
+Install  2 Packages
 
 <<< OUTPUT ABRIDGED >>>
 

@@ -16,22 +16,14 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-Pull a RHEL 8 UBI image that you will build your application into.
+Pull a RHEL 9 UBI image that you will build your application into.
 
 ```bash
-buildah from registry.access.redhat.com/ubi8/ubi
+buildah from registry.access.redhat.com/ubi9/ubi
 ```
 
 <pre class="file">
-Trying to pull registry.access.redhat.com/ubi8/ubi:latest...
-Getting image source signatures
-Checking if image destination supports signatures
-Copying blob 809fe483e885 done
-Copying blob 1b3417e31a5e done
-Copying config 10f854072e done
-Writing manifest to image destination
-Storing signatures
-ubi-working-container-1
+ubi9-working-container
 </pre>
 
-From the output above, you can see the image was successfully downloaded and a working container image was created and attached to the system with the name __ubi-working-container-1__.  You will use this working container in the next steps to install additional software packages into the image.
+From the output above, you can see the image was successfully downloaded and a working container image was created and attached to the system with the name ubi9-working-container  You will use this working container in the next steps to install additional software packages into the image.
