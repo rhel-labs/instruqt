@@ -32,7 +32,7 @@ As expected, the setting is now 20 instead of what it started as in the beginnin
 
 To verify that session recording is now working, ssh to the system as the rhel user.
 ```
-ssh rhel@localhost -yes
+ssh -o "StrictHostKeyChecking no" rhel@localhost
 ```
 Here's the output.
 <pre>
@@ -42,7 +42,7 @@ Assuming locale environment is lost and charset is UTF-8
 
 ATTENTION! Your session is being recorded!
 
-[rhel@rhel ~]$ 
+[rhel@rhel ~]$
 </pre>
 To complete this section enter the following.
 ```
@@ -52,10 +52,10 @@ You should have seen dialog similar to the output shown above. Success! the syst
 
 For `client1` and/or `client2`, repeat the following command.
 ```
-ssh rhel@client1
+ssh -o "StrictHostKeyChecking no" rhel@client1
 ```
 <pre>
-root@rhel:~# ssh rhel@client1
+root@rhel:~# ssh -o "StrictHostKeyChecking no" rhel@client1
 
 ATTENTION! Your session is being recorded!
 </pre>
