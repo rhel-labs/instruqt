@@ -21,8 +21,8 @@ buildah from registry.access.redhat.com/ubi8/ubi
 Trying to pull registry.access.redhat.com/ubi8/ubi:latest...
 Getting image source signatures
 Checking if image destination supports signatures
-Copying blob 6c53be4efe39 done  
-Copying config e8e5725e8a done  
+Copying blob 6c53be4efe39 done
+Copying config e8e5725e8a done
 Writing manifest to image destination
 Storing signatures
 ubi-working-container-1
