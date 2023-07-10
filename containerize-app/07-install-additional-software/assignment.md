@@ -21,26 +21,27 @@ In this step, you will install web server software to support the web applicatio
 Install the apache web server from the configured UBI software repository.
 
 ```bash
-buildah run ubi9-working-container -- dnf -y install httpd
+buildah run ubi-working-container-1 -- dnf -y install httpd
 ```
 
 <pre class=file>
 <<< OUTPUT ABRIDGED >>>
+Installed:
+  apr-1.7.0-11.el9.x86_64                         apr-util-1.6.1-20.el9_2.1.x86_64              
+  apr-util-bdb-1.6.1-20.el9_2.1.x86_64            apr-util-openssl-1.6.1-20.el9_2.1.x86_64      
+  httpd-2.4.53-11.el9_2.5.x86_64                  httpd-core-2.4.53-11.el9_2.5.x86_64           
+  httpd-filesystem-2.4.53-11.el9_2.5.noarch       httpd-tools-2.4.53-11.el9_2.5.x86_64          
+  libbrotli-1.0.9-6.el9.x86_64                    mailcap-2.1.49-5.el9.noarch                   
+  mod_http2-1.15.19-4.el9_2.4.x86_64              mod_lua-2.4.53-11.el9_2.5.x86_64              
+  redhat-logos-httpd-90.4-1.el9.noarch           
 
-================================================================================
- Package            Arch   Version       Repository                        Size
-================================================================================
-Installing:
- httpd              x86_64 2.4.37-47.module+el8.6.0+15654+427eba2e.2
-                                         rhel-8-for-x86_64-appstream-rpms 1.4 M
-
-<<< OUTPUT ABRIDGED >>>
+Complete!
 </pre>
 
 Next, enable the httpd service so that when the container starts, apache will also start.
 
 ```bash
-buildah run uubi9-working-container -- systemctl enable httpd
+buildah run ubi-working-container-1 -- systemctl enable httpd
 ```
 
 <pre class=file>
@@ -50,7 +51,7 @@ Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /u
 Configure the container to listen on port 80 so that traffic being sent to the container is being routed to the apache web server within the container.
 
 ```bash
-buildah config --port 80 --cmd "/usr/sbin/init" ubi9-working-container
+buildah config --port 80 --cmd "/usr/sbin/init" ubi-working-container-1
 ```
 
 In the next step, you will be positioning our github based application content into the container.

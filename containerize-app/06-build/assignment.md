@@ -16,14 +16,14 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-Pull a RHEL 9 UBI image that you will build your application into.
+Pull a RHEL 8 UBI image that you will build your application into.
 
 ```bash
-buildah from registry.access.redhat.com/ubi9/ubi
+buildah from registry.access.redhat.com/ubi8/ubi
 ```
 
 <pre class="file">
-ubi9-working-container
+ubi-working-container-1
 </pre>
 
-From the output above, you can see the image was successfully downloaded and a working container image was created and attached to the system with the name ubi9-working-container  You will use this working container in the next steps to install additional software packages into the image.
+From the output above, you can see the image was successfully downloaded and a working container image was created and attached to the system with the name `ubi-working-container-1`  You will use this working container in the next steps to install additional software packages into the image.

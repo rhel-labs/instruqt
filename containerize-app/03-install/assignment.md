@@ -35,7 +35,7 @@ Installing:
 
 <<< OUTPUT ABRIDGED >>>
 
-Installed:  alsa-lib-1.2.8-3.el9.x86_64     audiofile-1:0.3.6-30.el9.x86_64   esound-libs-1:0.2.41-27.el9.x86_64    flac-libs-1.3.3-10.el9.x86_64   libogg-2:1.3.4-6.el9.x86_64       moon-buggy-1.0.51-30.el9.x86_64     
+Installed:  alsa-lib-1.2.8-3.el9.x86_64     audiofile-1:0.3.6-30.el9.x86_64   esound-libs-1:0.2.41-27.el9.x86_64    flac-libs-1.3.3-10.el9.x86_64   libogg-2:1.3.4-6.el9.x86_64       moon-buggy-1.0.51-30.el9.x86_64
 
 Complete!
 </pre>

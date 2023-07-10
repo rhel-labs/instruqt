@@ -24,7 +24,6 @@ podman image list
 
 <pre class="file">
 REPOSITORY                           TAG         IMAGE ID      CREATED        SIZE
-
 localhost/clumsy-bird                latest      e6b899ea7611  2 minutes ago  493 MB
 localhost/moon-buggy                 latest      dbb1368db3f9  10 minutes ago 335 MB
 registry.access.redhat.com/ubi9/ubi  latest      10f854072e7e  5 minutes ago  227 MB
