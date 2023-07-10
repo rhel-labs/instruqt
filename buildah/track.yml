@@ -21,9 +21,10 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
+- wkibbe@redhat.com
 show_timer: true
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "14839948596792665138"
+checksum: "14732410856372208634"
