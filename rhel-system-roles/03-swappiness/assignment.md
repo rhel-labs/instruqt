@@ -36,7 +36,8 @@ ssh -o "StrictHostKeyChecking no" rhel@localhost
 ```
 Here's the output.
 <pre>
-# ssh rhel@localhost
+# ssh -o "StrictHostKeyChecking no" rhel@localhost
+Warning: Permanently added 'localhost' (ED25519) to the list of known hosts.
 Locale charset is ANSI_X3.4-1968 (ASCII)
 Assuming locale environment is lost and charset is UTF-8
 

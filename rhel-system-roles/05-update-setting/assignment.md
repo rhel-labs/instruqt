@@ -77,10 +77,10 @@ ok: [client1]
 
 <<< OUTPUT ABRIDGED >>>
 
-PLAY RECAP *************************************************************************************************************************************
-client1                    : ok=29   changed=2    unreachable=0    failed=0    skipped=26   rescued=0    ignored=6
-client2                    : ok=29   changed=2    unreachable=0    failed=0    skipped=26   rescued=0    ignored=6
-localhost                  : ok=29   changed=2    unreachable=0    failed=0    skipped=26   rescued=0    ignored=6
+PLAY RECAP ***************************************************************************************************
+client1                    : ok=38   changed=2    unreachable=0    failed=0    skipped=31   rescued=0    ignored=0   
+client2                    : ok=38   changed=2    unreachable=0    failed=0    skipped=31   rescued=0    ignored=0   
+localhost                  : ok=38   changed=2    unreachable=0    failed=0    skipped=31   rescued=0    ignored=0   
 </pre>
 
 After the playbook has completed, you can verify that the change has been applied to the system.
