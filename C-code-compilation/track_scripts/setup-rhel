@@ -14,4 +14,9 @@ echo redhat | passwd --stdin rhel
 echo "trashing GCP repos" >> /root/post-run.log
 mv /etc/yum.repos.d/google-cloud.repo /root
 
+#set up tmux
+TMUX='' tmux new-session -d -s 'rhel-session' > /dev/null 2>&1
+tmux set -g pane-border-status top
+tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
+
 echo "DONE" >> /root/post-run.log

@@ -8,6 +8,7 @@ tabs:
   type: terminal
   hostname: rhel
   workdir: /home/C_source
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 600
 ---
