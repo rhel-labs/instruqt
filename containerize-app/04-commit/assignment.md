@@ -42,8 +42,6 @@ podman image list
 REPOSITORY                            TAG      IMAGE ID       CREATED          SIZE
 localhost/moon-buggy                  latest   dbb1368db3f9   15 seconds ago   335 MB
 registry.access.redhat.com/ubi9/ubi   latest   a1f8c9699786   4 weeks ago      211 MB
-
-<<< OUTPUT ABRIDGED >>>
 </pre>
 
 Notice in the output above that `moon-buggy` is the first container image

@@ -37,7 +37,7 @@ buildah copy ubi-working-container-1 clumsy-bird /var/www/html
 ```
 
 <pre class="file">
-a810c37a2d022fec3636affc430a1841c9f1227bcfd5068f843ff64192440bf3
+63420a965b06ceaa3d61df013d51e0111d991f8b811c2df0164b649035543af3
 </pre>
 
 At this point, all the software needed for the container is in the image contents.  You can commit hte working container to a new container image called `clumsy-bird`.
