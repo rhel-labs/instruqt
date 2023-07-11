@@ -29,10 +29,10 @@ developers:
 - myee@redhat.com
 - smcbrien@redhat.com
 - wkibbe@redhat.com
-maintenance: true
+maintenance: false
 show_timer: true
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "11451194630182702235"
+checksum: "17313815703155733066"
