@@ -20,7 +20,7 @@ level: beginner
 tags:
 - rhel
 owner: rhel
-maintenence: true
+maintenance: true
 developers:
 - myee@redhat.com
 - nlager@redhat.com
