@@ -20,7 +20,7 @@ tmux set -g pane-border-status top
 tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
 #set tmux to be mouse-friendly
 tmux set -g mouse on
-
+tmux set mouse on
 
 
 
