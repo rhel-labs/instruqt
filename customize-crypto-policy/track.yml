@@ -20,14 +20,14 @@ level: beginner
 tags:
 - rhel
 owner: rhel
-maintenance: true
 developers:
 - myee@redhat.com
 - nlager@redhat.com
 - wkibbe@redhat.com
+maintenance: true
 show_timer: true
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "5489653328223594856"
+checksum: "8866742934605436760"
