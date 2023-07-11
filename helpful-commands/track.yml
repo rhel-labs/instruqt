@@ -27,7 +27,12 @@ level: beginner
 tags:
 - rhel
 owner: rhel
+maintenance: true
 developers:
 - myee@redhat.com
 show_timer: true
-checksum: "4924474873258127403"
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "16929537867535932772"
