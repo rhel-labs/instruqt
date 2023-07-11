@@ -7,6 +7,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 600
 ---
@@ -19,7 +20,7 @@ cd /home/C_source
 Run the following command to create a "Hello World" program in C:
 
 ```bash
-tee helloworld.c << EOF
+cat > helloworld.c << EOF
 #include <stdio.h>
 int main() {
    printf("Hello World!\n");
@@ -31,7 +32,7 @@ EOF
 If you are running a C++ program, use this instead:
 
 ```bash
-tee helloworld.cpp << EOF
+cat > helloworld.cpp << EOF
 #include <iostream>
 using namespace std;
 int main() {
