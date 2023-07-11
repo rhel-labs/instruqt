@@ -19,10 +19,4 @@ TMUX='' tmux new-session -d -s 'rhel-session' > /dev/null 2>&1
 tmux set -g pane-border-status top
 tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
 
-#install a program that will manage tmux mouse input much more smoothly - i.e., it will enable easy mouse scrolling
-git clone https://github.com/nhdaly/tmux-better-mouse-mode ~/clone/path
-run-shell ~/clone/path/scroll_copy_mode.tmux
-tmux source-file ~/.tmux.conf
-
-
 echo "DONE" >> /root/post-run.log
