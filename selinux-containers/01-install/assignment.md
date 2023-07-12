@@ -16,7 +16,9 @@ notes:
     * Re-query the allow rules in the SELinux policy for the running container to ensure that actions are allowed
 
     # Example Usecase:
-    The default container type (container_t) is too restricted for certain usecases. For example, if Apache wants to read the home directory, it is restricted by default. Similarly, container_t is too loose for other cases. For example, the Apache running in the container can bind to any network port. Using udica can help you write a new SELinux security profiles that are customized for
+    The default container type (container_t) is too restricted for certain usecases. For example, if Apache wants to read the home
+    directory, it is restricted by default. Similarly, container_t is too loose for other cases. For example, the Apache running in
+    the container can bind to any network port. Using udica can help you write a new SELinux security profiles that are customized for
     your container usecase, and does not require deep SELinux expertise to craft.
 tabs:
 - title: Terminal 1
