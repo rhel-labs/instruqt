@@ -1,6 +1,5 @@
 ---
 slug: installsoftware
-id: 6yez51tluw96
 type: challenge
 title: Install Software
 teaser: Install Software on hosts
