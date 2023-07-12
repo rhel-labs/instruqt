@@ -40,3 +40,11 @@ buildah config --port 80 --cmd "/usr/sbin/httpd -DFOREGROUND" ${newcontainer}
 buildah unmount ${newcontainer}
 buildah commit ${newcontainer} rhel9-httpd
 
+#set up tmux
+TMUX='' tmux new-session -d -s 'podman' > /dev/null 2>&1
+TMUX='' tmux new-session -d -s 'host' > /dev/null 2>&1
+tmux set -g pane-border-status top
+tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
+#set tmux to be mouse-friendly
+tmux set -g mouse on
+tmux set mouse on
