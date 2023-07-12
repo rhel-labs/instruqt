@@ -23,6 +23,7 @@ tags:
 - rhel
 - admin101
 owner: rhel
+maintenance: true
 developers:
 - ehendric@redhat.com
 - myee@redhat.com
