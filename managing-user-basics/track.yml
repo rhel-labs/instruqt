@@ -23,14 +23,15 @@ tags:
 - rhel
 - admin101
 owner: rhel
-maintenance: true
 developers:
 - ehendric@redhat.com
 - myee@redhat.com
+- wkibbe@redhat.com
+maintenance: true
 show_timer: true
 skipping_enabled: true
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "1665609415984742102"
+checksum: "12364111813442213491"
