@@ -1,5 +1,6 @@
 ---
 slug: configure-host-group
+id: rlmhyuzdwicr
 type: challenge
 title: Configure a Host Group
 teaser: Host groups are used to organize and configure sets of hosts.
@@ -67,11 +68,9 @@ In the Parameters menu do the following:
 3) Choose the type `array`.
 4) Copy and paste the following into the `value` field.
 
-```json
+```ruby
 [{"port":["80/tcp"],"state":"enabled"}]
 ```
-
-_**NOTE:**_ This property is a JSON format version of the YAML ansible properties found in an ansible playbook.
 
 5) Click `Activation Keys`.
 

@@ -1,5 +1,6 @@
 ---
 slug: syncrepos
+id: fht90gw6uogd
 type: challenge
 title: Synchronize Red Hat repositories
 teaser: Synchronize Red Hat repositories

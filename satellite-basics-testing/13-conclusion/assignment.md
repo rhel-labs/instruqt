@@ -1,5 +1,6 @@
 ---
 slug: conclusion
+id: oksnclw93ycz
 type: challenge
 title: Conclusion
 teaser: Yay we've reached the end.
@@ -33,9 +34,5 @@ For more information on Red Hat Satellite, please visit the [Red Hat Satellite l
 
 Here are some handy links to other tasks you can perform with Red Hat Satellite.
 
-* [Learn how to apply RHEL System Roles with Red Hat Satellite](https://www.redhat.com/en/blog/satellite-host-configuration-rhel-system-roles-powered-ansible).
+* [Learn how to apply RHEL System Roles with Red Hat Satellite](https://www.redhat.com/en/blog/satellite-host-configuration-rhel-system-roles-powered-ansible). This operation can be performed in this lab.
 * [Use Satellite to perform convert2rhel bulk operations](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.11/html/managing_content/converting-a_host-with-convert2rhel_content-management). This operation cannot be performed in this lab since there are no non-rhel hosts.
-
-For information on the Red Hat Satellite Lifecycle, please follow this link.
-
-* [Red Hat Satellite Product Life Cycle](https://access.redhat.com/support/policy/updates/satellite)
