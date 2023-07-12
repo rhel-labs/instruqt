@@ -18,5 +18,10 @@ mv /etc/yum.repos.d/google-cloud.repo /root
 TMUX='' tmux new-session -d -s 'rhel-session' > /dev/null 2>&1
 tmux set -g pane-border-status top
 tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
+#set tmux to be mouse-friendly
+tmux set -g mouse on
+tmux set mouse on
+
+
 
 echo "DONE" >> /root/post-run.log
