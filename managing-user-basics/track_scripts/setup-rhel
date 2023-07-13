@@ -1,3 +1,15 @@
 #!/bin/bash
 
-# dnf install -y tree
+#set up subscription manager activation key
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+
+#set up tmux
+TMUX='' tmux new-session -d -s 'rhel-session' > /dev/null 2>&1
+tmux set -g pane-border-status top
+tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
+#set tmux to be mouse-friendly
+tmux set -g mouse on
+tmux set mouse on
+
+echo "DONE" >> /root/post-run.log
