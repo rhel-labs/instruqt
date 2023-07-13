@@ -21,6 +21,7 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
+maintenance: true
 show_timer: true
 skipping_enabled: true
 lab_config:
