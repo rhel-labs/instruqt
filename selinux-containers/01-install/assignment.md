@@ -73,7 +73,7 @@ podman images
  <img alt="An example image" src="../assets/podmanimages.png" />
 </a>
 
-Click on click on the `Terminal 2` tab.
+Click on the `Terminal 2` tab.
 
 ![Terminal 2 tab](../assets/terminal2tab.png)
 
