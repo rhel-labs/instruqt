@@ -11,3 +11,10 @@ subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 -
 dnf install -y httpd
 systemctl --now enable httpd
 update-crypto-policies --set FUTURE
+
+#set up tmux
+TMUX='' tmux new-session -d -s 'rhel-session' > /dev/null 2>&1
+tmux set -g pane-border-status top
+tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
+
+echo "DONE" >> /root/post-run.log
