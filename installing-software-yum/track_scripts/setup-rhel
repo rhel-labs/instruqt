@@ -11,3 +11,11 @@ sed -i '/^#/{G;}' /etc/pam.d/password-auth
 sed -i '/^#/{G;}' /etc/pam.d/system-auth
 # install httpd
 dnf install -y httpd
+
+#set up tmux
+TMUX='' tmux new-session -d -s 'rhel-session' > /dev/null 2>&1
+tmux set -g pane-border-status top
+tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
+#set tmux to be mouse-friendly
+tmux set -g mouse on
+tmux set mouse on
