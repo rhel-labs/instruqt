@@ -24,6 +24,7 @@ owner: rhel
 developers:
 - wkibbe@redhat.com
 - myee@redhat.com
+maintenance: true
 show_timer: true
 lab_config:
   overlay: false
