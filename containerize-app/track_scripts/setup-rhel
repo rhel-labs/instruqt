@@ -9,4 +9,9 @@ usermod -aG wheel rhel
 echo "setting password" >> /root/post-run.log
 echo redhat | passwd --stdin rhel
 
+#set up tmux
+TMUX='' tmux new-session -d -s 'rhel-session' > /dev/null 2>&1
+tmux set -g pane-border-status top
+tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
+
 echo "DONE" >> /root/post-run.log

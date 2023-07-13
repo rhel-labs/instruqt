@@ -7,11 +7,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
-- title: Containerized Web App
-  type: service
-  hostname: rhel
-  path: /
-  port: 8080
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
@@ -41,7 +37,7 @@ buildah copy ubi-working-container-1 clumsy-bird /var/www/html
 ```
 
 <pre class="file">
-767c7be0056c9066557fb0c612240b068e411e24e32b5e9a69007634b6191354
+63420a965b06ceaa3d61df013d51e0111d991f8b811c2df0164b649035543af3
 </pre>
 
 At this point, all the software needed for the container is in the image contents.  You can commit hte working container to a new container image called `clumsy-bird`.
