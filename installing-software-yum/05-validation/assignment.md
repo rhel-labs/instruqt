@@ -41,7 +41,7 @@ Arch   Version        Repository                        Size
 ===================================================================
 Reinstalling:
 wireshark
-x86_64 1:2.6.2-12.el8 rhel-8-for-x86_64-appstream-rpms 3.7 M
+x86_64 1:2.6.2-12.el8 rhel-9-for-x86_64-appstream-rpms 3.7 M
 << OUTPUT ABRIDGED >>
 </pre>
 
