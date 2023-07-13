@@ -7,6 +7,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
@@ -33,14 +34,6 @@ of of 3072 bits.
 ```bash
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:3072 -subj='/C=XX/O=Default' -keyout /etc/pki/tls/private/localhost.key -out /etc/pki/tls/certs/localhost.crt
 ```
-
-<pre class="file">
-Generating a RSA private key
-.......................................++++
-....................+++
-writing new private key to '/etc/pki/tls/private/localhost.key'
------
-</pre>
 
 Verify the bit-length of the key to confirm that it is 3072 bit.
 

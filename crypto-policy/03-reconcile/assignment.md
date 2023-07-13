@@ -7,6 +7,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
@@ -23,7 +24,7 @@ systemctl restart httpd.service
 
 <pre class="file">
 Job for httpd.service failed because the control process exited with error code.
-See "systemctl status httpd.service" and "journalctl -xe" for details.
+See "systemctl status httpd.service" and "journalctl -xeu httpd.service" for details.
 </pre>
 
 The Apache service fails to restart.  You can see a more specific error

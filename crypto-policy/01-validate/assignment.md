@@ -24,6 +24,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 3000
 ---
@@ -58,7 +59,7 @@ systemctl status httpd.service --no-pager
 <pre class="file">
 << OUTPUT ABRIDGED >>
 
-Active: active (running) since Monday 2019-07-15 19:24:18 EDT; 3h 59min left
+active (running) since Tue 2023-07-11 16:47:31 UTC; 11s ago
 
 << OUTPUT ABRIDGED >>
 </pre>
