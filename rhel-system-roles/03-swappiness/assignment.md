@@ -11,6 +11,7 @@ tabs:
 - title: Shell
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 - title: client1
   type: terminal
   hostname: client1
@@ -32,15 +33,11 @@ As expected, the setting is now 20 instead of what it started as in the beginnin
 
 To verify that session recording is now working, ssh to the system as the rhel user.
 ```
-ssh rhel@localhost
+ssh -o "StrictHostKeyChecking no" rhel@localhost
 ```
 Here's the output.
 <pre>
-# ssh rhel@localhost
-The authenticity of host 'localhost (::1)' can't be established.
-ED25519 key fingerprint is SHA256:8xzWvasYF07l4QRxYXlX6kr8h4Iqfm/4x+3srCkIdfo.
-This key is not known by any other names
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+# ssh -o "StrictHostKeyChecking no" rhel@localhost
 Warning: Permanently added 'localhost' (ED25519) to the list of known hosts.
 Locale charset is ANSI_X3.4-1968 (ASCII)
 Assuming locale environment is lost and charset is UTF-8
@@ -57,11 +54,11 @@ You should have seen dialog similar to the output shown above. Success! the syst
 
 For `client1` and/or `client2`, repeat the following command.
 ```
-ssh rhel@client1
+ssh -o "StrictHostKeyChecking no" rhel@client1
 ```
 <pre>
-root@rhel:~# ssh rhel@client1
-
+root@rhel:~# ssh -o "StrictHostKeyChecking no" rhel@client1
+<<< OUTPUT ABRIDGED >>>
 ATTENTION! Your session is being recorded!
 </pre>
 Exit and continue to the next challenge.

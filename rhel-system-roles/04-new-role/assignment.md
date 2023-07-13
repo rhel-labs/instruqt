@@ -11,6 +11,7 @@ tabs:
 - title: Shell
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 - title: client1
   type: terminal
   hostname: client1
@@ -123,9 +124,9 @@ ok: [client1]
 <<< OUTPUT ABRIDGED >>>
 
 PLAY RECAP *************************************************************************************************************************************
-client1                    : ok=27   changed=4    unreachable=0    failed=0    skipped=24   rescued=0    ignored=6
-client2                    : ok=27   changed=4    unreachable=0    failed=0    skipped=24   rescued=0    ignored=6
-localhost                  : ok=27   changed=4    unreachable=0    failed=0    skipped=24   rescued=0    ignored=6
+client1                    : ok=36   changed=4    unreachable=0    failed=0    skipped=29   rescued=0    ignored=0
+client2                    : ok=36   changed=4    unreachable=0    failed=0    skipped=29   rescued=0    ignored=0
+localhost                  : ok=36   changed=4    unreachable=0    failed=0    skipped=29   rescued=0    ignored=0
 </pre>
 From the above snippet of output, you can see that only 4 items were changed once the playbook was executed. These changes should have been the updated time server settings.
 
@@ -139,8 +140,8 @@ ssh client1 chronyc sources
 210 Number of sources = 2
 MS Name/IP address         Stratum Poll Reach LastRx Last sample
 ===============================================================================
-^+ time-d-b.nist.gov             1   6    37    20  -1430us[-1430us] +/-   67ms
-^* beteigeuze.pmsf.net           2   6    37    21   +353us[ +483us] +/-   40ms
+^- time-d-b.nist.gov             1   6    37    23  +5670us[+5670us] +/-   61ms
+^* time.cloudflare.com           3   6    37    25    -12us[ -200us] +/- 8967us
 </pre>
 
 As expected, the system is now configured to use time-d-b.nist.gov and a system assigned from the pool at ntp.org.

@@ -11,6 +11,7 @@ tabs:
 - title: Shell
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 - title: client1
   type: terminal
   hostname: client1
@@ -37,8 +38,8 @@ Here's what the result should look similar to.
 Package                         Architecture        Version                        Repository                                       Size
 ==========================================================================================================================================
 Installing:
-ansible                         noarch              2.9.15-1.el8ae                 ansible-2.9-for-rhel-8-x86_64-rpms               17 M
-rhel-system-roles               noarch              1.0-20.el8                     rhel-8-for-x86_64-appstream-rpms                503 k
-
+ rhel-system-roles                   noarch         1.21.1-1.el9_2              rhel-9-for-x86_64-appstream-rpms         2.4 M
+Installing dependencies:
+ ansible-core                        x86_64         2.14.2-5.el9_2              rhel-9-for-x86_64-appstream-rpms         3.4 M
 <<< OUTPUT ABRIDGED >>>
 </pre>
