@@ -8,7 +8,7 @@ notes:
   contents: |
     After completing this scenario, users will be able to deploy and control an already defined container image.
 
-    #Concepts included in this scenario:
+    # Concepts included in this scenario:
     * List available container images
     * Deploy a container image into an interactive container runtime
     * Deploy a container image into a detached container runtime
