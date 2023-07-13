@@ -1,6 +1,8 @@
 slug: installing-software-yum
 id: mvnt2th9ojsc
-title: Installing Software using Package Managers [Admin 101]
+title: Install software using package managers (Admin 101)
+teaser: Learn how to use YUM and RPM to streamline installations and verify local
+  software.
 description: |-
   # Overview:
   Package managers are centralized methods of accessing software repositories. Using package managers for installing and updating software removes many opportunities for user error and automates numerous installation steps. On Red Hat Enterprise Linux, DNF is the default package manager, but you will also see RPM.
@@ -18,7 +20,12 @@ tags:
 - rhel
 owner: rhel
 developers:
+- wkibbe@redhat.com
 - myee@redhat.com
 show_timer: true
 skipping_enabled: true
-checksum: "6281764582207488650"
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "17811146055572448422"

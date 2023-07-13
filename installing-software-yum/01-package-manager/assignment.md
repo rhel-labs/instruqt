@@ -21,6 +21,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 3000
 ---
@@ -47,7 +48,7 @@ Arch   Version         Repository                        Size
 ===================================================================
 Installing:
 wireshark
-x86_64 1:2.6.2-12.el8  rhel-8-for-x86_64-appstream-rpms 3.7 M
+x86_64 1:2.6.2-12.el8  rhel-9-for-x86_64-appstream-rpms 3.7 M
 Installing dependencies:
 flac-libs
 << OUTPUT ABRIDGED >>
