@@ -13,7 +13,7 @@ description: |
   * Beginner shell commands
   * Compilation and execution of code
 
-  ## Example Usecase:
+  ## Example use case:
 
   You wish to build your own programs written in C or C++
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
@@ -26,4 +26,4 @@ lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "2491270156034103675"
+checksum: "8844690167197924927"
