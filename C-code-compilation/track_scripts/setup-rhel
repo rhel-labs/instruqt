@@ -14,13 +14,6 @@ echo redhat | passwd --stdin rhel
 echo "trashing GCP repos" >> /root/post-run.log
 mv /etc/yum.repos.d/google-cloud.repo /root
 
-#set up tmux
-TMUX='' tmux new-session -d -s 'rhel-session' > /dev/null 2>&1
-tmux set -g pane-border-status top
-tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
-#set tmux to be mouse-friendly
-tmux set -g mouse on
-tmux set mouse on
 
 #set up tmux so it has to restart itself whenever the system reboots
 
@@ -37,5 +30,8 @@ EOF
 chmod +x ~/startup-tmux.sh
 #step 3: use cron to execute 
 echo "@reboot ~/startup-tmux.sh" | crontab -
+
+#step 4: start tmux for the lab
+~/startup-tmux.sh
 
 echo "DONE" >> /root/post-run.log
