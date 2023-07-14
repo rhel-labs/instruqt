@@ -27,6 +27,7 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
+maintenance: true
 show_timer: true
 skipping_enabled: true
 idle_timeout: 2700
@@ -35,4 +36,4 @@ lab_config:
   overlay: false
   width: 50
   position: right
-checksum: "1609167344643894263"
+checksum: "2538511668410652315"
