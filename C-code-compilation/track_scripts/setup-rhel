@@ -22,6 +22,16 @@ tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
 tmux set -g mouse on
 tmux set mouse on
 
+#set up tmux so it has to restart itself whenever the system reboots
 
+#step 1: make a script
+tee ~/startup-tmux.sh << EOF
+TMUX='' tmux new-session -d -s 'rhel-session' > /dev/null 2>&1
+EOF
+
+#step 2: make it executable
+chmod +x ~/startup-tmux.sh
+#step 3: use cron to execute 
+echo "@reboot TMUX='' tmux new-session -d -s 'rhel-session' > /dev/null 2>&1" | crontab -
 
 echo "DONE" >> /root/post-run.log
