@@ -48,11 +48,11 @@ dnf install -y composer-cli osbuild-composer
  Package                            Arch      Version                                           Repository                           Size
 ==========================================================================================================================================
 Installing:
- composer-cli                  x86_64       28.14.58-1.el8                                    rhel-8-for-x86_64-appstream-rpms        86 k
- osbuild-composer              x86_64       28.4-1.el8                                        rhel-8-for-x86_64-appstream-rpms        19 k
+ composer-cli                  x86_64       28.14.58-1.el8                                    rhel-9-for-x86_64-appstream-rpms        86 k
+ osbuild-composer              x86_64       28.4-1.el8                                        rhel-9-for-x86_64-appstream-rpms        19 k
 Installing dependencies:
- bubblewrap                    x86_64       0.4.0-1.el8                                       rhel-8-for-x86_64-baseos-rpms           50 k
- fuse                          x86_64       2.9.7-12.el8                                      rhel-8-for-x86_64-baseos-rpms           83 k
+ bubblewrap                    x86_64       0.4.0-1.el8                                       rhel-9-for-x86_64-baseos-rpms           50 k
+ fuse                          x86_64       2.9.7-12.el8                                      rhel-9-for-x86_64-baseos-rpms           83 k
 
 <<< OUTPUT ABRIDGED >>>
 
