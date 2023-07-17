@@ -11,15 +11,16 @@ tabs:
 difficulty: basic
 timelimit: 1400
 ---
-Ensure your TensorFlow Conda environment is enabled through the following command:
-
-```bash
-conda activate tf
-```
 
 If the TensorFlow environment is activated, the beginning of your command line will look like this:
 
 ![](../assets/20230630_153341_Conda_Environment_Status_copy.png)
+
+If your TensorFlow Conda environment is not enabled, reenable it through the following command:
+
+```bash
+conda activate tf
+```
 
 Run the following command to run a test ML program in Python that has been created for you.
 
