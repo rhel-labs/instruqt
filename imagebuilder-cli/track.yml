@@ -26,10 +26,11 @@ developers:
 - ehendric@redhat.com
 - wkibbe@redhat.com
 - myee@redhat.com
+maintenance: true
 show_timer: true
 skipping_enabled: true
 lab_config:
   overlay: false
   width: 25
   position: right
-checksum: "11687321593354795104"
+checksum: "10741753839309309520"
