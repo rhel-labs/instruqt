@@ -32,7 +32,7 @@ Now that the machine image compose is finished, download the completed machine
 image into your current directory.
 
 ```
-composer-cli compose image $(composer-cli compose status | head -n1 | cut -f1 -d" ")
+composer-cli compose image $(composer-cli compose status | tail -1 | cut -f1 -d" ")
 ```
 
 <pre class="file">
