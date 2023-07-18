@@ -95,6 +95,10 @@ your machine image.
 ```
 chroot /mnt
 ```
+<pre class="file">
+basename: missing operand
+Try 'basename --help' for more information.
+</pre>
 
 Now, all the commands run are being executed from within the machine image
 and use the machine image's files and content.  Use an `rpm` query to confirm
