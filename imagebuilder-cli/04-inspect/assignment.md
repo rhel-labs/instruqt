@@ -36,7 +36,7 @@ composer-cli compose image $(composer-cli compose status | tail -1 | cut -f1 -d"
 ```
 
 <pre class="file">
-00403772-ff12-43d4-b09a-bddf28f20709-disk.qcow2: 686.96 MB
+00403772-ff12-43d4-b09a-bddf28f20709-disk.qcow2
 </pre>
 
 The above command takes the UUID of the compose as an argument.  We embedded
@@ -93,7 +93,7 @@ Temporarily change the root directory of the bash shell to be the directory hold
 your machine image.
 
 ```
-chroot /mnt 2>/dev/null
+chroot /mnt
 ```
 
 Now, all the commands run are being executed from within the machine image
