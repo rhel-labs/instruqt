@@ -21,7 +21,7 @@ timelimit: 1
 # Troubleshooting a compose
 
 ```
-composer-cli compose log $(composer-cli compose status | head -n1 | cut -f1 -d" ")
+composer-cli compose log $(composer-cli compose status | cut -f1 -d" " | tail -1)
 ```
 
 Throughout the lab, you have seen the UUID of the compose transaction used in
@@ -32,7 +32,7 @@ this, specific, machine image build.
 To look at the data associated with the machine image build you completed in the lab -
 
 ```
-composer-cli compose results $(composer-cli compose status | head -n1 | cut -f1 -d" ")
+composer-cli compose results $(composer-cli compose status | cut -f1 -d" " | tail -1)
 ```
 
 The output is a .tar that includes the logs, status, and resulting image.
@@ -40,5 +40,5 @@ The output is a .tar that includes the logs, status, and resulting image.
 To view the contents of the tar file -
 
 ```
-tar -tvf $(composer-cli compose status | head -n1 | cut -f1 -d" ").tar
+tar -tvf $(composer-cli compose status | cut -f1 -d" " | tail -1).tar
 ```

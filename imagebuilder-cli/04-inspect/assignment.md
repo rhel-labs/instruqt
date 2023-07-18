@@ -57,7 +57,7 @@ modprobe nbd
 Attach a qcow2 virtual image file that was downloaded into the current directory -
 
 ```
-qemu-nbd --connect=/dev/nbd0 $(composer-cli compose status | head -n1 | cut -f1 -d" ")-disk.qcow2
+qemu-nbd --connect=/dev/nbd0 $(composer-cli compose status | cut -f1 -d" " | tail -1)-disk.qcow2
 ```
 
 Find the virtual machine partition so that we can mount it -
@@ -93,7 +93,7 @@ Temporarily change the root directory of the bash shell to be the directory hold
 your machine image.
 
 ```
-chroot /mnt
+chroot /mnt 2>/dev/null
 ```
 
 Now, all the commands run are being executed from within the machine image
