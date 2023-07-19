@@ -95,10 +95,13 @@ your machine image.
 ```
 chroot /mnt
 ```
-<pre class="file">
-basename: missing operand
-Try 'basename --help' for more information.
-</pre>
+
+> Note: you may see the following output:
+> ```
+> basename: missing operand
+> Try 'basename --help' for more information.
+>```
+> This is not an issue, and it will not impact the functionality of the lab activity.
 
 Now, all the commands run are being executed from within the machine image
 and use the machine image's files and content.  Use an `rpm` query to confirm
