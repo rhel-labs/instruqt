@@ -103,7 +103,7 @@ chroot /mnt
 > Try 'basename --help' for more information.
 > ```
 >
-> This is not an issue, and it will not impact the functionality of the lab activity.
+> It will not affect the chroot environment or lab.
 
 Now, all the commands run are being executed from within the machine image
 and use the machine image's files and content.  Use an `rpm` query to confirm
