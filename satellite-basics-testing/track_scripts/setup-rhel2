@@ -6,11 +6,8 @@ until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]; do
     sleep 1
 done
 
-hostnamectl set-hostname client2.lab
-
 subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
-# dnf install bind-utils -y
 
 echo "Adding wheel" > /root/post-run.log
 useradd rhel
@@ -21,17 +18,10 @@ echo redhat | passwd --stdin rhel
 
 echo "DONE" >> /root/post-run.log
 
-# Add an entry to the /etc/hosts file for the satellite server if it doesn't already exist.
-# tee -a /root/set_satellite_hostname.sh << EOF
-# #!/bin/bash
-# SATELLITE=\$(nslookup satellite | awk '/^Address: / { print \$2 }')
-# grep -qxF "\$SATELLITE satellite.lab" /etc/hosts || echo "\$SATELLITE satellite.lab" >> /etc/hosts
-# EOF
-
-# chmod +x /root/set_satellite_hostname.sh
-
-# echo -e "\n/root/set_satellite_hostname.sh" >> /root/.bashrc
-
 timedatectl set-timezone America/New_York
 
 dnf remove -y tmux
+
+# Edit the wireguard if wg0 to point at satellite. Then create the interface with nmcli.
+sed -i "/^Endpoint /s/=.*$/= satellite.${_SANDBOX_ID}.svc.cluster.local:51820/" /etc/wireguard/wg0.conf
+nmcli connection import type wireguard file /etc/wireguard/wg0.conf

@@ -8,8 +8,6 @@ done
 
 echo "Setup script for satellite"
 
-hostnamectl set-hostname satellite.lab
-
 subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
@@ -21,10 +19,6 @@ echo "setting password" >> /root/post-run.log
 echo redhat | passwd --stdin rhel
 
 echo "DONE" >> /root/post-run.log
-
-#export LOCALHOST=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1') > /dev/null 2>&1
-
-#grep -qxF "${LOCALHOST} satellite.lab" /etc/hosts || echo "${LOCALHOST} satellite.lab" >> /etc/hosts
 
 echo "export LANG=en_US.UTF-8" >> /root/.bashrc
 
