@@ -44,23 +44,18 @@ sudo cat /etc/shadow
 
 <pre class=file>
 << OUTPUT ABRIDGED >>
-root:!*::0:99999:7:::
-bin:*:18849:0:99999:7:::
-daemon:*:18849:0:99999:7:::
-adm:*:18849:0:99999:7:::
-lp:*:18849:0:99999:7:::
-sync:*:18849:0:99999:7:::
-shutdown:*:18849:0:99999:7:::
-halt:*:18849:0:99999:7:::
-mail:*:18849:0:99999:7:::
-operator:*:18849:0:99999:7:::
-games:*:18849:0:99999:7:::
-ftp:*:18849:0:99999:7:::
-nobody:*:18849:0:99999:7:::
-systemd-coredump:!!:19136::::::
-dbus:!!:19136::::::
-polkitd:!!:19136::::::
-tss:!!:19136::::::
+apache:!!:19314::::::
+clevis:!!:19314::::::
+cockpit-ws:!!:19314::::::
+cockpit-wsinstance:!!:19314::::::
+setroubleshoot:!!:19314::::::
+rhel:!!:19314:0:99999:7:::
+bas:*:19557:0:99999:7:::
+mochtar:*:19557:0:99999:7:::
+ade:*:19557:0:99999:7:::
+arslan:*:19557:0:99999:7:::
+gke-930957db5604c7804fbd:*:19557:0:99999:7:::
+gke-f34473de869e40d6894d:*:19557:0:99999:7:::
 </pre>
 
 `sudo` allowed you to access the contents of the file without changing the
