@@ -12,6 +12,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
