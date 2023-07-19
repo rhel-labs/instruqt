@@ -96,7 +96,8 @@ your machine image.
 chroot /mnt
 ```
 
-> **Note:** 
+> **Note:**
+> 
 > You may see the following output:
 > ```
 > basename: missing operand
