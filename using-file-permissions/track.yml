@@ -25,5 +25,5 @@ developers:
 - ehendric@redhat.com
 - myee@redhat.com
 show_timer: true
-skipping_enabled: true
+skipping_enabled: false
 checksum: "16490124624700294742"
