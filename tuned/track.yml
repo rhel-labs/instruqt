@@ -21,8 +21,13 @@ tags:
 - ""
 owner: rhel
 developers:
+- wkibbe@redhat.com
 - toharris@redhat.com
 - myee@redhat.com
 show_timer: true
 skipping_enabled: true
-checksum: "17522223184471836579"
+lab_config:
+  overlay: false
+  width: 25
+  position: right
+checksum: "6964912327557555947"
