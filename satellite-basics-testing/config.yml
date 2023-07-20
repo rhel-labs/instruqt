@@ -1,7 +1,7 @@
 version: "3"
 virtualmachines:
 - name: rhel1
-  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-client-test1-7-19-23
+  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-lab-client1-7-20-23
   shell: /bin/bash
   environment:
     TERM: xterm
@@ -11,7 +11,7 @@ virtualmachines:
   - https
   - high-ports
 - name: rhel2
-  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-client-test1-7-19-23
+  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-lab-client2-7-20-23
   shell: /bin/bash
   environment:
     TERM: xterm
@@ -21,7 +21,7 @@ virtualmachines:
   - https
   - high-ports
 - name: satellite
-  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-test-7-19-23
+  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-lab-7-20-23
   shell: /bin/bash
   environment:
     TERM: xterm

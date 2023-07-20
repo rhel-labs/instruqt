@@ -24,4 +24,6 @@ dnf remove -y tmux
 
 # Edit the wireguard if wg0 to point at satellite. Then create the interface with nmcli.
 sed -i "/^Endpoint /s/=.*$/= satellite.${_SANDBOX_ID}.svc.cluster.local:51820/" /etc/wireguard/wg0.conf
-nmcli connection import type wireguard file /etc/wireguard/wg0.conf
+sed -i "s/Address =/#Address =/" /etc/wireguard/wg0.conf
+#nmcli connection import type wireguard file /etc/wireguard/wg0.conf
+wg setconf wg0 /etc/wireguard/wg0.conf
