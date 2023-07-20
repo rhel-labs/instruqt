@@ -24,5 +24,5 @@ To request new features, labs, or to report bugs, please create a new issue.
 RHEL 9.2
 `image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-2-6-20-23`
 
-RHEL 9.1 with virt
-`image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-1-11-25-2022-2`
+RHEL 9.2 with virt
+`image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-2-2023-06-12`
