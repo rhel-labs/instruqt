@@ -22,8 +22,7 @@ echo "DONE" >> /root/post-run.log
 
 echo "export LANG=en_US.UTF-8" >> /root/.bashrc
 
-# hammer -u admin -p bc31c9a6-9ff0-11ec-9587-00155d1b0702 subscription upload --file /home/myee/manifest_satellite-6.10-instruqt_20230425T175412Z.zip --organization "Acme Org"
-# rm -rf /home/myee/manifest_satellite-6.10-instruqt_*
+hammer -u admin -p bc31c9a6-9ff0-11ec-9587-00155d1b0702 subscription upload --file /home/myee/manifest_satellite-6.10-instruqt_20230425T175412Z.zip --organization "Acme Org"
+rm -rf /home/myee/manifest_satellite-6.10-instruqt_*
 
-# hammer subscription refresh-manifest --organization "Acme Org"
-# hammer ansible roles import --proxy-id 1
+hammer subscription refresh-manifest --organization "Acme Org"

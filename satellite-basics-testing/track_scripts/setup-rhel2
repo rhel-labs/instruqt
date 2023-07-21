@@ -20,10 +20,9 @@ echo "DONE" >> /root/post-run.log
 
 timedatectl set-timezone America/New_York
 
-dnf remove -y tmux
-
 # Edit the wireguard if wg0 to point at satellite. Then create the interface with nmcli.
 sed -i "/^Endpoint /s/=.*$/= satellite.${_SANDBOX_ID}.svc.cluster.local:51820/" /etc/wireguard/wg0.conf
 sed -i "s/Address =/#Address =/" /etc/wireguard/wg0.conf
-#nmcli connection import type wireguard file /etc/wireguard/wg0.conf
-wg setconf wg0 /etc/wireguard/wg0.conf
+nmcli con mod wg0 ipv4.dns 192.0.2.1
+nmcli con up wg0
+wg syncconf wg0 /etc/wireguard/wg0.conf
