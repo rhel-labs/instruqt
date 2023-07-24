@@ -61,7 +61,7 @@ Then you'll be taken to the status of the image build.
 
 ![status](../assets/image-build-status.png)
 
-When the image build is complete, you can download the image by clicking on the kebab icon and `Download`.
+When the image build is complete, you can download the image by clicking `Download`.
 
 ![download](../assets/download.png)
 
