@@ -19,15 +19,15 @@ icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: beginner
 tags:
 - rhel
-maintenance: true
 owner: rhel
 developers:
 - ehendric@redhat.com
 - myee@redhat.com
 - wkibbe@redhat.com
+maintenance: true
 show_timer: true
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "18051538548497636860"
+checksum: "1703836330665089145"
