@@ -26,8 +26,29 @@ The first step to creating a new blueprint is naming it.  It is recommended that
 
 ![Name Your Blueprint](../assets/Create-blueprint-dialog.png)
 
-Click `Create`.
+Click `Next`.
 
-![blueprint](../assets/blueprint.png)
+![blueprint](../assets/blueprint-next-button.png)
 
-Next we'll create an image.
+Next we'll customize the blueprint.
+
+Add in the first package, `nodejs`, into the `Available packages` search bar. Once the filter has been applied, you should now see packages with `nodejs` included in their name.
+
+![add nodejs](../assets/nodejs-select.png)
+
+1) Click on `nodejs`.
+2) Click the `>` symbol to add it.
+
+Repeat these actions for the `nginx` package and then click `Next`.
+
+![added](../assets/packages-added.png)
+
+Keep clicking the `Next` button until you reach the `Other` tab of the customizations section within the blueprint creation dialog. Then, enter a hostname `node-app-server` for the image.
+
+![](../assets/node-app-server-hostname.png)
+
+Next, click `Review`
+![](../assets/review-tab-button.png)
+
+Finally, click `Save` to save the blueprint.
+![](../assets/blueprint-save.png)

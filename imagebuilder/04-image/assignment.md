@@ -53,16 +53,7 @@ We'll enter a hostname `node-app-server` for the image.
 
 Click `Next` until you reach Packages.
 
-Add in the first package, `nodejs`, into the `Available packages` search bar. Once the filter has been applied, you should now see packages with `nodejs` included in their name.
 
-![add nodejs](../assets/add-nodejs.png)
-
-1) Click on `nodejs`.
-2) Click the `>` symbol to add it.
-
-Repeat these actions for the `nginx` package and then click `Next`.
-
-![added](../assets/packages-added.png)
 
 You can review the blueprint you've created in this menu. Click `Save blueprint`
 

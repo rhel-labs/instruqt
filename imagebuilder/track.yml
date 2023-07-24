@@ -19,6 +19,7 @@ icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: beginner
 tags:
 - rhel
+maintenance: true
 owner: rhel
 developers:
 - ehendric@redhat.com
