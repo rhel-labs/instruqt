@@ -21,11 +21,10 @@ tags:
 - image builder
 owner: rhel
 developers:
-- wkibbe@redhat.com
 - nlager@redhat.com
 show_timer: true
 lab_config:
   overlay: false
   width: 25
   position: right
-checksum: "14772353452601731341"
+checksum: "11266011203176919613"
