@@ -38,7 +38,7 @@ _Red Hat Enterprise Linux_ in the left-side navigation menu, and select _Red Hat
 
 ![cloud.redhat.com Homepage](../assets/cloud-console-RHEL-menu.png)
 
-Now, if you click on the Inventory menu item on the left side, you'll see a list of systems registered to insights for this lab account.  Search for your lab host using the `Filter by name` search box at the top of the inventory list.
+Now, if you click on the Inventory menu item on the left side, you'll see a list of systems registered to insights for this lab account.  Search for your lab host using the `Filter by name` search box at the top of the inventory list. You can find your system's name by running the `hostname` command.
 
 ![Insights Inventory Filter](../assets/insights-inv-filter.png)
 
