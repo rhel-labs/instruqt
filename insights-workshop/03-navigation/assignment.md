@@ -15,7 +15,7 @@ Now that you have opened Red Hat Insights for Red Hat Enterprise Linux, you will
 
 ![Insights Homepage](../assets/insights-homepage-v2.png)
 
-For the purposes of this exercise, you are working with a single machine registered to Insights and we will focus on the Advisor recommendations available for that host.  Click on the _Inventory_ link on the left navigation bar.
+For the purposes of this exercise, you are working with a single machine registered to Insights and we will focus on the Advisor recommendations available for that host.  Click on the _Inventory_ link on the left navigation bar. Then, click on _Systems_.
 
 ![Navigate to Inventory](../assets/insights-homepage-inventory-highlight.png)
 
