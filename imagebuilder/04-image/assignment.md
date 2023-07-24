@@ -34,7 +34,7 @@ output types supported by Image Builder:
 * Microsoft Azure (.vhd)
 * VMware VSphere (.vmdk)
 
-For this lab, select the *Type* as __OpenStack (.qcow2)__ this makes a
+For this lab, select the *Type* as __QEMU Image (.qcow2)__ this makes a
 virtual machine image that is compatible with the native virtualization
 provided as part of Red Hat Enterprise Linux. However, you can see from the
 list that you can make images for cloud providers or other virtualization
@@ -42,7 +42,7 @@ hypervisors.
 
 ![Selecting a format](../assets/image-create.png)
 
-Once you have specified the __OpenStack (.qcow2)__ as the *Type* select
+Once you have specified the __QEMU Image (.qcow2)__ as the *Type* select
 the *Create* button to create an image of this output format.
 
 Click `Next`.
@@ -54,11 +54,8 @@ You can review the image you've created in this menu. Click `Create`
 
 To view the progress of the image build, click on the `Images` tab.
 
-![blueprint name](../assets/blueprint-name.png)
+![select images tab](../assets/images-tab.png)
 
-Click on `Images`.
-
-![images](../assets/click-images.png)
 
 Then you'll be taken to the status of the image build.
 
