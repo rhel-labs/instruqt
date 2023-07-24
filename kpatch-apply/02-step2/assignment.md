@@ -62,8 +62,8 @@ your system.  The one needed for your system is
 the version of your kernel reported by `uname -r`, specifically, 5.14.0-284.el9_2.
 
 If you looked at all available `kpatch-patch` packages, you would see others
-listed, like `kpatch-patch-4_18_0-147.x86_64`.  These kpatches are
-for another kernel, specifically, version 4.18.0-147.  You can see that
+listed, like `kpatch-patch-5_14_0-162_18_1.x86_64`.  These kpatches are
+for another kernel, specifically, version 5.14.0-162.  You can see that
 the additional listings are also for addtional kernel releases, __not__ the one
 running on your system.
 
