@@ -49,7 +49,7 @@ Click `Next`.
 
 We'll enter a hostname `node-app-server` for the image.
 
-![hostname](../assets/hostname.png)
+
 
 Click `Next` until you reach Packages.
 
