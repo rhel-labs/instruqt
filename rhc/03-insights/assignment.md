@@ -16,7 +16,7 @@ timelimit: 1
 >_NOTE:_ To make the inline images larger, expand this window.
 ![Menu Slider](../assets/slider.png)
 
-In the pane on the left, where your terminal was, you should now have a button to launch the Hybrid Cloud Console in an external window.  Press the button. You will then need to login with the following credentials.
+In the pane on the left, where your terminal was, you should now have a button to launch the Hybrid Cloud Console in an external window.  Press the button. You will then need to log in with the following credentials.
 
 Login:
 
@@ -42,15 +42,15 @@ Now, if you click on the Inventory menu item on the left side and then click `Sy
 
 ![Insights Inventory Filter](../assets/insights-inv-filter.png)
 
-If you click on your system in the list, you will be brought to that hosts detail page.
+If you click on your system in the list, you will be brought to that host's detail page.
 
-You can see the amount of information that insights is able to report to you about your system under the general tab.
+You can see the amount of information that Insights is able to report to you about your system under the general tab.
 
 Head over to the Advisor tab, and we'll see if the Advisor service has any recommendations for our system.
 
 ![Insights Advisor Inventory Tab](../assets/insights-advisor-inv.png)
 
-You can see that our system has a few recommendations.  The Remediation column tells us whether Insights can remediate these via a playbook, or if they need to be remediated manually.  In this example the first item in the list could be remediated via a playbook.
+You can see that our system has a few recommendations.  The Remediation column tells us whether Insights can remediate these via a playbook, or if they need to be remediated manually.  In this example, the first item in the list could be remediated via a playbook.
 
 ![Insights Advisor Recommendations](../assets/advisor-recommendations.png)
 
