@@ -7,7 +7,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
-  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
+  cmd: #tmux attach-session -t "rhel-session" > /dev/null 2>&1
 - title: RHEL Web Console
   type: service
   hostname: rhel

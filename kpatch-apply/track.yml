@@ -33,9 +33,10 @@ owner: rhel
 developers:
 - myee@redhat.com
 - smcbrien@redhat.com
+- wkibbe@redhat.com
 show_timer: true
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "2529975571437174359"
+checksum: "18112896597554753459"
