@@ -26,9 +26,6 @@ tabs:
 - title: rhel2 Web Console
   type: external
   url: https://rhel2.${_SANDBOX_ID}.instruqt.io:9090
-# - title: Hybrid Cloud Console
-#   type: browser
-#   hostname: consoledot
 difficulty: basic
 timelimit: 3420
 ---

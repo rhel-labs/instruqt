@@ -32,8 +32,9 @@ show_timer: true
 skipping_enabled: true
 idle_timeout: 2700
 timelimit: 7200
+sandbox_preset: satellite
 lab_config:
   overlay: false
   width: 50
   position: right
-checksum: "17669934573532874036"
+checksum: "8521971918747644023"

@@ -1,4 +1,6 @@
-version: "3"
+name: satellite
+slug: satellite
+description: A long description of the track.
 virtualmachines:
 - name: rhel1
   image: projects/tmm-instruqt-11-26-2021/global/images/satellite-lab-client1-7-21-23-3
@@ -6,6 +8,8 @@ virtualmachines:
   environment:
     TERM: xterm
   machine_type: n1-standard-1
+  memory: 4096
+  cpus: 1
   allow_external_ingress:
   - http
   - https
@@ -16,6 +20,8 @@ virtualmachines:
   environment:
     TERM: xterm
   machine_type: n1-standard-1
+  memory: 4096
+  cpus: 1
   allow_external_ingress:
   - http
   - https
@@ -26,12 +32,11 @@ virtualmachines:
   environment:
     TERM: xterm
   machine_type: n1-standard-8
+  memory: 32768
+  cpus: 8
   allow_external_ingress:
   - http
   - https
   - high-ports
-# virtualbrowsers:
-# - name: consoledot
-#   url: https://console.redhat.com
 secrets:
 - name: ACTIVATION_KEY
