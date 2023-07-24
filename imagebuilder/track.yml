@@ -24,10 +24,9 @@ developers:
 - ehendric@redhat.com
 - myee@redhat.com
 - wkibbe@redhat.com
-maintenance: true
 show_timer: true
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "4682522308660709088"
+checksum: "8635788754973505744"
