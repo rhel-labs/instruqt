@@ -30,6 +30,7 @@ tabs:
 - title: Terminal 2
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "rhel-session-2" > /dev/null 2>&1
 difficulty: basic
 timelimit: 3000
 ---

@@ -21,6 +21,7 @@ echo redhat | passwd --stdin rhel
 #step 1: make a script
 tee ~/startup-tmux.sh << EOF
 TMUX='' tmux new-session -d -s 'rhel-session' > /dev/null 2>&1
+TMUX='' tmux new-session -d -s 'rhel-session-2' > /dev/null 2>&1
 tmux set -g pane-border-status top
 tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
 tmux set -g mouse on
