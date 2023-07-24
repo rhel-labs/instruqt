@@ -16,9 +16,9 @@ description: |-
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: intermediate
 tags:
-- rhel
-- Image builder
 - cloud
+- rhel
+- image builder
 owner: rhel
 developers:
 - nlager@redhat.com
@@ -27,4 +27,4 @@ lab_config:
   overlay: false
   width: 25
   position: right
-checksum: "2031956700873601074"
+checksum: "11266011203176919613"
