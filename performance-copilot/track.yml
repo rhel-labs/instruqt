@@ -24,9 +24,8 @@ developers:
 - wkibbe@redhat.com
 - myee@redhat.com
 show_timer: true
-skipping_enabled: true
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "15583303767964319616"
+checksum: "11890529940827869568"
