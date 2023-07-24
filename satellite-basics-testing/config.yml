@@ -30,5 +30,8 @@ virtualmachines:
   - http
   - https
   - high-ports
+# virtualbrowsers:
+# - name: consoledot
+#   url: https://console.redhat.com
 secrets:
 - name: ACTIVATION_KEY
