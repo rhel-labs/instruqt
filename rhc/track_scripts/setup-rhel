@@ -2,6 +2,22 @@
 LOG=/root/setup-log
 #LOG=/dev/null
 
+
+
+
+subscription-manager config --rhsm.manage_repos=1 >> $LOG
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force >> $LOG
+
+dnf install -y rhc >> $LOG
+
+subscription-manager unregister >> $LOG
+subscription-manager clean >> $LOG
+
+echo "export KEY='rhc-lab'" >> /root/.bashrc
+
+hostnamectl set-hostname rhel-$(uuidgen | cut -c 32-)
+exec $SHELL
+
 #set up tmux so it has to restart itself whenever the system reboots
 
 #step 1: make a script
@@ -20,17 +36,3 @@ echo "@reboot ~/startup-tmux.sh" | crontab -
 
 #step 4: start tmux for the lab
 ~/startup-tmux.sh
-
-
-subscription-manager config --rhsm.manage_repos=1 >> $LOG
-subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force >> $LOG
-
-dnf install -y rhc >> $LOG
-
-subscription-manager unregister >> $LOG
-subscription-manager clean >> $LOG
-
-echo "export KEY='rhc-lab'" >> /root/.bashrc
-
-hostnamectl set-hostname rhel-$(uuidgen | cut -c 32-)
-exec $SHELL
