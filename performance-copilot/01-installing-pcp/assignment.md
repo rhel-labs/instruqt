@@ -52,8 +52,8 @@ systemctl status pmcd --no-pager
 <pre class="file">
 << OUTPUT ABRIDGED >>
 
- Loaded: loaded (/usr/lib/systemd/system/pmcd.service; enabled; vendor preset: disabled)
-   Active: active (running) since Thu 2021-03-11 13:18:12 EST; 6min ago
+  Loaded: loaded (/usr/lib/systemd/system/pmcd.service; enabled; preset: disabled)
+  Active: active (running) since Mon 2023-07-24 17:34:29 UTC; 17s ago
 
 << OUTPUT ABRIDGED >>
 </pre>
@@ -69,14 +69,14 @@ pcp
 <pre class="file">
 Performance Co-Pilot configuration on rhel:
 
- platform: Linux rhel 5.14.0-162.6.1.el9_1.x86_64 #1 SMP PREEMPT_DYNAMIC Fri Sep 30 07:36:03 EDT 2022 x86_64
- hardware: 2 cpus, 2 disks, 1 node, 7677MB RAM
+ platform: Linux rhel 5.14.0-284.11.1.el9_2.x86_64 #1 SMP PREEMPT_DYNAMIC Wed Apr 12 10:45:03 EDT 2023 x86_64
+ hardware: 2 cpus, 2 disks, 1 node, 7685MB RAM
  timezone: UTC
  services: pmcd
-     pmcd: Version 5.3.7-7, 12 agents, 6 clients
+     pmcd: Version 6.0.1-4, 12 agents, 6 clients
      pmda: root pmcd proc pmproxy xfs linux nfsclient mmv kvm jbd2
            dm openmetrics
- pmlogger: primary logger: /var/log/pcp/pmlogger/rhel/20230109.19.44
+ pmlogger: primary logger: /var/log/pcp/pmlogger/rhel/20230724.17.34
      pmie: primary engine: /var/log/pcp/pmie/rhel/pmie.log
 </pre>
 
