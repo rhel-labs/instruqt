@@ -26,6 +26,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 - title: Terminal 2
   type: terminal
   hostname: rhel
