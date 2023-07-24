@@ -26,7 +26,7 @@ When you are ready, apply the available updates by clicking the __Install All Up
  <img alt="An example image" src="../assets/Apply-All-Updates.png" />
 </a>
 
-Again you are asked to restart the system, this time, you can if you choose to do so.
+Again you are asked to restart the system. This time, you can if you choose to do so.
 
 Now your system reports that it has been updated and requires a `Reboot` or `Restart services`.
 
