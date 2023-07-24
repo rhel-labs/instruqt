@@ -33,10 +33,9 @@ Redhat1!
 
 ![Red Hat Password screen](../assets/cloud-console-login-pass.png)
 
-Once you are logged in, using the credentials provided above, navigate to
-_Red Hat Enterprise Linux_ in the left-side navigation menu, and select _Red Hat Insights_ below it.
+Once you are logged in using the credentials provided above, navigate to _RHEL_ inside the _Red Hat Insights_ box.
 
-![cloud.redhat.com Homepage](../assets/cloud-console-RHEL-menu.png)
+![cloud.redhat.com Homepage](../assets/RHEl_insights_select.png)
 
 Now, if you click on the Inventory menu item on the left side, you'll see a list of systems registered to insights for this lab account.  Search for your lab host using the `Filter by name` search box at the top of the inventory list.
 
