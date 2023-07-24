@@ -14,3 +14,4 @@ timelimit: 1
 
 Finally, reload the system page in your web browser.
 Look to verify that the recommendation is no longer displayed for your system.
+![Remediation completed](../assets/remediation-complete.png)
