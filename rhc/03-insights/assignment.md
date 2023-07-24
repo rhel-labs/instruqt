@@ -38,7 +38,7 @@ _RHEL_ inside of the _Red Hat Insights_ box.
 
 ![cloud.redhat.com Homepage](../assets/RHEl_insights_select.png)
 
-Now, if you click on the Inventory menu item on the left side and then click `Systems`, you'll see a list of systems registered to insights for this lab account.  Search for your lab host using the `Filter by name` search box at the top of the inventory list. You can find your system's name by running the `hostname` command.
+Now, if you click on the Inventory menu item on the left side and then click `Systems`, you'll see a list of systems registered to insights for this lab account.  Search for your lab host using the `Filter by name` search box at the top of the inventory list. You can find your system's name by running the `hostname` command in the `terminal` tab.
 
 ![Insights Inventory Filter](../assets/insights-inv-filter.png)
 
