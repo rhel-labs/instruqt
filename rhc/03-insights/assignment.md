@@ -6,7 +6,7 @@ title: Insights, and the Hybrid Cloud Console
 tabs:
 - title: Red Hat Hybrid Cloud Console
   type: external
-  url: https://cloud.redhat.com
+  url: https://console.redhat.com
 - title: Terminal
   type: terminal
   hostname: rhel
