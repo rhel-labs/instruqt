@@ -1,6 +1,6 @@
 slug: satellite-basics-testing
 id: mo0gftdn3bj8
-title: Satellite Basics
+title: Satellite Basics Testing
 teaser: Learn the basics of using Red Hat Satellite.
 description: |
   # Overview:
@@ -22,17 +22,19 @@ description: |
   * Installing new software on multiple hosts.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags:
-- satellite
 - rhel
+- satellite
 owner: rhel
 developers:
 - myee@redhat.com
+maintenance: true
 show_timer: true
 skipping_enabled: true
 idle_timeout: 2700
 timelimit: 7200
+sandbox_preset: satellite
 lab_config:
   overlay: false
   width: 50
   position: right
-checksum: "18025123061622770228"
+checksum: "8521971918747644023"
