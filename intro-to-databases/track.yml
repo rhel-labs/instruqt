@@ -1,0 +1,26 @@
+slug: intro-to-databases
+title: Intro to Databases
+teaser: No instructions, just a system to experiment with!
+description: |-
+  # Goal:
+
+  Depends on you!
+
+  This is an evironment without pre-planned lab content intended
+  to be a place where you can explore a Red Hat Enterprise Linux 9 system on
+  a topic of your choosing.
+
+  >**NOTE:** This lab environment will expire in a little less than 2 hours.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+tags:
+- rhel
+owner: rhel
+developers:
+- wkibbe@redhat.com
+show_timer: true
+sandbox_preset: devel-101
+lab_config:
+  overlay: false
+  width: 33
+  position: right
