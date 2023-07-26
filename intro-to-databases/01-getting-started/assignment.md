@@ -2,7 +2,7 @@
 slug: getting-started
 id: xoq0aopvftwp
 type: challenge
-title: 'Step 1: Getting Started'
+title: 'Step 1: Install MySQL'
 notes:
 - type: text
   contents: |
@@ -29,6 +29,19 @@ tabs:
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
   new_window: true
 difficulty: basic
-timelimit: 600
+timelimit: 6000
 ---
-Do something for step 1
+First, install MariaDB server by running the following command:
+```bash
+sudo dnf install -y mariadb mariadb-server
+```
+
+Next, start MariaDB with this command:
+```bash
+systemctl start mariadb.service
+```
+
+Finally, use `systemctl` to allow MariaDB to automatically start when the system boots:
+```bash
+systemctl enable mariadb.service
+```
