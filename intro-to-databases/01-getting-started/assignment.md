@@ -1,7 +1,7 @@
 ---
-slug: overview
+slug: getting-started
 type: challenge
-title: Red Hat Enterprise Linux Open Lab - 2 hour
+title: 'Step 1: Getting Started'
 notes:
 - type: text
   contents: |
@@ -9,7 +9,7 @@ notes:
 
     Depends on you!
 
-    This is an evironment without pre-planned lab content intended
+    This is an environment without pre-planned lab content intended
     to be a place where you can explore a Red Hat Enterprise Linux system on
     a topic of your choosing.
 
@@ -27,17 +27,5 @@ tabs:
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
   new_window: true
 difficulty: basic
-timelimit: 6900
+timelimit: 600
 ---
-Welcome to this open lab experience for Red Hat Enterprise Linux.
-
-The system displayed beside this text is a Red Hat Enterprise Linux 9
-system registered with Subscription Manager.
-
-An unpriveleged user also exists on the system.
-
-Username: __rhel__
-Password: __redhat__
-
-Enjoy your unstructured lab time, the system will disconnect shortly before
-2 hours.
