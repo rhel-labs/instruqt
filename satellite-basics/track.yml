@@ -22,16 +22,17 @@ description: |
   * Installing new software on multiple hosts.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags:
-- satellite
 - rhel
+- satellite
 owner: rhel
 developers:
 - myee@redhat.com
 show_timer: true
 idle_timeout: 3000
 timelimit: 7200
+sandbox_preset: satellite
 lab_config:
   overlay: false
   width: 50
   position: right
-checksum: "15955406333135757476"
+checksum: "5364292465387965375"
