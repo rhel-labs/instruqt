@@ -26,7 +26,7 @@ tabs:
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 - title: RHEL Web Console
   type: website
-  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
+  url: https://${HOSTNAME}.${_SANDBOX_ID}.instruqt.io:9090
   new_window: true
 difficulty: basic
 timelimit: 600
