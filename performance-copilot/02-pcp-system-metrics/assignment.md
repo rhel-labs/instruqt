@@ -7,6 +7,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
@@ -21,41 +22,24 @@ pminfo -t
 ```
 
 <pre class="file">
-...Output Truncated...
+...Output Truncated Throughout...
 kernel.all.nprocs [total number of processes (lightweight)]
-kernel.all.pid_max [maximum process identifier from /proc/sys/kernel/pid_max]
-kernel.all.cpu.user [total user CPU time from /proc/stat for all CPUs, including guest CPU time]
-kernel.all.cpu.nice [total nice user CPU time from /proc/stat for all CPUs, including guest time]
-kernel.all.cpu.sys [total sys CPU time from /proc/stat for all CPUs]
-kernel.all.cpu.idle [total idle CPU time from /proc/stat for all CPUs]
-kernel.all.cpu.intr [total interrupt CPU time from /proc/stat for all CPUs]
-kernel.all.cpu.steal [total virtualisation CPU steal time for all CPUs]
-kernel.all.cpu.guest [total virtual guest CPU time for all CPUs]
-kernel.all.cpu.vuser [total user CPU time from /proc/stat for all CPUs, excluding guest CPU time]
-kernel.all.cpu.guest_nice [total virtual guest CPU nice time for all CPUs]
-kernel.all.cpu.vnice [total nice user CPU time from /proc/stat for all CPUs, excluding guest time]
-kernel.all.cpu.wait.total [total wait CPU time from /proc/stat for all CPUs]
-kernel.all.cpu.irq.soft [soft interrupt CPU time from /proc/stat for all CPUs]
-kernel.all.cpu.irq.hard [hard interrupt CPU time from /proc/stat for all CPUs]
-kernel.all.interrupts.total One-line Help: Error: One-line or help text is not available
-kernel.all.interrupts.errors [interrupt error count from /proc/interrupts]
-kernel.all.softirqs.total One-line Help: Error: One-line or help text is not available
-...Output Truncated...
+mem.util.used [used memory metric from /proc/meminfo]
+network.interface.in.bytes [network recv read bytes from /proc/net/dev per network interface]
+disk.dev.total [per-disk total (read+write) operations]
 </pre>
 
-Check out `man pminfo` if you are interested in more details about the `pminfo` tool.
+As you can see, there are a lot of performance metrics (over 3400!). `pminfo` displays not only the performance metric name, but also a brief description of the data it collects. Check out `man pminfo` if you are interested in more details about the `pminfo` tool.
 
 ## Monitoring performance using PCP
 
-The `pmval` utility takes any of the available metrics and reports them in ASCII tables.
+The `pmval` utility takes any of the available metrics and reports them in formatted output. The different metrics present varying forms and amounts of data, determined by the metric collected, not by the `pmval` command.
 
-For instance, this command reports idle processor utilization for each CPU on the host, every 1 second in a 5 second window :
+As an example, in the command below, command reports idle processor utilization metric (kernel.percpu.cpu.idle) for each CPU on the host, every 1 second (-t 1) during an overall 5 second time window (-T 5):
 
 ```bash
 pmval -t 1 -T 5 kernel.percpu.cpu.idle
 ```
-
->**NOTE:** In the command above, if the hostname is not specified, it defaults to using `localhost`. By using the -h option, you can specify the hostname of a remote host to monitor for the specific metric.
 
 <pre class="file">
 metric:    kernel.percpu.cpu.idle
@@ -71,7 +55,3 @@ interval:  1.00 sec
                0.9692                0.9892
                0.9692                0.9891
 </pre>
-
-
-
-These are just a couple of examples, but in the next step, we'll look at similar tools but from the Web Console.
