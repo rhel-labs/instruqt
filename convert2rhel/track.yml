@@ -24,10 +24,9 @@ owner: rhel
 developers:
 - ehendric@redhat.com
 - myee@redhat.com
-maintenance: true
 show_timer: true
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "15321330473555091206"
+checksum: "12132152130221441174"
