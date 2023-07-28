@@ -14,6 +14,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
@@ -53,7 +54,8 @@ can look at the status of the queue using `composer-cli compose status`.
 composer-cli compose status
 ```
 <pre class='file'>
-00403772-ff12-43d4-b09a-bddf28f20709 RUNNING  Tue Feb 16 16:21:08 2021 node-app-server 0.0.1 qcow2
+ID                                    Status   Time                      Blueprint        Version  Typw    Size
+00403772-ff12-43d4-b09a-bddf28f20709  RUNNING  Tue Feb 16 16:21:08 2021  node-app-server  0.0.1    qcow2
 </pre>
 
 The status will display all queued (WAITING), running (RUNNING), and

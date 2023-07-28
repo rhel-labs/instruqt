@@ -25,6 +25,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 3000
 ---
@@ -43,15 +44,15 @@ dnf install -y composer-cli osbuild-composer
 <pre class='file'>
 <<< OUTPUT ABRIDGED >>>
 
-==========================================================================================================================================
- Package                            Arch      Version                                           Repository                           Size
-==========================================================================================================================================
+============================================================================================================================================================
+ Package                                  Architecture          Version                               Repository                                       Size
+============================================================================================================================================================
 Installing:
- composer-cli                  x86_64       28.14.58-1.el8                                    rhel-8-for-x86_64-appstream-rpms        86 k
- osbuild-composer              x86_64       28.4-1.el8                                        rhel-8-for-x86_64-appstream-rpms        19 k
+ osbuild-composer                         x86_64                76-2.el9_2.2                          rhel-9-for-x86_64-appstream-rpms                 24 k
+ weldr-client                             x86_64                35.9-1.el9                            rhel-9-for-x86_64-appstream-rpms                3.0 M
 Installing dependencies:
- bubblewrap                    x86_64       0.4.0-1.el8                                       rhel-8-for-x86_64-baseos-rpms           50 k
- fuse                          x86_64       2.9.7-12.el8                                      rhel-8-for-x86_64-baseos-rpms           83 k
+ fuse                                     x86_64                2.9.9-15.el9                          rhel-9-for-x86_64-baseos-rpms                    84 k
+ osbuild                                  noarch                81-1.el9_2.1                          rhel-9-for-x86_64-appstream-rpms                156 k
 
 <<< OUTPUT ABRIDGED >>>
 

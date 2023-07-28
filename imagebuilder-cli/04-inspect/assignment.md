@@ -14,6 +14,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
@@ -24,18 +25,18 @@ if the machine image is not yet completed.  The below command is a small
 `until` shell script that will run until the completed machine image is created.
 
 ```
-until $(composer-cli compose status | head -n1 | grep FINISHED &>/dev/null); do echo "Compose not finished ... waiting 10 seconds"; sleep 10; done; echo "COMPOSE FINISHED"
+until $(composer-cli compose status | tail -1 | grep FINISHED &>/dev/null); do echo "Compose not finished ... waiting 10 seconds"; sleep 10; done; echo "COMPOSE FINISHED"
 ```
 
 Now that the machine image compose is finished, download the completed machine
 image into your current directory.
 
 ```
-composer-cli compose image $(composer-cli compose status | head -n1 | cut -f1 -d" ")
+composer-cli compose image $(composer-cli compose status | tail -1 | cut -f1 -d" ")
 ```
 
 <pre class="file">
-00403772-ff12-43d4-b09a-bddf28f20709-disk.qcow2: 686.96 MB
+00403772-ff12-43d4-b09a-bddf28f20709-disk.qcow2
 </pre>
 
 The above command takes the UUID of the compose as an argument.  We embedded
@@ -56,7 +57,7 @@ modprobe nbd
 Attach a qcow2 virtual image file that was downloaded into the current directory -
 
 ```
-qemu-nbd --connect=/dev/nbd0 $(composer-cli compose status | head -n1 | cut -f1 -d" ")-disk.qcow2
+qemu-nbd --connect=/dev/nbd0 $(composer-cli compose status | cut -f1 -d" " | tail -1)-disk.qcow2
 ```
 
 Find the virtual machine partition so that we can mount it -
@@ -94,6 +95,15 @@ your machine image.
 ```
 chroot /mnt
 ```
+
+> **Note:**
+> You may see the following output:
+> ```
+> basename: missing operand
+> Try 'basename --help' for more information.
+> ```
+>
+> It will not affect the chroot environment or lab.
 
 Now, all the commands run are being executed from within the machine image
 and use the machine image's files and content.  Use an `rpm` query to confirm
