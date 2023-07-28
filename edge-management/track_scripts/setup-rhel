@@ -19,14 +19,11 @@ echo redhat | passwd --stdin rhel
 
 echo "DONE" >> /root/post-run.log
 
-# firewall-cmd --zone=libvirt --add-service=http --permanent
-# firewall-cmd --zone=trusted --add-port=8080/tcp --permanent
-# firewall-cmd --zone=libvirt --add-port=8080/tcp --permanent
-
 echo "${SSHKEY}" > r4ekey
 
 chmod 600 r4ekey
 
+mkdir /images
 tee -a /images/dl_edge_iso.sh << EOF
 #!/bin/bash
 
@@ -65,6 +62,6 @@ EOF
 chmod 600 /images/dl_edge_iso.sh
 chmod +x /images/dl_edge_iso.sh
 
-virsh destroy vm1
-virsh undefine vm1
-rm -rf /images/vm1.qcow2
+# virsh destroy vm1
+# virsh undefine vm1
+# rm -rf /images/vm1.qcow2
