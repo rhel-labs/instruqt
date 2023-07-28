@@ -7,6 +7,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 - title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
@@ -63,7 +64,7 @@ After logging into the Web Console, you'll be looking at the Overview tab. Navig
 
 ![Navigate to Image Builder](../assets/Nav-ImageBuilder.png)
 
-Because you have not used Image Builder before, you will need to start the back-end service by clicking the *Start* button. Notice that the *Automatically start osbuild-composer on boot* is selected, which means the service will automatically start after this whenever the system is booted.
+Because you have not used Image Builder before, you will need to start the back-end service by clicking the *Start* button.
 
 ![Start Image Builder Service](../assets/ImageBuilder-start-service.png)
 

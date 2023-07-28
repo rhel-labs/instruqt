@@ -7,6 +7,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 - title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
@@ -46,44 +47,21 @@ the *Create* button to create an image of this output format.
 
 Click `Next`.
 
-We'll enter a hostname `node-app-server` for the image.
-
-![hostname](../assets/hostname.png)
-
-Click `Next` until you reach Packages.
-
-Add in the first package, `nodejs`, into the `Available packages` search bar. Once the filter has been applied, you should now see packages with `nodejs` included in their name.
-
-![add nodejs](../assets/add-nodejs.png)
-
-1) Click on `nodejs`.
-2) Click the `>` symbol to add it.
-
-Repeat these actions for the `nginx` package and then click `Next`.
-
-![added](../assets/packages-added.png)
-
-You can review the blueprint you've created in this menu. Click `Save blueprint`
+You can review the image you've created in this menu. Click `Create`
 
 ![save blueprint](../assets/save-image.png)
 
-Now click `Create image`.
 
-![create image](../assets/create-image-new.png)
+To view the progress of the image build, click on the `Images` tab.
 
-To view the progress of the image build, click on the `blueprint` name `node-app-server`.
+![select images tab](../assets/images-tab.png)
 
-![blueprint name](../assets/blueprint-name.png)
-
-Click on `Images`.
-
-![images](../assets/click-images.png)
 
 Then you'll be taken to the status of the image build.
 
 ![status](../assets/image-build-status.png)
 
-When the image build is complete, you can download the image by clicking on the kebab icon and `Download`.
+When the image build is complete, you can download the image by clicking `Download`.
 
 ![download](../assets/download.png)
 
