@@ -23,4 +23,8 @@ developers:
 - myee@redhat.com
 show_timer: true
 skipping_enabled: true
-checksum: "17579932788240564271"
+lab_config:
+  overlay: false
+  width: 25
+  position: right
+checksum: "12321782719810098130"

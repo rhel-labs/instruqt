@@ -1,0 +1,13 @@
+#!/bin/bash
+set -euxo pipefail
+
+until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]; do
+    echo "Tearing down."
+    sleep 1
+done
+
+# Ungregister the VM.
+ssh -o "StrictHostKeyChecking no" root@rhelvm subscription-manager unregister
+
+# Unregister the host.
+subscription-manager unregister
