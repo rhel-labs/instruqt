@@ -1,6 +1,8 @@
 slug: session-recording-tlog
 id: pyfzqfx4ahh4
-title: Configuring Terminal Session Recording
+title: Configure terminal session recording
+teaser: Monitor your systems by recording and reviewing users’ and administrators’
+  terminal sessions.
 description: |
   # Goal:
   After completing this scenario, users will be able to enable Terminal
@@ -25,5 +27,10 @@ owner: rhel
 developers:
 - ehendric@redhat.com
 - myee@redhat.com
+- wkibbe@redhat.com
 show_timer: true
-checksum: "6628727626075386816"
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "7644667973956335259"
