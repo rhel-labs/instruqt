@@ -7,6 +7,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 - title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
@@ -25,10 +26,10 @@ kpatch list
 
 <pre class="file">
 Loaded patch modules:
-kpatch_4_18_0_348_12_2_1_2 [enabled]
+kpatch_5_14_0_284_11_1_1_1 [enabled]
 
 Installed patch modules:
-kpatch_4_18_0_348_12_2_1_2 (4.18.0-348.12.2.el8_5.x86_64)
+kpatch_5_14_0_284_11_1_1_1 (5.14.0-284.11.1.el9_2.x86_64)
 </pre>
 
 From the list output, you can see that the kpatch installed in the previous
