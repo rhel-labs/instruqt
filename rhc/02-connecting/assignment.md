@@ -10,9 +10,9 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-In this step we're going to connect and register our system to Red Hat using the `rhc` tool.  First let's talk a little bit about what `rhc` does.
+In this step, we're going to connect and register our system to Red Hat using the `rhc` tool. First, let's talk a little bit about what `rhc` does.
 
-`rhc connect` will initiate the basic connection workflow, and prompt you for a username and password.  This username and password are your Red Hat customer portal credentials, the same credentials that you would login to [The Red Hat Hybrid Cloud Console](https://cloud.redhat.com) or [The Red Hat Customer Portal](https://access.rehdat.com/) with.  You can also specify these credentials with the `--username` and `--password` command line options for `rhc`, or you can use the `--activation-key` command line argument to attach using an activation key.  An activation key is the best way to attach automatically, without entering a password in clear text at the command line or stored in a script.
+`rhc connect` will initiate the basic connection workflow, and prompt you for a username and password.  This username and password are your Red Hat customer portal credentials, the same credentials that you would log in to [The Red Hat Hybrid Cloud Console](https://cloud.redhat.com) or [The Red Hat Customer Portal](https://access.rehdat.com/) with.  You can also specify these credentials with the `--username` and `--password` command line options for `rhc`, or you can use the `--activation-key` command line argument to attach using an activation key.  An activation key is the best way to attach automatically, without entering a password in clear text at the command line or stored in a script.
 
 We have an activation key stored as an environment variable in this system, so we'll connect this system using that key.
 
@@ -36,7 +36,7 @@ This might take a few seconds.
 Manage your Red Hat connector systems: https://red.ht/connector
 </pre>
 
-Connecting a system using `rhc` will accomplish a few things for you.  First it connects your system to Red Hat Insights.  Insights is a service that you have access to simply because you are running RHEL.  It will also enable remote remediation of issues identified by Inishgts with the proper addon subscription.  And lastly, if your organization has Simple Content Access enabled, your system will be setup to receive updates from Red Hat.
+Connecting a system using `rhc` will accomplish a few things for you. First, it connects your system to Red Hat Insights. Insights is a service that you have access to simply because you are running RHEL. It will also enable remote remediation of issues identified by Inishgts with the proper add-on subscription.  And lastly, if your organization has Simple Content Access enabled, your system will be setup to receive updates from Red Hat.
 
 >_NOTE:_ If your orgnaization does not have Simple Content Access enabled, you will need to attach a subscription after connecting with `rhc` using the `subscription manager` tool.
 

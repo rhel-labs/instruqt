@@ -29,6 +29,6 @@ Known exploits also show up with a tag in the vulnerabilities list.
 
 ![Known Exploits](../assets/insights-vuln-list-exp.png)
 
-You can click on the CVE ID to see a list of hosts that Insights has also identified as affected by this vulnerability, or the RHSA to go to the Red Hat Security Advisory related to this vulnerbility.
+You can click on the CVE ID to see a list of hosts that Insights has also identified as affected by this vulnerability, or the RHSA to go to the Red Hat Security Advisory related to this vulnerability.
 
 
