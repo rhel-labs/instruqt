@@ -8,13 +8,9 @@ tabs:
   type: terminal
   hostname: host
   cmd: tmux attach-session -t "centos"
-- title: console
+- title: host
   type: terminal
   hostname: host
-- title: rhel
-  type: terminal
-  hostname: host
-  cmd: tmux attach-session -t "converted"
 difficulty: basic
 timelimit: 1
 ---
@@ -33,23 +29,10 @@ The conversion process can take upwards of 15 minutes to run. Instead of waiting
 
 ![image.png](../assets/image.png)
 
-In order to see what the server is during during this process, you will need to connect to the virtual machine's console. In the title bar, click on the "console" tab. Use the `virsh` command to connect to your VM's console:
+In order to see what the server is during during this process, you will need to connect to the virtual machine's console. In the title bar, click on the "host" tab. Use the `ssh` command to connect to your VM's console. You may need to wait a little while for the host to complete rebooting.:
 
 ```bash
-virsh console centos
-
-```
-
-<pre class='file'>
-# virsh console centos
-Connected to domain 'centos'
-Escape character is ^] (Ctrl + ])
-</pre
-
-Once the conversion has been completed, use `CTRL + ]` to disconnect from the console and log back in using ssh:
-
-```bash
-ssh -i ~/.ssh/id_rsa centos
+ssh centos
 
 ```
 

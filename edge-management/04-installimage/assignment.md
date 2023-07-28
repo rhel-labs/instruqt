@@ -104,11 +104,12 @@ rhc connect --username rhel-0ab2 --password Redhat1!
 
 ![rhc](../assets/rhcconnect.png)
 
-Now run `insights-client --register`.
+Now run `insights-client`.
 
 ```bash
-insights-client --register
+insights-client
 ```
+
 ![insights client](../assets/insights-client.png)
 
 Now go back to the hybrid cloud console and refresh the inventory. It might take up to 5 minutes for the new edge device to show up.

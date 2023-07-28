@@ -10,7 +10,11 @@ tags: []
 owner: rhel
 developers:
 - myee@redhat.com
-private: false
-published: true
+- wkibbe@redhat.com
+maintenance: true
 show_timer: true
-checksum: "15012523554611182435"
+lab_config:
+  overlay: false
+  width: 25
+  position: right
+checksum: "17797668018990045817"
