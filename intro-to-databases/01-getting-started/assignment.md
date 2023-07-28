@@ -31,17 +31,22 @@ tabs:
 difficulty: basic
 timelimit: 6000
 ---
-First, install MariaDB server by running the following command:
+First, install MySQL by running the following command:
 ```bash
-sudo dnf install -y mariadb mariadb-server
+sudo dnf install mysql-server
 ```
 
-Next, start MariaDB with this command:
+Next, start MySQL with this command:
 ```bash
-systemctl start mariadb.service
+systemctl start mysqld.service
 ```
 
-Finally, use `systemctl` to allow MariaDB to automatically start when the system boots:
+Now use `systemctl` to allow MySQL to automatically start when the system boots:
 ```bash
-systemctl enable mariadb.service
+systemctl enable mysqld.service
+```
+
+Finally, to improve the security of your MySQL installation, run the following command to initiate a secure configuration process:
+```bash
+mysql_secure_installation
 ```
