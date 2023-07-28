@@ -21,12 +21,16 @@ description: |
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: beginner
 tags:
-- admin101
 - rhel
+- admin101
 owner: rhel
 developers:
 - ehendric@redhat.com
 - myee@redhat.com
+- wkibbe@redhat.com
 show_timer: true
-skipping_enabled: true
-checksum: "3365345537529807337"
+lab_config:
+  overlay: false
+  width: 25
+  position: right
+checksum: "6820739102374870967"
