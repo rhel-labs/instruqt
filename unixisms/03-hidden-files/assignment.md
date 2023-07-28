@@ -27,7 +27,7 @@ ls
 ```
 
 <pre class=file>
-anaconda-ks.cfg  openscap_data  original-ks.cfg
+anaconda-ks.cfg  google-cloud.repo  openscap_data  original-ks.cfg  rh-cloud.repo
 </pre>
 
 Now, try it again with the `-a` option. Many more files and directories will
@@ -36,8 +36,9 @@ show up, even though you have not changed where you are looking.
 ```bash
 ls -a
 ```
-
-`.  ..  anaconda-ks.cfg  .bash_history  .bash_logout  .bash_profile  .bashrc  .cshrc  openscap_data  original-ks.cfg  .ssh  .tcshrc  .vimrc`
+<pre class=file>
+.  ..  anaconda-ks.cfg  .bash_history  .bash_logout  .bash_profile  .bashrc  .config  .cshrc  google-cloud.repo  openscap_data  original-ks.cfg  rh-cloud.repo  .ssh  .tcshrc  .viminfo  .vimrc
+</pre>
 
 Adding the `-a` option reveals that there are numerous hidden files and directories
 in this home directory. These are hidden because they are not files that
@@ -63,11 +64,14 @@ Now that this file is created, confirm that it only shows up when using `ls -a`:
 ls
 ```
 
-`anaconda-ks.cfg  openscap_data  original-ks.cfg`
+<pre class=file>
+anaconda-ks.cfg  google-cloud.repo  openscap_data  original-ks.cfg  rh-cloud.repo
+</pre>
 
 ```bash
 ls -a
 ```
 
-`.   anaconda-ks.cfg  .bash_logout   .bashrc  .hidden-file   original-ks.cfg  .tcshrc`
-`..  .bash_history    .bash_profile  .cshrc   openscap_data  .ssh             .vimrc`
+<pre class=file>
+.  ..  anaconda-ks.cfg  .bash_history  .bash_logout  .bash_profile  .bashrc  .config  .cshrc  google-cloud.repo  openscap_data  original-ks.cfg  rh-cloud.repo  .ssh  .tcshrc  .viminfo  .vimrc
+</pre>
