@@ -29,7 +29,7 @@ tabs:
   hostname: host
   cmd: tmux attach-session -t "rhel07"
 difficulty: basic
-timelimit: 3400
+timelimit: 3000
 ---
 # What is Leapp?
 
