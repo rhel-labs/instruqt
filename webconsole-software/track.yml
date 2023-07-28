@@ -3,7 +3,7 @@ id: 0aauyibyx3dy
 title: Update a Red Hat Enterprise Linux host with the Web Console
 description: |+
   # Goal:
-  After completing this scenario, users will be able to apply system updates to Red Hat Enterprise Linux 8 systems.
+  After completing this scenario, users will be able to apply system updates to Red Hat Enterprise Linux 9 systems.
 
   # Concepts included in this scenario:
   * Authenticating to the **Web Console**
@@ -17,7 +17,10 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
-private: false
-published: true
+- wkibbe@redhat.com
 show_timer: true
-checksum: "13408543818553942807"
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "16619086537662320593"
