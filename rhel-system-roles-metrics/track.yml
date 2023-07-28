@@ -22,12 +22,14 @@ description: |
   * Use the Metrics System Role will configure and install Grafana on a specified host to visualize the PCP data.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags:
-- ""
 - systemrole
 owner: rhel
 developers:
 - myee@redhat.com
-private: false
-published: false
+- wkibbe@redhat.com
 show_timer: true
-checksum: "6108205645330733030"
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "9018464661712040615"
