@@ -1,7 +1,6 @@
 slug: edge-management
 id: wmfxketkgnkz
 title: Edge Management Lab
-teaser: Learn how edge management works.
 description: Red Hat Edge Mangement reduces the complexity of managing edge devices.
   In this lab, we'll show you how to create, deploy, and update edge devices from
   the Red Hat hybrid cloud console.
@@ -11,10 +10,9 @@ owner: rhel
 developers:
 - myee@redhat.com
 - wkibbe@redhat.com
-maintenance: true
 show_timer: true
 lab_config:
   overlay: false
-  width: 25
+  width: 50
   position: right
-checksum: "17797668018990045817"
+checksum: "14705917447759863048"
