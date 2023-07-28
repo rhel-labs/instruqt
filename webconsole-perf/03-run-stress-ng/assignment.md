@@ -16,7 +16,7 @@ timelimit: 1
 
 **stress-ng** can stress various system resources such as CPU, cache, disk, memory, socket pipe I/O, scheduling and much more.
 
-Stress-ng has a wide range of CPU specific stress tests that exercise floating point, integer, bit manipulation and control flow. In this step of the lab, we will use the CPU-intensive matrix stressor, which is one of the many tests that heats CPUs the best.
+Stress-ng has a wide range of CPU-specific stress tests that exercise floating point, integer, bit manipulation and control flow. In this step of the lab, we will use the CPU-intensive matrix stressor, which is one of the many tests that heats CPUs the best.
 
 Using the terminal window,  the stress-ng matrix stressor -
 

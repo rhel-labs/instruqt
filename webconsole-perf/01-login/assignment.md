@@ -7,7 +7,7 @@ notes:
 - type: text
   contents: |
     # Goal:
-    After completing this scenario, users will be able to use the web console to monitor the performance of Red Hat Enterprise Linux 8 systems.
+    After completing this scenario, users will be able to use the web console to monitor the performance of Red Hat Enterprise Linux 9 systems.
 
     # Concepts included in this scenario:
     * Authenticating to the **Web Console**
@@ -22,7 +22,7 @@ tabs:
 difficulty: basic
 timelimit: 3000
 ---
-Click on the tab titled **RHEL Web Console** at the top of  your lab system interface. Selecting this tab will open the lab system's Web Console in a
+Click on the tab titled **RHEL Web Console** at the top of your lab system interface. Selecting this tab will open the lab system's Web Console in a
 new browser tab or window.
 
 ![web console](../assets/pop-out-2.png)

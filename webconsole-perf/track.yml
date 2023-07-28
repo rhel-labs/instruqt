@@ -3,7 +3,7 @@ id: actx3lvr6hym
 title: Using Web Console to Monitor Performance
 description: |
   # Goal:
-  After completing this scenario, users will be able to use the web console to monitor the performance of Red Hat Enterprise Linux 8 systems.
+  After completing this scenario, users will be able to use the web console to monitor the performance of Red Hat Enterprise Linux 9 systems.
 
   # Concepts included in this scenario:
   * Authenticating to the **Web Console**
@@ -15,7 +15,10 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
-private: false
-published: true
+- wkibbe@redhat.com
 show_timer: true
-checksum: "14131540628716829040"
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "12757126058045888446"
