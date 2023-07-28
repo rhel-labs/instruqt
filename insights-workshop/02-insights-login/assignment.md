@@ -7,6 +7,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 ---
@@ -18,7 +19,7 @@ Click the hyperlink or browse to [cloud.redhat.com](https://cloud.redhat.com) to
 
 >_NOTE:_ This will open an additional browser window or tab.
 
-Click the _Log in to your Red Hat account_ button.
+Click the _Log in to the console_ button.
 
 ![cloud.redhat.com Login](../assets/cloud.redhat.com-homepage-v2.png)
 
@@ -40,6 +41,6 @@ Redhat1!
 
 ![Red Hat Password screen](../assets/redhat-login-02.png)
 
-Once you are logged in, using the credentials provided above, navigate to _Red Hat Enterprise Linux_ in the left-side navigation menu.
+Once you are logged in using the credentials provided above, navigate to _RHEL_ inside the _Red Hat Insights_ box.
 
-![cloud.redhat.com Homepage](../assets/cloud.redhat.com-homepage-postlogin-v2.png)
+![cloud.redhat.com Homepage](../assets/RHEl_insights_select.png)
