@@ -13,8 +13,6 @@ subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 -
 usermod -aG wheel rhel
 echo redhat | passwd --stdin rhel
 
-systemctl enable --now libvirtd
-
 echo "${SSHKEY}" > /root/.ssh/id_rsa
 chmod 600 /root/.ssh/id_rsa
 ssh-keygen -f /root/.ssh/id_rsa -y > /root/.ssh/id_rsa.pub

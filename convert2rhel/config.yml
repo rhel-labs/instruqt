@@ -1,7 +1,7 @@
 version: "3"
 virtualmachines:
 - name: host
-  image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-2023-07-27
+  image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-2-07-28-23-2
   shell: /bin/bash
   environment:
     TERM: xterm
@@ -9,3 +9,4 @@ virtualmachines:
   nested_virtualization: true
 secrets:
 - name: SSHKEY
+- name: ACTIVATION_KEY
