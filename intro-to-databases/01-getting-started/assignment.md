@@ -33,7 +33,7 @@ timelimit: 6000
 ---
 First, install MySQL by running the following command:
 ```bash
-sudo dnf install mysql-server
+dnf install -y mysql-server
 ```
 
 Next, start MySQL with this command:
@@ -41,12 +41,7 @@ Next, start MySQL with this command:
 systemctl start mysqld.service
 ```
 
-Now use `systemctl` to allow MySQL to automatically start when the system boots:
+Finally, use `systemctl` to allow MySQL to automatically start when the system boots:
 ```bash
 systemctl enable mysqld.service
-```
-
-Finally, to improve the security of your MySQL installation, run the following command to initiate a secure configuration process:
-```bash
-mysql_secure_installation
 ```
