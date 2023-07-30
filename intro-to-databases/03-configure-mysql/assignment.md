@@ -6,7 +6,7 @@ title: Configure MySQL
 teaser: A short description of the challenge.
 notes:
 - type: text
-  contents: Next,you will configure the security settings for your SQL server
+  contents: Next, you will configure the security settings for your SQL server
 tabs:
 - title: Terminal
   type: terminal
