@@ -1,7 +1,6 @@
 slug: intro-to-databases
 id: jnx3wp86lyhf
 title: Intro to Databases
-teaser: No instructions, just a system to experiment with!
 description: |-
   # Goal:
 
@@ -25,4 +24,4 @@ lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "13424451422471874627"
+checksum: "3740818325724103145"

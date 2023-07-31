@@ -24,7 +24,8 @@ First, begin a MySQL session by running the following command:
 ```bash
 mysql -p
 ```
->Note: the -p at the end of the command allows you to log into MySQL with a password
+>Note: the -p at the end of the command allows you to log into MySQL with a password.
+
 When prompted, enter the password you supplied earlier and then press enter:
 ```bash
 rhel
