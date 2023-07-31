@@ -5,9 +5,9 @@ type: challenge
 title: Create a Database
 notes:
 - type: text
-  contents: In this step, you will create your SQL database. It is worth noting that
-    SQL commands (generally) end in a semicolon. This is somewhat different from Linux,
-    and it is a distinction that you should remember when working with SQL databases.
+  contents: In this step, you will create your database. It is worth noting that SQL
+    commands (generally) end in a semicolon. This is somewhat different from Linux,
+    and it is a distinction that you should remember when working with databases.
 tabs:
 - title: Terminal
   type: terminal
