@@ -22,7 +22,7 @@ tabs:
 difficulty: basic
 timelimit: 600
 ---
-To understand how we organize databases, it is helpful to understand the definition of a relational database, a relational database management system, and SQL. For an overview, [check out this helpful article](https://www.codecademy.com/article/what-is-rdbms-sql)
+To understand how we organize databases, it is helpful to understand the definition of a relational database, a relational database management system, and SQL. For an overview, [check out this helpful article.](https://www.codecademy.com/article/what-is-rdbms-sql)
 
 In this step, you will be challenged to complete a task, and we will provide you with guidance to help you along!
 
@@ -36,6 +36,20 @@ In this diagram:
 * Each room has a name, which is the primary key for the room entity. Each room is also inside a home, and home is a foreign key because it relates to the Home entity. Each room relates to 0 or more Item entities, and each room relates to one Home entity.
 * Each home has a name, which is the primary key for the home entity. Each home has a size and a country in which it is located. Each home relates to many room entities.
 
-For help understanding the meaning of Database diagrams, [check out this article.](https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning)
+For help understanding the meaning of database diagrams, [check out this article.](https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning)
 
-Now that you are familiar with the database you will build,
+Now that you are familiar with the database you will build, you are ready to start creating tables.
+
+First, create the table for `Home` with the following command
+
+
+Finally, create the table for `Item`.
+```sql
+CREATE TABLE Item(
+  Room varchar(255) NOT NULL,
+  Name varchar(255),
+  ID_number int NOT NULL,
+  Value DOUBLE
+  FOREIGN KEY (Room) REFERENCES Room(Name)
+);
+```
