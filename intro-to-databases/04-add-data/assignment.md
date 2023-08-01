@@ -19,6 +19,10 @@ tabs:
   type: website
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
   new_window: true
+- title: phpMyAdmin
+  type: website
+  url: http://rhel.${_SANDBOX_ID}.instruqt.io:3306
+  new_window: true
 difficulty: basic
 timelimit: 600
 ---
