@@ -37,7 +37,7 @@ It will then ask you to re-enter your password. Re-enter `rhel` and press enter 
 
 Now the installer will ask you if you wish to disable anonymous login. In production settings, you should disable it. However, in our lab, we will not disable it. Press enter to skip the disabling of anonymous users.
 
-Next, it will ask if you wish to disable remote root access. Type `Y` and then press enter to disable remote root access.
+Next, it will ask if you wish to disable remote root access. Because you will log in as root via remote access in this lab, press enter to leave remote root access intact.
 
 After this, it will ask if you wish to remove the test database. We will not remove it, so press enter to leave it as-is.
 

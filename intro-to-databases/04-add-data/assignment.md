@@ -59,13 +59,37 @@ FOREIGN KEY (Home) REFERENCES Home(Name)
 );
 ```
 
-Finally, create the table for `Item`.
+Now create the table for `Item`.
 ```sql
 CREATE TABLE Item(
   Room varchar(255) NOT NULL,
   Name varchar(255),
-  ID_number int NOT NULL,
+  ID_number int NOT NULL AUTO_INCREMENT,
   Value DOUBLE,
   FOREIGN KEY (Room) REFERENCES Room(Name)
 );
 ```
+
+Finally, run the following command to insert some entries into your database. In the real world, you will customize the entries depending on your needs, but for the purpose of demonstration, run this MySQL command:
+```sql
+INSERT INTO Home (Name, Size, Country)
+VALUES('City Apartment',800,'Argentina');
+INSERT INTO Home (Name, Size, Country)
+VALUES('Summer Home',2000,'Mongolia');
+INSERT INTO Room(Name, Home)
+VALUES('Living Room','City Apartment');
+INSERT INTO Room(Name, Home)
+VALUES('Bedroom','City Apartment');
+INSERT INTO Room(Name, Home)
+VALUES('Kitchen','Summer Home');
+INSERT INTO Item(Room, Name, Value)
+VALUES('Kitchen','Oven',1000);
+INSERT INTO Item(Room, Name, Value)
+VALUES('Kitchen','Microwave',100);
+INSERT INTO Item(Room, Name, Value)
+VALUES('Bedroom','Bed',500);
+INSERT INTO Item(Room, Name, Value)
+VALUES('Living Room','Chair',500);
+```
+
+In the next step, you'll be able to see what you have just built!

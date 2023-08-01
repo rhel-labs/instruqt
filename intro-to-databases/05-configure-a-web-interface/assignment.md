@@ -2,7 +2,7 @@
 slug: configure-a-web-interface
 id: hf89dvztwoa0
 type: challenge
-title: 'Optional Final Step: Configure a web interface'
+title: 'Optional Final Step: Configure a Web Interface'
 teaser: A short description of the challenge.
 notes:
 - type: text
@@ -27,9 +27,14 @@ SQL servers are easiest to manage through the terminal, but when you are first g
 
 We will use Adminer, but you can also use tools like phpMyAdmin and MySQL Workstation.
 
+First, quit your MySQL session by running the following commmand:
+```sql
+quit;
+```
+
 To install Adminer, run the following command to install php and php MySQL extension. These are required to successfully run Adminer.
 ```bash
-dnf install -y php php-msqli
+dnf install -y php php-mysqli
 ```
 
 Next, run the following command to make a directory for Adminer and use it as your working directory:
@@ -56,3 +61,11 @@ systemctl restart httpd
 Now, go ahead and select the `Adminer` tab at the top of your Instruqt window.
 
 Log in with the following settings:
+* System: MySQL
+* Server: localhost
+* Username: root
+* Password: rhel
+* Database: MyDatabase
+
+You will now see the three tables you created earlier:
+![](../assets/Adminer_MyDatabase.png)
