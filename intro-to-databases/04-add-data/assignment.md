@@ -32,7 +32,7 @@ To record all of the items in your home, there are many ways to organize the dat
 ![Home inventory database design](../assets/Home_Database_Diagram.jpeg)
 In this diagram:
 
-* Each item has a name, a serial number, a value, and a room where it is stored. The room of the item is a foreign key because it relates to the Room entity. Each item relates to one Room entity.
+* Each item has a name, a serial number, a value, and a location (room) where it is stored. The location (room) of the item is a foreign key because it relates to the Room entity. Each item relates to one Room entity.
 * Each room has a name, which is the primary key for the room entity. Each room is also inside a home, and home is a foreign key because it relates to the Home entity. Each room relates to 0 or more Item entities, and each room relates to one Home entity.
 * Each home has a name, which is the primary key for the home entity. Each home has a size and a country in which it is located. Each home relates to many room entities.
 
@@ -41,15 +41,31 @@ For help understanding the meaning of database diagrams, [check out this article
 Now that you are familiar with the database you will build, you are ready to start creating tables.
 
 First, create the table for `Home` with the following command
-
+```sql
+CREATE TABLE Home(
+  Name varchar(255) NOT NULL,
+  Size int,
+  Country varchar(255),
+  PRIMARY KEY(Name)
+);
+```
+Next, create the table for `Room` with the following command:
+```sql
+CREATE TABLE Room(
+Name varchar (255) NOT NULL,
+HomeName varchar (255) NOT NULL,
+PRIMARY KEY (Name),
+FOREIGN KEY (Homename) REFERENCES Home(Name)
+);
+```
 
 Finally, create the table for `Item`.
 ```sql
 CREATE TABLE Item(
-  Room varchar(255) NOT NULL,
+  RoomName varchar(255) NOT NULL,
   Name varchar(255),
   ID_number int NOT NULL,
-  Value DOUBLE
-  FOREIGN KEY (Room) REFERENCES Room(Name)
+  Value DOUBLE,
+  FOREIGN KEY (RoomName) REFERENCES Room(Name)
 );
 ```

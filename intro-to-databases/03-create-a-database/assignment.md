@@ -27,7 +27,7 @@ mysql -p
 >Note: the -p at the end of the command allows you to log into MySQL with a password.
 
 When prompted, enter the password you supplied earlier and then press enter:
-```bash
+```sql
 rhel
 ```
 The output of the previous command should resemble this:
@@ -39,7 +39,7 @@ Server version: 8.0.32 source distribution
 </pre>
 
 Next, create a database called `MyDatabase`
-```bash
+```sql
 CREATE DATABASE MyDatabase;
 ```
 Creating your database will result in an output resembling this:
@@ -48,7 +48,7 @@ Query OK, 1 row affected (0.00 sec)
 </pre>
 
 Now, select your new server for use by running this command:
-```bash
+```sql
 USE MyDatabase;
 ```
 This will result in the following output:
