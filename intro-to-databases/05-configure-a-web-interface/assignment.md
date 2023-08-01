@@ -16,25 +16,43 @@ tabs:
   type: website
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
   new_window: true
-- title: phpMyAdmin
+- title: Adminer
   type: website
-  url: http://rhel.${_SANDBOX_ID}.instruqt.io:3306
+  url: http://rhel.${_SANDBOX_ID}.instruqt.io/adminer
   new_window: true
 difficulty: basic
 timelimit: 600
 ---
 SQL servers are easiest to manage through the terminal, but when you are first getting started, sometimes a GUI can make things less intimidating. In your own SQL server, you can choose to skip the configuration of a GUI, but we'll set up the GUI in our lab.
 
-We will use phpMyAdmin as a browser-based frontend for our database. The first step for installation is to enable [EPEL (Extra Packages for Enterprise Linux)](https://docs.fedoraproject.org/en-US/epel/). EPEL contains many community-supported packages for Red Hat Enterprise Linux.
+We will use Adminer, but you can also use tools like phpMyAdmin and MySQL Workstation.
 
-Enable EPEL by running the following command:
+To install Adminer, run the following command to install php and php MySQL extension. These are required to successfully run Adminer.
 ```bash
-subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
-dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf install -y php php-msqli
 ```
 
-Next, install phpMyAdmin with the following command:
+Next, run the following command to make a directory for Adminer and use it as your working directory:
 ```bash
-dnf install -y phpMyAdmin
+mkdir /var/www/html/adminer && cd /var/www/html/adminer
 ```
 
+To download Adminer into the directory you made, run this command:
+```bash
+wget -O index.php https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1-en.php
+```
+
+Next, configure Adminer's ownership and permissions:
+```bash
+chown -R apache:apache index.php /var/www/html/adminer/
+chmod -R 775 /var/www/html/adminer/
+```
+
+To complete the installation, restart the web server through `systemctl restart`:
+```bash
+systemctl restart httpd
+```
+
+Now, go ahead and select the `Adminer` tab at the top of your Instruqt window.
+
+Log in with the following settings:
