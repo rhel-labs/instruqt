@@ -66,6 +66,7 @@ CREATE TABLE Item(
   Name varchar(255),
   ID_number int NOT NULL AUTO_INCREMENT,
   Value DOUBLE,
+  PRIMARY KEY(ID_number),
   FOREIGN KEY (Room) REFERENCES Room(Name)
 );
 ```

@@ -2,7 +2,7 @@
 slug: getting-started
 id: xoq0aopvftwp
 type: challenge
-title: 'Step 1: Install MySQL'
+title: Install MySQL
 notes:
 - type: text
   contents: |
