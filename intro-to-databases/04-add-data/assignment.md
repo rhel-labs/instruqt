@@ -53,19 +53,19 @@ Next, create the table for `Room` with the following command:
 ```sql
 CREATE TABLE Room(
 Name varchar (255) NOT NULL,
-HomeName varchar (255) NOT NULL,
+Home varchar (255) NOT NULL,
 PRIMARY KEY (Name),
-FOREIGN KEY (Homename) REFERENCES Home(Name)
+FOREIGN KEY (Home) REFERENCES Home(Name)
 );
 ```
 
 Finally, create the table for `Item`.
 ```sql
 CREATE TABLE Item(
-  RoomName varchar(255) NOT NULL,
+  Room varchar(255) NOT NULL,
   Name varchar(255),
   ID_number int NOT NULL,
   Value DOUBLE,
-  FOREIGN KEY (RoomName) REFERENCES Room(Name)
+  FOREIGN KEY (Room) REFERENCES Room(Name)
 );
 ```
