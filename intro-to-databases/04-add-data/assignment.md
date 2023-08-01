@@ -6,8 +6,8 @@ title: Add Data
 notes:
 - type: text
   contents: To understand how we organize databases, it is helpful to understand what
-    relational databases are and how they relate to SQL. For a full overview, (check
-    out this helpful article)[https://www.codecademy.com/article/what-is-rdbms-sql].
+    relational databases are and how they relate to SQL. For a full overview, [check
+    out this helpful article.](https://www.codecademy.com/article/what-is-rdbms-sql)
     In this step, you will be challenged to complete a task, and we will provide you
     with guidance to help you along!
 tabs:
