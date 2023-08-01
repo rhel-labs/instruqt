@@ -8,10 +8,6 @@ tabs:
   type: terminal
   hostname: host
   cmd: tmux attach-session -t "rhel07"
-- title: RHEL2
-  type: terminal
-  hostname: host
-  cmd: tmux attach-session -t "upgraded08"
 difficulty: basic
 timelimit: 1
 ---
@@ -55,11 +51,13 @@ Answerfile has been generated at /var/log/leapp/answerfile
 </pre>
 
 >**Disclaimer:**
-The Leapp process can take upwards of 15 minutes to run. Instead of waiting for that process to complete, a second server has been running the upgrade in the background. If you would like to save some time switch to the RHEL2 tab to finish the **Verifying the upgrade** section.
+The Leapp process can take upwards of 15 minutes to run.
+<!-- The Leapp process can take upwards of 15 minutes to run. Instead of waiting for that process to complete, a second server has been running the upgrade in the background. If you would like to save some time switch to the RHEL2 tab to finish the **Verifying the upgrade** section. -->
 
-![rhelTabs.png](../assets/rhelTabs.png)
+<!-- ![rhelTabs.png](../assets/rhelTabs.png)
 
-The upgrade has only been _staged_; it has not been completed at this point. A reboot is required for the RHEL 8-based initial RAM disk image (initramfs), upgrades all packages and automatically reboots to the RHEL 8 system.
+The upgrade has only been _staged_; it has not been completed at this point. A reboot is required for the RHEL 8-based initial RAM disk image (initramfs), upgrades all packages and automatically reboots to the RHEL 8 system. -->
+A reboot is required for the RHEL 8-based initial RAM disk image (initramfs), upgrades all packages and automatically reboots to the RHEL 8 system.
 
 >**Pro Tip:** You can combine these two steps with the --reboot option
 `leapp upgrade --target 8.8 --reboot`
