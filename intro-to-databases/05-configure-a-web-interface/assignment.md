@@ -61,11 +61,11 @@ systemctl restart httpd
 Now, go ahead and select the `Adminer` tab at the top of your Instruqt window.
 
 Log in with the following settings:
-* System: MySQL
-* Server: localhost
-* Username: root
-* Password: rhel
-* Database: MyDatabase
+* System: `MySQL`
+* Server: `localhost`
+* Username: `root`
+* Password: `rhel`
+* Database: `MyDatabase`
 
 You will now see the three tables you created earlier:
 ![](../assets/Adminer_MyDatabase.png)
