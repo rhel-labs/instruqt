@@ -7,10 +7,10 @@ done
 
 virsh start rhel07
 echo "Pausing for 15 seconds while VM boots" && sleep 15
+
 echo "${SSHKEY}" > /root/.ssh/id_rsa
 chmod 600 /root/.ssh/id_rsa
-ssh-keygen -f ~/.ssh/id_rsa -y > ~/.ssh/id_rsa.pub
-
+ssh-keygen -f /root/.ssh/id_rsa -y > /root/.ssh/id_rsa.pub
 #while ! ping -c 1 -W 1 rhel07; do echo "Waiting for VM - network interface might be down..."; sleep 10; done
 
 
