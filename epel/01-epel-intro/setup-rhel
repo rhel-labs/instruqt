@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#subscription-manager repos --disable codeready-builder-for-rhel-9-$(arch)-rpms #make sure that EPEL is not enabled. We want the user to do it themselves
+dnf remove -y epel-release-9-5.el9.noarch #get rid of epel
