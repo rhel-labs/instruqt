@@ -3,7 +3,6 @@ slug: configure-mysql
 id: mucxpwg4sexk
 type: challenge
 title: Configure MySQL
-teaser: A short description of the challenge.
 notes:
 - type: text
   contents: Next, you will configure the security settings for your SQL server

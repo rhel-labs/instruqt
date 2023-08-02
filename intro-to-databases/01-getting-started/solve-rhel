@@ -1,9 +1,0 @@
-#!/bin/bash
-#
-# This will solve the step if needed
-#
-#
-
-echo "This is the solve script"
-
-exit 0

@@ -12,16 +12,15 @@ description: |-
 
   >**NOTE:** This lab environment will expire in a little less than 2 hours.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
-level: beginner
 tags:
 - rhel
 owner: rhel
 developers:
 - wkibbe@redhat.com
-show_timer: true
+timelimit: 3000
 sandbox_preset: devel-101
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "1964954458407407846"
+checksum: "8381453798647312787"

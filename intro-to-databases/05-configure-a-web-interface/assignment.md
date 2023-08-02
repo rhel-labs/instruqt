@@ -3,7 +3,6 @@ slug: configure-a-web-interface
 id: hf89dvztwoa0
 type: challenge
 title: Configure a Web Interface
-teaser: A short description of the challenge.
 notes:
 - type: text
   contents: Replace this text with your own text
