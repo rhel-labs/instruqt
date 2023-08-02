@@ -17,7 +17,7 @@ tabs:
 difficulty: basic
 timelimit: 3000
 ---
-In this lab, you will install Grafana, a web-based system performance dashboard in two ways. First, you will install and run it through Podman. After that, you will install and run it with Docker.
+In this lab, you will install Grafana, a web-based system performance dashboard in two ways. First, you will install and run it through Podman's command line interface (CLI). After that, you will install and configure the Grafana container through the RHEL web console.
 
 First, install RHEL Container Tools by running the following command:
 ```bash
@@ -37,8 +37,8 @@ podman run -d --name=Grafana -p 3000:3000 docker.io/grafana/grafana:latest
 Finally, click on the `Grafana` tab in the lab environment. You can now explore this website hosted on your machine. If you see a login page, you have configured your container correctly.
 
 For the login, use the following credentials:
->Username: admin
->Password: admin
+>* Username: admin
+>* Password: admin
 
 You may be prompted to change the login credentials. You can press the `skip` button on that dialog box if you wish.
 
