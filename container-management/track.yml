@@ -14,7 +14,7 @@ description: |
   * Cockpit
 
   ## Example use case:
-  
+
   You wish to run containers for which a dockerfile already exists
 icon: ""
 tags: []
@@ -27,4 +27,4 @@ lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "1717121461090050703"
+checksum: "15776248835912153621"
