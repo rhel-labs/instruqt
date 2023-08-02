@@ -5,7 +5,7 @@ type: challenge
 title: Configure MySQL
 notes:
 - type: text
-  contents: Next, you will configure the security settings for your SQL server
+  contents: Next, you will configure the security settings for your SQL server.
 tabs:
 - title: Terminal
   type: terminal

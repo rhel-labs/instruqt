@@ -26,12 +26,12 @@ SQL servers are easiest to manage through the terminal, but when you are first g
 
 We will use Adminer, but you can also use tools like phpMyAdmin and MySQL Workstation.
 
-First, quit your MySQL session by running the following commmand:
+First, quit your MySQL session by running the following command:
 ```sql
 quit;
 ```
 
-To install Adminer, run the following command to install php and php MySQL extension. These are required to successfully run Adminer.
+To install Adminer, run the following command to install php and the php MySQL extension. These are required to successfully run Adminer.
 ```bash
 dnf install -y php php-mysqli
 ```
@@ -41,7 +41,7 @@ Next, run the following command to make a directory for Adminer and use it as yo
 mkdir /var/www/html/adminer && cd /var/www/html/adminer
 ```
 
-To download Adminer into the directory you made, run this command:
+To download Adminer from its GitHub repository into the directory you made, run this command:
 ```bash
 wget -O index.php https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1-en.php
 ```

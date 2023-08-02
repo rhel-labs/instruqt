@@ -2,15 +2,20 @@ slug: intro-to-databases
 id: jnx3wp86lyhf
 title: Intro to Databases
 description: |-
-  # Goal:
+  # Goal: Set up a database using MySQL
+   # Overview
 
-  Depends on you!
+   After completing this scenario, users will be able to configure a MySQL server and set up a web interface for it.
 
-  This is an evironment without pre-planned lab content intended
-  to be a place where you can explore a Red Hat Enterprise Linux 9 system on
-  a topic of your choosing.
+   ## Concepts included in this scenario:
 
-  >**NOTE:** This lab environment will expire in a little less than 2 hours.
+   * SQL
+   * Relational database design
+   * Database security fundamentals
+
+   ## Example use case:
+
+   You wish to build an inventory management database
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags:
 - rhel
@@ -23,4 +28,4 @@ lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "8381453798647312787"
+checksum: "17824038204874197869"

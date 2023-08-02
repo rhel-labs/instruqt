@@ -6,19 +6,7 @@ title: Install MySQL
 notes:
 - type: text
   contents: |
-    # Goal:
-
-    Depends on you!
-
-    This is an environment without pre-planned lab content intended
-    to be a place where you can explore a Red Hat Enterprise Linux system on
-    a topic of your choosing.
-
-    <blockquote>
-    <p>
-    <strong>NOTE:</strong> This lab environment will expire in less than two hours.
-    </p>
-    </blockquote>
+    In this step, you will install MySQL.
 tabs:
 - title: Terminal
   type: terminal
