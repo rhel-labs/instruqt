@@ -46,10 +46,16 @@ You have now successfully enabled Extra Packages for Enterprise Linux. You can v
 ```bash
 dnf repolist
 ```
-After running this command, you will be presented with a list of enabled software repositories. One of the lines should contain `epel` or `Extra Packages for Enterprise Linux 9 - x86-64`
+After running this command, you will be presented with a list of enabled software repositories. One of the lines should contain `epel` or `Extra Packages for Enterprise Linux 9 - x86-64`.
 
 Now that you have confirmed the EPEL installation, try installing Conda:
 ```bash
 dnf install -y conda
 ```
-This time, the output's last line should say `Complete!` indicating that you have successfully installed Conda.
+This time, the last line of output should say `Complete!` indicating that you have successfully installed Conda.
+
+To verify that Conda is installed and working properly, run this command to view the version of Conda that is installed on your system
+```bash
+conda -V
+```
+The output of this command should look like `conda 4.14.0`. The exact number may change as new versions of Conda are released, but it will remain in this format.
