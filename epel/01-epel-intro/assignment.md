@@ -24,11 +24,32 @@ dnf install -y conda
 ```
 The installation will not be successful because your package manager (dnf) does not have access to a repository containing Conda. As such, you will see an output that resembles this:
 <pre class="file">
-
+<< output abridged >>
+Error: Unable to find a match: conda
 </pre>
 
-To enable EPEL, run the following command:
+We can fix this problem by enabling EPEL with the following command:
 ```bash
 subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 ```
+The output will look like this:
+<pre class="file">
+<< output abridged >>
+Installed:
+  epel-release-9-5.el9.noarch
+
+Complete!
+</pre>
+
+You have now successfully enabled Extra Packages for Enterprise Linux. You can verify your installation by running the following command:
+```bash
+dnf repolist
+```
+After running this command, you will be presented with a list of enabled software repositories. One of the lines should contain `epel` or `Extra Packages for Enterprise Linux 9 - x86-64`
+
+Now that you have confirmed the EPEL installation, try installing Conda:
+```bash
+dnf install -y conda
+```
+This time, the output's last line should say `Complete!` indicating that you have successfully installed Conda.
