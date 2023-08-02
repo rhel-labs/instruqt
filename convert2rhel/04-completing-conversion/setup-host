@@ -1,0 +1,13 @@
+#!/bin/bash
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+while ! [ $( arp -an | grep 52:54:00:87:d3:fc | awk '{print $2}' | tr -d '()')  ]; do echo "Waiting for arp to return converted MAC address."; sleep 1; done;
+echo "$( arp -an | grep 52:54:00:87:d3:fc | awk '{print $2}' | tr -d '()' ) converted" >> /etc/hosts
+
+while ! ping -c 1 -W 1 converted; do echo "\nWaiting for centos - network interface might be down."; sleep 1; done;
+sleep 10
+TMUX='' tmux new-session -d -s 'converted' 'ssh -o "StrictHostKeyChecking no" rhel@converted; clear'
