@@ -3,7 +3,6 @@ slug: gui-container-management
 id: uohlyzjr7tw4
 type: challenge
 title: Creating Containers in the Web Console
-teaser: A short description of the challenge.
 notes:
 - type: text
   contents: In this step, you will configure Podman containers through the RHEL web
@@ -51,4 +50,4 @@ In the `Details` tab of the `Create container` dialog, enter the following detai
 Next, click on the `Integration tab`, select `Add port mapping`, enter 3000 as the value for `Host port`, enter 3000 as the value for `Container port`, and then select `Create and run`.
 ![](../assets/grafana_integration_tab.png)
 
-Wait about 30 seconds for the container to run. You may need to refresh the page to update the container status. Once the container state is `running`, click on the Grafana (Podman) tab in the lab environment.
+Wait about 30 seconds for the container to run. You may need to refresh the page to update the container status. Once the container state is `running`, proceed to the next step.

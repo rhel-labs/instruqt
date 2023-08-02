@@ -1,11 +1,12 @@
 ---
 slug: test-grafana-web-interface-cli
+id: jcvvxvxwu8rp
 type: challenge
 title: Test Grafana Web Interface
-teaser: A short description of the challenge.
 notes:
 - type: text
-  contents: Replace this text with your own text
+  contents: In this step, you will test the container you just configured through
+    the Podman command line interface (CLI).
 tabs:
 - title: Terminal
   type: terminal
