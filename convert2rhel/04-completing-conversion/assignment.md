@@ -8,41 +8,58 @@ tabs:
   type: terminal
   hostname: host
   cmd: tmux attach-session -t "centos"
-- title: host
+- title: console
   type: terminal
   hostname: host
+- title: rhel
+  type: terminal
+  hostname: host
+  cmd: tmux attach-session -t "converted"
 difficulty: basic
 timelimit: 1
 ---
 
-Now that the conversion has been staged successfully, you will need to reboot the system in order to put the changes into effect.
+If you have waited for the conversion to complete from the previous step, you will need to reboot the system in order to put the changes into effect.
+=====================================================================================================================================================
 
 ```bash
 reboot
-
 ```
 
 With the convert2rhel utility running, the system will now replace the CentOS signed packages with Red Hat signed versions. The system will reboot a few times: first to boot into a temporary environment from which to make these changes, a second time to perform a relabel on SELinux contexts, and a final time in order to boot into the newly created RHEL environment.
 
->**Disclaimer:**
-The conversion process can take upwards of 15 minutes to run. Instead of waiting for that process to complete, a second server has been running the upgrade in the background. If you would like to save some time switch to the RHEL tab to finish the **Verifying the upgrade** section.
+If you did not wait for the completion of the previous step, switch to the RHEL tab and jump to section `Verifying the upgrade` to finish the lab. If you waited for the completion of the conversion, please continue in this section.
+=======================================================================================================================================================================================================================================
 
 ![image.png](../assets/image.png)
 
-In order to see what the server is during during this process, you will need to connect to the virtual machine's console. In the title bar, click on the "host" tab. Use the `ssh` command to connect to your VM's console. You may need to wait a little while for the host to complete rebooting.:
+In order to see what the server is during during this process, you will need to connect to the virtual machine's console. In the title bar, click on the "console" tab. Use the `virsh` command to connect to your VM's console:
 
 ```bash
-ssh centos
-
+virsh console centos
 ```
 
-## Verifying the upgrade
+<pre class='file'>
+# virsh console centos
+Connected to domain 'centos'
+Escape character is ^] (Ctrl + ])
+</pre>
+
+Once the conversion has been completed, use `CTRL + ]` to disconnect from the console and log back in using ssh:
+
+```bash
+ssh -i ~/.ssh/id_rsa centos
+```
+
+Verifying the upgrade
+=====================
+
+## If you did not wait for the conversion to complete, please continue this lab in the `rhel` tab. If you waited for the conversion to complete, please continue this lab in the `centos` tab.
 
 Now that you are connected into your new RHEL system, you should verify your results:
 
 ```bash
 cat /etc/redhat-release
-
 ```
 
 <pre class='file'>
@@ -54,7 +71,6 @@ Verify that the necessary Red Hat repositories are enabled. Also, note that none
 
 ```bash
 yum repolist
-
 ```
 
 <pre class='file'>
@@ -76,7 +92,6 @@ Now you can review the logs from the conversion itself:
 
 ```bash
 less /var/log/convert2rhel/convert2rhel.log
-
 ```
 
 <pre class='file'>
