@@ -1,7 +1,10 @@
 version: "3"
+virtualbrowsers:
+- name: console
+  url: https://console.redhat.com
 virtualmachines:
 - name: rhel
-  image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-1-03-28-2023  
+  image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-2-08-01-23
   shell: /bin/bash
   environment:
     TERM: xterm

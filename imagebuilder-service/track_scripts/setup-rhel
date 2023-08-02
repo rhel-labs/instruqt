@@ -9,6 +9,3 @@ dnf install -y libguestfs guestfs-tools >> $LOG
 hostnamectl set-hostname rhel-$(uuidgen | cut -c 32-)
 echo "export LIBGUESTFS_BACKEND=direct" >> /root/.bashrc
 exec $SHELL
-
-# To keep things tidy, the virt image has all qcow2 images in the libvirt images directory. This command moves it into /root to conform to Nate's lab design.
-mv /var/lib/libvirt/images/composer-api-ee3492f7-5d95-4c1b-a223-bbf04b9adef4-disk.qcow2 /root/
