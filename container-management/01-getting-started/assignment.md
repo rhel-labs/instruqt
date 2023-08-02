@@ -23,7 +23,7 @@ First, install RHEL Container Tools by running the following command:
 ```bash
 dnf install -y container-tools
 ```
-Container Tools includes Podman along with other applications that make it easier to manage containers on RHEL, and it is available for all RHEL subscriptions, including the free [Developer Subscription for Individuals](https://developers.redhat.com/articles/faqs-no-cost-red-hat-enterprise-linux#). To learn more about Podman, check out this helpful [Podman Cheat Sheet](https://developers.redhat.com/cheat-sheets/podman-cheat-sheet)
+Container Tools includes Podman along with other applications that make it easier to manage containers on RHEL, and it is available for all RHEL subscriptions, including the free [Developer Subscription for Individuals](https://developers.redhat.com/articles/faqs-no-cost-red-hat-enterprise-linux#). To learn more about Podman, check out this helpful [Podman Cheat Sheet](https://developers.redhat.com/cheat-sheets/podman-cheat-sheet).
 
 Start Podman using `systemctl`
 ```bash
