@@ -2,18 +2,18 @@
 slug: getting-started
 id: wtgula3lfz4q
 type: challenge
-title: Getting Started
+title: Podman Container Management
 tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
-  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 - title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 - title: Grafana (Podman)
-  type: external
-  url: http://rhel.${_SANDBOX_ID}.instruqt.io:3000
+  type: service
+  hostname: rhel
+  port: 3000
 difficulty: basic
 timelimit: 3000
 ---
@@ -27,18 +27,17 @@ Container Tools includes Podman along with other applications that make it easie
 
 Next, download and start a Podman image for Grafana with this command:
 ```bash
-podman run -d --name=Grafana -p 3000:3000 grafana/grafana
+podman run -d --name=Grafana -p 3000:3000 docker.io/grafana/grafana:latest
 ```
 >Explanation of the command you just ran:
->* `--name==Grafana` specified the name of your container
->* `-p 3000:3000` specified that the container should be available on the range of network ports from 3000-3000. While this can be more than 1 port, in your case, it is only port 3000
->* grafana/grafana is the name of the dockerfile that your container is based on. Grafana/grafana is the unique name of the image your container is using and allows Podman to retrieve the correct container
+>* `--name=Grafana` specifies the name of your container.
+>* `-p 3000:3000` specifies that the container should be available on the range of network ports from 3000-3000. While this can be more than 1 port, in your case, it is only port 3000.
+>* `docker.io/grafana/grafana:latest` is the URL of the dockerfile that your container is based on. `Grafana/grafana` is the name of the image and `:latest` indicates that you want the most recent version. This allows Podman to retrieve the correct container.
 
 Finally, click on the `Grafana` tab in the lab environment. You can now explore this website hosted on your machine. If you see a login page, you have configured your container correctly.
 
 For the login, use the following credentials:
 >Username: admin
->
 >Password: admin
 
 You may be prompted to change the login credentials. You can press the `skip` button on that dialog box if you wish.
