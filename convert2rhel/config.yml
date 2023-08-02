@@ -5,7 +5,7 @@ virtualmachines:
   shell: /bin/bash
   environment:
     TERM: xterm
-  machine_type: n2-standard-2
+  machine_type: n2-standard-4
   nested_virtualization: true
 secrets:
 - name: SSHKEY
