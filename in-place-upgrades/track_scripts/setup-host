@@ -7,16 +7,38 @@ done
 
 virsh start rhel07
 echo "Pausing for 15 seconds while VM boots" && sleep 15
-echo "${SSHKEY}" > r4ekey
-chmod 600 r4ekey
-rm /root/.ssh/id_rsa
-cp /root/r4ekey /root/.ssh/id_rsa
+echo "${SSHKEY}" > /root/.ssh/id_rsa
+chmod 600 /root/.ssh/id_rsa
 ssh-keygen -f ~/.ssh/id_rsa -y > ~/.ssh/id_rsa.pub
 
-while ! ping -c 1 -W 1 rhel07; do echo "Waiting for VM - network interface might be down..."; sleep 10; done
+#while ! ping -c 1 -W 1 rhel07; do echo "Waiting for VM - network interface might be down..."; sleep 10; done
 
-ssh -i ~/.ssh/id_rsa rhel@rhel07 "sudo subscription-manager register --activationkey="${ACTIVATION_KEY}" --org=12451665 --force"
 
-TMUX='' tmux new-session -d -s 'rhel07' 'ssh -o "StrictHostKeyChecking no" rhel@rhel07; sudo -i; clear' > /dev/null 2>&1
+
+#TMUX='' tmux new-session -d -s 'rhel07' 'ssh -o "StrictHostKeyChecking no" rhel@rhel07; sudo -i; clear' > /dev/null 2>&1
+#tmux set -g pane-border-status top
+#tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
+# MAC Addresses
+# vm1:          52:54:00:d6:0c:72
+# centos:       52:54:00:68:79:84
+# converted:    52:54:00:87:d3:fc
+# rhel07:       52:54:00:02:ce:bb
+# rhel08:       52:54:00:43:26:d3
+# rhel09:       52:54:00:7f:e1:4e
+# upgraded08:   52:54:00:22:37:93
+# upgraded09:   52:54:00:e6:14:ee
+
+
+# Get the IP of the VM belonging to vm1 based on arp.
+while ! [ $( arp -an | grep 52:54:00:02:ce:bb | awk '{print $2}' | tr -d '()')  ]; do echo "Waiting for arp to return rhel07 MAC address."; sleep 10; done;
+echo "$( arp -an | grep 52:54:00:02:ce:bb | awk '{print $2}' | tr -d '()' ) rhel07" >> /etc/hosts
+
+while ! ping -c 1 -W 1 rhel07; do echo "\nWaiting for rhel07 - network interface might be down."; sleep 1; done;
+# The sleep below is required because it sometimes takes SSH a little longer to start up.
+sleep 10
+TMUX='' tmux new-session -d -s 'rhel07' 'ssh -o "StrictHostKeyChecking no" rhel@rhel07; clear'
+
 tmux set -g pane-border-status top
 tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
+
+ssh -i ~/.ssh/id_rsa rhel@rhel07 "sudo subscription-manager register --activationkey="${ACTIVATION_KEY}" --org=12451665 --force"
