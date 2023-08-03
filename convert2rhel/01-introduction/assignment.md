@@ -8,8 +8,11 @@ tabs:
   type: terminal
   hostname: host
   cmd: tmux attach-session -t "centos"
+- title: RHEL Web Console
+  type: external
+  url: https://host.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 3000
+timelimit: 3300
 ---
 
 ## What is Convert2RHEL

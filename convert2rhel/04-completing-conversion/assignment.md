@@ -22,7 +22,7 @@ difficulty: basic
 timelimit: 1
 ---
 
-If you have waited for the conversion to complete from the previous step, you will need to reboot the system in order to put the changes into effect.
+If you have waited for the conversion to complete from the previous step, you will need to reboot the system in order to put the changes into effect. If you did not wait for the conversion to complete, please proceed to `Verifying the upgrade` below.
 =====================================================================================================================================================
 
 ```bash
@@ -34,33 +34,10 @@ After executing reboot, the session in the `centos` tab will end. Refresh the `c
 
 With the convert2rhel utility running, the system will now replace the CentOS signed packages with Red Hat signed versions. The system will reboot a few times: first to boot into a temporary environment from which to make these changes, a second time to perform a relabel on SELinux contexts, and a final time in order to boot into the newly created RHEL environment.
 
-If you did not wait for the completion of the previous step, switch to the RHEL tab and jump to section `Verifying the upgrade` to finish the lab. If you waited for the completion of the conversion, please continue in this section.
-=======================================================================================================================================================================================================================================
-
-![image.png](../assets/image.png)
-
-In order to see what the server is during during this process, you will need to connect to the virtual machine's console. In the title bar, click on the "console" tab. Use the `virsh` command to connect to your VM's console:
-
-```bash
-virsh console centos
-```
-
-<pre class='file'>
-# virsh console centos
-Connected to domain 'centos'
-Escape character is ^] (Ctrl + ])
-</pre>
-
-Once the conversion has been completed, use `CTRL + ]` to disconnect from the console and log back in using ssh:
-
-```bash
-ssh -i ~/.ssh/id_rsa centos
-```
-
 Verifying the upgrade
 =====================
 
-## If you did not wait for the conversion to complete, please continue this lab in the `rhel` tab. If you waited for the conversion to complete, please continue this lab in the `centos` tab.
+If you did not wait for the conversion to complete, please continue this lab in the `rhel` tab. If you waited for the conversion to complete, please continue this lab in the `centos` tab.
 
 Now that you are connected into your new RHEL system, you should verify your results:
 
