@@ -5,12 +5,12 @@ do
     sleep 1
 done
 
-# while ! ping -c 1 -W 1 rhel07; do echo "\nWaiting for rhel07 - network interface might be down."; sleep 1; done;
-# # The sleep below is required because it sometimes takes SSH a little longer to start up.
-# sleep 10
-# TMUX='' tmux new-session -d -s 'rhel07' 'ssh -o "StrictHostKeyChecking no" rhel@rhel07; clear'
+while ! ping -c 1 -W 1 rhel07; do echo "Waiting for rhel07 - network interface might be down."; sleep 1; done;
+# The sleep below is required because it sometimes takes SSH a little longer to start up.
+sleep 10
+TMUX='' tmux new-session -d -s 'rhel07' 'ssh -o "StrictHostKeyChecking no" rhel@rhel07; clear'
 
-# tmux set -g pane-border-status top
-# tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
+tmux set -g pane-border-status top
+tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
 
-# ssh -i /root/.ssh/id_rsa -o "StrictHostKeyChecking no" rhel@rhel07 "sudo subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force"
+ssh -i /root/.ssh/id_rsa -o "StrictHostKeyChecking no" rhel@rhel07 "sudo subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force"
