@@ -77,3 +77,17 @@ curl -o /etc/yum.repos.d/convert2rhel.repo https://ftp.redhat.com/redhat/convert
                                  Dload  Upload   Total   Spent    Left  Speed
 100   247  100   247    0     0    509      0 --:--:-- --:--:-- --:--:--   510
 </pre>
+
+Now we'll update the centos host and reboot it. The convert2rhel utility requires an up-to-date centos host.
+
+Enter the following command.
+
+```bash
+yum update -y && reboot
+```
+
+The terminal will lose connection with the centos host leaving the message `exited`.
+
+![exited](../assets/exited.png)
+
+Proceed to the next step where the terminal will automatically reconnect to the centos host.

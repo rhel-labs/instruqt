@@ -7,7 +7,7 @@ tabs:
 - title: centos
   type: terminal
   hostname: host
-  cmd: tmux attach-session -t "centos"
+  cmd: ssh -o "StrictHostKeyChecking no" root@centos
 - title: console
   type: terminal
   hostname: host
@@ -15,6 +15,9 @@ tabs:
   type: terminal
   hostname: host
   cmd: tmux attach-session -t "converted"
+- title: host Web Console
+  type: external
+  url: https://host.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
@@ -25,6 +28,9 @@ If you have waited for the conversion to complete from the previous step, you wi
 ```bash
 reboot
 ```
+After executing reboot, the session in the `centos` tab will end. Refresh the `centos` tab until you are reconnected.
+
+![refresh](../assets/refreshbutton.png)
 
 With the convert2rhel utility running, the system will now replace the CentOS signed packages with Red Hat signed versions. The system will reboot a few times: first to boot into a temporary environment from which to make these changes, a second time to perform a relabel on SELinux contexts, and a final time in order to boot into the newly created RHEL environment.
 
