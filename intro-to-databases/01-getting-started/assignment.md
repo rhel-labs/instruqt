@@ -6,7 +6,16 @@ title: Install MySQL
 notes:
 - type: text
   contents: |
-    In this step, you will install MySQL.
+  # Goal: Set up a database using MySQL
+   # Overview
+
+   After completing this scenario, users will be able to configure a MySQL server and set up a web interface for it.
+
+   ## Concepts included in this scenario:
+
+   * SQL
+   * Relational database design
+   * Database security fundamentals
 tabs:
 - title: Terminal
   type: terminal

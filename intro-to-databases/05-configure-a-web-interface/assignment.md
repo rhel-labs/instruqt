@@ -5,7 +5,8 @@ type: challenge
 title: Configure a Web Interface
 notes:
 - type: text
-  contents: Next, you will set up a web interface that will allow you to interact with your database through a graphical user interface
+  contents: Next, you will set up a web interface that will allow you to interact
+    with your database through a graphical user interface
 tabs:
 - title: Terminal
   type: terminal
