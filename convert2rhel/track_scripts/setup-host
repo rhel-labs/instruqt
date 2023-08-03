@@ -32,10 +32,10 @@ ssh-keygen -f /root/.ssh/id_rsa -y > /root/.ssh/id_rsa.pub
 while ! [ $( arp -an | grep 52:54:00:68:79:84 | awk '{print $2}' | tr -d '()' )  ]; do echo "Waiting for arp to return centos MAC address."; sleep 10; done;
 echo "$( arp -an | grep 52:54:00:68:79:84 | awk '{print $2}' | tr -d '()' ) centos" >> /etc/hosts
 
-while ! ping -c 1 -W 1 centos; do echo "\nWaiting for centos - network interface might be down."; sleep 10; done;
-# The sleep below is required because it sometimes takes SSH a little longer to start up.
-sleep 10
-TMUX='' tmux new-session -d -s 'centos' 'ssh -o "StrictHostKeyChecking no" root@centos; clear'
+# while ! ping -c 1 -W 1 centos; do echo "\nWaiting for centos - network interface might be down."; sleep 10; done;
+# # The sleep below is required because it sometimes takes SSH a little longer to start up.
+# sleep 10
+# TMUX='' tmux new-session -d -s 'centos' 'ssh -o "StrictHostKeyChecking no" root@centos; clear'
 
 #tmux set -g pane-border-status top
 #tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
