@@ -6,7 +6,17 @@ title: Install Podman
 teaser: A short description of the challenge.
 notes:
 - type: text
-  contents: Replace this text with your own text
+  contents: |
+    # Goal: Run containers in RHEL using Podman
+    # Overview
+
+    After completing this scenario, users will be able to configure and manage containers from a Dockerfile using both the Podman command line interface and the Cockpit Podman tool in RHEL web console.
+
+    ## Concepts included in this scenario:
+
+    * Podman
+    * Networking
+    * Cockpit
 tabs:
 - title: Terminal
   type: terminal
