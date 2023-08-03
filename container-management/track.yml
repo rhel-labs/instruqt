@@ -15,7 +15,7 @@ description: |
 
   ## Example use case:
 
-  You wish to run containers for which a dockerfile already exists.
+  You wish to run containers for which a dockerfile already exists
 icon: ""
 tags: []
 owner: rhel
@@ -27,4 +27,4 @@ lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "2412783129695664990"
+checksum: "16800798177736551519"
