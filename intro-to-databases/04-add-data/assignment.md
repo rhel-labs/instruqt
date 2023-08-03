@@ -29,33 +29,19 @@ In this step, you will be challenged to complete a task, and we will provide you
 # Challenge: Make a database to organize the items in your home
 
 To record all of the items in your home, there are many ways to organize the database. For our lab, we will use this database design:
-![Home inventory database design](../assets/Home_Database_Diagram.jpeg)
+![Home inventory database design](../assets/Home_Database_Diagram.png)
 In this diagram:
-
-* Each item has a name, a serial number, a value, and a location (room) where it is stored. The location (room) of the item is a foreign key because it relates to the Room entity. Each item relates to one Room entity.
-* Each room has a name, which is the primary key for the room entity. Each room is also inside a home, and home is a foreign key because it relates to the Home entity. Each room relates to 0 or more Item entities, and each room relates to one Home entity.
-* Each home has a name, which is the primary key for the home entity. Each home has a size and a country in which it is located. Each home relates to many room entities.
-
-For help understanding the meaning of database diagrams, [check out this article.](https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning)
+* Each item has a name, an ID number, a value, and a location (room) where it is stored. The location (room) of the item is a foreign key because it relates to the Room entity. The ID number is auto-incrementing and is the primary key for items.
+* Each room has a name, which is the primary key for the room entity. Each room also has a Size field to store the area.
 
 Now that you are familiar with the database you will build, you are ready to start creating tables.
 
-First, create the table for `Home` with the following command
-```sql
-CREATE TABLE Home(
-  Name varchar(255) NOT NULL,
-  Size int,
-  Country varchar(255),
-  PRIMARY KEY(Name)
-);
-```
 Next, create the table for `Room` with the following command:
 ```sql
 CREATE TABLE Room(
 Name varchar (255) NOT NULL,
-Home varchar (255) NOT NULL,
-PRIMARY KEY (Name),
-FOREIGN KEY (Home) REFERENCES Home(Name)
+Size int,
+PRIMARY KEY (Name)
 );
 ```
 
@@ -73,18 +59,14 @@ CREATE TABLE Item(
 
 Finally, run the following command to insert some entries into your database. In the real world, you will customize the entries depending on your needs, but for the purpose of demonstration, run this MySQL command:
 ```sql
-INSERT INTO Home (Name, Size, Country)
-VALUES('City Apartment',800,'Argentina');
-INSERT INTO Home (Name, Size, Country)
-VALUES('Summer Home',2000,'Mongolia');
-INSERT INTO Room(Name, Home)
-VALUES('Living Room','City Apartment');
-INSERT INTO Room(Name, Home)
-VALUES('Bedroom','City Apartment');
-INSERT INTO Room(Name, Home)
-VALUES('Kitchen','Summer Home');
+INSERT INTO Room(Name, Size)
+VALUES('Living Room',500);
+INSERT INTO Room(Name, Size)
+VALUES('Bedroom',200);
+INSERT INTO Room(Name, Size)
+VALUES('Kitchen',400);
 INSERT INTO Item(Room, Name, Value)
-VALUES('Kitchen','Oven',1000);
+VALUES('Kitchen','Oven', 1000);
 INSERT INTO Item(Room, Name, Value)
 VALUES('Kitchen','Microwave',100);
 INSERT INTO Item(Room, Name, Value)
