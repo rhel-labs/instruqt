@@ -1,5 +1,5 @@
 ---
-slug: getting-started
+slug: cli-container-management
 id: wtgula3lfz4q
 type: challenge
 title: Podman Container Management
@@ -18,7 +18,7 @@ tabs:
 difficulty: basic
 timelimit: 3000
 ---
-In this lab, you will install Grafana, a browser-based data dashboard, in two ways. First, you will install and run it through Podman's command line interface (CLI). After that, you will install and configure the Grafana container through the RHEL web console.
+
 
 First, install RHEL Container Tools by running the following command:
 ```bash

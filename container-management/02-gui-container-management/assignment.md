@@ -23,7 +23,7 @@ tabs:
 difficulty: basic
 timelimit: 600
 ---
-In this step, you will configure Podman containers through the RHEL web console. This gives you a graphical view of your containers and can help you customize your containers more simply.
+In this lab, you will install Grafana, a browser-based data dashboard, in two ways. First, you will install and run it through the RHEL web console. After that, you will install and configure the Grafana container through Podman's command line interface (CLI). The RHEL web console gives you a graphical view of your containers and can help you customize your containers more simply.
 
 First, click on the `RHEL Web Console` tab.
 ![](../assets/pop-out-2.png)
