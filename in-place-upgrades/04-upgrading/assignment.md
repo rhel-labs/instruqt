@@ -7,7 +7,11 @@ tabs:
 - title: RHEL
   type: terminal
   hostname: host
-  cmd: ssh 
+  cmd: ssh -o "StrictHostKeyChecking no" rhel@rhel07
+- title: Upgraded RHEL
+  type: terminal
+  hostname: host
+  cmd: ssh -o "StrictHostKeyChecking no" rhel@upgraded08
 - title: rhel Web Console
   type: external
   url: https://host.${_SANDBOX_ID}.instruqt.io:9090
@@ -60,6 +64,10 @@ The Leapp process can take upwards of 15 minutes to run.
 <!-- ![rhelTabs.png](../assets/rhelTabs.png)
 
 The upgrade has only been _staged_; it has not been completed at this point. A reboot is required for the RHEL 8-based initial RAM disk image (initramfs), upgrades all packages and automatically reboots to the RHEL 8 system. -->
+If you would like to proceed with the lab without waiting for the upgrade to complete, click on the `Upgraded RHEL` tab and continue in that terminal. You can skip the reboot step below. Proceed to the step `Verifying the upgrade` below.
+
+Rebooting the upgaded host.
+===========================
 A reboot is required for the RHEL 8-based initial RAM disk image (initramfs), upgrades all packages and automatically reboots to the RHEL 8 system.
 
 >**Pro Tip:** You can combine these two steps with the --reboot option
@@ -84,8 +92,10 @@ ssh -i ~/.ssh/id_rsa rhel@rhel07
 
 ```
 
-# Verifying the upgrade
+Please continue to `Verifying the upgrade` below.
 
+Verifying the upgrade
+=====================
 Once the new initramfs image is in place, package updates run, and SELinux relabel completion, the system will perform one final reboot. Once that is done, you will be logged into the system's terminal once more. Finally, we will verify the update was successful by looking at the release file we referenced earlier in the lab:
 
 ```bash

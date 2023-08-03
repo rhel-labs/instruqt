@@ -10,13 +10,9 @@ virsh start rhel07
 echo "${SSHKEY}" > /root/.ssh/id_rsa
 chmod 600 /root/.ssh/id_rsa
 ssh-keygen -f /root/.ssh/id_rsa -y > /root/.ssh/id_rsa.pub
-#while ! ping -c 1 -W 1 rhel07; do echo "Waiting for VM - network interface might be down..."; sleep 10; done
 
+usermod -aG wheel rhel
 
-
-#TMUX='' tmux new-session -d -s 'rhel07' 'ssh -o "StrictHostKeyChecking no" rhel@rhel07; sudo -i; clear' > /dev/null 2>&1
-#tmux set -g pane-border-status top
-#tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
 # MAC Addresses
 # vm1:          52:54:00:d6:0c:72
 # centos:       52:54:00:68:79:84
