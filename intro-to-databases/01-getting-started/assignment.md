@@ -6,16 +6,16 @@ title: Install MySQL
 notes:
 - type: text
   contents: |
-  # Goal: Set up a database using MySQL
-   # Overview
+    # Goal: Set up a database using MySQL
+    # Overview
 
-   After completing this scenario, users will be able to configure a MySQL server and set up a web interface for it.
+    After completing this scenario, users will be able to configure a MySQL server and set up a web interface for it.
 
-   ## Concepts included in this scenario:
+    ## Concepts included in this scenario:
 
-   * SQL
-   * Relational database design
-   * Database security fundamentals
+     * SQL
+     * Relational database design
+     * Database security fundamentals
 tabs:
 - title: Terminal
   type: terminal
