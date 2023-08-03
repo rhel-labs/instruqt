@@ -9,7 +9,7 @@ tabs:
   hostname: host
   cmd: tmux attach-session -t "centos"
 difficulty: basic
-timelimit: 3000
+timelimit: 3300
 ---
 
 ## What is Convert2RHEL
