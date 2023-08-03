@@ -7,6 +7,7 @@ notes:
 - type: text
   contents: |
     # Goal: Set up a database using MySQL
+
     # Overview
 
     After completing this scenario, users will be able to configure a MySQL server and set up a web interface for it.
