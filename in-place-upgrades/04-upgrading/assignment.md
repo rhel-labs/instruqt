@@ -7,7 +7,7 @@ tabs:
 - title: RHEL
   type: terminal
   hostname: host
-  cmd: ssh -o "StrictHostKeyChecking no" rhel@rhel07
+  cmd: ssh -o "StrictHostKeyChecking no" rhel@rhel07; su -i;
 - title: Upgraded RHEL
   type: terminal
   hostname: host
@@ -78,19 +78,7 @@ reboot
 
 ```
 
-Now, leapp is performing several actions inside a temporary environment. This includes creating a new initramfs image, relabeling SELinux contexts, and well as cleaning up any remaining RHEL 7 packages. In order to see what the server is during during this process, you will need to connect to the virtual machine's console using the `virsh` command:
-
-```bash
-virsh console rhel07
-
-```
-
-Once the upgrade has been completed, use `CTRL + ]` to disconnect from the console and log back in using ssh:
-
-```bash
-ssh -i ~/.ssh/id_rsa rhel@rhel07
-
-```
+Now, leapp is performing several actions inside a temporary environment. This includes creating a new initramfs image, relabeling SELinux contexts, and well as cleaning up any remaining RHEL 7 packages.
 
 Please continue to `Verifying the upgrade` below.
 
