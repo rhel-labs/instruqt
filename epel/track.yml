@@ -1,0 +1,18 @@
+slug: epel
+id: 3ifd0zxxjikp
+title: Extra Packages for Enterprise Linux (EPEL)
+description: In this lab, you will learn about Extra Packages for Enterprise Linux
+  (EPEL), a series of community-derived packages designed to increase the flexibility
+  of working with Red Hat Enterprise Linux.
+icon: ""
+tags: []
+owner: rhel
+developers:
+- wkibbe@redhat.com
+timelimit: 3000
+sandbox_preset: devel-101
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "5353151633908780435"
