@@ -7,7 +7,7 @@ tabs:
 - title: centos
   type: terminal
   hostname: host
-  cmd: tmux attach-session -t "centos"
+  cmd: ssh -o "StrictHostKeyChecking no" root@centos
 difficulty: basic
 timelimit: 3300
 ---
@@ -89,5 +89,9 @@ yum update -y && reboot
 The terminal will lose connection with the centos host leaving the message `exited`.
 
 ![exited](../assets/exited.png)
+
+You can reconnect the session in the `centos` tab if desired. Refresh the `centos` tab until you are reconnected.
+
+![refresh](../assets/refreshbutton.png)
 
 Proceed to the next step where the terminal will automatically reconnect to the centos host.

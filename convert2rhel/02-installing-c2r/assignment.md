@@ -7,7 +7,7 @@ tabs:
 - title: centos
   type: terminal
   hostname: host
-  cmd: tmux attach-session -t "centos"
+  cmd: ssh -o "StrictHostKeyChecking no" root@centos
 difficulty: basic
 timelimit: 1
 ---

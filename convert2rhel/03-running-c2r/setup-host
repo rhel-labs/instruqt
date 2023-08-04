@@ -5,5 +5,3 @@ do
     sleep 1
 done
 
-virsh start converted
-
