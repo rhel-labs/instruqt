@@ -25,4 +25,4 @@ RHEL 9.2
 `image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-2-6-20-23`
 
 RHEL 9.2 with virt
-`image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-2-07-28-23-2`
+`image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-2-08-01-23`

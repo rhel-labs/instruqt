@@ -1,0 +1,30 @@
+slug: container-management
+id: fgvqrjuvzxed
+title: Running Containers
+description: |
+  # Goal: Run containers in RHEL using Podman
+  # Overview
+
+  After completing this scenario, users will be able to configure and manage containers from a dockerfile using both the Podman command line interface and the Cockpit Podman tool in RHEL web console.
+
+  ## Concepts included in this scenario:
+
+  * Podman
+  * Networking
+  * Cockpit
+
+  ## Example use case:
+
+  You wish to run containers for which a dockerfile already exists
+icon: ""
+tags: []
+owner: rhel
+developers:
+- wkibbe@redhat.com
+timelimit: 3000
+sandbox_preset: devel-101
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "16800798177736551519"
