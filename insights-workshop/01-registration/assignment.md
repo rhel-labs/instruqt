@@ -37,7 +37,7 @@ difficulty: basic
 timelimit: 3000
 ---
 
-In most Red Hat Enterprise Linux 8 installations, the insights-client software will be installed by default.  However, the minimal package set does not include installing the insights-client package and other versions of Red Hat Enterprise Linux, while the package is available, will likely need it installed.  Install the insights-client package on the system.
+In most Red Hat Enterprise Linux 9 installations, the insights-client software will be installed by default.  However, the minimal package set does not include installing the insights-client package and other versions of Red Hat Enterprise Linux, while the package is available, will likely need it installed.  Install the insights-client package on the system.
 
 ```bash
 dnf -y install insights-client
