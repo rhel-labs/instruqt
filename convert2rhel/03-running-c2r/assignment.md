@@ -7,7 +7,7 @@ tabs:
 - title: centos
   type: terminal
   hostname: host
-  cmd: tmux attach-session -t "centos"
+  cmd: ssh -o "StrictHostKeyChecking no" root@centos
 difficulty: basic
 timelimit: 1
 ---
@@ -84,4 +84,4 @@ WARNING - In order to boot the RHEL kernel, restart of the system is needed.
 
 </pre>
 
-At this point, you can either continue to watch the conversion process or click `Next` to proceed to the next step. The conversion can take about 15 minutes to complete.
+The conversion can take about 15 minutes to complete.

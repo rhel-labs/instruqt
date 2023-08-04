@@ -6,8 +6,3 @@ do
 done
 
 while ! ping -c 1 -W 1 centos; do echo "Waiting for centos - network interface might be down."; sleep 10; done;
-# A tmux session is created in this challenge setup script because it doesn't work consistently in the track_scripts.
-TMUX='' tmux new-session -d -s 'centos' 'ssh -o "StrictHostKeyChecking no" root@centos; clear'
-
-tmux set -g pane-border-status top
-tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'

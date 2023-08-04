@@ -8,22 +8,12 @@ tabs:
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@centos
-- title: console
-  type: terminal
-  hostname: host
-- title: rhel
-  type: terminal
-  hostname: host
-  cmd: tmux attach-session -t "converted"
-- title: host Web Console
-  type: external
-  url: https://host.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
 
-If you have waited for the conversion to complete from the previous step, you will need to reboot the system in order to put the changes into effect. If you did not wait for the conversion to complete, please proceed to `Verifying the upgrade` below.
-=====================================================================================================================================================
+You will need to reboot the system in order to put the changes into effect.
+===========================================================================
 
 ```bash
 reboot
@@ -36,8 +26,6 @@ With the convert2rhel utility running, the system will now replace the CentOS si
 
 Verifying the upgrade
 =====================
-
-If you did not wait for the conversion to complete, please continue this lab in the `rhel` tab. If you waited for the conversion to complete, please continue this lab in the `centos` tab.
 
 Now that you are connected into your new RHEL system, you should verify your results:
 
@@ -57,18 +45,13 @@ yum repolist
 ```
 
 <pre class='file'>
-# yum repolist
+[root@centos ~]# yum repolist
 Loaded plugins: fastestmirror, product-id, search-disabled-repos, subscription-manager
 Loading mirror speeds from cached hostfile
-convert2rhel-for-rhel-7-rpms                                                                                                                                                                                               | 3.8 kB  00:00:00
-rhel-7-server-rpms                                                                                                                                                                                                         | 3.5 kB  00:00:00
-(1/3): convert2rhel-for-rhel-7-rpms/group                                                                                                                                                                                  |  124 B  00:00:00
-(2/3): convert2rhel-for-rhel-7-rpms/primary_db                                                                                                                                                                             | 3.9 kB  00:00:00
-(3/3): convert2rhel-for-rhel-7-rpms/updateinfo                                                                                                                                                                             | 3.2 kB  00:00:00
-repo id                                                                                                           repo name                                                                                                                 status
-convert2rhel-for-rhel-7-rpms                                                                                      Convert2RHEL for OS 7                                                                                                          5
-rhel-7-server-rpms/7Server/x86_64                                                                                 Red Hat Enterprise Linux 7 Server (RPMs)                                                                                  33,153
-repolist: 33,158
+repo id                                                            repo name                                                                  status
+convert2rhel-for-rhel-7-rpms                                       Convert2RHEL for OS 7                                                          10
+rhel-7-server-rpms/7Server/x86_64                                  Red Hat Enterprise Linux 7 Server (RPMs)                                   33,833
+repolist: 33,843
 </pre>
 
 Now you can review the logs from the conversion itself:
