@@ -5,4 +5,5 @@ do
     sleep 1
 done
 
+
 subscription-manager unregister

@@ -10,5 +10,5 @@
 # TMUX='' tmux new-session -d -s 'upgraded08' 'ssh -o "StrictHostKeyChecking no" rhel@upgraded08; sudo -i; clear' > /dev/null 2>&1
 # tmux set -g pane-border-status top
 # tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
-while ! [ $( arp -an | grep 52:54:00:22:37:93 | awk '{print $2}' | tr -d '()' )  ]; do echo "Waiting for arp to return upgraded08 MAC address."; sleep 10; done;
-echo "$( arp -an | grep 52:54:00:22:37:93 | awk '{print $2}' | tr -d '()' ) upgraded08" >> /etc/hosts
+# while ! [ $( arp -an | grep 52:54:00:22:37:93 | awk '{print $2}' | tr -d '()' )  ]; do echo "Waiting for arp to return upgraded08 MAC address."; sleep 10; done;
+# echo "$( arp -an | grep 52:54:00:22:37:93 | awk '{print $2}' | tr -d '()' ) upgraded08" >> /etc/hosts

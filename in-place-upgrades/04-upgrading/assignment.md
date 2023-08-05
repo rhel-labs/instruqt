@@ -7,14 +7,7 @@ tabs:
 - title: RHEL
   type: terminal
   hostname: host
-  cmd: ssh -o "StrictHostKeyChecking no" rhel@rhel07; su -i;
-- title: Upgraded RHEL
-  type: terminal
-  hostname: host
-  cmd: ssh -o "StrictHostKeyChecking no" rhel@upgraded08
-- title: rhel Web Console
-  type: external
-  url: https://host.${_SANDBOX_ID}.instruqt.io:9090
+  cmd: ssh -o "StrictHostKeyChecking no" rhel@rhel07 
 difficulty: basic
 timelimit: 1
 ---
