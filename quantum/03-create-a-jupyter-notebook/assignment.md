@@ -1,5 +1,6 @@
 ---
 slug: create-a-jupyter-notebook
+id: qpltztxcwh8k
 type: challenge
 title: Create a Jupyter Notebook
 teaser: A short description of the challenge.
@@ -14,3 +15,4 @@ tabs:
 difficulty: basic
 timelimit: 600
 ---
+sample text
