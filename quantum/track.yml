@@ -1,0 +1,19 @@
+slug: quantum
+id: uplvfes4uc3b
+title: Quantum Simulation on RHEL
+description: |-
+  A long description of the track.
+
+  You can use any GitHub flavoured markdown.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags: []
+owner: rhel
+developers:
+- wkibbe@redhat.com
+timelimit: 3000
+sandbox_preset: devel-101
+lab_config:
+  overlay: false
+  width: 50
+  position: right
+checksum: "15688840085604220051"
