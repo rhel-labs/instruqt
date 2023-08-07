@@ -14,6 +14,6 @@ timelimit: 3000
 sandbox_preset: devel-101
 lab_config:
   overlay: false
-  width: 50
+  width: 40
   position: right
-checksum: "15688840085604220051"
+checksum: "1348152507011846"
