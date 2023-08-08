@@ -13,7 +13,6 @@ wget --directory-prefix=/root/quantum/ https://raw.githubusercontent.com/Qiskit/
 
 #get rid of the existing samples in there. I want the user to only see their work, so we can clear the original output with a python program that will be made and run here
 # note: this program is not essential and can totally be removed if there are issues. It was only added because I (Will) thought it would improve the user experience.
-conda activate qis
 tee /root/quantum/notebooksetup.py << EOF
 import nbformat
 
@@ -30,7 +29,6 @@ for cell in notebook.cells:
 with open('/root/quantum/1_getting_started_with_qiskit.ipynb','w', encoding='utf-8') as f:
     nbformat.write(notebook, f)
 EOF
-
-python /root/quantum/notebooksetup.py
+conda run -n qis python /root/quantum/notebooksetup.py
 rm /root/quantum/notebooksetup.py
 exit 0

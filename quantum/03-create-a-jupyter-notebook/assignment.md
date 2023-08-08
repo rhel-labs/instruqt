@@ -34,4 +34,8 @@ jupyter notebook --ip=* --no-browser --allow-root -NotebookApp.password='redhat'
 
 Next, click on the `Jupyter Notebook` tab near the top of the lab window. This will open your Jupyter Notebook in a new tab.
 
-When presented with a login screen, enter `redhat` into the password box and click login.
+When presented with a login screen, enter `redhat` into the password box and click `Log in`.
+![](../assets/jupyter-login.png)
+
+When you reach the notebook's main menu, click on the check box to the left of `1_getting_started_with_qiskit.ipynb` and then click `open`.
+![](../assets/jupyter-select.png)
