@@ -31,10 +31,10 @@ Next, you will be prompted with a dialog box asking whether you wish to restart 
 ![](../assets/jupyter_run_all.png)
 The kernel will restart and your program will run. This may take a few seconds to finish.
 
-Once the program has run, you will see that it has generated graphs like this:
+Once the program has run, scroll through your Jupyter Notebook again. It will have generated graphs like this:
 ![](../assets/quantum_output_graph.png)
 
-If you scroll down to the bottom of your Jupyter Notebook, you will now see your system information as well as the current system time.
+If you scroll down to the bottom of your Jupyter Notebook, you will now see the virtual machine's system information, the current system time and a copyright notice.
 ![](../assets/quantum_copyright_notice.png)
 
 You have now successfully configured and tested a quantum computing simulation stack. If you wish, you may continue to experiment with and modify the test program inside the Jupyter Notebook until the lab ends.
