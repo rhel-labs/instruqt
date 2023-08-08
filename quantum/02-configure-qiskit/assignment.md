@@ -43,7 +43,7 @@ Install the data visualization module for Qiskit. This component allows for much
 pip install qiskit[visualization]
 ```
 
-Finally, install Jupyter, a set of tools for interacting with code.
+Finally, install Jupyter Notebooks, a set of tools for interacting with code in a web browser. Jupyter does not do any quantum computation; it is only for making it easier to work with our code. We will use this component later in the lab when we run a test program.
 ```bash
-pip install jupyterlab
+pip install notebook
 ```
