@@ -5,7 +5,7 @@ type: challenge
 title: Configure Qiskit
 notes:
 - type: text
-  contents: Replace this text with your own text
+  contents: In this step, you will configure a virtual environment for your program.
 tabs:
 - title: Terminal
   type: terminal

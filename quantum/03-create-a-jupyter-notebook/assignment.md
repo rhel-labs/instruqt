@@ -3,10 +3,9 @@ slug: create-a-jupyter-notebook
 id: qpltztxcwh8k
 type: challenge
 title: Create a Jupyter Notebook
-teaser: A short description of the challenge.
 notes:
 - type: text
-  contents: Replace this text with your own text
+  contents: In this step, you will configure a Jupyter Notebook for your code.
 tabs:
 - title: Terminal
   type: terminal
@@ -30,7 +29,7 @@ jupyter notebook --ip=* --no-browser --allow-root -NotebookApp.password='redhat'
 > * `--no-browser` stops the program from trying to open the browser on the system hosting the server
 > * `-NotebookApp.password='redhat'` sets the password to `redhat`
 > * `-NotebookApp.token='redhat'` sets the login token to `redhat`
-> * `--notebook-dir="/root/quantum"` sets the folder for your Jupyter to a subdirectory of your root directory called `quantum`. This directory was created by this lab.
+> * `--notebook-dir="/root/quantum"` sets the folder for your Jupyter to a subdirectory of your root directory called `quantum`. This directory and the files inside it were created by this lab.
 
 Next, click on the `Jupyter Notebook` tab near the top of the lab window. This will open your Jupyter Notebook in a new tab.
 

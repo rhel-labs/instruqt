@@ -3,10 +3,10 @@ slug: run-a-test-program
 id: lty78ecopfka
 type: challenge
 title: Run a Test Program
-teaser: A short description of the challenge.
 notes:
 - type: text
-  contents: Replace this text with your own text
+  contents: In this step, you will run a test program to demonstrate that your quantum
+    simulation stack is functioning properly.
 tabs:
 - title: Terminal
   type: terminal

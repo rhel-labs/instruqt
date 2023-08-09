@@ -57,6 +57,7 @@ conda init bash #configures conda to our shell
 exec $SHELL #restarts the shell to finish installation of Conda
 ```
 
+
 Finally, run the following command to verify the installation of Conda. It will print out the version of Conda that is installed to confirm that the installation of Conda is complete:
 ```bash
 conda -V
