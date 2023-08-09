@@ -7,9 +7,15 @@
 #
 
 echo "This is the setup script"
+#install MySQL for our test database
+dnf install -y mysql-server
+#use systemctl to start and enable mysql
+systemctl start mysqld.service
+systemctl enable mysqld.service
+#make a database
 # make a directory for our data visualization source files
 mkdir ~/GrafanaSource
-# concatenate three CSV files for our data visualization
+# concatenate three CSV files for our data visualization (we will turn them into database tables later)
 tee ~/GrafanaSource/Summary.csv << EOF
 Details of the dimension,,,,,,,,
 Dimension,,,Level,,,,,
