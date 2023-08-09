@@ -19,11 +19,13 @@ description: |
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags:
 - rhel
+- devel101
 owner: rhel
 developers:
 - wkibbe@redhat.com
+sandbox_preset: devel-101
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "8844690167197924927"
+checksum: "10982447937409447939"
