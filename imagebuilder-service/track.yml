@@ -17,15 +17,16 @@ description: |-
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: intermediate
 tags:
-- rhel
-- Image builder
 - cloud
+- rhel
+- image builder
 owner: rhel
 developers:
 - nlager@redhat.com
+- myee@redhat.com
 show_timer: true
 lab_config:
   overlay: false
   width: 25
   position: right
-checksum: "1915042764161820354"
+checksum: "5372338273454981150"
