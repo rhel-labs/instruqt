@@ -1,5 +1,6 @@
 ---
 slug: gui-container-management
+id: ypdgkx8fkwfy
 type: challenge
 title: Creating Containers in the Web Console
 notes:

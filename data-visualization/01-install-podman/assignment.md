@@ -1,5 +1,6 @@
 ---
 slug: install-podman
+id: iopfgm84wjvu
 type: challenge
 title: Install Podman
 teaser: A short description of the challenge.

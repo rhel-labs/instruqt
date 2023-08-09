@@ -1,5 +1,6 @@
 ---
 slug: test-grafana-web-interface-gui
+id: uccbeu1j8r2x
 type: challenge
 title: Test Grafana Web Interface (GUI)
 notes:
@@ -30,4 +31,4 @@ Log in using the default credentials:
 ![](../assets/grafanaloginmenu.png)
 You may be prompted to change the login credentials. You can press the `skip` button on that dialog box if you wish.
 ![](../assets/skippassword.png)
-You may now explore Grafana hosted in your container through Podman.
+You are now ready to configure Grafana for data visualization in the next step.

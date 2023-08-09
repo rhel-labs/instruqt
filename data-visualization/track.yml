@@ -1,4 +1,5 @@
 slug: data-visualization
+id: illqyinnjdgy
 title: Data Visualization
 description: |
   # Goal: Run containers in RHEL using Podman
@@ -27,3 +28,4 @@ lab_config:
   overlay: false
   width: 33
   position: right
+checksum: "12740732412054150848"
