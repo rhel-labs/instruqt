@@ -1,0 +1,31 @@
+slug: intro-to-databases
+id: jnx3wp86lyhf
+title: Intro to Databases
+description: |-
+  # Goal: Set up a database using MySQL
+   # Overview
+
+   After completing this scenario, users will be able to configure a MySQL server and set up a web interface for it.
+
+   ## Concepts included in this scenario:
+
+   * SQL
+   * Relational database design
+   * Database security fundamentals
+
+   ## Example use case:
+
+   You wish to build an inventory management database
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- wkibbe@redhat.com
+timelimit: 3000
+sandbox_preset: devel-101
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "2714057797317929204"
