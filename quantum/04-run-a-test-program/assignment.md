@@ -38,3 +38,6 @@ If you scroll down to the bottom of your Jupyter Notebook, you will now see the 
 ![](../assets/quantum_copyright_notice.png)
 
 You have now successfully configured and tested a quantum computing simulation stack. If you wish, you may continue to experiment with and modify the test program inside the Jupyter Notebook until the lab ends.
+
+To learn more about quantum computing and Qiskit, check out the resources here:
+[](https://qiskit.org/learn)

@@ -35,7 +35,7 @@ To learn more about the difference between bits and qubits, check out [this help
 In essence, a qubit's ability to store more information means that a quantum computer can process much more information.
 
 # Quantum simulation stack on RHEL:
-There are numerous ways to simulate quantum computing, each with their own pros and cons, but this is the configuration we will use in this lab:
+There are numerous ways to simulate quantum computing, each with unique pros and cons, but this is the configuration we will use in this lab:
 1. Red Hat Enterprise Linux 9
 2. [Conda](https://docs.conda.io/en/latest/)
 3. [Qiskit](https://qiskit.org/)
