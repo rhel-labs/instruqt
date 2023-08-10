@@ -23,6 +23,8 @@ tabs:
 difficulty: ""
 ---
 Before we start setting up the tools for quantum software development, it will be helpful to cover some of the basics of quantum computing.
+# What is a quantum computer?
+Quantum computers leverage [quantum mechanics](https://www.energy.gov/science/doe-explainsquantum-mechanics) to make calculations. In practice, they can be useful for highly complex computation such as physics simulations or breaking existing encryption algorithms.
 
 # How does quantum computing differ from classical computing?
 
