@@ -6,6 +6,9 @@ title: Getting Started
 notes:
 - type: text
   contents: |
+    # What is a quantum computer?
+    Quantum computers leverage [quantum mechanics](https://www.energy.gov/science/doe-explainsquantum-mechanics) to make calculations. In practice, they can be useful for highly complex computation such as physics simulations or breaking existing encryption algorithms.
+
     # How does quantum computing differ from classical computing?
 
     In classical computing, information is represented by bits (binary digits). Bits are binary, meaning they can have a logical state equal to one of two values (i.e., bits are either 0 or 1).

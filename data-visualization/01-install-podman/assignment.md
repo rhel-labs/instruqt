@@ -12,7 +12,7 @@ notes:
 
     After completing this scenario, users will be able to configure and manage containers from a Dockerfile using both the Podman command line interface and the Cockpit Podman tool in RHEL web console.
 
-    ## Concepts included in this scenario:
+    # Concepts included in this scenario:
 
     * Podman
     * Networking

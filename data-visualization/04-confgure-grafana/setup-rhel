@@ -12,6 +12,11 @@ dnf install -y mysql-server
 #use systemctl to start and enable mysql
 systemctl start mysqld.service
 systemctl enable mysqld.service
+#check the status for debugging purposes
+systemctl status mysqld
+#set up a database (there is no password for the root user)
+mysql -u root --skip-password --execute="sql command"
+
 #make a database
 # make a directory for our data visualization source files
 mkdir ~/GrafanaSource
