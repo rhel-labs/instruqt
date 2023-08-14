@@ -32,3 +32,12 @@ First, connect Grafana to the MySQL database. To get started, click the menu but
 
 Next, click on the `Add new connection` tab, type `mysql` into the search bar, and click on the MySQL button.
 ![](../assets/grafana_add_connection.png)
+
+Click on `Create a MySQL data source`
+![](../assets/grafana_create_data_source.png)
+
+When prompted with a configuration dialog box, use these settings:
+![](../assets/grafana_sql_config.png)
+
+Then click `Save & test` to finish configuring your connection to MySQL
+![](../assets/grafana_save_test.png)
