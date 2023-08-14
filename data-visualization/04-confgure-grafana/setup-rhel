@@ -92,4 +92,9 @@ mysql -u root --skip-password -D Population --execute="INSERT INTO Singapore_Pop
 mysql -u root --skip-password -D Population --execute="INSERT INTO Singapore_Population (Year, Population) VALUES (1952,1127000);"
 mysql -u root --skip-password -D Population --execute="INSERT INTO Singapore_Population (Year, Population) VALUES (1951,1068100);"
 mysql -u root --skip-password -D Population --execute="INSERT INTO Singapore_Population (Year, Population) VALUES (1950,1022100);"
+
+#configure mysql to work with networking
+/usr/bin/mysqladmin --bind-address=0.0.0.0
+mysql -u root --skip-password -D Population --execute="UPDATE mysql.user SET host='%' WHERE user='root';"
+systemctl restart mysqld
 exit 0

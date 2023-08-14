@@ -2,7 +2,7 @@
 slug: test-grafana-web-interface-gui
 id: uccbeu1j8r2x
 type: challenge
-title: Test Grafana Web Interface (GUI)
+title: Configure Grafana
 notes:
 - type: text
   contents: In this step, you will test the container you configured through the RHEL
