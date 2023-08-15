@@ -22,7 +22,7 @@ tabs:
 difficulty: ""
 timelimit: 3000
 ---
-In this lab, you will learn about [Extra Packages for Enterprise Linux (EPEL)](https://docs.fedoraproject.org/en-US/epel/), a series of Fedora-derived packages designed to increase the flexibility of working with Red Hat Enterprise Linux. Although EPEL's packages are derived from Fedora, it has been curated such that none of the packages in EPEL should conflict with anything that ships with RHEL, meaning that EPEL enables greater flexibility for users while maximizing compatibility with RHEL.
+In this lab, you will learn about [Extra Packages for Enterprise Linux (EPEL)](https://docs.fedoraproject.org/en-US/epel/), a series of community-maintained packages designed to increase the flexibility of working with Red Hat Enterprise Linux. EPEL has been curated such that none of the packages in EPEL should conflict with anything that ships with RHEL, meaning that EPEL enables greater flexibility for users while maximizing compatibility with RHEL.
 
 >**Note:** If you choose to use the RHEL web console at any point during this lab, you can log in using the following credentials:
 >- Username: rhel
