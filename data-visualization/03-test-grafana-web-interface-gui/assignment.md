@@ -5,8 +5,10 @@ type: challenge
 title: Configure a Data Source
 notes:
 - type: text
-  contents: In this step, you will test the container you configured through the RHEL
-    web console.
+  contents: In this step, you connect Grafana to a data source. The data source is
+    a MySQL database with a table containing the population of Singapore every year
+    from 1950 to 2022. Your dashboard will create a time-series visualization of this
+    data.
 tabs:
 - title: Terminal
   type: terminal
@@ -22,7 +24,7 @@ tabs:
 difficulty: basic
 timelimit: 600
 ---
-Click on the `Grafana` tab in the lab environment. You can now explore this website hosted on your machine. If you see a login page, you have configured your container correctly.
+Click on the `Grafana (Podman)` tab in the lab environment. You can now explore this website hosted on your machine. If you see a login page, you have configured your container correctly.
 
 Log in using the default credentials:
 >* Username: admin

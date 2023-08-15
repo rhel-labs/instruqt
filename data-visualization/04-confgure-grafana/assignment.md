@@ -5,7 +5,7 @@ type: challenge
 title: Confgure Grafana
 notes:
 - type: text
-  contents: Replace this text with your own text
+  contents: In this final step, you will create your data dashboard.
 tabs:
 - title: Terminal
   type: terminal
@@ -25,10 +25,7 @@ In this step, you will visualize the data from your MySQL database.
 
 Switch to the `Grafana (Podman)` tab of the lab environment.
 
-First, return to Grafana's home screen by clicking on the Grafana logo in the upper-left side of the window.
-![](../assets/grafana_home_button.png)
-
-Click the menu button in the upper-left of Grafana, and then click `Dashboards`.
+First, Click the menu button in the upper-left of Grafana, and then click `Dashboards`.
 ![](../assets/grafana_dashboards_select.png)
 
 Next, click `New` then click `New Dashboard`.
@@ -52,6 +49,7 @@ In the query section, select the following options:
 * Dataset: `Population`
 * Table: `Singapore_Population`
 * Column: `*`
+
 Here is what that configuration means:
 * The format is set to `Table` because our SQL data is formatted as a table.
 * `Population` is the name of the MySQL database you are accessing
@@ -68,12 +66,13 @@ You will now see a graph of Singapore's population from 1972-2022.
 However, our database contains data from 1950-2022, so we want Grafana to query all of the data, not just the first 50 entries. To edit your SQL query, click on `Code` in your query configuration options:
 ![](../assets/grafana_select_code.png)
 
-From the code editor, remove the part that says  "LIMIT 50," and then click on `Run query`
+From the code editor, remove the part that says  `LIMIT 50`, and then click on `Run query`
 ![](../assets/grafana_edit_sql.png)
 
 Now Grafana is querying all of our data, but there is still one problem. We need to adjust the scale of our graph so we can see the output. Click on the time range above the graph and enter the following settings for the absolute time range:
 * From: `1950-01-01 00:00:00`
 * To: `2022-01-01 00:00:00`
+
 Next, click `Change time settings` and select `Coordinated Universal Time` from the drop-down box. Then click `Apply time range` to apply your selections.
 ![](../assets/grafana_change_time.png)
 
@@ -86,3 +85,4 @@ Enter a title for your graph and then click `save` to save your graph.
 Finally, when prompted, enter a name for your dashboard and click `save`.
 
 You will now see your data dashboard!
+![](../assets/grafana_final_dashboard.png)

@@ -3,20 +3,19 @@ slug: install-podman
 id: iopfgm84wjvu
 type: challenge
 title: Install Podman
-teaser: A short description of the challenge.
 notes:
 - type: text
   contents: |
-    # Goal: Run containers in RHEL using Podman
-    # Overview
+    # Goal: Visualize data with Grafana
+    # Overview:
 
-    After completing this scenario, users will be able to configure and manage containers from a Dockerfile using both the Podman command line interface and the Cockpit Podman tool in RHEL web console.
+    After completing this scenario, users will be able to configure a Grafana container, connect to a MySQL database, and create a data dashboard.
 
     # Concepts included in this scenario:
 
     * Podman
-    * Networking
-    * Cockpit
+    * SQL
+    * Data visualization
 tabs:
 - title: Terminal
   type: terminal
@@ -29,7 +28,7 @@ tabs:
 difficulty: basic
 timelimit: 600
 ---
-In this lab, you will install Grafana, a browser-based data dashboard, in two ways. First, you will install and run it through the RHEL web console. After that, you will install and configure the Grafana container through Podman's command line interface (CLI).
+In this lab, you will install Grafana, a browser-based data visualization tool. You will install Grafana as a container and manage it through Podman.
 
 First, install RHEL Container Tools by running the following command:
 ```bash
