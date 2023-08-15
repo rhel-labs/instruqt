@@ -21,23 +21,18 @@ tabs:
 difficulty: basic
 timelimit: 600
 ---
-In this step, you will configure Grafana for data visualization.
+In this step, you will visualize the data from your MySQL database.
 
-Switch to the `Grafana (Podman)` tab of your lab environment.
+Switch to the `Grafana (Podman)` tab of the lab environment.
 
-A MySQL database has been configured for you. This SQL Database contains data on the population of Singapore from 1950 to 2022. You will make a time-series visualization of that data within Grafana, showing the change in population over 72 years.
+First, return to Grafana's home screen by clicking on the Grafana logo in the upper-left side of the window.
+![](../assets/grafana_home_button.png)
 
-First, connect Grafana to the MySQL database. To get started, click the menu button in the upper-left of Grafana, and then click `Connections`.
-![](../assets/grafana_connections_select.png)
+Click the menu button in the upper-left of Grafana, and then click `Dashboards`.
+![](../assets/grafana_dashboards_select.png)
 
-Next, click on the `Add new connection` tab, type `mysql` into the search bar, and click on the MySQL button.
-![](../assets/grafana_add_connection.png)
+Next, click `New` then click `New Dashboard`.
+![](../assets/new_dashboard.png)
 
-Click on `Create a MySQL data source`
-![](../assets/grafana_create_data_source.png)
-
-When prompted with a configuration dialog box, use these settings:
-![](../assets/grafana_sql_config.png)
-
-Then click `Save & test` to finish configuring your connection to MySQL
-![](../assets/grafana_save_test.png)
+Click on `Add Visualization`
+![](../assets/grafana_add_visualization.png)
