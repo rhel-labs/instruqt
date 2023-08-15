@@ -27,7 +27,7 @@ composer-cli blueprints list
 
 This system has no existing blueprints. So, let us go ahead and create a blueprint.
 
-The `composer-cli` will take as input a TOML formatted file (Tom's Obvious Minimal Language)
+The `composer-cli` will take input as a TOML formatted file (Tom's Obvious Minimal Language)
 that describes the blueprint used to define our machine image.
 
 To save  some time look at the __node-app-server.toml__ file that has already been pre-created using a tool
@@ -88,7 +88,6 @@ node-app-server
     2020-07-13T23:07:57Z  e4284083bad43ded8a4a9ea2947a5f45be72f8c4
     Recipe node-app-server, version 0.0.1 saved.
 </pre>
-
 
 >**Note:** in the above command output, your date and time will be different than the date and time that appears in the example output.
 

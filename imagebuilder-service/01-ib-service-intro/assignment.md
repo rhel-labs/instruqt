@@ -20,8 +20,8 @@ notes:
     those requirements into a custom image that you can then deploy to your public cloud provider.
 tabs:
 - title: Red Hat Hybrid Cloud Console
-  type: external
-  url: https://cloud.redhat.com
+  type: browser
+  hostname: console
 difficulty: basic
 timelimit: 3000
 ---
@@ -48,14 +48,14 @@ Redhat1!
 
 ![Red Hat Password screen](../assets/cloud-console-login-pass.png)
 
-Once you are logged in, using the credentials provided above, navigate to
-_Red Hat Enterprise Linux_ in the left-side navigation menu, and select _Red Hat Insights_ below it.
+Once you are logged in, navigate to the RHEL menu in Red Hat insights.
 
-![cloud.redhat.com Homepage](../assets/cloud-console-RHEL-menu.png)
+![rhel menu](../assets/rhinsightsRHEL.png)
 
-Now, in the Red Hat Insights menu on the left, click on the _Image Builder_ item.
+Click on `Inventory`, then `Images`.
 
-![Image Builder Menu](../assets/cloud-console-RHEL-ImageBuilder-menu.png)
+![inventory images](../assets/inventoryimages.png)
 
-You should be at a page very similar to this:
-![Image Builder Menu](../assets/cloud-console-RHEL-ImageBuilder.png)
+Proceed to the next challenge by clicking the `Next` button.
+
+![next button](../assets/nextbutton.png)

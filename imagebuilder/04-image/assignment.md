@@ -64,5 +64,3 @@ Then you'll be taken to the status of the image build.
 When the image build is complete, you can download the image by clicking `Download`.
 
 ![download](../assets/download.png)
-
-That completes this lab.

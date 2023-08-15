@@ -22,7 +22,7 @@ timelimit: 1
 
 Use the `composer-cli` command to start a compose based on the
 node-app-server blueprint.  For this lab, you will use the output format
-of __qcow2__. However, you could build any of the following types of images:
+of __qcow2__. However, you could build many different types of images including:
 
 | Output type      |  Details                |
 |------------------|:-----------------------:|

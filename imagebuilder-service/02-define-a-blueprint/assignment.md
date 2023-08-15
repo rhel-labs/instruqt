@@ -5,8 +5,8 @@ type: challenge
 title: Defining a Red Hat Enterprise Linux blueprint in Image Builder
 tabs:
 - title: Red Hat Hybrid Cloud Console
-  type: external
-  url: https://cloud.redhat.com
+  type: browser
+  hostname: console
 difficulty: basic
 timelimit: 1
 ---
@@ -15,8 +15,8 @@ timelimit: 1
 
 Press the `Create image` button and you will be brought to the Create image wizard.  This wizard will ask you to define several aspects of your new image.  Image builder can define a custom filesystem layout, add packages to your image, and even send it right to your cloud provier if you'd like.
 
-## Step 1
-
+## Step 1: Specify image format
+=======================
 In Step 1. Image output, Let's select only `Virtualization - Guest image (.qcow2)`.  But take note of the various options Image Builder gives you for what format you'd like your image built in.
 
 We will also be setting the Release to `Red Hat Enterprise Linux (RHEL) 9`, but notice that you can also select several other releases for production and development use cases.
@@ -25,8 +25,8 @@ We will also be setting the Release to `Red Hat Enterprise Linux (RHEL) 9`, but 
 
 With these options selected, Press `Next`.
 
-## Step 2
-
+## Step 2: Configure Insights registration
+==========================================
 Step 2 is all about how you would like to register this system.  Even in the cloud, this type of image assumes you will be bringing your own subscription.  You can register automatically with an activation key, or you can choose to register yourself later (either manually or using automation).
 
 To keep this lab simple, let's choose to `Register later`
@@ -35,8 +35,8 @@ To keep this lab simple, let's choose to `Register later`
 
 Now press the `Next` button.
 
-## Step 3
-
+## Step 3: Partitioning storage
+===============================
 In Step 3, we can manually configure the partitions of this system, or we can choose to let Image Builder set things up for us automatically. Let's choose `Manually configure partitions`, this will open up a table below where we can add new partitions.
 
 ![Image Builder Step 3 a](../assets/ib-step3a.png)
@@ -51,8 +51,8 @@ Let's use the `Add partition` button to add a 5GiB /home and 2GiB /tmp to our im
 
 Once your partition table looks like the one pictured above, press `Next`.
 
-## Step 4
-
+## Step 4: Specify software
+===========================
 Step 4 lets us select packages that we would like installed on our system.  The base image produced by Image Builder is intended to be small, and make very few assumptions about your desired package set.  So having the ability to add in packages here can save you time later.  For this lab, let's add in a few packages.  You do this by searching for the package using the `Search for a package` text box.  And then adding it to the list of `Chosen packages` using the `>` button to add a single selected package, or the ``>>`` button to add all listed packages.
 
 Try searching for `vim` you should see a list of packages that match the word `vim`,  select `vim-enhanced` from the list, and press the `>` button indicating that we would like to add just the selected package.
@@ -61,16 +61,16 @@ Try searching for `vim` you should see a list of packages that match the word `v
 
 Then press the `Next` button.
 
-## Step 5
-
+## Step 5: Name your image
+==========================
 On Step 5 you'll just need to give your image a name.  This should be unique, so try something like `rhelworkshop-(your initials)`
 
 ![Image Builder Step 5](../assets/ib-step5.png)
 
 Press `Next`.
 
-## Step 6
-
+## Step 6: Review image configuration
+=====================================
 Step 6 is just a review.  You can review the choices you've made and go back and make changes if you need to.  If everything looks right, just press the `Create image` button.
 
 ![Image Builder Review](../assets/ib-step6.png)

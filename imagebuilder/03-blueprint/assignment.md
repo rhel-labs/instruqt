@@ -43,7 +43,9 @@ Repeat these actions for the `nginx` package and then click `Next`.
 
 ![added](../assets/packages-added.png)
 
-Keep clicking the `Next` button until you reach the `Other` tab of the customizations section within the blueprint creation dialog. Then, enter a hostname `node-app-server` for the image.
+Keep clicking the `Next` button until you reach the `Other` tab of the customizations section within the blueprint creation dialog. As you can see, image builder provides the ability to add custom kernel parameters, add users, open firewall ports, and more.
+
+Then, enter a hostname `node-app-server` for the image.
 
 ![](../assets/node-app-server-hostname.png)
 

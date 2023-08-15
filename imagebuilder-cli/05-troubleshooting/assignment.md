@@ -42,3 +42,5 @@ To view the contents of the tar file -
 ```
 tar -tvf $(composer-cli compose status | cut -f1 -d" " | tail -1).tar
 ```
+
+You will be able to use these logs to isolate problems with a build, add fixes into your compose file, and reinitiate your build.

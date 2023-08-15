@@ -15,6 +15,9 @@ description: |+
   way to build the same installed system, but output the image to different
   cloud formats for use in a hybrid cloud environment.
 
+  # Note:
+  For best results, use Google Chrome or other Chromium-based browser.
+
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: beginner
 tags:
@@ -29,4 +32,4 @@ lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "10902105957406909483"
+checksum: "4414572094982613181"

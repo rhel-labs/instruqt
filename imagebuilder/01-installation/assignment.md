@@ -36,7 +36,7 @@ installed.  By installing the plugin for Web Console, all of the other
 required packages will also be installed.
 
 ```
-yum install cockpit-composer
+dnf install cockpit-composer
 ```
 
 Type `y` to confirm the installation fo the software.
