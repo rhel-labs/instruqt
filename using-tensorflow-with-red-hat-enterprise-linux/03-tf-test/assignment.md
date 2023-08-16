@@ -45,3 +45,5 @@ If you are new to Vim, check out this helpful guide to learn the basics:
 To learn more about TensorFlow and to learn how to use it in your own programs, check out the helpful tutorials here:
 
 [https://www.tensorflow.org/tutorials](https://www.tensorflow.org/tutorials)
+
+In the next step, you will run the same program, but you will do so through a Jupyter Notebook. This will allow you to interact more directly with the code and understand the output more effectively.
