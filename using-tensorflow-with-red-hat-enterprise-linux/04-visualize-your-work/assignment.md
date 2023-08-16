@@ -30,5 +30,15 @@ To run all of the code, click on the button pictured below:
 
 Next, you will be prompted with a dialog box asking whether you wish to restart the kernel. Click `Restart`.
 ![](../assets/jupyter_run_all_neural.png)
-The kernel will restart and your program will run. This may take a few seconds to finish.
+The kernel will restart and your program will run. This will take about 20 seconds to finish.
 
+Once the program has run, scroll through the Jupyter Notebook again. You should see output like this:
+![](../assets/tf_numerical_output.png)
+![](../assets/tf_model_test.png)
+
+In the last part of your program's output, it selects 5 images and attempts to recognize them through the model you have trained during this lab.
+
+To learn more about TensorFlow and learn how to use it in your own programs, check out the helpful tutorials here:
+[https://www.tensorflow.org/tutorials](https://www.tensorflow.org/tutorials)
+
+You have now successfully trained and tested a neural network in Red Hat Enterprise Linux. This concludes the lab, but feel free to explore further until the lab session expires.

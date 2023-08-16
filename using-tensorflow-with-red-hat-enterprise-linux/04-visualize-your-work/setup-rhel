@@ -24,7 +24,7 @@ tee /root/tensorflow/neural_network.ipynb << EOF
     "\n",
     "- Author: Aymeric Damien\n",
     "- Project: https://github.com/aymericdamien/TensorFlow-Examples/\n",
-    "- Note: This Jupyter Notebook has been modified for use in Red Hat Enterprise Linux Interactive Labs. Refer to the original GitHub repository above for the unmodified code."
+    "- Note: This Jupyter Notebook has been modified for use in Red Hat Enterprise Linux labs. Refer to the original GitHub repository above for the unmodified code."
    ]
   },
   {
