@@ -50,6 +50,9 @@ In the query section, select the following options:
 * Table: `Singapore_Population`
 * Column: `*`
 
+After you have entered the configuration listed above, the query editor box should look like this:
+![](../assets/grafana_query_config.png)
+
 Here is what that configuration means:
 * The format is set to `Table` because our SQL data is formatted as a table.
 * `Population` is the name of the MySQL database you are accessing
@@ -69,20 +72,21 @@ However, our database contains data from 1950-2022, so we want Grafana to query 
 From the code editor, remove the part that says  `LIMIT 50`, and then click on `Run query`
 ![](../assets/grafana_edit_sql.png)
 
-Now Grafana is querying all of our data, but there is still one problem. We need to adjust the scale of our graph so we can see the output. Click on the time range above the graph and enter the following settings for the absolute time range:
+Now Grafana is querying all of our data, but there is still one problem. We need to adjust the scale of our graph so we can see the output. Click `Change time settings` and select `Coordinated Universal Time` from the drop-down box. Next, click on the time range above the graph and enter the following settings for the absolute time range:
 * From: `1950-01-01 00:00:00`
 * To: `2022-01-01 00:00:00`
 
-Next, click `Change time settings` and select `Coordinated Universal Time` from the drop-down box. Then click `Apply time range` to apply your selections.
+Then click `Apply time range` to apply your selections.
 ![](../assets/grafana_change_time.png)
 
 Now, you will see all of your data in the graph.
 ![](../assets/grafana_final_query_output.png)
 
-Enter a title for your graph and then click `save` to save your graph.
+Enter a title for your graph and then click `Save` to save your graph.
 ![](../assets/grafana_dashboard_save.png)
 
-Finally, when prompted, enter a name for your dashboard and click `save`.
+Finally, when prompted, enter a name for your dashboard and click `Save`.
+![](../assets/grafana_dashboard_global_save.png)
 
 You will now see your data dashboard!
 ![](../assets/grafana_final_dashboard.png)
