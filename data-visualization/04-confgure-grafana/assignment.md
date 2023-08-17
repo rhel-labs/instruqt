@@ -50,6 +50,9 @@ In the query section, select the following options:
 * Table: `Singapore_Population`
 * Column: `*`
 
+After you have entered the configuration listed above, the query editor box should look like this:
+![](../assets/grafana_query_config.png)
+
 Here is what that configuration means:
 * The format is set to `Table` because our SQL data is formatted as a table.
 * `Population` is the name of the MySQL database you are accessing
@@ -83,6 +86,7 @@ Enter a title for your graph and then click `save` to save your graph.
 ![](../assets/grafana_dashboard_save.png)
 
 Finally, when prompted, enter a name for your dashboard and click `save`.
+![](../assets/grafana_dashboard_global_save.png)
 
 You will now see your data dashboard!
 ![](../assets/grafana_final_dashboard.png)
