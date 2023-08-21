@@ -1,0 +1,29 @@
+slug: jupyter
+title: Managing Jupyter Notebooks
+description: |
+  # Goal: Visualize data with Grafana
+  # Overview:
+
+  After completing this scenario, users will be able to configure a Grafana container, connect to a MySQL database, and create a data dashboard.
+
+  # Concepts included in this scenario:
+
+  * Podman
+  * SQL
+  * Data visualization
+
+  # Example use case:
+
+  You wish to create an interactive dashboard to display change in population over time.
+icon: ""
+tags:
+- devel101
+owner: rhel
+developers:
+- wkibbe@redhat.com
+timelimit: 3000
+sandbox_preset: devel-101
+lab_config:
+  overlay: false
+  width: 33
+  position: right
