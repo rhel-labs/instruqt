@@ -1,0 +1,54 @@
+---
+slug: install-conda
+id: cizuf4ykkpux
+type: challenge
+title: Install Conda
+notes:
+- type: text
+  contents: |
+    # Goal: Visualize data with Grafana
+    # Overview:
+
+    After completing this scenario, users will be able to configure a Grafana container, connect to a MySQL database, and create a data dashboard.
+
+    # Concepts included in this scenario:
+
+    * Podman
+    * SQL
+    * Data visualization
+tabs:
+- title: Terminal
+  type: terminal
+  hostname: rhel
+  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
+- title: RHEL Web Console
+  type: external
+  port: 3000
+  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
+difficulty: basic
+timelimit: 600
+---
+To install Conda, we must add its repository to the package manager. To enable this, we need to add EPEL (Extra Packages for Enterprise Linux). EPEL is a repository derived from Fedora that provides additional development tools for RHEL.
+
+```bash
+subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+```
+
+You are now ready to install Conda. To install, run the following commands:
+
+```bash
+dnf install -y conda #installs Conda
+conda init bash #configures conda to our shell
+exec $SHELL #restarts the shell to finish installation of Conda
+```
+
+
+Run the following command to verify the installation of Conda. It will print out the version of Conda that is installed to confirm that the installation of Conda is complete:
+```bash
+conda -V
+```
+Finally, run the following command to create a Conda environment for Jupyter Notebooks.
+```bash
+conda create --name jupyter python=3.9 -y
+```
