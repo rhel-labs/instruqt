@@ -35,7 +35,7 @@ You are now ready to install Conda. To install, run the following commands:
 
 ```bash
 dnf install -y conda #installs Conda
-conda init bash #configures conda to our shell
+conda init bash #configures Conda to our shell
 exec $SHELL #restarts the shell to finish installation of Conda
 ```
 

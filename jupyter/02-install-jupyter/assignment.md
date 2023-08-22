@@ -31,4 +31,4 @@ Next, install Matplotlib, Numpy, and Pandas:
 ```bash
 pip install matplotlib numpy pandas
 ```
-Jupyter Lab will host your Jupyter Notebooks, Matplotlib is for output visualization, and Pandas is for data analysis continue to the next step to run a Jupyter Notebook.
+Jupyter Lab will host your Jupyter Notebooks, Matplotlib is for output visualization, and both Pandas and Numpy are for data analysis. continue to the next step to run a Jupyter Notebook.

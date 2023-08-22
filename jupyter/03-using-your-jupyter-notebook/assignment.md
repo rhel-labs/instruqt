@@ -45,6 +45,10 @@ First, take a look at the Jupyter Notebook. You'll notice that is structured as 
 To run all of the code, click on the button pictured below:
 ![](../assets/jupyter_play_neural.png)
 
+Next, you will be prompted with a dialog box asking whether you wish to restart the kernel. Click `Restart`.
+![](../assets/jupyter_confirm.png)
+The kernel will restart and your program will run. This will take a few seconds to finish.
+
 The output should look like this:
 Part 1 output sample:
 ![](../assets/jupyter_part1_output.png)
@@ -52,4 +56,4 @@ Part 1 output sample:
 Part 2 output sample:
 ![](../assets/jupyter_part2_output.png)
 
-You have now successfully used a Jupyter Notebook in Red Hat Enterprise Linux! This concludes the lab instructions, but feel free to explore and modify the Jupyter Notebook in the virtual machine.
+You have now successfully used a Jupyter Notebook in Red Hat Enterprise Linux! This concludes the lab instructions, but feel free to explore and modify the Jupyter Notebook in this virtual machine.
