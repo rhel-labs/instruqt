@@ -1,0 +1,31 @@
+slug: jupyter
+id: djca9bpwb1ys
+title: Managing Jupyter Notebooks
+description: |
+  # Goal: Run a Jupyter Notebook
+  # Overview:
+
+  After completing this scenario, users will be able to install Jupyter Lab and the necessary components to run a Jupyter Notebook using Red Hat Enterprise Linux.
+
+  # Concepts included in this scenario:
+
+  * Data visualization
+  * Python package management
+  * Extra Packages for Enterprise Linux (EPEL)
+
+  # Example use case:
+
+  You wish to create an interactive Pyton program for data analysis.
+icon: ""
+tags:
+- devel101
+owner: rhel
+developers:
+- wkibbe@redhat.com
+timelimit: 3000
+sandbox_preset: devel-101
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "2258839182613261584"
