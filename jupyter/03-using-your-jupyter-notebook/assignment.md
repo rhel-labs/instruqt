@@ -3,10 +3,9 @@ slug: using-your-jupyter-notebook
 id: mwhdqs4vkhax
 type: challenge
 title: Using your Jupyter Notebook
-teaser: A short description of the challenge.
 notes:
 - type: text
-  contents: Replace this text with your own text
+  contents: In this step, you will run and test the Jupyter Notebook.
 tabs:
 - title: Terminal
   type: terminal

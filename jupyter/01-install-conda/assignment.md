@@ -9,13 +9,13 @@ notes:
     # Goal: Visualize data with Grafana
     # Overview:
 
-    After completing this scenario, users will be able to configure a Grafana container, connect to a MySQL database, and create a data dashboard.
+    After completing this scenario, users will be able to install Jupyter Lab and the necessary components to run a Jupyter Notebook using Red Hat Enterprise Linux.
 
     # Concepts included in this scenario:
 
-    * Podman
-    * SQL
     * Data visualization
+    * Python package management
+    * Extra Packages for Enterprise Linux (EPEL)
 tabs:
 - title: Terminal
   type: terminal

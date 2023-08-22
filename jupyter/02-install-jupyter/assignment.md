@@ -3,10 +3,10 @@ slug: install-jupyter
 id: cgzzqtsyz14z
 type: challenge
 title: Install Jupyter Lab
-teaser: A short description of the challenge.
 notes:
 - type: text
-  contents: Replace this text with your own text
+  contents: In this step, you will install packages into your Conda environment to
+    host the Jupyter Notebook.
 tabs:
 - title: Terminal
   type: terminal
