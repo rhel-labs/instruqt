@@ -6,7 +6,7 @@ title: Install Conda
 notes:
 - type: text
   contents: |
-    # Goal: Visualize data with Grafana
+    # Goal: Run a Jupyter Notebook
     # Overview:
 
     After completing this scenario, users will be able to install Jupyter Lab and the necessary components to run a Jupyter Notebook using Red Hat Enterprise Linux.

@@ -2,7 +2,7 @@ slug: jupyter
 id: djca9bpwb1ys
 title: Managing Jupyter Notebooks
 description: |
-  # Goal: Visualize data with Grafana
+  # Goal: Run a Jupyter Notebook
   # Overview:
 
   After completing this scenario, users will be able to install Jupyter Lab and the necessary components to run a Jupyter Notebook using Red Hat Enterprise Linux.
@@ -28,4 +28,4 @@ lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "15161508681870133000"
+checksum: "17700339108408169418"
