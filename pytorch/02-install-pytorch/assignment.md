@@ -1,5 +1,5 @@
 ---
-slug: install-tensorflow
+slug: install-pytorch
 type: challenge
 title: Install TensorFlow
 tabs:
@@ -10,21 +10,21 @@ tabs:
 difficulty: basic
 timelimit: 600
 ---
-First, create a Conda environment for TensorFlow:
+First, create a Conda environment for PyTorch called `torch`:
 
 ```bash
-conda create --name tf python=3.9 -y
+conda create --name torch python=3.9 -y
 ```
 
 Then, activate the Conda environment using the following command:
 
 ```bash
-conda activate tf
+conda activate torch
 ```
 Your Conda environment status is shown in the command line withinin parentheses like this:
-
-![](../assets/20230630_152220_Conda_Environment_Status.png)
-
+<pre class="file">
+(torch) <span style="color:green;">root@rhel</span>:~#
+</pre>
 Next, we need to ensure that Pip, Python's package manager, is up to date. To do this, we can run the following command:
 
 ```bash
