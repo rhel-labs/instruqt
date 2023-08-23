@@ -1,5 +1,6 @@
 ---
 slug: install-pytorch
+id: tzqhrlkxronf
 type: challenge
 title: Install TensorFlow
 tabs:
@@ -25,25 +26,17 @@ Your Conda environment status is shown in the command line withinin parentheses 
 <pre class="file">
 (torch) <span style="color:green;">root@rhel</span>:~#
 </pre>
-Next, we need to ensure that Pip, Python's package manager, is up to date. To do this, we can run the following command:
-
+Next, we need to install the correct version of pytorch. We will use the CPU-only build of Pytorch because we are not using a GPU for ML on this system.
 ```bash
-pip install --upgrade pip
+conda install -y -n torch pytorch torchvision torchaudio cpuonly -c pytorch
 ```
 
-Finally, we can install TensorFlow from pip. We will use the CPU-only build of TensorFlow because we are not using a GPU for ML on this system.
-
+To verify that PyTorch is running properly on the CPU, run the following command, which will execute a simple test program:
 ```bash
-pip install tensorflow-cpu
+python3 -c "import torch; t1 = torch.tensor([1, 2, 3, 4]); t2 = torch.tensor([5, 6, 7, 8]); print(torch.add(t2, t1))"
 ```
 
-To verify that Tensorflow is running properly on the CPU, run the following command, which will execute a simple python test program:
-
-```bash
-python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))" 2>/dev/null
-
-```
-
-The output should look like this. The numbers may differ, but it should have this format:
-
-> tf.Tensor(-838.20764, shape=(), dtype=float32)
+The output should look like this:
+<pre class="file">
+tensor([ 6, 8, 10, 12])
+</pre>

@@ -1,4 +1,5 @@
 slug: pytorch
+id: 9zz0weopezyc
 title: Getting Started with PyTorch
 description: |-
   # Overview:
@@ -22,3 +23,4 @@ lab_config:
   overlay: false
   width: 33
   position: right
+checksum: "7531965875846428266"

@@ -1,5 +1,6 @@
 ---
 slug: visualize-your-work
+id: hy0pnel0ufmu
 type: challenge
 title: Visualize your Work
 tabs:
@@ -32,8 +33,6 @@ Next, you will be prompted with a dialog box asking whether you wish to restart 
 The kernel will restart and your program will run. This will take about 20 seconds to finish.
 
 Once the program has run, scroll through the Jupyter Notebook again. You should see output like this:
-![](../assets/tf_numerical_output.png)
-![](../assets/tf_model_test.png)
 
 In the last part of your program's output, it selects 5 images and attempts to recognize them through the model you have trained during this lab.
 
