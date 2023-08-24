@@ -35,7 +35,7 @@ To run all of the code, click on the button pictured below:
 
 Next, you will be prompted with a dialog box asking whether you wish to restart the kernel. Click `Restart`.
 ![](../assets/jupyter_run_all_neural.png)
-The kernel will restart and your program will run. This will take about 20 seconds to finish.
+The kernel will restart and your program will run. This will take about five seconds to finish.
 
 Once the program has run, scroll to the bottom of the Jupyter Notebook to view the output of the program. Although the numbers will vary, you should notice a general trend. The loss is decreasing as the model goes through training. This indicates that the accuracy of the model is improving. The output should look something like this:
 <pre class="file">

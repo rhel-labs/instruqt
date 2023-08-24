@@ -2,7 +2,7 @@
 slug: install-pytorch
 id: tzqhrlkxronf
 type: challenge
-title: Install TensorFlow
+title: Install PyTorch
 notes:
 - type: text
   contents: In this step, you will create a Conda environment and install the necessary
