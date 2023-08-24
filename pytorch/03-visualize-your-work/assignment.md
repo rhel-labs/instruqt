@@ -3,6 +3,11 @@ slug: visualize-your-work
 id: hy0pnel0ufmu
 type: challenge
 title: Run a Test Program
+notes:
+- type: text
+  contents: In this step, you will run a test program inside of a Jupyter Notebook.
+    The program and the Notebook have been prepared for you, but if you wish to learn
+    how to do it yourself, check out the lab for creating Jupyter Notebooks!
 tabs:
 - title: Terminal
   type: terminal

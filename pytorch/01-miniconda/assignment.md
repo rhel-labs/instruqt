@@ -3,6 +3,20 @@ slug: miniconda
 id: kb03g3iahznd
 type: challenge
 title: Install Miniconda
+notes:
+- type: text
+  contents: |
+    # Overview:
+    In this lab, you will learn how to install TensorFlow and run a neural network-based machine learning program using Python.
+
+    # Goal:
+    After completing this scenario, users will be able to install and configure PyTorch using Red Hat Enterprise Linux.
+
+    # Concepts included in this scenario:
+    * Adding repositories to the package manager
+    * Setting up a programming environment using Conda
+    * Running programs written in Python
+    * Machine learning
 tabs:
 - title: Terminal
   type: terminal
