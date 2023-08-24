@@ -9,7 +9,6 @@ tabs:
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
-timelimit: 600
 ---
 First, create a Conda environment for PyTorch called `torch`:
 
@@ -31,7 +30,7 @@ Next, we need to install the correct version of pytorch. We will use the CPU-onl
 conda install -y -n torch pytorch torchvision torchaudio cpuonly -c pytorch
 ```
 
-To verify that PyTorch is running properly on the CPU, run the following command, which will execute a simple test program:
+To verify that PyTorch is running properly on the CPU, run the following command to execute a simple test program:
 ```bash
 python3 -c "import torch; t1 = torch.tensor([1, 2, 3, 4]); t2 = torch.tensor([5, 6, 7, 8]); print(torch.add(t2, t1))"
 ```
