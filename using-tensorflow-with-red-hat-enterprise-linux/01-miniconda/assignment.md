@@ -21,7 +21,7 @@ You are now ready to install Miniconda. To install, run the following commands:
 
 ```bash
 dnf install conda -y #installs Miniconda
-conda init bash #configures conda to our shell
+conda init bash #configures Conda to our shell
 exec $SHELL #restarts the shell to finish installation of Miniconda
 ```
 
