@@ -18,9 +18,8 @@ tags: []
 owner: rhel
 developers:
 - wkibbe@redhat.com
-sandbox_preset: devel-101
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "7089383468729163395"
+checksum: "17902937033213338122"
