@@ -5,15 +5,15 @@ subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
 dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm -y
 
 dnf install conda -y #installs Miniconda
-tmux run-shell -I "rhel-session" conda init bash #configures conda to our shell
-tmux run-shell -I "rhel-session" exec $SHELL #restarts the shell to finish installation of Miniconda
+conda init bash #configures conda to our shell
+exec $SHELL #restarts the shell to finish installation of Miniconda
 
-tmux run-shell -I "rhel-session" conda -V # print version of Conda
+conda -V # print version of Conda
 
-tmux run-shell -I "rhel-session" conda create --name tf python=3.9 -y
+conda create --name tf python=3.9 -y
 
-tmux run-shell -I "rhel-session" conda run -n tf pip install tensorflow-cpu notebook matplotlib
-tmux run-shell -I "rhel-session" conda run -n tf python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))" 2>/dev/null
+conda run -n tf pip install tensorflow-cpu notebook matplotlib
+conda run -n tf python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))" 2>/dev/null
 
 #make a directory for our tensorflow notebooks
 mkdir /root/tensorflow
@@ -429,4 +429,4 @@ conda run -n tf python /root/tensorflow/notebooksetup.py
 rm /root/tensorflow/notebooksetup.py
 
 #launch our jupyter notebook in the background through nohup (this allows the setup script to finish; otherwise it would get stuck running forever)
-tmux run-shell -I "rhel-session" nohup conda run -n tf jupyter notebook --ip=* --no-browser --allow-root -NotebookApp.password='redhat' -NotebookApp.token='redhat' --notebook-dir="/root/tensorflow" </dev/null >/dev/null 2>&1 &
+nohup conda run -n tf jupyter notebook --ip=* --no-browser --allow-root -NotebookApp.password='redhat' -NotebookApp.token='redhat' --notebook-dir="/root/tensorflow" </dev/null >/dev/null 2>&1 &
