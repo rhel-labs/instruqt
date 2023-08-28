@@ -22,7 +22,10 @@ owner: rhel
 developers:
 - myee@redhat.com
 - sboulden@redhat.com
-private: false
-published: true
+- wkibbe@redhat.com
 show_timer: true
-checksum: "7711708487321579505"
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "13898055648484153194"
