@@ -38,4 +38,7 @@ Once the program has run, scroll through the Jupyter Notebook again. You should 
 
 In the last part of your program's output, it selects 5 images and attempts to recognize them through the model you have trained during this lab.
 
-You have now successfully trained and tested a neural network. In the next step, you will save the model.
+To learn more about TensorFlow and learn how to use it in your own programs, check out the helpful tutorials here:
+[https://www.tensorflow.org/tutorials](https://www.tensorflow.org/tutorials)
+
+You have now successfully trained and tested a neural network in Red Hat Enterprise Linux. This concludes the lab, but feel free to explore further until the lab session expires.
