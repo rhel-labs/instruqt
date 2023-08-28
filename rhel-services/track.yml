@@ -13,11 +13,12 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
+- wkibbe@redhat.com
 show_timer: true
 skipping_enabled: true
-timelimit: 7200
+timelimit: 6500
 lab_config:
   overlay: false
   width: 50
   position: right
-checksum: "15234939498200795737"
+checksum: "15230220191965940741"

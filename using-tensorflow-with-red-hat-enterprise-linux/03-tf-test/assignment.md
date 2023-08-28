@@ -1,45 +1,44 @@
 ---
 slug: tf-test
-id: 9hsixudmd0tf
+id: emfyf59imym2
 type: challenge
-title: Run a Test Program
+title: Visualize your Work
 tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
+- title: Juypter Notebook
+  type: service
+  hostname: rhel
+  port: 8888
+  new_window: true
 difficulty: basic
-timelimit: 1400
 ---
+Click on the `Jupyter Notebook` tab near the top of the lab window. This will open your Jupyter Notebook in a new tab.
 
-If the TensorFlow environment is activated, the beginning of your command line will look like this:
+When presented with a login screen, enter `redhat` into the password box and click `Log in`.
+![](../assets/jupyter-login.png)
 
-![](../assets/20230630_153341_Conda_Environment_Status_copy.png)
+When you reach the notebook's main menu, click on the check box to the left of `neural_network.ipynb`, and then click open.
+![](../assets/neural_network_open.png)
 
-If your TensorFlow Conda environment is not enabled, reenable it through the following command:
+First, take a look at the Jupyter Notebook. You'll notice that is structured as code surrounded by formatted text, offering context as to what the code is doing. In its current state, there is no visible output from your code. To view the output of your code, you will need to run the program.
 
-```bash
-conda activate tf
-```
+To run all of the code, click on the button pictured below:
+![](../assets/jupyter_play_neural.png)
 
-Run the following command to run a test ML program in Python that has been created for you.
+Next, you will be prompted with a dialog box asking whether you wish to restart the kernel. Click `Restart`.
+![](../assets/jupyter_run_all_neural.png)
+The kernel will restart and your program will run. This will take about 20 seconds to finish.
 
-```bash
-python3 /home/TF_Source/helloTF.py 2>/dev/null
-```
+Once the program has run, scroll through the Jupyter Notebook again. You should see output like this:
+![](../assets/tf_numerical_output.png)
+![](../assets/tf_model_test.png)
 
-If you'd like to learn more about the program you just ran, you can check out the details here:
+In the last part of your program's output, it selects 5 images and attempts to recognize them through the model you have trained during this lab.
 
-[https://github.com/aymericdamien/TensorFlow-Examples/blob/master/tensorflow_v2/notebooks/3_NeuralNetworks/neural_network.ipynb](https://github.com/aymericdamien/TensorFlow-Examples/blob/master/tensorflow_v2/notebooks/3_NeuralNetworks/neural_network.ipynb)
+To learn more about TensorFlow and learn how to use it in your own programs, check out the helpful tutorials here:
+[https://www.tensorflow.org/tutorials](https://www.tensorflow.org/tutorials)
 
-Additionally, if you'd like to view or modify the code, you can do so by opening Vim, a shell-based code editor, by running the following command:
-
-```bash
-vim /home/TF_Source/helloTF.py
-```
-
-If you are new to Vim, check out this helpful guide to learn the basics:
-
-[https://www.linuxfoundation.org/blog/blog/classic-sysadmin-vim-101-a-beginners-guide-to-vim](https://www.linuxfoundation.org/blog/blog/classic-sysadmin-vim-101-a-beginners-guide-to-vim)
-
-In the next step, you will run the same program, but you will do so through a Jupyter Notebook. This will allow you to interact more directly with the code and understand the output more effectively.
+You have now successfully trained and tested a neural network in Red Hat Enterprise Linux. This concludes the lab, but feel free to explore further until the lab session expires.

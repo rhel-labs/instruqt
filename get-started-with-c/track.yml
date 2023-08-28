@@ -23,9 +23,10 @@ tags:
 owner: rhel
 developers:
 - wkibbe@redhat.com
+timelimit: 3060
 sandbox_preset: devel-101
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "10982447937409447939"
+checksum: "17877388892399906302"

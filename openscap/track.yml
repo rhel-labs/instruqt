@@ -20,7 +20,10 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
-private: false
-published: true
+- wkibbe@redhat.com
 show_timer: true
-checksum: "10278306797444402276"
+lab_config:
+  overlay: false
+  width: 25
+  position: right
+checksum: "9522858934953571729"

@@ -17,13 +17,15 @@ description: |
   applications and is no longer allowing weaker algorithms with lower bit
   lengths. They also require encryption of sensitive data at rest.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
-level: beginner
 tags:
 - rhel
 owner: rhel
 developers:
 - myee@redhat.com
-private: false
-published: true
 show_timer: true
-checksum: "3847750356910247342"
+timelimit: 3060
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "17478681086397484508"
