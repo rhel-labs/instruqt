@@ -5,7 +5,6 @@ conda run -n tf pip install notebook
 
 #install matplotlib for the visualizations
 conda run -n tf pip install matplotlib
-
 #make a directory for our tensorflow notebooks
 mkdir /root/tensorflow
 

@@ -14,13 +14,15 @@ description: |
 
   >**BACKGROUND:** Columnstore indexes were first introduced in SQL Server 2012. Columnstore feature is available on SQL Server on Linux, and it  offers a new way to store the data in a columnar fashion. This improves the performance of certain analytical queries by at least ten times and are extremely useful in data warehousing scenarios.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
-level: beginner
 tags:
 - rhel
 owner: rhel
 developers:
 - myee@redhat.com
-private: false
-published: true
 show_timer: true
-checksum: "18309101898413529828"
+timelimit: 3060
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "4171376056132262550"

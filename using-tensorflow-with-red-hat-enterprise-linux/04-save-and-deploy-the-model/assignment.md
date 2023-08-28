@@ -1,5 +1,6 @@
 ---
 slug: save-and-deploy-the-model
+id: knncoz7nrhfy
 type: challenge
 title: Save and Deploy the Model
 teaser: A short description of the challenge.

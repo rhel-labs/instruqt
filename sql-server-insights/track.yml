@@ -14,13 +14,15 @@ description: |
   # Example Usecase:
   A system administrator running SQL Server on RHEL, is not yet familiar with all the best practices to run SQL Server on RHEL. The system administrator depends on insights to provide the proactive insights to configure their SQL Server instance on RHEL.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
-level: beginner
 tags:
 - rhel
 owner: rhel
 developers:
 - myee@redhat.com
-private: false
-published: true
 show_timer: true
-checksum: "13918138423739639141"
+timelimit: 3060
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "491563473805534487"

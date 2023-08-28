@@ -19,12 +19,14 @@ description: |
   the actions carried out at the OS level, while SQL Server's auditing feature can be
   used to record database actions.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
-level: beginner
 tags:
 - rhel
 owner: rhel
 developers:
 - myee@redhat.com
-private: false
-published: true
-checksum: "3868883771703770931"
+timelimit: 3060
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "3101650813000014589"
