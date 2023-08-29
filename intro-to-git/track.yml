@@ -1,0 +1,27 @@
+slug: intro-to-git
+id: xqzgvz0ybxn6
+title: Intro to Git
+description: |-
+  # Goal: Install and configure Git
+   # Overview
+
+   After completing this scenario, users will be able to configure and use Git for version control in Red Hat Enterprise Linux.
+
+   ## Concepts included in this scenario:
+
+   * Git
+   * Beginner shell commands
+
+   ## Example use case:
+
+   You wish to collaborate with others on code
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags: []
+owner: rhel
+developers:
+- wkibbe@redhat.com
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "390538300290957465"
