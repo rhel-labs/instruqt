@@ -1,3 +1,0 @@
-#!/bin/bash
-
-dnf remove -y epel-release-9-5.el9.noarch #get rid of epel
