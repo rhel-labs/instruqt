@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# make sure the user did everything right
+conda run -n tf pip install notebook matplotlib tensorflow-cpu
+nohup conda run -n tf jupyter notebook --ip=* --no-browser --allow-root -NotebookApp.password='redhat' -NotebookApp.token='redhat' --notebook-dir="/root/tensorflow" </dev/null >/dev/null 2>&1 &
+

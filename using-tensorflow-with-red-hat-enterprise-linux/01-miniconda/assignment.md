@@ -25,7 +25,8 @@ conda init bash #configures Conda to our shell
 exec $SHELL #restarts the shell to finish installation of Miniconda
 ```
 
-Finally, run the following command to verify the installation of Conda. It will print out the version of Conda that is installed to confirm that the installation of Conda is complete:
+Finally, run the following command to verify the installation of Conda:
 ```bash
 conda -V
 ```
+It will print out the version of Conda that is installed to confirm that the installation of Conda is complete.
