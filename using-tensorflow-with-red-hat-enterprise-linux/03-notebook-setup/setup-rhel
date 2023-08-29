@@ -1,10 +1,5 @@
 #!/bin/bash
 
-#install jupyter notebooks in the tensorflow environment
-conda run -n tf pip install notebook
-
-#install matplotlib for the visualizations
-conda run -n tf pip install matplotlib
 #make a directory for our tensorflow notebooks
 mkdir /root/tensorflow
 
@@ -276,6 +271,3 @@ tee /root/tensorflow/neural_network.ipynb << EOF
 }
 
 EOF
-
-#launch our jupyter notebook in the background through nohup (this allows the setup script to finish; otherwise it would get stuck running forever)
-nohup conda run -n tf jupyter notebook --ip=* --no-browser --allow-root -NotebookApp.password='redhat' -NotebookApp.token='redhat' --notebook-dir="/root/tensorflow" </dev/null >/dev/null 2>&1 &

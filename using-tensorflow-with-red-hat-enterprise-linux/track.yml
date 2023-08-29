@@ -10,18 +10,17 @@ description: |-
 
   # Concepts included in this scenario:
   * Adding repositories to the package manager
-  * Editing text using Vim
   * Setting up a programming environment using Conda
   * Running programs written in Python
+  * Artificial intelligence and machine learning
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags: []
 owner: rhel
 developers:
 - wkibbe@redhat.com
 timelimit: 3060
-sandbox_preset: devel-101
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "8784926901344972935"
+checksum: "16608205634971849285"

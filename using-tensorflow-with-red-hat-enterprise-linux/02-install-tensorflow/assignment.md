@@ -22,7 +22,7 @@ Then, activate the Conda environment using the following command:
 ```bash
 conda activate tf
 ```
-Your Conda environment status is shown in the command line withinin parentheses like this:
+Your Conda environment status is shown in the command line within parentheses like this:
 
 ![](../assets/20230630_152220_Conda_Environment_Status.png)
 
@@ -38,7 +38,7 @@ Finally, we can install TensorFlow from pip. We will use the CPU-only build of T
 pip install tensorflow-cpu
 ```
 
-To verify that Tensorflow is running properly on the CPU, run the following command, which will execute a simple python test program:
+To verify that Tensorflow is running properly on the CPU, run the following command, which will execute a simple Python test program:
 
 ```bash
 python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))" 2>/dev/null
@@ -46,5 +46,6 @@ python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000,
 ```
 
 The output should look like this. The numbers may differ, but it should have this format:
-
-> tf.Tensor(-838.20764, shape=(), dtype=float32)
+<pre class="file">
+tf.Tensor(-838.20764, shape=(), dtype=float32)
+</pre>
