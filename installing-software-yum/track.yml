@@ -1,7 +1,7 @@
 slug: installing-software-yum
 id: mvnt2th9ojsc
-title: Install software using package managers (Admin 101)
-teaser: Learn how to use YUM and RPM to streamline installations and verify local
+title: Install Software Using Package Managers (Admin 101)
+teaser: Learn how to use DNF and RPM to streamline installations and verify local
   software.
 description: |-
   # Overview:
@@ -16,16 +16,15 @@ description: |-
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: beginner
 tags:
-- admin101
 - rhel
+- admin101
 owner: rhel
 developers:
 - wkibbe@redhat.com
 - myee@redhat.com
 show_timer: true
-skipping_enabled: true
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "10001841951472872013"
+checksum: "12801484742585316401"

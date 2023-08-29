@@ -21,6 +21,7 @@ tmux set -g pane-border-status top
 tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
 tmux set -g mouse on
 tmux set mouse on
+tmux unbind -n MouseDown3Pane
 EOF
 
 #step 2: make it executable
