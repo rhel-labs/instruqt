@@ -1,0 +1,28 @@
+slug: python-venv
+id: zxfafmxu6jys
+title: Python Virtual Environments in RHEL
+description: |
+  # Goal: Create a virtual environment for Python
+  # Overview
+
+  After completing this scenario, users will be able to configure a Python environment with Red Hat Enterprise Linux.
+
+  ## Concepts included in this scenario:
+
+  * Python environment management
+  * Python package management
+
+  ## Example use case:
+
+  You wish to use external libraries or manage multiple different environments for Python programming
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags: []
+owner: rhel
+developers:
+- wkibbe@redhat.com
+timelimit: 3060
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "10882968183646448413"
