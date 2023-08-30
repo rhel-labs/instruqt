@@ -10,7 +10,7 @@ notes:
 
     Depends on you!
 
-    This is an evironment without pre-planned lab content intended
+    This is an environment without pre-planned lab content intended
     to be a place where you can explore a Red Hat Enterprise Linux system on
     a topic of your choosing.
 
@@ -24,8 +24,9 @@ tabs:
   type: terminal
   hostname: rhel
 - title: RHEL Web Console
-  type: external
+  type: website
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
+  new_window: true
 difficulty: basic
 timelimit: 3000
 ---
@@ -33,8 +34,7 @@ Welcome to this open lab experience for Red Hat Enterprise Linux.
 
 The system displayed beside this text is a Red Hat Enterprise Linux 9
 system registered with Subscription Manager.
-
-An unpriveleged user also exists on the system.
+An unprivileged user also exists on the system.
 
 Username: __rhel__
 Password: __redhat__
