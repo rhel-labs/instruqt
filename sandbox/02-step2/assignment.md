@@ -24,8 +24,9 @@ tabs:
   type: terminal
   hostname: rhel
 - title: RHEL Web Console
-  type: external
+  type: website
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
+  new_window: true
 difficulty: basic
 timelimit: 1
 ---

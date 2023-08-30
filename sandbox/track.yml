@@ -6,7 +6,7 @@ description: |
 
   Depends on you!
 
-  This is an evironment without pre-planned lab content intended
+  This is an environment without pre-planned lab content intended
   to be a place where you can explore a Red Hat Enterprise Linux 9 system on
   a topic of your choosing.
 
@@ -19,9 +19,10 @@ owner: rhel
 developers:
 - smcbrien@redhat.com
 - myee@redhat.com
+- wkibbe@redhat.com
 show_timer: true
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "18307559697210452096"
+checksum: "10940746575524908978"
