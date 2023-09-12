@@ -24,7 +24,7 @@ To start scanning using OpenSCAP, use the *oscap xccdf eval* command with the pr
 the datastream file.
 
 ```
-oscap xccdf eval --fetch-remote-resources --profile xccdf_org.ssgproject.content_profile_pci-dss --results /tmp/scan-xccdf-results.xml /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml
+oscap xccdf eval --fetch-remote-resources --profile xccdf_org.ssgproject.content_profile_pci-dss --results /tmp/scan-xccdf-results.xml /usr/share/xml/scap/ssg/content/ssg-rhel9-ds.xml
 ```
 
 >__NOTE:__ This scan can take a few minutes to complete as it has to evaluate all the rules, and generate a XML file that has the results.
@@ -32,46 +32,55 @@ oscap xccdf eval --fetch-remote-resources --profile xccdf_org.ssgproject.content
 Once the scan completes, you can look at the pass/fail status of each rule in the output -
 
 <pre class="file">
-Downloading: https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml ... ok
-Title   Enable auditd Service
-Rule    xccdf_org.ssgproject.content_rule_service_auditd_enabled
-Ident   CCE-80872-5
+Downloading: https://access.redhat.com/security/data/oval/v2/RHEL9/rhel-9.oval.xml.bz2 ... ok
+--- Starting Evaluation ---
+
+
+...
+
+Title   Ensure Software Patches Installed
+Rule    xccdf_org.ssgproject.content_rule_security_patches_up_to_date
+Ident   CCE-84185-8
+OVAL Definition ID      oval:com.redhat.rhsa:def:20226913
+OVAL Definition Title   RHSA-2022:6913: .NET 6.0 security and bugfix update (Moderate)
 Result  pass
 
-Title   Enable Auditing for Processes Which Start Prior to the Audit Daemon
-Rule    xccdf_org.ssgproject.content_rule_grub2_audit_argument
-Ident   CCE-80825-3
+Title   Ensure Software Patches Installed
+Rule    xccdf_org.ssgproject.content_rule_security_patches_up_to_date
+Ident   CCE-84185-8
+OVAL Definition ID      oval:com.redhat.rhsa:def:20226854
+OVAL Definition Title   RHSA-2022:6854: gnutls and nettle security, bug fix, and enhancement update (Moderate)
 Result  pass
 
-Title   Configure auditd mail_acct Action on Low Disk Space
-Rule    xccdf_org.ssgproject.content_rule_auditd_data_retention_action_mail_acct
-Ident   CCE-80678-6
+Title   Ensure Software Patches Installed
+Rule    xccdf_org.ssgproject.content_rule_security_patches_up_to_date
+Ident   CCE-84185-8
+OVAL Definition ID      oval:com.redhat.rhsa:def:20226839
+OVAL Definition Title   RHSA-2022:6839: squid security update (Important)
 Result  pass
 
-Title   Configure auditd admin_space_left Action on Low Disk Space
-Rule    xccdf_org.ssgproject.content_rule_auditd_data_retention_admin_space_left_action
-Ident   CCE-80679-4
+Title   Ensure Software Patches Installed
+Rule    xccdf_org.ssgproject.content_rule_security_patches_up_to_date
+Ident   CCE-84185-8
+OVAL Definition ID      oval:com.redhat.rhsa:def:20226838
+OVAL Definition Title   RHSA-2022:6838: expat security update (Important)
 Result  pass
 
-Title   Configure auditd Number of Logs Retained
-Rule    xccdf_org.ssgproject.content_rule_auditd_data_retention_num_logs
-Ident   CCE-80683-6
+Title   Ensure Software Patches Installed
+Rule    xccdf_org.ssgproject.content_rule_security_patches_up_to_date
+Ident   CCE-84185-8
+OVAL Definition ID      oval:com.redhat.rhsa:def:20226763
+OVAL Definition Title   RHSA-2022:6763: bind security update (Important)
 Result  pass
 
-Title   Configure auditd max_log_file_action Upon Reaching Maximum Log Size
-Rule    xccdf_org.ssgproject.content_rule_auditd_data_retention_max_log_file_action
-Ident   CCE-80682-8
+Title   Ensure Software Patches Installed
+Rule    xccdf_org.ssgproject.content_rule_security_patches_up_to_date
+Ident   CCE-84185-8
+OVAL Definition ID      oval:com.redhat.rhsa:def:20226717
+OVAL Definition Title   RHSA-2022:6717: thunderbird security update (Important)
 Result  pass
 
-Title   Configure auditd space_left Action on Low Disk Space
-Rule    xccdf_org.ssgproject.content_rule_auditd_data_retention_space_left_action
-Ident   CCE-80684-4
-Result  pass
-
-Title   Configure auditd Max Log File Size
-Rule    xccdf_org.ssgproject.content_rule_auditd_data_retention_max_log_file
-Ident   CCE-80681-0
-Result  pass
+...
 
 << OUTPUT ABRIDGED >>
 </pre>
@@ -83,7 +92,7 @@ The XML results file can be transformed into HTML or plain-text format for easie
 oscap xccdf generate report /tmp/scan-xccdf-results.xml > /var/www/html/index.html
 ```
 
-Now that the HTML report is generated, you can check the *OpenSCAP Report* tab of this lab interface to view the results.
+Now that the HTML report is generated, you can check the *OpenSCAP Report* tab of this lab interface to view the results (You may need to refresh the OpenSCAP Report tab using the refresh button at the upper-right of the instruqt tab).
 
 ![OpenSCAP-Report](../assets/Openscan-Report-Fail.png)
 
