@@ -17,10 +17,10 @@ timelimit: 1
 ---
 # Displaying available profiles
 
-You can display all available profiles in the datastream file using the *openscap info* command. For this lab, you will be using the RHEL8 datastream file.
+You can display all available profiles in the datastream file using the *openscap info* command. For this lab, you will be using the RHEL9 datastream file.
 
 ```
-oscap info /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml
+oscap info /usr/share/xml/scap/ssg/content/ssg-rhel9-ds.xml
 ```
 
 The output has several profiles including PCI-DSS, [DRAFT] DISA STIG, and ACSC Essential Eight.
@@ -51,7 +51,7 @@ The output has several profiles including PCI-DSS, [DRAFT] DISA STIG, and ACSC E
 A profile contains generic security recommendations that apply to all Red Hat Enterprise Linux installations and additional security recommendations that are specific to the intended usage of a system. To obtain information about a specific profile, specify the profile Id using the *--profile* option.
 
 ```
-oscap info --profile xccdf_org.ssgproject.content_profile_pci-dss /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml
+oscap info --profile xccdf_org.ssgproject.content_profile_pci-dss /usr/share/xml/scap/ssg/content/ssg-rhel9-ds.xml
 ```
 
 <pre class="file">

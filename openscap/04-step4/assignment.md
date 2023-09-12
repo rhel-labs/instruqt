@@ -26,7 +26,7 @@ the Rule ID from the previous step (*xccdf_org.ssgproject.content_rule_package_l
 Rule ID is provided, oscap attempts to remediate all the failed rules.
 
 ```
-oscap xccdf eval --profile xccdf_org.ssgproject.content_profile_pci-dss --remediate --fetch-remote-resources --results scan-xccdf-results.xml --rule xccdf_org.ssgproject.content_rule_package_libreswan_installed /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml
+oscap xccdf eval --profile xccdf_org.ssgproject.content_profile_pci-dss --remediate --fetch-remote-resources --results scan-xccdf-results.xml --rule xccdf_org.ssgproject.content_rule_package_libreswan_installed /usr/share/xml/scap/ssg/content/ssg-rhel9-ds.xml
 ```
 
 <pre class="file">
@@ -45,7 +45,7 @@ Result  fixed
 To verify that the issue is remediated, re-run the previous command. Oscap only attempts to fix what is broken, so it will not remediate an already fixed rule.
 
 ```
-oscap xccdf eval --profile xccdf_org.ssgproject.content_profile_pci-dss --remediate --fetch-remote-resources --results scan-xccdf-results.xml --rule xccdf_org.ssgproject.content_rule_package_libreswan_installed /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml
+oscap xccdf eval --profile xccdf_org.ssgproject.content_profile_pci-dss --remediate --fetch-remote-resources --results scan-xccdf-results.xml --rule xccdf_org.ssgproject.content_rule_package_libreswan_installed /usr/share/xml/scap/ssg/content/ssg-rhel9-ds.xml
 ```
 
 <pre class="file">

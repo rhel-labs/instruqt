@@ -24,7 +24,7 @@ To start scanning using OpenSCAP, use the *oscap xccdf eval* command with the pr
 the datastream file.
 
 ```
-oscap xccdf eval --fetch-remote-resources --profile xccdf_org.ssgproject.content_profile_pci-dss --results /tmp/scan-xccdf-results.xml /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml
+oscap xccdf eval --fetch-remote-resources --profile xccdf_org.ssgproject.content_profile_pci-dss --results /tmp/scan-xccdf-results.xml /usr/share/xml/scap/ssg/content/ssg-rhel9-ds.xml
 ```
 
 >__NOTE:__ This scan can take a few minutes to complete as it has to evaluate all the rules, and generate a XML file that has the results.
