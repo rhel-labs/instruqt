@@ -30,15 +30,19 @@ oscap xccdf eval --profile xccdf_org.ssgproject.content_profile_pci-dss --remedi
 ```
 
 <pre class="file">
+--- Starting Evaluation ---
+
 Title   Install libreswan Package
 Rule    xccdf_org.ssgproject.content_rule_package_libreswan_installed
-Ident   CCE-80845-1
+Ident   CCE-84068-6
 Result  fail
 
- --- Starting Remediation ---
+
+--- Starting Remediation ---
+
 Title   Install libreswan Package
 Rule    xccdf_org.ssgproject.content_rule_package_libreswan_installed
-Ident   CCE-80845-1
+Ident   CCE-84068-6
 Result  fixed
 </pre>
 
@@ -49,12 +53,15 @@ oscap xccdf eval --profile xccdf_org.ssgproject.content_profile_pci-dss --remedi
 ```
 
 <pre class="file">
+--- Starting Evaluation ---
+
 Title   Install libreswan Package
 Rule    xccdf_org.ssgproject.content_rule_package_libreswan_installed
-Ident   CCE-80845-1
+Ident   CCE-84068-6
 Result  pass
 
- --- Starting Remediation ---
+
+--- Starting Remediation ---
 </pre>
 
 The remediation starts but there is no work left to be done.
