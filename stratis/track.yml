@@ -1,6 +1,6 @@
 slug: stratis
 id: sxgqw12euntx
-title: Configure Stratis
+title: Configure Stratis with the cli
 description: |-
   This lab is intended to provide an introduction to using Stratis,
 
@@ -21,7 +21,8 @@ description: |-
   - Tiering
   - Encryption
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
-tags: []
+tags:
+- rhel
 owner: rhel
 developers:
 - myee@redhat.com
@@ -32,4 +33,4 @@ lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "4585064695504719008"
+checksum: "11521026038925633012"
