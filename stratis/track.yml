@@ -26,9 +26,10 @@ owner: rhel
 developers:
 - myee@redhat.com
 maintenance: true
-timelimit: 3060
+skipping_enabled: true
+timelimit: 432000
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "6926508458377094155"
+checksum: "6335629785348403576"

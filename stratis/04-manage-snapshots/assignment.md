@@ -2,11 +2,11 @@
 slug: manage-snapshots
 id: k4exme7lkohv
 type: challenge
-title: Manage storage
-teaser: Manage storage on your RHEL hot with Stratis.
+title: Manage snapshots
+teaser: Manage snapshots on your RHEL hot with Stratis.
 notes:
 - type: text
-  contents: 'Step 2: Manage storage with Stratis.'
+  contents: Manage snapshots with Stratis.
 tabs:
 - title: Shell
   type: terminal
@@ -17,31 +17,94 @@ tabs:
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 ---
-This lab simulates block devices so we won't be using actual drives. This limitation has no material effect on how Stratis would manage real block devices on a server or VM.
+Create a snapshot
+=================
 
-Use the command `lsblk`.
+A snapshot of a filesystem is a read/writeable thinly provisioned point in time copy of the source filesystem. To create a snapshot, you will need the name of the pool in which the filesystem is located, the name of the filesystem, and the name of the snapshot of the filesystem.
 
-```
-lsblk
-```
-
-Stratis consists of two components.
-
-First, the Stratis daemon, stratisd:
-- manages collections of block devices
-- provides a D-Bus API
-
-Second, the Stratis command-line interface, stratis-cli:
-- uses the D-Bus API to communicate with stratisd
-
-To start off, install the stratisd and stratis-cli packages using a software package manager.
+Create a snapshot of the filesystem. Name the snapshot `my_snapshot`.
 
 ```
-yum -y install stratisd stratis-cli
+stratis filesystem snapshot my_pool my_fs my_snapshot
 ```
 
-You can check the stratis-cli version.
+Check that the snapshot was created successfully by listing the stratis filesystems.
 
 ```
-stratis --version
+stratis fs
 ```
+![snapshot](../assets/snapshotlist.png)
+
+You should see my_snapshot listed in the output.
+
+Access the snapshot to recover files
+====================================
+
+Here is an example of how a snapshot can be used to recover deleted files from a filesystem.
+
+Delete the first file that you created in the previous step.
+
+```
+rm -f /mnt/test_mnt/my_first_file
+```
+
+Check that `my_first_file`` has been deleted.
+
+```
+ls /mnt/test_mnt
+```
+![rm first file](../assets/removefirstfile.png)
+
+You can see that `my_first_file` has been removed from the directory, and only `my_second_file` remains.
+
+You can now mount the snapshot and get access to both files, since the snapshot was created before the file was deleted. First, create a new mountpoint to attach the snapshot into the filesystem, `/mnt/test_mnt_snap`.
+
+```
+mkdir /mnt/test_mnt_snap
+```
+
+Next, mount the snapshot, `my_snapshot`.
+
+```
+mount /dev/stratis/my_pool/my_snapshot /mnt/test_mnt_snap
+```
+
+Confirm that the snapshot was mounted successfully.
+
+```
+mount
+```
+![mounted snapshot](../assets/mountedsnapshot.png)
+
+From the output above, the snapshot is mounted on `/mnt/test_mnt_snap`.
+
+List the files stored within the snapshot on `/mnt/test_mnt_snap`.
+
+```
+ls /mnt/test_mnt_snap
+```
+
+![list snapshot contents](../assets/listsnapshotcontents.png)
+
+Both files are listed!
+
+ Copy the file back to the original filesystem
+ =============================================
+
+ Now that you have access to the previously deleted file, `my_first_file`, you may want to copy it back into the original filesystem, `my_fs`.
+
+To do this, copy the file, `my_first_file` back into the original filesytem.
+
+```
+cp /mnt/test_mnt_snap/my_first_file /mnt/test_mnt
+``````
+
+Lastly, confirm that `my_first_file` has been copied to `/mnt/test_mnt`.
+
+```
+ls /mnt/test_mnt
+```
+
+![copied back](../assets/copiedback.png)
+
+The filesystem, `my_fs`, now contains the previously deleted file, `my_first_file`.

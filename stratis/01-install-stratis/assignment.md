@@ -6,7 +6,7 @@ title: Install Stratis
 teaser: Install Stratis software on your RHEL host.
 notes:
 - type: text
-  contents: 'Step 1: Install Stratis on your RHEL host.'
+  contents: Install Stratis on your RHEL host.
 tabs:
 - title: Shell
   type: terminal
@@ -31,7 +31,7 @@ Second, the Stratis command-line interface, stratis-cli:
 To start off, install the stratisd and stratis-cli packages using a software package manager.
 
 ```
-yum -y install stratisd stratis-cli
+dnf -y install stratisd stratis-cli
 ```
 
 You can check the stratis-cli version.
@@ -51,13 +51,6 @@ At any point, you may also check the status of stratisd.
 ```
 systemctl status stratisd --no-pager
 ```
-
-```
- stratisd.service - A daemon that manages a pool of block devices to create flexible file systems
- Loaded: loaded (/usr/lib/systemd/system/stratisd.service; enabled; vendor preset: enabled)
- Active: active (running) since Thu 2020-05-07 15:11:21 EDT; 1s ago
-
-<< OUTPUT ABRIDGED >>
-```
+![service listing](../assets/service.png)
 
 If stratisd is running, you should see the Active: information report active (running) as it is shown in the above output from the systemctl status command.
