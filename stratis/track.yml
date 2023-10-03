@@ -27,7 +27,7 @@ developers:
 - myee@redhat.com
 show_timer: true
 skipping_enabled: true
-timelimit: 432000
+timelimit: 3060
 lab_config:
   overlay: false
   width: 33
