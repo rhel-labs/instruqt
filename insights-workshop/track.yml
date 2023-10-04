@@ -28,6 +28,7 @@ icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: beginner
 tags:
 - rhel
+- insights
 owner: rhel
 developers:
 - wkibbe@redhat.com
@@ -37,4 +38,4 @@ lab_config:
   overlay: false
   width: 25
   position: right
-checksum: "13752769557084998461"
+checksum: "7791575866199900591"
