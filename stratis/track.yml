@@ -1,0 +1,36 @@
+slug: stratis
+id: sxgqw12euntx
+title: Configure Stratis with the cli
+description: |-
+  This lab is intended to provide an introduction to using Stratis,
+
+  Stratis is a local storage-management solution for Linux. It is focused on simplicity and ease of use, and gives you access to advanced storage features.
+
+  Stratis makes the following activities easier:
+
+  - Initial configuration of storage
+  - Making changes later
+  - Using advanced storage features
+
+  Stratis is a local storage management system that supports advanced storage features. The central concept of Stratis is a storage pool. This pool is created from one or more local disks or partitions, and file systems are created from the pool.
+
+  The pool enables many useful features, such as:
+
+  - File system snapshots
+  - Thin provisioning
+  - Tiering
+  - Encryption
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- myee@redhat.com
+show_timer: true
+skipping_enabled: true
+timelimit: 3060
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+checksum: "11521026038925633012"
