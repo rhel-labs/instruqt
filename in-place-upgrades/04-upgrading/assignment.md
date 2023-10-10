@@ -7,11 +7,7 @@ tabs:
 - title: RHEL
   type: terminal
   hostname: host
-  cmd: tmux attach-session -t "rhel07"
-- title: RHEL2
-  type: terminal
-  hostname: host
-  cmd: tmux attach-session -t "upgraded08"
+  cmd: ssh -o "StrictHostKeyChecking no" rhel@rhel07 
 difficulty: basic
 timelimit: 1
 ---
@@ -55,11 +51,17 @@ Answerfile has been generated at /var/log/leapp/answerfile
 </pre>
 
 >**Disclaimer:**
-The Leapp process can take upwards of 15 minutes to run. Instead of waiting for that process to complete, a second server has been running the upgrade in the background. If you would like to save some time switch to the RHEL2 tab to finish the **Verifying the upgrade** section.
+The Leapp process can take upwards of 15 minutes to run.
+<!-- The Leapp process can take upwards of 15 minutes to run. Instead of waiting for that process to complete, a second server has been running the upgrade in the background. If you would like to save some time switch to the RHEL2 tab to finish the **Verifying the upgrade** section. -->
 
-![rhelTabs.png](../assets/rhelTabs.png)
+<!-- ![rhelTabs.png](../assets/rhelTabs.png)
 
-The upgrade has only been _staged_; it has not been completed at this point. A reboot is required for the RHEL 8-based initial RAM disk image (initramfs), upgrades all packages and automatically reboots to the RHEL 8 system.
+The upgrade has only been _staged_; it has not been completed at this point. A reboot is required for the RHEL 8-based initial RAM disk image (initramfs), upgrades all packages and automatically reboots to the RHEL 8 system. -->
+If you would like to proceed with the lab without waiting for the upgrade to complete, click on the `Upgraded RHEL` tab and continue in that terminal. You can skip the reboot step below. Proceed to the step `Verifying the upgrade` below.
+
+Rebooting the upgaded host.
+===========================
+A reboot is required for the RHEL 8-based initial RAM disk image (initramfs), upgrades all packages and automatically reboots to the RHEL 8 system.
 
 >**Pro Tip:** You can combine these two steps with the --reboot option
 `leapp upgrade --target 8.8 --reboot`
@@ -69,22 +71,12 @@ reboot
 
 ```
 
-Now, leapp is performing several actions inside a temporary environment. This includes creating a new initramfs image, relabeling SELinux contexts, and well as cleaning up any remaining RHEL 7 packages. In order to see what the server is during during this process, you will need to connect to the virtual machine's console using the `virsh` command:
+Now, leapp is performing several actions inside a temporary environment. This includes creating a new initramfs image, relabeling SELinux contexts, and well as cleaning up any remaining RHEL 7 packages.
 
-```bash
-virsh console rhel07
+Please continue to `Verifying the upgrade` below.
 
-```
-
-Once the upgrade has been completed, use `CTRL + ]` to disconnect from the console and log back in using ssh:
-
-```bash
-ssh -i ~/.ssh/id_rsa rhel@rhel07
-
-```
-
-# Verifying the upgrade
-
+Verifying the upgrade
+=====================
 Once the new initramfs image is in place, package updates run, and SELinux relabel completion, the system will perform one final reboot. Once that is done, you will be logged into the system's terminal once more. Finally, we will verify the update was successful by looking at the release file we referenced earlier in the lab:
 
 ```bash

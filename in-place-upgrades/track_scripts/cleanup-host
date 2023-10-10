@@ -5,4 +5,5 @@ do
     sleep 1
 done
 
-virsh start upgraded08
+
+subscription-manager unregister

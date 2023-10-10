@@ -27,7 +27,7 @@ tabs:
 - title: RHEL
   type: terminal
   hostname: host
-  cmd: tmux attach-session -t "rhel07"
+  cmd: ssh -o "StrictHostKeyChecking no" rhel@rhel07 
 difficulty: basic
 timelimit: 3000
 ---

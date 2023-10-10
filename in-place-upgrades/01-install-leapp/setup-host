@@ -1,0 +1,10 @@
+#!/bin/bash
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+while ! ping -c 1 -W 1 rhel07; do echo "Waiting for rhel07 - network interface might be down."; sleep 10; done;
+
+ssh -i /root/.ssh/id_rsa -o "StrictHostKeyChecking no" rhel@rhel07 "sudo subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force"
