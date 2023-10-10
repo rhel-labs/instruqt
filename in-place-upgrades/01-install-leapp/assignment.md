@@ -27,9 +27,8 @@ tabs:
 - title: RHEL
   type: terminal
   hostname: host
-  cmd: ssh -o "StrictHostKeyChecking no" rhel@rhel07 
+  cmd: ssh -o "StrictHostKeyChecking no" rhel@rhel07
 difficulty: basic
-timelimit: 3000
 ---
 # What is Leapp?
 

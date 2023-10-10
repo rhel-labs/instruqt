@@ -7,9 +7,8 @@ tabs:
 - title: RHEL
   type: terminal
   hostname: host
-  cmd: ssh -o "StrictHostKeyChecking no" rhel@rhel07 
+  cmd: ssh -o "StrictHostKeyChecking no" rhel@rhel07
 difficulty: basic
-timelimit: 1
 ---
 
 You saw in the last step how Leapp produced an error. In this scenario, PAM modules are not in use. It is therefore safe to skip this check. To do so, replace the commented line `# confirm =` with a true statement.
