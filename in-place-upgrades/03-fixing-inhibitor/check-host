@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo sed -i 's/# confirm =/confirm = true/g' /var/log/leapp/answerfile
+sudo leapp preupgrade --target 8.8

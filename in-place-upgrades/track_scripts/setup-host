@@ -24,7 +24,10 @@ usermod -aG wheel rhel
 # upgraded09:   52:54:00:e6:14:ee
 
 
-# Get the IP of the VM belonging to vm1 based on arp.
+# Get the IP of the VM belonging to rhel07 based on arp.
 while ! [ $( arp -an | grep 52:54:00:02:ce:bb | awk '{print $2}' | tr -d '()' )  ]; do echo "Waiting for arp to return rhel07 MAC address."; sleep 10; done;
 echo "$( arp -an | grep 52:54:00:02:ce:bb | awk '{print $2}' | tr -d '()' ) rhel07" >> /etc/hosts
 
+TMUX='' tmux new-session -d -s 'rhel07' 'ssh -o "StrictHostKeyChecking no" rhel@rhel07; clear' > /dev/null 2>&1
+tmux set -g pane-border-status top
+tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'

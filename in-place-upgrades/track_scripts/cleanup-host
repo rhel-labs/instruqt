@@ -6,4 +6,4 @@ do
 done
 
 
-subscription-manager unregister
+# subscription-manager unregister

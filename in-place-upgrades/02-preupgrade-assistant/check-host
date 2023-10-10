@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo leapp preupgrade --target 8.8

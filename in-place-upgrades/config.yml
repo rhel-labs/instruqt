@@ -14,3 +14,4 @@ virtualmachines:
 secrets:
 - name: ACTIVATION_KEY
 - name: SSHKEY
+timelimit: 6000
