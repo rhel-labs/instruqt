@@ -28,3 +28,5 @@ usermod -aG wheel rhel
 while ! [ $( arp -an | grep 52:54:00:02:ce:bb | awk '{print $2}' | tr -d '()' )  ]; do echo "Waiting for arp to return rhel07 MAC address."; sleep 10; done;
 echo "$( arp -an | grep 52:54:00:02:ce:bb | awk '{print $2}' | tr -d '()' ) rhel07" >> /etc/hosts
 
+usermod -aG wheel rhel
+echo redhat | passwd --stdin rhel

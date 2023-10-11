@@ -7,9 +7,14 @@ tabs:
 - title: RHEL
   type: terminal
   hostname: host
-  cmd: ssh -o "StrictHostKeyChecking no" rhel@rhel07 
+  cmd: ssh -o "StrictHostKeyChecking no" root@rhel07
+- title: Virtual Machine Host
+  type: terminal
+  hostname: host
+- title: RHEL Web Console
+  type: external
+  url: https://host.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 1
 ---
 # Running the upgrade
 
@@ -71,13 +76,56 @@ reboot
 
 ```
 
-Now, leapp is performing several actions inside a temporary environment. This includes creating a new initramfs image, relabeling SELinux contexts, and well as cleaning up any remaining RHEL 7 packages.
+Now, leapp is performing several actions inside a temporary environment. This includes creating a new initramfs image, relabeling SELinux contexts, and well as cleaning up any remaining RHEL 7 packages. The reboot process can take up to 15 minutes. The `Optional step` below shows how you can view the reboot/upgrade process.
+
+Optional step
+=============
+The following step is optional but it may provide insight into the upgrade process. This lab provides a web console UI to the virtual machine host. You can log into the web UI to view the upgrade process after `reboot` has been executed.
+
+Click on `RHEL Web Console`to log into the web UI.
+
+![web console tab](../assets/rhelwebconsoletab.png)
+
+Use the following credentials to log into the web console.
+
+Username
+```
+rhel
+```
+
+Password
+```
+redhat
+```
+
+![web ui login](../assets/webuilogin.png)
+
+Next, give yourself administrative access by clicking on the button `Turn on administrative access` and entering the password `redhat` again.
+
+![admin](../assets/adminaccess.png)
+
+Navigate to `Virtual machines`
+
+![vms](../assets/virtualmachines.png)
+
+Click on `rhel07`
+![rhel07](../assets/rhel07.png)
+
+You can now view the upgrade process in the console window.
+
+![console](../assets/console.png)
 
 Please continue to `Verifying the upgrade` below.
 
 Verifying the upgrade
 =====================
-Once the new initramfs image is in place, package updates run, and SELinux relabel completion, the system will perform one final reboot. Once that is done, you will be logged into the system's terminal once more. Finally, we will verify the update was successful by looking at the release file we referenced earlier in the lab:
+Once the new initramfs image is in place, package updates run, and SELinux relabel completion, the system will perform one final reboot.
+
+Refresh the Instruqt console to log back into your host, by clicking the button shown below.
+
+![console](../assets/refreshtheconsole.png)
+
+Once that is done, you will be logged into the system's terminal once more. Finally, we will verify the update was successful by looking at the release file we referenced earlier in the lab:
 
 ```bash
 cat /etc/redhat-release
