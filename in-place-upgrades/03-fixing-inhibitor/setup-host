@@ -5,4 +5,4 @@ do
     sleep 1
 done
 
-virsh start upgraded08
+#virsh start upgraded08

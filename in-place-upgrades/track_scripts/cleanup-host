@@ -5,5 +5,5 @@ do
     sleep 1
 done
 
-
+ssh -i /root/.ssh/id_rsa -o "StrictHostKeyChecking no" root@rhel07 "subscription-manager unregister"
 subscription-manager unregister

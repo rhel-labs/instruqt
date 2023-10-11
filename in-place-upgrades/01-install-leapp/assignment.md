@@ -28,9 +28,6 @@ tabs:
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel07
-- title: Virtual Machine Host
-  type: terminal
-  hostname: host
 difficulty: basic
 ---
 # What is Leapp?
@@ -53,18 +50,6 @@ cat /etc/redhat-release
 <pre class=file>
 # cat /etc/redhat-release
 Red Hat Enterprise Linux release 7.9 (Maipo)
-</pre>
-
-Since future versions of RHEL disable SSH login for root by default, it is important to start retraining yourself to connect via a user account, such as the `rhel` account you're currently using, then utilizing ` sudo` or `su` to gain administrative privaledges. To simplify your experience, become the root user now:
-
-```bash
-sudo -i
-
-```
-
-<pre class=file>
-$ sudo -i
-#
 </pre>
 
 First, you need to enable the rhel-7-server repositories using the subscription-manager command:

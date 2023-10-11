@@ -28,9 +28,9 @@ developers:
 - ehendric@redhat.com
 - myee@redhat.com
 show_timer: true
-timelimit: 9000
+timelimit: 3060
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "4914721269707583913"
+checksum: "14482594417917805211"
