@@ -28,6 +28,9 @@ tabs:
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" rhel@rhel07
+- title: Virtual Machine Host
+  type: terminal
+  hostname: host
 difficulty: basic
 ---
 # What is Leapp?
