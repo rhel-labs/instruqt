@@ -1,6 +1,6 @@
 ---
 slug: contentview
-id: 04qdtwje7nzm
+id: vmaxmjppntmv
 type: challenge
 title: Create a content view
 teaser: Create a content view

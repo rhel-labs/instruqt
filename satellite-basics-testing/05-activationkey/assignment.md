@@ -1,6 +1,6 @@
 ---
 slug: activationkey
-id: 96xeamx22taf
+id: 0dtlvnsycvia
 type: challenge
 title: Create an Activation Key
 teaser: Create an Activation Key
