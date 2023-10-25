@@ -29,7 +29,7 @@ developers:
 show_timer: true
 idle_timeout: 3000
 timelimit: 6720
-sandbox_preset: satellite
+sandbox_preset: satellite-testing
 lab_config:
   overlay: false
   width: 33
