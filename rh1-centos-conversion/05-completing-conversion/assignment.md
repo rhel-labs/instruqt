@@ -9,7 +9,6 @@ tabs:
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@centos
 difficulty: basic
-timelimit: 1
 ---
 
 You will need to reboot the system in order to put the changes into effect.
