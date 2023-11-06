@@ -1,0 +1,15 @@
+version: "3"
+virtualmachines:
+- name: host
+  image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-2-08-03-23-4
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n2-standard-4
+  allow_external_ingress:
+  - http
+  - https
+  - high-ports
+secrets:
+- name: ACTIVATION_KEY
+- name: SSHKEY
