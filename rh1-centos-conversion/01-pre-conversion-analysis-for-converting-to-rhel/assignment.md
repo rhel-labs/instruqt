@@ -137,3 +137,41 @@ At this point the task is still running and may take about 10 minutes to complet
 
 ![task status](../assets/taskstatus.png)
 
+Periodically click on the refresh button of the virtual browser to see if the task has finished.
+
+![refresh](../assets/refreshstatus.png)
+
+When the task has finished, you can view the inhibitors.
+
+![inhibitors](../assets/invalidkernel.png)
+
+This CentOS host has a very basic configuration and is easily remediated with an update. Go back into the `centos` tab to access the terminal.
+
+Then update the host.
+
+```
+yum update -y && reboot
+```
+
+![update and reboot](../assets/updatedandreboot.png)
+
+The terminal will lose connection with the centos host leaving the message `exited`.
+
+![exited](../assets/exited.png)
+
+Reconnect to the session in the `centos` tab. Refresh the `centos` tab until you are reconnected.
+
+![refresh](../assets/refreshbutton.png)
+
+Once reconnected go back into the virtual browser. Click on `Run task again`.
+
+![run task again](../assets/runtaskagain.png)
+
+A new task will be created.
+![new task](../assets/newtask.png)
+
+When it completes, the report will tell you that the system is ready for conversion.
+
+![proceed](../assets/proceedconversion.png)
+
+Please proceed to the next step.
