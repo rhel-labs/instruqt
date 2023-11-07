@@ -13,3 +13,6 @@ virtualmachines:
 secrets:
 - name: ACTIVATION_KEY
 - name: SSHKEY
+virtualbrowsers:
+- name: insights
+  url: https://console.redhat.com

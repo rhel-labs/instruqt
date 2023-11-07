@@ -1,8 +1,8 @@
 ---
-slug: introduction
+slug: prepare-for-conversion
 id: gpz685jv20qj
 type: challenge
-title: Introduction
+title: Prepare for conversion
 tabs:
 - title: centos
   type: terminal
@@ -11,13 +11,6 @@ tabs:
 difficulty: basic
 ---
 
-## What is Convert2RHEL
-
-Convert2RHEL is a command line utility that allows for self-service migration between RHEL-like distributions to officially supported Red Hat Enterprise Linux instances.
-
-The convert2rhel tool handles subscribing the target system to your Red Hat customer account while maintaining customizations, configurations, and workloads.
-
-Convert2RHEL is also a supported operation which means if you run into issues with the conversion process, you can open a ticket with Red Hat Support.
 
 Before you begin the installation process, verify that you are running CentOS Linux and on the latest minor version.
 
