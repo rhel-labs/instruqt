@@ -2,7 +2,8 @@
 slug: running-c2r
 id: b3xi0xcqguks
 type: challenge
-title: Running Convert2RHEL
+title: Run Convert2RHEL
+teaser: Run Convert2RHEL to convert the CentOS host to Red Hat Enterprise Linux
 tabs:
 - title: centos
   type: terminal
@@ -10,9 +11,6 @@ tabs:
   cmd: ssh -o "StrictHostKeyChecking no" root@centos
 difficulty: basic
 ---
-
-## Understanding the Convert2RHEL command
-
 There are several different combinations of arguments that can be used to execute the conversion process. The main factor is registering your new RHEL system with an active subscription. Your choices are:
 
 1) Fully interactive session: answer questions and input username and password as part of the conversion
@@ -21,7 +19,8 @@ There are several different combinations of arguments that can be used to execut
 
 3) Including your organization ID and Activation Key as part of the command. This is more secure, however, finding your org-id and creating an activation key are outside the scope of this lab.
 
-## Running the Convert2RHEL utility
+Run the Convert2RHEL utility
+================================
 
 <pre class='file'>
 convert2rhel --org < ORG ID > --activationkey  < KEY >
@@ -62,8 +61,6 @@ google-cloud-sdk-396.0.0-1.x86_64                        N/A              google
 
 Continue with the system conversion? [y/n]:
 </pre>
-
-You'll be asked to confirm several the process at several steps. Type a `y` and hit enter to continue the process.
 
 <pre class='file'>
 

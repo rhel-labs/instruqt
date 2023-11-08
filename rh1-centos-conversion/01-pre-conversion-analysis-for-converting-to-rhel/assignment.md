@@ -16,7 +16,7 @@ difficulty: basic
 ---
 In this first part of the lab, we'll performa a pre-conversion analysis with Insights. In subsequent steps of this lab, we'll perform the convert2rhel operation.
 
-## What is Convert2RHEL?
+# What is Convert2RHEL?
 
 Convert2RHEL is a command line utility that allows for self-service migration between RHEL-like distributions to officially supported Red Hat Enterprise Linux instances.
 
@@ -30,7 +30,7 @@ To assess whether your CentOS Linux systems can be converted to RHEL, run the Pr
 
 Please see the official Red Hat documentation on pre-conversion analysis in Insights, [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/converting_from_an_rpm-based_linux_distribution_to_rhel/index#proc_preparing-for-a-rhel-conversion-using-insights_converting-using-insights).
 
-## Install the client tools
+Install the client tools
 ===========================
 
 Copy and paste the command below into the centos terminal. This command will download the Red Hat GPG key.
@@ -87,6 +87,8 @@ Enable `Preview on`.
 
 ![preview on](../assets/enablepreview.png)
 
+Run the pre-conversion task
+===========================
 Navigate to RHEL tasks.
 
 ![tasks](../assets/rheltasks.png)
@@ -145,6 +147,9 @@ When the task has finished, you can view the inhibitors.
 
 ![inhibitors](../assets/invalidkernel.png)
 
+Fix the inhibitors
+==================
+
 This CentOS host has a very basic configuration and is easily remediated with an update. Go back into the `centos` tab to access the terminal.
 
 Then update the host.
@@ -162,6 +167,9 @@ The terminal will lose connection with the centos host leaving the message `exit
 Reconnect to the session in the `centos` tab. Refresh the `centos` tab until you are reconnected.
 
 ![refresh](../assets/refreshbutton.png)
+
+Optional: rerun the the pre-conversion task to check that the conversion can proceed
+====================================================================================
 
 Once reconnected go back into the virtual browser. Click on `Run task again`.
 

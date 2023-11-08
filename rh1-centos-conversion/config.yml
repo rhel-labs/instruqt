@@ -1,4 +1,7 @@
 version: "3"
+virtualbrowsers:
+- name: insights
+  url: https://console.redhat.com
 virtualmachines:
 - name: host
   image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-2-08-03-23-4
@@ -13,6 +16,3 @@ virtualmachines:
 secrets:
 - name: ACTIVATION_KEY
 - name: SSHKEY
-virtualbrowsers:
-- name: insights
-  url: https://console.redhat.com

@@ -2,7 +2,8 @@
 slug: completing-conversion
 id: ugevjujziuxv
 type: challenge
-title: Completing the Conversion
+title: Complete the conversion
+teaser: Complete the conversion of the CentOS host.
 tabs:
 - title: centos
   type: terminal
