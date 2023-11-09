@@ -87,9 +87,9 @@ rhel-0ab2
 Redhat1!
 ```
 
-Enable `Preview on`.
+<!-- Enable `Preview on`.
 
-![preview on](../assets/enablepreview.png)
+![preview on](../assets/enablepreview.png) -->
 
 Run the pre-conversion task
 ===========================
