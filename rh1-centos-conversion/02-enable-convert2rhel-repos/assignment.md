@@ -2,13 +2,16 @@
 slug: enable-convert2rhel-repos
 id: gpz685jv20qj
 type: challenge
-title: Enablen the convert2rhel repositories
+title: Enable the convert2rhel repositories
 teaser: Enable the convert2rhel repositories.
 tabs:
 - title: centos
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@centos
+- title: Red Hat Insights
+  type: browser
+  hostname: insights
 difficulty: basic
 ---
 The Convert2RHEL RPM is an offical Red Hat package. Therefore it is readily availble from the Red Hat software repository (CDN). As your CentOS server is not subscribed to the Red Hat CDN, you will need to enable the Convert2RHEL repository.

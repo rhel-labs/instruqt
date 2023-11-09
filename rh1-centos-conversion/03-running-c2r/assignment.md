@@ -9,6 +9,9 @@ tabs:
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@centos
+- title: Red Hat Insights
+  type: browser
+  hostname: insights
 difficulty: basic
 ---
 There are several different combinations of arguments that can be used to execute the conversion process. The main factor is registering your new RHEL system with an active subscription. Your choices are:

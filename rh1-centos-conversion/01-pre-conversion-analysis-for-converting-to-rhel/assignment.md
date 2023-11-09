@@ -61,6 +61,10 @@ subscription-manager register --org 12451665 --activationkey convert2rhel && rhc
 
 ```
 
+Here's what the output should look like.
+
+![output](../assets/registeredoutput.png)
+
 For more information on these commands see the following documentation:
 - [subscription-manager](https://access.redhat.com/solutions/253273)
 - [rhc](https://access.redhat.com/articles/rhc)
@@ -167,6 +171,8 @@ The terminal will lose connection with the centos host leaving the message `exit
 Reconnect to the session in the `centos` tab. Refresh the `centos` tab until you are reconnected.
 
 ![refresh](../assets/refreshbutton.png)
+
+You may now proceed to the next challenge or you may perform the optional step below to re-run the pre-conversion.
 
 Optional: rerun the the pre-conversion task to check that the conversion can proceed
 ====================================================================================
