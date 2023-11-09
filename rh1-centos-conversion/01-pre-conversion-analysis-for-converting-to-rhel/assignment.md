@@ -14,7 +14,7 @@ tabs:
   hostname: insights
 difficulty: basic
 ---
-In this first part of the lab, we'll performa a pre-conversion analysis with Insights. In subsequent steps of this lab, we'll perform the convert2rhel operation.
+In this first part of the lab, we'll perform a pre-conversion analysis with Insights. In subsequent steps of this lab, we'll perform the convert2rhel operation.
 
 # What is Convert2RHEL?
 
@@ -24,7 +24,7 @@ The convert2rhel tool handles subscribing the target system to your Red Hat cust
 
 Convert2RHEL is also a supported operation which means if you run into issues with the conversion process, you can open a ticket with Red Hat Support.
 
-## What is the Insights pre-conversion analysis?
+# What is the Insights pre-conversion analysis?
 
 To assess whether your CentOS Linux systems can be converted to RHEL, run the Pre-conversion analysis for converting to RHEL task. The preconversion analysis generates a report that summarizes potential problems and suggests recommended solutions. The report also helps you decide whether it is possible or advisable to proceed with the conversion to RHEL.
 
@@ -147,7 +147,15 @@ Periodically click on the refresh button of the virtual browser to see if the ta
 
 ![refresh](../assets/refreshstatus.png)
 
-When the task has finished, you can view the inhibitors.
+When the task has finished, you can view the results by clicking on the successfully completed task.
+
+![completed task](../assets/completedtask.png)
+
+Expand the task to view the inhibitors.
+
+![view inhibitors](../assets/expandtoviewinhibitors.png)
+
+The inhibitors may vary. In this case the kernel is too old.
 
 ![inhibitors](../assets/invalidkernel.png)
 
@@ -156,7 +164,7 @@ Fix the inhibitors
 
 This CentOS host has a very basic configuration and is easily remediated with an update. Go back into the `centos` tab to access the terminal.
 
-Then update the host.
+Update the host.
 
 ```
 yum update -y && reboot

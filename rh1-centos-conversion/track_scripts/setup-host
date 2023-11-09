@@ -38,3 +38,4 @@ while ! ping -c 1 -W 1 centos; do echo "Waiting for centos - network interface m
 centosid="centos-conversion-$(uuidgen | cut -c 32-)"
 agent variable set vmid "$centosid"
 ssh -o "StrictHostKeyChecking no" root@centos hostnamectl set-hostname "$centosid"
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
