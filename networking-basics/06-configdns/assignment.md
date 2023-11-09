@@ -8,7 +8,6 @@ tabs:
   type: terminal
   hostname: host1
 difficulty: basic
-timelimit: 1
 ---
 ## Configuring DNS
 
