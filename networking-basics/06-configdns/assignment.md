@@ -61,12 +61,12 @@ nameserver 8.8.8.8
 nameserver 8.8.4.4
 </pre>
 
-NMState can also tell us that these DNS servers are active.
+<!-- NMState can also tell us that these DNS servers are active.
 
 ```bash
 nmstatectl show dns
 ```
 
-![runningdns](../assets/runningdns.png)
+![runningdns](../assets/runningdns.png) -->
 
 This is just the surface of what `nmcli` can modify. The [Red Hat Customer Portal](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_ip_networking_with_nmcli) has documentation on the full capabilities of NetworkManager.
