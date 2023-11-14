@@ -41,3 +41,4 @@ ruby.x86_64                      3.0.4-160.el9_0                      rhel-9-for
 </pre>
 
 Generally, the version of software provided with the base RHEL 9 distribution is the one that will be longer term supported for RHEL 9. For ruby, version 3.0 will be supported until the end of maintenance in 2032.
+
