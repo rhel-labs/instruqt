@@ -29,6 +29,7 @@ Installed Packages
 ruby.x86_64                     3.0.4-160.el9_0                      @rhel-9-for-x86_64-appstream-rpms
 </pre>
 
+
 Finally, run the ruby command to inspect the version it reports.
 
 ```bash
