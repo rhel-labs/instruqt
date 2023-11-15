@@ -119,16 +119,29 @@ Paste this string into the `Task name` field.
 
 Next, select your host [[ Instruqt-Var key="vmid" hostname="host" ]].
 
+__If the host does not appear you may have to wait a minute or two and retry the `Pre-conversion analysis` task.__
+
 ![centoshost select](../assets/centoshostselect.png)
 
 Then click `Execute task`.
 
 ![execute task](../assets/executetask.png)
 
+Once you click on `Execute task`, a message is sent to the `rhc` service running on the centos host telling it there is a job waiting for it to download and execute. The centos host downloads the job from Red Hat Insights where it installs `convert2rhel` and runs the `Pre-conversion analysis` task. Once that task is complete, a message is sent back to Insights with the status and the results of the task.
+
 Checking the status of the task
 ===============================
 
-To check the status of the task, click on the `Activity` tab.
+There are 2 ways to check on the status of the task. The first is to read the `convert2rhel` logs on the `centos` host. The second is to view the status of the task in Insights.
+
+To view the `convert2rhel` logs, enter the following in the cli of the `centos` host.
+
+```
+tail -f /var/log/convert2rhel/convert2rhel.log
+```
+![tail logs](../assets/viewlogs.png)
+
+To view the status of the task in Insights, click on the `Activity` tab.
 
 ![activity tab](../assets/activitytab.png)
 
@@ -158,42 +171,5 @@ Expand the task to view the inhibitors.
 The inhibitors may vary. In this case the kernel is too old.
 
 ![inhibitors](../assets/invalidkernel.png)
-
-Fix the inhibitors
-==================
-
-This CentOS host has a very basic configuration and is easily remediated with an update. Go back into the `centos` tab to access the terminal.
-
-Update the host.
-
-```
-yum update -y && reboot
-```
-
-![update and reboot](../assets/updatedandreboot.png)
-
-The terminal will lose connection with the centos host leaving the message `exited`.
-
-![exited](../assets/exited.png)
-
-Reconnect to the session in the `centos` tab. Refresh the `centos` tab until you are reconnected.
-
-![refresh](../assets/refreshbutton.png)
-
-You may now proceed to the next challenge or you may perform the optional step below to re-run the pre-conversion.
-
-Optional: rerun the the pre-conversion task to check that the conversion can proceed
-====================================================================================
-
-Once reconnected go back into the virtual browser. Click on `Run task again`.
-
-![run task again](../assets/runtaskagain.png)
-
-A new task will be created.
-![new task](../assets/newtask.png)
-
-When it completes, the report will tell you that the system is ready for conversion.
-
-![proceed](../assets/proceedconversion.png)
 
 Please proceed to the next step.

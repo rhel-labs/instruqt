@@ -18,6 +18,8 @@ difficulty: basic
 You will need to reboot the system in order to put the changes into effect.
 ===========================================================================
 
+Run `reboot` in the `centos` terminal under the `centos` tab.
+
 ```bash
 reboot
 ```
