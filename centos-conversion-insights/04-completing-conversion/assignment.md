@@ -18,6 +18,8 @@ difficulty: basic
 You will need to reboot the system in order to put the changes into effect.
 ===========================================================================
 
+Run `reboot` in the `centos` terminal under the `centos` tab.
+
 ```bash
 reboot
 ```
@@ -27,10 +29,10 @@ After executing reboot, the session in the `centos` tab will end. Refresh the `c
 
 With the convert2rhel utility running, the system will now replace the CentOS signed packages with Red Hat signed versions. The system will reboot a few times: first to boot into a temporary environment from which to make these changes, a second time to perform a relabel on SELinux contexts, and a final time in order to boot into the newly created RHEL environment.
 
-Verifying the upgrade
-=====================
+Verify the upgrade completed successfully
+=========================================
 
-Now that you are connected into your new RHEL system, you should verify your results:
+Now that you are connected into your new RHEL system, you can verify your results:
 
 ```bash
 cat /etc/redhat-release
@@ -57,7 +59,7 @@ rhel-7-server-rpms/7Server/x86_64                                  Red Hat Enter
 repolist: 33,843
 </pre>
 
-Now you can review the logs from the conversion itself:
+You can review the logs from the conversion itself:
 
 ```bash
 less /var/log/convert2rhel/convert2rhel.log
