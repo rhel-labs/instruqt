@@ -28,6 +28,9 @@ tabs:
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel07
+- title: RHEL Web Console
+  type: browser
+  hostname: webconsole
 difficulty: basic
 ---
 # What is Leapp?
@@ -98,5 +101,5 @@ leapp --version
 
 <pre class=file>
 # leapp --version
-leapp version 0.15.1
+leapp version 0.16.0
 </pre>

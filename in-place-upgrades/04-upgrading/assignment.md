@@ -8,12 +8,9 @@ tabs:
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel07
-- title: Virtual Machine Host
-  type: terminal
-  hostname: host
 - title: RHEL Web Console
-  type: external
-  url: https://host.${_SANDBOX_ID}.instruqt.io:9090
+  type: browser
+  hostname: webconsole
 difficulty: basic
 ---
 # Running the upgrade
@@ -21,12 +18,12 @@ difficulty: basic
 Now that you have verified the RHEL system meets all the expected conditions, it is time to kick off the upgrade process: (Note: This process will take awhile.)
 
 ```bash
-leapp upgrade --target 8.8
+leapp upgrade --target 8.9
 
 ```
 
 <pre class=file>
-# leapp upgrade --target 8.8
+# leapp upgrade --target 8.9
 ==> Processing phase `configuration_phase`
 ====> * ipu_workflow_config
         IPU workflow config actor

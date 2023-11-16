@@ -30,3 +30,42 @@ echo "$( arp -an | grep 52:54:00:02:ce:bb | awk '{print $2}' | tr -d '()' ) rhel
 
 usermod -aG wheel rhel
 echo redhat | passwd --stdin rhel
+
+while ! ping -c 1 -W 1 rhel07; do echo "Waiting for rhel07 - network interface might be down."; sleep 10; done;
+
+ssh -i /root/.ssh/id_rsa -o "StrictHostKeyChecking no" root@rhel07 "subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force"
+
+# set up SSL for certificate signing
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+
+#check web console url for certificate
+echo https://${HOSTNAME}.${_SANDBOX_ID}.instruqt.io:9090
+
+#also go ahead and echo it to a text file as well just for good measure
+echo https://${HOSTNAME}.${_SANDBOX_ID}.instruqt.io:9090 >> ~/webconsoleurl.txt
+
+# Enable EPEL for RHEL 9
+subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+
+#install necessary components
+dnf install -y certbot python3-certbot-nginx
+
+#ensure certbot is successfully installed
+certbot --version
+
+#stop the process that is using TCP port 80; we need that port open for certbot
+fuser -k 80/tcp
+
+#request our certificate
+certbot certonly --standalone --preferred-challenges http -d ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io --non-interactive --agree-tos -m trackbot@instruqt.com -v
+
+#configure our certificate for the web console (copy it into the cockpit certificate folder)
+cat /etc/letsencrypt/live/${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io/cert.pem >> /etc/cockpit/ws-certs.d/certificate.cert
+cat /etc/letsencrypt/live/${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io/privkey.pem >> /etc/cockpit/ws-certs.d/certificate.cert
+
+#remove the old self-signed certificates
+rm /etc/cockpit/ws-certs.d/0*
+
+#restart cockpit to apply the changs
+systemctl restart cockpit
