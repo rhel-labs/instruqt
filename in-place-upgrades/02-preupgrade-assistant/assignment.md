@@ -15,12 +15,12 @@ difficulty: basic
 Built into the leapp tool is a utility that collects data about the system, assesses upgradability, and generates a pre-upgrade report. On your lab system, perform the pre-upgrade test: (This process will take a couple minutes.)
 
 ```bash
-leapp preupgrade --target 8.8
+leapp preupgrade --target 8.9
 
 ```
 
 <pre class=file>
-# leapp preupgrade --target 8.8
+# leapp preupgrade --target 8.9
 ==> Processing phase `configuration_phase`
 ====> * ipu_workflow_config
         IPU workflow config actor

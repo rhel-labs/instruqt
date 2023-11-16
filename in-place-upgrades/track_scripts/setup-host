@@ -30,3 +30,7 @@ echo "$( arp -an | grep 52:54:00:02:ce:bb | awk '{print $2}' | tr -d '()' ) rhel
 
 usermod -aG wheel rhel
 echo redhat | passwd --stdin rhel
+
+while ! ping -c 1 -W 1 rhel07; do echo "Waiting for rhel07 - network interface might be down."; sleep 10; done;
+
+ssh -i /root/.ssh/id_rsa -o "StrictHostKeyChecking no" root@rhel07 "subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force"

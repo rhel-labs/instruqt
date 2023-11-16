@@ -20,12 +20,12 @@ sed -i 's/# confirm =/confirm = true/g' /var/log/leapp/answerfile
 Re-run the preupgrade check to verify the change satisfied the result
 
 ```bash
-leapp preupgrade --target 8.8
+leapp preupgrade --target 8.9
 
 ```
 
 <pre class=file>
-# leapp preupgrade --target 8.8
+# leapp preupgrade --target 8.9
 ==> Processing phase `configuration_phase`
 ====> * ipu_workflow_config
         IPU workflow config actor

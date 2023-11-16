@@ -1,7 +1,7 @@
 version: "3"
 virtualmachines:
 - name: host
-  image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-2-10-11-23-2
+  image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-3-11-14-23
   shell: /bin/bash
   environment:
     TERM: xterm
@@ -14,3 +14,6 @@ virtualmachines:
 secrets:
 - name: ACTIVATION_KEY
 - name: SSHKEY
+virtualbrowsers:
+- name: webconsole
+  url: https://host.${_SANDBOX_ID}.instruqt.io:9090
