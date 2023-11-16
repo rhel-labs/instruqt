@@ -38,6 +38,8 @@ Convert2RHEL task for [[ Instruqt-Var key="vmid" hostname="host" ]]
 2. Select the host `[[ Instruqt-Var key="vmid" hostname="host" ]]`.
 3. Click `Execute task`.
 
+The conversion takes around 15 minutes to complete.
+
 Checking the status of the task
 ===============================
 
