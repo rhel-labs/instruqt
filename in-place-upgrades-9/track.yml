@@ -1,6 +1,6 @@
 slug: in-place-upgrades-9
 id: jbcdhmiqgfue
-title: In Place Upgrade to RHEL 9
+title: Upgrade to Red Hat Enterprise Linux 9 in place with Leapp
 teaser: Performing an in-place upgrade with LEAPP
 description: |-
   # Overview
@@ -23,12 +23,16 @@ description: |-
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags:
 - rhel
+- upgrades
 owner: rhel
 developers:
 - ehendric@redhat.com
+maintenance: true
 show_timer: true
+timelimit: 3060
 lab_config:
   overlay: false
-  width: 25
+  width: 33
   position: right
-checksum: "3608330219245703376"
+  loadingMessages: true
+checksum: "7811902590948373593"

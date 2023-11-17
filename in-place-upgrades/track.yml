@@ -23,6 +23,7 @@ description: |-
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags:
 - rhel
+- upgrades
 owner: rhel
 developers:
 - ehendric@redhat.com
@@ -34,4 +35,4 @@ lab_config:
   width: 33
   position: right
   loadingMessages: true
-checksum: "13844621919001767203"
+checksum: "730973583084198195"

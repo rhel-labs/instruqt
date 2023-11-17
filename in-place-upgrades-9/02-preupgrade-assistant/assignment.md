@@ -7,6 +7,7 @@ tabs:
 - title: RHEL
   type: terminal
   hostname: host
+  cmd: ssh -o "StrictHostKeyChecking no" root@rhel08
 difficulty: basic
 timelimit: 1
 ---
@@ -14,13 +15,13 @@ timelimit: 1
 
 Built into the leapp tool is a utility that collects data about the system, assesses upgradability, and generates a pre-upgrade report. On your lab system, perform the pre-upgrade test: (This process will take a couple minutes.)
 
-```
-leapp preupgrade --target 9.2
+```bash
+leapp preupgrade --target 9.3
 
 ```
 
 <pre class=file>
-# leapp preupgrade --target 9.2
+# leapp preupgrade --target 9.3
 ==> Processing phase `configuration_phase`
 ====> * ipu_workflow_config
         IPU workflow config actor
@@ -57,7 +58,7 @@ Answerfile has been generated at /var/log/leapp/answerfile
 
 Notice how the upgrade was "inhibited" because the preupgrade assistant requires your input on one or more issues before it will safely proceed. Take a look at the first entry in the `leapp-report` file in the log directory:
 
-```
+```bash
 head -n 5 /var/log/leapp/leapp-report.txt
 
 ```
@@ -71,14 +72,4 @@ Remediation: [hint] If you depend on remote root logins using passwords, conside
 Key: 3d21e8cc9e1c09dc60429de7716165787e99515f
 </pre>
 
-One of the major security changes in RHEL 9 was that the `root` account is no longer allowed to login via SSH by default. In order to fix this issue prior to the upgrade, you will need to disable this feature in the sshd configuration file:
-
-```
-sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
-
-```
-
-<pre class=file>
-# sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
-#
-</pre>
+One of the major security changes in RHEL 9 was that the `root` account is no longer allowed to login via SSH by default.

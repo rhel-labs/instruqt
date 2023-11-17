@@ -1,3 +1,9 @@
 #!/bin/bash
-# Unregister the host.
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+ssh -i /root/.ssh/id_rsa -o "StrictHostKeyChecking no" root@rhel08 "subscription-manager unregister"
 subscription-manager unregister

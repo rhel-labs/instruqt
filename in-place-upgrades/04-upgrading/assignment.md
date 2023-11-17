@@ -15,7 +15,8 @@ difficulty: basic
 ---
 # Running the upgrade
 
-Now that you have verified the RHEL system meets all the expected conditions, it is time to kick off the upgrade process: (Note: This process will take awhile.)
+Now that you have verified the RHEL system meets all the expected conditions, it is time to kick off the upgrade process:
+Note: This process will take awhile.)
 
 ```bash
 leapp upgrade --target 8.9
@@ -54,7 +55,7 @@ Answerfile has been generated at /var/log/leapp/answerfile
 
 >**Disclaimer:**
 The Leapp process can take upwards of 15 minutes to run.
-<!-- The Leapp process can take upwards of 15 minutes to run. Instead of waiting for that process to complete, a second server has been running the upgrade in the background. If you would like to save some time switch to the RHEL2 tab to finish the **Verifying the upgrade** section. -->
+<!-- The Leapp process can take upwards of 15 minutes to run. Instead of waiting for that process to complete, a second server has been running the upgrade in the background. If you would like to save some time switch to the `webconsole` tab to finish the **Verifying the upgrade** section. -->
 
 <!-- ![rhelTabs.png](../assets/rhelTabs.png)
 
@@ -66,7 +67,7 @@ Rebooting the upgaded host.
 A reboot is required for the RHEL 8-based initial RAM disk image (initramfs), upgrades all packages and automatically reboots to the RHEL 8 system.
 
 >**Pro Tip:** You can combine these two steps with the --reboot option
-`leapp upgrade --target 8.8 --reboot`
+`leapp upgrade --target 8.9 --reboot`
 
 ```bash
 reboot
@@ -75,9 +76,9 @@ reboot
 
 Now, leapp is performing several actions inside a temporary environment. This includes creating a new initramfs image, relabeling SELinux contexts, and well as cleaning up any remaining RHEL 7 packages. The reboot process can take up to 15 minutes. The `Optional step` below shows how you can view the reboot/upgrade process.
 
-Optional step
+Verifying Reboot (Optional)
 =============
-The following step is optional but it may provide insight into the upgrade process. This lab provides a web console UI to the virtual machine host. You can log into the web UI to view the upgrade process after `reboot` has been executed.
+This step is optional but it may provide insight into the upgrade process. This lab provides a web console UI to the virtual machine host. You can log into the web UI to view the upgrade process after `reboot` has been executed.
 
 Click on `RHEL Web Console`to log into the web UI.
 
@@ -133,7 +134,7 @@ Note that we are now running the latest version of RHEL 8!
 
 <pre class=file>
 # cat /etc/redhat-release
-Red Hat Enterprise Linux release 8.8 (Ootpa)
+Red Hat Enterprise Linux release 8.9 (Ootpa)
 </pre>
 
 OPTIONAL: You may also review the log file if you so choose. The full output is available at /var/log/leapp/leapp-upgrade.log

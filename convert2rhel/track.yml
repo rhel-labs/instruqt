@@ -18,15 +18,18 @@ description: |+
   In order to standardize your infrasturcture under a single platform, you need to convert your RPM-based servers over to Red Hat Enterprise Linux.
 
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
-tags: []
+tags:
+- rhel
+- conversions
 owner: rhel
 developers:
 - myee@redhat.com
 - ehendric@redhat.com
 show_timer: true
+timelimit: 3060
 lab_config:
   overlay: false
   width: 33
   position: right
   loadingMessages: true
-checksum: "1453628564795477328"
+checksum: "16344152164928874274"

@@ -78,7 +78,7 @@ curl -o /etc/yum.repos.d/convert2rhel.repo https://ftp.redhat.com/redhat/convert
 100   247  100   247    0     0    509      0 --:--:-- --:--:-- --:--:--   510
 </pre>
 
-Now we'll update the centos host and reboot it. The convert2rhel utility requires an up-to-date centos host.
+Now you'll update the centos host and reboot it. The convert2rhel utility requires an up-to-date centos host.
 
 Enter the following command.
 

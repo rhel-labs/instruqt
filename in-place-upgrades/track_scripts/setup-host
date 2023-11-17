@@ -16,12 +16,9 @@ usermod -aG wheel rhel
 # MAC Addresses
 # vm1:          52:54:00:d6:0c:72
 # centos:       52:54:00:68:79:84
-# converted:    52:54:00:87:d3:fc
 # rhel07:       52:54:00:02:ce:bb
 # rhel08:       52:54:00:43:26:d3
 # rhel09:       52:54:00:7f:e1:4e
-# upgraded08:   52:54:00:22:37:93
-# upgraded09:   52:54:00:e6:14:ee
 
 
 # Get the IP of the VM belonging to vm1 based on arp.

@@ -28,9 +28,6 @@ tabs:
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel07
-- title: RHEL Web Console
-  type: browser
-  hostname: webconsole
 difficulty: basic
 ---
 # What is Leapp?
@@ -41,7 +38,19 @@ Before diving in, the question you have to ask is: is this workload worth execut
 
 # Installing Leapp
 
-To get started, it is highly recommended that you update all packages on your system to the latest version available. (Note: for this lab, updates have already been run for you.)
+To get started, it is highly recommended that you update all packages on your system to the latest version available:
+
+```bash
+yum update -y && reboot
+```
+
+The terminal will lose connection with the rhel07 host leaving the message `exited`.
+
+![exited](../assets/exited.png)
+
+You can reconnect the session in the `rhel07` tab if desired. Refresh the `rhel07` tab until you are reconnected.
+
+![refresh](../assets/refreshbutton.png)
 
 Leapp is a supported operation for RHEL which means support tickets can be opened in case obstacles are encountered. It also means that the leapp utility is available straight from the Red Hat package repository. First, verify the version of Red Hat Enterprise Linux that you have installed:
 

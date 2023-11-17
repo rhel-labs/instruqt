@@ -7,26 +7,39 @@ tabs:
 - title: RHEL
   type: terminal
   hostname: host
+  cmd: ssh -o "StrictHostKeyChecking no" root@rhel08
 difficulty: basic
 timelimit: 1
 ---
 
-You saw in the last step how Leapp produced an error in order to prevent a broken upgrade. There are other risks that were identified. If you are curious what else LEAPP found, take a closer look at the log file mentioned in the previous step:
+You saw in the last step how Leapp produced an error in order to prevent a broken upgrade.  In order to fix this issue, you will need to disable this feature in the sshd configuration file:
+
+```bash
+sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
 
 ```
+
+<pre class=file>
+# sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
+#
+</pre>
+
+There are other risks that were identified. If you are curious what else LEAPP found, take a closer look at the log file mentioned in the previous step:
+
+```bash
 cat /var/log/leapp/leapp-report.txt
 
 ```
 
 Re-run the preupgrade check to verify the change satisfied the result
 
-```
-leapp preupgrade --target 9.2
+```bash
+leapp preupgrade --target 9.3
 
 ```
 
 <pre class=file>
-# leapp preupgrade --target 9.2
+# leapp preupgrade --target 9.3
 ==> Processing phase `configuration_phase`
 ====> * ipu_workflow_config
         IPU workflow config actor

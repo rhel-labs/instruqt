@@ -27,8 +27,9 @@ tabs:
 - title: RHEL
   type: terminal
   hostname: host
+  cmd: ssh -o "StrictHostKeyChecking no" root@rhel08
 difficulty: basic
-timelimit: 3400
+timelimit: 3000
 ---
 # What is Leapp?
 
@@ -38,23 +39,35 @@ Before diving in, the question you have to ask is: is this workload worth execut
 
 # Installing Leapp
 
-To get started, it is highly recommended that you update all packages on your system to the latest version available. (Note: for this lab, updates have already been run for you.)
+To get started, it is highly recommended that you update all packages on your system to the latest version available.
+
+```bash
+yum update -y && reboot
+```
+
+The terminal will lose connection with the rhel08 host leaving the message `exited`.
+
+![exited](../assets/exited.png)
+
+You can reconnect the session in the `rhel08` tab if desired. Refresh the `rhel08` tab until you are reconnected.
+
+![refresh](../assets/refreshbutton.png)
 
 Leapp is a supported operation for RHEL which means support tickets can be opened in case obstacles are encountered. It also means that the leapp utility is available straight from the Red Hat package repository. First, verify the version of Red Hat Enterprise Linux that you have installed:
 
-```
+```bash
 cat /etc/redhat-release
 
 ```
 
 <pre class=file>
 # cat /etc/redhat-release
-Red Hat Enterprise Linux release 8.8 (Ootpa)
+Red Hat Enterprise Linux release 8.9 (Ootpa)
 </pre>
 
-Sinc you are already running a properly registered RHEL machine, you do not need to enable any additional repositories. Instead, simply use the DNF package manager to install leapp and its dependencies:
+Since you are already running a properly registered RHEL machine, you do not need to enable any additional repositories. Instead, simply use the DNF package manager to install leapp and its dependencies:
 
-```
+```bash
 dnf install -y leapp-upgrade
 
 ```
@@ -99,12 +112,12 @@ Complete!
 
 Verify the install was successful:
 
-```
+```bash
 leapp --version
 
 ```
 
 <pre class=file>
 # leapp --version
-leapp version 0.15.1
+leapp version 0.16.0
 </pre>
