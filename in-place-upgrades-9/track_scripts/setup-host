@@ -30,8 +30,6 @@ echo redhat | passwd --stdin rhel
 while ! ping -c 1 -W 1 rhel08; do echo "Waiting for rhel08 - network interface might be down."; sleep 10; done;
 
 ssh -i /root/.ssh/id_rsa -o "StrictHostKeyChecking no" root@rhel08 "subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force"
-
-# set up SSL for certificate signing
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
 #check web console url for certificate
@@ -64,4 +62,4 @@ cat /etc/letsencrypt/live/${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io/pri
 rm /etc/cockpit/ws-certs.d/0*
 
 #restart cockpit to apply the changs
-systemctl restart cockpit
+systemctl restart cockpit.socket

@@ -3,14 +3,60 @@ slug: upgrading
 id: jpf3l5dgonih
 type: challenge
 title: Running the Upgrade
+notes:
+- type: text
+  contents: |-
+    Removed Text (Web Console):
+
+    The `Viewing Reboot` below shows how you can view the reboot/upgrade process.
+
+    Viewing Reboot (Optional)
+    =============
+    This step is optional but it may provide insight into the upgrade process. This lab provides a web console UI to the virtual machine host. You can log into the web UI to view the upgrade process after `reboot` has been executed.
+
+    Click on `RHEL Web Console`to log into the web UI.
+
+    ![web console tab](../assets/rhelwebconsoletab.png)
+
+    Use the following credentials to log into the web console.
+
+    Username
+    ```
+    rhel
+    ```
+
+    Password
+    ```
+    redhat
+    ```
+
+    ![web ui login](../assets/webuilogin.png)
+
+    Next, give yourself administrative access by clicking on the button `Turn on administrative access` and entering the password `redhat` again.
+
+    ![admin](../assets/adminaccess.png)
+
+    Navigate to `Virtual machines`
+
+    ![vms](../assets/virtualmachines.png)
+
+    Click on `rhel07`
+    ![rhel07](../assets/rhel07.png)
+
+    You can now view the upgrade process in the console window.
+
+    ![console](../assets/console.png)
+
+    Please continue to `Verifying the upgrade` below.
 tabs:
 - title: RHEL
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel08
-- title: webconsole
-  type: browser
-  hostname: webconsole
+- title: Post-reboot
+  type: terminal
+  hostname: host
+  cmd: ssh -o "StrictHostKeyChecking no" rhel@rhel08
 difficulty: basic
 timelimit: 1
 ---
@@ -62,8 +108,6 @@ The Leapp process can take upwards of 15 minutes to run.
 The upgrade has only been _staged_; it has not been completed at this point. A reboot is required for the RHEL 9-based initial RAM disk image (initramfs), upgrades all packages and automatically reboots to the RHEL 9 system. -->
 If you would like to proceed with the lab without waiting for the upgrade to complete, click on the `Upgraded RHEL` tab and continue in that terminal. You can skip the reboot step below. Proceed to the step `Verifying the upgrade` below.
 
-Rebooting the upgaded host.
-===========================
 A reboot is required for the RHEL 9-based initial RAM disk image (initramfs), upgrades all packages and automatically reboots to the RHEL 9 system.
 
 >**Pro Tip:** You can combine these two steps with the --reboot option
@@ -74,52 +118,13 @@ reboot
 
 ```
 
-Now, leapp is performing several actions inside a temporary environment. This includes creating a new initramfs image, relabeling SELinux contexts, and well as cleaning up any remaining RHEL 9 packages. The reboot process can take up to 15 minutes. The `Optional step` below shows how you can view the reboot/upgrade process.
-
-Verifying Reboot (Optional)
-=============
-This step is optional but it may provide insight into the upgrade process. This lab provides a web console UI to the virtual machine host. You can log into the web UI to view the upgrade process after `reboot` has been executed.
-
-Click on `RHEL Web Console`to log into the web UI.
-
-![web console tab](../assets/rhelwebconsoletab.png)
-
-Use the following credentials to log into the web console.
-
-Username
-```
-rhel
-```
-
-Password
-```
-redhat
-```
-
-![web ui login](../assets/webuilogin.png)
-
-Next, give yourself administrative access by clicking on the button `Turn on administrative access` and entering the password `redhat` again.
-
-![admin](../assets/adminaccess.png)
-
-Navigate to `Virtual machines`
-
-![vms](../assets/virtualmachines.png)
-
-Click on `rhel07`
-![rhel07](../assets/rhel07.png)
-
-You can now view the upgrade process in the console window.
-
-![console](../assets/console.png)
-
-Please continue to `Verifying the upgrade` below.
+Now, leapp is performing several actions inside a temporary environment. This includes creating a new initramfs image, relabeling SELinux contexts, and well as cleaning up any remaining RHEL 8 packages. The reboot process can take up to 15 minutes.
 
 Verifying the upgrade
 =====================
 Once the new initramfs image is in place, package updates run, and SELinux relabel completion, the system will perform one final reboot.
 
-Refresh the Instruqt console to log back into your host, by clicking the button shown below.
+Select the Post-reboot tab while the virtual machine is rebooting. You will likely have to click the Refresh button periodically until you are able to log back into your host.
 
 ![console](../assets/refreshtheconsole.png)
 
