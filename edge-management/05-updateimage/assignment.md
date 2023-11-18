@@ -11,11 +11,13 @@ tabs:
 - title: rhel
   type: terminal
   hostname: rhel
-- title: rhel Web Console
-  type: external
-  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
+- title: RHEL Web Console
+  type: browser
+  hostname: webconsole
+- title: Red Hat Insights
+  type: browser
+  hostname: insights
 difficulty: basic
-timelimit: 1
 ---
 Now we'll update the image and push the updates out to your edge device.
 

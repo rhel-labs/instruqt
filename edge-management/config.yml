@@ -1,7 +1,12 @@
 version: "3"
+virtualbrowsers:
+- name: insights
+  url: https://console.redhat.com
+- name: webconsole
+  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 virtualmachines:
 - name: rhel
-  image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-2-07-28-23-2
+  image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-3-11-17-23-v2
   shell: /bin/bash
   environment:
     TERM: xterm

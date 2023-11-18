@@ -11,11 +11,13 @@ tabs:
 - title: rhel
   type: terminal
   hostname: rhel
-- title: rhel Web Console
-  type: external
-  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
+- title: RHEL Web Console
+  type: browser
+  hostname: webconsole
+- title: Red Hat Insights
+  type: browser
+  hostname: insights
 difficulty: basic
-timelimit: 1
 ---
 We are now ready to install the image. In this lab, we'll use the built in RHEL hypervisor, libvirtd to create an edge device or VM.
 
