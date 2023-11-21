@@ -15,3 +15,7 @@ echo "setting password" >> /root/post-run.log
 echo redhat | passwd --stdin rhel
 
 echo "DONE" >> /root/post-run.log
+
+# Downgrade openssh so that the lab will have something to upgrade.
+
+dnf downgrade openssh -y
