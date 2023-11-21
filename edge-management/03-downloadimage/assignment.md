@@ -11,13 +11,11 @@ tabs:
 - title: rhel
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
-  type: browser
-  hostname: webconsole
-- title: Red Hat Insights
-  type: browser
-  hostname: insights
+- title: rhel Web Console
+  type: external
+  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
+timelimit: 1
 ---
 Now that the image has been created, we'll download it to the RHEL host in the lab so that we can install it in a VM (which we can consider to be our edge device).
 

@@ -11,10 +11,8 @@ developers:
 - myee@redhat.com
 - wkibbe@redhat.com
 show_timer: true
-timelimit: 3060
 lab_config:
   overlay: false
-  width: 30
+  width: 50
   position: right
-  loadingMessages: true
-checksum: "9864491751015716251"
+checksum: "14705917447759863048"
