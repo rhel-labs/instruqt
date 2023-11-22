@@ -10,50 +10,85 @@ tabs:
 difficulty: basic
 timelimit: 900
 ---
-## More on pods
+## Podman generate, and podman play
+Another great feature of poods is that you can generate a yaml definition of your pod, and use it to re-create your pod using `podman generate` and `podman play`.
 
-Pods are good for more than just organization though.  A pod also containerizes the network communication between the containers within it.
-
-If I run the same httpd container from earlier, without putting it inside of a pod, I can then access whatever ports I have exposed on the container, via localhost on my container host.
+Let's generate a definition for your newly networked pod.
 
 ```bash
-podman run -d -p 8080:80 --name my-bare-httpd httpd
+podman generate kube my-networked-pod > my-networked-pod.yaml
 ```
 
-This tells podman to run the same container image, with a new name, and forward port 8080 on our host, to port 80 on the container.
+Now, we can see what we generated
 
-Now if we look at `podman ps` again, we'll see a new httpd container, notice that it says its listening on `0.0.0.0:8080`
+```bash
+cat my-networked-pod.yaml
+```
+
+<pre>
+root@rhel:~# cat my-networked-pod.yaml
+# Save the output of this file and use kubectl create -f to import
+# it into Kubernetes.
+#
+# Created with podman-4.4.1
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2023-09-26T19:58:57Z"
+  labels:
+    app: my-networked-pod
+  name: my-networked-pod
+spec:
+  containers:
+  - image: docker.io/library/httpd:latest
+    name: my-networked-httpd
+    ports:
+    - containerPort: 80
+      hostPort: 8080
+    resources: {}
+  hostname: my-networked-pod
+  restartPolicy: Never
+status: {}
+</pre>
+Now, if we stop, and remove our pod.
+
+```bash
+podman pod stop my-networked-pod && podman pod rm my-networked-pod
+```
+
+We can re-create it easily with podman play.
+
+```bash
+podman play kube my-networked-pod.yaml
+```
+
+>_NOTE_: This feature of podman works on other items as well, you can, for instance, define a volume and use podman generate to store the volume definition as a yaml file.  Then re-create it on another system using podman play.
+
+<pre>
+root@rhel:~# podman play kube my-networked-pod.yaml
+Pod:
+2f3d42d6cac720972889496334ef23260fa33030ddb3bccdcb7ff3a15dea07ac
+Container:
+f87d81a769a3cef7b5caf52e958426fd4f3f614e130bbb5e91c193ac36b3a27d
+</pre>
+
+Now, if we check on `podman pod ps` and `podman pod ps` we will see a new pod, and container within it.
+
+```bash
+podman pod ps
+```
+<pre>
+oot@rhel:~# podman pod ps
+POD ID        NAME              STATUS      CREATED        INFRA ID      # OF CONTAINERS
+2f3d42d6cac7  my-networked-pod  Running     3 minutes ago  d9f73884ad91  2
+</pre>
 
 ```bash
 podman ps
 ```
-
-<pre type=file>
-# podman ps
-CONTAINER ID  IMAGE                                    COMMAND           CREATED         STATUS             PORTS                 NAMES
-09996c7a624b  localhost/podman-pause:4.0.2-1652984291                    12 minutes ago  Up 10 minutes ago                        2d95aa4fdaee-infra
-68ca89e03e63  docker.io/library/httpd:latest           httpd-foreground  10 minutes ago  Up 10 minutes ago                        my-httpd
-90f6b39d18ac  docker.io/library/httpd:latest           httpd-foreground  4 seconds ago   Up 3 seconds ago   0.0.0.0:8080->80/tcp  my-bare-httpd
-#
+<pre>
+root@rhel:~# podman ps
+CONTAINER ID  IMAGE                                    COMMAND           CREATED        STATUS        PORTS                 NAMES
+d9f73884ad91  localhost/podman-pause:4.4.1-1682527828                    3 minutes ago  Up 3 minutes  0.0.0.0:8080->80/tcp  2f3d42d6cac7-infra
+f87d81a769a3  docker.io/library/httpd:latest           httpd-foreground  3 minutes ago  Up 3 minutes  0.0.0.0:8080->80/tcp  my-networked-pod-my-networked-httpd
 </pre>
-
-And we can even test that out with `curl`
-
-```bash
-curl http://127.0.0.1:8080
-```
-
-<pre type=file>
-# curl http://127.0.0.1:8080
-<html><body><h1>It works!</h1></body></html>
-</pre>
-
-Lets try to make a new httpd container, inside of our pod, that forwards in the same way.  First let's stop our new httpd container.
-
-```bash
-podman stop my-bare-httpd
-```
-
-Now, we still have an httpd container running, but we cant access it, not just because we havent forwarded any ports to it, but because its inside of a pod.  The pod acts almost like a firewall, allowing or disallowing ports to the containers within it.  Containers that run container images that are configured to listen on a given port are accessible to each other within the pod, but outside the pod are not accessible unless we tell the pod to allow it. We'll demonstrate this in the next step.
-
-
