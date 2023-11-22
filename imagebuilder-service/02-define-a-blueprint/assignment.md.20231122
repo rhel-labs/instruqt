@@ -53,9 +53,13 @@ Once your partition table looks like the one pictured above, press `Next`.
 
 ## Step 4: Specify software
 ===========================
-Step 4 lets us select packages that we would like installed on our system.  The base image produced by Image Builder is intended to be small, and make very few assumptions about your desired package set.  So having the ability to add in packages here can save you time later.  For this lab, let's leave the default package set in place.  Just be aware that if you wanted to add some packages, you could do so in this step.
+Step 4 lets us select packages that we would like installed on our system.  The base image produced by Image Builder is intended to be small, and make very few assumptions about your desired package set.  So having the ability to add in packages here can save you time later.  For this lab, let's add in a few packages.  You do this by searching for the package using the `Search for a package` text box.  And then adding it to the list of `Chosen packages` using the `>` button to add a single selected package, or the ``>>`` button to add all listed packages.
 
-Press the `Next` button.
+Try searching for `vim` you should see a list of packages that match the word `vim`,  select `vim-enhanced` from the list, and press the `>` button indicating that we would like to add just the selected package.
+
+![Image Builder Step 4 a](../assets/ib-step4a.png)
+
+Then press the `Next` button.
 
 ## Step 5: Name your image
 ==========================
