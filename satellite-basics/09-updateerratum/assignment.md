@@ -35,6 +35,9 @@ Red Hat Product Errata are advisories on bug fixes, security, and enhancement on
 
 For more information on Red Hat Errata, [please visit this page](https://access.redhat.com/articles/2130961).
 
+Apply errata
+============
+
 To view Errata in Satellite, click on `Content` and `Errata`.
 
 <a href="#1">
@@ -139,6 +142,10 @@ Go to Hosts > All Hosts.
 </a>
 
 All hosts managed by Satellite will still display in a red font signifying there are error statuses. This is because the Tracer application has detected services that require restarting. If the kernel or systemd has been updated, the hosts will require a reboot.
+
+Resolve Traces (Restart services that require it)
+=================================================
+When software is updated on a host, software that runs as a service require a restart before the updated software is loaded into memory. Tracer will detect which of these services need to be restarted.
 
 Click on a host (it doesn't matter which, you'll have to perform this procedure twice.)
 

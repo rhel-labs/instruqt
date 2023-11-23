@@ -27,7 +27,7 @@ owner: rhel
 developers:
 - myee@redhat.com
 show_timer: true
-idle_timeout: 3000
+idle_timeout: 1800
 timelimit: 6720
 sandbox_preset: satellite
 lab_config:
@@ -35,4 +35,4 @@ lab_config:
   width: 50
   position: right
   loadingMessages: true
-checksum: "5377997408460637556"
+checksum: "14549318986794720174"
