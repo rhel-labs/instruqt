@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Trigger an erratum.
+# dnf downgrade -y openssh
+dnf install tmux-3.2a-4.el9.x86_64 -y

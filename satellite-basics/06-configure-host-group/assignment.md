@@ -45,12 +45,12 @@ Click on `Create Host Group`.
 In the host group menu do the following:
 
 1) Name the host group `Application Servers`.
-2) Select the `Test` lifecycle environment.
-3) Select the `RHEL9` content view.
-4) Select `satellite.lab` as the content source.
+2) Select `satellite.lab` as the content source.
+3) Select the `Test` lifecycle environment.
+4) Select the `RHEL9` content view.
 5) Click on `Ansible Roles`
 
-![1](../assets/createhostgroup1.png)
+![1](../assets/createhostgroup-new-1.png)
 
 In the Ansible Roles menu do the following:
 
