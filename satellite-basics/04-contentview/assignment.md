@@ -77,6 +77,10 @@ Click `Create content view` to save it.
  <img alt="An example image" src="../assets/createcv.png" />
 </a>
 
+Click on `Show repositories`.
+
+![show repos](../assets/showrepos.png)
+
 Add the `BaseOS` and `AppStream` repos. Click `Add Repositories`.
 
 <a href="#4">

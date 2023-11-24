@@ -37,6 +37,9 @@ A host collection is a group of content hosts. This feature enables you to perfo
 
 For more information on Host Collections, please see [Configuring Host Collections](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.11/html/managing_hosts/configuring_host_collections_managing-hosts).
 
+Create a host collection
+========================
+
 First we'll create a Host Collection. Click on `Host Collections` in the menu.
 
 <a href="#1">
@@ -109,6 +112,9 @@ Click on the `Details` tab.
 <a href="#" class="lightbox" id="7">
  <img alt="An example image" src="../assets/clickontmuxinstallation.png" />
 </a>
+
+Install software with the host collection
+=========================================
 
 Click on `Package Installation, Removal, and Update`.
 
