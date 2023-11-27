@@ -43,6 +43,6 @@ Click on `rhel3` terminal tab and paste the same or similar `stress` command as 
 
 When these `stress` tests are complete, go back to the Grafana dashboard and view the performance metrics of the `rhel2` and `rhel3` hosts. The dashboards might take a minute or two to update.
 
-You can also experiment with the dash board scales and intervals.
+You can also experiment with the dashboard scales and intervals.
 
 ![dash](../assets/scales.png)
