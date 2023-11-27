@@ -32,4 +32,5 @@ lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "9018464661712040615"
+  loadingMessages: true
+checksum: "12995702017806316711"
