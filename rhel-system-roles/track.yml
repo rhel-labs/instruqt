@@ -18,8 +18,7 @@ description: |-
   # Example Usecase:
   You have a set of database servers, these servers need kernel settings and time settings applied to them. Additionally, you want to record terminal sessions for auditing. When a change needs to be made to the configuration, you want to apply the changes to all your database servers to keep them all updated with the same configuration options.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
-tags:
-- ""
+tags: []
 owner: rhel
 developers:
 - myee@redhat.com
@@ -31,4 +30,5 @@ lab_config:
   overlay: false
   width: 25
   position: right
-checksum: "11061100570475594893"
+  loadingMessages: true
+checksum: "6686912407958421249"
