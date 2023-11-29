@@ -1,14 +1,14 @@
-version: '3'
+version: "3"
 virtualmachines:
-- allow_external_ingress:
+- name: rhel
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-3-11-14-23
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-1
+  allow_external_ingress:
   - http
   - https
   - high-ports
-  environment:
-    TERM: xterm
-  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-2-6-20-23
-  machine_type: n1-standard-1
-  name: rhel
-  shell: /bin/bash
 secrets:
 - name: ACTIVATION_KEY
