@@ -17,7 +17,8 @@ description: |
 
   You wish to run containers for which a dockerfile already exists
 icon: ""
-tags: []
+tags:
+- devel101
 owner: rhel
 developers:
 - wkibbe@redhat.com
@@ -27,4 +28,6 @@ lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "16800798177736551519"
+  feedback_recap_enabled: true
+  loadingMessages: true
+checksum: "17989956634801836756"
