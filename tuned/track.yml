@@ -17,8 +17,7 @@ description: |-
   # Example Usecase:
   You have a new RHEL server which your database administrator is going to install Microsoft SQL Server on.  You want to ensure you have the operating system tuned for that specific workload.  By leveraging predefined TuneD profiles you can save time using the recommended settings and then you may customize the settings later with a custom tuned profile
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
-tags:
-- ""
+tags: []
 owner: rhel
 developers:
 - wkibbe@redhat.com
@@ -29,4 +28,6 @@ lab_config:
   overlay: false
   width: 25
   position: right
-checksum: "6932553716240523412"
+  feedback_recap_enabled: true
+  loadingMessages: true
+checksum: "14299595557694432866"
