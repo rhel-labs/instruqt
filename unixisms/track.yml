@@ -18,8 +18,8 @@ description: |
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: beginner
 tags:
-- admin101
 - rhel
+- admin101
 owner: rhel
 developers:
 - ehendric@redhat.com
@@ -31,4 +31,6 @@ lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "12796413081314386506"
+  feedback_recap_enabled: true
+  loadingMessages: true
+checksum: "2355108785682914105"
