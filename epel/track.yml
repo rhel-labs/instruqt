@@ -12,9 +12,12 @@ tags: []
 owner: rhel
 developers:
 - wkibbe@redhat.com
+- myee@redhat.com
 timelimit: 3000
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "10152810699457429154"
+  feedback_recap_enabled: true
+  loadingMessages: true
+checksum: "5477464847493065611"
