@@ -68,3 +68,5 @@ rm /etc/cockpit/ws-certs.d/0*
 systemctl restart cockpit
 
 echo "DONE" >> /root/post-run.log
+
+mkdir -p /home/C_source
