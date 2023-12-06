@@ -32,7 +32,7 @@ Click `Next`.
 
 Next we'll customize the blueprint.
 
-Add in the first package, `nodejs`, into the `Available packages` search bar. Once the filter has been applied, you should now see packages with `nodejs` included in their name.
+Add in the first package, `nodejs`, into the `Available packages` search bar. Once the filter has been applied, you should now see packages with `nodejs` included in their name. It might take a minute or two for packages to load.
 
 ![add nodejs](../assets/nodejs-select.png)
 
