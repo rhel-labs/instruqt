@@ -36,45 +36,51 @@ sudo ausearch --message AVC --start today
 Wow! There are quite a few denials!
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">----
-time->Sun Oct 30 22:07:18 2022
-type=PROCTITLE msg=audit(1667167638.686:2321): proctitle="/usr/local/sbin/testapp"
-type=PATH msg=audit(1667167638.686:2321): item=3 name=(null) inode=1510 dev=00:19 mode=0100644 ouid=0 ogid=0 rdev=00:00 obj=system_u:object_r:var_run_t:s0 nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
-type=PATH msg=audit(1667167638.686:2321): item=2 name=(null) inode=1 dev=00:19 mode=040755 ouid=0 ogid=0 rdev=00:00 obj=system_u:object_r:var_run_t:s0 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
-type=PATH msg=audit(1667167638.686:2321): item=1 name=(null) nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
-type=PATH msg=audit(1667167638.686:2321): item=0 name=(null) inode=1 dev=00:19 mode=040755 ouid=0 ogid=0 rdev=00:00 obj=system_u:object_r:var_run_t:s0 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
-type=CWD msg=audit(1667167638.686:2321): cwd="/"
-type=SYSCALL msg=audit(1667167638.686:2321): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=101b750 a2=241 a3=1b6 items=4 ppid=1 pid=149921 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="testapp" exe="/usr/local/sbin/testapp" subj=system_u:system_r:testapp_t:s0 key=(null)
-...
+time->Tue Jul 18 16:25:09 2023
+type=PROCTITLE msg=audit(1689697509.138:4186): proctitle="/usr/local/sbin/testapp"
+type=SYSCALL msg=audit(1689697509.138:4186): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=9fb750 a2=241 a3=1b6 items=0 ppid=1 pid=88834 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="testapp" exe="/usr/local/sbin/testapp" subj=system_u:system_r:testapp_t:s0 key=(null)
+type=AVC msg=audit(1689697509.138:4186): avc:  denied  { open } for  pid=88834 comm="testapp" path="/run/testapp.pid" dev="tmpfs" ino=2492 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:var_run_t:s0 tclass=file permissive=1
+type=AVC msg=audit(1689697509.138:4186): avc:  denied  { write } for  pid=88834 comm="testapp" name="testapp.pid" dev="tmpfs" ino=2492 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:var_run_t:s0 tclass=file permissive=1
+----
+time->Tue Jul 18 16:25:09 2023
+type=PROCTITLE msg=audit(1689697509.139:4187): proctitle="/usr/local/sbin/testapp"
+type=SYSCALL msg=audit(1689697509.139:4187): arch=c000003e syscall=257 success=yes exit=4 a0=ffffff9c a1=4033f3 a2=0 a3=0 items=0 ppid=1 pid=88834 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="testapp" exe="/usr/local/sbin/testapp" subj=system_u:system_r:testapp_t:s0 key=(null)
+type=AVC msg=audit(1689697509.139:4187): avc:  denied  { open } for  pid=88834 comm="testapp" path="/proc/meminfo" dev="proc" ino=4026532024 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:proc_t:s0 tclass=file permissive=1
+type=AVC msg=audit(1689697509.139:4187): avc:  denied  { read } for  pid=88834 comm="testapp" name="meminfo" dev="proc" ino=4026532024 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:proc_t:s0 tclass=file permissive=1
+----
+time->Tue Jul 18 16:25:09 2023
+type=PROCTITLE msg=audit(1689697509.156:4191): proctitle="/usr/local/sbin/testapp"
+type=SYSCALL msg=audit(1689697509.156:4191): arch=c000003e syscall=41 success=yes exit=3 a0=a a1=2 a2=0 a3=7f1a2426ac80 items=0 ppid=1 pid=88835 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="testapp" exe="/usr/local/sbin/testapp" subj=system_u:system_r:testapp_t:s0 key=(null)
+type=AVC msg=audit(1689697509.156:4191): avc:  denied  { create } for  pid=88835 comm="testapp" scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:system_r:testapp_t:s0 tclass=udp_socket permissive=1
+----
+
 A long, long list...
 </pre>
 
 Let's just focus in in the first AVC message. To do this we can use the filter from the ausearch command to retrieve just one entry, the first one, from the desired timeframe. The ausearch command takes a time in format *hh:mm:ss*, or reference (today | recent) for the *--start* argument.
 
+Here are some examples:
 ```bash
-ausearch --message AVC --just-one --start recent
+# The first AVC today
+ausearch --message AVC --just-one --start today
 ```
-
-> **IMPORTANT** Use the command *'date +%T'* to print a time to the screen **right after** you restart the testapp and substitute that in your **ausearch --start** command. Remember that *recent* means in the last 10 minutes and *today* means after 00:00:00 on the system clock. You want to be sure that you are only looking at logs generated since the last restart of your application. **--just-one** returns the first AVC that occurs after the time specified by start.
-
-We can pull this all into one line using bash.
-
-```bash
-TIME=`date +%T`;export TIME; sudo systemctl restart testapp; sudo ausearch --message AVC --just-one --start $TIME
-```
-
+>
+>
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">----
-time->Tue Nov  1 03:36:46 2022
-type=PROCTITLE msg=audit(1667273806.737:3034): proctitle="/usr/local/sbin/testapp"
-type=PATH msg=audit(1667273806.737:3034): item=3 name=(null) inode=2082 dev=00:19 mode=0100644 ouid=0 ogid=0 rdev=00:00 obj=system_u:object_r:var_run_t:s0 nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
-type=PATH msg=audit(1667273806.737:3034): item=2 name=(null) inode=1 dev=00:19 mode=040755 ouid=0 ogid=0 rdev=00:00 obj=system_u:object_r:var_run_t:s0 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
-type=PATH msg=audit(1667273806.737:3034): item=1 name=(null) nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
-type=PATH msg=audit(1667273806.737:3034): item=0 name=(null) inode=1 dev=00:19 mode=040755 ouid=0 ogid=0 rdev=00:00 obj=system_u:object_r:var_run_t:s0 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
-type=CWD msg=audit(1667273806.737:3034): cwd="/"
-type=SYSCALL msg=audit(1667273806.737:3034): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=a76750 a2=241 a3=1b6 items=4 ppid=1 pid=153704 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="testapp" exe="/usr/local/sbin/testapp" subj=system_u:system_r:testapp_t:s0 key=(null)
-type=AVC msg=audit(1667273806.737:3034): <strong style="color: red">avc:  denied  { write open }</strong> for  pid=153704 comm="testapp" <strong style="color: red">path="/run/testapp.pid"</strong> dev="tmpfs" ino=2082 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:var_run_t:s0 tclass=file permissive=1
-type=AVC msg=audit(1667273806.737:3034): <strong style="color: red">avc:  denied  { create }</strong> for  pid=153704 comm="testapp" <strong style="color: red">name="testapp.pid"</strong> scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:var_run_t:s0 tclass=file permissive=1
-type=AVC msg=audit(1667273806.737:3034): <strong style="color: red">avc:  denied  { add_name }</strong> for  pid=153704 comm="testapp" <strong style="color: red">name="testapp.pid"</strong> scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:var_run_t:s0 tclass=dir permissive=1
-type=AVC msg=audit(1667273806.737:3034): <strong style="color: red">avc:  denied  { write }</strong> for  pid=153704 comm="testapp" <strong style="color: red">name="/" dev="tmpfs"</strong> ino=1 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:var_run_t:s0 tclass=dir permissive=1</pre>
+time->Tue Jul 18 14:54:33 2023
+type=PROCTITLE msg=audit(1689692073.634:2980): proctitle="/usr/local/sbin/testapp"
+type=PATH msg=audit(1689692073.634:2980): item=3 name=(null) inode=2492 dev=00:19 mode=0100644 ouid=0 ogid=0 rdev=00:00 obj=system_u:object_r:var_run_t:s0 nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1689692073.634:2980): item=2 name=(null) inode=1 dev=00:19 mode=040755 ouid=0 ogid=0 rdev=00:00 obj=system_u:object_r:var_run_t:s0 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1689692073.634:2980): item=1 name=(null) nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1689692073.634:2980): item=0 name=(null) inode=1 dev=00:19 mode=040755 ouid=0 ogid=0 rdev=00:00 obj=system_u:object_r:var_run_t:s0 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1689692073.634:2980): cwd="/"
+type=SYSCALL msg=audit(1689692073.634:2980): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=754750 a2=241 a3=1b6 items=4 ppid=1 pid=87597 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="testapp" exe="/usr/local/sbin/testapp" subj=system_u:system_r:testapp_t:s0 key=(null)
+type=AVC msg=audit(1689692073.634:2980): <strong style="color: red">avc:  denied  { write open }</strong> for  pid=87597 comm="testapp" <strong style="color: red">path="/run/testapp.pid"</strong> dev="tmpfs" ino=2492 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:var_run_t:s0 tclass=file permissive=1
+type=AVC msg=audit(1689692073.634:2980): <strong style="color: red">avc:  denied  { create }</strong> for  pid=87597 comm="testapp" <strong style="color: red">name="testapp.pid"</strong> scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:var_run_t:s0 tclass=file permissive=1
+type=AVC msg=audit(1689692073.634:2980): <strong style="color: red">avc:  denied  { add_name }</strong> for  pid=87597 comm="testapp" <strong style="color: red">name="testapp.pid"</strong> scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:var_run_t:s0 tclass=dir permissive=1
+type=AVC msg=audit(1689692073.634:2980): <strong style="color: red">avc:  denied  { write }</strong> for  pid=87597 comm="testapp" <strong style="color: red">name="/" dev="tmpfs"</strong> ino=1 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:var_run_t:s0 tclass=dir permissive=1</pre>
+
+This returns since we have never run our testapp before and our system was clean earlier, this shows us the first AVC generated by testapp.
 
 We see that testapp was denied "write  open", "create", and "add_name" on "/run/testapp.pid". So our system is secure enough that our basic policy is not even allowing the application to make a pid file on the tmpfs. That's pretty secure, however, it seems reasonable that we should allow this. Our app should be able to create a pid file and other temp files as necessary.
 
@@ -91,7 +97,7 @@ There is a command called **audit2allow** and an alias **audit2why** (== audit2a
 > IMPORTANT: This utility does a best fit analysis. The macros that are referenced may be a less restrictive than you require. Using the -N or using no switches will produce traditional allow statements only. See the audit2allow manpage
 
 ```bash
-ausearch --message AVC --start recent --just-one | audit2allow -R
+ausearch --message AVC --start today --just-one | audit2allow -R
 ```
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
@@ -189,7 +195,7 @@ OK. Ensure your file is saved and run the testapp.sh script again.
 To save the file, press escape, then type :wq! and press enter.
 
 ```bash
-./testapp.sh
+/root/selinuxlab/policy/testapp.sh
 ```
 
 You should see the successful compilation of your policy. The output below is truncated.
@@ -209,19 +215,30 @@ Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.Xm82Fg
 ++ jobs -p
 + exit 0</pre>
 
-**REMINDER**
-Run **date +%T** just before restarting your testapp. Use the output of the command in your ausearch command.
+> **IMPORTANT TRICK**
+> We want to find only the AVCs that are created during the latest run of testapp. So we can modify our command a bit to focus just on the current execution. Grab the date just before we start using **date +%T**. Restart the testapp service. Now use the output of the command in your ausearch command.
+> See below.
 
+Get all the AVCs since we restarted the app
 ```bash
+# All AVCs from the last run
+TIME=`date +%T`;export TIME; sudo systemctl restart testapp; sudo ausearch --message AVC --start $TIME
+```
+
+Get only the first AVC since we restarted the app
+```bash
+# just the first AVC from the last run
 TIME=`date +%T`;export TIME; sudo systemctl restart testapp; sudo ausearch --message AVC --just-one --start $TIME
 ```
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">----
-time->Sun Oct 30 23:09:27 2022
-type=PROCTITLE msg=audit(1667171367.011:2423): proctitle="/usr/local/sbin/testapp"
-type=SYSCALL msg=audit(1667171367.011:2423): arch=c000003e syscall=257 success=yes exit=4 a0=ffffff9c a1=4033f3 a2=0 a3=0 items=0 ppid=1 pid=152896 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="testapp" exe="/usr/local/sbin/testapp" subj=system_u:system_r:testapp_t:s0 key=(null)
-type=AVC msg=audit(1667171367.011:2423): <strong style="color: red">avc:  denied  { open }</strong> for  pid=152896 comm="testapp" <strong style="color: red">path="/proc/meminfo"</strong> dev="proc" ino=4026532024 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:proc_t:s0 tclass=file permissive=1
-type=AVC msg=audit(1667171367.011:2423): <strong style="color: red">avc:  denied  { read }</strong> for  pid=152896 comm="testapp" <strong style="color: red">name="meminfo"</strong> dev="proc" ino=4026532024 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:proc_t:s0 tclass=file permissive=1</pre>
+----
+time->Tue Jul 18 16:59:05 2023
+type=PROCTITLE msg=audit(1689699545.690:4414): proctitle="/usr/local/sbin/testapp"
+type=SYSCALL msg=audit(1689699545.690:4414): arch=c000003e syscall=257 success=yes exit=4 a0=ffffff9c a1=4033f3 a2=0 a3=0 items=0 ppid=1 pid=89367 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="testapp" exe="/usr/local/sbin/testapp" subj=system_u:system_r:testapp_t:s0 key=(null)
+type=AVC msg=audit(1689699545.690:4414): <strong style="color: red">avc:  denied  { open }</strong> for  pid=89367 comm="testapp" <strong style="color: red">path="/proc/meminfo"</strong> dev="proc" ino=4026532024 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:proc_t:s0 tclass=file permissive=1
+type=AVC msg=audit(1689699545.690:4414): <strong style="color: red">avc:  denied  { read }</strong> for  pid=89367 comm="testapp" <strong style="color: red">name="meminfo"</strong> dev="proc" ino=4026532024 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:proc_t:s0 tclass=file permissive=1
+</pre>
 
 Excellent! The previous AVC is gone!
 

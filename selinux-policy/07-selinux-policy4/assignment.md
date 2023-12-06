@@ -19,36 +19,25 @@ timelimit: 1
 ---
 ### The Last Interface
 
-We are just about done. List the remaining denials. Only 4 or so entries!
+We are just about done. List the remaining denials. Only 2 entries!
 
 ```bash
 TIME=`date +%T`;export TIME; sudo systemctl restart testapp; sudo ausearch -m AVC -ts $TIME
 ```
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">----
-time->Mon Oct 31 01:17:50 2022
-type=PROCTITLE msg=audit(1667179070.329:2758): proctitle="/usr/local/sbin/testapp"
-type=SYSCALL msg=audit(1667179070.329:2758): arch=c000003e syscall=262 success=yes exit=0 a0=ffffff9c a1=7fe240f7497b a2=7fe2402ba270 a3=0 items=0 ppid=1 pid=156808 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="testapp" exe="/usr/local/sbin/testapp" subj=system_u:system_r:testapp_t:s0 key=(null)
-type=AVC msg=audit(1667179070.329:2758): <strong style="color: red">avc:  denied  { getattr }</strong> for  pid=156808 comm="testapp" <strong style="color: red">path="/etc/resolv.conf"</strong> dev="sda2" ino=50340168 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1
+time->Tue Jul 18 17:35:31 2023
+type=PROCTITLE msg=audit(1689701731.851:5322): proctitle="/usr/local/sbin/testapp"
+type=SYSCALL msg=audit(1689701731.851:5322): arch=c000003e syscall=262 success=yes exit=0 a0=ffffff9c a1=7f87d2af7ace a2=7f87d1e3e270 a3=0 items=0 ppid=1 pid=91158 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="testapp" exe="/usr/local/sbin/testapp" subj=system_u:system_r:testapp_t:s0 key=(null)
+type=AVC msg=audit(1689701731.851:5322): <strong style="color: red">avc:  denied  { getattr }</strong> for  pid=91158 comm="testapp" <strong style="color: red">path="/etc/resolv.conf"</strong> dev="sda2" ino=50340715 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1
 ----
-time->Mon Oct 31 01:17:50 2022
-type=PROCTITLE msg=audit(1667179070.335:2759): proctitle="/usr/local/sbin/testapp"
-type=SYSCALL msg=audit(1667179070.335:2759): arch=c000003e syscall=257 success=yes exit=7 a0=ffffff9c a1=7fe240f7497b a2=80000 a3=0 items=0 ppid=1 pid=156808 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="testapp" exe="/usr/local/sbin/testapp" subj=system_u:system_r:testapp_t:s0 key=(null)
-type=AVC msg=audit(1667179070.335:2759): <strong style="color: red">avc:  denied  { open }</strong> for  pid=156808 comm="testapp" <strong style="color: red">path="/etc/resolv.conf"</strong> dev="sda2" ino=50340168 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1
-type=AVC msg=audit(1667179070.335:2759): <strong style="color: red">avc:  denied  { read }</strong> for  pid=156808 comm="testapp" <strong style="color: red">name="resolv.conf"</strong> dev="sda2" ino=50340168 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1
-----
-time->Mon Oct 31 01:18:00 2022
-type=PROCTITLE msg=audit(1667179080.614:2785): proctitle="/usr/local/sbin/testapp"
-type=SYSCALL msg=audit(1667179080.614:2785): arch=c000003e syscall=262 success=yes exit=0 a0=ffffff9c a1=7fe240f7497b a2=7fe2402ba270 a3=0 items=0 ppid=1 pid=156808 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="testapp" exe="/usr/local/sbin/testapp" subj=system_u:system_r:testapp_t:s0 key=(null)
-type=AVC msg=audit(1667179080.614:2785): <strong style="color: red">avc:  denied  { getattr }</strong> for  pid=156808 comm="testapp" <strong style="color: red">path="/etc/resolv.conf"</strong> dev="sda2" ino=50340168 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1
-----
-time->Mon Oct 31 01:18:00 2022
-type=PROCTITLE msg=audit(1667179080.614:2786): proctitle="/usr/local/sbin/testapp"
-type=SYSCALL msg=audit(1667179080.614:2786): arch=c000003e syscall=257 success=yes exit=7 a0=ffffff9c a1=7fe240f74c5e a2=80000 a3=0 items=0 ppid=1 pid=156808 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="testapp" exe="/usr/local/sbin/testapp" subj=system_u:system_r:testapp_t:s0 key=(null)
-type=AVC msg=audit(1667179080.614:2786): <strong style="color: red">avc:  denied  { open }</strong> for  pid=156808 comm="testapp" <strong style="color: red">path="/etc/hosts"</strong> dev="sda2" ino=50343045 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1
-type=AVC msg=audit(1667179080.614:2786): <strong style="color: red">avc:  denied  { read }</strong> for  pid=156808 comm="testapp" <strong style="color: red">name="hosts"</strong> dev="sda2" ino=50343045 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1</pre>
+time->Tue Jul 18 17:35:31 2023
+type=PROCTITLE msg=audit(1689701731.853:5323): proctitle="/usr/local/sbin/testapp"
+type=SYSCALL msg=audit(1689701731.853:5323): arch=c000003e syscall=257 success=yes exit=7 a0=ffffff9c a1=7f87d2af7ace a2=80000 a3=0 items=0 ppid=1 pid=91158 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="testapp" exe="/usr/local/sbin/testapp" subj=system_u:system_r:testapp_t:s0 key=(null)
+type=AVC msg=audit(1689701731.853:5323): avc:  <strong style="color: red">denied  { open }</strong> for  pid=91158 comm="testapp" <strong style="color: red">path="/etc/resolv.conf"</strong> dev="sda2" ino=50340715 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1
+type=AVC msg=audit(1689701731.853:5323): <strong style="color: red">avc:  denied  { read }</strong> for  pid=91158 comm="testapp" <strong style="color: red">name="resolv.conf"</strong> dev="sda2" ino=50340715 scontext=system_u:system_r:testapp_t:s0 tcontext=system_u:object_r:net_conf_t:s0 tclass=file permissive=1</pre>
 
-It seems that we can't read /etc/resolv.conf or /etc/hosts. Use your favourite approach on this one, audit2allow or a search.
+It seems that we can't get access to /etc/resolv.conf. Use your favourite approach on this one, audit2allow or a search.
 
 Do that now.
 
@@ -107,7 +96,7 @@ miscfiles_read_localization(testapp_t)
 Compile. Restart. Test.
 
 ```bash
-TIME=`date +%T`;export TIME; sudo systemctl restart testapp; sudo ausearch -m AVC -ts $TIME
+TIME=`date +%T`;export TIME; sudo systemctl restart testapp; sleep 60; sudo ausearch -m AVC -ts $TIME
 ```
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">no matches</pre>
 
@@ -116,7 +105,7 @@ No AVCs!!
 The final test! Let's turn on enforcement. Comment out the **permissive testapp_t;** line in declarations of testapp.te, recompile the policy and test.
 
 ```bash
-TIME=`date +%T`;export TIME; sudo systemctl restart testapp; sudo ausearch -m AVC -ts $TIME
+TIME=`date +%T`;export TIME; sudo systemctl restart testapp; sleep 60; sudo ausearch -m AVC -ts $TIME
 ```
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
@@ -124,19 +113,19 @@ no matches
 
 # systemctl status testapp
 ● testapp.service - Testing SELinux app
-     Loaded: loaded (/usr/lib/systemd/system/testapp.service; disabled; vendor preset: disabled)
-     Active: <strong style="color: green">active (running)</strong> since Mon 2022-10-31 01:37:27 UTC; 7min ago
-    Process: 157288 ExecStart=/usr/local/sbin/testapp (code=exited, status=0/SUCCESS)
-   Main PID: 157289 (testapp)
-      Tasks: 1 (limit: 21954)
-     Memory: 3.0M
-        CPU: 3.081s
+     Loaded: loaded (/usr/lib/systemd/system/testapp.service; disabled; preset: disabled)
+     Active: <strong style="color: green">active (running)</strong> since Tue 2023-07-18 17:45:19 UTC; 1min 9s ago
+    Process: 91790 ExecStart=/usr/local/sbin/testapp (code=exited, status=0/SUCCESS)
+   Main PID: 91791 (testapp)
+      Tasks: 1 (limit: 23116)
+     Memory: 1.2M
+        CPU: 12ms
      CGroup: /system.slice/testapp.service
-             └─157289 /usr/local/sbin/testapp
+             └─91791 /usr/local/sbin/testapp
 
-Oct 31 01:37:27 selinux1 systemd[1]: Starting Testing SELinux app...
-Oct 31 01:37:27 selinux1 testapp[157288]: testapp parent process ended
-Oct 31 01:37:27 selinux1 systemd[1]: Started Testing SELinux app.</pre>
+Jul 18 17:45:19 selinux1 systemd[1]: Starting Testing SELinux app...
+Jul 18 17:45:19 selinux1 testapp[91790]: testapp parent process ended
+Jul 18 17:45:19 selinux1 systemd[1]: Started Testing SELinux app.</pre>
 
 We have successfully created an SELinux policy to manage our custom application!
 

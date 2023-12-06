@@ -78,7 +78,7 @@ Stop the *yes* process by switching it to foreground and ending it using Crtl+C.
 fg
 ```
 
-If we launch the passwd utility, we see a different result.
+If we launch the passwd utility, we see a different result. **Remember** run this in the Web Console.
 
 ```bash
 passwd tester >/dev/null &
@@ -104,7 +104,7 @@ If I had to suggest to a new administrator the one thing about SELinux that they
 
 We can change the context of an object the *chcon* command.
 
-To try this out, let’s purposefully set the context to an inappropriate value on our example SELinux AVC log file.
+To try this out, let’s purposefully set the context to an inappropriate value on our example SELinux AVC log file. **You can use the _Teminal window for the remainder of the exercise.**
 
 ```bash
 chcon -t httpd_sys_content_t ./testaudit
