@@ -60,3 +60,5 @@ ID                                    Status   Time                      Bluepri
 
 The status will display all queued (WAITING), running (RUNNING), and
 completed (FINISHED) composes.
+
+Please click `Next` to advance to the next challenge in this lab.
