@@ -26,11 +26,13 @@ tags:
 owner: rhel
 developers:
 - ehendric@redhat.com
-- myee@redhat.com
 - wkibbe@redhat.com
+- myee@redhat.com
 show_timer: true
 lab_config:
   overlay: false
   width: 25
   position: right
-checksum: "6820739102374870967"
+  feedback_recap_enabled: true
+  loadingMessages: true
+checksum: "11609089271142646265"
