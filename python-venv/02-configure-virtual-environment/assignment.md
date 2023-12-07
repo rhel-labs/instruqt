@@ -31,19 +31,19 @@ source /home/python/sampleenvironment/bin/activate
 Upon completing this step, the beginning of your command line should look like this:
 ![](../assets/venv_activation.png)
 
-If you wish to deactivate your environment at any time, run the following command:
+>[!NOTE]
+>If you wish to deactivate your environment at any time, run the following command `deactivate`
 
-```bash
-deactivate
-```
+>[!IMPORTANT]
+>The following steps will require that your virtual environment is activated.
 
->**Note**: The following steps will require that your virtual environment is activated
-
-Next, ensure that Pip, Python's package manager, is up to date by running the following command:
+Ensure that Pip, Python's package manager, is up to date by running the following command:
 
 ```bash
 pip install --upgrade pip
 ```
+
+`pip` is updated quite frequently so it is best to update it natively like we did above.
 
 ---
 
