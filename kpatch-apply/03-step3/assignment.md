@@ -37,7 +37,7 @@ dnf -y install "kpatch-patch = $(uname -r)"
  Package                                    Architecture         Version                 Repository                                   Size
 ===========================================================================================================================================
 Installing:
- kpatch-patch-5_14_0-284_11_1               x86_64               1-1.el9_2               rhel-9-for-x86_64-baseos-rpms                19 k
+ kpatch-patch-5_14_0-362_8_1              x86_64               0-0.el9_3               rhel-9-for-x86_64-baseos-rpms                19 k
 
 Transaction Summary
 ===========================================================================================================================================
@@ -47,5 +47,5 @@ Install  1 Package
 </pre>
 
 The previous `dnf` command, based on the result of the embedded uname -r
-command, installed kpatch-patch-5_14_0-284_11_1, which is what you had
+command, installed kpatch-patch-5_14_0-362_8_1, which is what you had
 determined on the previous step to be the patchset for this system.
