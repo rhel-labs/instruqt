@@ -26,10 +26,11 @@ owner: rhel
 developers:
 - myee@redhat.com
 show_timer: true
-timelimit: 14400
+timelimit: 3060
 lab_config:
   overlay: false
   width: 33
   position: right
+  feedback_recap_enabled: true
   loadingMessages: true
-checksum: "7435594503141950060"
+checksum: "5062612499863657327"

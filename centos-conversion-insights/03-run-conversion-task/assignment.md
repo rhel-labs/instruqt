@@ -16,9 +16,9 @@ difficulty: basic
 ---
 Run the Convert2RHEL conversion task
 ====================================
-Enable `Preview on`.
+<!-- Enable `Preview on`.
 
-![preview on](../assets/enablepreview.png)
+![preview on](../assets/enablepreview.png) -->
 
 Run the Convert2RHEL conversion task.
 
