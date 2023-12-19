@@ -90,7 +90,7 @@ tee /root/notebook/population.ipynb << EOF
    "metadata": {},
    "source": [
     "# Basic Data Visualization Sample\n",
-    "This Jupyter Notebook demonstrates the basics of data analysis and visualization in Python. It has three dependencies: Matplotlib, Numpy and Pandas.\n",
+    "This Jupyter Notebook demonstrates the basics of data analysis and visualization in Python. It has two dependencies: Matplotlib, Numpy and Pandas.\n",
     "In this example, you will work with historical population data for Singapore."
    ]
   },
