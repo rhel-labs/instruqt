@@ -9,7 +9,7 @@ description: |
   * Deploy a container image into an interactive container runtime
   * Deploy a container image into a detached container runtime
   * View deployed containers
-  * Stop a container instances
+  * Stop a container instance
   * Remove deployed container instances
 
   # Example Usecase:
@@ -27,4 +27,6 @@ lab_config:
   overlay: false
   width: 25
   position: right
-checksum: "15746741014894478014"
+  feedback_recap_enabled: true
+  loadingMessages: true
+checksum: "1010589914202796343"

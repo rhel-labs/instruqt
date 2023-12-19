@@ -36,30 +36,3 @@ CONTAINER ID  IMAGE                         COMMAND               CREATED       
 <a href="#example_image">
  <img alt="An example image" src="../assets/stopped-again.png" />
 </a>
-
-<a href="#" class="lightbox" id="example_image">
- <img alt="An example image" src="../assets/stopped-again.png" />
-</a>
-<style>
-.lightbox {
-  display: none;
-  position: fixed;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.8);
-}
-
-.lightbox:target {
-  display: flex;
-}
-
-.lightbox img {
-  max-height: 100%;
-}
-</style>
