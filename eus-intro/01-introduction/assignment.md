@@ -37,7 +37,7 @@ Traditional systems administration logic suggests that one would upgrade to the 
 
 Red Hat's EUS program enables partners and customers alike to standardize on specific minor versions without the need for orbitrary decisions. Since RHEL 4.5, Red Hat Enterprise Linux has provided EUS. Since RHEL 8.0, the standard for EUS releases is to support *.0 and every even numbered release. (This policy has been upheld for RHEL 9.x as well.)
 
-![rhel8_lifecycle](../assets/rhel8_lifecycle.png)
+![rhel9_lifecycle.png](../assets/rhel9_lifecycle.png)
 
 # Verifying Extended Update Support Availability
 
@@ -50,16 +50,26 @@ subscription-manager repos | grep -i eus
 
 <pre class=file>
 # subscription-manager repos | grep -i eus
-Repo ID:   codeready-builder-for-rhel-8-x86_64-eus-debug-rpms
-Repo URL:  https://cdn.redhat.com/content/eus/rhel8/$releasever/x86_64/codeready-builder/debug
-Repo ID:   rhel-8-for-x86_64-baseos-eus-debug-rpms
-Repo URL:  https://cdn.redhat.com/content/eus/rhel8/$releasever/x86_64/baseos/debug
+Repo ID:   rhel-9-for-x86_64-sap-solutions-eus-rpms
+Repo URL:  https://cdn.redhat.com/content/eus/rhel9/$releasever/x86_64/sap-solutions/os
+Repo ID:   rhel-9-for-x86_64-sap-netweaver-eus-debug-rpms
+Repo URL:  https://cdn.redhat.com/content/eus/rhel9/$releasever/x86_64/sap/debug
 ... Output Truncated ...
-Repo ID:   rhel-8-for-x86_64-baseos-eus-rpms
-Repo URL:  https://cdn.redhat.com/content/eus/rhel8/$releasever/x86_64/baseos/os
-Repo ID:   rhel-8-for-x86_64-appstream-eus-rpms
-Repo URL:  https://cdn.redhat.com/content/eus/rhel8/$releasever/x86_64/appstream/os
+Repo ID:   rhel-9-for-x86_64-baseos-eus-rpms
+Repo URL:  https://cdn.redhat.com/content/eus/rhel9/$releasever/x86_64/baseos/os
 ... Output Truncated ...
+Repo ID:   rhel-9-for-x86_64-appstream-eus-rpms
+Repo URL:  https://cdn.redhat.com/content/eus/rhel9/$releasever/x86_64/appstream/os
 </pre>
 
-In the following steps, you will look at how to register your system with EUS and upgrade inbetween EUS releases.
+In the following steps, you will look at how to register your system with EUS and upgrade inbetween EUS releases. However, before you subscribe your system to an EUS release, it is important to note which release your system is running. This information is stored in the file `/etc/redhat-release`
+
+```
+cat /etc/redhat-release
+
+```
+
+<pre class=file>
+Red Hat Enterprise Linux release 9.0 (Plow)
+</pre>
+
