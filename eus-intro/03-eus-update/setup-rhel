@@ -1,0 +1,1 @@
+subscription-manager release --set=9.0
