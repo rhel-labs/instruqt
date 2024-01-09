@@ -21,10 +21,10 @@ cat /etc/redhat-release
 ```
 
 <pre class=file>
-Red Hat Enterprise Linux release 8.4 (Ootpa)
+Red Hat Enterprise Linux release 8.6 (Ootpa)
 </pre>
 
-At this point, your system is not configured for EUS. If you were to run a `dnf update` with this configuration, no packages would be available because the standard 8.4 repositories are no longer live.
+At this point, your system is not configured for EUS. If you were to run a `dnf update` with this configuration, no packages would be available because the standard 8.6 repositories are no longer live.
 
 ```
 dnf list --updates
@@ -34,7 +34,7 @@ dnf list --updates
 <pre class=file>
 # dnf list --updates
 Updating Subscription Management repositories.
-Last metadata expiration check: 0:00:17 ago on Thu 15 Dec 2022 11:29:05 PM UTC.
+Last metadata expiration check: 0:00:17 ago on Thu 08 Jan 2024 11:29:05 PM UTC.
 </pre>
 
 In order to restore your system to a patchable state, you will need to disable the standard repositories and enable the EUS-specific repos.

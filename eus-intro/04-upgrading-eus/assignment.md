@@ -33,20 +33,22 @@ subscription-manager release --list
 8.5
 8.6
 8.7
+8.8
+8.9
 </pre>
 
-Before you upgrade to the lastest minor EUS release, it is worth noting that checks are built-in to ensure a system doesn't inadvertantly get updated to the absolute latest release. For instance, RHEL 8.7 is the current minor release but is _not_ an EUS release. Try setting 8.7 as the current release:
+Before you upgrade to the lastest minor EUS release, it is worth noting that checks are built-in to ensure a system doesn't inadvertantly get updated to the absolute latest release. For instance, RHEL 8.9 is the current minor release but is _not_ an EUS release. Try setting 8.9 as the current release:
 
 ```
-subscription-manager release --set=8.7
+subscription-manager release --set=8.9
 dnf clean all
 dnf list --updates| wc -l
 
 ```
 
 <pre class=file>
-# subscription-manager release --set=8.7
-Release set to: 8.7
+# subscription-manager release --set=8.9
+Release set to: 8.9
 # dnf clean all
 Updating Subscription Management repositories.
 17 files removed
@@ -60,15 +62,15 @@ Error: Failed to download metadata for repo 'rhel-8-for-x86_64-baseos-eus-rpms':
 You receive several errors indicating the requested content could not be found. Now, select the correct release and verify there are packages available for update:
 
 ```
-subscription-manager release --set=8.6
+subscription-manager release --set=8.8
 dnf clean all
 dnf list --updates| wc -l
 
 ```
 
 <pre class=file>
-# subscription-manager release --set=8.6
-Release set to: 8.6
+# subscription-manager release --set=8.8
+Release set to: 8.8
 # dnf clean all
 Updating Subscription Management repositories.
 17 files removed
@@ -112,5 +114,5 @@ cat /etc/redhat-release
 ```
 
 <pre class=file>
-Red Hat Enterprise Linux 8.6 (Ootpa)
+Red Hat Enterprise Linux 8.8 (Ootpa)
 </pre>

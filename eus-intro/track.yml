@@ -16,16 +16,18 @@ description: |-
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: beginner
 tags:
-- ""
+- rhel
 owner: rhel
 developers:
 - ehendric@redhat.com
 - wkibbe@redhat.com
 - smcbrien@redhat.com
+maintenance: true
 show_timer: true
-skipping_enabled: true
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "4843783296337638061"
+  feedback_recap_enabled: true
+  loadingMessages: true
+checksum: "15103969929680015127"

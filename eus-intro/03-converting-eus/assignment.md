@@ -52,7 +52,7 @@ cat /etc/redhat-release
 ```
 
 <pre class=file>
-Red Hat Enterprise Linux release 8.4 (Ootpa)
+Red Hat Enterprise Linux release 8.6 (Ootpa)
 </pre>
 
-Notice that with all the latest available packages installed, the server is still running RHEL 8.4. There is a newer EUS release available. In the final step, you will see how to upgrade between EUS versions.
+Notice that with all the latest available packages installed, the server is still running RHEL 8.6. There is a newer EUS release available. In the final step, you will see how to upgrade between EUS versions.
