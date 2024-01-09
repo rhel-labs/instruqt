@@ -4,7 +4,8 @@ virtualbrowsers:
   url: https://console.redhat.com
 virtualmachines:
 - name: rhel
-  image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-2-08-01-23
+  #image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-2-08-01-23
+  image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-3-11-17-23-v2
   shell: /bin/bash
   environment:
     TERM: xterm
