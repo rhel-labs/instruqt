@@ -20,8 +20,9 @@ tags:
 owner: rhel
 developers:
 - ehendric@redhat.com
-- wkibbe@redhat.com
 - smcbrien@redhat.com
+- wkibbe@redhat.com
+- myee@redhat.com
 maintenance: true
 show_timer: true
 lab_config:
@@ -30,4 +31,4 @@ lab_config:
   position: right
   feedback_recap_enabled: true
   loadingMessages: true
-checksum: "15103969929680015127"
+checksum: "8645714372732059991"
