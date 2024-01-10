@@ -27,7 +27,7 @@ tabs:
   path: /
   port: 80
 difficulty: basic
-timelimit: 420
+timelimit: 3120
 ---
 Ugh, the system's website is down.  Check it out:
 
