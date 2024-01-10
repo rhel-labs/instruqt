@@ -1,6 +1,7 @@
 slug: rhel-ts1
 id: 8xoqudrwlk9e
-title: RHEL Troubleshooting One
+title: RHEL Troubleshooting Challenge One
+teaser: Can you fix this broken RHEL system?
 description: |
   # Goal:
 
@@ -16,9 +17,12 @@ tags:
 owner: rhel
 developers:
 - smcbrien@redhat.com
+- nlager@redhat.com
 show_timer: true
 lab_config:
   overlay: false
   width: 33
   position: left
-checksum: "17551037383675832421"
+  feedback_recap_enabled: true
+  loadingMessages: true
+checksum: "5877476729152909660"
