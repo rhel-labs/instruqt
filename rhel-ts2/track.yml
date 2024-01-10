@@ -13,9 +13,11 @@ owner: rhel
 developers:
 - nlager@redhat.com
 show_timer: true
-timelimit: 600
+timelimit: 3120
 lab_config:
   overlay: false
   width: 33
   position: left
-checksum: "1406632362923658091"
+  feedback_recap_enabled: true
+  loadingMessages: true
+checksum: "6564979723452973547"
