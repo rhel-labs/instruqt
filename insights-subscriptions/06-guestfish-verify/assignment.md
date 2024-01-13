@@ -5,8 +5,8 @@ type: challenge
 title: Verify changes with Guestfish
 tabs:
 - title: Red Hat Hybrid Cloud Console
-  type: external
-  url: https://cloud.redhat.com
+  type: browser
+  hostname: console
 difficulty: basic
 timelimit: 1
 ---

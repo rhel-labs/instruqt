@@ -28,15 +28,14 @@ timelimit: 3000
 >_NOTE:_ To make the inline images larger, expand this window.
 ![Menu Slider](../assets/slider.png)
 
-Image builder is a tool that can be used to build a custom Red Hat Enterprise Linux base image.
-This image can then be deployed across your infrastructure, bare metal, virutal, and cloud.  The Image Builder Service is a version of this tool hosted on the Red Hat Hybrid Cloud Console, at https://cloud.redhat.com, and allows you to design an image without requiring you to install or configure anything locally.  You can also push these images to your cloud provider once they are complete, right from Image Builder itself.
+Red Hat Insights Subscirptions is a service hosted on the Hybrid Cloud Console, that can be used to keep track of your Red Hat Enterprise Linux subscription usage.
 
 First, let's head over to Red Hat's Hybrid Cloud Console, and login.  You should login with the following login and password:
 
 Login:
 
 ```bash
-rhel-df93
+swatch_demo_user
 ```
 
 Password:
@@ -44,18 +43,17 @@ Password:
 ```bash
 Redhat1!
 ```
+>_NOTE:_ You must use the ctrl-v (or command-v on Mac) keyboard shortcut in order to paste in the embedded browser tab in this lab
+
 ![Red Hat Login screen](../assets/cloud-console-login.png)
 
 ![Red Hat Password screen](../assets/cloud-console-login-pass.png)
 
-Once you are logged in, navigate to the RHEL menu in Red Hat insights.
+Once you are logged in, navigate to Services at the top, then to Subscriptions and Spend, and then select Subscriptions under the Red Hat Enterprise Linux heading.
 
-![rhel menu](../assets/rhinsightsRHEL.png)
+>_NOTE:_ Your view may differ from these examples depending on your web browser window's size.
 
-Click on `Inventory`, then `Images`.
+![Subscriptions Navigation](../assets/swatch-nav.png)
 
-![inventory images](../assets/inventoryimages.png)
 
-Proceed to the next challenge by clicking the `Next` button.
-
-![next button](../assets/nextbutton.png)
+Now, we can get started by clicking the `Next` button at the bottom of this panel.
