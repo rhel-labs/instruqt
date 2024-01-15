@@ -10,7 +10,7 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-Below the usage graph, you'll also find the _Current Subscriptions_ tab.  Click on that and we'll have a look at its contents.
+Below the usage graph, you'll also find the **Current Subscriptions** tab.  Click on that and we'll have a look at its contents.
 
 ![current subscriptions tab](../assets/swatch-current-subs-tab.png)
 
@@ -25,4 +25,4 @@ On this tab, each entry includes the:
 * **Sockets** - The total amount of sockets provided.
 * **Next Renewal** - The next date a renewal for this subscription is occuring
 
-Next, we'll have a look at that usage graph at the top.
+Next, we'll have a look at that **usage graph** at the top.

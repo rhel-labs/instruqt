@@ -10,7 +10,7 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-Below the usage graph, you'll find the _Current Instances_ tab.  If it is not already selected, click on it.
+Below the usage graph, you'll find the **Current Instances** tab.  If it is not already selected, click on it.
 
 ![current instances tab](../assets/swatch-current-instances-tab.png)
 
@@ -28,4 +28,4 @@ In this tab, you'll find:
   * _Note 2:_ if the sockets value is “--”, this denotes a system which does not require subscription coverage as it has been paid for via a different means, usually a cloud marketplace. These systems will show in the ‘current instances’ list, but do not contribute to the usage chart.
 * **Last Seen** - When was this system last seen in the subscription service.
 
-In the next step, we'll cover the _Curent Subscriptions_ tab.
+In the next step, we'll cover the **Curent Subscriptions** tab.

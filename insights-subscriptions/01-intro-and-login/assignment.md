@@ -49,7 +49,7 @@ Redhat1!
 
 ![Red Hat Password screen](../assets/cloud-console-login-pass.png)
 
-Once you are logged in, navigate to Services at the top, then to Subscriptions and Spend, and then select Subscriptions under the Red Hat Enterprise Linux heading.
+Once you are logged in, navigate to **Services** at the top, then to **Subscriptions and Spend** in the menu on the left, and then finally select **Subscriptions** under the _Red Hat Enterprise Linux_ heading.
 
 >_NOTE:_ Your view may differ from these examples depending on your web browser window's size.
 
