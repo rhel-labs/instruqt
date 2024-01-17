@@ -1,0 +1,36 @@
+slug: insights-subscriptions
+id: kbmkic7jo7kw
+title: Subscription Management with Insights
+description: |-
+  # Overview
+
+  As an administrator, you commonly need to inquire into where you are using Red Hat Enterprise Linux (RHEL), and if you need to purchase more of it. The Subscriptions Service (aka Swatch) provides a means to look into this usage and make business decisions based upon it.
+
+  ## Concepts included in this scenario:
+
+  * Get an overview of your RHEL Subscription usage
+  * Get a filtered view of your RHEL Subscirption usage
+
+  ## Example Usecase:
+
+  * You administer a fleet of RHEL systems, and need to keep your subscriptions within compliance.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+tags:
+- cloud
+- subscriptions
+- rhel
+- insights
+owner: rhel
+developers:
+- nlager@redhat.com
+show_timer: true
+idle_timeout: 300
+timelimit: 3060
+lab_config:
+  overlay: false
+  width: 25
+  position: right
+  feedback_recap_enabled: true
+  loadingMessages: true
+checksum: "15931451018941021041"

@@ -1,0 +1,6 @@
+version: "3"
+virtualbrowsers:
+- name: console
+  url: https://console.redhat.com
+secrets:
+- name: ACTIVATION_KEY
