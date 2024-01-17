@@ -28,7 +28,7 @@ timelimit: 3000
 >_NOTE:_ To make the inline images larger, expand this window.
 ![Menu Slider](../assets/slider.png)
 
-Red Hat Insights Subscirptions is a service hosted on the Hybrid Cloud Console, that can be used to keep track of your Red Hat Enterprise Linux subscription usage.
+Red Hat Insights Subscriptions is a service hosted on the Hybrid Cloud Console, that can be used to keep track of your Red Hat Enterprise Linux subscription usage.
 
 First, let's head over to Red Hat's Hybrid Cloud Console, and login.  You should login with the following login and password:
 

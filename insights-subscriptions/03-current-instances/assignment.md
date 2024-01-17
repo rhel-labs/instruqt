@@ -16,7 +16,7 @@ Below the usage graph, you'll find the **Current Instances** tab.  If it is not 
 
 Your list should look similar to this:
 
-![Current Instnace List](../assets/swatch-current-instances-list.png)
+![Current Instance List](../assets/swatch-current-instances-list.png)
 
 
 In this tab, you'll find:
