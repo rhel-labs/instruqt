@@ -28,6 +28,7 @@ developers:
 - ehendric@redhat.com
 - myee@redhat.com
 - wkibbe@redhat.com
+- nlager@redhat.com
 show_timer: true
 lab_config:
   overlay: false
@@ -35,4 +36,4 @@ lab_config:
   position: right
   feedback_recap_enabled: true
   loadingMessages: true
-checksum: "11414794004341370662"
+checksum: "14576904144391168331"
