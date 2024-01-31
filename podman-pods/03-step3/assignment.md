@@ -2,13 +2,13 @@
 slug: step3
 id: k0eef5fijgyf
 type: challenge
-title: Step 3
+title: Operationalizing Pods with kube
 tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 ## Podman generate, and podman play
 Another great feature of pods is that you can generate a yaml definition of your pod, and use it to re-create your pod using `podman generate` and `podman play`.

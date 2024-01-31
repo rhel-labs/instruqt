@@ -2,13 +2,13 @@
 slug: step2
 id: 6nhyrdwcs7ns
 type: challenge
-title: Step 2
+title: Pods and pod networking
 tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 ## More on pods
 

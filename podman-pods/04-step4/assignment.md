@@ -2,13 +2,13 @@
 slug: step4
 id: gc9ul9x4zde4
 type: challenge
-title: Step 4
+title: Managing Pods with Systemd and Quadlet
 tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
 difficulty: basic
-timelimit: 900
+timelimit: 1
 ---
 ## Quadlet
 
@@ -132,4 +132,4 @@ POD ID        NAME              STATUS      CREATED             INFRA ID      # 
 34c2405415bd  my-networked-pod  Running     About a minute ago  cd046b7b107d  2
 </pre>
 
-Now the `my-networked-pod` pod can be controlled via systemctl, and will even start up on system boot-up. 
+Now the `my-networked-pod` pod can be controlled via systemctl, and will even start up on system boot-up.
