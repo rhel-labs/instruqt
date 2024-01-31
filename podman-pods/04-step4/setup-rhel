@@ -1,5 +1,5 @@
 #!/bin/bash
-podman pod rm --all
+podman pod stop --all && podman pod rm --all
 cat << EOF >> /root/my-networked-pod.kube
 [Install]
 WantedBy=default.target
@@ -13,8 +13,8 @@ WantedBy=default.target
 [Kube]
 # In this section you can define several things
 # here we are simply calling the kube yaml we generated with podman
-Yaml=/etc/containers/quadlet/my-networked-pod.yaml
+Yaml=/etc/containers/systemd/my-networked-pod.yaml
 
 #We also need to define the ports that our pod maps int, just as we do a the pod level
-PublishPort=8080:90
+PublishPort=8080:80
 EOF
