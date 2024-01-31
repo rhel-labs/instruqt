@@ -14,7 +14,7 @@ timelimit: 1
 
 Pods are good for more than just organization though.  A pod also containerizes the network communication between the containers within it.
 
-If I run the same httpd container from earlier, without putting it inside of a pod, I can then access whatever ports I have exposed on the container, via localhost on my container host.
+If we run the same httpd container from earlier, without putting it inside of a pod, we can then access whatever ports we have exposed on the container, via localhost on our container host.
 
 ```bash
 podman run -d -p 8080:80 --rm --name my-bare-httpd httpd
@@ -43,7 +43,7 @@ And we can even test that out with `curl`
 curl http://127.0.0.1:8080
 ```
 
-<pre>
+<pre type=file>
 # curl http://127.0.0.1:8080
 <html><body><h1>It works!</h1></body></html>
 </pre>
@@ -54,7 +54,7 @@ Lets try to make a new httpd container, inside of our pod, that forwards in the 
 podman stop my-bare-httpd
 ```
 
-Now, we still have an httpd container running, but we cant access it, not just because we havent forwarded any ports to it, but because its inside of a pod.  The pod acts almost like a firewall, allowing or disallowing ports to the containers within it.  Containers that run container images that are configured to listen on a given port are accessible to each other within the pod, but outside the pod are not accessible unless we tell the pod to allow it.
+Now, we still have an httpd container running, but we can't access it, not just because we havent forwarded any ports to it, but because its inside of a pod.  The pod acts almost like a firewall, allowing or disallowing ports to the containers within it.  Containers that run container images that are configured to listen on a given port are accessible to each other within the pod, but outside the pod are not accessible unless we tell the pod to allow it.
 
 ## Pod networking
 
@@ -63,9 +63,10 @@ Let's run a container that lets us get to a bash shell within our podfrom earlie
 ```bash
 podman run -it --pod my-pod --rm registry.access.redhat.com/ubi9/ubi
 ```
+
 In this example, we're running a container, interactively, insdie of our pod.  You should get to a bash prompt inside of a RHEL UBI container.
 
-<pre>
+<pre type=file>
 # podman run -it --pod my-pod --rm registry.access.redhat.com/ubi9/ubi
 [root@my-pod /]#
 </pre>
@@ -76,7 +77,7 @@ This container doesn't run any services, but if we try to use curl on localhost,
 curl http://127.0.0.1
 ```
 
-<pre>
+<pre type=file>
 [root@my-pod /]# curl http://127.0.0.1
 <html><body><h1>It works!</h1></body></html>
 [root@my-pod /]#
@@ -94,7 +95,7 @@ exit
 root@rhel:~#
 </pre>
 
-So let's re-create our pod, and make it listen on port 80.  Let's stop, and then delete our pod.
+So let's re-create our pod, and make it listen on port 8080.  Let's stop, and then delete our pod.
 
 ```bash
 podman pod stop my-pod && podman pod rm my-pod
@@ -125,6 +126,7 @@ POD ID        NAME              STATUS      CREATED         INFRA ID      # OF C
 ```bash
 pomdan ps
 ```
+
 <pre>
 # podman ps
 CONTAINER ID  IMAGE                                    COMMAND           CREATED         STATUS             PORTS                 NAMES
@@ -138,7 +140,9 @@ And we should be able to test that with `curl` now.
 curl http://127.0.0.1:8080
 ```
 
-<pre>
+<pre type=file>
 $ curl http://127.0.0.1:8080
 <html><body><h1>It works!</h1></body></html>
 </pre>
+
+In our next step, we'll look at how to operationalize pod deployements using kubelets! 

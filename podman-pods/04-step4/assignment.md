@@ -47,7 +47,9 @@ Let's copy the files into place.
 ```bash
 cp ~/my-networked-pod.yaml /etc/containers/systemd
 ```
+
 And then
+
 ```bash
 cp ~/my-networked-pod.kube /etc/containers/systemd
 ```
@@ -58,7 +60,7 @@ Now, if we reload systemd, quadlet will generate a service unit for our pod.  Yo
 /usr/libexec/podman/quadlet -dryrun
 ```
 
-<pre>
+<pre type=file>
 root@rhel:~# /usr/libexec/podman/quadlet -dryrun
 quadlet-generator[4025]: Loading source unit file /etc/containers/systemd/my-networked-pod.kube
 ---my-networked-pod.service---
@@ -93,7 +95,7 @@ ExecStopPost=/usr/bin/podman kube down /etc/containers/systemd/my-networked-pod.
 
 </pre>
 
-Using this dry run, you can see what qadlet will do when you reload systemd.  
+Using this dry run, you can see what qadlet will do when you reload systemd.
 
 Notice the `ExecStart` command in the service.  You can see the `--replace` flag, which means each time you start this service, it will re-read the kube definition, and replace your pod.  This means that changes to the pod's definition and updates to the container images that the definition calls, will be pulled in automatically every time the pod is started using systemd.
 
@@ -109,7 +111,7 @@ Now we can start the service up, but first, let's check podman, and make sure we
 podman pod ps
 ```
 
-<pre>
+<pre type=file>
 root@rhel:~# podman pod ps
 POD ID      NAME        STATUS      CREATED     INFRA ID    # OF CONTAINERS
 </pre>
@@ -126,7 +128,7 @@ This should go and download any container images that are neccessary, and then s
 systemctl status my-networked-pod.service
 ```
 
-<pre>
+<pre type=file>
 root@rhel:~# systemctl status my-networked-pod
 ● my-networked-pod.service
      Loaded: loaded (/etc/containers/systemd/my-networked-pod.kube; generated)
@@ -140,13 +142,14 @@ root@rhel:~# systemctl status my-networked-pod
              ├─4928 /usr/bin/conmon --api-version 1 -c cd046b7b107d64d13e47cc14449e69739aab23f8c526bbd54c394861ec253f72 -u cd046b7b107d64>
              └─4934 /usr/bin/conmon --api-version 1 -c fff1424f8329ee251d60be28f1eae7d2b79c367a1f82b94cda6309febebe05bf -u fff1424f8329ee
 </pre>
+
 And
 
 ```bash
 podman pod ps
 ```
 
-<pre>
+<pre type=file>
 root@rhel:~# podman pod ps
 POD ID        NAME              STATUS      CREATED             INFRA ID      # OF CONTAINERS
 34c2405415bd  my-networked-pod  Running     About a minute ago  cd046b7b107d  2

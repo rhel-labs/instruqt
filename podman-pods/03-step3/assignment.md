@@ -25,7 +25,7 @@ Now, we can see what we generated
 cat my-networked-pod.yaml
 ```
 
-<pre>
+<pre type=file>
 root@rhel:~# cat my-networked-pod.yaml
 # Save the output of this file and use kubectl create -f to import
 # it into Kubernetes.
@@ -50,6 +50,7 @@ spec:
   restartPolicy: Never
 status: {}
 </pre>
+
 Now, if we stop, and remove our pod.
 
 ```bash
@@ -64,7 +65,7 @@ podman play kube my-networked-pod.yaml
 
 >_NOTE_: This feature of podman works on other items as well, you can, for instance, define a volume and use podman generate to store the volume definition as a yaml file.  Then re-create it on another system using podman play.
 
-<pre>
+<pre type=file>
 root@rhel:~# podman play kube my-networked-pod.yaml
 Pod:
 2f3d42d6cac720972889496334ef23260fa33030ddb3bccdcb7ff3a15dea07ac
@@ -72,7 +73,7 @@ Container:
 f87d81a769a3cef7b5caf52e958426fd4f3f614e130bbb5e91c193ac36b3a27d
 </pre>
 
-Now, if we check on `podman pod ps` and `podman pod ps` we will see a new pod, and container within it.
+Now, if we check on `podman pod ps` and `podman ps` we will see a new pod, and container within it.
 
 ```bash
 podman pod ps
@@ -99,7 +100,7 @@ Now, if you try your curl command from earlier, you should get your test site ju
 curl http://127.0.0.1:8080
 ```
 
-<pre>
+<pre type=file>
 # curl http://127.0.0.1:8080
 <html><body><h1>It works!</h1></body></html>
 </pre>

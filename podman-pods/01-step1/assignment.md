@@ -26,7 +26,7 @@ timelimit: 3000
 ---
 ## Validate the environment
 
->For this scenario, `container-tools` which contains podman and its depenencies, has already been installed on the system.
+>For this scenario, the `container-tools` package group, which contains podman and its depenencies, has already been installed on the system.
 
 The feature we will be working with is specific to Podman version 4 and newer, so first let's check that podman 4.0.x or newer is installed on the system.
 
@@ -60,16 +60,21 @@ Now we can create a container within that pod simply by tellig podman what pod t
 ```bash
 podman run --pod my-pod -d --name my-httpd httpd
 ```
+
 Again, you should see output similar to this:
+
 <pre type=file>
 # podman run --pod my-pod -d --name my-httpd httpd
 68ca89e03e63df047cc59cbf8ecb648b71c136cc4c9611a709577195b2f2b048
 #
 </pre>
+
 Now, we can see that our container is running with
+
 ```bash
 podman ps
 ```
+
 <pre type=file>
 # podman ps
 CONTAINER ID  IMAGE                                    COMMAND           CREATED         STATUS             PORTS       NAMES
@@ -92,3 +97,5 @@ POD ID        NAME        STATUS      CREATED        INFRA ID      # OF CONTAINE
 2d95aa4fdaee  my-pod      Running     5 minutes ago  09996c7a624b  2
 #
 </pre>
+
+In the next step, we'll work with networking within our pod.
