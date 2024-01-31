@@ -93,7 +93,7 @@ d9f73884ad91  localhost/podman-pause:4.4.1-1682527828                    3 minut
 f87d81a769a3  docker.io/library/httpd:latest           httpd-foreground  3 minutes ago  Up 3 minutes  0.0.0.0:8080->80/tcp  my-networked-pod-my-networked-httpd
 </pre>
 
-Now, if you try your curl command from earlier, you should get your test site just as before.  You can see how this is a great way to save the deployment information and re-deploy quickly. 
+Now, if you try your curl command from earlier, you should get your test site just as before.  You can see how this is a great way to save the deployment information and re-deploy quickly.
 
 ```bash
 curl http://127.0.0.1:8080
@@ -105,4 +105,4 @@ curl http://127.0.0.1:8080
 </pre>
 
 
-In the next step, we're going a little deeper into operationalizing your pod, with Quadlet. 
+In the next step, we're going a little deeper into operationalizing your pod, with Quadlet.
