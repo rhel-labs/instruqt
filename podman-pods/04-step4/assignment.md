@@ -19,7 +19,23 @@ cat my-networked-pod.kube
 ```
 
 <pre>
-output
+root@rhel:~# cat my-networked-pod.kube
+[Install]
+WantedBy=default.target
+
+[Unit]
+# You can use standard unit options to control the start-up order of your pod. 
+# Such as:
+#After=
+#Requires=
+
+[Kube]
+# In this section you can define several things
+# here we are simply calling the kube yaml we generated with podman
+Yaml=/etc/containers/systemd/my-networked-pod.yaml
+
+#We also need to define the ports that our pod maps int, just as we do a the pod level
+PublishPort=8080:80
 </pre>
 
 You can see the similarities in the above output, and a standard systemd unit file.  You can add in start up options, ordering, and other systemd configuration to tune when and how this pod starts up.
@@ -77,7 +93,11 @@ ExecStopPost=/usr/bin/podman kube down /etc/containers/systemd/my-networked-pod.
 
 </pre>
 
-Using this dry run, you can see what qadlet will do when you reload systemd.  This looks fine, so let's get this definiteion in place.
+Using this dry run, you can see what qadlet will do when you reload systemd.  
+
+Notice the `ExecStart` command in the service.  You can see the `--replace` flag, which means each time you start this service, it will re-read the kube definition, and replace your pod.  This means that changes to the pod's definition and updates to the container images that the definition calls, will be pulled in automatically every time the pod is started using systemd.
+
+This looks fine, so let's get this definiteion in place.
 
 ```bash
 systemctl daemon-reload
