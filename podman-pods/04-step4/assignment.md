@@ -10,82 +10,73 @@ tabs:
 difficulty: basic
 timelimit: 900
 ---
-## Pod networking
+## Quadlet
 
-Let's run a container, that lets us get to a bash shell within our pod, to show that the httpd service is in fact accessible, just not from outside the pod.
+Quadlet is a systemd generator, that will take your pod definition, and register it as a service in systemd.  We have provided a quadlet pod defintion for you. 
 
 ```bash
-podman run -it --pod my-pod --rm registry.access.redhat.com/ubi9/ubi
+cat my-networked-pod.kube
 ```
-In this example, we're running a container, interactively, insdie of our pod.  You should get to a bash prompt inside of a RHEL UBI container.
 
-<pre type=file>
-# podman run -it --pod my-pod --rm registry.access.redhat.com/ubi9/ubi
-[root@my-pod /]#
+<pre>
+output
 </pre>
 
-This container doesnt run any services, but if we try to use curl on localhost, we'll see that in fact we get a response!
+You can see the similarities in the above output, and a standard systemd unit file.  You can add in start up options, ordering, and other systemd configuration to tune when and how this pod starts up. 
+
+As you can see, the path to the pod yaml is `/etc/containers/quadlet/my-networked-pod.yaml`.  You can place your yaml definition elsewhere if you would like, but this is also where the `.kube` quadlet defintion needs to be placed.  Keeping them toghether makes it clean for this lab. 
+
+Let's copy the files into place. 
 
 ```bash
-curl http://127.0.0.1
+cp ~/my-networked-pod.yaml /etc/containers/systemd
+```
+And then
+```bash
+cp ~/my-networked-pod.kube /etc/containers/systemd
 ```
 
-<pre type=file>
-[root@my-pod /]# curl http://127.0.0.1
-<html><body><h1>It works!</h1></body></html>
-[root@my-pod /]#
+Now, if we reload systemd, quadlet will generate a service unit for our pod.  You can also test the generation using quadlet in a dry-run. 
+
+```bash
+/usr/libexec/podman/quadlet -dryrun
+```
+
+<pre>
+Output
 </pre>
 
-You can exit that shell with
+Using this dry run, you can see what qadlet will do when you reload systemd.  This looks fine, so let's get this definiteion in place. 
 
 ```bash
-exit
+systemctl daemon-reload
 ```
 
-<pre type=file>
-[root@my-pod /]# exit
-exit
-[gangrif@tmm-host1 ~]$
+Now we can start the service up, but first, let's check podman, and make sure we dont already have our pod running.
+
+```bash
+podman pod ps
+```
+
+<pre>
+Output
 </pre>
 
-So let's re-create our pod, and make it listen on port 80.  Let's stop, and then delete our pod.
+Looks good, Let's start our pod up. 
 
 ```bash
-podman pod stop my-pod && podman pod rm my-pod
+systemctl start my-networked-pod.service
 ```
 
-Now let's make a new pod, with a new httpd container, and have the pod forward port 8080 to port 80 inside the pod.
+This should go and download any container images that are neccessary, and then start up our pod. 
 
 ```bash
-podman pod create --name my-networked-pod -p 8080:80
+systemctl status my-networked-pod.service
 ```
 
-And then we'll need a container to listen on port 80, but we don't need to tell the container to forward anything, that's handled at the pod level.
+And 
 
 ```bash
-podman run -d --pod my-networked-pod --name my-networked-httpd httpd
+podman pod ps
 ```
 
-Now, if we check `podman pod ps` and `podman ps` we'll see that both the pod container, and the container itself show the port 8080 forward, even though we didnt specify that on the container.
-
-<pre type=file>
-# podman pod ps
-POD ID        NAME              STATUS      CREATED         INFRA ID      # OF CONTAINERS
-63c4292d1879  my-networked-pod  Running     19 seconds ago  74be17e394e6  2
-
-# podman ps
-CONTAINER ID  IMAGE                                    COMMAND           CREATED         STATUS             PORTS                 NAMES
-74be17e394e6  localhost/podman-pause:4.0.2-1652984291                    26 seconds ago  Up 13 seconds ago  0.0.0.0:8080->80/tcp  63c4292d1879-infra
-0d13004a35e7  docker.io/library/httpd:latest           httpd-foreground  13 seconds ago  Up 12 seconds ago  0.0.0.0:8080->80/tcp  my-networked-httpd
-</pre>
-
-And we should be able to test that with `curl` now.
-
-```bash
-curl http://127.0.0.1:8080
-```
-
-<pre type=file>
-$ curl http://127.0.0.1:8080
-<html><body><h1>It works!</h1></body></html>
-</pre>

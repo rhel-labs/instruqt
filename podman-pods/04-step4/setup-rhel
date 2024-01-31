@@ -1,0 +1,20 @@
+#!/bin/bash
+podman pod rm --all
+cat << EOF >> /root/my-networked-pod.kube
+[Install]
+WantedBy=default.target
+
+[Unit]
+# You can use standard unit options to control the start-up order of your pod. 
+# Such as:
+#After=
+#Requires=
+
+[Kube]
+# In this section you can define several things
+# here we are simply calling the kube yaml we generated with podman
+Yaml=/etc/containers/quadlet/my-networked-pod.yaml
+
+#We also need to define the ports that our pod maps int, just as we do a the pod level
+PublishPort=8080:90
+EOF
