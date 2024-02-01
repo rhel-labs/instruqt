@@ -66,10 +66,10 @@ podman run -it --pod my-pod --rm registry.access.redhat.com/ubi9/ubi
 
 In this example, we're running a container, interactively, insdie of our pod.  You should get to a bash prompt inside of a RHEL UBI container.
 
-<code>
+<pre type=file>
 # podman run -it --pod my-pod --rm registry.access.redhat.com/ubi9/ubi
 [root@my-pod /]#
-<code>
+</pre>
 
 This container doesn't run any services, but if we try to use curl on localhost, we'll see that in fact we get a response!
 
