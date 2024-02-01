@@ -79,7 +79,7 @@ Now, if we check on `podman pod ps` and `podman ps` we will see a new pod, and c
 podman pod ps
 ```
 <pre>
-oot@rhel:~# podman pod ps
+root@rhel:~# podman pod ps
 POD ID        NAME              STATUS      CREATED        INFRA ID      # OF CONTAINERS
 2f3d42d6cac7  my-networked-pod  Running     3 minutes ago  d9f73884ad91  2
 </pre>
