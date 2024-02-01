@@ -24,7 +24,7 @@ root@rhel:~# cat my-networked-pod.kube
 WantedBy=default.target
 
 [Unit]
-# You can use standard unit options to control the start-up order of your pod. 
+# You can use standard unit options to control the start-up order of your pod.
 # Such as:
 #After=
 #Requires=

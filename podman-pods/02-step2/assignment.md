@@ -45,7 +45,7 @@ curl http://127.0.0.1:8080
 
 <pre type=file>
 # curl http://127.0.0.1:8080
-<html><body><h1>It works!</h1></body></html>
+<xmp><html><body><h1>It works!</h1></body></html></xmp>
 </pre>
 
 Lets try to make a new httpd container, inside of our pod, that forwards in the same way.  First let's stop our new httpd container.
@@ -66,10 +66,10 @@ podman run -it --pod my-pod --rm registry.access.redhat.com/ubi9/ubi
 
 In this example, we're running a container, interactively, insdie of our pod.  You should get to a bash prompt inside of a RHEL UBI container.
 
-<pre type=file>
+<code>
 # podman run -it --pod my-pod --rm registry.access.redhat.com/ubi9/ubi
 [root@my-pod /]#
-</pre>
+<code>
 
 This container doesn't run any services, but if we try to use curl on localhost, we'll see that in fact we get a response!
 
@@ -79,7 +79,7 @@ curl http://127.0.0.1
 
 <pre type=file>
 [root@my-pod /]# curl http://127.0.0.1
-<html><body><h1>It works!</h1></body></html>
+<xmp><html><body><h1>It works!</h1></body></html></xmp>
 [root@my-pod /]#
 </pre>
 
@@ -142,7 +142,7 @@ curl http://127.0.0.1:8080
 
 <pre type=file>
 $ curl http://127.0.0.1:8080
-<html><body><h1>It works!</h1></body></html>
+<xmp><html><body><h1>It works!</h1></body></html></xmp>
 </pre>
 
-In our next step, we'll look at how to operationalize pod deployements using kubelets! 
+In our next step, we'll look at how to operationalize pod deployements using kubelets!

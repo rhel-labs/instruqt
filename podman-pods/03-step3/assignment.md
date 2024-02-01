@@ -102,7 +102,7 @@ curl http://127.0.0.1:8080
 
 <pre type=file>
 # curl http://127.0.0.1:8080
-<html><body><h1>It works!</h1></body></html>
+<xmp><html><body><h1>It works!</h1></body></html></xmp>
 </pre>
 
 
