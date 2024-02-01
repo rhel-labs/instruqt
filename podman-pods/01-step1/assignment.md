@@ -14,6 +14,8 @@ notes:
     * Create a pod in podman
     * Run a container inside of a pod in podman
     * Forward ports to containers within pods.
+    * Creating kubelet definitions from podman pods for easyier re-deployment
+    * Operationalizing a podman pod through systemd with Quadlet
 
     # Example Use case:
     An administrator wants to run a service on a podman container host, that has dependent services.
