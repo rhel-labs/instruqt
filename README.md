@@ -29,4 +29,8 @@ To request new features, labs, or to report bugs, please create a new issue.
 
 ## Current VM images
 
-Refer to the [wiki](https://github.com/rhel-labs/instruqt/wiki/images).
+RHEL 9.2
+image: `projects/tmm-instruqt-11-26-2021/global/images/rhel-9-2-6-20-23`
+
+RHEL 9.2 with virt
+image: `projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-2-08-01-23`
