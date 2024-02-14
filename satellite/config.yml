@@ -1,6 +1,9 @@
 name: satellite
 slug: satellite
 description: A long description of the track.
+virtualbrowsers:
+- name: Satellite
+  url: https://satellite.${_SANDBOX_ID}.instruqt.io
 virtualmachines:
 - name: rhel1
   image: projects/tmm-instruqt-11-26-2021/global/images/satellite-lab-client1-11-22-23
