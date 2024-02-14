@@ -40,3 +40,5 @@ echo https://${HOSTNAME}.${_SANDBOX_ID}.instruqt.io:9090
 
 #also go ahead and echo it to a text file as well just for good measure
 echo https://${HOSTNAME}.${_SANDBOX_ID}.instruqt.io:9090 >> ~/webconsoleurl.txt
+
+ssh -o "StrictHostKeyChecking no" root@centos -t 'yum clean all && yum update --exclude=kernel -y && yum autoremove -y'
