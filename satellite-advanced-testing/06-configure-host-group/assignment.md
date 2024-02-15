@@ -24,7 +24,6 @@ tabs:
   type: external
   url: https://rhel2.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 0
 ---
 <!-- markdownlint-disable MD033 MD029-->
 

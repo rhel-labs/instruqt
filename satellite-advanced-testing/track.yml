@@ -29,7 +29,7 @@ developers:
 maintenance: true
 show_timer: true
 idle_timeout: 1800
-timelimit: 288000
+timelimit: 28800
 sandbox_preset: satellite
 lab_config:
   overlay: false
@@ -37,4 +37,4 @@ lab_config:
   position: right
   feedback_recap_enabled: true
   loadingMessages: true
-checksum: "2628988616356235797"
+checksum: "17978286400790058622"

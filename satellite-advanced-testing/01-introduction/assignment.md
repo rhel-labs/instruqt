@@ -27,7 +27,6 @@ tabs:
   type: external
   url: https://rhel2.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
-timelimit: 3420
 ---
 <!-- markdownlint-disable MD033 -->
 The lab environment consists of the following
