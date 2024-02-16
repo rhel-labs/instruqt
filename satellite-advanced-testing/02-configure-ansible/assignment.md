@@ -49,6 +49,9 @@ Create a playbook to enable RHEL9 repositories
 
 The playbook below is simply an example. Never put passwords in your playbook.
 
+Copy and paste the code block below into the `Satellite Server` terminal, then run it.
+
+![sat term](../assets/satellite-server-tab.png)
 ```bash
 tee ~/config.yml << EOF
 ---
@@ -67,7 +70,7 @@ tee ~/config.yml << EOF
       repositories:
         - releasever: "9"
 
-  - name: "Enable RHEL 9 BaseOS RPMs repository with label"
+  - name: "Enable RHEL 9 AppStream RPMs repository with label"
     redhat.satellite.repository_set:
       username: "admin"
       password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
@@ -109,6 +112,14 @@ tee ~/config.yml << EOF
 EOF
 ```
 
+The first two playbook tasks, `Enable RHEL 9 BaseOS RPMs repository with label` and `Enable RHEL 9 AppStream RPMs repository with label` will enable the RHEL 9 BaseOS and AppStream repositories.
+
+The third task enables the `satellite-client-6-for-rhel-9-x86_64-rpms` repository. This task enables the repository without specifying base arch (as some repos do no require it). The Satellite 6 client repo contains software such as `Tracer` and `yggdrasild`. `yggdrasild` will be required later in the lab to enable Remote Execution Pull Mode.
+
+The fourth task creates an `activation key` which is used to control access to repositories on Satellite. In this particular `activation key`, the Satellite 6 client repository is overridden to enabled.
+
+The fifth task initiates a synchronization operation on all `Red Hat Enterprise Linux for x86_64` product repositories.
+
 Execute the playbook
 ====================
 
@@ -117,6 +128,8 @@ Execute the playbook with the following command.
 ```
 ansible-playbook config.yml -vvv
 ```
+
+The task `Synchronize all repositories` takes about 5 minutes. Please do not advance to the next activity in this lab until the repositories have completed synchronizing.
 
 View the progress of the repository sync
 ========================================
