@@ -44,14 +44,15 @@ When prompted to proceed, enter `y`.
 
 ![yes prompt](../assets/installansible.png)
 
-Create a playbook to enable RHEL9 repositories
-==============================================
+Create a playbook to configure the Satellite server
+===================================================
 
 The playbook below is simply an example. Never put passwords in your playbook.
 
 Copy and paste the code block below into the `Satellite Server` terminal, then run it.
 
 ![sat term](../assets/satellite-server-tab.png)
+
 ```bash
 tee ~/config.yml << EOF
 ---
@@ -114,14 +115,14 @@ EOF
 
 The first two playbook tasks, `Enable RHEL 9 BaseOS RPMs repository with label` and `Enable RHEL 9 AppStream RPMs repository with label` will enable the RHEL 9 BaseOS and AppStream repositories.
 
-The third task enables the `satellite-client-6-for-rhel-9-x86_64-rpms` repository. This task enables the repository without specifying base arch (as some repos do no require it). The Satellite 6 client repo contains software such as `Tracer` and `yggdrasild`. `yggdrasild` will be required later in the lab to enable Remote Execution Pull Mode.
+The third task enables the `satellite-client-6-for-rhel-9-x86_64-rpms` repository. This task enables the repository without specifying base arch (as some repos do not require it). The Satellite 6 client repo contains software such as `Tracer` and `yggdrasild`. `yggdrasild` will be required later in the lab to enable Remote Execution Pull Mode.
 
 The fourth task creates an `activation key` which is used to control access to repositories on Satellite. In this particular `activation key`, the Satellite 6 client repository is overridden to enabled.
 
 The fifth task initiates a synchronization operation on all `Red Hat Enterprise Linux for x86_64` product repositories.
 
 Execute the playbook
-====================
+=====================
 
 Execute the playbook with the following command.
 
@@ -145,3 +146,5 @@ Click `Expand All`.
 It should take about 5 minutes for the repos to sync.
 
 ![reposynctime](../assets/reposynctime.png)
+
+After the synchronization is complete and the playbook has finished running successfully, click `Next` in the bottom right-hand corner.
