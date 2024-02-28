@@ -1,0 +1,57 @@
+name: satellite-advanced
+slug: satellite-advanced
+description: A long description of the track.
+virtualbrowsers:
+- name: satellite-browser
+  url: https://satellite.${_SANDBOX_ID}.instruqt.io
+virtualmachines:
+- name: rhel1
+  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-lab-client1-11-22-23
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-1
+  memory: 4096
+  cpus: 1
+  allow_external_ingress:
+  - http
+  - https
+  - high-ports
+- name: rhel2
+  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-lab-client2-11-22-23
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-1
+  memory: 4096
+  cpus: 1
+  allow_external_ingress:
+  - http
+  - https
+  - high-ports
+- name: satellite
+  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-advanced-server
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-8
+  memory: 32768
+  cpus: 8
+  allow_external_ingress:
+  - http
+  - https
+  - high-ports
+- name: satellite-2
+  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-advanced-server-2
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-8
+  memory: 32768
+  cpus: 8
+  allow_external_ingress:
+  - http
+  - https
+  - high-ports
+secrets:
+- name: ACTIVATION_KEY

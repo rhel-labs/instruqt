@@ -30,7 +30,7 @@ maintenance: true
 show_timer: true
 idle_timeout: 1800
 timelimit: 28800
-sandbox_preset: satellite
+sandbox_preset: satellite-advanced
 lab_config:
   overlay: false
   width: 33
