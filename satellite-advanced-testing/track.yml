@@ -28,6 +28,7 @@ developers:
 - myee@redhat.com
 maintenance: true
 show_timer: true
+skipping_enabled: true
 idle_timeout: 1800
 timelimit: 28800
 sandbox_preset: satellite-advanced
@@ -37,4 +38,4 @@ lab_config:
   position: right
   feedback_recap_enabled: true
   loadingMessages: true
-checksum: "13348471387351166792"
+checksum: "7987049838956759585"
