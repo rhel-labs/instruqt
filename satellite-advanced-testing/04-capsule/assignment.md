@@ -3,6 +3,7 @@ slug: capsule
 id: otxgdefrlsjo
 type: challenge
 title: Configure a Capsule Server
+teaser: Configure a capsule server.
 tabs:
 - title: Satellite Server
   type: terminal
@@ -32,7 +33,9 @@ difficulty: ""
 ---
 In this challenge, we'll configure the host `capsule.lab` as a Capsule server.
 
-<something about why capsule servers are useful>
+Red Hat Satellite Capsule Servers mirror content from Red Hat Satellite Server to facilitate content federation across various geographical locations. Host systems can pull content from the Capsule Server and not from the central Satellite Server. The Capsule Server also provides localized services such as Puppet Master, DHCP, DNS, or TFTP. Capsule Servers assist you in scaling your Satellite environment as the number of your managed systems increases.
+
+Capsule Servers decrease the load on the central server, increase redundancy, and reduce bandwidth usage. 
 
 Register the Capsule host with Satellite.
 =========================================
