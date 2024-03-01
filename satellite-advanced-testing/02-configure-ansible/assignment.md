@@ -37,17 +37,13 @@ Install the Satellite Ansible collection
 
 Copy and paste this into the `Satellite Server` terminal.
 ```
-satellite-maintain packages install ansible-collection-redhat-satellite
+satellite-maintain packages install -y ansible-collection-redhat-satellite
 ```
-
-When prompted to proceed, enter `y`.
-
-![yes prompt](../assets/installansible.png)
 
 Create a playbook to configure the Satellite server
 ===================================================
 
-The playbook below is simply an example. Never put passwords in your playbook.
+The playbook below is simply an example. __Never put clear text passwords in your playbook.__
 
 Copy and paste the code block below into the `Satellite Server` terminal, then run it.
 
@@ -81,6 +77,26 @@ tee ~/config.yml << EOF
       repositories:
         - releasever: "9"
 
+  - name: "Enable RHEL 8 BaseOS RPMs repository with label"
+    redhat.satellite.repository_set:
+      username: "admin"
+      password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
+      server_url: "https://satellite.lab"
+      organization: "Acme Org"
+      label: rhel-8-for-x86_64-baseos-rpms
+      repositories:
+        - releasever: "8"
+
+  - name: "Enable RHEL 8 AppStream RPMs repository with label"
+    redhat.satellite.repository_set:
+      username: "admin"
+      password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
+      server_url: "https://satellite.lab"
+      organization: "Acme Org"
+      label: rhel-8-for-x86_64-appstream-rpms
+      repositories:
+        - releasever: "8"
+
   - name: "Satellite 6 client repository with label without specifying base arch"
     redhat.satellite.repository_set:
       username: "admin"
@@ -91,7 +107,27 @@ tee ~/config.yml << EOF
       all_repositories: true
       state: enabled
 
-  - name: "Create and activation key."
+  - name: "Satellite capsule software for 6.14"
+    redhat.satellite.repository_set:
+      username: "admin"
+      password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
+      server_url: "https://satellite.lab"
+      organization: "Acme Org"
+      label: satellite-capsule-6.14-for-rhel-8-x86_64-rpms
+      all_repositories: true
+      state: enabled
+
+  - name: "Satellite maintenance software for 6.14"
+    redhat.satellite.repository_set:
+      username: "admin"
+      password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
+      server_url: "https://satellite.lab"
+      organization: "Acme Org"
+      label: satellite-maintenance-6.14-for-rhel-8-x86_64-rpms
+      all_repositories: true
+      state: enabled
+
+  - name: "Create an activation key."
     redhat.satellite.activation_key:
       username: "admin"
       password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
@@ -102,24 +138,40 @@ tee ~/config.yml << EOF
       content_overrides:
           - label: satellite-client-6-for-rhel-9-x86_64-rpms
             override: enabled
+          - label: satellite-maintenance-6.14-for-rhel-8-x86_64-rpms
+            override: enabled
+          - label: satellite-capsule-6.14-for-rhel-8-x86_64-rpms
+            override: enabled
 
-  - name: "Sync all repositories"
+  - name: "Sync all RHEL products."
     redhat.satellite.repository_sync:
       username: "admin"
       password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
       server_url: "https://satellite.lab"
       product: "Red Hat Enterprise Linux for x86_64"
       organization: "Acme Org"
+
+  - name: "Sync Red Hat Satellite Capsule product."
+    redhat.satellite.repository_sync:
+      username: "admin"
+      password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
+      server_url: "https://satellite.lab"
+      product: "Red Hat Satellite Capsule"
+      organization: "Acme Org"
 EOF
 ```
 
 The first two playbook tasks, `Enable RHEL 9 BaseOS RPMs repository with label` and `Enable RHEL 9 AppStream RPMs repository with label` will enable the RHEL 9 BaseOS and AppStream repositories.
 
-The third task enables the `satellite-client-6-for-rhel-9-x86_64-rpms` repository. This task enables the repository without specifying base arch (as some repos do not require it). The Satellite 6 client repo contains software such as `Tracer` and `yggdrasild`. `yggdrasild` will be required later in the lab to enable Remote Execution Pull Mode.
+The next two tasks enable the RHEL 8 BaseOS and AppStream repos. These are required for the capsule configuration challenge later in this lab.
 
-The fourth task creates an `activation key` which is used to control access to repositories on Satellite. In this particular `activation key`, the Satellite 6 client repository is overridden to enabled.
+The fifth task enables the `satellite-client-6-for-rhel-9-x86_64-rpms` repository. This task enables the repository without specifying base arch (as some repos do not require it). The Satellite 6 client repo contains software such as `Tracer` and `yggdrasild`. `yggdrasild` will be required later in the lab to enable Remote Execution Pull Mode.
 
-The fifth task initiates a synchronization operation on all `Red Hat Enterprise Linux for x86_64` product repositories.
+The 6th and 7th tasks, `Satellite capsule software for 6.14` and `Satellite maintenance software for 6.14` are required to configure the capsule server.
+
+The 8th task creates an `activation key` which is used to control access to repositories on Satellite. In this particular `activation key`, the Satellite 6 client repository is overridden to enabled, as well as the repos required for capsule configuration.
+
+The final task initiates a synchronization operation on all `Red Hat Enterprise Linux for x86_64` product repositories.
 
 Execute the playbook
 =====================

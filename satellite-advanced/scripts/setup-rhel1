@@ -7,7 +7,7 @@ until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]; do
 done
 
 subscription-manager config --rhsm.manage_repos=1
-subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+#subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
 echo "Adding wheel" > /root/post-run.log
 useradd rhel
