@@ -61,3 +61,8 @@ EOL
 nmcli con del wg0
 nmcli connection import type wireguard file /etc/wireguard/wg0.conf
 nmcli con mod wg0 ipv4.dns 192.0.2.1
+
+hammer repository-set enable --organization-id 1 --id 7441 --releasever 8
+hammer repository-set enable --organization-id 1 --id 7416 --releasever 8
+hammer repository synchronize --organization-id 1 --async --name "Red Hat Enterprise Linux 8 for x86_64 - AppStream RPMs 8" --product "Red Hat Enterprise Linux for x86_64"
+hammer repository synchronize --organization-id 1 --async --name "Red Hat Enterprise Linux 8 for x86_64 - BaseOS RPMs 8" --product "Red Hat Enterprise Linux for x86_64"
