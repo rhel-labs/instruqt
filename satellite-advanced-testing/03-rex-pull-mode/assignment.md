@@ -7,7 +7,7 @@ teaser: Learn how to configure remote execution pull mode and how to migrate hos
   to it.
 notes:
 - type: text
-  contents: Configure Remote Execustion pull mode.
+  contents: Configure Remote Execution pull mode.
 tabs:
 - title: Satellite Server
   type: terminal
@@ -21,12 +21,6 @@ tabs:
 - title: rhel1 Web Console
   type: external
   url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
-- title: rhel2
-  type: terminal
-  hostname: rhel2
-- title: rhel2 Web Console
-  type: external
-  url: https://rhel2.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: ""
 ---
 Since Satellite 6.12, Remote Execution or REX has provided the option of a "pull mode". Remote execution pull mode uses Message Queuing Telemetry Transport (MQTT) to publish jobs on Capsule servers (or Capsule service running on a Satellite server). Managed hosts subscribe to the MQTT broker to receive REX job notifications.
@@ -91,6 +85,8 @@ Open the required firewall ports with the following command in the `Satellite Se
 firewall-cmd --permanent --add-port="1883/tcp"
 ```
 
+__Note:__ There is currently no support for changing this port to a different port.
+
 Configure jobs to be sent through the capsule service that the host was registered to
 =====================================================================================
 
@@ -108,14 +104,20 @@ Change the value of `Prefer registered through Capsule for remote execution` par
 
 ![prefer capsule](../assets/prefercapsule.png)
 
+This option configures satellite to send REX requests through the capsule server the host was registered to. Although there are no configured capsule servers, this option prevents confusing behaviour where REX requests may be routed through the satellite server.
+
 Migrate the `rhel1` host to REX pull mode
 =========================================
+
+At the beginning of this challenge, we registered the host `rhel1` to use REX in "push" mode. We'll now migrate it to "pull" mode.
 
 Go to the terminal of `rhel1` and install `katello-pull-transport-migrate` by running the following command.
 
 ```
 dnf install katello-pull-transport-migrate -y
 ```
+
+__Please note:__ The `katello-pull-transport-migrate` package is provided by the `satellite-client-6-for-rhel-9-x86_64-rpms` repository. This repo was added to the satellite server and enabled by the activation key in the second task of this lab.
 
 Check that the MQTT agent `yggdrasild` is running.
 
@@ -183,24 +185,41 @@ You can see the newly created global parameter is set.
 
 ![global param set](../assets/rexpulltrue.png)
 
-Register the host `rhel2` using the option to use REX pull mode
-===============================================================
+Unregister the host `rhel1`.
+=======================================================================================
 
-You can re-use the registration command created at the beginning of this activity to register `rhel2`. It will be configured with REX pull mode on.
+In the `Satellite server` terminal run the following command.
+
+```
+ssh -o "StrictHostKeyChecking no" rhel1 "subscription-manager unregister" && hammer host delete --name rhel1
+
+```
+
+This command is run to remove `rhel1` from the satellite server so that we can register it again to show REX pull mode is automatically enabled.
+
+Register `rhel1` to show automatic configuration of REX pull mode.
+==================================================================
+
+You can re-use the registration command created at the beginning of this activity to register `rhel1`. It will be configured with REX pull mode on.
 
 You can regenerate a new registration command with the same hammer command.
 
 ```
 hammer host-registration generate-command --insecure 1 --setup-insights 0 --force 1 --activation-key RHEL9
 ```
+Here's what the registration operation output looks like for `rhel1`.
 
-You can check to see if REX pull mode was successfully configured by checking the yggdrasild demon is running.
+![rex pull](../assets/rexpullrhel1auto.png)
+
+Notice the installation of `yggdrasild` components.
+
+You can check to see if REX pull mode was successfully configured on `rhel1` by checking the yggdrasild demon is running.
 
 ```
 systemctl status yggdrasild
 ```
 
-Apply installable errata to `rhel1` and `rhel2`.
+Apply installable errata to `rhel1`.
 ================================================
 
 Navigate to the `Errata` menu.
@@ -221,7 +240,7 @@ Click `Apply errata`.
 
 In the `Apply errata` wizard, do the following.
 
-1) Select `rhel1` and `rhel2`.
+1) Select `rhel1`.
 2) Click `Next`.
 
 ![apply](../assets/applyerratawizard.png)

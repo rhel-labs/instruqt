@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Enable and sync rhel 8 repos to save time.
+hammer repository-set enable --organization-id 1 --id 7441 --releasever 8
+hammer repository-set enable --organization-id 1 --id 7416 --releasever 8
+hammer repository-set enable --organization-id 1 --id 12623 --releasever 8
+hammer repository synchronize --organization-id 1 --async --name "Red Hat Enterprise Linux 8 for x86_64 - AppStream RPMs 8" --product "Red Hat Enterprise Linux for x86_64"
+hammer repository synchronize --organization-id 1 --async --name "Red Hat Enterprise Linux 8 for x86_64 - BaseOS RPMs 8" --product "Red Hat Enterprise Linux for x86_64"
+hammer repository synchronize --organization-id 1 --async --name "Red Hat Satellite Client 6 for RHEL 8 x86_64 RPMs" --product "Red Hat Enterprise Linux for x86_64" 

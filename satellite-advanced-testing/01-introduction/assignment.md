@@ -20,23 +20,17 @@ tabs:
 - title: rhel1 Web Console
   type: external
   url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
-- title: rhel2
-  type: terminal
-  hostname: rhel2
-- title: rhel2 Web Console
-  type: external
-  url: https://rhel2.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 ---
 <!-- markdownlint-disable MD033 -->
 The lab environment consists of the following
 
-1. Red Hat Satellite 6.15.x Server (Satellite is preinstalled)
-2. Red Hat Enterprise Linux 9 hosts.
+1. Two Red Hat Satellite 6.15.x Servers (Satellite is preinstalled)
+2. One Red Hat Enterprise Linux 9 host
+3. One capsule server.
 
-![sat env](../assets/satellite-basics-environment.png)
 
-## <ins>Log into the Web UI</ins>
+Log into the Web UI
 =================================
 
 First, we'll log into the Red Hat Satellite Web User Interface (UI). Satellite has been preinstalled and installation is out of scope for this lab.
@@ -75,14 +69,14 @@ You will be taken to the main dashboard.
 
 ![main menu](../assets/main-menu.png)
 
-## <ins>Access the RHEL Hosts</ins>
+Access the RHEL Host
 ===================================
 
-At the top of the screen, you'll find tabs for the hosts `rhel1` and `rhel2`. Terminal and Web Console access are provided.
+At the top of the screen, you'll find a tab for the host `rhel1`. Terminal and Web Console access are provided.
 
 ![hosts tabs](../assets/hosts-tabs.png)
 
-The credentials for these hosts are the following:
+The credentials are the following:
 
 Username:
 

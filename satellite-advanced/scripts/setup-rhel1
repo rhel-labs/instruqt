@@ -7,6 +7,7 @@ until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]; do
 done
 
 subscription-manager config --rhsm.manage_repos=1
+rm -rf /etc/yum.repos.d/google-cloud.repo
 #subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
 echo "Adding wheel" > /root/post-run.log
@@ -49,3 +50,4 @@ EOT
 chmod 700 /usr/local/sbin/wg-startup.sh
 restorecon -Fvvv /usr/local/sbin/wg-startup.sh
 systemctl enable wg-startup
+
