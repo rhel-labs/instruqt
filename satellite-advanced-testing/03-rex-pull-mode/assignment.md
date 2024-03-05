@@ -169,7 +169,7 @@ The `messages` log file should display something similar to this.
 Configure Satellite to automatically configure REX pull mode when registering new hosts
 =======================================================================================
 
-At present, Satellite will register hosts without REX in pull mode. We'll need to set a new Global Parameter to enable pull mode by default, with a global parameter. In the `Satellite Server` terminal, enter the following command.
+At present, Satellite will register hosts in REX push mode by default. We'll need to set a new Global Parameter to enable pull mode by default, with a global parameter. In the `Satellite Server` terminal, enter the following command.
 
 ```
 hammer global-parameter set --parameter-type string --name host_registration_remote_execution_pull --value true
