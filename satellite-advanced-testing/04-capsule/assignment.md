@@ -359,16 +359,30 @@ Click on `Optimized Sync` to synchronize repo metadata to the capsule.
 
 We left the `Download Policy` on the default setting of `On Demand`. This means that metadata will be synchronized to the capsule server but the software will only be synchronized on demand, when a host makes the request to the capsule server to install software.
 
-Optional - Synchronize software with the capsule server and migrate rhel1.
-==========================================================================
+Migrate rhel1 to the capsule server.
+====================================
 
-The following operation is time consuming due to resource constraints on the capsule server and the size of the repositories.
+Navigate to the `All Hosts` menu.
+
+![all hosts](../assets/allhosts.png)
+
 Do the following.
 
-Go to the `Capsules` menu inside the `Infrastructure` side tab.
+1) Select `rhel1`.
+2) Click `Change Content Source`.
 
-![capsule](../assets/capsulemenu.png)
+![change content source](../assets/changecontentsource.png)
 
-Click on the `Edit` button for `capsule.lab`.
+Perform the following actions.
 
-![capsules](../assets/capsulesedit.png)
+1) Select `capsule.lab` in the `Content source` dropdown.
+2) In the `Lifecycle environment` section, choose `Capsule Production`.
+3) Choose the content view `RHEL9`.
+4) Click `Run job invocation`.
+
+![change menu](../assets/changecontentsourcemenu.png)
+
+In the `Run job` menu, click on `Run on selected hosts`.
+
+![run on select](../assets/runonselectedhostschangehosts.png)
+
