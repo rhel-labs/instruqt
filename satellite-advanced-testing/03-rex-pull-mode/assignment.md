@@ -90,21 +90,32 @@ __Note:__ There is currently no support for changing this port to a different po
 Configure jobs to be sent through the capsule service that the host was registered to
 =====================================================================================
 
-In pull-mqtt mode, hosts subscribe for job notifications to the Capsule through which they are registered. Therefore, it is recommended to ensure that Satellite Server sends remote execution jobs to that same Capsule.
+The following setting enables hosts to receive REX jobs through the satellite or capsule server they were registered through.
 
-Go to the `Settings` menu.
+Copy and run this in the `Satellite Server` terminal.
 
-![settings rex](../assets/rexpullsettings.png)
+```
+tee ~/rexsetting.yml << EOF
+---
+- name: Configure Satellite 6.14
+  hosts: localhost
+  remote_user: root
 
-Click on the `Content` tab.
+  tasks:
+  - name: "Set REX preferred through registered server."
+    redhat.satellite.setting:
+      username: "admin"
+      password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
+      server_url: "https://satellite.lab"
+      name: "remote_execution_prefer_registered_through_proxy"
+      value: "true"
+EOF
+```
 
-![content tab](../assets/contenttab.png)
-
-Change the value of `Prefer registered through Capsule for remote execution` parameter to yes.
-
-![prefer capsule](../assets/prefercapsule.png)
-
-This option configures satellite to send REX requests through the capsule server the host was registered to. Although there are no configured capsule servers, this option prevents confusing behaviour where REX requests may be routed through the satellite server.
+Run the playbook.
+```
+ansible-playbook rexsetting.yml
+```
 
 Migrate the `rhel1` host to REX pull mode
 =========================================
@@ -172,10 +183,26 @@ Configure Satellite to automatically configure REX pull mode when registering ne
 At present, Satellite will register hosts in REX push mode by default. We'll need to set a new Global Parameter to enable pull mode by default, with a global parameter. In the `Satellite Server` terminal, enter the following command.
 
 ```
-hammer global-parameter set --parameter-type string --name host_registration_remote_execution_pull --value true
+tee ~/rexdefault.yml << EOF
+---
+- name: Configure Satellite 6.14
+  hosts: localhost
+  remote_user: root
+
+  tasks:
+  - name: "Set global parameter to default REX pull mode."
+    redhat.satellite.global_parameter:
+      username: "admin"
+      password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
+      server_url: "https://satellite.lab"
+      name: "host_registration_remote_execution_pull"
+      value: "true"
+      parameter_type: boolean
+      state: present
+EOF
 ```
 
-This command creates a global parameter `host_registration_remote_execution_pull` with the value of `true`.
+This playbook creates a global parameter `host_registration_remote_execution_pull` with the value of `true`.
 
 You can check to see this parameter was successfully created by navgating to the `Global Parameters` menu.
 
@@ -191,8 +218,7 @@ Unregister the host `rhel1`.
 In the `Satellite server` terminal run the following command.
 
 ```
-ssh -o "StrictHostKeyChecking no" rhel1 "subscription-manager unregister" && hammer host delete --name rhel1
-
+ssh -o "StrictHostKeyChecking no" rhel1 "subscription-manager unregister" && hammer host delete --name rhel1 && ssh -o "StrictHostKeyChecking no" rhel1 "dnf remove -y katello-pull-transport-migrate"
 ```
 
 This command is run to remove `rhel1` from the satellite server so that we can register it again to show REX pull mode is automatically enabled.
