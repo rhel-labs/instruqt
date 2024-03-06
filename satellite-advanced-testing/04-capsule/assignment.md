@@ -41,7 +41,7 @@ We need to provide the following repositories to the capsule server.
 - `satellite-capsule-6.14-for-rhel-8-x86_64-rpms`
 - `satellite-maintenance-6.14-for-rhel-8-x86_64-rpms`
 
-Copy and paste the following playbook to the satellite server in the `Satellite server` terminal.
+Copy and paste the following playbook to the satellite server in the `Satellite Server` terminal.
 
 ```
 tee ~/capsulerepos.yml << EOF

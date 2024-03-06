@@ -202,9 +202,14 @@ tee ~/rexdefault.yml << EOF
 EOF
 ```
 
+Run the playbook in the `Satellite Server` terminal.
+```
+ansible-playbook rexsetting.yml
+```
+
 This playbook creates a global parameter `host_registration_remote_execution_pull` with the value of `true`.
 
-You can check to see this parameter was successfully created by navgating to the `Global Parameters` menu.
+You can check to see this parameter was successfully created by navigating to the `Global Parameters` menu.
 
 ![global params](../assets/globalparameters.png)
 
@@ -215,7 +220,7 @@ You can see the newly created global parameter is set.
 Unregister the host `rhel1`.
 =======================================================================================
 
-In the `Satellite server` terminal run the following command.
+In the `Satellite Server` terminal run the following command.
 
 ```
 ssh -o "StrictHostKeyChecking no" rhel1 "subscription-manager unregister" && hammer host delete --name rhel1 && ssh -o "StrictHostKeyChecking no" rhel1 "dnf remove -y katello-pull-transport-migrate"
