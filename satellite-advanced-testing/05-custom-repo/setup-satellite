@@ -1,0 +1,4 @@
+#!/bin/bash
+
+wget https://github.com/sustainable-computing-io/kepler/releases/download/v0.7.7/kepler.rpm.tar.gz
+tar -xzvf v0.7.7/kepler.rpm.tar.gz
