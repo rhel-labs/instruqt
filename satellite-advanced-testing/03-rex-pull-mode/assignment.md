@@ -204,7 +204,7 @@ EOF
 
 Run the playbook in the `Satellite Server` terminal.
 ```
-ansible-playbook rexsetting.yml
+ansible-playbook rexdefault.yml
 ```
 
 This playbook creates a global parameter `host_registration_remote_execution_pull` with the value of `true`.

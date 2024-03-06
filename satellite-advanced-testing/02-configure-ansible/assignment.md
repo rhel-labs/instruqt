@@ -22,7 +22,7 @@ tabs:
   url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 ---
-The first activity in this lab is to create an ansible playbook to automatically configure the Satellite server. Red Hat provides an Ansible collection to manage Red Hat Satellite configuration. Ansible playbooks configured to configure Satellite are useful for building disaster recovery instances of Satellite, or any other task that requires a second Satellite server, including testing, and upgrades.
+The first activity in this lab is to create an ansible playbook to automatically configure the Satellite server. Red Hat provides an Ansible collection to manage Red Hat Satellite configuration. Ansible playbooks are useful for building disaster recovery instances of Satellite, or any other task that requires a second Satellite server, including testing, and upgrades.
 
 Documentation for the Satellite Ansible collection can be found [here](https://console.redhat.com/ansible/automation-hub/repo/published/redhat/satellite/docs) (Red Hat account required).
 
