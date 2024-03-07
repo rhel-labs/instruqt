@@ -15,13 +15,10 @@ tabs:
 - title: client1
   type: terminal
   hostname: client1
-- title: client2
-  type: terminal
-  hostname: client2
 difficulty: basic
 timelimit: 1
 ---
-To get started, an already created playbook has been created that uses both the kernel-settings and session recording system roles. You can inspect the contents of this lab provided playbook to get some more information about what it will do on your system.
+To get started, a playbook has been created that uses both the kernel-settings and session recording system roles. You can inspect the contents of this lab provided playbook to get some more information about what it will do on your system.
 
 ```bash
 cat soe.yml
@@ -88,14 +85,13 @@ After a lot of output, you can see from the output at the bottom of the snippet 
 
 You may have noticed that for session recording, the `tlog` system role managed installing the software needed for session recording in addition to executing the configuration parameters included in the playbook. -->
 
-Let's apply these roles to `localhost`, `client1` and `client2`. We need to create a `hosts.ini` file specifying the hostnames `client1` and `client2`. Both of these hosts will be part of the `clients` group. For localhost, we'll specify that ansible should execute the playbook locally.
+Let's apply these roles to `localhost` and `client1`. We need to create a `hosts.ini` file specifying the hostname `client1`. This host will be part of the `clients` group. For localhost, we'll specify that ansible should execute the playbook locally.
 
 ```text
 cat > hosts.ini << EOF
 localhost  ansible_connection=local
 [clients]
 client1
-client2
 EOF
 ```
 
@@ -108,9 +104,8 @@ The `hosts.ini` should contain the following.
 <pre>
 [clients]
 client1
-client2
 </pre>
-Edit the `soe.yml` playbook to add the `clients` host group. This tells ansible to apply the system roles in `soe.yml` to `localhost`, `client1`, and `client2`.
+Edit the `soe.yml` playbook to add the `clients` host group. This tells ansible to apply the system roles in `soe.yml` to `localhost` and `client1`.
 
 ```bash
 sed -i '/^- hosts: localhost/ s/$/, clients/' soe.yml
@@ -148,14 +143,13 @@ Now run the playbook again to apply the system roles to the clients group.
 ansible-playbook soe.yml -i hosts.ini
 ```
 
-Check the swappiness kernel parameter has changed on `client1` and `client2`.
+Check the swappiness kernel parameter has changed on `client1`.
 
 ```bash
-for i in client1 client2; do echo -n "$i : " ; ssh $i cat /proc/sys/vm/swappiness; done
+for i in client1; do echo -n "$i : " ; ssh $i cat /proc/sys/vm/swappiness; done
 ```
 
 <pre>
-root@rhel:~# for i in client1 client2; do ssh $i cat /proc/sys/vm/swappiness; done
+root@rhel:~# for i in client1; do ssh $i cat /proc/sys/vm/swappiness; done
 client1 : 20
-client2 : 20
 </pre>

@@ -15,9 +15,6 @@ tabs:
 - title: client1
   type: terminal
   hostname: client1
-- title: client2
-  type: terminal
-  hostname: client2
 difficulty: basic
 timelimit: 1
 ---
@@ -118,14 +115,12 @@ PLAY [localhost, clients] ******************************************************
 
 TASK [Gathering Facts] *************************************************************************************************************************
 ok: [localhost]
-ok: [client2]
 ok: [client1]
 
 <<< OUTPUT ABRIDGED >>>
 
 PLAY RECAP *************************************************************************************************************************************
 client1                    : ok=36   changed=4    unreachable=0    failed=0    skipped=29   rescued=0    ignored=0
-client2                    : ok=36   changed=4    unreachable=0    failed=0    skipped=29   rescued=0    ignored=0
 localhost                  : ok=36   changed=4    unreachable=0    failed=0    skipped=29   rescued=0    ignored=0
 </pre>
 From the above snippet of output, you can see that only 4 items were changed once the playbook was executed. These changes should have been the updated time server settings.
