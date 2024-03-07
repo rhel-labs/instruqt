@@ -10,7 +10,6 @@ tee -a hosts.ini << EOF
 localhost  ansible_connection=local
 [clients]
 client1
-client2
 EOF
 
 sed -i '/^- hosts: localhost/ s/$/, clients/' soe.yml

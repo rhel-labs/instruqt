@@ -15,9 +15,6 @@ tabs:
 - title: client1
   type: terminal
   hostname: client1
-- title: client2
-  type: terminal
-  hostname: client2
 difficulty: basic
 timelimit: 1
 ---
@@ -52,7 +49,7 @@ exit
 ```
 You should have seen dialog similar to the output shown above. Success! the system is now recording terminal sessions for users connecting to it.
 
-For `client1` and/or `client2`, repeat the following command.
+For `client1`, repeat the following command.
 ```
 ssh -o "StrictHostKeyChecking no" rhel@client1
 ```

@@ -15,9 +15,6 @@ tabs:
 - title: client1
   type: terminal
   hostname: client1
-- title: client2
-  type: terminal
-  hostname: client2
 difficulty: basic
 timelimit: 1
 ---
@@ -73,14 +70,12 @@ PLAY [localhost, clients] ******************************************************
 
 TASK [Gathering Facts] *************************************************************************************************************************
 ok: [localhost]
-ok: [client2]
 ok: [client1]
 
 <<< OUTPUT ABRIDGED >>>
 
 PLAY RECAP ***************************************************************************************************
 client1                    : ok=38   changed=2    unreachable=0    failed=0    skipped=31   rescued=0    ignored=0
-client2                    : ok=38   changed=2    unreachable=0    failed=0    skipped=31   rescued=0    ignored=0
 localhost                  : ok=38   changed=2    unreachable=0    failed=0    skipped=31   rescued=0    ignored=0
 </pre>
 
@@ -93,4 +88,4 @@ ssh client1 cat /proc/sys/vm/swappiness
 <pre>
 10
 </pre>
-This lab has focused on building a playbook using RHEL system roles to generate a standard set of configuration for the system, then using that playbook to make further changes to the system. Now that you have a working playbook it would be trivial to change the hosts that it applies to `localhost` to a set of systems on the network, like `client1` and `client2`. As a result, if updates needed to be made to parameters, like you did to the swappiness setting, for the entire fleet of systems, you could update the playbook, then execute it across the systems to propagate the change.
+This lab has focused on building a playbook using RHEL system roles to generate a standard set of configuration for the system, then using that playbook to make further changes to the system. Now that you have a working playbook it would be trivial to change the hosts that it applies to `localhost` to a set of systems on the network, like `client1`. As a result, if updates needed to be made to parameters, like you did to the swappiness setting, for the entire fleet of systems, you could update the playbook, then execute it across the systems to propagate the change.

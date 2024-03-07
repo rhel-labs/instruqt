@@ -15,9 +15,6 @@ tabs:
 - title: client1
   type: terminal
   hostname: client1
-- title: client2
-  type: terminal
-  hostname: client2
 difficulty: basic
 timelimit: 3000
 ---

@@ -39,7 +39,6 @@ cp .ssh/id_rsa.pub /home/rhel/.ssh/
 cp .ssh/authorized_keys /home/rhel/.ssh/
 chown rhel:rhel -R /home/rhel/.ssh/
 
-ssh-keyscan -H client2 >> ~/.ssh/known_hosts
 ssh-keyscan -H client1 >> ~/.ssh/known_hosts
 
 #set up tmux so it has to restart itself whenever the system reboots
