@@ -25,7 +25,7 @@ tabs:
   url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: ""
 ---
-In this challenge, we'll configure the host `capsule.lab` as a Capsule server.
+In this assignment, we'll configure the host `capsule.lab` as a Capsule server.
 
 Red Hat Satellite Capsule Servers mirror content from Red Hat Satellite Server to facilitate content federation across various geographical locations. Host systems can pull content from the Capsule Server and not from the central Satellite Server. The Capsule Server also provides localized services such as Puppet Master, DHCP, DNS, or TFTP. Capsule Servers assist you in scaling your Satellite environment as the number of your managed systems increases.
 
@@ -196,6 +196,8 @@ Enable the satellite module.
 dnf module enable satellite-capsule:el8 -y
 ```
 
+__Note:__ Enabling the `satellite-capsule:el8` module will throw several warnings. Ignore them since there are no installations of ruby or postgresql on this host.
+
 Install the capsule software.
 =============================
 
@@ -238,8 +240,8 @@ scp -o StrictHostKeyChecking=no /root/capsule_cert/capsule.lab-certs.tar capsule
 
 ![scp cert](../assets/scpcerts.png)
 
-Import the default certificate into the Capsule server
-======================================================
+Import the default certificate into the capsule server and run the installer
+============================================================================
 
 As per the instructions from the output of the `capsule-cert-generate`, copy, paste and run the `satellite-installer` command in the `Capsule` terminal.
 
@@ -250,6 +252,11 @@ Here's what the output should look like.
 ![capsuleoutput](../assets/capsuleoutput.png)
 
 ![capsulecopy](../assets/capsuleop.gif)
+
+Discussion
+==========
+
+
 
 Configure lifecycle environment and content views
 =================================================
@@ -317,6 +324,8 @@ ansible-playbook capsulesync.yml
 ```
 
 This playbook creates the LCE named "Capsule Production" and the content view "RHEL9" which contains the RHEL9 BaseOS repository.
+
+__Note:__ For the purposes of this lab, all of this content has been seeded to the satellite server so the synchronization should take only a few minutes.
 
 Configure satellite.lab to replicate the Capsule Production lifecycle environment to capsule.lab
 ================================================================================================

@@ -63,6 +63,16 @@ tee ~/config.yml << EOF
       repositories:
         - releasever: "9"
 
+  - name: "Enable RHEL 9 AppStream RPMs repository with label"
+    redhat.satellite.repository_set:
+      username: "admin"
+      password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
+      server_url: "https://satellite.lab"
+      organization: "Acme Org"
+      label: rhel-9-for-x86_64-appstream-rpms
+      repositories:
+        - releasever: "9"
+
   - name: "Satellite 6 client repository with label without specifying base arch"
     redhat.satellite.repository_set:
       username: "admin"
@@ -108,7 +118,7 @@ Execute the playbook
 Execute the playbook with the following command.
 
 ```
-ansible-playbook config.yml -vvv
+ansible-playbook config.yml
 ```
 
 The final task in the playbook you just created, `Sync all RHEL products.` takes about 5 minutes. Please do not advance to the next activity in this lab until the repositories have completed synchronizing.
@@ -124,7 +134,7 @@ Click `Expand All`.
 
 ![expand all](../assets/expandall.png)
 
-It should take about 5 minutes for the repos to sync.
+It could take up to 5 minutes for the repos to sync. For the purposes of this lab, the repositories were seeded with metadata to reduce the synchronization period.
 
 ![reposynctime](../assets/reposynctime.png)
 

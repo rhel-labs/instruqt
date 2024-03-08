@@ -82,7 +82,7 @@ Open required firewall ports on the Satellite server
 Open the required firewall ports with the following command in the `Satellite Server` tab.
 
 ```
-firewall-cmd --permanent --add-port="1883/tcp"
+firewall-cmd --permanent --add-port="1883/tcp" && firewall-cmd --reload
 ```
 
 __Note:__ There is currently no support for changing this port to a different port.
@@ -120,7 +120,7 @@ ansible-playbook rexsetting.yml
 Migrate the `rhel1` host to REX pull mode
 =========================================
 
-At the beginning of this challenge, we registered the host `rhel1` to use REX in "push" mode. We'll now migrate it to "pull" mode.
+At the beginning of this assignment, we registered the host `rhel1` to use REX in "push" mode. We'll now migrate it to "pull" mode.
 
 Go to the terminal of `rhel1` and install `katello-pull-transport-migrate` by running the following command.
 
