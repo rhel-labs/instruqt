@@ -59,7 +59,6 @@ tee ~/issexportcv.yml << EOF
       password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
       server_url: "https://satellite.lab"
       organization: "Acme Org"
-      username: "admin"
       content_view: "ISS Export"
       lifecycle_environments:
         - "Library"
@@ -93,8 +92,24 @@ EOF
 ```
 
 ```
+ls /var/lib/pulp/exports/Acme_Org/ISS_Export/1.0/
+```
+
+```
 ansible-playbook issexportcv.yml
 ```
 
 ![](../assets/exportedcv.png)
+
+```
+ssh satellite-2.lab mkdir -p /var/lib/pulp/imports/myimport && scp /var/lib/pulp/exports/Acme_Org/ISS_Export/1.0/satellite-2.lab/*/* satellite-2.lab:/var/lib/pulp/imports/myimport
+```
+
+![](../assets/mvexportstosatellite2.png)
+
+We need to change the ownership of the data we just exported to the `pulp` account and group. Switch to the `Satellite Server 2` terminal and enter the following command.
+
+```
+chown -R /var/lib/pulp/imports/myimport
+```
 

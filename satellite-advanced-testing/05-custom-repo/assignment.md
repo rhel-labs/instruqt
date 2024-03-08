@@ -128,6 +128,8 @@ Run the playbook.
 ansible-playbook customrepopublishpromote.yml
 ```
 
+Publishing and promoting a new version of the RHEL9 content view will trigger a capsule sync operation, synchronizing the `Capsule Product` lifecycle environment.
+
 Enable "My custom repository"
 =============================
 
