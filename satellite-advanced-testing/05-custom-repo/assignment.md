@@ -131,6 +131,15 @@ ansible-playbook customrepopublishpromote.yml
 Enable "My custom repository"
 =============================
 
+View the repositories available to `rhel1`. In the `rhel1` terminal, enter the following.
+
+```
+subscription-manager repos
+```
+Here's the output.
+
+![repos](../assets/reposavailable.png)
+
 In the `rhel1` terminal, run the following command to enable `My custom repository`.
 
 ```
@@ -145,12 +154,12 @@ In the `rhel1` terminal run the following command.
 ```
 dnf install -y hello
 ```
-![install](../assets/helloshinstall.png)
+![install](../assets/helloinstall.png)
 
 Test the installation by running the following command in the `rhel1` terminal.
 
 ```
-hello.sh
+chmod +x /usr/bin/hello.sh && hello.sh
 ```
 
 ![output](../assets/helloshoutput.png)

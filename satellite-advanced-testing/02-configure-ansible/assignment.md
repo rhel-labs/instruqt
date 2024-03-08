@@ -107,7 +107,7 @@ EOF
 ```
 
 Here's what each of the tasks does.
-1) The first two playbook tasks, `Enable RHEL 9 BaseOS RPMs repository with label` will enable the RHEL 9 BaseOS repositories.
+1) The first two playbook tasks, `Enable RHEL 9 BaseOS RPMs repository with label` and `Enable RHEL 9 AppStream RPMs repository with label` will enable the RHEL 9 BaseOS and AppStream repositories.
 2) The next task enables the `satellite-client-6-for-rhel-9-x86_64-rpms` repository. This task enables the repository without specifying base arch (as some repos do not require it). The Satellite 6 client repo contains software such as `Tracer` and `yggdrasild`. `yggdrasild` will be required later in the lab to enable Remote Execution Pull Mode.
 3) The next task creates an `activation key` which is used to control access to repositories on Satellite. In this particular `activation key`, the Satellite 6 client repository is overridden to enabled, as well as the repos required for capsule configuration.
 4) The final task initiates a synchronization operation on all `Red Hat Enterprise Linux for x86_64` product repositories.

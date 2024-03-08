@@ -240,8 +240,8 @@ scp -o StrictHostKeyChecking=no /root/capsule_cert/capsule.lab-certs.tar capsule
 
 ![scp cert](../assets/scpcerts.png)
 
-Import the default certificate into the capsule server and run the installer
-============================================================================
+Run the capsule configuration task
+======================================
 
 As per the instructions from the output of the `capsule-cert-generate`, copy, paste and run the `satellite-installer` command in the `Capsule` terminal.
 
@@ -256,7 +256,7 @@ Here's what the output should look like.
 Discussion
 ==========
 
-
+In this part of the lab, we'll talk about capsule deployment strategies while the capsule is configured.
 
 Configure lifecycle environment and content views
 =================================================
