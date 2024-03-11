@@ -370,6 +370,19 @@ We left the `Download Policy` on the default setting of `On Demand`. This means 
 
 Migrate rhel1 to the capsule server.
 ====================================
+In the `rhel1` terminal enter the following command to view the redhat.repo file.
+
+```
+cat /etc/yum.repos.d/redhat.repo
+```
+
+The output will look like this.
+
+![](../assets/satelliteredhatrepo.png)
+
+`rhel1` is using the BaseOS, AppStream and Satellite Client repositories provided by the `satellite.lab` server.
+
+When we migrate `rhel1` to `capsule.lab`, `rhel1` will only have access to the BaseOS repository as configured in the `RHEL9` content view.
 
 Navigate to the `All Hosts` menu.
 
@@ -405,4 +418,4 @@ cat /etc/yum.repos.d/redhat.repo
 
 ![verify capsule migration](../assets/verifycapsulemigration.png)
 
-The `redhat.repo` will show that the baseurl points at `capsule.lab`.
+The `redhat.repo` will show that the baseurl points at `capsule.lab`. As well, `rhel1` only has access to the BaseOS repository as defined in the `RHEL9` content view.

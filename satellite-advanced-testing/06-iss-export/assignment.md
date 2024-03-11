@@ -26,7 +26,8 @@ tabs:
 difficulty: ""
 ---
 
-Inter-Satellite-Sync export sync exports software at the repository, content view, and lifecycle environment levels.
+Inter-Satellite Sync (ISS) export sync exports software at the repository, content view, and lifecycle environment levels. In this assignment, we'll export the custom repo 'My custom repository' at the content view level from `satellite.lab` and import it into `satellite-2.lab`.
+
 
 - create a new content view
 - add "My custom repository" to it
@@ -34,8 +35,13 @@ Inter-Satellite-Sync export sync exports software at the repository, content vie
 - transfer to satellite-2
 - import into satellite-2
 
+Create a new content view
+=========================
+
+Copy and paste the following playbook into the `Satellite Server` terminal.
+
 ```
-tee ~/issexportcv.yml << EOF
+tee ~/createandpublishissexport.yml << EOF
 ---
 - name: Create a new CV "ISS Export".
   hosts: localhost
@@ -65,51 +71,72 @@ tee ~/issexportcv.yml << EOF
 EOF
 ```
 
-```
-ansible-playbook issexportcv.yml
-```
+This playbook creates a new content view called `ISS export` containing the repository `My custom repository`. Then the playbook publishes and promotes the content view `ISS Export` to the `Library` lifecycle environment.
 
-Copy and paste the following playbook into the `Satellite Server` terminal.
+Run the `createandpublishissexport.yml` playbook in the `Satellite Server` terminal.
 
 ```
-tee ~/issexportcv.yml << EOF
----
-- name: Create a new CV "ISS Export".
-  hosts: localhost
-  remote_user: root
-
-  tasks:
-  - name: "Export content view version (full)"
-    redhat.satellite.content_export_version:
-      content_view: "ISS Export"
-      content_view_version: '1.0'
-      username: "admin"
-      password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
-      server_url: "https://satellite.lab"
-      organization: "Acme Org"
-      destination_server: "satellite-2.lab"
-EOF
+ansible-playbook createandpublishissexport.yml
 ```
 
-```
-ls /var/lib/pulp/exports/Acme_Org/ISS_Export/1.0/
-```
+Create and Inter-Satellite Sync export
+======================================
+
+Now we'll export the content view `ISS Export` as an ISS export.
+
+Copy and paste the following command into the `Satellite Server` terminal.
 
 ```
-ansible-playbook issexportcv.yml
+hammer content-export complete version --content-view "ISS Export" --version "1.0" --organization "Acme Org"
 ```
 
+Copy the exported data to satellite-2.lab
+=========================================
+
+On `satellite.lab`, you can find the exported data in `/var/lib/pulp/exports/Acme_Org/Default_Organization_View/1.0/`.
+
+```
+ls /var/lib/pulp/exports/Acme_Org/ISS_Export/1.0/*/
+```
 ![](../assets/exportedcv.png)
 
+In the `Satellite Server` terminal run the following command.
+
 ```
-ssh satellite-2.lab mkdir -p /var/lib/pulp/imports/myimport && scp /var/lib/pulp/exports/Acme_Org/ISS_Export/1.0/satellite-2.lab/*/* satellite-2.lab:/var/lib/pulp/imports/myimport
+scp -o "StrictHostKeyChecking no" -rp /var/lib/pulp/exports/Acme_Org/ISS_Export/1.0/*/ satellite-2.lab:/var/lib/pulp/imports/Acme_Org/
 ```
 
 ![](../assets/mvexportstosatellite2.png)
 
+This command will create a new directory on `satellite-2.lab` in `/var/lib/pulp/imports` called `Acme_Org` and copy all the exported data to it.
+
+Import the exported data into satellite-2.lab
+=============================================
+
 We need to change the ownership of the data we just exported to the `pulp` account and group. Switch to the `Satellite Server 2` terminal and enter the following command.
 
 ```
-chown -R /var/lib/pulp/imports/myimport
+chown -R pulp:pulp /var/lib/pulp/imports/Acme_Org/
 ```
 
+In the `Satellite Server 2` terminal, run the following command.
+
+```
+hammer content-import version --organization "Acme Org" --path "/var/lib/pulp/imports/Acme_Org"
+```
+
+You can verify the result in the web gui with the same credentials as `satellite.lab`.
+
+Username
+```
+admin
+```
+
+Password
+```
+bc31c9a6-9ff0-11ec-9587-00155d1b0702
+```
+
+![](../assets/exportedissexport.png)
+
+![](../assets/exportedcustomrepo.png)
