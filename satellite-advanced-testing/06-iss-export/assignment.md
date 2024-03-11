@@ -2,7 +2,7 @@
 slug: iss-export
 id: yl3gfimkdmll
 type: challenge
-title: Inter-Satellite-Sync Export Sync
+title: Inter-Satellite Sync Export Sync
 teaser: Transfer software between satellite servers.
 tabs:
 - title: Satellite Server
