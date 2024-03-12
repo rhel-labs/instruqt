@@ -217,7 +217,7 @@ You can see the newly created global parameter is set.
 
 ![global param set](../assets/rexpulltrue.png)
 
-Unregister the host `rhel1`.
+Unregister the host `rhel1`
 =======================================================================================
 
 In the `Satellite Server` terminal run the following command.
@@ -228,7 +228,7 @@ ssh -o "StrictHostKeyChecking no" rhel1 "subscription-manager unregister" && ham
 
 This command is run to remove `rhel1` from the satellite server so that we can register it again to show REX pull mode is automatically enabled.
 
-Register `rhel1` to show automatic configuration of REX pull mode.
+Register `rhel1` to show automatic configuration of REX pull mode
 ==================================================================
 
 You can re-use the registration command created at the beginning of this activity to register `rhel1`. It will be configured with REX pull mode on.
@@ -250,7 +250,7 @@ You can check to see if REX pull mode was successfully configured on `rhel1` by 
 systemctl status yggdrasild
 ```
 
-Apply installable errata to `rhel1`.
+Apply installable errata to `rhel1`
 ================================================
 
 Navigate to the `Errata` menu.
@@ -293,5 +293,7 @@ To return to the job status page, click `Back to Job`.
 ![back to job](../assets/backtojob.png)
 
 When the job is complete, the page will look like this.
+
+__Note:__ Don't wait for the updates to complete. Please advance to the next assignment.
 
 ![complete](../assets/completejobstatus.png)

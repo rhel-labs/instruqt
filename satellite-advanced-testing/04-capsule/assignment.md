@@ -145,10 +145,10 @@ ansible-playbook capsulerepos.yml
 
 The RHEL 8 repositories were synchronized in the background of this lab. The synchronization step should only take a few seconds.
 
-Register the Capsule host with Satellite.
+Register the Capsule host with Satellite
 =========================================
 
-First, register the host `capsule` with satellite.
+Register the host `capsule` with satellite.
 
 You can generate a host registration script on the `Satellite Server` terminal with the following command.
 **Note:** this is a different registration script from those previously generated in this lab and provides access to RHEL 8 repos.
@@ -159,7 +159,7 @@ hammer host-registration generate-command --insecure 1 --setup-insights 0 --forc
 
 Copy the output of this command from the `Satellite Server` terminal, paste it into the `Capsule` terminal, and run it.
 
-Update the capsule.lab host.
+Update the capsule.lab host
 ============================
 
 In the `Capsule` terminal, run the following.
@@ -172,7 +172,7 @@ The `Capsule` terminal will lose connection with the host during reboot. To reco
 
 ![reconnect](../assets/refreshcapsuleterminal.png)
 
-Configure the repositories on the Capsule host.
+Configure the repositories on the Capsule host
 ===============================================
 
 To install the capsule software, we have to configure the correct repositories. Run the following command in the `Capsule` terminal to disable repos.
@@ -198,7 +198,7 @@ dnf module enable satellite-capsule:el8 -y
 
 __Note:__ Enabling the `satellite-capsule:el8` module will throw several warnings. Ignore them since there are no installations of ruby or postgresql on this host.
 
-Install the capsule software.
+Install the capsule software
 =============================
 
 Run the following command to install the capsule software.
@@ -206,6 +206,8 @@ Run the following command to install the capsule software.
 ```
 dnf install satellite-capsule -y
 ```
+
+While the capsule software is installing, you can proceed to the next step.
 
 Export the Default SSL Certificate from the Satellite server
 ============================================================
@@ -232,6 +234,9 @@ Here's what the output should look like.
 
 Note the instructions in the output of the command. You'll need these!
 
+Copy the certificate from `satellite.lab` to `capsule.lab`
+==========================================================
+
 Copy the certificate from `satellite.lab` to `capsule.lab`.
 
 ```
@@ -242,6 +247,8 @@ scp -o StrictHostKeyChecking=no /root/capsule_cert/capsule.lab-certs.tar capsule
 
 Run the capsule configuration task
 ======================================
+
+Before proceeding, check that the capsule software installation is complete.
 
 As per the instructions from the output of the `capsule-cert-generate`, copy, paste and run the `satellite-installer` command in the `Capsule` terminal.
 
