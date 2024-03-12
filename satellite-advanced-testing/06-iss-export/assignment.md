@@ -28,15 +28,9 @@ difficulty: ""
 
 Inter-Satellite Sync (ISS) export sync exports software at the repository, content view, and lifecycle environment levels. In this assignment, we'll export the custom repo 'My custom repository' at the content view level from `satellite.lab` and import it into `satellite-2.lab`.
 
-
-- create a new content view
-- add "My custom repository" to it
-- export the cv
-- transfer to satellite-2
-- import into satellite-2
-
 Create a new content view
 =========================
+In order to save time, we'll create a new content view with a minimal amount of software.
 
 Copy and paste the following playbook into the `Satellite Server` terminal.
 
@@ -136,6 +130,8 @@ Password
 ```
 bc31c9a6-9ff0-11ec-9587-00155d1b0702
 ```
+
+Ensure that you are in `Acme Org` organization and the `Kicking Horse` location.
 
 ![](../assets/exportedissexport.png)
 

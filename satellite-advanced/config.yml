@@ -50,8 +50,5 @@ virtualmachines:
   - http
   - https
   - high-ports
-virtualbrowsers:
-- name: satellite-browser
-  url: https://satellite.${_SANDBOX_ID}.instruqt.io
 secrets:
 - name: ACTIVATION_KEY
