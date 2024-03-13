@@ -3,25 +3,24 @@ slug: rex-pull-mode
 id: 6m6r8l7r47ky
 type: challenge
 title: Configure Remote Execution (REX) Pull Mode
-teaser:
-  Learn how to configure remote execution pull mode and how to migrate hosts
+teaser: Learn how to configure remote execution pull mode and how to migrate hosts
   to it.
 notes:
-  - type: text
-    contents: Configure Remote Execution pull mode.
+- type: text
+  contents: Configure Remote Execution pull mode.
 tabs:
-  - title: Satellite Server
-    type: terminal
-    hostname: satellite
-  - title: Satellite Web UI
-    type: external
-    url: https://satellite.${_SANDBOX_ID}.instruqt.io
-  - title: rhel1
-    type: terminal
-    hostname: rhel1
-  - title: rhel1 Web Console
-    type: external
-    url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
+- title: Satellite Server
+  type: terminal
+  hostname: satellite
+- title: Satellite Web UI
+  type: external
+  url: https://satellite.${_SANDBOX_ID}.instruqt.io
+- title: rhel1
+  type: terminal
+  hostname: rhel1
+- title: rhel1 Web Console
+  type: external
+  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: ""
 ---
 
