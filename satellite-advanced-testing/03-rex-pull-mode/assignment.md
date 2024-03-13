@@ -64,7 +64,11 @@ Copy the output by highlighting the selected text. Once the primary click mouse,
 
 ![copy paste](../assets/copypaste.gif)
 
-Right click and select paste to paste the command into the `rhel1` terminal. Finally type enter to execute the registration command.
+Right click and select paste to ___paste the command into the `rhel1` terminal___. 
+
+If you paste and run this command in the `Satellite Server` you will register the satellite server to itself and you will have to re-start the lab. 
+
+Finally type enter to execute the registration command.
 
 ![copy paste rhel1](../assets/registrationrhel1.gif)
 
