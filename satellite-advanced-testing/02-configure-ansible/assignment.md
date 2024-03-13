@@ -28,8 +28,10 @@ Documentation for the Satellite Ansible collection can be found [here](https://c
 
 Install the Satellite Ansible collection
 ========================================
+__To reduce the amount of time waiting for for satellite operations to complete, the Satellite Ansible Collection has been preinstalled. Proceed to the next step.__
 
-Copy and paste this into the `Satellite Server` terminal.
+__For reference__, the following command installs the Satellite Ansible Collection.
+
 ```
 satellite-maintain packages install -y ansible-collection-redhat-satellite
 ```
