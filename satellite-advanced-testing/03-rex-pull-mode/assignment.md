@@ -3,46 +3,47 @@ slug: rex-pull-mode
 id: 6m6r8l7r47ky
 type: challenge
 title: Configure Remote Execution (REX) Pull Mode
-teaser: Learn how to configure remote execution pull mode and how to migrate hosts
+teaser:
+  Learn how to configure remote execution pull mode and how to migrate hosts
   to it.
 notes:
-- type: text
-  contents: Configure Remote Execution pull mode.
+  - type: text
+    contents: Configure Remote Execution pull mode.
 tabs:
-- title: Satellite Server
-  type: terminal
-  hostname: satellite
-- title: Satellite Web UI
-  type: external
-  url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
-  type: terminal
-  hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
+  - title: Satellite Server
+    type: terminal
+    hostname: satellite
+  - title: Satellite Web UI
+    type: external
+    url: https://satellite.${_SANDBOX_ID}.instruqt.io
+  - title: rhel1
+    type: terminal
+    hostname: rhel1
+  - title: rhel1 Web Console
+    type: external
+    url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: ""
 ---
+
 Since Satellite 6.12, Remote Execution or REX has provided the option of a "pull mode". Remote execution pull mode uses Message Queuing Telemetry Transport (MQTT) to publish jobs on Capsule servers (or Capsule service running on a Satellite server). Managed hosts subscribe to the MQTT broker to receive REX job notifications.
 
 Here’s how REX Pull mode works:
 
-1) A managed host receives MQTT notification that there is a new REX job.
-2) The managed host downloads the job “payload” via HTTPS from the Capsule service (in this lab the capsule service is running on the Satellite server itself).
-3) The job “payload” is run on the host. As the job executes, the progress of the job is reported back to the Capsule service.
+1. A managed host receives MQTT notification that there is a new REX job.
+2. The managed host downloads the job “payload” via HTTPS from the Capsule service (in this lab the capsule service is running on the Satellite server itself).
+3. The job “payload” is run on the host. As the job executes, the progress of the job is reported back to the Capsule service.
 
 Here are the configuration considerations:
 
-1) Port 1883 (MQTT) must be opened on the Satellite server running the Capsule service to allow incoming traffic, and the host must be allowed to connect to the Capsule server on port 443 (HTTPS) to enable REX pull mode.
-2) Capsule servers (and Capsule services) must be configured to support either REX push mode or REX pull mode. You cannot configure a Capsule to support both REX modes.
-3) For existing hosts running the katello agent, you can migrate to REX pull mode by installing the katello-pull-transport-migrate package. Documentation is provided at the bottom of this post. The katello agent has been deprecated as of Satellite 6.7.
+1. Port 1883 (MQTT) must be opened on the Satellite server running the Capsule service to allow incoming traffic, and the host must be allowed to connect to the Capsule server on port 443 (HTTPS) to enable REX pull mode.
+2. Capsule servers (and Capsule services) must be configured to support either REX SSH mode or REX pull mode. You cannot configure a Capsule to support both REX modes.
+3. For existing hosts running the katello agent, you can migrate to REX pull mode by installing the katello-pull-transport-migrate package. Documentation is provided at the bottom of this post. The katello agent has been deprecated as of Satellite 6.7.
 
 Katello Agent is removed from Satellite 6.15.
 
-Register the host `rhel1` to the Satellite server
-=================================================
+# Register the host `rhel1` to the Satellite server
 
-We'll register the host `rhel1` to our Satellite server using the command line interface to generate a registration command in this lab. The host `rhel1` will be configured to use REX in push mode, giving us the opportunity to migrate it to pull mode.
+We'll register the host `rhel1` to our Satellite server using the command line interface to generate a registration command in this lab. The host `rhel1` will be configured to use REX in SSH mode, giving us the opportunity to migrate it to pull mode.
 
 It is also possible to generate a registration command from the Satellite WebUI but due to the limitations of DNS in this lab environment, we'll use the cli utility `hammer` to simplify the process.
 
@@ -55,6 +56,7 @@ Copy and paste the following command into the terminal.
 ```
 hammer host-registration generate-command --insecure 1 --setup-insights 0 --force 1 --activation-key RHEL9
 ```
+
 The output of this command is a curl command similar to this (don't copy paste this):
 
 `curl -sS --insecure 'https://satellite.lab/register?force=true&hostgroup_id=1&setup_insights=false' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJpYXQiOjE2ODI2MjkyNzcsImp0aSI6ImQ1YjFkYThmYzM4OGY5ZjY0MmEyZjc0ZGFhNjRkMmZjODVmZDhiNjU1Y2E3NmM3ODEyYWQ5ZjQzNWE0NWE5Y2UiLCJleHAiOjE2ODI2NDM2NzcsInNjb3BlIjoicmVnaXN0cmF0aW9uI2dsb2JhbCByZWdpc3RyYXRpb24jaG9zdCJ9.bgS1XqSYd4bsY46Suq7QqC5OSKm3bSsN57c3lddiOkU' | bash`
@@ -67,8 +69,7 @@ Right click and select paste to paste the command into the `rhel1` terminal. Fin
 
 ![copy paste rhel1](../assets/registrationrhel1.gif)
 
-Enable pull mode on the Satellite server
-========================================
+# Enable pull mode on the Satellite server
 
 In the `Satellite Server` terminal, run the following command.
 
@@ -76,8 +77,7 @@ In the `Satellite Server` terminal, run the following command.
 satellite-installer --foreman-proxy-plugin-remote-execution-script-mode pull-mqtt
 ```
 
-Open required firewall ports on the Satellite server
-====================================================
+# Open required firewall ports on the Satellite server
 
 Open the required firewall ports with the following command in the `Satellite Server` tab.
 
@@ -85,10 +85,9 @@ Open the required firewall ports with the following command in the `Satellite Se
 firewall-cmd --permanent --add-port="1883/tcp" && firewall-cmd --reload
 ```
 
-__Note:__ There is currently no support for changing this port to a different port.
+**Note:** There is currently no support for changing this port to a different port.
 
-Configure jobs to be sent through the capsule service that the host was registered to
-=====================================================================================
+# Configure jobs to be sent through the capsule service that the host was registered to
 
 The following setting enables hosts to receive REX jobs through the satellite or capsule server they were registered through.
 
@@ -113,12 +112,12 @@ EOF
 ```
 
 Run the playbook.
+
 ```
 ansible-playbook rexsetting.yml
 ```
 
-Migrate the `rhel1` host to REX pull mode
-=========================================
+# Migrate the `rhel1` host to REX pull mode
 
 At the beginning of this assignment, we registered the host `rhel1` to use REX in "push" mode. We'll now migrate it to "pull" mode.
 
@@ -128,7 +127,7 @@ Go to the terminal of `rhel1` and install `katello-pull-transport-migrate` by ru
 dnf install katello-pull-transport-migrate -y
 ```
 
-__Please note:__ The `katello-pull-transport-migrate` package is provided by the `satellite-client-6-for-rhel-9-x86_64-rpms` repository. This repo was added to the satellite server and enabled by the activation key in the second task of this lab.
+**Please note:** The `katello-pull-transport-migrate` package is provided by the `satellite-client-6-for-rhel-9-x86_64-rpms` repository. This repo was added to the satellite server and enabled by the activation key in the second task of this lab.
 
 Check that the MQTT agent `yggdrasild` is running.
 
@@ -140,8 +139,7 @@ The output should look like the screenshot below.
 
 ![yggdrasild service](../assets/yggdrasildservicestatus.png)
 
-Test out REX pull mode
-======================
+# Test out REX pull mode
 
 Now we'll run a test to confirm that REX pull mode is working. On `rhel1`, run the following command to tail the `messages` log file.
 
@@ -166,8 +164,9 @@ In the `Category and template menu`, don't change any parameters and click next.
 ![cat](../assets/categoryandtemplate.png)
 
 In the `Target hosts and inputs menu` do the following:
-1) Enter `uname -a` in the `command` box.
-2) Click `Run on selected hosts`.
+
+1. Enter `uname -a` in the `command` box.
+2. Click `Run on selected hosts`.
 
 ![target](../assets/targethostsandinputs.png)
 
@@ -177,10 +176,9 @@ The `messages` log file should display something similar to this.
 
 ![ygg successful](../assets/successfulyggdrasild.png)
 
-Configure Satellite to automatically configure REX pull mode when registering new hosts
-=======================================================================================
+# Configure Satellite to automatically configure REX pull mode when registering new hosts
 
-At present, Satellite will register hosts in REX push mode by default. We'll need to set a new Global Parameter to enable pull mode by default, with a global parameter. In the `Satellite Server` terminal, enter the following command.
+At present, Satellite will register hosts in REX SSH mode by default. We'll need to set a new Global Parameter to enable pull mode by default, with a global parameter. In the `Satellite Server` terminal, enter the following command.
 
 ```
 tee ~/rexdefault.yml << EOF
@@ -203,6 +201,7 @@ EOF
 ```
 
 Run the playbook in the `Satellite Server` terminal.
+
 ```
 ansible-playbook rexdefault.yml
 ```
@@ -217,8 +216,7 @@ You can see the newly created global parameter is set.
 
 ![global param set](../assets/rexpulltrue.png)
 
-Unregister the host `rhel1`
-=======================================================================================
+# Unregister the host `rhel1`
 
 In the `Satellite Server` terminal run the following command.
 
@@ -228,8 +226,7 @@ ssh -o "StrictHostKeyChecking no" rhel1 "subscription-manager unregister" && ham
 
 This command is run to remove `rhel1` from the satellite server so that we can register it again to show REX pull mode is automatically enabled.
 
-Register `rhel1` to show automatic configuration of REX pull mode
-==================================================================
+# Register `rhel1` to show automatic configuration of REX pull mode
 
 You can re-use the registration command created at the beginning of this activity to register `rhel1`. It will be configured with REX pull mode on.
 
@@ -238,6 +235,7 @@ You can regenerate a new registration command with the same hammer command.
 ```
 hammer host-registration generate-command --insecure 1 --setup-insights 0 --force 1 --activation-key RHEL9
 ```
+
 Here's what the registration operation output looks like for `rhel1`.
 
 ![rex pull](../assets/rexpullrhel1auto.png)
@@ -250,8 +248,7 @@ You can check to see if REX pull mode was successfully configured on `rhel1` by 
 systemctl status yggdrasild
 ```
 
-Apply installable errata to `rhel1`
-================================================
+# Apply installable errata to `rhel1`
 
 Navigate to the `Errata` menu.
 
@@ -271,8 +268,8 @@ Click `Apply errata`.
 
 In the `Apply errata` wizard, do the following.
 
-1) Select `rhel1`.
-2) Click `Next`.
+1. Select `rhel1`.
+2. Click `Next`.
 
 ![apply](../assets/applyerratawizard.png)
 
@@ -294,6 +291,6 @@ To return to the job status page, click `Back to Job`.
 
 When the job is complete, the page will look like this.
 
-__Note:__ Don't wait for the updates to complete. Please advance to the next assignment.
+**Note:** Don't wait for the updates to complete. Please advance to the next assignment.
 
 ![complete](../assets/completejobstatus.png)
