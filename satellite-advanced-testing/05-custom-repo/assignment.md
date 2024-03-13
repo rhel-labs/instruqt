@@ -161,7 +161,7 @@ dnf install -y hello
 Test the installation by running the following command in the `rhel1` terminal.
 
 ```
-chmod +x /usr/bin/hello.sh && hello.sh
+hello.sh
 ```
 
 ![output](../assets/helloshoutput.png)
