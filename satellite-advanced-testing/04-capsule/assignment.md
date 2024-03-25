@@ -4,6 +4,11 @@ id: otxgdefrlsjo
 type: challenge
 title: Configure a Capsule Server
 teaser: Configure a capsule server.
+notes:
+- type: text
+  contents: Capsule servers enable you to scale your Satellite infrastructure by providing
+    software and updates through the capsule servers while enabling you to manage
+    them through the main Satellite server.
 tabs:
 - title: Satellite Server
   type: terminal

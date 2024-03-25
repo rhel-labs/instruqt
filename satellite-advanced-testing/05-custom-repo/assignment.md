@@ -4,6 +4,9 @@ id: 7zemzf9x3ozf
 type: challenge
 title: Share a custom software repository
 teaser: Share software through a custom repository.
+notes:
+- type: text
+  contents: Satellite makes it easy to provision custom software through custom repositories.
 tabs:
 - title: Satellite Server
   type: terminal

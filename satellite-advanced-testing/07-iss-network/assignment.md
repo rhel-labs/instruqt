@@ -4,6 +4,10 @@ id: 1h0xggggdf7p
 type: challenge
 title: Inter-Satellite Sync Network Sync
 teaser: Configure ISS Network Sync
+notes:
+- type: text
+  contents: ISS network sync is useful for configuring satellite server to obtain
+    software indirectly from the internet through another satellite server.
 tabs:
 - title: Satellite Server
   type: terminal

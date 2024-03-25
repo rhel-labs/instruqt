@@ -4,6 +4,10 @@ id: yl3gfimkdmll
 type: challenge
 title: Inter-Satellite Sync Export Sync
 teaser: Transfer software between satellite servers.
+notes:
+- type: text
+  contents: Inter-Satellite Sync export sync enables you to export software to air-gapped
+    or disconnected satellite servers.
 tabs:
 - title: Satellite Server
   type: terminal
