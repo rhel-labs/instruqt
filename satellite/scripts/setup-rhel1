@@ -9,14 +9,10 @@ done
 subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
-echo "Adding wheel" > /root/post-run.log
 useradd rhel
 usermod -aG wheel rhel
 
-echo "setting password" >> /root/post-run.log
 echo redhat | passwd --stdin rhel
-
-echo "DONE" >> /root/post-run.log
 
 timedatectl set-timezone America/New_York
 

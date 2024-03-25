@@ -31,12 +31,15 @@ virtualmachines:
   shell: /bin/bash
   environment:
     TERM: xterm
-  machine_type: n1-standard-8
-  memory: 32768
-  cpus: 8
+  machine_type: n1-standard-4
+  memory: 16384
+  cpus: 4
   allow_external_ingress:
   - http
   - https
   - high-ports
+virtualbrowsers:
+- name: satellite-browser
+  url: https://satellite.${_SANDBOX_ID}.instruqt.io
 secrets:
 - name: ACTIVATION_KEY
