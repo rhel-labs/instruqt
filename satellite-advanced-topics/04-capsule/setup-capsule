@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rm -rf /etc/yum.repos.d/google-cloud.repo
