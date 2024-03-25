@@ -80,7 +80,7 @@ This playbook dows the following:
 ansible-playbook customrepo.yml
 ```
 
-Update the `RHEL9` content view and publish and promote it
+Update the RHEL9 content view and publish and promote it
 ==========================================================
 
 In order to make the `hello` rpm available to `rhel`, we must add the repo to the `RHEL9` content view. You may recall in the previous assignment, we had to create the `RHEL9` content view, containing the RHEL9 BaseOS repo and publish it. Then we had to promote the `RHEL9` content view to the `Capsule Production` lifecycle environment. Finally we manually synchronized the `Capsule Production` lifecycle environment to `capsule.lab`.

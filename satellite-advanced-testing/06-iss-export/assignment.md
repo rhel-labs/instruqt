@@ -14,7 +14,7 @@ tabs:
 - title: Satellite Server 2
   type: terminal
   hostname: satellite-2
-- title: Satellite Web UI
+- title: Satellite 2 Web UI
   type: external
   url: https://satellite-2.${_SANDBOX_ID}.instruqt.io
 - title: rhel1
@@ -73,7 +73,7 @@ Run the `createandpublishissexport.yml` playbook in the `Satellite Server` termi
 ansible-playbook createandpublishissexport.yml
 ```
 
-Create and Inter-Satellite Sync export
+Create an Inter-Satellite Sync export
 ======================================
 
 Now we'll export the content view `ISS Export` as an ISS export.
@@ -119,7 +119,7 @@ In the `Satellite Server 2` terminal, run the following command.
 hammer content-import version --organization "Acme Org" --path "/var/lib/pulp/imports/Acme_Org"
 ```
 
-You can verify the result in the web gui with the same credentials as `satellite.lab`.
+You can verify the result in the web gui with the same credentials as `satellite.lab`. Click on the `Satellite 2 Web UI`.
 
 Username
 ```
