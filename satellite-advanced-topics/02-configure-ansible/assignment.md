@@ -28,7 +28,9 @@ Documentation for the Satellite Ansible collection can be found [here](https://c
 
 Install the Satellite Ansible collection
 ========================================
-__To reduce the amount of time waiting for for satellite operations to complete, the Satellite Ansible Collection has been preinstalled. Proceed to the next step.__
+__To reduce the amount of time waiting for for satellite operations to complete, the Satellite Ansible Collection has been preinstalled.__ 
+
+__*Proceed to the next step.*__
 
 __For reference__, the following command installs the Satellite Ansible Collection.
 
@@ -109,7 +111,7 @@ EOF
 ```
 
 Here's what each of the tasks does.
-1) The first two playbook tasks, `Enable RHEL 9 BaseOS RPMs repository with label` and `Enable RHEL 9 AppStream RPMs repository with label` will enable the RHEL 9 BaseOS and AppStream repositories.
+1) The first two playbook tasks, `Enable RHEL 9 BaseOS RPMs repository with label` and `Enable RHEL 9 AppStream RPMs repository with label` will enable the RHEL 9 BaseOS and AppStream repositories. Labels don't contain space characters, unlike names.
 2) The next task enables the `satellite-client-6-for-rhel-9-x86_64-rpms` repository. This task enables the repository without specifying base arch (as some repos do not require it). The Satellite 6 client repo contains software such as `Tracer` and `yggdrasild`. `yggdrasild` will be required later in the lab to enable Remote Execution Pull Mode.
 3) The next task creates an `activation key` which is used to control access to repositories on Satellite. In this particular `activation key`, the Satellite 6 client repository is overridden to enabled, as well as the repos required for capsule configuration.
 4) The final task initiates a synchronization operation on all `Red Hat Enterprise Linux for x86_64` product repositories.
@@ -123,7 +125,7 @@ Execute the playbook with the following command.
 ansible-playbook config.yml
 ```
 
-The final task in the playbook you just created, `Sync all RHEL products.` takes about 5 minutes. Please do not advance to the next activity in this lab until the repositories have completed synchronizing.
+The final task in the playbook you just created, `Sync all RHEL products.` takes 5-10 minutes. Please do not advance to the next activity in this lab until the repositories have completed synchronizing.
 
 View the progress of the repository sync
 ========================================
@@ -136,7 +138,7 @@ Click `Expand All`.
 
 ![expand all](../assets/expandall.png)
 
-It could take up to 5 minutes for the repos to sync. For the purposes of this lab, the repositories were seeded with metadata to reduce the synchronization period.
+It could take 5-10 minutes for the repos to sync. For the purposes of this lab, the repositories were seeded with metadata to reduce the synchronization period.
 
 ![reposynctime](../assets/reposynctime.png)
 
