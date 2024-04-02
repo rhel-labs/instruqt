@@ -28,7 +28,7 @@ Documentation for the Satellite Ansible collection can be found [here](https://c
 
 Install the Satellite Ansible collection
 ========================================
-__To reduce the amount of time waiting for for satellite operations to complete, the Satellite Ansible Collection has been preinstalled.__ 
+__To reduce the amount of time waiting for for satellite operations to complete, the Satellite Ansible Collection has been preinstalled.__
 
 __*Proceed to the next step.*__
 
