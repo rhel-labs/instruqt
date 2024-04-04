@@ -26,6 +26,8 @@ difficulty: ""
 
 Since Satellite 6.12, Remote Execution or REX has provided the option of a "pull mode". Remote execution pull mode uses Message Queuing Telemetry Transport (MQTT) to publish jobs on Capsule servers (or Capsule service running on a Satellite server). Managed hosts subscribe to the MQTT broker to receive REX job notifications.
 
+REX pull mode is useful for organizations that wish to reduce the amount of incoming traffic permitted for Red Hat Enterprise Linux hosts. Rather than allowing remote execution operations through SSH, REX pull mode listens for messages from the Satellite server to download and run remote execution operations.
+
 Here’s how REX Pull mode works:
 
 1. A managed host receives MQTT notification that there is a new REX job.
@@ -240,7 +242,7 @@ Register rhel1 to verify automatic configuration of REX pull mode
 ==================================================================================================
 You can re-use the registration command created at the beginning of this activity to register `rhel1`. It will be configured with REX pull mode on.
 
-You can regenerate a new registration command with the same hammer command.
+Or if you wish, in the `Satellite Server` terminal, you can regenerate a new registration command with the original hammer command.
 
 ```
 hammer host-registration generate-command --insecure 1 --setup-insights 0 --force 1 --activation-key RHEL9

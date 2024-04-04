@@ -43,7 +43,7 @@ satellite-maintain packages install -y ansible-collection-redhat-satellite
 Create a playbook to configure the Satellite server
 ===================================================
 
-The playbook below is simply an example. __Never put clear text passwords in your playbook.__
+The playbook below is simply an example. <h2><ins>Never put clear text passwords in your playbook.</ins></h2>
 
 Copy and paste the code block below into the `Satellite Server` terminal.
 
@@ -125,12 +125,12 @@ Execute the playbook with the following command.
 ansible-playbook config.yml
 ```
 
-The final task in the playbook you just created, `Sync all RHEL products.` takes 5-10 minutes. Please do not advance to the next activity in this lab until the repositories have completed synchronizing.
+The final task in the playbook you just created, `Sync all RHEL products.` takes 5-10 minutes. <h2>Please do not advance to the next activity in this lab until the repositories have completed synchronizing.</h2>
 
 View the progress of the repository sync
 ========================================
 
-Navigate to the `Sync Status` menu.
+In the Satellite Web UI, navigate to the `Sync Status` menu.
 
 ![product sync](../assets/productssync.png)
 
