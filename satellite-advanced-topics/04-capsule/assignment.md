@@ -432,4 +432,4 @@ cat /etc/yum.repos.d/redhat.repo
 
 The `redhat.repo` will show that the baseurl points at `capsule.lab`. As well, `rhel1` only has access to the `BaseOS` repository as defined in the `RHEL9` content view.
 
-Please not that you would normally also provide access to the `AppStream` repository as well. `AppStream` was ignored in order to save time.
+Please note that you would normally also provide access to the `AppStream` repository as well. `AppStream` was ignored in order to save time.
