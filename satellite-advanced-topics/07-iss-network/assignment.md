@@ -48,6 +48,7 @@ Enter the following command into the `Satellite Server 2` terminal.
 ```
 wget -P ~ http://satellite.lab/pub/katello-server-ca.crt
 ```
+This command will download the `katello-server-ca.crt` from `satellite.lab` to `satellite-2.lab`.
 
 Next, in the `Satellite Server 2` terminal, use the following command to import the certificate.
 
@@ -134,7 +135,7 @@ Select the `Red Hat Enterprise Linux 9 for x86_64 - BaseOS RPMs 9` repository.
 
 It is possible to select this repository because it has been provided by the upstream satellite server `satellite.lab`.
 
-If we select another repository that hasn't been synchronized, a message would display
+If we select another repository that hasn't been synchronized, a message would display `No repositories available`.
 
 ![](../assets/norepoavailable.gif)
 

@@ -359,14 +359,14 @@ Click on `Lifecycle Environments`.
 
 ![capsule edit](../assets/capsuleconfiglifecycleenv.png)
 
+Click on `capsule.lab`.
+
+![capsule server](../assets/capsulelabinmenu.png)
+
 Configure `satellite.lab` to synchronize the `Capsule Production` lifecycle environment to `capsule.lab`.
 
 1. Click on `Capsule Production`.
 2. Click `Submit`.
-
-Click on `capsule.lab`.
-
-![capsule server](../assets/capsulelabinmenu.png)
 
 ![config lce](../assets/clicklibrary.png)
 
@@ -430,4 +430,6 @@ cat /etc/yum.repos.d/redhat.repo
 
 ![verify capsule migration](../assets/verifycapsulemigration.png)
 
-The `redhat.repo` will show that the baseurl points at `capsule.lab`. As well, `rhel1` only has access to the BaseOS repository as defined in the `RHEL9` content view.
+The `redhat.repo` will show that the baseurl points at `capsule.lab`. As well, `rhel1` only has access to the `BaseOS` repository as defined in the `RHEL9` content view.
+
+Please note that you would normally also provide access to the `AppStream` repository as well. `AppStream` was ignored in order to save time.

@@ -26,6 +26,8 @@ difficulty: ""
 
 Since Satellite 6.12, Remote Execution or REX has provided the option of a "pull mode". Remote execution pull mode uses Message Queuing Telemetry Transport (MQTT) to publish jobs on Capsule servers (or Capsule service running on a Satellite server). Managed hosts subscribe to the MQTT broker to receive REX job notifications.
 
+REX pull mode is useful for organizations that wish to reduce the amount of incoming traffic permitted for Red Hat Enterprise Linux hosts. Rather than allowing remote execution operations through SSH, REX pull mode listens for messages from the Satellite server to download and run remote execution operations.
+
 Here’s how REX Pull mode works:
 
 1. A managed host receives MQTT notification that there is a new REX job.
@@ -34,7 +36,7 @@ Here’s how REX Pull mode works:
 
 Here are the configuration considerations:
 
-1. Port 1883 (MQTT) must be opened on the Satellite server running the Capsule service to allow incoming traffic, and the host must be allowed to connect to the Capsule server on port 443 (HTTPS) to enable REX pull mode.
+1. Port 1883 (MQTT) must be opened on the Satellite server running the Capsule service to allow incoming requests to subscribe to REX pull notifications, and the host must be allowed to connect to the Capsule server on port 443 (HTTPS) to enable REX pull mode.
 2. Capsule servers (and Capsule services) must be configured to support either REX SSH mode or REX pull mode. You cannot configure a Capsule to support both REX modes.
 3. For existing hosts running the katello agent, you can migrate to REX pull mode by installing the katello-pull-transport-migrate package. Documentation is provided at the bottom of this post. The katello agent has been deprecated as of Satellite 6.7.
 
@@ -56,8 +58,9 @@ Copy and paste the following command into the terminal.
 ```
 hammer host-registration generate-command --insecure 1 --setup-insights 0 --force 1 --activation-key RHEL9
 ```
+This hammer command create a registration script that uses the RHEL9 activation key. It also ignores self signed certificate erros (`--insecure 1`), ignores insights setup (`--setup-insights 0`), and forces registration with the satellite server (`--force 1`).
 
-The output of this command is a curl command similar to this (don't copy paste this):
+The output of this command is a script similar to this (don't copy paste this):
 
 `curl -sS --insecure 'https://satellite.lab/register?force=true&hostgroup_id=1&setup_insights=false' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJpYXQiOjE2ODI2MjkyNzcsImp0aSI6ImQ1YjFkYThmYzM4OGY5ZjY0MmEyZjc0ZGFhNjRkMmZjODVmZDhiNjU1Y2E3NmM3ODEyYWQ5ZjQzNWE0NWE5Y2UiLCJleHAiOjE2ODI2NDM2NzcsInNjb3BlIjoicmVnaXN0cmF0aW9uI2dsb2JhbCByZWdpc3RyYXRpb24jaG9zdCJ9.bgS1XqSYd4bsY46Suq7QqC5OSKm3bSsN57c3lddiOkU' | bash`
 
@@ -91,9 +94,13 @@ firewall-cmd --permanent --add-port="1883/tcp" && firewall-cmd --reload
 
 **Note:** There is currently no support for changing this port to a different port.
 
+Port 1883 is required to be open on the Satellite server to enable hosts to subscribe to updates. That is, the RHEL hosts need to be able to tell the Satellite server that they are listening for messages that REX jobs are available to be run.
+
+Upon notification that a REX job is available, the RHEL host downloads the REX job from the Satellite server via HTTPS (port 443).
+
 Configure jobs to be sent through the capsule service that the host was registered to
 ==================================================================================================
-The following setting enables hosts to receive REX jobs through the satellite or capsule server they were registered through.
+The following setting enables hosts to receive REX jobs through the satellite or capsule server they were registered through. If this setting is not made, REX jobs would be dispatched through a satellite or capsule server depending on the following [rules in this document](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.14/html/managing_hosts/configuring_and_setting_up_remote_jobs_managing-hosts#remote-execution-workflow_managing-hosts).
 
 Copy and run this in the `Satellite Server` terminal.
 
@@ -231,11 +238,11 @@ ssh -o "StrictHostKeyChecking no" rhel1 "subscription-manager unregister" && ham
 
 This command is run to remove `rhel1` from the satellite server so that we can register it again to show REX pull mode is automatically enabled.
 
-Register rhel1 to show automatic configuration of REX pull mode
+Register rhel1 to verify automatic configuration of REX pull mode
 ==================================================================================================
 You can re-use the registration command created at the beginning of this activity to register `rhel1`. It will be configured with REX pull mode on.
 
-You can regenerate a new registration command with the same hammer command.
+Or if you wish, in the `Satellite Server` terminal, you can regenerate a new registration command with the original hammer command.
 
 ```
 hammer host-registration generate-command --insecure 1 --setup-insights 0 --force 1 --activation-key RHEL9
@@ -253,7 +260,7 @@ You can check to see if REX pull mode was successfully configured on `rhel1` by 
 systemctl status yggdrasild
 ```
 
-Apply installable errata to rhel1
+Apply installable errata to rhel1 using REX pull mode
 ==================================================================================================
 Navigate to the `Errata` menu.
 
