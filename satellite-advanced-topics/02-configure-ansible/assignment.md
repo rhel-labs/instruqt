@@ -52,7 +52,7 @@ Copy and paste the code block below into the `Satellite Server` terminal.
 ```bash
 tee ~/config.yml << EOF
 ---
-- name: Configure Satellite 6.14
+- name: Configure Satellite 6.15
   hosts: localhost
   remote_user: root
 
