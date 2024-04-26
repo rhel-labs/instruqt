@@ -37,7 +37,8 @@ Red Hat Satellite Capsule Servers mirror content from Red Hat Satellite Server t
 
 Capsule Servers decrease the load on the central server, increase redundancy, and reduce bandwidth usage.
 
-# Synchronize the repositories containing capsule server software to the Satellite server
+Synchronize the repositories containing capsule server software to the Satellite server
+===
 
 We need to provide the following repositories to the capsule server.
 
@@ -150,7 +151,8 @@ ansible-playbook capsulerepos.yml
 
 The RHEL 8 repositories were synchronized in the background of this lab. The synchronization step should only take a few seconds.
 
-# Register the Capsule host with Satellite
+Register the Capsule host with Satellite
+===
 
 Register the host `capsule` with satellite.
 
@@ -163,7 +165,8 @@ hammer host-registration generate-command --insecure 1 --setup-insights 0 --forc
 
 Copy the output of this command from the `Satellite Server` terminal, paste it into the `Capsule` terminal, and run it.
 
-# Update the capsule.lab host
+Update the capsule.lab host
+===
 
 In the `Capsule` terminal, run the following.
 
@@ -175,7 +178,8 @@ The `Capsule` terminal will lose connection with the host during reboot. To reco
 
 ![reconnect](../assets/refreshcapsuleterminal.png)
 
-# Configure the repositories on the Capsule host
+Configure the repositories on the Capsule host
+===
 
 To install the capsule software, we have to configure the correct repositories. Run the following command in the `Capsule` terminal to disable repos.
 
@@ -200,7 +204,8 @@ dnf module enable satellite-capsule:el8 -y
 
 **Note:** Enabling the `satellite-capsule:el8` module will throw several warnings. Ignore them since there are no installations of ruby or postgresql on this host.
 
-# Install the capsule software
+Install the capsule software
+===
 
 Run the following command to install the capsule software.
 
@@ -210,7 +215,8 @@ dnf install satellite-capsule -y
 
 While the capsule software is installing, you can proceed to the next step.
 
-# Export the Default SSL Certificate from the Satellite server
+Export the Default SSL Certificate from the Satellite server
+===
 
 On the **Satellite server**, in the `Satellite Server` terminal, create a directory to store the SSL certificate.
 
@@ -234,7 +240,8 @@ Here's what the output should look like.
 
 Note the instructions in the output of the command. You'll need these!
 
-# Copy the certificate from `satellite.lab` to `capsule.lab`
+Copy the certificate from `satellite.lab` to `capsule.lab`
+===
 
 Copy the certificate from `satellite.lab` to `capsule.lab`.
 
@@ -244,7 +251,8 @@ scp -o StrictHostKeyChecking=no /root/capsule_cert/capsule.lab-certs.tar capsule
 
 ![scp cert](../assets/scpcerts.png)
 
-# Run the capsule configuration task
+Run the capsule configuration task
+===
 
 Before proceeding, check that the capsule software installation is complete.
 
@@ -258,11 +266,13 @@ Here's what the output should look like.
 
 ![capsulecopy](../assets/capsuleop.gif)
 
-# Discussion
+Discussion
+===
 
 In this part of the lab, we'll talk about capsule deployment strategies while the capsule is configured.
 
-# Configure lifecycle environment and content views
+Configure lifecycle environment and content views
+===
 
 At present, the capsule server `capsule.lab` cannot provide any software. To do so, we must synchronize metadata to `capsule.lab`, that is, information about the software and repositories available to `satellite.lab`. It is possible to synchronize all metadata and software packages to `capsule.lab` but it can take a lot of time and consume a lot of storage. We control the synchronization of software repositories to capsule servers through lifecycle environments.
 
@@ -330,7 +340,8 @@ This playbook creates the LCE named "Capsule Production" and the content view "R
 
 **Note:** For the purposes of this lab, all of this content has been seeded to the satellite server so the synchronization should take only a few minutes.
 
-# Configure satellite.lab to replicate the Capsule Production lifecycle environment to capsule.lab
+Configure satellite.lab to replicate the Capsule Production lifecycle environment to capsule.lab
+===
 
 In the `Satellite Web UI`, navigate to the capsule menu.
 
@@ -371,7 +382,8 @@ Click on `Optimized Sync` to synchronize repo metadata to the capsule.
 
 We left the `Download Policy` on the default setting of `On Demand`. This means that metadata will be synchronized to the capsule server but the software will only be synchronized on demand, when a host makes the request to the capsule server to install software.
 
-# Migrate rhel1 to the capsule server.
+Migrate rhel1 to the capsule server.
+===
 
 In the `rhel1` terminal enter the following command to view the redhat.repo file.
 

@@ -42,7 +42,8 @@ Here are the configuration considerations:
 
 Katello Agent is removed from Satellite 6.15.
 
-# Register the host rhel1 to the Satellite server
+Register the host rhel1 to the Satellite server
+===================================================
 
 We'll register the host `rhel1` to our Satellite server using the command line interface to generate a registration command in this lab. The host `rhel1` will be configured to use REX in SSH mode, giving us the opportunity to migrate it to pull mode.
 
@@ -76,7 +77,8 @@ Finally type enter to execute the registration command.
 
 ![copy paste rhel1](../assets/registrationrhel1.gif)
 
-# Enable pull mode on the Satellite server
+Enable pull mode on the Satellite server
+===================================================
 
 In the `Satellite Server` terminal, run the following command.
 
@@ -84,7 +86,8 @@ In the `Satellite Server` terminal, run the following command.
 satellite-installer --foreman-proxy-plugin-remote-execution-script-mode pull-mqtt
 ```
 
-# Open required firewall ports on the Satellite server
+Open required firewall ports on the Satellite server
+===================================================
 
 Open the required firewall ports with the following command in the `Satellite Server` tab.
 
@@ -98,7 +101,8 @@ Port 1883 is required to be open on the Satellite server to enable hosts to subs
 
 Upon notification that a REX job is available, the RHEL host downloads the REX job from the Satellite server via HTTPS (port 443).
 
-# Configure jobs to be sent through the capsule service that the host was registered to
+Configure jobs to be sent through the capsule service that the host was registered to
+===================================================
 
 The following setting enables hosts to receive REX jobs through the satellite or capsule server they were registered through. If this setting is not made, REX jobs would be dispatched through a satellite or capsule server depending on the following [rules in this document](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.15/html/managing_hosts/configuring_and_setting_up_remote_jobs_managing-hosts#remote-execution-workflow_managing-hosts).
 
@@ -128,7 +132,8 @@ Run the playbook.
 ansible-playbook rexsetting.yml
 ```
 
-# Migrate the rhel1 host to REX pull mode
+Migrate the rhel1 host to REX pull mode
+===================================================
 
 At the beginning of this assignment, we registered the host `rhel1` to use REX in "push" mode. We'll now migrate it to "pull" mode.
 
@@ -150,7 +155,8 @@ The output should look like the screenshot below.
 
 ![yggdrasild service](../assets/yggdrasildservicestatus.png)
 
-# Test out REX pull mode
+Test out REX pull mode
+===================================================
 
 Now we'll run a test to confirm that REX pull mode is working. On `rhel1`, run the following command to tail the `messages` log file.
 
@@ -187,7 +193,8 @@ The `messages` log file should display something similar to this.
 
 ![ygg successful](../assets/successfulyggdrasild.png)
 
-# Configure Satellite to automatically configure REX pull mode when registering new hosts
+Configure Satellite to automatically configure REX pull mode when registering new hosts
+===================================================
 
 At present, Satellite will register hosts in REX SSH mode by default. We'll need to set a new Global Parameter to enable pull mode by default, with a global parameter. In the `Satellite Server` terminal, enter the following command.
 
@@ -227,7 +234,8 @@ You can see the newly created global parameter is set.
 
 ![global param set](../assets/rexpulltrue.png)
 
-# Unregister the host rhel1
+Unregister the host rhel1
+===
 
 In the `Satellite Server` terminal run the following command.
 
@@ -237,7 +245,8 @@ ssh -o "StrictHostKeyChecking no" rhel1 "subscription-manager unregister" && ham
 
 This command is run to remove `rhel1` from the satellite server so that we can register it again to show REX pull mode is automatically enabled.
 
-# Register rhel1 to verify automatic configuration of REX pull mode
+Register rhel1 to verify automatic configuration of REX pull mode
+===
 
 You can re-use the registration command created at the beginning of this activity to register `rhel1`. It will be configured with REX pull mode on.
 
@@ -259,7 +268,8 @@ You can check to see if REX pull mode was successfully configured on `rhel1` by 
 systemctl status yggdrasild
 ```
 
-# Apply installable errata to rhel1 using REX pull mode
+Apply installable errata to rhel1 using REX pull mode
+===
 
 Navigate to the `Errata` menu.
 

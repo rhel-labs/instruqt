@@ -32,7 +32,8 @@ difficulty: ""
 
 Inter-Satellite Sync (ISS) export sync exports software at the repository, content view, and lifecycle environment levels. In this assignment, we'll export the custom repo 'My custom repository' at the content view level from `satellite.lab` and import it into `satellite-2.lab`.
 
-# Create a new content view
+Create a new content view
+===
 
 In order to save time, we'll create a new content view with a minimal amount of software.
 
@@ -77,7 +78,8 @@ Run the `createandpublishissexport.yml` playbook in the `Satellite Server` termi
 ansible-playbook createandpublishissexport.yml
 ```
 
-# Create an Inter-Satellite Sync export
+Create an Inter-Satellite Sync export
+===
 
 Now we'll export the content view `ISS Export` as an ISS export.
 
@@ -87,7 +89,8 @@ Copy and paste the following command into the `Satellite Server` terminal.
 hammer content-export complete version --content-view "ISS Export" --version "1.0" --organization "Acme Org"
 ```
 
-# Copy the exported data to satellite-2.lab
+Copy the exported data to satellite-2.lab
+===
 
 On `satellite.lab`, you can find the exported data in `/var/lib/pulp/exports/Acme_Org/Default_Organization_View/1.0/`.
 
@@ -107,7 +110,8 @@ scp -o "StrictHostKeyChecking no" -rp /var/lib/pulp/exports/Acme_Org/ISS_Export/
 
 This command will create a new directory on `satellite-2.lab` in `/var/lib/pulp/imports` called `Acme_Org` and copy all the exported data to it.
 
-# Import the exported data into satellite-2.lab
+Import the exported data into satellite-2.lab
+===
 
 We need to change the ownership of the data we just exported to the `pulp` account and group. Switch to the `Satellite Server 2` terminal and enter the following command.
 
