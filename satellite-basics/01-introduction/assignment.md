@@ -37,7 +37,8 @@ The lab environment consists of the following
 
 ![](../assets/satellite-basics-environment.png)
 
-## <ins>Log into the Web UI</ins>
+Log into the Web UI
+===
 
 First, we'll log into the Red Hat Satellite Web User Interface (UI). Satellite has been preinstalled and installation is out of scope for this lab.
 
@@ -75,7 +76,8 @@ You will be taken to the main dashboard.
 
 ![](../assets/main-menu.png)
 
-## <ins>Access the RHEL Hosts</ins>
+Access the RHEL Hosts
+===
 
 At the top of the screen, you'll find tabs for the hosts `rhel1` and `rhel2`. Terminal and Web Console access are provided.
 

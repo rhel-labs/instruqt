@@ -31,7 +31,8 @@ difficulty: basic
 timelimit: 1
 ---
 <!-- markdownlint-disable MD033 -->
-## <ins>Synchronize repositories</ins>
+Synchronize repositories
+===
 
 Navigate to the Red Hat Repositories menu by clicking on `Red Hat Repositories` in the menu context below.
 
@@ -52,6 +53,9 @@ Content in the AppStream repository includes additional user-space applications,
 
 <h1>Note: In order to save time, the BaseOS and AppStream repositories have been enabled.</h1>
 
+Select repositories
+===
+
 Click on the `Recommended Repositories` button to create a more succinct view of available repos (the image below displays the button in the off position; turn it on).
 
 ![recommanded repos button](../assets/recommendedrepos.png)
@@ -63,6 +67,9 @@ Here's what it looks like to add the BaseOS and AppStream repos.
 And here's an animation.
 
 ![](../assets/2022-08-11_09-02-27.gif)
+
+Synchronize repositories
+===
 
 Next, we'll navigate to the `Products` menu.
 
