@@ -28,9 +28,9 @@ Documentation for the Satellite Ansible collection can be found [here](https://c
 
 Install the Satellite Ansible collection
 ========================================
-__To reduce the amount of time waiting for for satellite operations to complete, the Satellite Ansible Collection has been preinstalled.__
+<ins>To reduce the amount of time waiting for for satellite operations to complete, the Satellite Ansible Collection has been preinstalled.</ins>
 
-__*Proceed to the next step.*__
+<h2><ins>Proceed to the next step.</ins></h2>
 
 __For reference__, the following command installs the Satellite Ansible Collection.
 
@@ -52,7 +52,7 @@ Copy and paste the code block below into the `Satellite Server` terminal.
 ```bash
 tee ~/config.yml << EOF
 ---
-- name: Configure Satellite 6.14
+- name: Configure Satellite 6.15
   hosts: localhost
   remote_user: root
 

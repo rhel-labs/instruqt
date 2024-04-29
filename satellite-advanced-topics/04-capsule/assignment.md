@@ -30,6 +30,7 @@ tabs:
   url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: ""
 ---
+
 In this assignment, we'll configure the host `capsule.lab` as a Capsule server.
 
 Red Hat Satellite Capsule Servers mirror content from Red Hat Satellite Server to facilitate content federation across various geographical locations. Host systems can pull content from the Capsule Server and not from the central Satellite Server. The Capsule Server also provides localized services such as Puppet Master, DHCP, DNS, or TFTP. Capsule Servers assist you in scaling your Satellite environment as the number of your managed systems increases.
@@ -37,14 +38,14 @@ Red Hat Satellite Capsule Servers mirror content from Red Hat Satellite Server t
 Capsule Servers decrease the load on the central server, increase redundancy, and reduce bandwidth usage.
 
 Synchronize the repositories containing capsule server software to the Satellite server
-========================================================================================
+===
 
 We need to provide the following repositories to the capsule server.
 
 - `rhel-8-for-x86_64-baseos-rpms`
 - `rhel-8-for-x86_64-appstream-rpms`
-- `satellite-capsule-6.14-for-rhel-8-x86_64-rpms`
-- `satellite-maintenance-6.14-for-rhel-8-x86_64-rpms`
+- `satellite-capsule-6.15-for-rhel-8-x86_64-rpms`
+- `satellite-maintenance-6.15-for-rhel-8-x86_64-rpms`
 
 Copy and paste the following playbook to the satellite server in the `Satellite Server` terminal.
 
@@ -86,23 +87,23 @@ tee ~/capsulerepos.yml << EOF
       all_repositories: true
       state: enabled
 
-  - name: "Satellite capsule software for 6.14"
+  - name: "Satellite capsule software for 6.15"
     redhat.satellite.repository_set:
       username: "admin"
       password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
       server_url: "https://satellite.lab"
       organization: "Acme Org"
-      label: satellite-capsule-6.14-for-rhel-8-x86_64-rpms
+      label: satellite-capsule-6.15-for-rhel-8-x86_64-rpms
       all_repositories: true
       state: enabled
 
-  - name: "Satellite maintenance software for 6.14"
+  - name: "Satellite maintenance software for 6.15"
     redhat.satellite.repository_set:
       username: "admin"
       password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
       server_url: "https://satellite.lab"
       organization: "Acme Org"
-      label: satellite-maintenance-6.14-for-rhel-8-x86_64-rpms
+      label: satellite-maintenance-6.15-for-rhel-8-x86_64-rpms
       all_repositories: true
       state: enabled
 
@@ -117,9 +118,9 @@ tee ~/capsulerepos.yml << EOF
       content_overrides:
           - label: satellite-client-6-for-rhel-8-x86_64-rpms
             override: enabled
-          - label: satellite-maintenance-6.14-for-rhel-8-x86_64-rpms
+          - label: satellite-maintenance-6.15-for-rhel-8-x86_64-rpms
             override: enabled
-          - label: satellite-capsule-6.14-for-rhel-8-x86_64-rpms
+          - label: satellite-capsule-6.15-for-rhel-8-x86_64-rpms
             override: enabled
 
   - name: "Sync all RHEL repositories"
@@ -151,7 +152,7 @@ ansible-playbook capsulerepos.yml
 The RHEL 8 repositories were synchronized in the background of this lab. The synchronization step should only take a few seconds.
 
 Register the Capsule host with Satellite
-=========================================
+===
 
 Register the host `capsule` with satellite.
 
@@ -165,7 +166,7 @@ hammer host-registration generate-command --insecure 1 --setup-insights 0 --forc
 Copy the output of this command from the `Satellite Server` terminal, paste it into the `Capsule` terminal, and run it.
 
 Update the capsule.lab host
-============================
+===
 
 In the `Capsule` terminal, run the following.
 
@@ -178,7 +179,7 @@ The `Capsule` terminal will lose connection with the host during reboot. To reco
 ![reconnect](../assets/refreshcapsuleterminal.png)
 
 Configure the repositories on the Capsule host
-===============================================
+===
 
 To install the capsule software, we have to configure the correct repositories. Run the following command in the `Capsule` terminal to disable repos.
 
@@ -191,8 +192,8 @@ Now enable the repositories the required repositories.
 ```
 subscription-manager repos --enable=rhel-8-for-x86_64-baseos-rpms \
 --enable=rhel-8-for-x86_64-appstream-rpms \
---enable=satellite-capsule-6.14-for-rhel-8-x86_64-rpms \
---enable=satellite-maintenance-6.14-for-rhel-8-x86_64-rpms
+--enable=satellite-capsule-6.15-for-rhel-8-x86_64-rpms \
+--enable=satellite-maintenance-6.15-for-rhel-8-x86_64-rpms
 ```
 
 Enable the satellite module.
@@ -201,10 +202,10 @@ Enable the satellite module.
 dnf module enable satellite-capsule:el8 -y
 ```
 
-__Note:__ Enabling the `satellite-capsule:el8` module will throw several warnings. Ignore them since there are no installations of ruby or postgresql on this host.
+**Note:** Enabling the `satellite-capsule:el8` module will throw several warnings. Ignore them since there are no installations of ruby or postgresql on this host.
 
 Install the capsule software
-=============================
+===
 
 Run the following command to install the capsule software.
 
@@ -215,7 +216,7 @@ dnf install satellite-capsule -y
 While the capsule software is installing, you can proceed to the next step.
 
 Export the Default SSL Certificate from the Satellite server
-============================================================
+===
 
 On the **Satellite server**, in the `Satellite Server` terminal, create a directory to store the SSL certificate.
 
@@ -240,7 +241,7 @@ Here's what the output should look like.
 Note the instructions in the output of the command. You'll need these!
 
 Copy the certificate from `satellite.lab` to `capsule.lab`
-==========================================================
+===
 
 Copy the certificate from `satellite.lab` to `capsule.lab`.
 
@@ -251,7 +252,7 @@ scp -o StrictHostKeyChecking=no /root/capsule_cert/capsule.lab-certs.tar capsule
 ![scp cert](../assets/scpcerts.png)
 
 Run the capsule configuration task
-======================================
+===
 
 Before proceeding, check that the capsule software installation is complete.
 
@@ -266,12 +267,12 @@ Here's what the output should look like.
 ![capsulecopy](../assets/capsuleop.gif)
 
 Discussion
-==========
+===
 
 In this part of the lab, we'll talk about capsule deployment strategies while the capsule is configured.
 
 Configure lifecycle environment and content views
-=================================================
+===
 
 At present, the capsule server `capsule.lab` cannot provide any software. To do so, we must synchronize metadata to `capsule.lab`, that is, information about the software and repositories available to `satellite.lab`. It is possible to synchronize all metadata and software packages to `capsule.lab` but it can take a lot of time and consume a lot of storage. We control the synchronization of software repositories to capsule servers through lifecycle environments.
 
@@ -281,9 +282,9 @@ In a real-life environment, it is not always practical or desireable to synchron
 
 Content views are used to specify repositories and provide granular control of specific RPM package versions that can be added to a lifecycle environment. We'll use a combination of a content view and an LCE to synchronize RHEL 9 BaseOS, AppStream, and Satellite Client software to the capsule server `capsule.lab`.
 
-To read more about lifecycle environments, please refer to the official documentation [here](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.14/html/managing_content/managing_application_lifecycles_content-management).
+To read more about lifecycle environments, please refer to the official documentation [here](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.15/html/managing_content/managing_application_lifecycles_content-management).
 
-To read more about content views, please refer to the official documentation [here](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.14/html/managing_content/managing_content_views_content-management).
+To read more about content views, please refer to the official documentation [here](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.15/html/managing_content/managing_content_views_content-management).
 
 Copy and paste the following playbook into the `Satellite Server` terminal.
 
@@ -337,10 +338,11 @@ ansible-playbook capsulesync.yml
 
 This playbook creates the LCE named "Capsule Production" and the content view "RHEL9" which contains the RHEL9 BaseOS repository.
 
-__Note:__ For the purposes of this lab, all of this content has been seeded to the satellite server so the synchronization should take only a few minutes.
+**Note:** For the purposes of this lab, all of this content has been seeded to the satellite server so the synchronization should take only a few minutes.
 
 Configure satellite.lab to replicate the Capsule Production lifecycle environment to capsule.lab
-================================================================================================
+===
+
 In the `Satellite Web UI`, navigate to the capsule menu.
 
 ![capsule menu](../assets/capsulemenu.png)
@@ -381,7 +383,8 @@ Click on `Optimized Sync` to synchronize repo metadata to the capsule.
 We left the `Download Policy` on the default setting of `On Demand`. This means that metadata will be synchronized to the capsule server but the software will only be synchronized on demand, when a host makes the request to the capsule server to install software.
 
 Migrate rhel1 to the capsule server.
-====================================
+===
+
 In the `rhel1` terminal enter the following command to view the redhat.repo file.
 
 ```
@@ -402,17 +405,17 @@ Navigate to the `All Hosts` menu.
 
 Do the following.
 
-1) Select `rhel1`.
-2) Click `Change Content Source`.
+1. Select `rhel1`.
+2. Click `Change Content Source`.
 
 ![change content source](../assets/changecontentsource.png)
 
 Perform the following actions.
 
-1) Select `capsule.lab` in the `Content source` dropdown.
-2) In the `Lifecycle environment` section, choose `Capsule Production`.
-3) Choose the content view `RHEL9`.
-4) Click `Run job invocation`.
+1. Select `capsule.lab` in the `Content source` dropdown.
+2. In the `Lifecycle environment` section, choose `Capsule Production`.
+3. Choose the content view `RHEL9`.
+4. Click `Run job invocation`.
 
 ![change menu](../assets/changecontentsourcemenu.png)
 
