@@ -39,7 +39,7 @@ Earlier, we configured the our host group to have a system role applied to it. S
 
 Once again, navigate to `All Hosts`.
 
-![all hosts](../assets/allhostssystemrole.png)
+![all hosts](../assets/allhostsagain.png)
 
 Next we'll do the following.
 

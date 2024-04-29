@@ -78,9 +78,9 @@ _**NOTE:**_ This property is a JSON format version of the YAML ansible propertie
 
 ![3](../assets/createhostgroup3.png)
 
-_**NOTE:**_ `Host Group Parameters` are variables that can be applied by RHEL System Roles or Ansible Roles. You can find a list of available variables by clicking on Configure > Ansible > Variables. `Host Group Parameters` can help you configure subsets of hosts using RHEL System Roles with different variables, according to your requirements.
+<!-- _**NOTE:**_ `Host Group Parameters` are variables that can be applied by RHEL System Roles or Ansible Roles. You can find a list of available variables by clicking on Configure > Ansible > Variables. `Host Group Parameters` can help you configure subsets of hosts using RHEL System Roles with different variables, according to your requirements.
 
-![variables](../assets/variables.png)
+![variables](../assets/variables.png) -->
 
 We will assign the `RHEL9` activation key to this group.
 

@@ -1,0 +1,7 @@
+#!/bin/bash
+hammer repository delete --id 2
+hammer repository delete --id 1
+hammer repository delete --id 6
+hammer repository delete --id 10
+hammer repository delete --id 9
+hammer repository delete --id 11
