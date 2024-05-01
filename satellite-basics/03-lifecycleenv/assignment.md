@@ -48,68 +48,20 @@ However, a more complex application life cycle might have further stages, such a
 - Beta Release
 - Production
 
-To find out more about lifecyce environments, please refer to [Satellite documentation](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.11/html/managing_content/creating_an_application_life_cycle_content-management).
+To find out more about lifecycle environments, please refer to [Satellite documentation](https://access.redhat.com/documentation/fr-fr/red_hat_satellite/6.15/html/managing_content/managing_application_lifecycles_content-management).
 
 Navigate to the `Lifecycle Environments` menu.
 
-<a href="#1">
- <img alt="An example image" src="../assets/lifecycle-environments.png" />
-</a>
-
-<a href="#" class="lightbox" id="1">
- <img alt="An example image" src="../assets/lifecycle-environments.png" />
-</a>
+![](../assets/lifecycle-environments.png)
 
 Click on `Create Environment Path`.
 
-<a href="#2">
- <img alt="An example image" src="../assets/createenvironment.png" />
-</a>
-
-<a href="#" class="lightbox" id="2">
- <img alt="An example image" src="../assets/createenvironment.png" />
-</a>
+![](../assets/createenvironment.png)
 
 Create a new environment. We'll call this one `Test`. Then click `save` to save it.
 
-<a href="#3">
- <img alt="An example image" src="../assets/newenvironment.png" />
-</a>
-
-<a href="#" class="lightbox" id="3">
- <img alt="An example image" src="../assets/newenvironment.png" />
-</a>
+![](../assets/newenvironment.png)
 
 The `Lifecycle Environment Paths` menu should look like this.
 
-<a href="#4">
- <img alt="An example image" src="../assets/envmenuresult.png" />
-</a>
-
-<a href="#" class="lightbox" id="4">
- <img alt="An example image" src="../assets/envmenuresult.png" />
-</a>
-
-<style>
-.lightbox {
-  display: none;
-  position: fixed;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.8);
-}
-
-.lightbox:target {
-  display: flex;
-}
-
-.lightbox img {
-  max-height: 100%;
-}
-</style>
+![](../assets/envmenuresult.png)

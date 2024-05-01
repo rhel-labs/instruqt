@@ -42,89 +42,41 @@ Create a host collection
 
 First we'll create a Host Collection. Click on `Host Collections` in the menu.
 
-<a href="#1">
- <img alt="An example image" src="../assets/hostcollectionsmenubar.png" />
-</a>
-
-<a href="#" class="lightbox" id="1">
- <img alt="An example image" src="../assets/hostcollectionsmenubar.png" />
-</a>
+![](../assets/hostcollectionsmenubar.png)
 
 Click `Create Host Collection`.
 
-<a href="#2">
- <img alt="An example image" src="../assets/createhostcollection.png" />
-</a>
-
-<a href="#" class="lightbox" id="2">
- <img alt="An example image" src="../assets/createhostcollection.png" />
-</a>
+![](../assets/createhostcollection.png)
 
 Next, do the following:
 
 1) Name the `Host Collection`. In this case we'll name it `TMUX installation`.
 2) Click `Save`.
 
-<a href="#3">
- <img alt="An example image" src="../assets/tmuxinstallationhostcollection.png" />
-</a>
-
-<a href="#" class="lightbox" id="3">
- <img alt="An example image" src="../assets/tmuxinstallationhostcollection.png" />
-</a>
+![](../assets/tmuxinstallationhostcollection.png)
 
 Click on `Hosts`.
 
-<a href="#4">
- <img alt="An example image" src="../assets/hchosts.png" />
-</a>
-
-<a href="#" class="lightbox" id="4">
- <img alt="An example image" src="../assets/hchosts.png" />
-</a>
+![](../assets/hchosts.png)
 
 Click on `Add`.
 
-<a href="#5">
- <img alt="An example image" src="../assets/hchostsadd.png" />
-</a>
-
-<a href="#" class="lightbox" id="5">
- <img alt="An example image" src="../assets/hchostsadd.png" />
-</a>
+![](../assets/hchostsadd.png)
 
 Select the hosts we want to install `tmux` on, then click `Add Selected`. In this example we will install `tmux` on `rhel1` and `rhel2`.
 
-<a href="#6">
- <img alt="An example image" src="../assets/hcaddrhel9hosts.png" />
-</a>
-
-<a href="#" class="lightbox" id="6">
- <img alt="An example image" src="../assets/hcaddrhel9hosts.png" />
-</a>
+![](../assets/hcaddrhel9hosts.png)
 
 Click on the `Details` tab.
 
-<a href="#7">
- <img alt="An example image" src="../assets/clickontmuxinstallation.png" />
-</a>
-
-<a href="#" class="lightbox" id="7">
- <img alt="An example image" src="../assets/clickontmuxinstallation.png" />
-</a>
+![](../assets/clickontmuxinstallation.png)
 
 Install software with the host collection
 =========================================
 
 Click on `Package Installation, Removal, and Update`.
 
-<a href="#8">
- <img alt="An example image" src="../assets/packageinstallation.png" />
-</a>
-
-<a href="#" class="lightbox" id="8">
- <img alt="An example image" src="../assets/packageinstallation.png" />
-</a>
+![](../assets/packageinstallation.png)
 
 Do the following:
 
@@ -132,33 +84,15 @@ Do the following:
 2) Click `install`.
 3) Click `yes`.
 
-<a href="#9">
- <img alt="An example image" src="../assets/updatepackages.png" />
-</a>
-
-<a href="#" class="lightbox" id="9">
- <img alt="An example image" src="../assets/updatepackages.png" />
-</a>
+![](../assets/updatepackages.png)
 
 You'll be taken to the job status page.
 
-<a href="#10">
- <img alt="An example image" src="../assets/statusinstall.png" />
-</a>
-
-<a href="#" class="lightbox" id="10">
- <img alt="An example image" src="../assets/statusinstall.png" />
-</a>
+![](../assets/statusinstall.png)
 
 You can check on the real-time installation progress by clicking on a host.
 
-<a href="#11">
- <img alt="An example image" src="../assets/installtmuxstatusonhost.png" />
-</a>
-
-<a href="#" class="lightbox" id="11">
- <img alt="An example image" src="../assets/installtmuxstatusonhost.png" />
-</a>
+![](../assets/installtmuxstatusonhost.png)
 
 When the installation has completed, click on the terminal of `rhel1` or `rhel2` and run `tmux`.
 
@@ -168,34 +102,4 @@ tmux
 
 tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. [tmux documentation is available here](https://github.com/tmux/tmux/wiki).
 
-<a href="#12">
- <img alt="An example image" src="../assets/2022-08-10_09-02-46.gif" />
-</a>
-
-<a href="#" class="lightbox" id="12">
- <img alt="An example image" src="../assets/2022-08-10_09-02-46.gif" />
-</a>
-
-<style>
-.lightbox {
-  display: none;
-  position: fixed;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.8);
-}
-
-.lightbox:target {
-  display: flex;
-}
-
-.lightbox img {
-  max-height: 100%;
-}
-</style>
+![](../assets/2022-08-10_09-02-46.gif)

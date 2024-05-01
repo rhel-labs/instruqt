@@ -37,23 +37,11 @@ You can use activation keys during content host registration to improve the spee
 
 To create an activation key, navigate to the `Activation Keys` menu.
 
-<a href="#1">
- <img alt="An example image" src="../assets/akmenu.png" />
-</a>
-
-<a href="#" class="lightbox" id="1">
- <img alt="An example image" src="../assets/akmenu.png" />
-</a>
+![](../assets/akmenu.png)
 
 Click on `Create Activation Key`.
 
-<a href="#2">
- <img alt="An example image" src="../assets/createak.png" />
-</a>
-
-<a href="#" class="lightbox" id="2">
- <img alt="An example image" src="../assets/createak.png" />
-</a>
+![](../assets/createak.png)
 
 We'll name this activation key (1) `RHEL9`, select the (2) `Test` environment, select the (3) `RHEL9` content view and then click (4) `save`.
 
@@ -65,38 +53,8 @@ RHEL9
 
 > __NOTE__: The name of the activation key will be used to add hosts. The names must match or the hosts will not be registered.
 
-<a href="#3">
- <img alt="An example image" src="../assets/akcreation.png" />
-</a>
-
-<a href="#" class="lightbox" id="3">
- <img alt="An example image" src="../assets/akcreation.png" />
-</a>
+![](../assets/akcreation.png)
 
 If you click on `Repository Sets`, you'll notice that this Activation Key provides access to the RHEL 9 AppStream and BaseOS repositories. This access is provided by configuring the Activation Key to use the `RHEL9` Content View.
 
 ![akrepos](../assets/akrepos.png)
-
-<style>
-.lightbox {
-  display: none;
-  position: fixed;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.8);
-}
-
-.lightbox:target {
-  display: flex;
-}
-
-.lightbox img {
-  max-height: 100%;
-}
-</style>

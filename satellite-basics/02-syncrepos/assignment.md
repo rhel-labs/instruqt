@@ -31,17 +31,14 @@ difficulty: basic
 timelimit: 1
 ---
 <!-- markdownlint-disable MD033 -->
-## <ins>Synchronize repositories</ins>
+In this section, we'll synchronize Red Hat Enterprise Linux 9 BaseOS and AppStream repositories from the content delivery network.
+
+Synchronize repositories
+===
 
 Navigate to the Red Hat Repositories menu by clicking on `Red Hat Repositories` in the menu context below.
 
-<a href="#1">
- <img alt="An example image" src="../assets/redhatrepositories.png" />
-</a>
-
-<a href="#" class="lightbox" id="1">
- <img alt="An example image" src="../assets/redhatrepositories.png" />
-</a>
+![](../assets/redhatrepositories.png)
 
 The Red Hat Repositories menu will provide a list of available repositories. You can choose to synchronize whatever you want. In this lab we'll synchronize the `BaseOS` and `AppStream` repos for RHEL 9.
 
@@ -56,86 +53,40 @@ Content in the BaseOS repository provides the core set of the underlying OS func
 
 Content in the AppStream repository includes additional user-space applications, runtime languages, and databases in support of the varied workloads and use cases.
 
+<h1>Note: In order to save time, the BaseOS and AppStream repositories have been enabled.</h1>
+
+Select repositories
+===
+
 Click on the `Recommended Repositories` button to create a more succinct view of available repos (the image below displays the button in the off position; turn it on).
 
-![recommanded repos button](../assets/recommendedrepos.png)
+![](../assets/recommendedrepos.png)
 
 Here's what it looks like to add the BaseOS and AppStream repos.
 
-![addedrecommended repos](../assets/addedrecommendedrepos.png)
+![](../assets/addedrecommendedrepos.png)
 
 And here's an animation.
 
-<a href="#2">
- <img alt="An example image" src="../assets/2022-08-11_09-02-27.gif" />
-</a>
+![](../assets/2022-08-11_09-02-27.gif)
 
-<a href="#" class="lightbox" id="2">
- <img alt="An example image" src="../assets/2022-08-11_09-02-27.gif" />
-</a>
+Synchronize repositories
+===
 
 Next, we'll navigate to the `Products` menu.
 
-<a href="#3">
- <img alt="An example image" src="../assets/products.png" />
-</a>
-
-<a href="#" class="lightbox" id="3">
- <img alt="An example image" src="../assets/products.png" />
-</a>
+![](../assets/products.png)
 
 Select the required product (in this case `Red Hat Enterprise Linux for x86_64`) and click `Sync Selected`.
 
-<a href="#4">
- <img alt="An example image" src="../assets/synchronize.png" />
-</a>
-
-<a href="#" class="lightbox" id="4">
- <img alt="An example image" src="../assets/synchronize.png" />
-</a>
+![](../assets/synchronize.png)
 
 To view the status of the sync operation, click on `Sync Status`.
 
-<a href="#5">
- <img alt="An example image" src="../assets/syncstatus.png" />
-</a>
-
-<a href="#" class="lightbox" id="5">
- <img alt="An example image" src="../assets/syncstatus.png" />
-</a>
+![](../assets/syncstatus.png)
 
 Expand the menu widgets to see a detailed report on the sync status.
 
-<a href="#6">
- <img alt="An example image" src="../assets/syncstatusdetailed.png" />
-</a>
-
-<a href="#" class="lightbox" id="6">
- <img alt="An example image" src="../assets/syncstatusdetailed.png" />
-</a>
+![](../assets/syncstatusdetailed.png)
 
 >_NOTE:_ The BaseOS and AppStream repos take approximately 5 minutes to synchronize.
-
-<style>
-.lightbox {
-  display: none;
-  position: fixed;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.8);
-}
-
-.lightbox:target {
-  display: flex;
-}
-
-.lightbox img {
-  max-height: 100%;
-}
-</style>
