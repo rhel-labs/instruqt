@@ -31,6 +31,8 @@ difficulty: basic
 timelimit: 1
 ---
 <!-- markdownlint-disable MD033 -->
+In this section, we'll synchronize Red Hat Enterprise Linux 9 BaseOS and AppStream repositories from the content delivery network.
+
 Synchronize repositories
 ===
 
@@ -58,11 +60,11 @@ Select repositories
 
 Click on the `Recommended Repositories` button to create a more succinct view of available repos (the image below displays the button in the off position; turn it on).
 
-![recommanded repos button](../assets/recommendedrepos.png)
+![](../assets/recommendedrepos.png)
 
 Here's what it looks like to add the BaseOS and AppStream repos.
 
-![addedrecommended repos](../assets/addedrecommendedrepos.png)
+![](../assets/addedrecommendedrepos.png)
 
 And here's an animation.
 

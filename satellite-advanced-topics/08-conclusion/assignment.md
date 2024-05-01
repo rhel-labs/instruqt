@@ -1,33 +1,10 @@
 ---
 slug: conclusion
-id: umyalvylx8x4
+id: euujrxwoo6f6
 type: challenge
 title: Conclusion
-teaser: Yay we've reached the end.
-tabs:
-- title: Satellite Server
-  type: terminal
-  hostname: satellite
-- title: Satellite Web UI
-  type: external
-  url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
-  type: terminal
-  hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
-- title: rhel2
-  type: terminal
-  hostname: rhel2
-- title: rhel2 Web Console
-  type: external
-  url: https://rhel2.${_SANDBOX_ID}.instruqt.io:9090
-difficulty: basic
-timelimit: 1
+difficulty: ""
 ---
-<!-- markdownlint-disable MD033 -->
-
 You've reached the conclusion of this lab. If you would like to explore additional Satellite features, feel free to continue.
 
 For more information on Red Hat Satellite, please visit the [Red Hat Satellite landing page](https://www.redhat.com/en/technologies/management/satellite).
