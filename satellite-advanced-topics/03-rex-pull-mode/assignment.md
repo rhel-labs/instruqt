@@ -63,13 +63,15 @@ This hammer command create a registration script that uses the RHEL9 activation 
 
 The output of this command is a script similar to this (don't copy paste this):
 
-`curl -sS --insecure 'https://satellite.lab/register?force=true&hostgroup_id=1&setup_insights=false' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJpYXQiOjE2ODI2MjkyNzcsImp0aSI6ImQ1YjFkYThmYzM4OGY5ZjY0MmEyZjc0ZGFhNjRkMmZjODVmZDhiNjU1Y2E3NmM3ODEyYWQ5ZjQzNWE0NWE5Y2UiLCJleHAiOjE2ODI2NDM2NzcsInNjb3BlIjoicmVnaXN0cmF0aW9uI2dsb2JhbCByZWdpc3RyYXRpb24jaG9zdCJ9.bgS1XqSYd4bsY46Suq7QqC5OSKm3bSsN57c3lddiOkU' | bash`
-
+```nocopy
+curl -sS --insecure 'https://satellite.lab/register?force=true&hostgroup_id=1&setup_insights=false' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJpYXQiOjE2ODI2MjkyNzcsImp0aSI6ImQ1YjFkYThmYzM4OGY5ZjY0MmEyZjc0ZGFhNjRkMmZjODVmZDhiNjU1Y2E3NmM3ODEyYWQ5ZjQzNWE0NWE5Y2UiLCJleHAiOjE2ODI2NDM2NzcsInNjb3BlIjoicmVnaXN0cmF0aW9uI2dsb2JhbCByZWdpc3RyYXRpb24jaG9zdCJ9.bgS1XqSYd4bsY46Suq7QqC5OSKm3bSsN57c3lddiOkU' | bash
+```
 Copy the output by highlighting the selected text. Once the primary click mouse, button is released, the text will be automatically saved to the clipboard.
 
 ![copy paste](../assets/copypaste.gif)
 
-Right click and select paste to **_paste the command into the `rhel1` terminal_**.
+> [!IMPORTANT]
+> Paste the command into the rhel1 terminal.
 
 If you paste and run this command in the `Satellite Server` you will register the satellite server to itself and you will have to re-start the lab.
 
@@ -95,7 +97,8 @@ Open the required firewall ports with the following command in the `Satellite Se
 firewall-cmd --permanent --add-port="1883/tcp" && firewall-cmd --reload
 ```
 
-**Note:** There is currently no support for changing this port to a different port.
+>[!NOTE]
+>There is currently no support for changing this port to a different port number.
 
 Port 1883 is required to be open on the Satellite server to enable hosts to subscribe to updates. That is, the RHEL hosts need to be able to tell the Satellite server that they are listening for messages that REX jobs are available to be run.
 
@@ -183,6 +186,7 @@ In the `Category and template menu`, don't change any parameters and click next.
 In the `Target hosts and inputs menu` do the following:
 
 1. Enter `uname -a` in the `command` box.
+
 2. Click `Run on selected hosts`.
 
 ![target](../assets/targethostsandinputs.png)
@@ -245,6 +249,9 @@ ssh -o "StrictHostKeyChecking no" rhel1 "subscription-manager unregister" && ham
 
 This command is run to remove `rhel1` from the satellite server so that we can register it again to show REX pull mode is automatically enabled.
 
+>[!NOTE]
+>If you are still tailing the yggdrasild log, type ctrl-c to quit.
+
 Register rhel1 to verify automatic configuration of REX pull mode
 ===
 
@@ -267,6 +274,17 @@ You can check to see if REX pull mode was successfully configured on `rhel1` by 
 ```
 systemctl status yggdrasild
 ```
+
+Force a single errata to be detected on rhel1
+===
+
+Downgrade `vim`.
+
+```
+dnf downgrade -y vim
+```
+
+Downgrading `vim` will compel Satellite to detect that at least one errata is installable on `rhel1`.
 
 Apply installable errata to rhel1 using REX pull mode
 ===
@@ -312,6 +330,7 @@ To return to the job status page, click `Back to Job`.
 
 When the job is complete, the page will look like this.
 
-**Note:** Don't wait for the updates to complete. Please advance to the next assignment.
+>[!NOTE]
+>Don't wait for the updates to complete. Please advance to the next assignment.
 
 ![complete](../assets/completejobstatus.png)

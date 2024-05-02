@@ -28,22 +28,28 @@ Documentation for the Satellite Ansible collection can be found [here](https://c
 
 Install the Satellite Ansible collection
 ========================================
-<ins>To reduce the amount of time waiting for for satellite operations to complete, the Satellite Ansible Collection has been preinstalled.</ins>
+> [!NOTE]
+> To reduce the amount of time waiting for for satellite operations to complete, the Satellite Ansible Collection has been preinstalled.
 
-<h2><ins>Proceed to the next step.</ins></h2>
+> [!WARNING]
+> Proceed to the next step.
 
-__For reference__, the following command installs the Satellite Ansible Collection.
-
-```
-satellite-maintain packages install -y ansible-collection-redhat-satellite
-```
+>[!NOTE]
+>For reference, the following command installs the Satellite Ansible Collection.
+>
+>```nocopy
+>satellite-maintain packages install -y ansible-collection-redhat-satellite
+>```
 
 ![output](../assets/ansiblecollectionoutput.png)
 
 Create a playbook to configure the Satellite server
 ===================================================
 
-The playbook below is simply an example. <h2><ins>Never put clear text passwords in your playbook.</ins></h2>
+The playbook below is simply an example.
+
+> [!WARNING]
+> Never put clear text passwords in your playbook.
 
 Copy and paste the code block below into the `Satellite Server` terminal.
 
@@ -98,23 +104,15 @@ tee ~/config.yml << EOF
       content_overrides:
           - label: satellite-client-6-for-rhel-9-x86_64-rpms
             override: enabled
-
-  - name: "Sync all RHEL products."
-    redhat.satellite.repository_sync:
-      username: "admin"
-      password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
-      server_url: "https://satellite.lab"
-      product: "Red Hat Enterprise Linux for x86_64"
-      organization: "Acme Org"
-
 EOF
 ```
 
 Here's what each of the tasks does.
-1) The first two playbook tasks, `Enable RHEL 9 BaseOS RPMs repository with label` and `Enable RHEL 9 AppStream RPMs repository with label` will enable the RHEL 9 BaseOS and AppStream repositories. Labels don't contain space characters, unlike names.
-2) The next task enables the `satellite-client-6-for-rhel-9-x86_64-rpms` repository. This task enables the repository without specifying base arch (as some repos do not require it). The Satellite 6 client repo contains software such as `Tracer` and `yggdrasild`. `yggdrasild` will be required later in the lab to enable Remote Execution Pull Mode.
-3) The next task creates an `activation key` which is used to control access to repositories on Satellite. In this particular `activation key`, the Satellite 6 client repository is overridden to enabled, as well as the repos required for capsule configuration.
-4) The final task initiates a synchronization operation on all `Red Hat Enterprise Linux for x86_64` product repositories.
+1. The first two playbook tasks, `Enable RHEL 9 BaseOS RPMs repository with label` and `Enable RHEL 9 AppStream RPMs repository with label` will enable the RHEL 9 BaseOS and AppStream repositories. Labels don't contain space characters, unlike names.
+
+2. The next task enables the `satellite-client-6-for-rhel-9-x86_64-rpms` repository. This task enables the repository without specifying base arch (as some repos do not require it). The Satellite 6 client repo contains software such as `Tracer` and `yggdrasild`. `yggdrasild` will be required later in the lab to enable Remote Execution Pull Mode.
+
+3. The next task creates an `activation key` which is used to control access to repositories on Satellite. In this particular `activation key`, the Satellite 6 client repository is overridden to enabled, as well as the repos required for capsule configuration.
 
 Execute the playbook
 =====================
@@ -125,21 +123,5 @@ Execute the playbook with the following command.
 ansible-playbook config.yml
 ```
 
-The final task in the playbook you just created, `Sync all RHEL products.` takes 5-10 minutes. <h2>Please do not advance to the next activity in this lab until the repositories have completed synchronizing.</h2>
-
-View the progress of the repository sync
-========================================
-
-In the Satellite Web UI, navigate to the `Sync Status` menu.
-
-![product sync](../assets/productssync.png)
-
-Click `Expand All`.
-
-![expand all](../assets/expandall.png)
-
-It could take 5-10 minutes for the repos to sync. For the purposes of this lab, the repositories were seeded with metadata to reduce the synchronization period.
-
-![reposynctime](../assets/reposynctime.png)
-
-After the synchronization is complete and the playbook has finished running successfully, click `Next` in the bottom right-hand corner.
+>[!NOTE]
+>The repositories configured have already been synchronized to save time.

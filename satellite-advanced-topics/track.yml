@@ -25,7 +25,9 @@ tags:
 - satellite
 owner: rhel
 developers:
+- dsynk@redhat.com
 - myee@redhat.com
+- jlenz@redhat.com
 show_timer: true
 skipping_enabled: true
 idle_timeout: 1800
@@ -33,8 +35,8 @@ timelimit: 7200
 sandbox_preset: satellite-advanced
 lab_config:
   overlay: false
-  width: 33
+  width: 50
   position: right
   feedback_recap_enabled: true
   loadingMessages: true
-checksum: "13842396995806544197"
+checksum: "6490351159975564239"
