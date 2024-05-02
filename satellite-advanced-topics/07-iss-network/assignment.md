@@ -34,6 +34,7 @@ Inter-Satellite Sync (ISS) network sync enables a downstream satellite server to
 
 ISS network sync configuration consists of the following.
 1) An upstream satellite server (`satellite.lab`) synchronizing software from the Red Hat CDN.
+
 2) A downstream satellite server (`satellite-2.lab`) configured to synchronize software from `satellite.lab`.
 
 The downstream satellite server must contain a manifest with valid Red Hat subscriptions.
@@ -75,9 +76,10 @@ Password
 bc31c9a6-9ff0-11ec-9587-00155d1b0702
 ```
 
-Make sure that the organization is set to `Acme Org` and the location is set to `Kicking Horse`.
-
-![](../assets/organdloacation.gif)
+> [!IMPORTANT]
+>Make sure that the organization is set to `Acme Org` and the location is set to `Kicking Horse`.
+>
+>![](../assets/organdloacation.gif)
 
 Navigate to `Subscriptions`.
 
@@ -100,20 +102,26 @@ Perform the following tasks.
 ```
 https://satellite.lab
 ```
+
 2) Enter the username `admin`.
 ```
 admin
 ```
+
 3) Enter the following password.
 ```
 bc31c9a6-9ff0-11ec-9587-00155d1b0702
 ```
+
 4) Enter the organization `Acme_Org`
 ```
 Acme_Org
 ```
+
 5) Choose the SSL CA Content Credential `satellite.lab`.
+
 6) Click `Update`.
+
 7) Click `Close`.
 
 ![](../assets/networksyncconfig.png)

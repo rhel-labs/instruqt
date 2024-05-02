@@ -5,7 +5,7 @@ type: challenge
 title: Conclusion
 difficulty: ""
 ---
-You've reached the conclusion of this lab. If you would like to explore additional Satellite features, feel free to continue.
+You've reached the conclusion of this lab.
 
 For more information on Red Hat Satellite, please visit the [Red Hat Satellite landing page](https://www.redhat.com/en/technologies/management/satellite).
 

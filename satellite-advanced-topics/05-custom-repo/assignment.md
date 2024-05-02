@@ -76,7 +76,9 @@ EOF
 
 This playbook dows the following:
 1) Create a product called `My custom product`.
+
 2) Create a repository called `My custom repository`.
+
 3) Upload a file from `/root/hello-0.0.1-1.el9.noarch.rpm` to `My custom repository`.
 
 ```

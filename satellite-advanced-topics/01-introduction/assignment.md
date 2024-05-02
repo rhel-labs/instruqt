@@ -53,11 +53,11 @@ You'll need the following credentials to log into the Satellite Web UI.
 
 You can copy and paste each of them below.
 
-```bash
+```
 admin
 ```
 
-```bash
+```
 bc31c9a6-9ff0-11ec-9587-00155d1b0702
 ```
 
@@ -80,12 +80,12 @@ The credentials are the following:
 
 Username:
 
-```bash
+```
 rhel
 ```
 
 Password:
 
-```bash
+```
 redhat
 ```
