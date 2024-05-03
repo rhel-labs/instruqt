@@ -45,6 +45,7 @@ Click on the `RHEL9` content view.
 Do the following.
 
 1) Click on the `Filters` tab.
+
 2) Click `Create filter`.
 
 ![filter](../assets/filter.png)
@@ -52,8 +53,11 @@ Do the following.
 Create a filter with the following steps.
 
 1) Name the filter `emacs`.
+
 2) Select `Exclude filter`.
+
 3) Give the filter a description. We're going to exclude emacs from being included in the `RHEL9` content view.
+
 4) Click `Create filter`.
 
 ![create filter](../assets/createfilter.png)
@@ -65,7 +69,9 @@ Next, click `Add RPM rule`.
 Configure your RPM rule in the following way.
 
 1) Since we're filtering `emacs`, enter `emacs`.
+
 2) Select `All versions`.
+
 3) Click `Add rule`.
 
 ![add rpm rule](../assets/addrpmruleemacs.png)
@@ -77,8 +83,11 @@ Click `Publish new version` to publish a new version of the `RHEL9` content view
 The new content view will make `emacs` unavailable for hosts to install.
 
 1) Add a description to the content view version. In this case, `added emacs filter`.
+
 2) Select `Promote`.
+
 3) Select the `Test` lifecycle environment.
+
 4) Click `Next`.
 
 ![publish](../assets/publishfiltercv.png)

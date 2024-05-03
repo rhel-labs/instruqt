@@ -26,6 +26,8 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
+- dsynk@redhat.com
+- jlenz@redhat.com
 show_timer: true
 idle_timeout: 1800
 timelimit: 6720
@@ -36,4 +38,4 @@ lab_config:
   position: right
   feedback_recap_enabled: true
   loadingMessages: true
-checksum: "11423381807799898957"
+checksum: "6695980547646001468"

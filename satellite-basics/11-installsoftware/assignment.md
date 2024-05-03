@@ -35,7 +35,7 @@ We'll install software on multiple hosts simultaneously, using a Host Collection
 
 A host collection is a group of content hosts. This feature enables you to perform the same action on multiple hosts at once. These actions can include the installation, removal, and update of packages and errata, change of assigned life cycle environment, and change of Content View. You can create host collections to suit your requirements, and those of your company. For example, group hosts in host collections by function, department, or business unit.
 
-For more information on Host Collections, please see [Configuring Host Collections](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.11/html/managing_hosts/configuring_host_collections_managing-hosts).
+For more information on Host Collections, please see [Configuring Host Collections](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.15/html/managing_hosts/configuring_host_collections_managing-hosts).
 
 Create a host collection
 ========================
@@ -81,7 +81,9 @@ Click on `Package Installation, Removal, and Update`.
 Do the following:
 
 1) Type in the package name. In this case we'll install `tmux`.
+
 2) Click `install`.
+
 3) Click `yes`.
 
 ![](../assets/updatepackages.png)

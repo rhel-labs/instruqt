@@ -53,8 +53,6 @@ Content in the BaseOS repository provides the core set of the underlying OS func
 
 Content in the AppStream repository includes additional user-space applications, runtime languages, and databases in support of the varied workloads and use cases.
 
-<h1>Note: In order to save time, the BaseOS and AppStream repositories have been enabled.</h1>
-
 Select repositories
 ===
 
@@ -89,4 +87,5 @@ Expand the menu widgets to see a detailed report on the sync status.
 
 ![](../assets/syncstatusdetailed.png)
 
->_NOTE:_ The BaseOS and AppStream repos take approximately 5 minutes to synchronize.
+>[!NOTE]
+>The BaseOS and AppStream repos take approximately 5 minutes to synchronize.

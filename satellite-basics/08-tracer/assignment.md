@@ -38,7 +38,9 @@ Often when software is updated, services on a host must be restarted before the 
 To demonstrate this capability, we'll install the `katello-host-tools-tracer` package on our hosts through remote execution. We'll perform the following tasks:
 
 1) Synchronize the `Satellite client 6` repository to our Satellite server.
+
 2) Make the repository available to our hosts by adding it to our `RHEL9` content view.
+
 3) Install `katello-host-tools-tracer` on our hosts.
 
 Add the Satellite client repository
@@ -72,6 +74,7 @@ Click on `Red Hat Enterprise Linux for x86_64`.
 Do the following to synchronize the repository with Satellite.
 
 1) Select `Red Hat Satellite Client 6 for RHEL 9 x86_64 RPMs`.
+
 2) Click `Sync Now`.
 
 ![sync](../assets/syncclientproduct.png)
@@ -98,6 +101,7 @@ Select `All` from the `Status` dropdown to unhide the Satellite tools repository
 Add the repo.
 
 1) Select the repo `Red Hat Satellite Client 6 for RHEL 9 x86_64 RPMs`.
+
 2) Click `Add repositories`.
 
 ![add repos](../assets/addclientrepo.png)
@@ -109,8 +113,11 @@ Click `Publish new version`.
 We'll now publish a new version of the content view.
 
 1) Add a description to the new version of the content view. In this example we added `Added the Satellite Client 6 repo.`.
+
 2) Click `Promote`.
+
 3) Click on the `Test` lifecycle environment.
+
 4) Click `Next`.
 
 ![pubcv](../assets/publishclientrepocv.png)
@@ -140,6 +147,7 @@ Click on `Repository Sets`.
 Override the `Red Hat Satellite Client 6 for RHEL 9 x86_64 RPMs` repository to `Enabled`.
 
 1) Select the `Red Hat Satellite Client 6 for RHEL 9 x86_64 RPMs` repository.
+
 2) Click `Override to Enabled`.
 
 ![override](../assets/overrideenable.png)
@@ -154,7 +162,9 @@ Go back to the `All hosts` menu.
 ![allhostsagain](../assets/allhostsagain.png)
 
 1) Select your hosts (rhel1 and rhel2).
+
 2) Click `Select Action`.
+
 3) Select `Schedule Remote Job`.
 
 ![all host](../assets/scheduleremotejob.png)
@@ -179,6 +189,7 @@ dnf config-manager --set-enabled satellite-client-6-for-rhel-9-x86_64-rpms && dn
 ![hosts](../assets/registeredhost.png)
 
 1) Select the two new hosts.
+
 2) Click `Schedule Remote Job`.
 
 ![rex](../assets/rexinstalltracer.png) -->

@@ -54,13 +54,15 @@ Select all of the Errata we just filtered.
 
 ![](../assets/selectallerrata.png)
 
-_**Note:**_ Increase the page size to select all the errata. If the number of errata exceed the maximum page size, you'll have to run this operation multiple times or run it from the host > content > errata menu. For the purposes of this lab, it's not necessary to apply all errata.
+>[!NOTE]
+>Increase the page size to select all the errata. If the number of errata exceed the maximum page size, you'll have to run this operation multiple times or run it from the host > content > errata menu. For the purposes of this lab, it's not necessary to apply all errata.
 
 ![pager](../assets/pagersize.png)
 
 You'll be taken to the Apply Errata menu where you should do the following:
 
 1) Select the hosts to apply the Errata. In this case we'll select all hosts.
+
 2) Click `Next`.
 
 ![](../assets/applyerratawizard.png)
@@ -87,7 +89,9 @@ Go to Hosts > All Hosts.
 
 ![](../assets/allhostsagain.png)
 
-All hosts managed by Satellite will still display in a red font signifying there are error statuses. This is because the Tracer application has detected services that require restarting. If the kernel or systemd has been updated, the hosts will require a reboot.
+All hosts managed by Satellite will still display in an orange font signifying there are status warnings. This is because the Tracer application has detected services that require restarting. If the kernel or systemd has been updated, the hosts will require a reboot.
+
+![](../assets/tracesorange.png)
 
 Resolve Traces (Restart services that require it)
 =================================================
@@ -100,12 +104,15 @@ Click on a host (it doesn't matter which, you'll have to perform this procedure 
 Do the following to resolve the traces.
 
 1) Click on the `Traces` tab. All the services that require restarting are listed here. If no services require restart, this list would be blank.
+
 2) Select all the services listed.
+
 3) Click `Restart app`.
 
 ![restart](../assets/tracesrestart.png)
 
-_**NOTE:**_ Resolving traces might take a few minutes, especially for a reboot, since the host will wait 60 seconds before initiating the reboot.
+>[!NOTE]
+>Resolving traces might take a few minutes, especially for a reboot, since the host will wait 60 seconds before initiating the reboot.
 
 When you view the `Traces` menu, the list will be empty signifying no services require restart.
 
