@@ -25,6 +25,10 @@ tabs:
 - title: rhel1 Web Console
   type: external
   url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
+- title: Notepad
+  type: code
+  hostname: rhel1
+  path: /tmp/notepad
 difficulty: ""
 ---
 
@@ -151,8 +155,8 @@ You can generate a host registration script on the `Satellite Server` terminal w
 ```
 hammer host-registration generate-command --insecure 1 --setup-insights 0 --force 1 --activation-key RHEL8
 ```
-
-Copy the output of this command from the `Satellite Server` terminal, paste it into the `Capsule` terminal, and run it.
+> [!IMPORTANT]
+> Copy the output of this command from the `Satellite Server` terminal, paste it into the `Capsule` terminal, and run it.
 
 Configure the repositories on the Capsule host
 ===
@@ -189,8 +193,8 @@ Run the following command to install the capsule software.
 ```
 dnf install satellite-capsule -y
 ```
-
-While the capsule software is installing, you can proceed to the next step.
+> [!NOTE]
+> While the capsule software is installing, you can proceed to the next step.
 
 Export the Default SSL Certificate from the Satellite server
 ===
@@ -210,7 +214,7 @@ capsule-certs-generate \
 ```
 
 > [!NOTE]
-> The FQDN for the capsule server, `capsule.lab` must be specified.
+> In the above command, the FQDN for the capsule server, `capsule.lab` must be specified for the `--foreman-proxy-fqdn` flag.
 
 Here's what the output should look like.
 
@@ -218,6 +222,9 @@ Here's what the output should look like.
 
 > [!IMPORTANT]
 > Record the instructions in the output of the command. You'll need these!
+> A Notepad has been provided in the `Notepad` tab. You can copy and paste the registration command to it.
+> ![](../assets/notepad.png)
+> ![](../assets/notepad2.png)
 
 Copy the certificate from `satellite.lab` to `capsule.lab`
 ===

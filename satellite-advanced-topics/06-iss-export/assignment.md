@@ -139,9 +139,9 @@ Password
 bc31c9a6-9ff0-11ec-9587-00155d1b0702
 ```
 
-Ensure that you are in `Acme Org` organization and the `Kicking Horse` location.
-
-![](../assets/exportedissexport.png)
+>[!IMPORTANT]
+>Ensure that you are in `Acme Org` organization and the `Kicking Horse` location.
+>![](../assets/exportedissexport.png)
 
 Click on `ISS Export`.
 

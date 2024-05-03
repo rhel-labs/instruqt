@@ -73,7 +73,8 @@ Copy the output by highlighting the selected text. Once the primary click mouse,
 > [!IMPORTANT]
 > Paste the command into the rhel1 terminal.
 
-If you paste and run this command in the `Satellite Server` you will register the satellite server to itself and you will have to re-start the lab.
+> [!WARNING]
+> If you paste and run this command in the `Satellite Server` you will register the satellite server to itself and you will have to re-start the lab.
 
 Finally type enter to execute the registration command.
 
@@ -138,15 +139,15 @@ ansible-playbook rexsetting.yml
 Migrate the rhel1 host to REX pull mode
 ===================================================
 
-At the beginning of this assignment, we registered the host `rhel1` to use REX in "push" mode. We'll now migrate it to "pull" mode.
+At the beginning of this assignment, we registered the host `rhel1` to use REX in "push" or SSH mode. We'll now migrate it to "pull" mode.
 
 Go to the terminal of `rhel1` and install `katello-pull-transport-migrate` by running the following command.
 
 ```
 dnf install katello-pull-transport-migrate -y
 ```
-
-**Please note:** The `katello-pull-transport-migrate` package is provided by the `satellite-client-6-for-rhel-9-x86_64-rpms` repository. This repo was added to the satellite server and enabled by the activation key in the second task of this lab.
+>[!NOTE]
+>The `katello-pull-transport-migrate` package is provided by the `satellite-client-6-for-rhel-9-x86_64-rpms` repository. This repo was added to the satellite server and enabled by the activation key in the second task of this lab.
 
 Check that the MQTT agent `yggdrasild` is running.
 
@@ -249,9 +250,6 @@ ssh -o "StrictHostKeyChecking no" rhel1 "subscription-manager unregister" && ham
 
 This command is run to remove `rhel1` from the satellite server so that we can register it again to show REX pull mode is automatically enabled.
 
->[!NOTE]
->If you are still tailing the yggdrasild log, type ctrl-c to quit.
-
 Register rhel1 to verify automatic configuration of REX pull mode
 ===
 
@@ -262,6 +260,9 @@ Or if you wish, in the `Satellite Server` terminal, you can regenerate a new reg
 ```
 hammer host-registration generate-command --insecure 1 --setup-insights 0 --force 1 --activation-key RHEL9
 ```
+
+>[!NOTE]
+>If you are still tailing the yggdrasild log on the rhel1 host, type ctrl-c to quit.
 
 Here's what the registration operation output looks like for `rhel1`.
 
@@ -278,13 +279,14 @@ systemctl status yggdrasild
 Force a single errata to be detected on rhel1
 ===
 
-Downgrade `vim`.
+In this step, we'll downgrade `vim` in to compel Satellite to detect that at least one errata is installable on `rhel1`. This prepares `rhel1` for the next step where we will install errata with REX pull mode.
+
+Run the following command.
 
 ```
 dnf downgrade -y vim
 ```
 
-Downgrading `vim` will compel Satellite to detect that at least one errata is installable on `rhel1`.
 
 Apply installable errata to rhel1 using REX pull mode
 ===
