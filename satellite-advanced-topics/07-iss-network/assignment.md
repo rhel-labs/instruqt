@@ -99,21 +99,25 @@ Click `Network Sync`.
 
 Perform the following tasks.
 1) Enter the url for satellite.lab.
+
 ```
 https://satellite.lab
 ```
 
 2) Enter the username `admin`.
+
 ```
 admin
 ```
 
 3) Enter the following password.
+
 ```
 bc31c9a6-9ff0-11ec-9587-00155d1b0702
 ```
 
 4) Enter the organization `Acme_Org`
+
 ```
 Acme_Org
 ```
@@ -143,7 +147,7 @@ Select the `Red Hat Enterprise Linux 9 for x86_64 - BaseOS RPMs 9` repository.
 
 It is possible to select this repository because it has been provided by the upstream satellite server `satellite.lab`.
 
-If we select another repository that hasn't been synchronized, a message would display `No repositories available`.
+If we select another repository that hasn't been synchronized to the upstream satellite server, a message would display `No repositories available`.
 
 ![](../assets/norepoavailable.gif)
 
@@ -154,6 +158,9 @@ Navigate to the Products menu.
 Sync all the products.
 
 ![](../assets/syncproducts.gif)
+
+>[!NOTE]
+>You can skip to the next assignment without waiting for the synchronization to complete.
 
 Optional self-directed exercise for the reader
 ================================
