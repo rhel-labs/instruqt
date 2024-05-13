@@ -27,3 +27,13 @@ hammer -u admin -p bc31c9a6-9ff0-11ec-9587-00155d1b0702 subscription upload --fi
 rm -rf /home/myee/manifest_satellite-*
 
 hammer subscription refresh-manifest --organization "Acme Org"
+
+hammer repository delete --id 1
+hammer repository delete --id 2
+hammer repository delete --id 8
+hammer repository delete --id 3
+hammer repository delete --id 11
+hammer repository delete --id 12
+hammer repository delete --id 6
+hammer repository delete --id 10
+hammer repository delete --id 9

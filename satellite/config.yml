@@ -27,7 +27,7 @@ virtualmachines:
   - https
   - high-ports
 - name: satellite
-  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-advanced-server-05-01-24
+  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-advanced-server-05-06-24
   shell: /bin/bash
   environment:
     TERM: xterm
@@ -38,8 +38,5 @@ virtualmachines:
   - http
   - https
   - high-ports
-virtualbrowsers:
-- name: satellite-browser
-  url: https://satellite.${_SANDBOX_ID}.instruqt.io
 secrets:
 - name: ACTIVATION_KEY
