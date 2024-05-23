@@ -1,0 +1,18 @@
+#!/bin/bash
+
+sleep 30
+cat << EOF >> /usr/bin/mkhosts.sh
+#!/bin/bash
+grep idmsrv /etc/hosts
+if [ \$? -ne 0 ]
+then
+  for i in idmsrv node1 node2
+    do ip=\`host \$i | grep address | awk '{print \$4}'\`;echo \$ip \$i.idm.example.com \$i >> /etc/hosts
+  done
+else
+  rm /etc/cron.d/00-mkhosts
+fi
+EOF
+chmod +x /usr/bin/mkhosts.sh
+
+/usr/bin/mkhosts.sh
