@@ -3,7 +3,7 @@ slug: satellite
 description: A long description of the track.
 virtualmachines:
 - name: rhel1
-  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-lab-client1-05-02-24
+  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-lab-client1-05-27-24
   shell: /bin/bash
   environment:
     TERM: xterm
@@ -15,7 +15,7 @@ virtualmachines:
   - https
   - high-ports
 - name: rhel2
-  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-lab-client2-05-02-24
+  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-lab-client2-05-27-24
   shell: /bin/bash
   environment:
     TERM: xterm
@@ -27,7 +27,7 @@ virtualmachines:
   - https
   - high-ports
 - name: satellite
-  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-advanced-server-05-06-24
+  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-advanced-server-05-27-24-2
   shell: /bin/bash
   environment:
     TERM: xterm

@@ -1,5 +1,5 @@
 #!/bin/bash
-#set -euxo pipefail
+set -euxo pipefail
 
 until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]; do
     echo "Waiting for instruqt bootstrap to complete"
@@ -23,10 +23,10 @@ echo "DONE" >> /root/post-run.log
 echo "export LANG=en_US.UTF-8" >> /root/.bashrc
 
 #hammer -u admin -p bc31c9a6-9ff0-11ec-9587-00155d1b0702 subscription upload --file /home/myee/manifest_satellite-6.10-instruqt_20230425T175412Z.zip --organization "Acme Org"
-hammer -u admin -p bc31c9a6-9ff0-11ec-9587-00155d1b0702 subscription upload --file /home/myee/manifest_6.15.zip --organization "Acme Org"
+#hammer -u admin -p bc31c9a6-9ff0-11ec-9587-00155d1b0702 subscription upload --file /home/myee/manifest_6.15.zip --organization "Acme Org"
 rm -rf /home/myee/manifest_satellite-*
 
-hammer subscription refresh-manifest --organization "Acme Org"
+# hammer subscription refresh-manifest --organization "Acme Org"
 
 # Edit the wireguard if wg0 to include the following config.
 
