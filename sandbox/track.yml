@@ -17,13 +17,15 @@ tags:
 - rhel
 owner: rhel
 developers:
-- smcbrien@redhat.com
 - wkibbe@redhat.com
 - myee@redhat.com
+- smcbrien@redhat.com
 show_timer: true
 lab_config:
   overlay: false
   width: 33
   position: right
+  feedback_recap_enabled: true
   loadingMessages: true
-checksum: "10052071418545176813"
+  hideStopButton: false
+checksum: "3450054866984336358"

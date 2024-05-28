@@ -21,8 +21,8 @@ icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags: []
 owner: rhel
 developers:
-- myee@redhat.com
 - wkibbe@redhat.com
+- myee@redhat.com
 - ehendric@redhat.com
 show_timer: true
 skipping_enabled: true
@@ -32,4 +32,5 @@ lab_config:
   position: right
   feedback_recap_enabled: true
   loadingMessages: true
-checksum: "15397139907603106582"
+  hideStopButton: false
+checksum: "13115910472992104610"
