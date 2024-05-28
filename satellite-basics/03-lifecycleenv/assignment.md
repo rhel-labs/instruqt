@@ -19,22 +19,14 @@ tabs:
 - title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 - title: rhel2
   type: terminal
   hostname: rhel2
-- title: rhel2 Web Console
-  type: external
-  url: https://rhel2.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
-
-<!-- markdownlint-disable MD033 -->
-
-## <ins>Create a new lifecycle environment</ins>
+Introduction
+===
 
 The application life cycle is a concept central to Red Hat Satellite 6’s content management functions. The application life cycle defines how a particular system and its software look at a particular stage. For example, an application life cycle might be simple; you might only have a development stage and production stage. In this case the application life cycle might look like this:
 
@@ -50,6 +42,8 @@ However, a more complex application life cycle might have further stages, such a
 
 To find out more about lifecycle environments, please refer to [Satellite documentation](https://access.redhat.com/documentation/fr-fr/red_hat_satellite/6.15/html/managing_content/managing_application_lifecycles_content-management).
 
+Create a lifecycle environment
+===
 Navigate to the `Lifecycle Environments` menu.
 
 ![](../assets/lifecycle-environments.png)

@@ -2,7 +2,7 @@
 slug: filter-software
 id: ggpczlvl6b5b
 type: challenge
-title: Apply a Content View filter.
+title: Apply a Content View filter
 teaser: Block software from being installed. Without these filters, a Content View
   includes everything from the selected repositories.
 notes:
@@ -18,20 +18,14 @@ tabs:
 - title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 - title: rhel2
   type: terminal
   hostname: rhel2
-- title: rhel2 Web Console
-  type: external
-  url: https://rhel2.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
-<!-- markdownlint-disable MD033 -->
-
+Introduction
+===
 A powerful feature of Content Views in Red Hat Satellite is the ability to filter content. This means that you can include or exclude content from being installed by your hosts. In this challenge, we'll block the installation of emacs with a filter (since it's bloatware).
 
 Go to the Content Views menu.
@@ -93,10 +87,12 @@ The new content view will make `emacs` unavailable for hosts to install.
 ![publish](../assets/publishfiltercv.png)
 
 Ensure the details of this new version are correct and then click `Finish`. Make sure to wait for the content view to finish publishing or else the filter won't work properly.
+> [!WARNING]
+> It can take up to 5 minutes for this particular task to complete publishing the content view.
 
-Next, go into the terminal of one of the hosts and enter the following.
+Next, click on one of these buttons for [button label="rhel1"](tab-2) **or** [button label="rhel2"](tab-3) and run the following command.
 
-```bash
+```bash,run
 dnf install -y emacs
 ```
 

@@ -17,24 +17,20 @@ tabs:
 - title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 - title: rhel2
   type: terminal
   hostname: rhel2
-- title: rhel2 Web Console
-  type: external
-  url: https://rhel2.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
-<!-- markdownlint-disable MD033 -->
-
+Introduction
+===
 Activation keys provide a method to automate system registration and subscription attachment. You can create multiple keys and associate them with different environments and Content Views. For example, you might create a basic activation key with a subscription for Red Hat Enterprise Linux workstations and associate it with Content Views from a particular environment.
 
 You can use activation keys during content host registration to improve the speed, simplicity and consistency of the process. Note that activation keys are used only when hosts are registered. If changes are made to an activation key, it is applicable only to hosts that are registered with the amended activation key in the future. The changes are not made to existing hosts.
 
+Create an activation key
+===
 To create an activation key, navigate to the `Activation Keys` menu.
 
 ![](../assets/akmenu.png)
@@ -50,8 +46,8 @@ For your cut/paste convenience:
 ```bash
 RHEL9
 ```
-
-> __NOTE__: The name of the activation key will be used to add hosts. The names must match or the hosts will not be registered.
+> [!NOTE]
+> The name of the activation key will be used to add hosts. The names must match or the hosts will not be registered.
 
 ![](../assets/akcreation.png)
 

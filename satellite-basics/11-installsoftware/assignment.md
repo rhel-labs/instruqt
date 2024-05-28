@@ -17,20 +17,14 @@ tabs:
 - title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 - title: rhel2
   type: terminal
   hostname: rhel2
-- title: rhel2 Web Console
-  type: external
-  url: https://rhel2.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
-<!-- markdownlint-disable MD033 -->
-
+Introduction
+===
 We'll install software on multiple hosts simultaneously, using a Host Collection.
 
 A host collection is a group of content hosts. This feature enables you to perform the same action on multiple hosts at once. These actions can include the installation, removal, and update of packages and errata, change of assigned life cycle environment, and change of Content View. You can create host collections to suit your requirements, and those of your company. For example, group hosts in host collections by function, department, or business unit.
@@ -38,7 +32,7 @@ A host collection is a group of content hosts. This feature enables you to perfo
 For more information on Host Collections, please see [Configuring Host Collections](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.15/html/managing_hosts/configuring_host_collections_managing-hosts).
 
 Create a host collection
-========================
+===
 
 First we'll create a Host Collection. Click on `Host Collections` in the menu.
 
@@ -72,7 +66,7 @@ Click on the `Details` tab.
 ![](../assets/clickontmuxinstallation.png)
 
 Install software with the host collection
-=========================================
+===
 
 Click on `Package Installation, Removal, and Update`.
 
@@ -96,9 +90,9 @@ You can check on the real-time installation progress by clicking on a host.
 
 ![](../assets/installtmuxstatusonhost.png)
 
-When the installation has completed, click on the terminal of `rhel1` or `rhel2` and run `tmux`.
+When the installation has completed, click on one of these buttons for [button label="rhel1"](tab-2) **or** [button label="rhel2"](tab-3) and run the command `tmux`.
 
-```bash
+```bash,run
 tmux
 ```
 

@@ -17,26 +17,20 @@ tabs:
 - title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 - title: rhel2
   type: terminal
   hostname: rhel2
-- title: rhel2 Web Console
-  type: external
-  url: https://rhel2.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
-<!-- markdownlint-disable MD033 -->
-
+Introduction
+===
 Red Hat Product Errata are advisories on bug fixes, security, and enhancement on software installed on your RHEL host, based on analysis by Red Hat engineers. Red Hat Satellite provides a simple method for applying these fixes to hosts. We'll walk through those steps.
 
 For more information on Red Hat Errata, [please visit this page](https://access.redhat.com/articles/2130961).
 
 Apply errata
-============
+===
 
 To view Errata in Satellite, click on `Content`, `Content Types`, and `Errata`.
 
@@ -94,7 +88,7 @@ All hosts managed by Satellite will still display in an orange font signifying t
 ![](../assets/tracesorange.png)
 
 Resolve Traces (Restart services that require it)
-=================================================
+===
 When software is updated on a host, software that runs as a service require a restart before the updated software is loaded into memory. Tracer will detect which of these services need to be restarted.
 
 Click on a host (it doesn't matter which, you'll have to perform this procedure twice.)
