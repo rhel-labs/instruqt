@@ -19,20 +19,14 @@ tabs:
 - title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 - title: rhel2
   type: terminal
   hostname: rhel2
-- title: rhel2 Web Console
-  type: external
-  url: https://rhel2.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
-<!-- markdownlint-disable MD033 -->
-
+Introduction
+===
 >[!NOTE]
 >Before starting this challenge, make sure that your hosts have finished rebooting from the previous challenge. You can easily check by clicking on the terminal tab to check that you have a working session with each host. ![tabs](../assets/hosttab.png)
 
@@ -62,13 +56,13 @@ If you want, click on a host to view the application of the system role.
 
 You can verify that port 80/tcp has been opened by doing the following.
 
-Click on the terminal tab for `rhel1` **or** `rhel2`.
+Click on one of these buttons for [button label="rhel1"](tab-2) **or** [button label="rhel2"](tab-4).
 
 ![host tab](../assets/hosttab.png)
 
-Copy and paste the following into the cli.
+Run the following command.
 
-```bash
+```bash,run
 firewall-cmd --list-all
 ```
 

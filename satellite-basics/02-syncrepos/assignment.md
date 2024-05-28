@@ -18,20 +18,17 @@ tabs:
 - title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 - title: rhel2
   type: terminal
   hostname: rhel2
-- title: rhel2 Web Console
-  type: external
-  url: https://rhel2.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
-<!-- markdownlint-disable MD033 -->
-In this section, we'll synchronize Red Hat Enterprise Linux 9 BaseOS and AppStream repositories from the content delivery network.
+Introduction
+===
+This section documents the process to synchronize Red Hat Enterprise Linux 9 BaseOS and AppStream repositories from the content delivery network.
+> [!IMPORTANT]
+> In order to speed up the lab, the RHEL 9 BaseOS and AppStream repos have been pre-synchronized. If you are familiar with this process please feel free to skip to the next assigment by clicking on the next button at the bottom. ![image.png](../assets/image.png)
 
 Synchronize repositories
 ===
@@ -87,5 +84,3 @@ Expand the menu widgets to see a detailed report on the sync status.
 
 ![](../assets/syncstatusdetailed.png)
 
->[!NOTE]
->The BaseOS and AppStream repos take approximately 5 minutes to synchronize.

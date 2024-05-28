@@ -17,33 +17,29 @@ tabs:
 - title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 - title: rhel2
   type: terminal
   hostname: rhel2
-- title: rhel2 Web Console
-  type: external
-  url: https://rhel2.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
-<!-- markdownlint-disable MD033 -->
-
+Introduction
+===
 Now we'll register the hosts `rhel1` and `rhel2` to our Satellite server. We'll use the command line interface to generate a registration command in this lab.
 
 It is also possible to generate a registration command from the Satellite WebUI but due to the limitations of DNS in this lab environment, we'll use the cli utility `hammer` to simplify the process.
 
 In our registration command, we'll specify that the new host should be added to the `Application Servers` host group we just created. As well, we'll ignore certificate errors (since we're using a self signed certificate) and we won't set up Insights.
 
-Click on the `Satellite Server` tab.
+Create a registration script
+===
+Click on the [button label="Satellite Server"](tab-0) tab.
 
 ![satellite server tab](../assets/satellite-server-tab.png)
 
-Copy and paste the following command into the terminal.
+Click on the `run` button to run the following command in the `Satellite Server` terminal.
 
-```bash
+```bash,run
 hammer host-registration generate-command --hostgroup "Application Servers" --insecure 1 --setup-insights 0 --force 1
 ```
 
@@ -56,7 +52,9 @@ Copy the output by highlighting the selected text. Once the primary click mouse,
 
 ![](../assets/copypaste.gif)
 
-Now click on the `rhel1` tab.
+Register hosts
+===
+Now click on the [button label="rhel1"](tab-2) tab.
 
 ![](../assets/rhel1.png)
 
@@ -76,9 +74,9 @@ In the Satellite Web UI, navigate to `All Hosts` to view the newly registered ho
 
 ![](../assets/webuiregistered.png)
 
-You can check that your host repos are configured for the Satellite server `satellite.lab` by entering the following:
+You can check that your host repos are configured for the Satellite server `satellite.lab` by running the following:
 
-```bash
+```bash,run
 cat /etc/yum.repos.d/redhat.repo
 ```
 ![](../assets/repolist.png)

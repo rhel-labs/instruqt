@@ -19,15 +19,9 @@ tabs:
 - title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 - title: rhel2
   type: terminal
   hostname: rhel2
-- title: rhel2 Web Console
-  type: external
-  url: https://rhel2.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
@@ -45,6 +39,10 @@ To demonstrate this capability, we'll install the `katello-host-tools-tracer` pa
 
 Add the Satellite client repository
 ===================================
+
+> [!IMPORTANT]
+> This section is for your documentation purposes. This step has already been performed for you. Read over this section and proceed to the next step.
+
 Go to `Content` and click on `Red Hat Repositories`.
 
 ![rh repos](../assets/redhatrepositories.png)
@@ -63,6 +61,9 @@ satellite-client-6-for-rhel-9
 
 Synchronize the Satellite client repository
 ===========================================
+> [!IMPORTANT]
+> This section is for your documentation purposes. This step has already been performed for you. Read over this section and proceed to the next step.
+
 Next, we'll navigate to the `Products` menu.
 
 ![products](../assets/products.png)
@@ -80,7 +81,7 @@ Do the following to synchronize the repository with Satellite.
 ![sync](../assets/syncclientproduct.png)
 
 Add the Satellite client repository to the RHEL9 content view
-=============================================================
+===
 Now that the repository containing the Tracer application is synchronized to Satellite, we'll make it available to our hosts by adding and enabling the repository in our existing `RHEL9` content view.
 
 Navigate to `Content Views`.
@@ -127,7 +128,7 @@ Click `Finish`.
 ![finish](../assets/finishclientcv.png)
 
 Enable access to the Satellite client repository
-================================================
+===
 Now we'll enable access to the `Red Hat Satellite Client 6 for RHEL 9 x86_64 RPMs` repo by specifying it in the `Activation Key`. When new hosts are added, they will automatically receive access to the enabled repository so that Tracer can be installed.
 
 With existing hosts, there is one extra step which we'll cover in this challenge.
@@ -153,7 +154,7 @@ Override the `Red Hat Satellite Client 6 for RHEL 9 x86_64 RPMs` repository to `
 ![override](../assets/overrideenable.png)
 
 Install Tracer on existing hosts managed by Satellite
-=====================================================
+===
 
 Here's the extra step we'll need to perform to enable access to the Tracer app for our existing hosts. New hosts added after this step will automatically get access.
 

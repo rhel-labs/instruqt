@@ -17,15 +17,9 @@ tabs:
 - title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 - title: rhel2
   type: terminal
   hostname: rhel2
-- title: rhel2 Web Console
-  type: external
-  url: https://rhel2.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 3420
 ---
@@ -76,23 +70,3 @@ You will be taken to the main dashboard.
 
 ![](../assets/main-menu.png)
 
-Access the RHEL Hosts
-===
-
-At the top of the screen, you'll find tabs for the hosts `rhel1` and `rhel2`. Terminal and Web Console access are provided.
-
-![](../assets/hosts-tabs.png)
-
-The credentials for these hosts are the following:
-
-Username:
-
-```bash
-rhel
-```
-
-Password:
-
-```bash
-redhat
-```

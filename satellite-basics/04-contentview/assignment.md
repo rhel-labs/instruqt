@@ -19,26 +19,22 @@ tabs:
 - title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 - title: rhel2
   type: terminal
   hostname: rhel2
-- title: rhel2 Web Console
-  type: external
-  url: https://rhel2.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
-<!-- markdownlint-disable MD033 -->
-
+Introduction
+===
 In this challenge we'll create a Content View. Red Hat Satellite uses Content Views to create customized subsets of repositories from the full repositories synchronized to the Red Hat Satellite server. You can use Content Views to define which software versions a particular environment uses. For example, a Production environment might use a Content View containing older package versions, while a Development environment might use a Content View containing newer package versions.
 
 Since this is a basic introduction to Satellite, we will only create a Content View for the purpose of providing content to RHEL hosts, without regard for Test, Production lifecycle use cases.
 
 To learn more about Content Views and how to use them to manage content for different lifecycle environments, please see [Managing Content Views](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.15/html/managing_content/managing_content_views_content-management) in Satellite documentation.
 
+Create a content view
+===
 Click on `Content Views`.
 
 ![](../assets/contentview.png)
@@ -64,7 +60,7 @@ Click on `Show repositories`.
 
 ![show repos](../assets/showrepos.png)
 
-Add the `BaseOS` and `AppStream` repos. Click `Add Repositories`.
+Add the `Red Hat Enterprise Linux 9 BaseOS` and `Red Hat Enterprise Linux 9 AppStream` repos. Click `Add Repositories`.
 
 ![](../assets/addrepos.png)
 
