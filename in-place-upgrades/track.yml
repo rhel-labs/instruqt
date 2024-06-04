@@ -26,13 +26,15 @@ tags:
 - upgrades
 owner: rhel
 developers:
-- ehendric@redhat.com
 - myee@redhat.com
+- ehendric@redhat.com
 show_timer: true
 timelimit: 3060
 lab_config:
   overlay: false
   width: 33
   position: right
+  feedback_recap_enabled: true
   loadingMessages: true
-checksum: "730973583084198195"
+  hideStopButton: false
+checksum: "5727815640181582532"

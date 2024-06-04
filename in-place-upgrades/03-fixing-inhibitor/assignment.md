@@ -13,19 +13,18 @@ difficulty: basic
 
 You saw in the last step how Leapp produced an error. In this scenario, PAM modules are not in use. It is therefore safe to skip this check. To do so, replace the commented line `# confirm =` with a true statement.
 
-```bash
+```bash,run
 sed -i 's/# confirm =/confirm = true/g' /var/log/leapp/answerfile
 ```
 
 Re-run the preupgrade check to verify the change satisfied the result
 
-```bash
-leapp preupgrade --target 8.9
-
+```bash,run
+leapp preupgrade --target 8.10
 ```
 
 <pre class=file>
-# leapp preupgrade --target 8.9
+# leapp preupgrade --target 8.10
 ==> Processing phase `configuration_phase`
 ====> * ipu_workflow_config
         IPU workflow config actor

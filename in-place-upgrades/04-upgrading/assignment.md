@@ -18,13 +18,12 @@ difficulty: basic
 Now that you have verified the RHEL system meets all the expected conditions, it is time to kick off the upgrade process:
 Note: This process will take awhile.)
 
-```bash
-leapp upgrade --target 8.9
-
+```bash,run
+leapp upgrade --target 8.10
 ```
 
 <pre class=file>
-# leapp upgrade --target 8.9
+# leapp upgrade --target 8.10
 ==> Processing phase `configuration_phase`
 ====> * ipu_workflow_config
         IPU workflow config actor
@@ -69,9 +68,8 @@ A reboot is required for the RHEL 8-based initial RAM disk image (initramfs), up
 >**Pro Tip:** You can combine these two steps with the --reboot option
 `leapp upgrade --target 8.9 --reboot`
 
-```bash
+```bash,run
 reboot
-
 ```
 
 Now, leapp is performing several actions inside a temporary environment. This includes creating a new initramfs image, relabeling SELinux contexts, and well as cleaning up any remaining RHEL 7 packages. The reboot process can take up to 15 minutes. The `Optional step` below shows how you can view the reboot/upgrade process.
@@ -80,7 +78,7 @@ Verifying Reboot (Optional)
 =============
 This step is optional but it may provide insight into the upgrade process. This lab provides a web console UI to the virtual machine host. You can log into the web UI to view the upgrade process after `reboot` has been executed.
 
-Click on `RHEL Web Console`to log into the web UI.
+Click on [button label="RHEL Web Console"](tab-1) to log into the web UI.
 
 ![web console tab](../assets/rhelwebconsoletab.png)
 
@@ -125,23 +123,21 @@ Refresh the Instruqt console to log back into your host, by clicking the button 
 
 Once that is done, you will be logged into the system's terminal once more. Finally, we will verify the update was successful by looking at the release file we referenced earlier in the lab:
 
-```bash
+```bash,run
 cat /etc/redhat-release
-
 ```
 
 Note that we are now running the latest version of RHEL 8!
 
 <pre class=file>
 # cat /etc/redhat-release
-Red Hat Enterprise Linux release 8.9 (Ootpa)
+Red Hat Enterprise Linux release 8.10 (Ootpa)
 </pre>
 
 OPTIONAL: You may also review the log file if you so choose. The full output is available at /var/log/leapp/leapp-upgrade.log
 
-```bash
+```bash,run
 sudo less /var/log/leapp/leapp-upgrade.log
-
 ```
 
 There are other methods for upgrading to the latest version of RHEL using the leapp tooling including the Web Console and Satellite. For those operations, refer to the documentation on Red Hat's website.

@@ -30,33 +30,33 @@ tabs:
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel07
 difficulty: basic
 ---
-# What is Leapp?
+What is Leapp?
+===
 
 Red Hat's leapp tool provides existing Red Hat Enterprise Linux 7 and 8 instances to an upgrade path from one major version to the next. This can be done on a one-to-one basis or en mass with a tool like Satellite. The Leapp tooling also includes a pre-upgrade assistant that makes it easy to identify breaking changes or warn about potential issues before any lasting changes are made to the system.
 
 Before diving in, the question you have to ask is: is this workload worth executing a rebuild from scratch? That process can be tedious and time consuming. Doing an in-place upgrade retains the subscription, installed packages, user data, and configurations all while saving the time and resources required to deploy fresh.
 
-# Installing Leapp
+Installing Leapp
+===
 
 To get started, it is highly recommended that you update all packages on your system to the latest version available:
 
-```bash
+```bash,run
 yum update -y && reboot
 ```
 
 The terminal will lose connection with the rhel07 host leaving the message `exited`.
 
-![exited](../assets/exited.png)
+![image.png](../assets/image.png)
 
 You can reconnect the session in the `rhel07` tab if desired. Refresh the `rhel07` tab until you are reconnected.
-
-![refresh](../assets/refreshbutton.png)
+![image.png](../assets/image.png)
 
 Leapp is a supported operation for RHEL which means support tickets can be opened in case obstacles are encountered. It also means that the leapp utility is available straight from the Red Hat package repository. First, verify the version of Red Hat Enterprise Linux that you have installed:
 
-```bash
+```bash,run
 cat /etc/redhat-release
-
 ```
 
 <pre class=file>
@@ -67,9 +67,8 @@ Red Hat Enterprise Linux release 7.9 (Maipo)
 First, you need to enable the rhel-7-server repositories using the subscription-manager command:
 >**Pro Tip:** See how you can actually combine these two operations into one!
 
-```bash
+```bash,run
 subscription-manager repos --enable rhel-7-server-rpms --enable rhel-7-server-extras-rpms
-
 ```
 
 <pre class=file>
@@ -80,9 +79,8 @@ Repository 'rhel-7-server-extras-rpms' is enabled for this system.
 
 Next, use the DNF package manager to install leapp and its dependencies:
 
-```bash
+```bash,run
 dnf install -y leapp-upgrade
-
 ```
 
 <pre class=file>
@@ -103,12 +101,11 @@ Complete!
 
 Verify the install was successful:
 
-```bash
+```bash,run
 leapp --version
-
 ```
 
 <pre class=file>
 # leapp --version
-leapp version 0.16.0
+leapp version 0.17.0
 </pre>
