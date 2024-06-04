@@ -13,13 +13,14 @@ tabs:
   hostname: host1
 difficulty: basic
 ---
-## What is nmstate?
+What is nmstate?
+===
 
 NMState is a library with an accompanying command line tool that manages host networking settings. NMState is a convenient way to capture network settings into an easily readable yaml file.
 
 To install NMState, run the following command in the CLI.
 
-```bash
+```bash,run
 dnf install -y nmstate
 ```
 

@@ -31,20 +31,22 @@ tabs:
   url: https://host1.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 ---
-## What is NetworkManager?
+What is NetworkManager?
+===
 
 NetworkManager is a great tool for creating and modifying network connections.
 The `nmcli` command is how you will be running NetworkManager in this lab. Any changes
 made with `nmcli` are persistent configuration file changes. This lab will give you an
 overview of some of the most common operations you would run using this tool.
 
-## Listing network devices
+Listing network devices
+===
 
 Before you can set up a connection, you have to know what hardware
 is available for you to use. To show what network devices this system has with
 `nmcli`, run
 
-```bash
+```bash,run
 nmcli device
 ```
 
