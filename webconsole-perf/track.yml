@@ -14,8 +14,8 @@ tags:
 - rhel
 owner: rhel
 developers:
-- myee@redhat.com
 - wkibbe@redhat.com
+- myee@redhat.com
 show_timer: true
 lab_config:
   overlay: false
@@ -23,4 +23,5 @@ lab_config:
   position: right
   feedback_recap_enabled: true
   loadingMessages: true
-checksum: "11722937281442977938"
+  hideStopButton: false
+checksum: "10155397991712495517"
