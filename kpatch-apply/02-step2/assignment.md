@@ -16,17 +16,12 @@ timelimit: 1
 ---
 ## Determine what Kernel Live Patches are available
 
-When Kernel Live Patches are applied to the kernel, functions within the
-kernel are re-routed from their initial instructions to instead use the
-functions provided by the kpatch.  The following diagram provides a bit
-more detail on how this process operates.
+When Kernel Live Patches are applied to the kernel, functions within the kernel are re-routed from their initial instructions to instead use the functions provided by the kpatch.  The following diagram provides a bit more detail on how this process operates.
 
 ![Web Console Login](../assets/rhel_kpatch_overview.png)
 Image from the [Red Hat Kernel Adminstration Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/kernel_administration_guide/applying_patches_with_kernel_live_patching)
 
-This means that a kpatch is produced and tied to a specific version of the
-kernel.  Before you look at available kernel patches, you should first know
-the version of the kernel running on your target system.
+This means that a kpatch is produced and tied to a specific version of the kernel.  Before you look at available kernel patches, you should first know the version of the kernel running on your target system.
 
 ```bash
 uname -r
@@ -66,5 +61,4 @@ for another kernel, specifically, version 5.14.0-162.  You can see that
 the additional listings are also for addtional kernel releases, __not__ the one
 running on your system.
 
-In the next step, you will be applying the kpatch available for your system
-to the kernel.
+In the next step, you will be applying the kpatch available for your system to the kernel.

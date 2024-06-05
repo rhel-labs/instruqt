@@ -26,14 +26,13 @@ description: |
   organization to determine when this window occurs rather than the release of
   a fix for a Critical CVE.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
-level: beginner
 tags:
 - rhel
 owner: rhel
 developers:
+- wkibbe@redhat.com
 - myee@redhat.com
 - smcbrien@redhat.com
-- wkibbe@redhat.com
 show_timer: true
 lab_config:
   overlay: false
@@ -41,4 +40,7 @@ lab_config:
   position: right
   feedback_recap_enabled: true
   loadingMessages: true
-checksum: "5776577137618545705"
+  lab_v2: false
+  override_challenge_layout: false
+  hideStopButton: false
+checksum: "9366856262332262382"
