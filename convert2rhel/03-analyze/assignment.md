@@ -12,7 +12,8 @@ difficulty: ""
 timelimit: 3300
 ---
 
-## Understanding the Convert2RHEL command
+Understanding the Convert2RHEL command
+===
 
 There are several different combinations of arguments that can be used to execute the conversion process. The main factor is registering your new RHEL system with an active subscription. Your choices are:
 
@@ -22,7 +23,8 @@ There are several different combinations of arguments that can be used to execut
 
 3) Including your organization ID and Activation Key as part of the command. This is more secure, however, finding your org-id and creating an activation key are outside the scope of this lab.
 
-## Running the Convert2RHEL analyze utility
+Running the Convert2RHEL analyze utility
+===
 
 <pre class='file'>
 convert2rhel --org < ORG ID > --activationkey  < KEY >
@@ -30,12 +32,11 @@ convert2rhel --org < ORG ID > --activationkey  < KEY >
 
 In order to automate this process as much as possible, you will kick off the conversion analysis using the activation key combination from #3 above:
 
-```bash
+```bash,run
 convert2rhel analyze --org 12451665 --activationkey convert2rhel
-
 ```
-
->**Note:** This process will take some time!
+> [!NOTE]
+> This process will take some time!
 
 <pre class='file'>
 # convert2rhel analyze --org 12451665 --activationkey convert2rhel -y
@@ -62,7 +63,8 @@ google-cloud-sdk-396.0.0-1.x86_64                        N/A              google
 
 You'll be asked to confirm several the process at several steps. Type a `y` and hit enter to continue the process.
 
-## Reviewing the analysis
+Reviewing the analysis
+===
 
 When the analysis process is complete, you will noticed a couple of errors. The `Error` refers to an out of date kernel. This is listed as an error and shown in red beacuse the conversion has a much higher level of risk. The report even provides you the steps needed to correct this issue.
 
@@ -81,7 +83,7 @@ When the analysis process is complete, you will noticed a couple of errors. The 
 
 To remediate this issue, enter the following command:
 
-```bash
+```bash,run
 yum update -y && reboot
 ```
 
