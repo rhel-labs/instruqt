@@ -15,7 +15,7 @@ timelimit: 1
 You will need to reboot the system in order to put the changes into effect.
 ===========================================================================
 
-```bash
+```bash,run
 reboot
 ```
 After executing reboot, the session in the `centos` tab will end. Refresh the `centos` tab until you are reconnected.
@@ -29,7 +29,7 @@ Verifying the upgrade
 
 Now that you are connected into your new RHEL system, you should verify your results:
 
-```bash
+```bash,run
 cat /etc/redhat-release
 ```
 
@@ -40,7 +40,7 @@ Red Hat Enterprise Linux Server release 7.9 (Maipo)
 
 Verify that the necessary Red Hat repositories are enabled. Also, note that none of the old CentOS repos are available:
 
-```bash
+```bash,run
 yum repolist
 ```
 
@@ -56,7 +56,7 @@ repolist: 33,843
 
 Now you can review the logs from the conversion itself:
 
-```bash
+```bash,run
 less /var/log/convert2rhel/convert2rhel.log
 ```
 

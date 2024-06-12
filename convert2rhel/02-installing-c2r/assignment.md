@@ -16,7 +16,7 @@ timelimit: 1
 
 In the previous step, you enabled the Convert2RHEL software repository. That gave your CentOS Linux server access to the convert2rhel RPM package and its dependencies from the Red Hat CDN. Verify that the Convert2RHEL repo is enabled:
 
-```bash
+```bash,run
 yum repolist
 
 ```
@@ -38,7 +38,7 @@ repolist: 14,642
 
 Now that the repository has been confirmed enabled, install the convert2rhel utility:
 
-```bash
+```bash,run
 yum install -y convert2rhel
 
 ```
