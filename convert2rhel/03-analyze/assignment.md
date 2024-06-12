@@ -30,7 +30,7 @@ convert2rhel --org < ORG ID > --activationkey  < KEY >
 
 In order to automate this process as much as possible, you will kick off the conversion analysis using the activation key combination from #3 above:
 
-```bash
+```bash,run
 convert2rhel analyze --org 12451665 --activationkey convert2rhel
 
 ```
@@ -81,7 +81,7 @@ When the analysis process is complete, you will noticed a couple of errors. The 
 
 To remediate this issue, enter the following command:
 
-```bash
+```bash,run
 yum update -y && reboot
 ```
 

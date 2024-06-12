@@ -19,7 +19,7 @@ Now that you have fixed the inhibitor, it is time to convert your system to RHEL
 > [!NOTE]
 > Pro Tip: You can further automate the conversion process by adding a `-y` to the end of the command. This will auto-accept the EULA and prompts your conversion offers.
 
-```bash
+```bash,run
 convert2rhel --org 12451665 --activationkey convert2rhel -y
 
 ```

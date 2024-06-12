@@ -42,3 +42,4 @@ echo https://${HOSTNAME}.${_SANDBOX_ID}.instruqt.io:9090
 echo https://${HOSTNAME}.${_SANDBOX_ID}.instruqt.io:9090 >> ~/webconsoleurl.txt
 
 ssh -o "StrictHostKeyChecking no" root@centos -t 'yum clean all && yum update --exclude=kernel -y && yum autoremove -y'
+ssh -o "StrictHostKeyChecking no" root@centos -t 'nmcli dev con enp1s0'
