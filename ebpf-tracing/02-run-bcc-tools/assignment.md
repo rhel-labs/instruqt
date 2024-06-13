@@ -4,7 +4,7 @@ id: dqensh4f7pzh
 type: challenge
 title: Run bcc tools to prepare for observing an active workload.
 tabs:
-- title: yum
+- title: dnf
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "yum" > /dev/null 2>&1
@@ -35,13 +35,13 @@ In this step, you will start running the bcc-tools to prepare for observing an a
 
 First, you will validate the environment and that it is not currently using any eBPF calls.  To do this, you will install the `bpftool` utility.
 
-```bash
-yum install -y bpftool
+```bash,run
+dnf install -y bpftool
 ```
 
 Next, run `bpftool` to see what eBPF programs are currently loaded in the kernel.  If there are no eBPF programs in use, the tool will return no output.
 
-```bash
+```bash,run
 bpftool prog list | grep -A 3 cgroup
 ```
 
@@ -80,7 +80,7 @@ Click on the tab `gethostlatency`.
 
 The tool `gethostlatency` has been launched for you by running `/usr/share/bcc/tools/gethostlatency`.
 
-```bash
+```bash,run
 /usr/share/bcc/tools/gethostlatency
 ```
 
@@ -96,7 +96,7 @@ Next, click on the tab `tcplife`.
 
 `tcplife` was launched with the following command:
 
-```bash
+```bash,run
 /usr/share/bcc/tools/tcplife
 ```
 
