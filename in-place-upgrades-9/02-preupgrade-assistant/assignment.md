@@ -11,17 +11,17 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Running the pre-upgrade assistant and resolving issues
+Running the pre-upgrade assistant and resolving issues
+===
 
 Built into the leapp tool is a utility that collects data about the system, assesses upgradability, and generates a pre-upgrade report. On your lab system, perform the pre-upgrade test: (This process will take a couple minutes.)
 
-```bash
-leapp preupgrade --target 9.3
-
+```bash,run
+leapp preupgrade --target 9.4
 ```
 
 <pre class=file>
-# leapp preupgrade --target 9.3
+# leapp preupgrade --target 9.4
 ==> Processing phase `configuration_phase`
 ====> * ipu_workflow_config
         IPU workflow config actor
@@ -58,9 +58,8 @@ Answerfile has been generated at /var/log/leapp/answerfile
 
 Notice how the upgrade was "inhibited" because the preupgrade assistant requires your input on one or more issues before it will safely proceed. Take a look at the first entry in the `leapp-report` file in the log directory:
 
-```bash
+```bash,run
 head -n 5 /var/log/leapp/leapp-report.txt
-
 ```
 
 <pre class=file>

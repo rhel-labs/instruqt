@@ -4,7 +4,7 @@ virtualbrowsers:
   url: https://host.${_SANDBOX_ID}.instruqt.io:9090
 virtualmachines:
 - name: host
-  image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-3-11-17-23-v2
+  image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-4-06-04-24
   shell: /bin/bash
   environment:
     TERM: xterm

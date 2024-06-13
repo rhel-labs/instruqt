@@ -63,3 +63,5 @@ rm /etc/cockpit/ws-certs.d/0*
 
 #restart cockpit to apply the changs
 systemctl restart cockpit.socket
+
+ssh -i /root/.ssh/id_rsa -o "StrictHostKeyChecking no" root@rhel08 "nmcli dev con enp1s0"
