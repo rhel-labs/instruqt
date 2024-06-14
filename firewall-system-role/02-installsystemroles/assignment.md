@@ -8,30 +8,30 @@ notes:
 - type: text
   contents: Install the firewall RHEL system role.
 tabs:
-- title: rhel
+- title: controlnode
   type: terminal
-  hostname: rhel
+  hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing"
 - title: rhelvm
   type: terminal
-  hostname: rhel
+  hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing-rhelvm"
-- title: rhel Web Console
+- title: controlnode Web Console
   type: external
-  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
+  url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
 
 Now we'll install system roles.
 
-Click the `rhel` terminal session tab.
+Switch to the [button label="controlnode"](tab-0) terminal by clicking on this button: [button label="controlnode"](tab-0)
 
 ![rhel tab](../assets/rhel-tab.png)
 
 Enter the following command.
 
-```bash
+```bash,run
 dnf install rhel-system-roles -y
 ```
 

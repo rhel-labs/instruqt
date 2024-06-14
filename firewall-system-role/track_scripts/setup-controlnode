@@ -31,4 +31,5 @@ tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
 
 while ! ping -c 1 -W 1 rhelvm; do echo "\nWaiting for rhelvm - network interface might be down."; sleep 1; done
 ssh -o "StrictHostKeyChecking no" root@rhelvm subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+ssh -o "StrictHostKeyChecking no" root@rhelvm "nmcli dev con enp1s0"
 TMUX='' tmux new-session -d -s 'firewall-testing-rhelvm' 'ssh -o "StrictHostKeyChecking no" root@rhelvm; clear'

@@ -4,17 +4,17 @@ id: 4rqj6oybqy6p
 type: challenge
 title: Conclusion
 tabs:
-- title: rhel
+- title: controlnode
   type: terminal
-  hostname: rhel
+  hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing"
 - title: rhelvm
   type: terminal
-  hostname: rhel
+  hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing-rhelvm"
-- title: rhel Web Console
+- title: controlnode Web Console
   type: external
-  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
+  url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
