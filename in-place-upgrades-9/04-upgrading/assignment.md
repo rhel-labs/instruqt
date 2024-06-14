@@ -109,6 +109,10 @@ Navigate to `Virtual machines`
 Click on `rhel08`
 ![rhel07](../assets/rhel07.png)
 
+Select the `Serial Console`.
+
+![](../assets/serialconsole.png)
+
 You can now view the upgrade process in the console window.
 
 ![console](../assets/console.png)
