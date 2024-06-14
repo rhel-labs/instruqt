@@ -121,11 +121,11 @@ Once the new initramfs image is in place, package updates run, and SELinux relab
 
 Refresh the Instruqt console to log back into your host, by clicking the button shown below.
 
-![console](../assets/refreshtheconsole.png)
+![console](../assets/refreshbutton.png)
 
 Once that is done, you will be logged into the system's terminal once more. Finally, we will verify the update was successful by looking at the release file we referenced earlier in the lab:
 
-```bash
+```bash,run
 cat /etc/redhat-release
 
 ```
@@ -139,7 +139,7 @@ Red Hat Enterprise Linux release 9.4 (Plow)
 
 OPTIONAL: You may also review the log file if you so choose. The full output is available at /var/log/leapp/leapp-upgrade.log
 
-```bash
+```bash,run
 sudo less /var/log/leapp/leapp-upgrade.log
 
 ```
