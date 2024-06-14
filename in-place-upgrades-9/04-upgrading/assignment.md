@@ -60,18 +60,18 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-# Running the upgrade
+Running the upgrade
+===
 
 Now that you have verified the RHEL system meets all the expected conditions, it is time to kick off the upgrade process:
 (Note: This process will take awhile.)
 
-```bash
-leapp upgrade --target 9.3
-
+```bash,run
+leapp upgrade --target 9.4
 ```
 
 <pre class=file>
-# leapp upgrade --target 9.3
+# leapp upgrade --target 9.4
 ==> Processing phase `configuration_phase`
 ====> * ipu_workflow_config
         IPU workflow config actor
@@ -113,9 +113,8 @@ A reboot is required for the RHEL 9-based initial RAM disk image (initramfs), up
 >**Pro Tip:** You can combine these two steps with the --reboot option
 `leapp upgrade --target 9.3 --reboot`
 
-```bash
+```bash,run
 reboot
-
 ```
 
 Now, leapp is performing several actions inside a temporary environment. This includes creating a new initramfs image, relabeling SELinux contexts, and well as cleaning up any remaining RHEL 8 packages. The reboot process can take up to 15 minutes.
@@ -130,23 +129,21 @@ Select the Post-reboot tab while the virtual machine is rebooting. You will like
 
 Once that is done, you will be logged into the system's terminal once more. Finally, we will verify the update was successful by looking at the release file we referenced earlier in the lab:
 
-```bash
+```bash,run
 cat /etc/redhat-release
-
 ```
 
 Note that we are now running the latest version of RHEL 9!
 
 <pre class=file>
 # cat /etc/redhat-release
-Red Hat Enterprise Linux release 9.3 (Plow)
+Red Hat Enterprise Linux release 9.4 (Plow)
 </pre>
 
 OPTIONAL: You may also review the log file if you so choose. The full output is available at /var/log/leapp/leapp-upgrade.log
 
-```bash
+```bash,run
 sudo less /var/log/leapp/leapp-upgrade.log
-
 ```
 
 There are other methods for upgrading to the latest version of RHEL using the leapp tooling including the Web Console and Satellite. For those operations, refer to the documentation on Red Hat's website.

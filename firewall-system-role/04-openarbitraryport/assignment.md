@@ -8,24 +8,24 @@ notes:
 - type: text
   contents: Open an arbitrary port.
 tabs:
-- title: rhel
+- title: controlnode
   type: terminal
-  hostname: rhel
+  hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing"
 - title: rhelvm
   type: terminal
-  hostname: rhel
+  hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing-rhelvm"
-- title: rhel Web Console
+- title: controlnode Web Console
   type: external
-  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
+  url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
 
 In this challenge we'll open port 9999 on `rhelvm`.
 
-In the `rhel` terminal, add the lines `- port: ['9999/tcp']` and `state: enabled` to the `hosts` file.
+In the [button label="controlnode"](tab-0) terminal, add the lines `- port: ['9999/tcp']` and `state: enabled` to the `hosts` file.
 
 <pre>
 all:
@@ -41,30 +41,30 @@ all:
 
 The following command will add those lines for you.
 
-```bash
+```bash,run
 tee -a /root/hosts << EOF
       - port: ['9999/tcp']
         state: enabled
 EOF
 ```
 
-Now run the playbook in the `rhel` terminal.
+Now run the playbook in the [button label="controlnode"](tab-0) terminal.
 
-```bash
+```bash,run
 ansible-playbook -i hosts -b firewall.yml
 ```
 
 ![applyportopen](../assets/applyportopen.png)
 
-In the `rhelvm` terminal, run `nc`, listening on port 9999.
+In the [button label="rhelvm"](tab-1) terminal, run `nc`, listening on port 9999.
 
-```bash
+```bash,run
 nc -l 9999
 ```
 
-In the `rhel` terminal, run `nc` and then type some stuff.
+In the [button label="controlnode"](tab-0) terminal, run `nc` and then type some stuff.
 
-```bash
+```bash,run
 nc rhelvm 9999
 ```
 
@@ -72,4 +72,4 @@ nc rhelvm 9999
 
 In the image above the phrase was typed: `the quick brown fox jumps over the lazy dogs` followed by the `enter` key.
 
-Type `ctrl-c` to exit `nc`.
+In the [button label="controlnode"](tab-0) terminal, type `ctrl-c` to exit `nc`.

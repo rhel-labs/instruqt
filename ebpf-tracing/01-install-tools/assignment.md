@@ -17,13 +17,13 @@ notes:
 
     # Example Usecase:
 
-    In this lab, you are going to use tools from the bcc-tools package to analyse what happens on a system during a `yum update`. We picked `yum update` because it represents a non-trivial, real world application. In a `yum update`, the following activity happens:
+    In this lab, you are going to use tools from the bcc-tools package to analyse what happens on a system during a `dnf update`. We picked `dnf update` because it represents a non-trivial, real world application. In a `dnf update`, the following activity happens:
 
     * TCP connections are established to configured repositories, which you will track with `gethostlatency` and `tcplife`.
     * Many files will be opened on your XFS filesystem, which you will observe with `filetop`. You will also use `xfsslower` to determine which XFS operations take longer than 10ms to execute.
     * Memory access. Linux uses a memory cache to ensure faster access to needed information than having to go to disk. Using `cachestat`, you will be able to see hits and misses on this cache in realtime. When everything Linux needs is cached, you should observe zero misses and while the cache is being populated, you will see a number of misses. If the cache continues to be populated beyond the size of the cache, Linux will employ a LRU (Least Recently Used) algorithm with a lot of heuristics and some cached data will be removed and replaced with new data.
 tabs:
-- title: yum
+- title: dnf
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "yum" > /dev/null 2>&1
@@ -34,21 +34,21 @@ eBPF is an in-kernel virtual machine that allows code execution in the kernel sp
 
 The bcc-tools package provides many pre-created tools that provide data from functions built with eBPF.
 
-First, in the **yum** terminal tab, install the kernel-devel package for your currently running kernel and the bcc-tools packages.
+First, in the **dnf** terminal tab, install the kernel-devel package for your currently running kernel and the bcc-tools packages.
 
 ![Yum tab](../assets/yumtab.png)
 
 Enter the following command:
 
-```bash
-yum install -y kernel-devel-$(uname -r) bcc-tools
+```bash,run
+dnf install -y kernel-devel-$(uname -r) bcc-tools
 ```
 
 >**Note:** In the command above, we embed the `uname -r` command to automatically determine, and embed, the version of the currently running kernel.
 
 Next, inspect the content of the bcc-tools package to see some of the pre-built tool catalog that is provided.  Each of these tools has a `man` page which provides details on what data the tool produces as well as any options that may be used when running the tool.
 
-```bash
+```bash,run
 rpm -ql bcc-tools | grep /usr/share/bcc/tools/
 ```
 

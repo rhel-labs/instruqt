@@ -14,9 +14,8 @@ timelimit: 1
 
 You saw in the last step how Leapp produced an error in order to prevent a broken upgrade.  In order to fix this issue, you will need to disable this feature in the sshd configuration file:
 
-```bash
+```bash,run
 sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
-
 ```
 
 <pre class=file>
@@ -26,20 +25,18 @@ sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
 
 There are other risks that were identified. If you are curious what else LEAPP found, take a closer look at the log file mentioned in the previous step:
 
-```bash
+```bash,run
 cat /var/log/leapp/leapp-report.txt
-
 ```
 
 Re-run the preupgrade check to verify the change satisfied the result
 
-```bash
-leapp preupgrade --target 9.3
-
+```bash,run
+leapp preupgrade --target 9.4
 ```
 
 <pre class=file>
-# leapp preupgrade --target 9.3
+# leapp preupgrade --target 9.4
 ==> Processing phase `configuration_phase`
 ====> * ipu_workflow_config
         IPU workflow config actor

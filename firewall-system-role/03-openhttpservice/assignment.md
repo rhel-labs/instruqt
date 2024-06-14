@@ -9,31 +9,30 @@ notes:
   contents: Open the port to enable external connections to the httpd service on port
     80.
 tabs:
-- title: rhel
+- title: controlnode
   type: terminal
-  hostname: rhel
+  hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing"
 - title: rhelvm
   type: terminal
-  hostname: rhel
+  hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing-rhelvm"
-- title: rhel Web Console
+- title: controlnode Web Console
   type: external
-  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
+  url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
+
 In this challenge, we will enable access to the http port 80 on `rhelvm`.
 
 First, we'll prove to ourselves that port 80 is blocked by the firewall running on `rhelvm`.
 
-Switch to the `rhelvm` terminal by clicking on the rhelvm tab.
+Switch to the [button label="rhelvm"](tab-1) terminal by clicking on this button: [button label="rhelvm"](tab-1).
 
-![rhelvm tab](../assets/rhelvm-tab.png)
+Run the following in [button label="rhelvm"](tab-1).
 
-Run the following in `rhelvm`.
-
-```bash
+```bash,run
 firewall-cmd --list-all
 ```
 
@@ -43,19 +42,22 @@ The output above shows that port 80 is not open.
 
 In the `rhelvm` terminal, run `nc -l 80`. This command runs the utility `netcat` and tells it to listen for incoming traffic on port 80.
 
-```bash
+```bash,run
 nc -l 80
 ```
 
 ![nclistening](../assets/nclistening.png)
 
-`netcat` is now listening on port 80 on `rhelvm`. __***Do not exit out of `nc` in this terminal!***__
+`netcat` is now listening on port 80 on `rhelvm`.
 
-Switch back to the `rhel` terminal.
+> [!WARNING]
+> Do not exit out of `nc` in this terminal!
+
+Switch back to the [button label="controlnode"](tab-0) terminal.
 
 Enter the command `nc rhelvm 80`. This tells `netcat` to connect to port 80 on `rhelvm`.
 
-```bash
+```bash,run
 nc rhelvm 80
 ```
 
@@ -77,9 +79,9 @@ all:
         state: enabled
 </pre>
 
-Copy and paste the following into the `rhel` terminal.
+Copy and paste the following into the [button label="controlnode"](tab-0) terminal.
 
-```bash
+```bash,run
 tee -a /root/hosts << EOF
 all:
   hosts:
@@ -90,8 +92,6 @@ all:
         state: enabled
 EOF
 ```
-
-Remember to type `enter`.
 
 Next, we'll create a simple Ansible playbook that tells ansible to apply the RHEL Firewall system role.
 
@@ -104,7 +104,7 @@ Next, we'll create a simple Ansible playbook that tells ansible to apply the RHE
 
 Copy paste and run the following in the CLI.
 
-```bash
+```bash,run
 tee -a /root/firewall.yml <<EOF
 - name: Configure Firewall
   hosts: all
@@ -113,29 +113,29 @@ tee -a /root/firewall.yml <<EOF
 EOF
 ```
 
-Now we'll apply the system role to `rhelvm` by running the following command on `rhel`.
+Now we'll apply the system role to `rhelvm` by running the following command on [button label="controlnode"](tab-0) .
 
-```bash
+```bash,run
 ansible-playbook -i hosts -b firewall.yml
 ```
 
 ![applysystemrole](../assets/applysystemrole.png)
 
-Run `nc rhelvm 80` in the `rhel` terminal again.
+Run `nc rhelvm 80` in the [button label="controlnode"](tab-0) terminal again.
 
-```bash
+```bash,run
 nc rhelvm 80
 ```
 
-We'll type something into the terminal and hit enter. You should see it printed out in the `rhelvm` terminal.
+We'll type something into the terminal and hit enter. You should see it printed out in the [button label="rhelvm"](tab-1) terminal.
 
 ![ncresult80](../assets/ncport80.png)
 
-Exit out of `nc` in the `rhel` terminal by typing `ctrl-c`. This will cause `nc` to exit in `rhelvm`.
+Exit out of `nc` in the [button label="controlnode"](tab-0) terminal by typing `ctrl-c`. This will cause `nc` to exit in [button label="rhelvm"](tab-1).
 
-Finally, we'll use `firewall-cmd` to list the open ports on `rhelvm`. Switch to the `rhelvm` terminal and type the following command.
+Finally, we'll use `firewall-cmd` to list the open ports on [button label="rhelvm"](tab-1). Switch to the [button label="rhelvm"](tab-1) terminal and run the following command.
 
-```bash
+```bash,run
 firewall-cmd --list-all
 ```
 

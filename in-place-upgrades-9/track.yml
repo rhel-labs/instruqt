@@ -27,11 +27,14 @@ tags:
 owner: rhel
 developers:
 - ehendric@redhat.com
+- myee@redhat.com
 show_timer: true
 timelimit: 3060
 lab_config:
   overlay: false
   width: 33
   position: right
+  feedback_recap_enabled: true
   loadingMessages: true
-checksum: "15950486197354101136"
+  hideStopButton: false
+checksum: "6585752205725972051"

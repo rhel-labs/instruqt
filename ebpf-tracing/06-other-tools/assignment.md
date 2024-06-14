@@ -4,7 +4,7 @@ id: daqbjdvzake0
 type: challenge
 title: Learn about other tools utilizing eBPF
 tabs:
-- title: yum
+- title: dnf
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "yum" > /dev/null 2>&1
@@ -35,7 +35,7 @@ In this lab, you have now observed: host name resolution, tcp connection informa
 
 Take a look at how many tools are provided by bcc-tools:
 
-```bash
+```bash,run
 ls -l /usr/share/bcc/tools | wc -l
 ```
 
@@ -43,9 +43,9 @@ ls -l /usr/share/bcc/tools | wc -l
 125
 </pre>
 
-The 125 tools, counted in the example above, can be easily inspected or even modified since they are actually Python scripts:
+The 100+ tools, counted in the example above, can be easily inspected or even modified since they are actually Python scripts:
 
-```bash
+```bash,run
 file /usr/share/bcc/tools/biolatency
 ```
 

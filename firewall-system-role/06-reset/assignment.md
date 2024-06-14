@@ -8,17 +8,17 @@ notes:
 - type: text
   contents: Remove all the changes we made to the firewall rules.
 tabs:
-- title: rhel
+- title: controlnode
   type: terminal
-  hostname: rhel
+  hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing"
 - title: rhelvm
   type: terminal
-  hostname: rhel
+  hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing-rhelvm"
-- title: rhel Web Console
+- title: controlnode Web Console
   type: external
-  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
+  url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
@@ -27,9 +27,9 @@ The firewall system role can reset all settings to the default configuration fou
 
 We'll reset the firewall configuration in the `rhelvm` host.
 
-First, in the `rhelvm` terminal, list the current rules.
+First, in the [button label="rhelvm"](tab-1) terminal, list the current rules.
 
-```bash
+```bash,run
 firewall-cmd --list-all
 ```
 
@@ -52,9 +52,9 @@ public (active)
   rich rules:
 </pre>
 
-In the `rhel` terminal, we'll create a new host file called `reset`.
+In the [button label="controlnode"](tab-0) terminal, we'll create a new host file called `reset`.
 
-```bash
+```bash,run
 tee -a /root/reset << EOF
 all:
   hosts:
@@ -65,17 +65,17 @@ all:
 EOF
 ```
 
-From the `rhel` terminal, run the playbook to reset the firewall rules on the `rhelvm` host.
+From the [button label="controlnode"](tab-0) terminal, run the playbook to reset the firewall rules on the `rhelvm` host.
 
-```bash
+```bash,run
 ansible-playbook -i reset -b firewall.yml
 ```
 
 ![reset output](../assets/resetplaybook.png)
 
-When the playbook as stopped running, switch to the `rhelvm` terminal and check that the firewall rules have been reset.
+When the playbook as stopped running, switch to the [button label="rhelvm"](tab-1) terminal and check that the firewall rules have been reset.
 
-```bash
+```bash,run
 firewall-cmd --list-all
 ```
 

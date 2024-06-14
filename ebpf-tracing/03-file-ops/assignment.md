@@ -4,7 +4,7 @@ id: 80mgxsbvhor0
 type: challenge
 title: Observing File operations
 tabs:
-- title: yum
+- title: dnf
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "yum" > /dev/null 2>&1
@@ -39,7 +39,7 @@ Click on the `filetop` tab.
 
 The `filetop` tool was launched by running the following command.
 
-```bash
+```bash,run
 /usr/share/bcc/tools/filetop
 ```
 
@@ -59,7 +59,7 @@ Now click the `xfsslower` tab.
 
 The `xfsslower` tool was run with the following command.
 
-```bash
+```bash,run
 /usr/share/bcc/tools/xfsslower
 ```
 
@@ -78,7 +78,7 @@ We have not yet launched `cachestat`.
 
 Run the following command.
 
-```bash
+```bash,run
 /usr/share/bcc/tools/cachestat
 ```
 
@@ -88,6 +88,6 @@ You should see the following header in the *cachestat* terminal, indicating that
     HITS   MISSES  DIRTIES  BUFFERS_MB  CACHED_MB
 </pre>
 
-In the *cachestat* terminal, you will get to see, in real time, the hits and misses on the Linux memory cache. The second column is MISSES, and the third column is HITS. You should see mostly 0 misses for the first part of the `yum update` workload (which you have not run yet). However, once you get to the installation of packages, you should see your misses start to increase as the operations start to interact with files on disk and other data not already cached in system memory.
+In the *cachestat* terminal, you will get to see, in real time, the hits and misses on the Linux memory cache. The second column is MISSES, and the third column is HITS. You should see mostly 0 misses for the first part of the `dnf update` workload (which you have not run yet). However, once you get to the installation of packages, you should see your misses start to increase as the operations start to interact with files on disk and other data not already cached in system memory.
 
-Now you are set up with several eBPF observability tools running and in the next step, you will begin observing the `yum update` sample workload.
+Now you are set up with several eBPF observability tools running and in the next step, you will begin observing the `dnf update` sample workload.
