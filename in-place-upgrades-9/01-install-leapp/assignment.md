@@ -44,14 +44,14 @@ Installing Leapp
 To get started, it is highly recommended that you update all packages on your system to the latest version available.
 
 ```bash,run
-yum update -y && reboot
+dnf update -y && reboot
 ```
 
-The terminal will lose connection with the rhel08 host leaving the message `exited`.
+The terminal will lose connection with the rhel08 host leaving the message `Connection to rhel08 closed`.
 
 ![exited](../assets/exited.png)
 
-You can reconnect the session in the `rhel08` tab if desired. Refresh the `rhel08` tab until you are reconnected.
+Refresh the `rhel08` tab until you are reconnected.
 
 ![refresh](../assets/refreshbutton.png)
 
@@ -63,7 +63,7 @@ cat /etc/redhat-release
 
 <pre class=file>
 # cat /etc/redhat-release
-Red Hat Enterprise Linux release 8.9 (Ootpa)
+Red Hat Enterprise Linux release 8.10 (Ootpa)
 </pre>
 
 Since you are already running a properly registered RHEL machine, you do not need to enable any additional repositories. Instead, simply use the DNF package manager to install leapp and its dependencies:

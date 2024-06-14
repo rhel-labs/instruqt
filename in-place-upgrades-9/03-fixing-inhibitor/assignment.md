@@ -18,11 +18,6 @@ You saw in the last step how Leapp produced an error in order to prevent a broke
 sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
 ```
 
-<pre class=file>
-# sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
-#
-</pre>
-
 There are other risks that were identified. If you are curious what else LEAPP found, take a closer look at the log file mentioned in the previous step:
 
 ```bash,run

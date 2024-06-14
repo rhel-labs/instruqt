@@ -3,60 +3,14 @@ slug: upgrading
 id: jpf3l5dgonih
 type: challenge
 title: Running the Upgrade
-notes:
-- type: text
-  contents: |-
-    Removed Text (Web Console):
-
-    The `Viewing Reboot` below shows how you can view the reboot/upgrade process.
-
-    Viewing Reboot (Optional)
-    =============
-    This step is optional but it may provide insight into the upgrade process. This lab provides a web console UI to the virtual machine host. You can log into the web UI to view the upgrade process after `reboot` has been executed.
-
-    Click on `RHEL Web Console`to log into the web UI.
-
-    ![web console tab](../assets/rhelwebconsoletab.png)
-
-    Use the following credentials to log into the web console.
-
-    Username
-    ```
-    rhel
-    ```
-
-    Password
-    ```
-    redhat
-    ```
-
-    ![web ui login](../assets/webuilogin.png)
-
-    Next, give yourself administrative access by clicking on the button `Turn on administrative access` and entering the password `redhat` again.
-
-    ![admin](../assets/adminaccess.png)
-
-    Navigate to `Virtual machines`
-
-    ![vms](../assets/virtualmachines.png)
-
-    Click on `rhel07`
-    ![rhel07](../assets/rhel07.png)
-
-    You can now view the upgrade process in the console window.
-
-    ![console](../assets/console.png)
-
-    Please continue to `Verifying the upgrade` below.
 tabs:
 - title: RHEL
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel08
-- title: Post-reboot
-  type: terminal
-  hostname: host
-  cmd: ssh -o "StrictHostKeyChecking no" rhel@rhel08
+- title: RHEL Web Console
+  type: browser
+  hostname: webconsole
 difficulty: basic
 timelimit: 1
 ---
@@ -99,8 +53,8 @@ A report has been generated at /var/log/leapp/leapp-report.txt
 Answerfile has been generated at /var/log/leapp/answerfile
 </pre>
 
->**Disclaimer:**
-The Leapp process can take upwards of 15 minutes to run.
+> [!IMPORTANT]
+> The Leapp process can take upwards of 15 minutes to run.
 <!-- The Leapp process can take upwards of 15 minutes to run. Instead of waiting for that process to complete, a second server has been running the upgrade in the background. If you would like to save some time switch to the 'webconsole' tab to finish the **Verifying the upgrade** section. -->
 
 <!-- ![rhelTabs.png](../assets/rhelTabs.png)
@@ -110,8 +64,9 @@ If you would like to proceed with the lab without waiting for the upgrade to com
 
 A reboot is required for the RHEL 9-based initial RAM disk image (initramfs), upgrades all packages and automatically reboots to the RHEL 9 system.
 
->**Pro Tip:** You can combine these two steps with the --reboot option
-`leapp upgrade --target 9.3 --reboot`
+> [!NOTE]
+> You can combine these two steps with the --reboot option
+> `leapp upgrade --target 9.4 --reboot`
 
 ```bash,run
 reboot
@@ -119,18 +74,60 @@ reboot
 
 Now, leapp is performing several actions inside a temporary environment. This includes creating a new initramfs image, relabeling SELinux contexts, and well as cleaning up any remaining RHEL 8 packages. The reboot process can take up to 15 minutes.
 
+The `Optional step` below shows how you can view the reboot/upgrade process.
+
+Verifying Reboot (Optional)
+=============
+This step is optional but it may provide insight into the upgrade process. This lab provides a web console UI to the virtual machine host. You can log into the web UI to view the upgrade process after `reboot` has been executed.
+
+Click on `RHEL Web Console`to log into the web UI.
+
+![web console tab](../assets/rhelwebconsoletab.png)
+
+Use the following credentials to log into the web console.
+
+Username
+```
+rhel
+```
+
+Password
+```
+redhat
+```
+
+![web ui login](../assets/webuilogin.png)
+
+Next, give yourself administrative access by clicking on the button `Turn on administrative access` and entering the password `redhat` again.
+
+![admin](../assets/adminaccess.png)
+
+Navigate to `Virtual machines`
+
+![vms](../assets/virtualmachines.png)
+
+Click on `rhel08`
+![rhel07](../assets/rhel07.png)
+
+You can now view the upgrade process in the console window.
+
+![console](../assets/console.png)
+
+Please continue to `Verifying the upgrade` below.
+
 Verifying the upgrade
 =====================
 Once the new initramfs image is in place, package updates run, and SELinux relabel completion, the system will perform one final reboot.
 
-Select the Post-reboot tab while the virtual machine is rebooting. You will likely have to click the Refresh button periodically until you are able to log back into your host.
+Refresh the Instruqt console to log back into your host, by clicking the button shown below.
 
 ![console](../assets/refreshtheconsole.png)
 
 Once that is done, you will be logged into the system's terminal once more. Finally, we will verify the update was successful by looking at the release file we referenced earlier in the lab:
 
-```bash,run
+```bash
 cat /etc/redhat-release
+
 ```
 
 Note that we are now running the latest version of RHEL 9!
@@ -142,8 +139,9 @@ Red Hat Enterprise Linux release 9.4 (Plow)
 
 OPTIONAL: You may also review the log file if you so choose. The full output is available at /var/log/leapp/leapp-upgrade.log
 
-```bash,run
+```bash
 sudo less /var/log/leapp/leapp-upgrade.log
+
 ```
 
 There are other methods for upgrading to the latest version of RHEL using the leapp tooling including the Web Console and Satellite. For those operations, refer to the documentation on Red Hat's website.
