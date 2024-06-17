@@ -12,7 +12,8 @@ difficulty: ""
 timelimit: 3300
 ---
 
-## Understanding the Convert2RHEL command
+Understanding the Convert2RHEL command
+===
 
 There are several different combinations of arguments that can be used to execute the conversion process. The main factor is registering your new RHEL system with an active subscription. Your choices are:
 
@@ -22,7 +23,8 @@ There are several different combinations of arguments that can be used to execut
 
 3) Including your organization ID and Activation Key as part of the command. This is more secure, however, finding your org-id and creating an activation key are outside the scope of this lab.
 
-## Running the Convert2RHEL analyze utility
+Running the Convert2RHEL analyze utility
+===
 
 <pre class='file'>
 convert2rhel --org < ORG ID > --activationkey  < KEY >
@@ -32,7 +34,6 @@ In order to automate this process as much as possible, you will kick off the con
 
 ```bash,run
 convert2rhel analyze --org 12451665 --activationkey convert2rhel
-
 ```
 
 >**Note:** This process will take some time!

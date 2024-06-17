@@ -12,8 +12,8 @@ difficulty: basic
 timelimit: 1
 ---
 
-## Running the conversion
-
+Running the conversion
+===
 Now that you have fixed the inhibitor, it is time to convert your system to RHEL.
 
 > [!NOTE]
@@ -21,7 +21,6 @@ Now that you have fixed the inhibitor, it is time to convert your system to RHEL
 
 ```bash,run
 convert2rhel --org 12451665 --activationkey convert2rhel -y
-
 ```
 
 <pre class='file'>

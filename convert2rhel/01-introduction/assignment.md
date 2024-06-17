@@ -24,7 +24,6 @@ Before you begin the installation process, verify that you are running CentOS Li
 
 ```bash,run
 cat /etc/centos-release
-
 ```
 
 <pre class='file'>
@@ -40,7 +39,6 @@ First, you will pull down the GPG signing key:
 
 ```bash,run
 curl -o /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release https://www.redhat.com/security/data/fd431d51.txt
-
 ```
 
 <pre class='file'>
@@ -54,7 +52,6 @@ Second, download the SSL certificate:
 
 ```bash,run
 curl --create-dirs -o /etc/rhsm/ca/redhat-uep.pem https://ftp.redhat.com/redhat/convert2rhel/redhat-uep.pem
-
 ```
 
 <pre class='file'>
@@ -68,7 +65,6 @@ Thirdly, download the convert2rhel repository file:
 
 ```bash,run
 curl -o /etc/yum.repos.d/convert2rhel.repo https://ftp.redhat.com/redhat/convert2rhel/7/convert2rhel.repo
-
 ```
 
 <pre class='file'>
