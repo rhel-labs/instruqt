@@ -1,0 +1,7 @@
+if grep "Scott" /home/nate/passkey &> /dev/null  && grep "RULES" /home/nate/passkey
+then
+  echo "Thanks"
+else
+  fail-message "Looks like the wrong content is the passkey file"  
+  exit 1
+fi

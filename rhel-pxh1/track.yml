@@ -1,0 +1,27 @@
+slug: rhel-pxh1
+id: a1ogmloa2o9o
+title: RHEL Pixel Hunter 1
+teaser: Can you save Nate?
+description: |-
+  # Goal:
+
+  That Nate guy is never around when you need him.
+
+  Looks like he's gotten caught in the machine, can you get him out?
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- smcbrien@redhat.com
+show_timer: true
+timelimit: 3060
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+  feedback_recap_enabled: true
+  loadingMessages: true
+  lab_v2: false
+  hideStopButton: false
+checksum: "3588218490695845506"

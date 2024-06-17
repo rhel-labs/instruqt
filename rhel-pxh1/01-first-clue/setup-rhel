@@ -1,0 +1,73 @@
+dnf -y install httpd
+
+useradd nate
+
+systemctl enable httpd --now
+sytemctl restart httpd
+
+logger -t nate '                              @@@@@@@@ @@               "Oh man, thank goodness '
+logger -t nate '                       @*,,,,,..,.,,,,,,,,,,,,,&         you found me.          '
+logger -t nate '                   @,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.                              '
+logger -t nate '                 (,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,       OK, so here is what I  '
+logger -t nate '               &,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,     need you to do.        '
+logger -t nate '              (,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,@                           '
+logger -t nate '             (,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*    I need you to help me '
+logger -t nate '            @,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,@  build a file in my    '
+
+systemctl restart httpd
+
+logger -t nate '            ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,#  home directory:      '
+logger -t nate '           (,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*%   /home/nate/passkey '
+logger -t nate '           ,,,,,.                 ......................,(                      '
+logger -t nate '          @.                .   .......................... .@                   '
+logger -t nate '          .               ................................. *                   '
+logger -t nate ',,,*/#&@#&            .    . .............................. .                   '
+logger -t nate '........,,,,,,****,,,*,.   . ............................... %                  '
+logger -t nate '............       ....,,,,,*********,,*,,,,,,,,,,,,******///////**////****,,*/ '
+
+systemctl restart httpd
+
+logger -t nate '/               .......,,,.,,,,,,,,*,,,,,,,,,,,,****,***,,,,,,,,,,,,,,,*(&@@@   '
+logger -t nate '         @.  .,..,,,*,,,,,,,,,,,,,*,*,**//((((((((/*,,((((/,                    '
+logger -t nate '      @*,////*,.,**/////***///(((((///////((((((((/,/#(,,/(     Please make     '
+logger -t nate '      (///((*/*,**////(((/**,*(,,((%#///////(#(#(/,,,,#/(((,    the first line  '
+logger -t nate '       @(/(/*///**////(((((//(//((/(#((((//(((#(#((((##((((,    read:           '
+logger -t nate '         @/(/(//**////(((##((((((###(((////(((#(#(#(((#(#((     Scott           '
+logger -t nate '           (/((/**/////(((#######((#((/////((((#########(((                     '
+logger -t nate '            ////***/////((((((###((((((/////(((((((#####((@                     '
+
+systemctl restart httpd
+
+logger -t nate '             ,@*****///((((((((###((((*/////((#####((##(#(@                     '
+logger -t nate '               *****////((((((#(((#(((////////((##(((####(                      '
+logger -t nate '              (*/***/////((((((#(#(##((((//(((((((#(((((#(                      '
+logger -t nate '      @@%,*//////*****//////(/((((((((((((((((##((///((((&                      '
+logger -t nate ' #,*...,..,./(////(**//////*///((((((((#((*/(##((////(((((%                     '
+logger -t nate ',*,,.,,.....,(//(/(**//////*////((((///(///*,.*./*////((@                       '
+logger -t nate ',,,,,,,,..,,,,/((((((**/*////*//////*****,*/,,.****,/,,@                        '
+logger -t nate ',,,,,,,...,..,..((((/((/*///*/*/**,...... ,,/,,.*(*/.,(,@                       '
+
+systemctl restart httpd
+
+
+logger -t nate ',.*,,,,,*,,.,,,.,./((/((((/*/*/*.  ..   ...,*.,.,//,***,&                       '
+logger -t nate ',*,,,,,,,,,,..,,....(((((((/***,.  . ... .......,/(.*,..,**#@                   '
+logger -t nate '.,,,,.,,,,,.,,......../((/////**,, ..      , . ..,*......***//(@                '
+logger -t nate ',,,,.,.,,.,,,,,,,...........,///** .. .    ..,...,.,,. ,.*******/@              '
+logger -t nate ',,,,,,,,,,,..,,,..,........... .. ...... . ...,.,. ,,,,..,*/*****/&            ' 
+logger -t nate ',,,,,,,*,,,,,,,,,...,,.,,..., .....,.....  .,,... .,*,,.,.********/,           ' 
+logger -t nate ',,,,**,,,,*,,,,,.,.,,.,.......  ..  .  .,.. . .. ,,...*..,*,*******&           ' 
+
+systemctl restart httpd
+
+logger -t nate ',,,,,****,,*,,,,*,,,......,.....  .....,,..... . * .,..,..,*****/**/&#         '
+logger -t nate ',,**,,***,,,*,,,*,,,,..,..........,  ... *..  ,... .*,*,.,,,**/*/****#,#%..@   '
+logger -t nate '*****,,,*,,***,,,,,,,,,..,,,....#.,....  *....., . . ,,.*,*****//**,%     /..   '
+logger -t nate '****,*********,*,*,*,,,,,,.,.,,,.,.............,,,. ..,,**/***/*///,/     /.  * '
+logger -t nate '**,*,********,******,,,,,,,,,,,,,,,.,.,,..,**.,,***,,,***,,**//****,/.@   *,   .'
+logger -t nate 'Oh no, I am being pulled away, the next clue is stored in a gpg encrypted file  '
+logger -t nate 'in my home directory.  You will have to be me to unencrypt it.  My passphrase   '
+logger -t nate 'is: Super733t'
+logger -t nate 'I used --pinentry-mode=loopback when encrypting it, you might need to use it too.'
+
+systemctl restart httpd
