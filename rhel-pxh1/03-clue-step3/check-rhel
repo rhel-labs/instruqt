@@ -1,0 +1,17 @@
+if ! grep '/var/tmp' /etc/fstab  | grep -v '^#' > /dev/null
+then
+  fail-message "It seems like you're missing a critial mount point in /etc/fstab"
+  exit 2
+elif ! grep '/var/tmp' /etc/fstab | grep -v '^#' | grep -v "noexec" >/dev/null
+then
+	fail-message "It looks like you haven't solved the root cause of the problem (or maybe your solution wont survive a reboot)"
+  exit 3
+elif ! mount | grep '/var/tmp' | grep -v noexec > /dev/null
+then
+  fail-message "You may have solved the problem, but not in the currently booted environment"
+  exit 4
+elif [ "`/var/tmp/critical-app 2>/dev/null`" != "Super critical Business-y app outputs." ]
+then
+  fail-message "That application output doesn't look SUPER BUSINESS-Y CRITICAL.  Something isn't right..."
+  exit 1
+fi
