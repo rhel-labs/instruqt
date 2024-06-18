@@ -20,4 +20,5 @@ lab_config:
   position: right
   feedback_recap_enabled: true
   loadingMessages: true
-checksum: "5477464847493065611"
+  hideStopButton: false
+checksum: "13512688885584340361"

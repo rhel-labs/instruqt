@@ -22,8 +22,8 @@ tee ~/startup-tmux.sh << EOF
 TMUX='' tmux new-session -d -s 'rhel-session' > /dev/null 2>&1
 tmux set -g pane-border-status top
 tmux setw -g pane-border-format ' #{pane_index} #{pane_current_command}'
-tmux set -g mouse on
-tmux set mouse on
+tmux set -g mouse off
+tmux set mouse off
 EOF
 
 #step 2: make it executable

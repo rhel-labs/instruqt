@@ -15,7 +15,7 @@ description: |+
 
   ## Example Usecase:
 
-  In order to standardize your infrastructure under a single platform, you need to convert your RPM-based servers over to Red Hat Enterprise Linux.
+  In order to standardize your infrasturcture under a single platform, you need to convert your RPM-based servers over to Red Hat Enterprise Linux.
 
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags:
@@ -26,11 +26,12 @@ owner: rhel
 developers:
 - myee@redhat.com
 show_timer: true
-timelimit: 3060
+timelimit: 6900
 lab_config:
   overlay: false
   width: 33
   position: right
   feedback_recap_enabled: true
   loadingMessages: true
-checksum: "5062612499863657327"
+  hideStopButton: false
+checksum: "5550403199580055487"
