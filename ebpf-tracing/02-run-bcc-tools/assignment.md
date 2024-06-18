@@ -75,8 +75,7 @@ The tool likely provided output, similar to that displayed above. Reviewing that
 Now, observe the tabs for the terminal.
 
 Click on the tab `gethostlatency`.
-
-![gethostlatencytab](../assets/gethostlatencytab.png)
+![gethostlatencytab.png](../assets/gethostlatencytab.png)
 
 The tool `gethostlatency` has been launched for you by running `/usr/share/bcc/tools/gethostlatency`.
 
@@ -91,8 +90,7 @@ TIME      PID    COMM                  LATms HOST
 The `gethostlatency` bcc-tool is showing latency statistics on the `getaddrinfo()` and `gethostbyname()` system calls. Effectively, you get to see how long these system calls take and which hostnames the applications need IP addresses for. This can be useful for discovering network connections that your applications are making.
 
 Next, click on the tab `tcplife`.
-
-![tcplifetab](../assets/tcplifetab.png)
+![tcplifetab.png](../assets/tcplifetab.png)
 
 `tcplife` was launched with the following command:
 
