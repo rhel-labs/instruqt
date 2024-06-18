@@ -25,9 +25,9 @@ tags:
 - satellite
 owner: rhel
 developers:
-- jlenz@redhat.com
 - myee@redhat.com
 - dsynk@redhat.com
+- jlenz@redhat.com
 show_timer: true
 idle_timeout: 1800
 timelimit: 6720
@@ -39,4 +39,4 @@ lab_config:
   feedback_recap_enabled: true
   loadingMessages: true
   hideStopButton: false
-checksum: "18222958615855865588"
+checksum: "4760474231553707041"

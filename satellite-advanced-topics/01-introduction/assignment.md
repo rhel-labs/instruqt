@@ -17,9 +17,6 @@ tabs:
 - title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 ---
 <!-- markdownlint-disable MD033 -->
@@ -68,24 +65,3 @@ Now click `Log In`.
 You will be taken to the main dashboard.
 
 ![main menu](../assets/main-menu.png)
-
-Access the RHEL Host
-===================================
-
-At the top of the screen, you'll find a tab for the host `rhel1`. Terminal and Web Console access are provided.
-
-![hosts tabs](../assets/hosts-tabs.png)
-
-The credentials are the following:
-
-Username:
-
-```
-rhel
-```
-
-Password:
-
-```
-redhat
-```

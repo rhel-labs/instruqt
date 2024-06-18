@@ -24,9 +24,6 @@ tabs:
 - title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: ""
 ---
 
@@ -44,16 +41,16 @@ Import the ssl certificate from satellite.lab
 
 In order to secure the synchronization process between upstream and downstream satellite servers, we need to import the upstream (`satellite.lab`) SSL certificate into the downstream satellite server (`satellite-2.lab`).
 
-Enter the following command into the `Satellite Server 2` terminal.
+Enter the following command into the [button label="Satellite Server 2"](tab-2) terminal.
 
-```
+```bash,run
 wget -P ~ http://satellite.lab/pub/katello-server-ca.crt
 ```
 This command will download the `katello-server-ca.crt` from `satellite.lab` to `satellite-2.lab`.
 
-Next, in the `Satellite Server 2` terminal, use the following command to import the certificate.
+Next, in the [button label="Satellite Server 2"](tab-2) terminal, use the following command to import the certificate.
 
-```
+```bash,run
 hammer content-credential create \
 --content-type cert \
 --name "satellite.lab" \

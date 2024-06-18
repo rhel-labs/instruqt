@@ -17,9 +17,6 @@ tabs:
 - title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 ---
 The first activity in this lab is to create an ansible playbook to automatically configure the Satellite server. Red Hat provides an Ansible collection to manage Red Hat Satellite configuration. Ansible playbooks are useful for building disaster recovery instances of Satellite, or any other task that requires a second Satellite server, including testing, and upgrades.
@@ -29,7 +26,7 @@ Documentation for the Satellite Ansible collection can be found [here](https://c
 Install the Satellite Ansible collection
 ========================================
 > [!NOTE]
-> To reduce the amount of time waiting for for satellite operations to complete, the Satellite Ansible Collection has been preinstalled.
+> To reduce the amount of time waiting for for satellite operations to complete, the Satellite Ansible Collection has been preinstalled. Please read over this section and go to the next step.
 
 > [!WARNING]
 > Proceed to the next step.
@@ -51,11 +48,13 @@ The playbook below is simply an example.
 > [!WARNING]
 > Never put clear text passwords in your playbook.
 
-Copy and paste the code block below into the `Satellite Server` terminal.
+Click this button [button label="Satellite Server"](tab-0) to switch to the `Satellite Server` terminal.
 
 ![sat term](../assets/satellite-server-tab.png)
 
-```bash
+Next, click `run` below to write the following ansible playbook.
+
+```bash,run
 tee ~/config.yml << EOF
 ---
 - name: Configure Satellite 6.15
@@ -117,9 +116,9 @@ Here's what each of the tasks does.
 Execute the playbook
 =====================
 
-Execute the playbook with the following command.
+Execute the playbook by clicking on `run`.
 
-```
+```bash,run
 ansible-playbook config.yml
 ```
 

@@ -17,9 +17,6 @@ tabs:
 - title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: ""
 ---
 In this assignment we'll upload software into a custom repository in Satellite. This process involves creating the following:
@@ -32,9 +29,9 @@ A yum package called `hello-0.0.1-1.el9.noarch.rpm` has been downloaded to `/roo
 Create a custom product, repository, and upload a file
 ======================================================
 
-Copy and paste the following playbook into the `Satellite Server` terminal.
+Add the following playbook to the `Satellite Server` by first clicking on this button [button label="Satellite Server"](tab-0). Then click on `run` below.
 
-```
+```bash,run
 tee ~/customrepo.yml << EOF
 ---
 - name: Create a custom product, a custom repository, and upload an RPM.
@@ -81,7 +78,8 @@ This playbook dows the following:
 
 3) Upload a file from `/root/hello-0.0.1-1.el9.noarch.rpm` to `My custom repository`.
 
-```
+Run the playbook.
+```bash,run
 ansible-playbook customrepo.yml
 ```
 
@@ -92,9 +90,9 @@ In order to make the `hello` rpm available to `rhel`, we must add the repo to th
 
 To replicate the custom repository we just created in this assignment, we'll need to update the `RHEL9` content view to add `My custom repository` and publish it. Then we'll promote the new version of the `RHEL9` content view to the `Capsule Production` lifecycle environment which will automatically synchronize to `capsule.lab`.
 
-Copy and paste the following playbook to the `Satellite Server` terminal.
+Add the following playbook to the `Satellite Server` by first clicking on this button [button label="Satellite Server"](tab-0). Then click on `run` below.
 
-```
+```bash,run
 tee ~/customrepopublishpromote.yml << EOF
 ---
 - name: Publish and promote a new version of the RHEL9 content view.
@@ -129,7 +127,7 @@ EOF
 
 Run the playbook.
 
-```
+```bash,run
 ansible-playbook customrepopublishpromote.yml
 ```
 
@@ -138,34 +136,34 @@ Publishing and promoting a new version of the RHEL9 content view will trigger a 
 Enable "My custom repository"
 =============================
 
-View the repositories available to `rhel1`. In the `rhel1` terminal, enter the following.
+View the repositories available to `rhel1`. In the [button label="rhel1"](tab-2) terminal, run the following.
 
-```
+```bash,run
 subscription-manager repos
 ```
 Here's the output.
 
 ![repos](../assets/reposavailable.png)
 
-In the `rhel1` terminal, run the following command to enable `My custom repository`.
+In the [button label="rhel1"](tab-2) terminal, run the following command to enable `My custom repository`.
 
-```
+```bash,run
 subscription-manager repos --enable Acme_Org_My_custom_product_My_custom_repository
 ```
 
 Install the rpm on rhel1
 ========================
 
-In the `rhel1` terminal run the following command.
+In the [button label="rhel1"](tab-2) terminal run the following command.
 
-```
+```bash,run
 dnf install -y hello
 ```
 ![install](../assets/helloinstall.png)
 
-Test the installation by running the following command in the `rhel1` terminal.
+Test the installation by running the following command in the [button label="rhel1"](tab-2) terminal.
 
-```
+```bash,run
 hello.sh
 ```
 

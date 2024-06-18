@@ -24,9 +24,6 @@ tabs:
 - title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: ""
 ---
 
@@ -37,9 +34,9 @@ Create a new content view
 
 In order to save time, we'll create a new content view with a minimal amount of software.
 
-Copy and paste the following playbook into the `Satellite Server` terminal.
+Copy and paste the following playbook into the [button label="Satellite Server"](tab-0) terminal.
 
-```
+```bash,run
 tee ~/createandpublishissexport.yml << EOF
 ---
 - name: Create a new CV "ISS Export".
@@ -72,9 +69,9 @@ EOF
 
 This playbook creates a new content view called `ISS export` containing the repository `My custom repository`. Then the playbook publishes and promotes the content view `ISS Export` to the `Library` lifecycle environment.
 
-Run the `createandpublishissexport.yml` playbook in the `Satellite Server` terminal.
+Run the `createandpublishissexport.yml` playbook in the [button label="Satellite Server"](tab-0) terminal.
 
-```
+```bash,run
 ansible-playbook createandpublishissexport.yml
 ```
 
@@ -83,26 +80,26 @@ Create an Inter-Satellite Sync export
 
 Now we'll export the content view `ISS Export` as an ISS export.
 
-Copy and paste the following command into the `Satellite Server` terminal.
+Copy and paste the following command into the [button label="Satellite Server"](tab-0) terminal.
 
-```
+```bash,run
 hammer content-export complete version --content-view "ISS Export" --version "1.0" --organization "Acme Org"
 ```
 
 Copy the exported data to satellite-2.lab
 ===
 
-On `satellite.lab`, you can find the exported data in `/var/lib/pulp/exports/Acme_Org/Default_Organization_View/1.0/`.
+On the [button label="Satellite Server"](tab-0), you can find the exported data in `/var/lib/pulp/exports/Acme_Org/Default_Organization_View/1.0/`.
 
-```
+```bash,run
 ls /var/lib/pulp/exports/Acme_Org/ISS_Export/1.0/*/
 ```
 
 ![](../assets/exportedcv.png)
 
-In the `Satellite Server` terminal run the following command.
+In the[button label="Satellite Server"](tab-0) terminal run the following command.
 
-```
+```bash,run
 scp -o "StrictHostKeyChecking no" -rp /var/lib/pulp/exports/Acme_Org/ISS_Export/1.0/*/ satellite-2.lab:/var/lib/pulp/imports/Acme_Org/
 ```
 
@@ -113,15 +110,15 @@ This command will create a new directory on `satellite-2.lab` in `/var/lib/pulp/
 Import the exported data into satellite-2.lab
 ===
 
-We need to change the ownership of the data we just exported to the `pulp` account and group. Switch to the `Satellite Server 2` terminal and enter the following command.
+We need to change the ownership of the data we just exported to the `pulp` account and group. Switch to the [button label="Satellite Server 2"](tab-2) terminal and enter the following command.
 
-```
+```bash,run
 chown -R pulp:pulp /var/lib/pulp/imports/Acme_Org/
 ```
 
-In the `Satellite Server 2` terminal, run the following command.
+In the [button label="Satellite Server 2"](tab-2) terminal, run the following command.
 
-```
+```bash,run
 hammer content-import version --organization "Acme Org" --path "/var/lib/pulp/imports/Acme_Org"
 ```
 
