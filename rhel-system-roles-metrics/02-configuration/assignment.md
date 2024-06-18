@@ -24,18 +24,20 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-
+Configure the playbook
+===
 Let's create a directory to store our playbook as well as a sub-directory to store playbook variables.
 
-```bash
+```bash,run
 mkdir -p metrics
 ```
 
 Next, we'll create an inventory file for the playbook. This inventory file contains a list of hosts and the role they will be assigned when the playbook is run as well as all the variables required to be set. These include things like PCP retention settings, and the ports that we will open to enable PCP and Grafana.
 
-> _NOTE:_ A `README` document for RHEL System Roles is available in the `/usr/share/doc/rhel-system-roles/metrics` directory, including example playbooks.
+> [!NOTE]
+> A `README` document for RHEL System Roles is available in the `/usr/share/doc/rhel-system-roles/metrics` directory, including example playbooks.
 
-```bash
+```bash,run
 tee -a ~/metrics/inventory.yml << EOF
 all:
   children:
@@ -70,9 +72,11 @@ The following variables designate the `rhel` host to run the `metrics_graph_serv
 
 ![metrics monitor](../assets/metricsmonitor.png)
 
+Create the main playbook
+===
 Create the main playbook file. Notice that we are using both the `metrics` and `firewall` system roles. Earlier, we specified ports to open for the `pmcd` and `grafana` services in the inventory.
 
-```bash
+```bash,run
 tee -a ~/metrics/metrics.yml << EOF
 - name: Use metrics system role to configure PCP metrics recording
   hosts: servers
@@ -88,9 +92,11 @@ tee -a ~/metrics/metrics.yml << EOF
 EOF
 ```
 
+Run the playbook
+===
 Now run the playbook.
 
-```bash
+```bash,run
 cd metrics
 ansible-playbook metrics.yml -b -i inventory.yml
 ```

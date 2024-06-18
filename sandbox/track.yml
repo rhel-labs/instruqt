@@ -25,5 +25,7 @@ lab_config:
   overlay: false
   width: 33
   position: right
+  feedback_recap_enabled: true
   loadingMessages: true
-checksum: "10052071418545176813"
+  hideStopButton: false
+checksum: "10454368521896208691"

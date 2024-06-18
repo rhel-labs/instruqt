@@ -13,19 +13,20 @@ tabs:
   hostname: host1
 difficulty: basic
 ---
-## Activating the connection
+Activating the connection
+===
 
 The changes we've made to the connection `ethernet1` have not been activated.
 
 Run the `nmcli con up` command to activate the static connection that you configured in the previous step:
 
-```bash
+```bash,run
 nmcli con up ethernet1
 ```
 
 Run the following to check the ip address and dhcp settings are correctly configured.
 
-```bash
+```bash,run
 nmstatectl show enp7s0 | grep -A 10 ipv4
 ```
 
@@ -35,7 +36,7 @@ You can see that the address is configured with `192.168.122.110/32` with `dhcp`
 
 Enter the following to check the default gateway.
 
-```bash
+```bash,run
 nmstatectl show | grep -A 10 routes
 ```
 

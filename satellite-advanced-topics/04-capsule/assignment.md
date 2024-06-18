@@ -22,9 +22,6 @@ tabs:
 - title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
 - title: Notepad
   type: code
   hostname: rhel1
@@ -51,9 +48,9 @@ We need to provide the following repositories to the capsule server.
 
 - `satellite-maintenance-6.15-for-rhel-8-x86_64-rpms`
 
-Copy and paste the following playbook to the satellite server in the `Satellite Server` terminal.
+Copy and paste the following playbook to the satellite server in the [button label="Satellite Server"](tab-0) terminal.
 
-```
+```bash,run
 tee ~/capsulerepos.yml << EOF
 ---
 - name: Add and sync capsule server repositories.
@@ -133,7 +130,7 @@ EOF
 
 Run the playbook.
 
-```
+```bash,run
 ansible-playbook capsulerepos.yml
 ```
 
@@ -147,29 +144,29 @@ Register the Capsule host with Satellite
 
 Register the host `capsule` with satellite.
 
-You can generate a host registration script on the `Satellite Server` terminal with the following command.
+You can generate a host registration script on the [button label="Satellite Server"](tab-0) terminal with the following command.
 
 >  [!NOTE]
 >  This registration script is specific to the capsule and provides access to RHEL 8 repos.
 
-```
+```bash,run
 hammer host-registration generate-command --insecure 1 --setup-insights 0 --force 1 --activation-key RHEL8
 ```
 > [!IMPORTANT]
-> Copy the output of this command from the `Satellite Server` terminal, paste it into the `Capsule` terminal, and run it.
+> Copy the output of this command from the  [button label="Satellite Server"](tab-0) terminal, paste it into the  [button label="Capsule"](tab-2) terminal, and run it.
 
 Configure the repositories on the Capsule host
 ===
 
-To install the capsule software, we have to configure the correct repositories. Run the following command in the `Capsule` terminal to disable repos.
+To install the capsule software, we have to configure the correct repositories. Run the following command in the [button label="Capsule"](tab-2) terminal to disable repos.
 
-```
+```bash,run
 subscription-manager repos --disable "*"
 ```
 
 Now enable the repositories the required repositories.
 
-```
+```bash,run
 subscription-manager repos --enable=rhel-8-for-x86_64-baseos-rpms \
 --enable=rhel-8-for-x86_64-appstream-rpms \
 --enable=satellite-capsule-6.15-for-rhel-8-x86_64-rpms \
@@ -178,7 +175,7 @@ subscription-manager repos --enable=rhel-8-for-x86_64-baseos-rpms \
 
 Enable the satellite module.
 
-```
+```bash,run
 dnf module enable satellite-capsule:el8 -y
 ```
 
@@ -188,9 +185,9 @@ dnf module enable satellite-capsule:el8 -y
 Install the capsule software
 ===
 
-Run the following command to install the capsule software.
+On the [button label="Capsule"](tab-2) server run the following command to install the capsule software.
 
-```
+```bash,run
 dnf install satellite-capsule -y
 ```
 > [!NOTE]
@@ -199,15 +196,15 @@ dnf install satellite-capsule -y
 Export the Default SSL Certificate from the Satellite server
 ===
 
-On the **Satellite server**, in the `Satellite Server` terminal, create a directory to store the SSL certificate.
+On the [button label="Satellite Server"](tab-0), in the `Satellite Server` terminal, create a directory to store the SSL certificate.
 
-```
+```bash,run
 mkdir /root/capsule_cert
 ```
 
-Generate the capsule certificate by entering the following in the `Satellite Server` terminal.
+Generate the capsule certificate by entering the following in the [button label="Satellite Server"](tab-0) terminal.
 
-```
+```bash,run
 capsule-certs-generate \
 --foreman-proxy-fqdn capsule.lab \
 --certs-tar /root/capsule_cert/capsule.lab-certs.tar
@@ -222,16 +219,16 @@ Here's what the output should look like.
 
 > [!IMPORTANT]
 > Record the instructions in the output of the command. You'll need these!
-> A Notepad has been provided in the `Notepad` tab. You can copy and paste the registration command to it.
+> A Notepad has been provided in the [button label="Notepad"](tab-4) tab. You can copy and paste the registration command to it.
 > ![](../assets/notepad.png)
 > ![](../assets/notepad2.png)
 
 Copy the certificate from `satellite.lab` to `capsule.lab`
 ===
 
-Copy the certificate from `satellite.lab` to `capsule.lab`.
+Copy the certificate from[button label="Satellite Server"](tab-0) to `capsule.lab`. In the [button label="Satellite Server"](tab-0) run the following command.
 
-```
+```bash,run
 scp -o StrictHostKeyChecking=no /root/capsule_cert/capsule.lab-certs.tar capsule.lab:/root/capsule.lab-certs.tar
 ```
 
@@ -242,7 +239,7 @@ Run the capsule configuration task
 
 Before proceeding, check that the capsule software installation is complete.
 
-As per the instructions from the output of the `capsule-cert-generate`, copy, paste and run the `satellite-installer` command in the `Capsule` terminal.
+As per the instructions from the output of the `capsule-cert-generate`, copy, paste and run the `satellite-installer` command in the [button label="Capsule"](tab-2) terminal.
 
 ![instructions](../assets/certssatelliteinstaller.png)
 
@@ -252,10 +249,8 @@ Here's what the output should look like.
 
 ![capsulecopy](../assets/capsuleop.gif)
 
-Discussion
-===
-
-In this part of the lab, we'll talk about capsule deployment strategies while the capsule is configured.
+> [!WARNING]
+> Capsule configuration takes about 5 minutes to complete.
 
 Configure lifecycle environment and content views
 ===
@@ -272,9 +267,9 @@ To read more about lifecycle environments, please refer to the official document
 
 To read more about content views, please refer to the official documentation [here](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.15/html/managing_content/managing_content_views_content-management).
 
-Copy and paste the following playbook into the `Satellite Server` terminal.
+Copy and paste the following playbook into the [button label="Satellite Server"](tab-0) terminal.
 
-```
+```bash,run
 tee ~/capsulesync.yml << EOF
 ---
 - name: Configure a lifecycle environment and a content view.
@@ -318,7 +313,7 @@ EOF
 
 Run the playbook.
 
-```
+```bash,run
 ansible-playbook capsulesync.yml
 ```
 
@@ -373,9 +368,9 @@ Click on `Optimized Sync` to synchronize repo metadata to the capsule.
 Migrate rhel1 to the capsule server.
 ===
 
-In the `rhel1` terminal enter the following command to view the redhat.repo file.
+In the [button label="rhel1"](tab-3) terminal enter the following command to view the redhat.repo file.
 
-```
+```bash,run
 cat /etc/yum.repos.d/redhat.repo
 ```
 
@@ -417,9 +412,9 @@ In the `Run job` menu, click on `Run on selected hosts`.
 
 You can verify that `rhel1` was successfully migrated to `capsule.lab` by viewing the `/etc/yum.repo.d/redhat.repo file.
 
-In the `rhel1` terminal, run this.
+In the [button label="rhel1"](tab-3) terminal, run this.
 
-```
+```bash,run
 cat /etc/yum.repos.d/redhat.repo
 ```
 

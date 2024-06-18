@@ -23,7 +23,8 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-
+Log into Grafana
+===
 In the previous challenge, we installed Grafana on `rhel` and PCP on `rhel2` and `rhel3`.
 
 Click on the `RHEL Grafana Console` tab.
@@ -46,6 +47,8 @@ admin
 
 ![Grafana Login Menu](../assets/grafanaloginmenu.png)
 
+Grafana first login
+===
 Upon successful login, Grafana will ask you to change the password. Skip this for now by clicking on `Skip`.
 
 ![Skip password](../assets/skippassword.png)
