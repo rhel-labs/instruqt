@@ -32,7 +32,7 @@ Performance Co-Pilot (PCP) is a suite of tools, services, and libraries for coll
 
 First step is to install the PCP packages using dnf:
 
-```bash
+```bash,run
 dnf install -y pcp-zeroconf
 ```
 
@@ -40,13 +40,13 @@ This RPM includes a number of PCP-related tools as dependencies to the main pcp 
 
 Next, start and enable the **PCP's Collector Daemon (PMCD)** to start collecting system performance data:
 
-```bash
+```bash,run
 systemctl enable --now pmcd
 ```
 
 Check the status of the enabled PMCD service:
 
-```bash
+```bash,run
 systemctl status pmcd --no-pager
 ```
 
@@ -63,7 +63,7 @@ As shown in the output snippet above, verify that your system's pmcd service is 
 
 Finally, look at the basic system information provided by the PCP command:
 
-```bash
+```bash,run
 pcp
 ```
 

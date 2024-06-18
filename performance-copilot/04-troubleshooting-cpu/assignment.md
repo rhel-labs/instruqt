@@ -22,13 +22,13 @@ In the background, the server has kicked off a proces that is putting a heavy st
 
 Let's launch a process that will generate a heavy strain on the CPUs. In the `Terminal`, run the following:
 
-```bash
+```bash,run
 nohup /usr/bin/stress-ng --cpu 2 > stress.out 2> stress.err < /dev/null & disown
 ```
 
 One of the quickest ways to assertain the root of the problem is with a live view of performance in a top-like interface:
 
-```bash
+```bash,run
 pcp htop
 ```
 

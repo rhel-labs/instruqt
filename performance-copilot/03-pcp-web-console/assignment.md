@@ -18,13 +18,13 @@ timelimit: 1
 
 One of the easiest ways to observe the performance status of a RHEL server is via the Web Console, based on the upstream Cockpit project. As the web console is built to be modular, you will need to install the plugin for PCP:
 
-```bash
+```bash,run
 dnf install -y cockpit-pcp
 ```
 
 Then start the web console:
 
-```bash
+```bash,run
 systemctl enable --now cockpit.socket
 ```
 
