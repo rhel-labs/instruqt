@@ -31,9 +31,9 @@ timelimit: 1
 
 So far we have configured 2 RHEL hosts (`rhel2`, `rhel3`) to be monitored and have their performance metrics collected by host running Grafana and Redis (`rhel`). We'll now edit the play book to configure and add another host `rhel4`. This exercise is useful as you add more and more hosts to your datacenter.
 
-The following configuration file will install PCP on the host `rhel4`. As well, it will tell the `rhel` Grafana host to monitor `rhel4`, in addition to the other hosts. Copy and paste this to the cli and press enter.
+The following configuration file will install PCP on the host `rhel4`. As well, it will tell the `rhel` Grafana host to monitor `rhel4`, in addition to the other hosts. Run this command in the [button label="rhel"](tab-0) terminal.
 
-```bash
+```bash,run
 tee ~/metrics/inventory.yml << EOF
 all:
   children:
@@ -63,7 +63,7 @@ EOF
 
 You may notice the only change made has been to add `rhel4` to this section:
 
-```yaml
+```yaml,nocopy
 all:
   children:
     servers:
@@ -77,7 +77,7 @@ You may ask yourself why we did not remove the originally configured hosts or th
 
 Run the playbook with the following command to execute the modified playbook.
 
-```bash
+```bash,run
 ansible-playbook ~/metrics/metrics.yml -b -i ~/metrics/inventory.yml
 ```
 

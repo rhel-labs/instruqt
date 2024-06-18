@@ -23,6 +23,8 @@ tabs:
 difficulty: basic
 timelimit: 3000
 ---
+Introduction
+===
 In this lab there are 4 hosts. Below is a description of them and their purpose.
 
 | Host | Description |
@@ -36,13 +38,13 @@ Initially we will configure the first 3 hosts. After, we will add `rhel4` to the
 
 We'll start by installing RHEL System Roles on `rhel`
 
-First, click on the menu tab labelled `rhel`.
+First, click on the menu tab labelled `rhel`. Click this button [button label="rhel"](tab-0) to switch to the `rhel` tab.
 
 ![rhel tab](../assets/rhel_tab.png)
 
-Copy and paste the following command into the `rhel` terminal.
+Click the `run` button to run the following command into the `rhel` terminal.
 
-```bash
+```bash,run
 dnf install -y rhel-system-roles
 ```
 
