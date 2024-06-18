@@ -20,8 +20,8 @@ tags:
 - rhel
 owner: rhel
 developers:
-- wkibbe@redhat.com
 - myee@redhat.com
+- wkibbe@redhat.com
 show_timer: true
 lab_config:
   overlay: false
@@ -30,4 +30,4 @@ lab_config:
   feedback_recap_enabled: true
   loadingMessages: true
   hideStopButton: false
-checksum: "10673811571402124129"
+checksum: "3086251395032283572"
