@@ -10,17 +10,17 @@ tabs:
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel07
 difficulty: basic
 ---
-# Running the pre-upgrade assistant and resolving issues
+Running the pre-upgrade assistant and resolving issues
+===
 
 Built into the leapp tool is a utility that collects data about the system, assesses upgradability, and generates a pre-upgrade report. On your lab system, perform the pre-upgrade test: (This process will take a couple minutes.)
 
-```bash
-leapp preupgrade --target 8.9
-
+```bash,run
+leapp preupgrade --target 8.10
 ```
 
 <pre class=file>
-# leapp preupgrade --target 8.9
+# leapp preupgrade --target 8.10
 ==> Processing phase `configuration_phase`
 ====> * ipu_workflow_config
         IPU workflow config actor
@@ -63,9 +63,8 @@ Answerfile has been generated at /var/log/leapp/answerfile
 
 Notice how the upgrade was "inhibited" because the preupgrade assistant requires your input on one or more issues before it will safely proceed. The preupgrade tool has generated an answerfile in `/var/log/leapp`. Inside of this file, it has generated a true/false question regarding PAM PKCS11 modules:
 
-```bash
+```bash,run
 cat /var/log/leapp/answerfile
-
 ```
 
 <pre class=file>
