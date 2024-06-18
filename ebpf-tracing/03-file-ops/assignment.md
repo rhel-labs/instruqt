@@ -35,7 +35,7 @@ Let's explore two more bcc-tools in separate terminal tabs before you start obse
 
 Click on the `filetop` tab.
 
-![filetop](../assets/filetoptab.png)
+![filetoptab.png](../assets/filetoptab.png)
 
 The `filetop` tool was launched by running the following command.
 
