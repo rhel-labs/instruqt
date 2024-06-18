@@ -11,13 +11,14 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-## Using PCP for system metrics
+Using PCP for system metrics
+===
 
 PCP can collect and show a host of different system kernel metrics.
 
 To display all the enabled performance metrics and include a short description, you can use the `pminfo` command:
 
-```bash
+```bash,run
 pminfo -t
 ```
 
@@ -31,13 +32,14 @@ disk.dev.total [per-disk total (read+write) operations]
 
 As you can see, there are a lot of performance metrics (over 3400!). `pminfo` displays not only the performance metric name, but also a brief description of the data it collects. Check out `man pminfo` if you are interested in more details about the `pminfo` tool.
 
-## Monitoring performance using PCP
+Monitoring performance using PCP
+===
 
 The `pmval` utility takes any of the available metrics and reports them in formatted output. The different metrics present varying forms and amounts of data, determined by the metric collected, not by the `pmval` command.
 
 As an example, in the command below, command reports idle processor utilization metric (kernel.percpu.cpu.idle) for each CPU on the host, every 1 second (-t 1) during an overall 5 second time window (-T 5):
 
-```bash
+```bash,run
 pmval -t 1 -T 5 kernel.percpu.cpu.idle
 ```
 
