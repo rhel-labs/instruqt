@@ -1,6 +1,6 @@
-slug: rhel-ts2
-id: yxnqqhsuuaz3
-title: RHEL Troubleshooting Two
+slug: rhel-ts4
+id: 5rdi7ukrtxok
+title: RHEL Troubleshooting Challenge Four
 teaser: Can you fix this broken RHEL system?
 description: |-
   You've walked in to the office, and barely feel the warmth of your first mug of coffee when your boss, **Scott**, calmly walks up to you.
@@ -11,14 +11,14 @@ tags:
 - rhel
 owner: rhel
 developers:
-- nlager@redhat.com
+- smcbrien@redhat.com
 show_timer: true
 timelimit: 3120
 lab_config:
   overlay: false
   width: 33
-  position: left
+  position: right
   feedback_recap_enabled: true
   loadingMessages: true
   hideStopButton: false
-checksum: "6897409251947015115"
+checksum: "12494607573552295388"
