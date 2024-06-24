@@ -1,0 +1,24 @@
+version: "3"
+virtualmachines:
+- name: idmserver
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-0-06-13-2022-1
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-1
+  allow_external_ingress:
+  - http
+  - https
+  - high-ports
+- name: idmclient
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-0-06-13-2022-1
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-1
+  allow_external_ingress:
+  - http
+  - https
+  - high-ports
+secrets:
+- name: ACTIVATION_KEY
