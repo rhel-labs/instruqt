@@ -5,30 +5,10 @@ do
     sleep 1
 done
 
-# This has to be run after installation. 
-systemctl enable --now cockpit.socket
-
-firewall-cmd --permanent --add-service=cockpit 
-firewall-cmd --permanent --add-service=dns
-firewall-cmd --permanent --add-service=freeipa-4
-firewall-cmd --permanent --add-service=freeipa-ldap
-firewall-cmd --permanent --add-service=freeipa-ldaps
-firewall-cmd --permanent --add-service=freeipa-replication
-firewall-cmd --permanent --add-service=freeipa-trust
-firewall-cmd --reload
-
+# Standard Track configuration for subscription manager and user
 subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
-export IDM_SERVER_NAME=idmserver.${_SANDBOX_ID}.instruqt.io
-export IDM_REPLICA_NAME=idmreplica.${_SANDBOX_ID}.instruqt.io
-export IDM_CLIENT_NAME=idmclient.${_SANDBOX_ID}.instruqt.io
-export DOMAIN=${_SANDBOX_ID}.instruqt.io
-export REALM=${DOMAIN^^}
-
-dnf -y install bind-utils
-dnf -y install ipa-server ipa-server-dns ipa-healthcheck
- 
 echo "Adding wheel" > /root/post-run.log
 usermod -aG wheel rhel
 
@@ -38,22 +18,39 @@ echo redhat | passwd --stdin rhel
 echo "enable bash completion in the root's instruqt shell" >> /root/post-run.log
 echo "source /etc/profile.d/bash_completion.sh" >> /root/.bashrc
 
+# Enable cockpit
+systemctl enable --now cockpit.socket
+
+# Enable firewall for IdM Server
+firewall-cmd --permanent --add-service=cockpit 
+firewall-cmd --permanent --add-service=dns
+firewall-cmd --permanent --add-service=freeipa-4
+firewall-cmd --permanent --add-service=freeipa-ldap
+firewall-cmd --permanent --add-service=freeipa-ldaps
+firewall-cmd --permanent --add-service=freeipa-replication
+firewall-cmd --permanent --add-service=freeipa-trust
+firewall-cmd --reload
+
+# create exports for scripts
+export IDM_SERVER_NAME=idmserver.${_SANDBOX_ID}.instruqt.io
+export IDM_REPLICA_NAME=idmreplica.${_SANDBOX_ID}.instruqt.io
+export IDM_CLIENT_NAME=idmclient.${_SANDBOX_ID}.instruqt.io
+export DOMAIN=${_SANDBOX_ID}.instruqt.io
+export REALM=${DOMAIN^^}
+
+# install the idm software
+dnf -y install bind-utils
+dnf -y install ipa-server ipa-server-dns ipa-healthcheck
+
 echo "DONE" >> /root/post-run.log
 
-tee -a /root/labsetup.sh << EOF
-#!/bin/bash
-IDM=\$(nslookup idmserver | awk '/^Address: / { print \$2 }')
-sed -i "s/\$IDM.*/\$IDM $IDM_SERVER_NAME/g" /etc/hosts
-sleep 5
-hostnamectl set-hostname $IDM_SERVER_NAME
-hostnamectl 
-ping -c 3 $IDM_SERVER_NAME
-EOF
-
-chmod +x /root/labsetup.sh
-
+# ditch the rhui repos
 mv /etc/yum.repos.d/google-cloud.repo /root
+
+# timezone
 timedatectl set-timezone America/New_York
+
+# agent variables
 agent variable set sandbox_id $_SANDBOX_ID
 agent variable set realm $REALM
 agent variable set domain $DOMAIN

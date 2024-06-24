@@ -4,7 +4,8 @@ title: Identity Management Workshop - Part I
 teaser: Learn the basics of Red Hat Identity Management in Red Hat Enterprise Linux.
 description: |
   # Overview:
-  Identity Management (IdM) in Red Hat Enterprise Linux provides a centralized and unified way to manage identity stores, authentication, policies, and authorization policies in a Linux-based domain.
+  Identity Management (IdM) in Red Hat Enterprise Linux provides a centralized and unified
+  way to manage identity stores, authentication, policies, and authorization policies in a Linux-based domain.
 
   This is a workshop lab. It is estimated to take 4 hours. This lab is provisioned with a lifetime of 8 hours.
 
@@ -36,11 +37,14 @@ developers:
 - parmstro@redhat.com
 show_timer: true
 skipping_enabled: true
+timelimit: 300
 lab_config:
   overlay: false
   width: 33
   position: right
   feedback_recap_enabled: true
   loadingMessages: true
+  lab_v2: false
+  override_challenge_layout: false
   hideStopButton: false
-checksum: "1497774919105361968"
+checksum: "11412082090578025560"
