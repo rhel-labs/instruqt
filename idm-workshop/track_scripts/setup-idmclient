@@ -89,6 +89,7 @@ nslookup $IDM_SERVER_NAME
 EOF
 
 chmod +x /root/labsetup.sh
+source /root/labsetup.sh
 
 # mv /etc/yum.repos.d/google-cloud.repo /root
 

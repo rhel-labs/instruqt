@@ -57,6 +57,8 @@ EOF
 
 # make it executable
 chmod +x /root/labsetup.sh
+source /root/labsetup.sh
+
 # ditch the rhui repos
 # mv /etc/yum.repos.d/google-cloud.repo /root
 
