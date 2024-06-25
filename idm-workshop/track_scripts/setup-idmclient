@@ -43,7 +43,55 @@ dnf -y install httpd mod_wsgi
 # ditch the default conf file
 rm -f /etc/httpd/conf.d/welcome.conf
 
-mv /etc/yum.repos.d/google-cloud.repo /root
+
+# write out the app code and config
+# sh -c "cat >/usr/share/httpd/app.py" <<EOF
+cat << EOF > /usr/share/httpd/app.py
+def application(environ, start_response):
+    start_response('200 OK', [('Content-Type', 'text/plain')])
+    remote_user = environ.get('REMOTE_USER')
+    if remote_user is not None:
+        yield "LOGGED IN AS: {}\n".format(remote_user).encode('utf8')
+    else:
+        yield b"NOT LOGGED IN\n"
+    yield b"\nREMOTE_* REQUEST VARIABLES:\n\n"
+    for k, v in environ.items():
+        if k.startswith('REMOTE_'):
+            yield "  {}: {}\n".format(k, v).encode('utf8')
+EOF
+
+# sh -c "cat >/etc/httpd/conf.d/app.conf" <<EOF
+cat << EOF > /etc/httpd/conf.d/app.conf
+<VirtualHost *:80>
+    ServerName $IDM_CLIENT_NAME
+    WSGIScriptAlias / /usr/share/httpd/app.py
+    <Directory /usr/share/httpd>
+        <Files "app.py">
+            Require all granted
+        </Files>
+    </Directory>
+</VirtualHost>
+EOF
+
+
+echo "DONE" >> /root/post-run.log
+
+# Write out the lab setup script
+cat << EOF > /root/labsetup.sh 
+#!/bin/bash
+IDM=\$(nslookup idmserver | awk '/^Address: / { print \$2 }')
+nmcli conn mod 'Wired connection 1' ipv4.dns \$IDM
+nmcli conn up 'Wired connection 1'
+sleep 5
+hostnamectl set-hostname $IDM_CLIENT_NAME
+hostnamectl
+nslookup $IDM_SERVER_NAME
+EOF
+
+chmod +x /root/labsetup.sh
+
+
+# mv /etc/yum.repos.d/google-cloud.repo /root
 
 timedatectl set-timezone America/New_York
 
