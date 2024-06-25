@@ -1,4 +1,6 @@
 #!/bin/bash
+set -euxo pipefail
+
 while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
 do
     echo "Waiting for Instruqt to finish booting the VM"
@@ -44,9 +46,8 @@ dnf -y install ipa-server ipa-server-dns ipa-healthcheck
 
 echo "DONE" >> /root/post-run.log
 
-
 # create the lab setup script
-cat << EOF > /root/labsetup.sh 
+tee -a /root/labsetup.sh << EOF
 #!/bin/bash
 IDM=\$(nslookup idmserver | awk '/^Address: / { print \$2 }')
 sed -i "s/\$IDM.*/\$IDM $IDM_SERVER_NAME/g" /etc/hosts

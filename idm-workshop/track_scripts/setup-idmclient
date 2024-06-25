@@ -1,4 +1,6 @@
 #!/bin/bash
+set -euxo pipefail
+
 while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
 do
     echo "Waiting for Instruqt to finish booting the VM"
@@ -45,8 +47,7 @@ rm -f /etc/httpd/conf.d/welcome.conf
 
 
 # write out the app code and config
-# sh -c "cat >/usr/share/httpd/app.py" <<EOF
-cat << EOF > /usr/share/httpd/app.py
+tee -a /usr/share/httpd/app.py << EOF
 def application(environ, start_response):
     start_response('200 OK', [('Content-Type', 'text/plain')])
     remote_user = environ.get('REMOTE_USER')
@@ -60,8 +61,7 @@ def application(environ, start_response):
             yield "  {}: {}\n".format(k, v).encode('utf8')
 EOF
 
-# sh -c "cat >/etc/httpd/conf.d/app.conf" <<EOF
-cat << EOF > /etc/httpd/conf.d/app.conf
+tee -a /etc/httpd/conf.d/app.conf << EOF
 <VirtualHost *:80>
     ServerName $IDM_CLIENT_NAME
     WSGIScriptAlias / /usr/share/httpd/app.py
@@ -77,7 +77,7 @@ EOF
 echo "DONE" >> /root/post-run.log
 
 # Write out the lab setup script
-cat << EOF > /root/labsetup.sh 
+tee -a /root/labsetup.sh  << EOF
 #!/bin/bash
 IDM=\$(nslookup idmserver | awk '/^Address: / { print \$2 }')
 nmcli conn mod 'Wired connection 1' ipv4.dns \$IDM
@@ -90,8 +90,6 @@ EOF
 
 chmod +x /root/labsetup.sh
 
-
 # mv /etc/yum.repos.d/google-cloud.repo /root
 
 timedatectl set-timezone America/New_York
-
