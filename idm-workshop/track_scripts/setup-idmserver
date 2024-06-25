@@ -24,7 +24,7 @@ echo redhat | passwd --stdin rhel
 systemctl enable --now cockpit.socket
 
 # Enable firewall for IdM Server
-firewall-cmd --permanent --add-service=cockpit 
+firewall-cmd --permanent --add-service=cockpit
 firewall-cmd --permanent --add-service=dns
 firewall-cmd --permanent --add-service=freeipa-4
 firewall-cmd --permanent --add-service=freeipa-ldap
@@ -44,8 +44,6 @@ export REALM=${DOMAIN^^}
 dnf -y install bind-utils
 dnf -y install ipa-server ipa-server-dns ipa-healthcheck
 
-echo "DONE" >> /root/post-run.log
-
 # create the lab setup script
 tee -a /root/labsetup.sh << EOF
 #!/bin/bash
@@ -53,7 +51,7 @@ IDM=\$(nslookup idmserver | awk '/^Address: / { print \$2 }')
 sed -i "s/\$IDM.*/\$IDM $IDM_SERVER_NAME/g" /etc/hosts
 sleep 5
 hostnamectl set-hostname $IDM_SERVER_NAME
-hostnamectl 
+hostnamectl
 ping -c 3 $IDM_SERVER_NAME
 EOF
 

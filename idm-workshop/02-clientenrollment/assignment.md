@@ -25,7 +25,6 @@ tabs:
 - title: IdM Client
   type: terminal
   hostname: idmclient
-  cmd: /root/labsetup.sh
 - title: IdM Web UI
   type: external
   url: https://idmserver.${_SANDBOX_ID}.instruqt.io/ipa/ui/

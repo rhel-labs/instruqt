@@ -34,6 +34,7 @@ icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags: []
 owner: rhel
 developers:
+- myee@redhat.com
 - parmstro@redhat.com
 show_timer: true
 skipping_enabled: true
@@ -47,4 +48,4 @@ lab_config:
   lab_v2: false
   override_challenge_layout: false
   hideStopButton: false
-checksum: "5779347410365265092"
+checksum: "12421827001575491222"
