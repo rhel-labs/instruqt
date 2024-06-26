@@ -82,9 +82,6 @@ tee -a /root/labsetup.sh  << EOF
 IDM=\$(nslookup idmserver | awk '/^Address: / { print \$2 }')
 nmcli conn mod 'Wired connection 1' ipv4.dns \$IDM
 nmcli conn up 'Wired connection 1'
-IDMC=\$(nslookup idmclient | awk '/^Address: / { print \$2 }')
-echo $IDMC >> /etc/hosts
-sed -i "s/\$IDMC.*/\$IDMC $IDM_CLIENT_NAME/g" /etc/hosts
 sleep 5
 hostnamectl set-hostname $IDM_CLIENT_NAME
 hostnamectl

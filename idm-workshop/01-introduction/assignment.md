@@ -9,9 +9,9 @@ notes:
   contents: |
     ## Introduction
 
-    Identity Management (IdM) in Red Hat Enterprise Linux provides a centralized and unified way to manage identity stores, authentication, authorization and related policies in a Linux-based domain. IdM stores information in an LDAP store based on 389ds directory server. It provides an integrated Certificate Authority using dogtag certificate system to generate user and device certificates. IdM combines these capabilites with MIT kerberos to provide a unified identity and policy environment. IdM leverages the System Security Services Daemon (SSSD) within supported operating systems to coordinate client requests with the IdM server. By consolidating these services and centralizing management IdM significantly reduces the administrative overhead by eliminating the need to configure services individually and use different tools on different machines.
+    Identity Management (IdM) in Red Hat Enterprise Linux provides a centralized and unified way to manage identity stores, authentication, authorization and related policies in a Linux-based domain. IdM keeps information in an LDAP store based on 389ds directory server. It provides an integrated Certificate Authority using dogtag certificate system to generate user, device and service certificates. IdM combines these capabilites with MIT kerberos to provide a unified identity and policy environment. IdM leverages the System Security Services Daemon (SSSD) within supported operating systems to coordinate client requests with the IdM server. By consolidating these services and centralizing management, IdM significantly reduces the administrative overhead by eliminating the need to configure services individually and use different tools on different machines.
 
-    IdM is based on the upstream project FreeIPA which is integrated with the Fedora linux distribution and CentOS Streams. It is integrated into Red Hat Enterprise Linux in the same way other upstream components are and undergoes the integration testing with other Red Hat products like Red Hat Ansible Automation Platform, Red Hat Satellite, Red Hat Single Sign On, Red Hat OpenShift and more.
+    IdM is based on the upstream project FreeIPA which is integrated with the Fedora linux distribution and CentOS Stream. It is integrated into Red Hat Enterprise Linux in the same way other upstream components are and undergoes integration testing with other Red Hat products like Red Hat Ansible Automation Platform, Red Hat Satellite, Red Hat Single Sign On, Red Hat OpenShift and more. It is supported on all architectures that Red Hat delivers Red Hat Enterprise Linux on - x86_64, aarch64, PowerLE, System Z/Linux One.
 
     ![Identity Management Server and Client](../assets/ServerAndClient.png)
 
@@ -130,13 +130,18 @@ This is typically the domain name converted to uppercase.
 Please provide a realm name [[[ Instruqt-Var key="realm" hostname="idmserver" ]]]:
 </pre>
 
-You will need to provide a password for the LDAP Directory Manager and
-for the IdM admin account. It requires a minimum of 8 characters. Please use:
+You will need to provide a password for the **LDAP Directory Manager** and
+for the **IdM admin** account. It requires a minimum of 8 characters. For both, please use:
 
 ```bash
 redhat2023
 ```
-There are several more questions related to the DNS configuration, NETBIOS name, and time servers. Please accept the defaults. You will then be prompted to confirm that you wish to proceed with the installation using the stated configuration.
+There are several more questions related to the DNS configuration, NETBIOS name, and time servers.
+- we will not be using forwarders
+- we will accept the default NETBIOS name
+- we will not specify time servers
+
+You will then be prompted to confirm that you wish to proceed with the installation using the stated configuration.
 
 Answer **yes**
 
