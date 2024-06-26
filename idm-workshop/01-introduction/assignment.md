@@ -36,10 +36,10 @@ notes:
 tabs:
 - title: IdM Server
   type: terminal
-  hostname: idmserver
+  hostname: idmserver1
 - title: IdM Web UI
   type: external
-  url: https://idmserver.${_SANDBOX_ID}.instruqt.io/ipa/ui/
+  url: https://idmserver1.${_SANDBOX_ID}.instruqt.io/ipa/ui/
 difficulty: basic
 timelimit: 5760
 ---
@@ -96,7 +96,7 @@ This command simply updates our local hosts file with the private ip of our clou
 
 ### Exercise 1.1 - Install the IdM server
 
-The IdM server binaries are provided in the ipa-server package. It is delivered as a modular component in Red Hat Enterprise Linux 8 and 9. The ipa-server package has been installed on the idmserver system within your environment during creation.
+The IdM server binaries are provided in the ipa-server package. It is delivered as a modular component in Red Hat Enterprise Linux 8 and 9. The ipa-server package has been installed on the idmserver1 system within your environment during creation.
 
 The configuration of the IdM server managed by an installer program. We add the **--no-host-dns** parameter to support our lab environment. In a production environment, to ensure proper DNS delegation, DNS forwarding, etc.. checking the host dns entry ensures that our configuration will function as expected. The **--mkhomedir** option is used to ensure that PAM creates missing home directories for users when they login for the first time. IdM also supports automount for those use cases where oddjobd and automount use is authorized.
 
@@ -123,17 +123,17 @@ Kerberos is tightly tied to DNS as clients use DNS for kerberos service discover
 The next series of prompts ask you to verify the installer discovered values for the server hostname, domain name and realm. Accept the default by pressing enter after each of the following questions.
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
-Server host name [idmserver.[[ Instruqt-Var key="domain" hostname="idmserver" ]]]:
+Server host name [idmserver1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]]]:
 
-Warning: skipping DNS resolution of host idmserver.[[ Instruqt-Var key="domain" hostname="idmserver" ]]
+Warning: skipping DNS resolution of host idmserver1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]]
 The domain name has been determined based on the host name.
 
-Please confirm the domain name [[[ Instruqt-Var key="domain" hostname="idmserver" ]]]:
+Please confirm the domain name [[[ Instruqt-Var key="domain" hostname="idmserver1" ]]]:
 
 The kerberos protocol requires a Realm name to be defined.
 This is typically the domain name converted to uppercase.
 
-Please provide a realm name [[[ Instruqt-Var key="realm" hostname="idmserver" ]]]:
+Please provide a realm name [[[ Instruqt-Var key="realm" hostname="idmserver1" ]]]:
 </pre>
 
 You will need to provide a password for the **LDAP Directory Manager** and
@@ -255,7 +255,7 @@ For information on why these ports are required and how they are used, please se
 Verify that you can authenticate with the new IdM realm using the default admin user and the password you provided.
 
 ```bash
-kinit admin@[[ Instruqt-Var key="realm" hostname="idmserver" ]]
+kinit admin@[[ Instruqt-Var key="realm" hostname="idmserver1" ]]
 ```
 
 > NOTE: you can omit the realm name as it will be setup as a default in /etc/krb5.conf

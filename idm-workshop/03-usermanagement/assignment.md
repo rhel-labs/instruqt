@@ -25,13 +25,13 @@ notes:
 tabs:
 - title: IdM Server
   type: terminal
-  hostname: idmserver
+  hostname: idmserver1
 - title: IdM Web UI
   type: external
-  url: https://idmserver.${_SANDBOX_ID}.instruqt.io
+  url: https://idmserver1.${_SANDBOX_ID}.instruqt.io
 - title: IdM Client
   type: terminal
-  hostname: idmclient
+  hostname: idmclient1
 difficulty: basic
 timelimit: 5760
 ---
@@ -203,7 +203,7 @@ ipa passwd bob
   New Password:
   Enter New Password again to verify:
   ----------------------------------------
-  Changed password for bob@[[ Instruqt-Var key="realm" hostname="idmserver" ]]
+  Changed password for bob@[[ Instruqt-Var key="realm" hostname="idmserver1" ]]
   ----------------------------------------
 </pre>
 
@@ -221,7 +221,7 @@ like the following:
 When prompted for a password for bob, use **redhat2023**
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 kinit bob
-Password for bob@[[ Instruqt-Var key="realm" hostname="idmserver" ]]:
+Password for bob@[[ Instruqt-Var key="realm" hostname="idmserver1" ]]:
 Password expired.  You must change it now.
 Enter new password:
 Enter it again:
@@ -247,17 +247,17 @@ using ssh. If you are on the client tab, try to log into the server;
 if you are on the server tab, try to log into the client.
 
 ```bash
-ssh bob@idmclient.[[ Instruqt-Var key="domain" hostname="idmserver" ]]
+ssh bob@idmclient1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]]
 ```
 OR
 
 ```bash
-ssh bob@idmserver.[[ Instruqt-Var key="domain" hostname="idmserver" ]]
+ssh bob@idmserver1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]]
 ```
 
 You should see somthing similar to the following:
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
-[bob@idmclient ~]$
+[bob@idmclient1 ~]$
 </pre>
 
 Verify that you are in the home directory for **bob**
@@ -267,9 +267,9 @@ pwd
 You should see:
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
-[bob@idmclient ~]$ pwd
+[bob@idmclient1 ~]$ pwd
 /home/bob
-[bob@idmclient ~]$
+[bob@idmclient1 ~]$
 </pre>
 
 You are now logged into the client as *bob*.  Type **Ctrl+D** or
@@ -277,12 +277,12 @@ You are now logged into the client as *bob*.  Type **Ctrl+D** or
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 logout
-Connection to idmclient.[[ Instruqt-Var key="domain" hostname="idmserver" ]] closed.
+Connection to idmclient1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]] closed.
 </pre>
 
 If you run *klist* again, you will see not only the TGT but a **service ticket**
 that was automatically acquired to log in to
-*idmclient.[[ Instruqt-Var key="domain" hostname="idmserver" ]]*
+*idmclient1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]]*
 without prompting for a password.  Kerberos
 is a true **single sign-on** protocol!
 
@@ -291,11 +291,11 @@ Try that now. You should see output similar to the following:
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 klist
   Ticket cache: KEYRING:persistent:1000:1000
-  Default principal: bob@[[ Instruqt-Var key="realm" hostname="idmserver" ]]
+  Default principal: bob@[[ Instruqt-Var key="realm" hostname="idmserver1" ]]
 
   Valid starting       Expires              Service principal
-  06/04/2018 21:45:50  06/05/2018 21:38:24  host/idmclient.[[ Instruqt-Var key="domain" hostname="idmserver" ]]@[[ Instruqt-Var key="realm" hostname="idmserver" ]]
-  06/04/2018 21:38:41  06/05/2018 21:38:24  krbtgt/[[ Instruqt-Var key="realm" hostname="idmserver" ]]@[[ Instruqt-Var key="realm" hostname="idmserver" ]]
+  06/04/2018 21:45:50  06/05/2018 21:38:24  host/idmclient1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]]@[[ Instruqt-Var key="realm" hostname="idmserver1" ]]
+  06/04/2018 21:38:41  06/05/2018 21:38:24  krbtgt/[[ Instruqt-Var key="realm" hostname="idmserver1" ]]@[[ Instruqt-Var key="realm" hostname="idmserver1" ]]
 </pre>
 
 Logout of all sessions using **kdestroy**

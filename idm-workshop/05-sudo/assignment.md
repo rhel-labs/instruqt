@@ -15,13 +15,13 @@ notes:
 tabs:
 - title: IdM Server
   type: terminal
-  hostname: idmserver
+  hostname: idmserver1
 - title: IdM Web UI
   type: external
-  url: https://idmserver.${_SANDBOX_ID}.instruqt.io
+  url: https://idmserver1.${_SANDBOX_ID}.instruqt.io
 - title: IdM Client
   type: terminal
-  hostname: idmclient
+  hostname: idmclient1
 difficulty: basic
 timelimit: 5760
 ---
@@ -49,20 +49,20 @@ kinit alice
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 klist
 Ticket cache: KCM:634000003:33566
-Default principal: alice@[[ Instruqt-Var key="realm" hostname="idmserver" ]]
+Default principal: alice@[[ Instruqt-Var key="realm" hostname="idmserver1" ]]
 
 Valid starting       Expires              Service principal
-02/25/2023 17:19:47  02/26/2023 17:15:49  krbtgt/[[ Instruqt-Var key="realm" hostname="idmserver" ]]@[[ Instruqt-Var key="realm" hostname="idmserver" ]]
+02/25/2023 17:19:47  02/26/2023 17:15:49  krbtgt/[[ Instruqt-Var key="realm" hostname="idmserver1" ]]@[[ Instruqt-Var key="realm" hostname="idmserver1" ]]
 </pre>
 
-Now let's ssh to the idmclient system.
+Now let's ssh to the idmclient1 system.
 
 ```bash
-ssh alice@idmclient.[[ Instruqt-Var key="realm" hostname="idmserver" ]]
+ssh alice@idmclient1.[[ Instruqt-Var key="realm" hostname="idmserver1" ]]
 ```
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
-[alice@idmclient ~]$
+[alice@idmclient1 ~]$
 </pre>
 
 If we are an admin we would expect that we should be able to perform admin like activities like set the message of the day. Now since we are not root, we need to use sudo to do this.
@@ -87,8 +87,8 @@ Administrator. It usually boils down to these three things:
 ooops!
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
-alice is not allowed to run sudo on idmclient.  This incident will be reported.
-[alice@idmclient ~]$
+alice is not allowed to run sudo on idmclient1.  This incident will be reported.
+[alice@idmclient1 ~]$
 </pre>
 
 
@@ -171,7 +171,7 @@ ipa sudorule-add-user admins_allow_all \
   --groups=admins
 ```
 Alice should now have sudo access on all the systems in the realm.
-Logout and log back in as alice, then ssh to the idmclient as alice.
+Logout and log back in as alice, then ssh to idmclient1 as alice.
 
 ```bash
 kdestroy -A
@@ -182,7 +182,7 @@ kinit alice
 ```
 
 ```bash
-ssh alice@idmclient.[[ Instruqt-Var key="realm" hostname="idmserver" ]]
+ssh alice@idmclient1.[[ Instruqt-Var key="realm" hostname="idmserver1" ]]
 ```
 
 Try again to edit the /etc/motd file and provide the password for ***alice***
@@ -240,7 +240,7 @@ Ensure that you logout of the client system and relogin as ***bob***. Now you sh
 ```bash
 sudo systemctl restart httpd
 [sudo] password for bob:
-Sorry, user bob is not allowed to execute '/bin/systemctl restart httpd' as root on idmclient.[[ Instruqt-Var key="realm" hostname="idmserver" ]].
+Sorry, user bob is not allowed to execute '/bin/systemctl restart httpd' as root on idmclient1.[[ Instruqt-Var key="realm" hostname="idmserver1" ]].
 ```
 
 <hr>
@@ -300,14 +300,14 @@ ipa sudorule-add-allow-command webadmin_sudo \
 
 #### Exercise 5.2.3 - Verify sudo access for webadmins.
 
-Login to the idmclient from the idmserver as bob again using ssh.
+Login to idmclient1 from idmserver1 as bob again using ssh.
 
 Verify that bob can restart the web server
 ```bash
 sudo systemctl restart httpd
 ```
 
-Remember if you don't want to wait for the timeout go to the IdMClient terminal and restart sssd.
+Remember if you don't want to wait for the timeout go to the idmclient1 terminal and restart sssd.
 Try again.
 
 
@@ -368,9 +368,9 @@ Create a host group ***webservers***
 ipa hostgroup-add --desc="Web Servers" webservers
 ```
 
-Add the idmclient system to the webservers host group
+Add the idmclient1 system to the webservers host group
 ```bash
-ipa hostgroup-add-member webservers --hosts=idmclient.[[ Instruqt-Var key="realm" hostname="idmserver" ]]
+ipa hostgroup-add-member webservers --hosts=idmclient1.[[ Instruqt-Var key="realm" hostname="idmserver1" ]]
 ```
 
 Create the hbac rule to allow webadmins access via ssh
@@ -401,10 +401,10 @@ ipa hbacrule-add-service allow_webadmins_webservers_sshd \
 Test the hbac rule for ***bob***
 
 ```bash
-ipa hbactest --user=bob --host=idmclient.[[ Instruqt-Var key="domain" hostname="idmserver" ]] --service=sshd
+ipa hbactest --user=bob --host=idmclient1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]] --service=sshd
 ```
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
-ipa hbactest --user=bob --host=idmclient.[[ Instruqt-Var key="domain" hostname="idmserver" ]] --service=sshd
+ipa hbactest --user=bob --host=idmclient1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]] --service=sshd
 --------------------
 Access granted: True
 --------------------

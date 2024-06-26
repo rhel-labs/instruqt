@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+#set -euxo pipefail
 
 while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
 do
@@ -25,9 +25,9 @@ firewall-cmd --permanent --add-service http
 firewall-cmd --reload
 
 echo "Configure the script variables" >> /root/post-run.log
-export IDM_SERVER_NAME=idmserver.${_SANDBOX_ID}.instruqt.io
-export IDM_REPLICA_NAME=idmreplica.${_SANDBOX_ID}.instruqt.io
-export IDM_CLIENT_NAME=idmclient.${_SANDBOX_ID}.instruqt.io
+export IDM_SERVER_NAME=idmserver1.${_SANDBOX_ID}.instruqt.io
+export IDM_REPLICA_NAME=idmreplica1.${_SANDBOX_ID}.instruqt.io
+export IDM_CLIENT_NAME=idmclient1.${_SANDBOX_ID}.instruqt.io
 
 echo "Install the ipa-client packages" >> /root/post-run.log
 dnf -y install bind-utils
@@ -68,7 +68,7 @@ EOF
 echo "Create the lab setup script" >> /root/post-run.log
 tee -a /root/labsetup.sh  << EOF
 #!/bin/bash
-IDM=\$(nslookup idmserver | awk '/^Address: / { print \$2 }')
+IDM=\$(nslookup idmserver1 | awk '/^Address: / { print \$2 }')
 nmcli conn mod 'Wired connection 1' ipv4.dns \$IDM
 nmcli conn up 'Wired connection 1'
 sleep 5

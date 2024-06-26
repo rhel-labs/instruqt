@@ -1,6 +1,6 @@
 version: "3"
 virtualmachines:
-- name: idmserver
+- name: idmserver1
   image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-4-05-27-24
   shell: /bin/bash
   environment:
@@ -10,7 +10,7 @@ virtualmachines:
   - http
   - https
   - high-ports
-- name: idmclient
+- name: idmclient1
   image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-4-05-27-24
   shell: /bin/bash
   environment:

@@ -18,13 +18,13 @@ notes:
 tabs:
 - title: IdM Server
   type: terminal
-  hostname: idmserver
+  hostname: idmserver1
 - title: IdM Web UI
   type: external
-  url: https://idmserver.${_SANDBOX_ID}.instruqt.io
+  url: https://idmserver1.${_SANDBOX_ID}.instruqt.io
 - title: IdM Client
   type: terminal
-  hostname: idmclient
+  hostname: idmclient1
 difficulty: basic
 timelimit: 5760
 ---
@@ -48,7 +48,7 @@ Both the Web UI and the CLI can be used complete the following tasks. You can ch
 
 - create a host group called production
 - create a second host group called development
-- add idmclient.[[ Instruqt-Var key="domain" hostname="idmserver" ]] to the production host group
+- add idmclient1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]] to the production host group
 
 If you are using the command line, here are the tasks. Note that this takes two commands to perform this. If you guessed that we use the *ipa hostgroup* topic, you are correct!
 
@@ -111,7 +111,7 @@ ipaservers is a builtin hostgroup for the IdM domain controllers.
 Now let's add our client system to the production host group.
 
 ```bash
-ipa hostgroup-add-member --hosts=idmclient.[[ Instruqt-Var key="domain" hostname="idmserver" ]] production
+ipa hostgroup-add-member --hosts=idmclient1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]] production
 ```
 
 Verify that you see host in the host group.
@@ -123,7 +123,7 @@ ipa hostgroup-show production
 ipa hostgroup-show production
   Host-group: production
   Description: Production Servers
-  Member hosts: idmclient.[[ Instruqt-Var key="domain" hostname="idmserver" ]]
+  Member hosts: idmclient1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]]
 </pre>
 
 Now that we have host groups it becomes easier to manage systems and maintain our HBAC rules.
@@ -240,10 +240,10 @@ Options:
 Since **bob** is not in any rules, lets see what happens for **bob**
 
 ```bash
-ipa hbactest --user=bob --host=idmclient.[[ Instruqt-Var key="domain" hostname="idmserver" ]] --service=all
+ipa hbactest --user=bob --host=idmclient1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]] --service=all
 ```
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
-ipa hbactest --user=bob --host=idmclient.[[ Instruqt-Var key="domain" hostname="idmserver" ]] --service=all
+ipa hbactest --user=bob --host=idmclient1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]] --service=all
 ---------------------
 Access granted: False
 ---------------------
@@ -254,11 +254,11 @@ Access granted: False
 What about **alice** can she access the client host?
 
 ```bash
-ipa hbactest --user=alice --host=idmclient.[[ Instruqt-Var key="domain" hostname="idmserver" ]] --service=all
+ipa hbactest --user=alice --host=idmclient1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]] --service=all
 ```
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
- ipa hbactest --user=alice --host=idmclient.[[ Instruqt-Var key="domain" hostname="idmserver" ]] --service=all
+ ipa hbactest --user=alice --host=idmclient1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]] --service=all
 --------------------
 Access granted: True
 --------------------
@@ -266,8 +266,8 @@ Access granted: True
   Not matched rules: allow_systemd-user
 </pre>
 
-Now try at the command line to ssh from the idmserver in your environment to the idmclient as ***bob***. What happens?
-Now try at the command line to ssh from the idmserver in your environment to the idmclient as ***alice***. What happens?
+Now try at the command line to ssh from idmserver1 in your environment to idmclient1 as ***bob***. What happens?
+Now try at the command line to ssh from the idmserver in your environment to idmclient1 as ***alice***. What happens?
 
 Is this what you expected?
 

@@ -24,10 +24,10 @@ notes:
 tabs:
 - title: IdM Client
   type: terminal
-  hostname: idmclient
+  hostname: idmclient1
 - title: IdM Web UI
   type: external
-  url: https://idmserver.${_SANDBOX_ID}.instruqt.io/ipa/ui/
+  url: https://idmserver1.${_SANDBOX_ID}.instruqt.io/ipa/ui/
 difficulty: basic
 timelimit: 5760
 ---
@@ -44,7 +44,7 @@ Using the **IdM Client** tab, run the labsetup script:
 /root/labsetup.sh
 ```
 
-This sets up our client domain resolution and hostname and verifies that we can find the idmserver. The client installation is now able to use DNS discovery to find our IdM server.
+This sets up our client domain resolution and hostname and verifies that we can find idmserver1. The client installation is now able to use DNS discovery to find our IdM server.
 
 <hr>
 
@@ -73,7 +73,7 @@ Discovery was successful!
 Do you want to configure chrony with NTP server or pool address? [no]:
 </pre>
 
-Our installation of the IdM server creates service (SRV) records in the DNS domain. Records like _kerberos-master._tcp point to our idmserver system and allow applications to discover the IP address of the appropriate systems. We find that when we run our install program, DNS service discovery detects our IdM server. Next you are asked if you want to specify a list of time servers to use with the client.
+Our installation of the IdM server creates service (SRV) records in the DNS domain. Records like _kerberos-master._tcp point to our idmserver1 system and allow applications to discover the IP address of the appropriate systems. We find that when we run our install program, DNS service discovery detects our IdM server. Next you are asked if you want to specify a list of time servers to use with the client.
 
 Type **no** or press Enter to accept the default.
 
@@ -87,11 +87,11 @@ Version 4.10.0
 
 Discovery was successful!
 Do you want to configure chrony with NTP server or pool address? [no]:
-Client hostname: idmclient.[[ Instruqt-Var key="domain" hostname="idmserver" ]]
-Realm: [[ Instruqt-Var key="realm" hostname="idmserver" ]]
-DNS Domain: [[ Instruqt-Var key="domain" hostname="idmserver" ]]
-IPA Server: idmserver.[[ Instruqt-Var key="domain" hostname="idmserver" ]]
-BaseDN: dc=[[ Instruqt-Var key="sandbox_id" hostname="idmserver" ]],dc=instruqt,dc=io
+Client hostname: idmclient1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]]
+Realm: [[ Instruqt-Var key="realm" hostname="idmserver1" ]]
+DNS Domain: [[ Instruqt-Var key="domain" hostname="idmserver1" ]]
+IPA Server: idmserver1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]]
+BaseDN: dc=[[ Instruqt-Var key="sandbox_id" hostname="idmserver1" ]],dc=instruqt,dc=io
 
 Continue to configure the system with these values? [no]: <b>yes</b>
 </pre>
@@ -118,7 +118,7 @@ redhat2023
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 User authorized to enroll computers: <b>admin</b>
-Password for admin@[[ Instruqt-Var key="realm" hostname="idmserver" ]]:
+Password for admin@[[ Instruqt-Var key="realm" hostname="idmserver1" ]]:
 </pre>
 
 The client enrolment will now proceed without further input. The
