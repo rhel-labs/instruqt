@@ -44,7 +44,7 @@ echo "Create the lab setup script" >> /root/post-run.log
 tee -a /root/labsetup.sh << EOF
 #!/bin/bash
 IDM=\$(hostname --all-ip-addresses)
-echo "\$IDM >> $IDM_SERVER_NAME" >> /etc/hosts
+echo "\$IDM $IDM_SERVER_NAME" >> /etc/hosts
 sleep 2
 hostnamectl set-hostname $IDM_SERVER_NAME
 hostnamectl
