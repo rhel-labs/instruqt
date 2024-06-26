@@ -410,7 +410,7 @@ In the `Run job` menu, click on `Run on selected hosts`.
 
 ![run on select](../assets/runonselectedhostschangehosts.png)
 
-You can verify that `rhel1` was successfully migrated to `capsule.lab` by viewing the `/etc/yum.repo.d/redhat.repo file.
+You can verify that `rhel1` was successfully migrated to `capsule.lab` by viewing the `/etc/yum.repo.d/redhat.repo` file.
 
 In the [button label="rhel1"](tab-3) terminal, run this.
 
