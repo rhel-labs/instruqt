@@ -7,24 +7,20 @@ do
     sleep 1
 done
 
-# Standard Track configuration for subscription manager and user
+echo "Register system to CDN" > /root/post-run.log
 subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
-echo "Adding wheel" > /root/post-run.log
+echo "Adding lab user to wheel" > /root/post-run.log
 usermod -aG wheel rhel
 
-echo "setting password" >> /root/post-run.log
+echo "Setting lab user password" >> /root/post-run.log
 echo redhat | passwd --stdin rhel
 
 echo "enable bash completion in the root's instruqt shell" >> /root/post-run.log
 echo "source /etc/profile.d/bash_completion.sh" >> /root/.bashrc
 
-# Enable cockpit
-systemctl enable --now cockpit.socket
-
-# Enable firewall for IdM Server
-firewall-cmd --permanent --add-service=cockpit
+echo "Configure the firewall for IdM Server" >> /root/post-run.log
 firewall-cmd --permanent --add-service=dns
 firewall-cmd --permanent --add-service=freeipa-4
 firewall-cmd --permanent --add-service=freeipa-ldap
@@ -33,18 +29,18 @@ firewall-cmd --permanent --add-service=freeipa-replication
 firewall-cmd --permanent --add-service=freeipa-trust
 firewall-cmd --reload
 
-# create exports for scripts
+echo "Configure the script variables" >> /root/post-run.log
 export IDM_SERVER_NAME=idmserver.${_SANDBOX_ID}.instruqt.io
 export IDM_REPLICA_NAME=idmreplica.${_SANDBOX_ID}.instruqt.io
 export IDM_CLIENT_NAME=idmclient.${_SANDBOX_ID}.instruqt.io
 export DOMAIN=${_SANDBOX_ID}.instruqt.io
 export REALM=${DOMAIN^^}
 
-# install the idm software
+echo "Install the ipa-server packages" >> /root/post-run.log
 dnf -y install bind-utils
 dnf -y install ipa-server ipa-server-dns ipa-healthcheck
 
-# create the lab setup script
+echo "Create the lab setup script" >> /root/post-run.log
 tee -a /root/labsetup.sh << EOF
 #!/bin/bash
 IDM=\$(hostname --all-ip-addresses)
@@ -55,8 +51,9 @@ hostnamectl
 ping -c 3 $IDM_SERVER_NAME
 EOF
 
-# make it executable
 chmod +x /root/labsetup.sh
 
-# timezone
+echo "Set the timezone" >> /root/post-run.log
 timedatectl set-timezone America/New_York
+
+echo "DONE" >> /root/post-run.log

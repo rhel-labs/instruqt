@@ -7,46 +7,37 @@ do
     sleep 1
 done
 
-# Standard Track configuration for subscription manager and user
+echo "Register system to CDN" > /root/post-run.log
 subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
-echo "Adding rhel to wheel" > /root/post-run.log
+echo "Adding lab user to wheel" > /root/post-run.log
 usermod -aG wheel rhel
 
-echo "setting password" >> /root/post-run.log
+echo "Setting lab user password" >> /root/post-run.log
 echo redhat | passwd --stdin rhel
 
 echo "enable bash completion in the root's instruqt shell" >> /root/post-run.log
 echo "source /etc/profile.d/bash_completion.sh" >> /root/.bashrc
 
-# Enable cockpit
-systemctl enable --now cockpit.socket
-
-# Enable the firewall for cockpit and httpd
-firewall-cmd --permanent --add-service cockpit 
+echo "Configure the firewall for httpd" >> /root/post-run.log
 firewall-cmd --permanent --add-service http
 firewall-cmd --reload
 
-# Install the ipa-client packages
-dnf -y install bind-utils
-dnf -y install ipa-client
-
-# Configure the script variables
+echo "Configure the script variables" >> /root/post-run.log
 export IDM_SERVER_NAME=idmserver.${_SANDBOX_ID}.instruqt.io
 export IDM_REPLICA_NAME=idmreplica.${_SANDBOX_ID}.instruqt.io
 export IDM_CLIENT_NAME=idmclient.${_SANDBOX_ID}.instruqt.io
 
-echo "setup the simple http app" >> /root/post-run.log
+echo "Install the ipa-client packages" >> /root/post-run.log
+dnf -y install bind-utils
+dnf -y install ipa-client
 
-# install httpd components
+echo "Install http for sample app" >> /root/post-run.log
 dnf -y install httpd mod_wsgi
-
-# ditch the default conf file
 rm -f /etc/httpd/conf.d/welcome.conf
 
-
-# write out the app code and config
+echo "Create the sample app" >> /root/post-run.log
 tee -a /usr/share/httpd/app.py << EOF
 def application(environ, start_response):
     start_response('200 OK', [('Content-Type', 'text/plain')])
@@ -61,6 +52,7 @@ def application(environ, start_response):
             yield "  {}: {}\n".format(k, v).encode('utf8')
 EOF
 
+echo "Configure the sample app" >> /root/post-run.log
 tee -a /etc/httpd/conf.d/app.conf << EOF
 <VirtualHost *:80>
     ServerName $IDM_CLIENT_NAME
@@ -73,10 +65,7 @@ tee -a /etc/httpd/conf.d/app.conf << EOF
 </VirtualHost>
 EOF
 
-
-echo "DONE" >> /root/post-run.log
-
-# Write out the lab setup script
+echo "Create the lab setup script" >> /root/post-run.log
 tee -a /root/labsetup.sh  << EOF
 #!/bin/bash
 IDM=\$(nslookup idmserver | awk '/^Address: / { print \$2 }')
@@ -89,8 +78,8 @@ nslookup $IDM_SERVER_NAME
 EOF
 
 chmod +x /root/labsetup.sh
-# source /root/labsetup.sh
 
-# mv /etc/yum.repos.d/google-cloud.repo /root
-
+echo "Set the timezone" >> /root/post-run.log
 timedatectl set-timezone America/New_York
+
+echo "DONE" >> /root/post-run.log
