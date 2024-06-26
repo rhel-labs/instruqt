@@ -48,9 +48,8 @@ dnf -y install ipa-server ipa-server-dns ipa-healthcheck
 tee -a /root/labsetup.sh << EOF
 #!/bin/bash
 IDM=\$(hostname --all-ip-addresses)
-echo \$IDM >> /etc/hosts
-sed -i "s/\$IDM.*/\$IDM $IDM_SERVER_NAME/g" /etc/hosts
-sleep 5
+echo "\$IDM >> $IDM_SERVER_NAME" >> /etc/hosts
+sleep 2
 hostnamectl set-hostname $IDM_SERVER_NAME
 hostnamectl
 ping -c 3 $IDM_SERVER_NAME

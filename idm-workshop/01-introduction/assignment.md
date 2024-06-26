@@ -1,6 +1,6 @@
 ---
 slug: introduction
-id: xdwt3vpkpgdu
+id: jwefnsxfscow
 type: challenge
 title: Install the Identity Management Server
 teaser: Introduction and Install the Server.
@@ -86,13 +86,19 @@ This user is a member of wheel and has sudo access.
 
 You can preform all of the activities in the labs using the root account. The above account has been provided should it become necessary.
 
+**To prepare for the lab, please execute the following command:**
+```bash
+/root/labsetup.sh
+```
+This command simply updates our local hosts file with the private ip of our cloud instance.
+
 <hr>
 
 ### Exercise 1.1 - Install the IdM server
 
 The IdM server binaries are provided in the ipa-server package. It is delivered as a modular component in Red Hat Enterprise Linux 8 and 9. The ipa-server package has been installed on the idmserver system within your environment during creation.
 
-The configuration of the IdM server managed by an installer program. We add the **--no-host-dns** parameter to support our lab environment. In a production environment, to ensure proper DNS delegation, DNS forwarding, etc.. checking the host dns entry ensures that our configuration will function as expected. The **--mkhomedir** option is used to ensure that PAM creates missing home directories for users when they login for the first time. IdM also supports automount for those use cases where automount use is authorized.
+The configuration of the IdM server managed by an installer program. We add the **--no-host-dns** parameter to support our lab environment. In a production environment, to ensure proper DNS delegation, DNS forwarding, etc.. checking the host dns entry ensures that our configuration will function as expected. The **--mkhomedir** option is used to ensure that PAM creates missing home directories for users when they login for the first time. IdM also supports automount for those use cases where oddjobd and automount use is authorized.
 
 During the installation of the IdM server you will be asked a number of questions. Please accept the defaults **unless outlined below**.
 
@@ -137,9 +143,41 @@ for the **IdM admin** account. It requires a minimum of 8 characters. For both, 
 redhat2023
 ```
 There are several more questions related to the DNS configuration, NETBIOS name, and time servers.
-- we will not be using forwarders
-- we will accept the default NETBIOS name
-- we will not specify time servers
+```
+Do you want to configure DNS forwarders? [yes]:
+```
+Accept the default or type yes.
+
+```
+Following DNS servers are configured in /etc/resolv.conf: xxx.xxx.xxx.xxx
+Do you want to configure these servers as DNS forwarders? [yes]:
+```
+Accept the default found by the search of resolv.conf
+
+```
+Do you want to search for missing reverse zones? [yes]:
+```
+Accept the default or type yes.
+You should get a message stating that it already exists.
+
+Next, you will see a message similar to the following asking for the NETBIOS name of the **IPA Domain** (not the IPA server):
+```
+Trust is configured but no NetBIOS domain name found, setting it now.
+Enter the NetBIOS name for the **IPA domain**.
+Only up to 15 uppercase ASCII letters, digits and dashes are allowed.
+Example: EXAMPLE.
+
+
+NetBIOS domain name [ZIAIQSW3Z7XV]:
+```
+Accept the default or type yes.
+
+
+```
+Do you want to configure chrony with NTP server or pool address? [no]:
+```
+Time servers are already configured by the environment.
+Accept the default or type yes.
 
 You will then be prompted to confirm that you wish to proceed with the installation using the stated configuration.
 
