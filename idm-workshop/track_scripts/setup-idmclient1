@@ -8,8 +8,25 @@ do
 done
 
 echo "Register system to CDN" > /root/post-run.log
+# 2024-06-27 forcing some hard clean up on the host to eliminate provisioning issues
+# need the sleep, need to change config after registration
+subscription-manager unregister
+subscription-manager clean
+yum clean all
+
+retries=3
+
+for ((i=0; i<retries; i++)); do
+    subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+    [[ $? -eq 0 ]] && break
+
+    echo "something went wrong, let's wait 10 seconds and retry"
+    sleep 10
+done
+
+(( retries == i )) && { echo 'Failed!'; exit 1; }
+
 subscription-manager config --rhsm.manage_repos=1
-subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
 echo "Adding lab user to wheel" > /root/post-run.log
 usermod -aG wheel rhel

@@ -140,48 +140,53 @@ You will need to provide a password for the **LDAP Directory Manager** and
 for the **IdM admin** account. It requires a minimum of 8 characters. For both, please use:
 
 ```bash
-redhat2023
+redhat2024
 ```
 There are several more questions related to the DNS configuration, NETBIOS name, and time servers.
-```
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 Do you want to configure DNS forwarders? [yes]:
-```
+</pre>
+
 Accept the default or type yes.
 
-```
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 Following DNS servers are configured in /etc/resolv.conf: xxx.xxx.xxx.xxx
 Do you want to configure these servers as DNS forwarders? [yes]:
-```
-Accept the default found by the search of resolv.conf
+</pre>
 
-```
+Accept the default found by the search of resolv.conf by pressing Enter or typing yes.
+
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 Do you want to search for missing reverse zones? [yes]:
-```
+</pre>
+
 Accept the default or type yes.
 You should get a message stating that it already exists.
 
 Next, you will see a message similar to the following asking for the NETBIOS name of the **IPA Domain** (not the IPA server):
-```
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 Trust is configured but no NetBIOS domain name found, setting it now.
-Enter the NetBIOS name for the **IPA domain**.
+Enter the NetBIOS name for the <b>IPA domain</b>.
 Only up to 15 uppercase ASCII letters, digits and dashes are allowed.
 Example: EXAMPLE.
 
 
-NetBIOS domain name [ZIAIQSW3Z7XV]:
-```
+NetBIOS domain name [[[ Instruqt-Var key="sandbox_id" hostname="idmserver1" ]]]:
+</pre>
+
 Accept the default or type yes.
 
 
-```
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 Do you want to configure chrony with NTP server or pool address? [no]:
-```
+</pre>
+
 Time servers are already configured by the environment.
 Accept the default or type yes.
 
 You will then be prompted to confirm that you wish to proceed with the installation using the stated configuration.
 
-Answer **yes**
+This is the "Are you sure?" moment. You need to type in **yes** here.
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 Continue to configure the system with these values? [no]: <b>yes</b>
