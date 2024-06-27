@@ -23,6 +23,7 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
+  cmd: podman login ${REG_SVC_ACCT} registry.redhat.io
 - title: RHEL Web Console
   type: website
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
