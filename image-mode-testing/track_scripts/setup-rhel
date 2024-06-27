@@ -10,6 +10,3 @@ usermod -aG wheel rhel
 
 echo "setting password" >> /root/post-run.log
 echo redhat | passwd --stdin rhel
-
-echo "trashing GCP repos" >> /root/post-run.log
-mv /etc/yum.repos.d/google-cloud.repo /root
