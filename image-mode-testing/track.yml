@@ -1,0 +1,32 @@
+slug: image-mode-testing
+id: mlkxvv0fysud
+title: image mode testing
+description: |
+  # Goal:
+
+  Depends on you!
+
+  This is an environment without pre-planned lab content intended
+  to be a place where you can explore a Red Hat Enterprise Linux 9 system on
+  a topic of your choosing.
+
+  >**NOTE:** This lab environment will expire in about 60 minutes.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+tags:
+- rhel
+owner: rhel
+developers:
+- mmicene@redhat.com
+- myee@redhat.com
+show_timer: true
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+  feedback_recap_enabled: true
+  loadingMessages: true
+  lab_v2: false
+  override_challenge_layout: false
+  hideStopButton: false
+checksum: "10306663299327400321"
