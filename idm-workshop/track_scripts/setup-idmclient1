@@ -86,7 +86,9 @@ echo "Create the lab setup script" >> /root/post-run.log
 tee -a /root/labsetup.sh  << EOF
 #!/bin/bash
 IDM=\$(nslookup idmserver1 | awk '/^Address: / { print \$2 }')
+nmcli conn mod 'Wired connection 1' ipv4.ignore-auto-dns
 nmcli conn mod 'Wired connection 1' ipv4.dns \$IDM
+nmcli conn mod 'Wired connection 1' ipv6.method disabled
 nmcli conn up 'Wired connection 1'
 sleep 5
 hostnamectl set-hostname $IDM_CLIENT_NAME

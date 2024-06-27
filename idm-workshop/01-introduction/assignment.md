@@ -171,7 +171,7 @@ Only up to 15 uppercase ASCII letters, digits and dashes are allowed.
 Example: EXAMPLE.
 
 
-NetBIOS domain name [[[ Instruqt-Var key="sandbox_id" hostname="idmserver1" ]]]:
+NetBIOS domain name [[[ Instruqt-Var key="netbios" hostname="idmserver1" ]]]:
 </pre>
 
 Accept the default or type yes.
@@ -282,5 +282,38 @@ Verify the health of the server.
 ipa-healthcheck
 ```
 A fully-functioning IdM installation returns an empty result of [].
+
+In the latest versions of IdM, DNS recursion has been disabled as appropriate.
+We will ensure that trusted connections on our local network can use our DNS server to resolve domains not served by our DNS.
+Run the following setup script to add our trusted networks to the proper configuration files. 
+
+```bash
+/root/trustednetwork.sh
+```
+
+This adds an entry to the named configuration for IdM DNS (/etc/named/ipa-ext.conf) to identify the trusted networks.
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">
+acl "trusted_network" {
+    localnets;
+    localhost;
+    10.5.1.0/24;
+};
+</pre>
+
+It also sets up the allow-recursion option in the IdM named options configuration (/etc/named/ipa-options-ext.conf).
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">
+allow-recursion { trusted_network; };
+</pre>
+
+Restart the IdM services to ensure that the configuration is applied. The ipactl command is used to manage the IdM services.
+```bash
+ipactl restart
+```
+
+Verify DNS resolution for connected clients.
+```bash
+nslookup cdn.redhat.com
+```
+You should see the records come back for the local akamai edge network server replicating the CDN content.
 
 We are now ready to register client systems!

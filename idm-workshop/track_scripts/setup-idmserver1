@@ -52,16 +52,19 @@ export IDM_REPLICA_NAME=idmreplica1.${_SANDBOX_ID}.instruqt.io
 export IDM_CLIENT_NAME=idmclient1.${_SANDBOX_ID}.instruqt.io
 export DOMAIN=${_SANDBOX_ID}.instruqt.io
 export REALM=${DOMAIN^^}
+export NETBIOS=${$_SANDBOX_ID^^}
 
 echo "Install the ipa-server packages" >> /root/post-run.log
 dnf -y install bind-utils
 dnf -y install ipa-server ipa-server-dns ipa-healthcheck
 
-echo "Create the lab setup script" >> /root/post-run.log
+echo "Create the lab setup scripts" >> /root/post-run.log
 tee -a /root/labsetup.sh << EOF
 #!/bin/bash
 IDM=\$(hostname --all-ip-addresses)
 echo "\$IDM $IDM_SERVER_NAME" >> /etc/hosts
+nmcli conn mod 'Wired connection 1' ipv6.method disabled
+nmcli conn up 'Wired connection 1'
 sleep 2
 hostnamectl set-hostname $IDM_SERVER_NAME
 hostnamectl
@@ -70,6 +73,14 @@ EOF
 
 chmod +x /root/labsetup.sh
 
+tee -a /root/trustednetwork.sh << EOF
+#!/bin/bash
+echo 'acl "trusted_network" { localnets; localhost; 10.5.1.0/24; };' >> /etc/named/ipa-ext.conf
+echo 'allow-recursion { trusted_network; };' >> /etc/named/ipa-options-ext.conf
+EOF
+
+chmod +x /root/trustednetwork.sh
+
 echo "Set the timezone" >> /root/post-run.log
 timedatectl set-timezone America/New_York
 
@@ -77,5 +88,6 @@ echo "Configure instruqt agent variables for inserting host information." >> /ro
 agent variable set sandbox_id $_SANDBOX_ID
 agent variable set realm $REALM
 agent variable set domain $DOMAIN
+agent variable set netbios $NETBIOS
 
 echo "DONE" >> /root/post-run.log
