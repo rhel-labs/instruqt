@@ -244,8 +244,8 @@ Once you have completed creating the above prerequisites, ***bob*** should be ab
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 [bob@idmclient1 ~]$ su -l bob
 Password:
-su: Authentication failure
-<pre>
+su: Permission denied
+</pre>
 
 Bob also can't restart the httpd service using sudo. You will find that the error is different for ***bob*** than it was for ***alice***. This is because where the hbac rule for *alice* was created with ``--servicecat=all``, the hbac rule for *bob* was create to limit access to ***sshd***
 
@@ -342,7 +342,7 @@ Last login: Wed Jun 26 17:57:01 EDT 2024 from 10.5.2.41 on pts/1
 [bob@idmclient1 ~]$ sudo systemctl restart httpd
 [sudo] password for bob:
 [bob@idmclient1 ~]$
-<pre>
+</pre>
 
 Remember if you don't want to wait for the timeout go to the idmclient1 terminal and restart sssd.
 Try again.
