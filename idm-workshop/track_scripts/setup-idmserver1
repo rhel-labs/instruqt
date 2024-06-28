@@ -13,6 +13,7 @@ echo "Register system to CDN" > /root/post-run.log
 subscription-manager unregister
 subscription-manager clean
 yum clean all
+sleep 3
 
 retries=3
 
@@ -75,8 +76,15 @@ chmod +x /root/labsetup.sh
 
 tee -a /root/trustednetwork.sh << EOF
 #!/bin/bash
-echo 'acl "trusted_network" { localnets; localhost; 10.5.1.0/24; };' >> /etc/named/ipa-ext.conf
-echo 'allow-recursion { trusted_network; };' >> /etc/named/ipa-options-ext.conf
+CIDR=\$(hostname --all-ip-address | cut -d"." -f1-2 | awk '{ print $1".0.0/22" }')
+tee -a /etc/named/ipa-ext.conf << TRUSTED
+acl "trusted_network" { 
+    localnets; 
+    localhost; 
+    \$CIDR; 
+};
+TRUSTED
+echo "allow-recursion { trusted_network; };" >> /etc/named/ipa-options-ext.conf
 EOF
 
 chmod +x /root/trustednetwork.sh

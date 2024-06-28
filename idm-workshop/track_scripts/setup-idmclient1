@@ -13,6 +13,7 @@ echo "Register system to CDN" > /root/post-run.log
 subscription-manager unregister
 subscription-manager clean
 yum clean all
+sleep 3
 
 retries=3
 
@@ -85,10 +86,12 @@ EOF
 echo "Create the lab setup script" >> /root/post-run.log
 tee -a /root/labsetup.sh  << EOF
 #!/bin/bash
-IDM=\$(nslookup idmserver1 | awk '/^Address: / { print \$2 }')
-nmcli conn mod 'Wired connection 1' ipv4.ignore-auto-dns
+IDM=\$(nslookup idmserver1.${_SANDBOX_ID}.svc.cluster.local | awk '/^Address: / { print \$2 }')
+nmcli conn mod 'Wired connection 1' ipv4.ignore-auto-dns yes
 nmcli conn mod 'Wired connection 1' ipv4.dns \$IDM
 nmcli conn mod 'Wired connection 1' ipv6.method disabled
+nmcli conn up 'Wired connection 1'
+nmcli conn mod 'Wired connection 1' ipv4.ignore-auto-dns yes
 nmcli conn up 'Wired connection 1'
 sleep 5
 hostnamectl set-hostname $IDM_CLIENT_NAME

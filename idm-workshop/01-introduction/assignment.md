@@ -285,7 +285,7 @@ A fully-functioning IdM installation returns an empty result of [].
 
 In the latest versions of IdM, DNS recursion has been disabled as appropriate.
 We will ensure that trusted connections on our local network can use our DNS server to resolve domains not served by our DNS.
-Run the following setup script to add our trusted networks to the proper configuration files. 
+Run the following setup script to add our trusted networks to the proper configuration files.
 
 ```bash
 /root/trustednetwork.sh

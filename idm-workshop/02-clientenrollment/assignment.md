@@ -113,7 +113,7 @@ User authorized to enroll computers:
 
 Use **admin** with the password you configured previously for the IdM Server.
 ```bash
-redhat2023
+redhat2024
 ```
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
