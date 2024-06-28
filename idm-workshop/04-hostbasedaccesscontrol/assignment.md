@@ -177,10 +177,10 @@ Let's use this to create our admins_all_all rule.
 ipa hbacrule-add --desc "Administrators all access pass" --hostcat="all" --servicecat="all" admins_allow_all
 ```
 
-Ensure that our admins are the users targeted by the rule
+Ensure that our idm admins and system admins are allowed to login to all systems
 
 ```bash
-ipa hbacrule-add-user --groups=admins admins_allow_all
+ipa hbacrule-add-user --groups=admins --groups=sysadmins admins_allow_all
 ```
 
 Verify the rule looks as you expect
@@ -196,7 +196,7 @@ ipa hbacrule-show admins_allow_all
   Service category: all
   Description: Administrators all access pass
   Enabled: TRUE
-  User Groups: admins
+  User Groups: admins, sysadmins
 </pre>
 
 Now disable the allow_all rule.

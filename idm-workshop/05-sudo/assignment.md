@@ -52,7 +52,7 @@ Ticket cache: KCM:634000003:33566
 Default principal: alice@[[ Instruqt-Var key="realm" hostname="idmserver1" ]]
 
 Valid starting       Expires              Service principal
-02/25/2023 17:19:47  02/26/2023 17:15:49  krbtgt/[[ Instruqt-Var key="realm" hostname="idmserver1" ]]@[[ Instruqt-Var key="realm" hostname="idmserver1" ]]
+06/25/2024 17:19:47  06/26/2024 17:15:49  krbtgt/[[ Instruqt-Var key="realm" hostname="idmserver1" ]]@[[ Instruqt-Var key="realm" hostname="idmserver1" ]]
 </pre>
 
 Now let's ssh to the idmclient1 system.
@@ -97,7 +97,13 @@ Logout from the client system by typing ``exit``.
 Logout of alice's context by typing ``kdestroy -A``.
 kinit as the admin user ``kinit admin``.
 
-We need a sudo rule for the admins to have super user privilege on the realm's systems.
+If you were to repeat the previous example now as admin, you would find that you would be successful in setting the motd.
+As we mentioned earlier, the IdM 'admins' group is like a super user for the realm.
+Alice as a member of the sysadmins group does not have the same privilege.
+Separating the realm administration from system administratrion is good security practice.
+
+We can create a sudo rule for the sysadmins group to have super user privilege on a subset the realm's systems.
+In this case we will set this up for production systems.
 
 If we investigate using the CLI, we find the following:
 
@@ -125,9 +131,9 @@ must be unique.
 ...
 </pre>
 
-We want to add a sudo rule for admins to all the group to
+We want to add a sudo rule for sysadmins group to:
 - run any command
-- on any system
+- on production systems
 - as any user
 - as any group
 
@@ -152,23 +158,28 @@ Options:
 
 We can see from the help listing that this command is very similar to the hbacrule-add command we saw in the previous challenge.
 
-Create a new sudo rule named ***admins_allow_all*** with a description ***Allow admins root access*** that meets the criteria that we specified above.
+Create a new sudo rule named ***sysadmins_allow_all_production*** with a description ***Allow sysadmins group root access to production servers*** that meets the criteria that we specified above.
 
 ```bash
-ipa sudorule-add admins_allow_all \
-  --desc="Allow admins root access" \
-  --hostcat="all" \
+ipa sudorule-add sysadmins_allow_all_production \
+  --desc="Allow sysadmins group root access to production servers" \
   --cmdcat="all" \
   --runasusercat="all" \
   --runasgroupcat="all"
-
 ```
 
-Now add the admins to the sudo rule.
+Now lets make sure that this rule applies only to production servers.
 
 ```bash
-ipa sudorule-add-user admins_allow_all \
-  --groups=admins
+ipa sudorule-add-host sysadmins_allow_all_production \
+  --hostgroups "production"
+```
+
+Now lets ensure that the sysadmins have this sudo rule applied to them.
+
+```bash
+ipa sudorule-add-user sysadmins_allow_all_production \
+  --groups=sysadmins
 ```
 Alice should now have sudo access on all the systems in the realm.
 Logout and log back in as alice, then ssh to idmclient1 as alice.
@@ -183,6 +194,10 @@ kinit alice
 
 ```bash
 ssh alice@idmclient1.[[ Instruqt-Var key="realm" hostname="idmserver1" ]]
+```
+Confirm that you are running with a TGT for alice
+```bash
+klist
 ```
 
 Try again to edit the /etc/motd file and provide the password for ***alice***
@@ -214,11 +229,11 @@ You have created your first simple sudo policy. We will now make something a lit
 The goal of this exercise it to pull together a number of the things that we have learned to give user **bob** access to our client machine and allow him enough authorization to manage the web server that was installed as part of the setup.
 
 For this exercise, use the skills you have learned so far to do the following:
-- create a user group named webadmins
-- add bob as a member of webadmins
-- create a host group called webservers
-- add your client machine to the web servers group
-- create an hbac rule named allow_webadmins_webservers_sshd to allow webadmins to log in to hosts that are part of the webservers host group using the sshd service
+- create a user group named **webadmins**
+- add **bob** as a member of **webadmins**
+- create a host group called **webservers**
+- add your **idmclient1** machine to the **webservers** group
+- create an hbac rule named **allow_webadmins_webservers_sshd** to allow **webadmins** to log in to hosts that are part of the **webservers** host group using the **sshd** service
 
 The shell commands to perform this are provided at the end of this section.
 
@@ -226,8 +241,13 @@ The shell commands to perform this are provided at the end of this section.
 
 Once you have completed creating the above prerequisites, ***bob*** should be able to login to your client, however, he can not use ``su -l`` to create a login shell.
 
-Bob also can't restart the httpd service using sudo. You will find that the error is different for ***bob*** than it was for ***alice***. This is because where the hbac rule for *alice* was created with ``--servicecat=all``, the hbac rule for *bob* was create to limit access to ***ssh***
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">
+[bob@idmclient1 ~]$ su -l bob
+Password:
+su: Authentication failure
+<pre>
 
+Bob also can't restart the httpd service using sudo. You will find that the error is different for ***bob*** than it was for ***alice***. This is because where the hbac rule for *alice* was created with ``--servicecat=all``, the hbac rule for *bob* was create to limit access to ***sshd***
 
 As a webadmin controlling the web services ***bob*** needs to run both ``su -l`` and ``sudo``. Make sure that both commands are added to the list of allowed services in the host based access control rule **allow_webadmins_webservers_sshd**
 
@@ -237,11 +257,14 @@ ipa hbacrule-add-service allow_webadmins_webservers_sshd \
 ```
 Ensure that you logout of the client system and relogin as ***bob***. Now you should be able to use the appropriate commands. However, notice that bob still can't restart httpd
 
-```bash
-sudo systemctl restart httpd
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">
+[bob@idmclient1 ~]$ su -l bob
+Password:
+Last login: Wed Jun 26 17:55:51 EDT 2024 from 10.5.2.41 on pts/1
+[bob@idmclient1 ~]$ sudo systemctl restart httpd
 [sudo] password for bob:
 Sorry, user bob is not allowed to execute '/bin/systemctl restart httpd' as root on idmclient1.[[ Instruqt-Var key="realm" hostname="idmserver1" ]].
-```
+</pre>
 
 <hr>
 
@@ -304,17 +327,26 @@ Login to idmclient1 from idmserver1 as bob again using ssh.
 
 Verify that bob can restart the web server
 ```bash
+su -l bob
+```
+
+```bash
 sudo systemctl restart httpd
 ```
+You should see output similar to this:
+
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">
+[bob@idmclient1 ~]$ su -l bob
+Password:
+Last login: Wed Jun 26 17:57:01 EDT 2024 from 10.5.2.41 on pts/1
+[bob@idmclient1 ~]$ sudo systemctl restart httpd
+[sudo] password for bob:
+[bob@idmclient1 ~]$
+<pre>
 
 Remember if you don't want to wait for the timeout go to the idmclient1 terminal and restart sssd.
 Try again.
 
-
-Verify that bob restarted the web server...
-```bash
-sudo systemctl status httpd
-```
 Is there a problem?
 
 Verify that bob can't run other commands as root
@@ -322,7 +354,7 @@ Verify that bob can't run other commands as root
 sudo id
 ```
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
-Sorry, user bob is not allowed to execute '/bin/id' as root on
+Sorry, user bob is not allowed to execute '/bin/id' as root on...
 </pre>
 
 > NOTE: The solution for ***Exercise 5.2.1*** command line example is below.

@@ -76,7 +76,8 @@ chmod +x /root/labsetup.sh
 
 tee -a /root/trustednetwork.sh << EOF
 #!/bin/bash
-CIDR=\$(hostname --all-ip-address | cut -d"." -f1-2 | awk '{ print $1".0.0/22" }')
+CIDR=\$(hostname --all-ip-addresses | cut -d"." -f1-2 | awk '{ print \$1".0.0/22" }')
+mv /etc/named/ipa-ext.conf /etc/named/ipa-ext.\$(date +"%s").bak
 tee -a /etc/named/ipa-ext.conf << TRUSTED
 acl "trusted_network" { 
     localnets; 
@@ -84,7 +85,14 @@ acl "trusted_network" {
     \$CIDR; 
 };
 TRUSTED
-echo "allow-recursion { trusted_network; };" >> /etc/named/ipa-options-ext.conf
+
+mv /etc/named/ipa-options-ext.conf /etc/named/ipa-options-ext.\$(date +"%s").bak
+tee -a /etc/named/ipa-options-ext.conf << OPTIONS
+allow-recursion { trusted_network; };
+allow-query-cache  { trusted_network; };
+dnssec-validation yes;
+OPTIONS
+
 EOF
 
 chmod +x /root/trustednetwork.sh

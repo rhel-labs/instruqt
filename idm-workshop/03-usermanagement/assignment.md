@@ -53,7 +53,7 @@ You will get a TLS **untrusted issuer warning** which you should dismiss accordi
 
 > ***NOTE:*** The Web UI **must** open in a separate browser tab or window. For security reasons the Web UI does not allow itself to be opened in an embedded iframe.
 
-Log in as **admin** with the password of **redhat2023** (or the password you used in previous exercises).
+Log in as **admin** with the password of **redhat2024** (or the password you used in previous exercises).
 
 Welcome to the Identity Management Web UI. Management activities can be
 performed here, or via the **ipa** CLI program.  The web UI should be very intuitive.
@@ -64,10 +64,10 @@ performed here, or via the **ipa** CLI program.  The web UI should be very intui
 Use the Web UI to perform the following actions:
 
 1. Add a *User* with the username **alice** with an initial password of **test123**.
-2. Verify that a *User Group* for system administrators named **admins** exists.
-3. Add a new *User Group* for developers named **developers** with a description of **Application Developers** and accept the default settings.
-4. Verify that the default **admin** user is a member of the **admins** user group.
-5. Add **alice** to the **admins** user group.
+2. Verify that a *User Group* for system administrators named **sysadmins** exists.
+3. Add **alice** to the **sysadmins** user group.
+4. Add a new *User Group* for developers named **developers** with a description of **Application Developers** and accept the default settings.
+5. Verify that the default **admin** user is a member of the **admins** user group.
 
 Reach out to your workshop instructor if you get stuck.
 
@@ -120,7 +120,7 @@ automember-default-group-show     Display information about the default (fallbac
 ...
 </pre>
 
-Wow! There are nearly 400 commands! We will be using only a handful
+Wow! There are nearly 450 commands! We will be using only a handful
 of these today.
 
 > Command completion is enabled, you can type a partial
@@ -148,10 +148,6 @@ ipa help topics
 
 ```bash
 ipa help hbac
-```
-
-```bash
-ipa help hbacrule
 ```
 
 ```bash
@@ -218,7 +214,7 @@ password.
 Now try to authenticate as bob using kinit. You should see something
 like the following:
 
-When prompted for a password for bob, use **redhat2023**
+When prompted for a password for bob, use **redhat2024**
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 kinit bob
 Password for bob@[[ Instruqt-Var key="realm" hostname="idmserver1" ]]:
@@ -311,7 +307,7 @@ Now try to kinit as ***alice***
 kinit alice
 ```
 
-Make sure that ***alice*** can authenticate with the password ***redhat2023***
+Make sure that ***alice*** can authenticate with the password ***redhat2024***
 
 Now that you have created some users, it's time to define some
 access policies.

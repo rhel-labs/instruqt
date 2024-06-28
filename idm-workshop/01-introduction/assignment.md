@@ -291,18 +291,20 @@ Run the following setup script to add our trusted networks to the proper configu
 /root/trustednetwork.sh
 ```
 
-This adds an entry to the named configuration for IdM DNS (/etc/named/ipa-ext.conf) to identify the trusted networks.
+This adds an entry to the named configuration for IdM DNS (/etc/named/ipa-ext.conf) to identify the trusted networks similar to the following.
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 acl "trusted_network" {
     localnets;
     localhost;
-    10.5.1.0/24;
+    10.5.0.0/22;
 };
 </pre>
 
-It also sets up the allow-recursion option in the IdM named options configuration (/etc/named/ipa-options-ext.conf).
+It also sets up the recursion, caching and dnssec options in the IdM named options configuration (/etc/named/ipa-options-ext.conf).
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 allow-recursion { trusted_network; };
+allow-query-cache  { trusted_network; };
+dnssec-validation yes;
 </pre>
 
 Restart the IdM services to ensure that the configuration is applied. The ipactl command is used to manage the IdM services.

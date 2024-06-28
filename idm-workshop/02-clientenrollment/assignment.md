@@ -83,7 +83,7 @@ Next, the discovered settings are displayed.
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 This program will set up IPA client.
-Version 4.10.0
+Version 4.11.0
 
 Discovery was successful!
 Do you want to configure chrony with NTP server or pool address? [no]:
