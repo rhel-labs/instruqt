@@ -1,0 +1,107 @@
+#!/bin/bash
+# set -euxo pipefail
+
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+echo "Register system to CDN" > /root/post-run.log
+# 2024-06-27 forcing some hard clean up on the host to eliminate provisioning issues
+# need the sleep, need to change config after registration
+subscription-manager unregister
+subscription-manager clean
+yum clean all
+sleep 3
+
+retries=3
+
+for ((i=0; i<retries; i++)); do
+    subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+    [[ $? -eq 0 ]] && break
+
+    echo "something went wrong, let's wait 10 seconds and retry"
+    sleep 10
+done
+
+(( retries == i )) && { echo 'Failed!'; exit 1; }
+
+subscription-manager config --rhsm.manage_repos=1
+
+echo "Adding lab user to wheel" > /root/post-run.log
+usermod -aG wheel rhel
+
+echo "Setting lab user password" >> /root/post-run.log
+echo redhat | passwd --stdin rhel
+
+echo "enable bash completion in the root's instruqt shell" >> /root/post-run.log
+echo "source /etc/profile.d/bash_completion.sh" >> /root/.bashrc
+
+echo "Configure the firewall for httpd" >> /root/post-run.log
+firewall-cmd --permanent --add-service http
+firewall-cmd --reload
+
+echo "Configure the script variables" >> /root/post-run.log
+export IDM_SERVER_NAME=idmserver1.${_SANDBOX_ID}.instruqt.io
+export IDM_REPLICA_NAME=idmreplica1.${_SANDBOX_ID}.instruqt.io
+export IDM_CLIENT_NAME=idmclient1.${_SANDBOX_ID}.instruqt.io
+
+echo "Install the ipa-client packages" >> /root/post-run.log
+dnf -y install bind-utils
+dnf -y install ipa-client
+
+echo "Install http for sample app" >> /root/post-run.log
+dnf -y install httpd mod_wsgi
+rm -f /etc/httpd/conf.d/welcome.conf
+
+echo "Create the sample app" >> /root/post-run.log
+tee -a /usr/share/httpd/app.py << EOF
+def application(environ, start_response):
+    start_response('200 OK', [('Content-Type', 'text/plain')])
+    remote_user = environ.get('REMOTE_USER')
+    if remote_user is not None:
+        yield "LOGGED IN AS: {}\n".format(remote_user).encode('utf8')
+    else:
+        yield b"NOT LOGGED IN\n"
+    yield b"\nREMOTE_* REQUEST VARIABLES:\n\n"
+    for k, v in environ.items():
+        if k.startswith('REMOTE_'):
+            yield "  {}: {}\n".format(k, v).encode('utf8')
+EOF
+
+echo "Configure the sample app" >> /root/post-run.log
+tee -a /etc/httpd/conf.d/app.conf << EOF
+<VirtualHost *:80>
+    ServerName $IDM_CLIENT_NAME
+    WSGIScriptAlias / /usr/share/httpd/app.py
+    <Directory /usr/share/httpd>
+        <Files "app.py">
+            Require all granted
+        </Files>
+    </Directory>
+</VirtualHost>
+EOF
+
+echo "Create the lab setup script" >> /root/post-run.log
+tee -a /root/labsetup.sh  << EOF
+#!/bin/bash
+IDM=\$(nslookup idmserver1.${_SANDBOX_ID}.svc.cluster.local | awk '/^Address: / { print \$2 }')
+nmcli conn mod 'Wired connection 1' ipv4.ignore-auto-dns yes
+nmcli conn mod 'Wired connection 1' ipv4.dns \$IDM
+nmcli conn mod 'Wired connection 1' ipv6.method disabled
+nmcli conn up 'Wired connection 1'
+nmcli conn mod 'Wired connection 1' ipv4.ignore-auto-dns yes
+nmcli conn up 'Wired connection 1'
+sleep 5
+hostnamectl set-hostname $IDM_CLIENT_NAME
+hostnamectl
+nslookup $IDM_SERVER_NAME
+EOF
+
+chmod +x /root/labsetup.sh
+
+echo "Set the timezone" >> /root/post-run.log
+timedatectl set-timezone America/New_York
+
+echo "DONE" >> /root/post-run.log

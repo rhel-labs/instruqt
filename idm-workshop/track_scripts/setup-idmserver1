@@ -1,0 +1,109 @@
+#!/bin/bash
+# set -euxo pipefail
+
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+echo "Register system to CDN" > /root/post-run.log
+# 2024-06-27 forcing some hard clean up on the host to eliminate provisioning issues
+# need the sleep, need to change config after registration
+subscription-manager unregister
+subscription-manager clean
+yum clean all
+sleep 3
+
+retries=3
+
+for ((i=0; i<retries; i++)); do
+    subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+    [[ $? -eq 0 ]] && break
+
+    echo "something went wrong, let's wait 10 seconds and retry"
+    sleep 10
+done
+
+(( retries == i )) && { echo 'Failed!'; exit 1; }
+
+subscription-manager config --rhsm.manage_repos=1
+
+echo "Adding lab user to wheel" > /root/post-run.log
+usermod -aG wheel rhel
+
+echo "Setting lab user password" >> /root/post-run.log
+echo redhat | passwd --stdin rhel
+
+echo "enable bash completion in the root's instruqt shell" >> /root/post-run.log
+echo "source /etc/profile.d/bash_completion.sh" >> /root/.bashrc
+
+echo "Configure the firewall for IdM Server" >> /root/post-run.log
+firewall-cmd --permanent --add-service=dns
+firewall-cmd --permanent --add-service=freeipa-4
+firewall-cmd --permanent --add-service=freeipa-ldap
+firewall-cmd --permanent --add-service=freeipa-ldaps
+firewall-cmd --permanent --add-service=freeipa-replication
+firewall-cmd --permanent --add-service=freeipa-trust
+firewall-cmd --reload
+
+echo "Configure the script variables" >> /root/post-run.log
+export IDM_SERVER_NAME=idmserver1.${_SANDBOX_ID}.instruqt.io
+export IDM_REPLICA_NAME=idmreplica1.${_SANDBOX_ID}.instruqt.io
+export IDM_CLIENT_NAME=idmclient1.${_SANDBOX_ID}.instruqt.io
+export DOMAIN=${_SANDBOX_ID}.instruqt.io
+export REALM=${DOMAIN^^}
+export NETBIOS=${$_SANDBOX_ID^^}
+
+echo "Install the ipa-server packages" >> /root/post-run.log
+dnf -y install bind-utils
+dnf -y install ipa-server ipa-server-dns ipa-healthcheck
+
+echo "Create the lab setup scripts" >> /root/post-run.log
+tee -a /root/labsetup.sh << EOF
+#!/bin/bash
+IDM=\$(hostname --all-ip-addresses)
+echo "\$IDM $IDM_SERVER_NAME" >> /etc/hosts
+nmcli conn mod 'Wired connection 1' ipv6.method disabled
+nmcli conn up 'Wired connection 1'
+sleep 2
+hostnamectl set-hostname $IDM_SERVER_NAME
+hostnamectl
+ping -c 3 $IDM_SERVER_NAME
+EOF
+
+chmod +x /root/labsetup.sh
+
+tee -a /root/trustednetwork.sh << EOF
+#!/bin/bash
+CIDR=\$(hostname --all-ip-addresses | cut -d"." -f1-2 | awk '{ print \$1".0.0/22" }')
+mv /etc/named/ipa-ext.conf /etc/named/ipa-ext.\$(date +"%s").bak
+tee -a /etc/named/ipa-ext.conf << TRUSTED
+acl "trusted_network" { 
+    localnets; 
+    localhost; 
+    \$CIDR; 
+};
+TRUSTED
+
+mv /etc/named/ipa-options-ext.conf /etc/named/ipa-options-ext.\$(date +"%s").bak
+tee -a /etc/named/ipa-options-ext.conf << OPTIONS
+allow-recursion { trusted_network; };
+allow-query-cache  { trusted_network; };
+dnssec-validation yes;
+OPTIONS
+
+EOF
+
+chmod +x /root/trustednetwork.sh
+
+echo "Set the timezone" >> /root/post-run.log
+timedatectl set-timezone America/New_York
+
+echo "Configure instruqt agent variables for inserting host information." >> /root/post-run.log
+agent variable set sandbox_id $_SANDBOX_ID
+agent variable set realm $REALM
+agent variable set domain $DOMAIN
+agent variable set netbios $NETBIOS
+
+echo "DONE" >> /root/post-run.log

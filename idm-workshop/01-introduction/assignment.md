@@ -1,6 +1,6 @@
 ---
 slug: introduction
-id: xdwt3vpkpgdu
+id: jwefnsxfscow
 type: challenge
 title: Install the Identity Management Server
 teaser: Introduction and Install the Server.
@@ -9,9 +9,9 @@ notes:
   contents: |
     ## Introduction
 
-    Identity Management (IdM) in Red Hat Enterprise Linux provides a centralized and unified way to manage identity stores, authentication, authorization and related policies in a Linux-based domain. IdM stores information in an LDAP store based on 389ds directory server. It provides an integrated Certificat Authority using dogtag certificate system to generate user and device certificates. IdM combines these capabilites with MIT kerberos to provide a unified identity and policy environment. IdM leverages the System Security Services Daemon (SSSD) within supported operating systems to coordinate client requests with the IdM server. By consolidating these services and centralizing management IdM significantly reduces the administrative overhead by eliminating the need to configure services individually and use different tools on different machines.
+    Identity Management (IdM) in Red Hat Enterprise Linux provides a centralized and unified way to manage identity stores, authentication, authorization and related policies in a Linux-based domain. IdM keeps information in an LDAP store based on 389ds directory server. It provides an integrated Certificate Authority using dogtag certificate system to generate user, device and service certificates. IdM combines these capabilites with MIT kerberos to provide a unified identity and policy environment. IdM leverages the System Security Services Daemon (SSSD) within supported operating systems to coordinate client requests with the IdM server. By consolidating these services and centralizing management, IdM significantly reduces the administrative overhead by eliminating the need to configure services individually and use different tools on different machines.
 
-    IdM is based on the upstream project FreeIPA which is integrated with the Fedora linux distribution and CentOS Streams. It is integrated into Red Hat Enterprise Linux in the same way other upstream components are and undergoes the integration testing with other Red Hat products like Red Hat Ansible Automation Platform, Red Hat Satellite, Red Hat Single Sign On, Red Hat OpenShift and more.
+    IdM is based on the upstream project FreeIPA which is integrated with the Fedora linux distribution and CentOS Stream. It is integrated into Red Hat Enterprise Linux in the same way other upstream components are and undergoes integration testing with other Red Hat products like Red Hat Ansible Automation Platform, Red Hat Satellite, Red Hat Single Sign On, Red Hat OpenShift and more. It is supported on all architectures that Red Hat delivers Red Hat Enterprise Linux on - x86_64, aarch64, PowerLE, System Z/Linux One.
 
     ![Identity Management Server and Client](../assets/ServerAndClient.png)
 
@@ -36,11 +36,10 @@ notes:
 tabs:
 - title: IdM Server
   type: terminal
-  hostname: idmserver
-  cmd: /root/labsetup.sh
+  hostname: idmserver1
 - title: IdM Web UI
   type: external
-  url: https://idmserver.${_SANDBOX_ID}.instruqt.io/ipa/ui/
+  url: https://idmserver1.${_SANDBOX_ID}.instruqt.io/ipa/ui/
 difficulty: basic
 timelimit: 5760
 ---
@@ -87,13 +86,19 @@ This user is a member of wheel and has sudo access.
 
 You can preform all of the activities in the labs using the root account. The above account has been provided should it become necessary.
 
+**To prepare for the lab, please execute the following command:**
+```bash
+/root/labsetup.sh
+```
+This command simply updates our local hosts file with the private ip of our cloud instance.
+
 <hr>
 
 ### Exercise 1.1 - Install the IdM server
 
-The IdM server binaries are provided in the ipa-server package. It is delivered as a modular component in Red Hat Enterprise Linux 8 and 9. The ipa-server package has been installed on the idmserver system within your environment during creation.
+The IdM server binaries are provided in the ipa-server package. It is delivered as a modular component in Red Hat Enterprise Linux 8 and 9. The ipa-server package has been installed on the idmserver1 system within your environment during creation.
 
-The configuration of the IdM server managed by an installer program. We add the **--no-host-dns** parameter to support our lab environment. In a production environment, to ensure proper DNS delegation, DNS forwarding, etc.. checking the host dns entry ensures that our configuration will function as expected. The **--mkhomedir** option is used to ensure that PAM creates missing home directories for users when they login for the first time. IdM also supports automount for those use cases where automount use is authorized.
+The configuration of the IdM server managed by an installer program. We add the **--no-host-dns** parameter to support our lab environment. In a production environment, to ensure proper DNS delegation, DNS forwarding, etc.. checking the host dns entry ensures that our configuration will function as expected. The **--mkhomedir** option is used to ensure that PAM creates missing home directories for users when they login for the first time. IdM also supports automount for those use cases where oddjobd and automount use is authorized.
 
 During the installation of the IdM server you will be asked a number of questions. Please accept the defaults **unless outlined below**.
 
@@ -118,28 +123,70 @@ Kerberos is tightly tied to DNS as clients use DNS for kerberos service discover
 The next series of prompts ask you to verify the installer discovered values for the server hostname, domain name and realm. Accept the default by pressing enter after each of the following questions.
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
-Server host name [idmserver.[[ Instruqt-Var key="domain" hostname="idmserver" ]]]:
+Server host name [idmserver1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]]]:
 
-Warning: skipping DNS resolution of host idmserver.[[ Instruqt-Var key="domain" hostname="idmserver" ]]
+Warning: skipping DNS resolution of host idmserver1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]]
 The domain name has been determined based on the host name.
 
-Please confirm the domain name [[[ Instruqt-Var key="domain" hostname="idmserver" ]]]:
+Please confirm the domain name [[[ Instruqt-Var key="domain" hostname="idmserver1" ]]]:
 
 The kerberos protocol requires a Realm name to be defined.
 This is typically the domain name converted to uppercase.
 
-Please provide a realm name [[[ Instruqt-Var key="realm" hostname="idmserver" ]]]:
+Please provide a realm name [[[ Instruqt-Var key="realm" hostname="idmserver1" ]]]:
 </pre>
 
-You will need to provide a password for the LDAP Directory Manager and
-for the IdM admin account. It requires a minimum of 8 characters. Please use:
+You will need to provide a password for the **LDAP Directory Manager** and
+for the **IdM admin** account. It requires a minimum of 8 characters. For both, please use:
 
 ```bash
-redhat2023
+redhat2024
 ```
-There are several more questions related to the DNS configuration, NETBIOS name, and time servers. Please accept the defaults. You will then be prompted to confirm that you wish to proceed with the installation using the stated configuration.
+There are several more questions related to the DNS configuration, NETBIOS name, and time servers.
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">
+Do you want to configure DNS forwarders? [yes]:
+</pre>
 
-Answer **yes**
+Accept the default or type yes.
+
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">
+Following DNS servers are configured in /etc/resolv.conf: xxx.xxx.xxx.xxx
+Do you want to configure these servers as DNS forwarders? [yes]:
+</pre>
+
+Accept the default found by the search of resolv.conf by pressing Enter or typing yes.
+
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">
+Do you want to search for missing reverse zones? [yes]:
+</pre>
+
+Accept the default or type yes.
+You should get a message stating that it already exists.
+
+Next, you will see a message similar to the following asking for the NETBIOS name of the **IPA Domain** (not the IPA server):
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">
+Trust is configured but no NetBIOS domain name found, setting it now.
+Enter the NetBIOS name for the <b>IPA domain</b>.
+Only up to 15 uppercase ASCII letters, digits and dashes are allowed.
+Example: EXAMPLE.
+
+
+NetBIOS domain name [[[ Instruqt-Var key="netbios" hostname="idmserver1" ]]]:
+</pre>
+
+Accept the default or type yes.
+
+
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">
+Do you want to configure chrony with NTP server or pool address? [no]:
+</pre>
+
+Time servers are already configured by the environment.
+Accept the default or type yes.
+
+You will then be prompted to confirm that you wish to proceed with the installation using the stated configuration.
+
+This is the "Are you sure?" moment. You need to type in **yes** here.
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 Continue to configure the system with these values? [no]: <b>yes</b>
@@ -213,7 +260,7 @@ For information on why these ports are required and how they are used, please se
 Verify that you can authenticate with the new IdM realm using the default admin user and the password you provided.
 
 ```bash
-kinit admin@[[ Instruqt-Var key="realm" hostname="idmserver" ]]
+kinit admin@[[ Instruqt-Var key="realm" hostname="idmserver1" ]]
 ```
 
 > NOTE: you can omit the realm name as it will be setup as a default in /etc/krb5.conf
@@ -235,5 +282,40 @@ Verify the health of the server.
 ipa-healthcheck
 ```
 A fully-functioning IdM installation returns an empty result of [].
+
+In the latest versions of IdM, DNS recursion has been disabled as appropriate.
+We will ensure that trusted connections on our local network can use our DNS server to resolve domains not served by our DNS.
+Run the following setup script to add our trusted networks to the proper configuration files.
+
+```bash
+/root/trustednetwork.sh
+```
+
+This adds an entry to the named configuration for IdM DNS (/etc/named/ipa-ext.conf) to identify the trusted networks similar to the following.
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">
+acl "trusted_network" {
+    localnets;
+    localhost;
+    10.5.0.0/22;
+};
+</pre>
+
+It also sets up the recursion, caching and dnssec options in the IdM named options configuration (/etc/named/ipa-options-ext.conf).
+<pre class="file" style="white-space: pre-wrap; font-family:monospace;">
+allow-recursion { trusted_network; };
+allow-query-cache  { trusted_network; };
+dnssec-validation yes;
+</pre>
+
+Restart the IdM services to ensure that the configuration is applied. The ipactl command is used to manage the IdM services.
+```bash
+ipactl restart
+```
+
+Verify DNS resolution for connected clients.
+```bash
+nslookup cdn.redhat.com
+```
+You should see the records come back for the local akamai edge network server replicating the CDN content.
 
 We are now ready to register client systems!

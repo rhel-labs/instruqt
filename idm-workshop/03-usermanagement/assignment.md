@@ -25,13 +25,13 @@ notes:
 tabs:
 - title: IdM Server
   type: terminal
-  hostname: idmserver
+  hostname: idmserver1
 - title: IdM Web UI
   type: external
-  url: https://idmserver.${_SANDBOX_ID}.instruqt.io
+  url: https://idmserver1.${_SANDBOX_ID}.instruqt.io
 - title: IdM Client
   type: terminal
-  hostname: idmclient
+  hostname: idmclient1
 difficulty: basic
 timelimit: 5760
 ---
@@ -53,7 +53,7 @@ You will get a TLS **untrusted issuer warning** which you should dismiss accordi
 
 > ***NOTE:*** The Web UI **must** open in a separate browser tab or window. For security reasons the Web UI does not allow itself to be opened in an embedded iframe.
 
-Log in as **admin** with the password of **redhat2023** (or the password you used in previous exercises).
+Log in as **admin** with the password of **redhat2024** (or the password you used in previous exercises).
 
 Welcome to the Identity Management Web UI. Management activities can be
 performed here, or via the **ipa** CLI program.  The web UI should be very intuitive.
@@ -64,10 +64,10 @@ performed here, or via the **ipa** CLI program.  The web UI should be very intui
 Use the Web UI to perform the following actions:
 
 1. Add a *User* with the username **alice** with an initial password of **test123**.
-2. Verify that a *User Group* for system administrators named **admins** exists.
-3. Add a new *User Group* for developers named **developers** with a description of **Application Developers** and accept the default settings.
-4. Verify that the default **admin** user is a member of the **admins** user group.
-5. Add **alice** to the **admins** user group.
+2. Verify that a *User Group* for system administrators named **sysadmins** exists.
+3. Add **alice** to the **sysadmins** user group.
+4. Add a new *User Group* for developers named **developers** with a description of **Application Developers** and accept the default settings.
+5. Verify that the default **admin** user is a member of the **admins** user group.
 
 Reach out to your workshop instructor if you get stuck.
 
@@ -120,7 +120,7 @@ automember-default-group-show     Display information about the default (fallbac
 ...
 </pre>
 
-Wow! There are nearly 400 commands! We will be using only a handful
+Wow! There are nearly 450 commands! We will be using only a handful
 of these today.
 
 > Command completion is enabled, you can type a partial
@@ -148,10 +148,6 @@ ipa help topics
 
 ```bash
 ipa help hbac
-```
-
-```bash
-ipa help hbacrule
 ```
 
 ```bash
@@ -203,7 +199,7 @@ ipa passwd bob
   New Password:
   Enter New Password again to verify:
   ----------------------------------------
-  Changed password for bob@[[ Instruqt-Var key="realm" hostname="idmserver" ]]
+  Changed password for bob@[[ Instruqt-Var key="realm" hostname="idmserver1" ]]
   ----------------------------------------
 </pre>
 
@@ -218,10 +214,10 @@ password.
 Now try to authenticate as bob using kinit. You should see something
 like the following:
 
-When prompted for a password for bob, use **redhat2023**
+When prompted for a password for bob, use **redhat2024**
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 kinit bob
-Password for bob@[[ Instruqt-Var key="realm" hostname="idmserver" ]]:
+Password for bob@[[ Instruqt-Var key="realm" hostname="idmserver1" ]]:
 Password expired.  You must change it now.
 Enter new password:
 Enter it again:
@@ -247,17 +243,17 @@ using ssh. If you are on the client tab, try to log into the server;
 if you are on the server tab, try to log into the client.
 
 ```bash
-ssh bob@idmclient.[[ Instruqt-Var key="domain" hostname="idmserver" ]]
+ssh bob@idmclient1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]]
 ```
 OR
 
 ```bash
-ssh bob@idmserver.[[ Instruqt-Var key="domain" hostname="idmserver" ]]
+ssh bob@idmserver1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]]
 ```
 
 You should see somthing similar to the following:
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
-[bob@idmclient ~]$
+[bob@idmclient1 ~]$
 </pre>
 
 Verify that you are in the home directory for **bob**
@@ -267,9 +263,9 @@ pwd
 You should see:
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
-[bob@idmclient ~]$ pwd
+[bob@idmclient1 ~]$ pwd
 /home/bob
-[bob@idmclient ~]$
+[bob@idmclient1 ~]$
 </pre>
 
 You are now logged into the client as *bob*.  Type **Ctrl+D** or
@@ -277,12 +273,12 @@ You are now logged into the client as *bob*.  Type **Ctrl+D** or
 
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 logout
-Connection to idmclient.[[ Instruqt-Var key="domain" hostname="idmserver" ]] closed.
+Connection to idmclient1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]] closed.
 </pre>
 
 If you run *klist* again, you will see not only the TGT but a **service ticket**
 that was automatically acquired to log in to
-*idmclient.[[ Instruqt-Var key="domain" hostname="idmserver" ]]*
+*idmclient1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]]*
 without prompting for a password.  Kerberos
 is a true **single sign-on** protocol!
 
@@ -291,11 +287,11 @@ Try that now. You should see output similar to the following:
 <pre class="file" style="white-space: pre-wrap; font-family:monospace;">
 klist
   Ticket cache: KEYRING:persistent:1000:1000
-  Default principal: bob@[[ Instruqt-Var key="realm" hostname="idmserver" ]]
+  Default principal: bob@[[ Instruqt-Var key="realm" hostname="idmserver1" ]]
 
   Valid starting       Expires              Service principal
-  06/04/2018 21:45:50  06/05/2018 21:38:24  host/idmclient.[[ Instruqt-Var key="domain" hostname="idmserver" ]]@[[ Instruqt-Var key="realm" hostname="idmserver" ]]
-  06/04/2018 21:38:41  06/05/2018 21:38:24  krbtgt/[[ Instruqt-Var key="realm" hostname="idmserver" ]]@[[ Instruqt-Var key="realm" hostname="idmserver" ]]
+  06/04/2018 21:45:50  06/05/2018 21:38:24  host/idmclient1.[[ Instruqt-Var key="domain" hostname="idmserver1" ]]@[[ Instruqt-Var key="realm" hostname="idmserver1" ]]
+  06/04/2018 21:38:41  06/05/2018 21:38:24  krbtgt/[[ Instruqt-Var key="realm" hostname="idmserver1" ]]@[[ Instruqt-Var key="realm" hostname="idmserver1" ]]
 </pre>
 
 Logout of all sessions using **kdestroy**
@@ -311,7 +307,7 @@ Now try to kinit as ***alice***
 kinit alice
 ```
 
-Make sure that ***alice*** can authenticate with the password ***redhat2023***
+Make sure that ***alice*** can authenticate with the password ***redhat2024***
 
 Now that you have created some users, it's time to define some
 access policies.
