@@ -25,7 +25,7 @@ Welcome to this lab experience for Red Hat Enterprise Linux.
 The system displayed beside this text is a Red Hat Enterprise Linux 9
 system registered with Subscription Manager.
 
-Image mode uses standard container tools to define, build, and transport bootc images. Podman has already been installed on this host as a build environement, along with some additional files.
+Image mode uses standard container tools to define, build, and transport bootc images. Podman has already been installed on this host as a build environment, along with some additional files.
 
 ```bash,run
 podman images
@@ -45,7 +45,7 @@ Once you are done examining the Containerfile, return to the Terminal.
   <h3 style="color: black; border-radius: 5px;">✅ Use Tab: <strong>Terminal</strong></h3>
 </div>
 
-Build the container like you would any other application container with `podman build`. The `REGISTRY` variable is a convience to save typing during the lab and is the FQDN of this host and the standard container registry port 5000.
+Build the container like you would any other application container with `podman build`. The `REGISTRY` variable is a convenience to save typing during the lab and is the FQDN of this host and the standard container registry port 5000.
 
 ```bash,run
 podman build -t ${REGISTRY}/test-bootc .
@@ -63,7 +63,7 @@ skopeo inspect docker://${REGISTRY}/test-bootc | jq '.Digest' | tee sha256.orig
 
 To this point, we've been dealing with standard OCI images and tools. But container images themselves aren't designed to be run outside of a container engine. To run this image as a host, we install it to disk using `bootc`.
 
-For bare metal, we can use Anaconda with `bootc` supoort to install to disk, but to create a QCOW2 image for a KVM virtual machine we'll use `bootc-image-builder`. This is a containerized version of image builder that includes the bootc tooling to install the container image contents to disk. This can also create other types of disk images like AMIs or VMDKs.
+For bare metal, we can use Anaconda with `bootc` support to install to disk, but to create a QCOW2 image for a KVM virtual machine we'll use `bootc-image-builder`. This is a containerized version of image builder that includes the bootc tooling to install the container image contents to disk. This can also create other types of disk images like AMIs or VMDKs.
 
 ```bash,run
 podman run --rm --privileged \
