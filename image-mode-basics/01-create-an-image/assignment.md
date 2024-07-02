@@ -27,39 +27,61 @@ system registered with Subscription Manager.
 
 Image mode uses standard container tools to define, build, and transport bootc images. Podman has already been installed on this host as a build environment, along with some additional files.
 
+Examine the containerfile
+===
+
+In the [button label="Terminal"](tab-0) tab, run the command below by clicking on `run`.
+
 ```bash,run
 podman images
 ```
 
-<div style="border: 1px solid black; border-radius: 5px; padding-left: 1em; padding-bottom: 1em; background-color: lightgray; color: black; border-radius: 5px;">
-  <h3 style="color: black; border-radius: 5px;">✅ Use Tab: <strong>Containerfile</strong></h3>
-</div>
+The output is a listing of the container image stored on the system.
 
-If not already shown, select Containerfile in the list on the right side of the tab.
+![](../assets/image_listing.png)
 
-Image mode relies on standard Containerfiles for defining the OS. The `FROM` line defines the base image, the RUN directives add software and start services, and the ADD line allows us to add the complete contents of a directory at once.
+Switch to the [button label="Containerfile"](tab-1) tab.
 
-Once you are done examining the Containerfile, return to the Terminal.
+Click on `Containerfile`.
 
-<div style="border: 1px solid black; border-radius: 5px; padding-left: 1em; padding-bottom: 1em; background-color: lightgray; color: black; border-radius: 5px;">
-  <h3 style="color: black; border-radius: 5px;">✅ Use Tab: <strong>Terminal</strong></h3>
-</div>
+![](../assets/containerfile_scripteditor.png)
 
-Build the container like you would any other application container with `podman build`. The `REGISTRY` variable is a convenience to save typing during the lab and is the FQDN of this host and the standard container registry port 5000.
+Image mode relies on standard Containerfiles for defining the OS.
+
+1) The `FROM` line defines the base image.
+2) The `ADD` line allows us to add the complete contents of a directory at once.
+3) The `RUN` directives add software and start services.
+
+![](../assets/containerfile_elements.png)
+
+Once you are done examining the Containerfile, click on the [button label="Terminal"](tab-0) tab.
+
+Build the container
+===
+
+Build the container like you would any other application container with `podman build`.
 
 ```bash,run
-podman build -t ${REGISTRY}/test-bootc .
+podman build -t [[ Instruqt-Var key="REGISTRY" hostname="rhel" ]]/test-bootc .
 ```
+
 Once the container has been built, we can push it to our registry for distribution. We are using a simple registry in this lab, but enterprise registries will provide ways to inspect contents, history, manage tags and more.
 
+
 ```bash,run
-podman push ${REGISTRY}/test-bootc
+podman push [[ Instruqt-Var key="REGISTRY" hostname="rhel" ]]/test-bootc
 ```
+
+Inspect the image
+===
 
 With the image available in the registry, we can use standard container tools to get information about it. Let's use `skopeo` to get the SHA256 image digest of this image. We will use that later in the lab, so we'll store the output in a file.
 ```bash,run
-skopeo inspect docker://${REGISTRY}/test-bootc | jq '.Digest' | tee sha256.orig
+skopeo inspect docker://[[ Instruqt-Var key="REGISTRY" hostname="rhel" ]]/test-bootc| jq '.Digest' | tee sha256.orig
 ```
+
+Launch bootc-image-builder
+===
 
 To this point, we've been dealing with standard OCI images and tools. But container images themselves aren't designed to be run outside of a container engine. To run this image as a host, we install it to disk using `bootc`.
 
