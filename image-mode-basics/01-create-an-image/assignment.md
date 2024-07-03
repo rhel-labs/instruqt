@@ -20,6 +20,7 @@ tabs:
 difficulty: basic
 timelimit: 3000
 ---
+
 Welcome to this lab experience for Red Hat Enterprise Linux.
 
 The system displayed beside this text is a Red Hat Enterprise Linux 9
@@ -30,7 +31,7 @@ Image mode uses standard container tools to define, build, and transport bootc i
 Examine the containerfile
 ===
 
-In the [button label="Terminal"](tab-0) tab, run the command below by clicking on `run`.
+In the [button label="Terminal" background="#ee0000" color="#c7c7c7"](tab-0) tab, run the command below by clicking on `run`.
 
 ```bash,run
 podman images
@@ -40,7 +41,7 @@ The output is a listing of the container image stored on the system.
 
 ![](../assets/image_listing.png)
 
-Switch to the [button label="Containerfile"](tab-1) tab.
+Switch to the [button label="Containerfile" background="#ee0000" color="#c7c7c7"](tab-1) tab.
 
 Click on `Containerfile`.
 
@@ -48,13 +49,13 @@ Click on `Containerfile`.
 
 Image mode relies on standard Containerfiles for defining the OS.
 
-1) The `FROM` line defines the base image.
-2) The `ADD` line allows us to add the complete contents of a directory at once.
-3) The `RUN` directives add software and start services.
+1. The `FROM` line defines the base image.
+2. The `ADD` line allows us to add the complete contents of a directory at once.
+3. The `RUN` directives add software and start services.
 
 ![](../assets/containerfile_elements.png)
 
-Once you are done examining the Containerfile, click on the [button label="Terminal"](tab-0) tab.
+Once you are done examining the Containerfile, click on the [button label="Terminal" background="#ee0000" color="#c7c7c7"](tab-0) tab.
 
 Build the container
 ===
@@ -67,7 +68,6 @@ podman build -t [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel
 
 Once the container has been built, we can push it to our registry for distribution. We are using a simple registry in this lab, but enterprise registries will provide ways to inspect contents, history, manage tags and more.
 
-
 ```bash,run
 podman push [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
 ```
@@ -76,6 +76,7 @@ Inspect the image
 ===
 
 With the image available in the registry, we can use standard container tools to get information about it. Let's use `skopeo` to get the SHA256 image digest of this image. We will use that later in the lab, so we'll store the output in a file.
+
 ```bash,run
 skopeo inspect docker://[[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc| jq '.Digest' | tee sha256.orig
 ```
@@ -97,4 +98,7 @@ podman run --rm --privileged \
          [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
 ```
 
-Let's deploy this disk image using KVM in the next step
+> ![NOTE]
+> This operation will take 5 minutes to complete.
+
+When the previous operation has completed, we'll deploy this disk image using KVM in the next step

@@ -24,42 +24,57 @@ tabs:
 difficulty: basic
 timelimit: 600
 ---
-<div style="border: 1px solid black; border-radius: 5px; padding-left: 1em; padding-bottom: 1em; background-color: lightgray; color: black; border-radius: 5px;">
-  <h3 style="color: black; border-radius: 5px;">✅ Use Tab: <strong>Containerfile</strong></h3>
-</div>
+
+Click on the [button label="Containerfile" background="#ee0000" color="#c7c7c7"](tab-1) tab.
 
 If not already shown, select Containerfile in the list on the right side of the tab.
 
+![](../assets/containerfile_scripteditor.png)
+
 To the end of the `dnf install` line, add `vim`.
 
-The editor will automatically save changes. Once you see Changes Saved in the upper right, you can return to the terminal.
+![](../assets/containerfile_add_vim.png)
 
-<div style="border: 1px solid black; border-radius: 5px; padding-left: 1em; padding-bottom: 1em; background-color: lightgray; color: black; border-radius: 5px;">
-  <h3 style="color: black; border-radius: 5px;">✅ Use Tab: <strong>Terminal</strong></h3>
-</div>
+The editor will automatically save changes. Once you see Changes Saved in the upper right, you can return to the [button label="Terminal" background="#ee0000" color="#c7c7c7"](tab-0) tab.
 
-Use `podman build` again to update the image.
+Use podman build again to update the image.
+===
 
 Since the `RUN` command to install software happens after the `ADD` command to install config files, notice `podman` used the cached layer rather than rebuilding it. Layer caching and ordering can be a powerful tool when designing and updating standard operating builds.
+
+Click on `run`.
+
 ```bash,run
-podman build -t ${REGISTRY}/test-bootc .
+podman build -t [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc .
 ```
 > [!NOTE]
 > We haven't defined a new tag for this image, which means `podman` will use `latest`. Using the same tag for updates is how `bootc` tracks and deploys new versions of the same image.
 
+Push the image to the registry
+===
 Once the updated image has been built, we can push it to the registry. Once again, note how only the changed layers need to be added to the registry.
+
 ```bash,run
-podman push ${REGISTRY}/test-bootc
+podman push [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
 ```
+Get the new SHA256 digest
+===
 
 Let's get the new SHA256 digest for our updated image.
+
+Click on `run`.
+
 ```bash,run
-skopeo inspect docker://${REGISTRY}/test-bootc | jq '.Digest' > sha256.vim
+skopeo inspect docker://[[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc | jq '.Digest' > sha256.vim
 ```
 
 <div style="border: 1px solid black; border-radius: 5px; padding-left: 1em; padding-bottom: 1em; background-color: lightgray; color: black; border-radius: 5px;">
   <h3 style="color: black; border-radius: 5px;">✅ Use Tab: <strong>VM Console</strong></h3>
 </div>
+
+Check for updates within the running vm
+===
+Click on the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-2) tab.
 
 > [!NOTE]
 > You may need to tap `enter` to wake up the console, you should still be logged in as `core`
@@ -69,6 +84,8 @@ With the updated image available in the registry, let's see if `bootc` sees any 
 sudo bootc upgrade --check
 ```
 
+Initiate an update
+===
 Since `bootc` tracks a tag in the repository, we see our update available. We are also see some details about what changes will be made. Let's go ahead and stage this update locally.
 
 ```bash,run
@@ -79,8 +96,10 @@ Let's see what happened on disk.
 ```bash,run
 sudo bootc status
 ```
-The `status` output shows us 4 main blocks of inforamtion, what image is booted, what image is staged, what image is cached for update, and what image is available for rollback. Look at each of these sections to see the URL of the image and the SHA256 digest.
+The `status` output shows us 4 main blocks of information, what image is booted, what image is staged, what image is cached for update, and what image is available for rollback. Look at each of these sections to see the URL of the image and the SHA256 digest.
 
+Set up a test to prove image mode won't clobber configurations in /etc
+===
 When applying updates, bootc will pull any updates to `/usr` from the new image, letting us install new software. Any local changes to `/etc` will be merged with whats in the image, with local changes winning. Nothing in the bootc image `/var` structure will be applied, as this is considered machine state.
 
 Let's test this by changing our user password to `1redhat`
