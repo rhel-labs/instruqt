@@ -53,7 +53,7 @@ echo $(getent hosts ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io) >> ~/etc
 
 # add hostname to runtime variable
 
-agent variable set REGISTRY ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000
+agent variable set CONTAINER_REGISTRY_ENDPOINT ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000
 
 # turn off complexity checks in target for passwords to ease the learner experience
 mkdir -p ~/etc/security

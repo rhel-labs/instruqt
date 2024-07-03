@@ -62,14 +62,14 @@ Build the container
 Build the container like you would any other application container with `podman build`.
 
 ```bash,run
-podman build -t [[ Instruqt-Var key="REGISTRY" hostname="rhel" ]]/test-bootc .
+podman build -t [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc .
 ```
 
 Once the container has been built, we can push it to our registry for distribution. We are using a simple registry in this lab, but enterprise registries will provide ways to inspect contents, history, manage tags and more.
 
 
 ```bash,run
-podman push [[ Instruqt-Var key="REGISTRY" hostname="rhel" ]]/test-bootc
+podman push [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
 ```
 
 Inspect the image
@@ -77,7 +77,7 @@ Inspect the image
 
 With the image available in the registry, we can use standard container tools to get information about it. Let's use `skopeo` to get the SHA256 image digest of this image. We will use that later in the lab, so we'll store the output in a file.
 ```bash,run
-skopeo inspect docker://[[ Instruqt-Var key="REGISTRY" hostname="rhel" ]]/test-bootc| jq '.Digest' | tee sha256.orig
+skopeo inspect docker://[[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc| jq '.Digest' | tee sha256.orig
 ```
 
 Launch bootc-image-builder
@@ -94,7 +94,7 @@ podman run --rm --privileged \
         registry.redhat.io/rhel9/bootc-image-builder:latest \
         --type qcow2 \
         --config config.json \
-         ${REGISTRY}/test-bootc
+         [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
 ```
 
 Let's deploy this disk image using KVM in the next step

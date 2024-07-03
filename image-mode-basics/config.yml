@@ -1,7 +1,7 @@
 version: "3"
 virtualmachines:
 - name: rhel
-  image: 'image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-4-06-04-24'
+  image: 'projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-4-06-04-24'
   shell: /bin/bash
   environment:
     TERM: xterm
@@ -10,3 +10,6 @@ virtualmachines:
   - http
   - https
   - high-ports
+secrets:
+- name: REG_SVC_ACCT
+- name: ACTIVATION_KEY
