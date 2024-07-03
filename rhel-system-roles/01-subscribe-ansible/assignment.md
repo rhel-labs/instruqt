@@ -22,7 +22,7 @@ Red Hat Enterprise Linux System Roles are a collection of supported Ansible role
 
 First we'll install the `rhel-system-roles` package. Copy and paste the command below into __> Shell__.
 
-```bash
+```bash,run
 dnf -y install rhel-system-roles
 ```
 

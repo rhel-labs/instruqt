@@ -20,7 +20,7 @@ timelimit: 1
 ---
 In this step, you will be making changes to the playbook. To refresh your memory, take a look at the initial playbook included by the lab.
 
-```
+```bash,run
 cat soe.yml
 ```
 <pre>
@@ -46,19 +46,19 @@ cat soe.yml
 
 Now, add an additional configuration so that the timesync role can be used by the playbook. Add the listing for the new role to the bottom of the playbook.
 
-```
+```bash,run
 echo "    - role: rhel-system-roles.timesync" >> soe.yml
 ```
 
 Now that the timesync role is configured in the playbook, you can add settings in the variable section to be used by this role. In the command below, sed is used to add the `timesync_ntp_servers` section and hostname and iburst variables to the playbook.
 
-```
+```bash,run
 sed -ie 's/tlog_scope_sssd: all/tlog_scope_sssd: all\n    timesync_ntp_servers:\n      - hostname: time-d-b.nist.gov\n        iburst: yes\n      - hostname: 0.rhel.pool.ntp.org\n        iburst: yes/' soe.yml
 ```
 
 Take a look at the updated playbook.
 
-```
+```bash,run
 cat soe.yml
 ```
 
@@ -93,7 +93,7 @@ When the playbook is next run, the system should be configured to use the time-d
 
 Before running the playbook, verify the current settings being used by the system with `chronyc`.
 
-```
+```bash,run
 ssh client1 chronyc sources
 ```
 
@@ -106,7 +106,7 @@ MS Name/IP address         Stratum Poll Reach LastRx Last sample
 
 Now execute the updated playbook to apply the changes you have added.
 
-```
+```bash,run
 ansible-playbook soe.yml -i hosts.ini
 ```
 
@@ -127,7 +127,7 @@ From the above snippet of output, you can see that only 4 items were changed onc
 
 You can verify that your system now uses the updated timeserver settings by using `chronyc`.
 
-```
+```bash,run
 ssh client1 chronyc sources
 ```
 
