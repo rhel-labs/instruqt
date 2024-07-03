@@ -48,6 +48,9 @@ Click on `run` to run the command below.
 virsh start bootc
 ```
 
+Attach to the console of the VM running our container image
+===
+
 Next, attach to the console. Switch to the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-1) tab.
 
 > [!NOTE]

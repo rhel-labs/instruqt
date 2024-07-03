@@ -57,7 +57,7 @@ Image mode relies on standard Containerfiles for defining the OS.
 
 Once you are done examining the Containerfile, click on the [button label="Terminal" background="#ee0000" color="#c7c7c7"](tab-0) tab.
 
-Build the container
+Build and push the container to the registry
 ===
 
 Build the container like you would any other application container with `podman build`.
@@ -81,12 +81,18 @@ With the image available in the registry, we can use standard container tools to
 skopeo inspect docker://[[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc| jq '.Digest' | tee sha256.orig
 ```
 
+The SHA256 image digest of our image is used to compute changes between versions of the image. RHEL image mode can update the the running system if a new version of the is detected in the container registry.
+
 Launch bootc-image-builder
 ===
 
-To this point, we've been dealing with standard OCI images and tools. But container images themselves aren't designed to be run outside of a container engine. To run this image as a host, we install it to disk using `bootc`.
+To this point, we've been dealing with standard OCI images and tools. The container images we have built isn't designed to be run outside of a container engine.
 
-For bare metal, we can use Anaconda with `bootc` support to install to disk, but to create a QCOW2 image for a KVM virtual machine we'll use `bootc-image-builder`. This is a containerized version of image builder that includes the bootc tooling to install the container image contents to disk. This can also create other types of disk images like AMIs or VMDKs.
+To run this image as a host, we install it to disk using `bootc`.
+
+For bare metal, we can use Anaconda with `bootc` support to install to disk.
+
+For the purposes of this lab, we'll create a QCOW2 image to be run on a KVM virtual machine. To build the QCOW2 image we'll use a tool called `bootc-image-builder`. This tool is a containerized version of image builder that includes the bootc tooling to install the container image contents to a virtual disk. Supported formats include AMIs or VMDKs.
 
 ```bash,run
 podman run --rm --privileged \
@@ -98,7 +104,7 @@ podman run --rm --privileged \
          [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
 ```
 
-> ![NOTE]
+> [!NOTE]
 > This operation will take 5 minutes to complete.
 
 When the previous operation has completed, we'll deploy this disk image using KVM in the next step

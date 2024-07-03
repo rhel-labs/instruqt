@@ -52,6 +52,7 @@ podman build -t [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel
 
 Push the image to the registry
 ===
+
 Once the updated image has been built, we can push it to the registry. Once again, note how only the changed layers need to be added to the registry.
 
 ```bash,run
@@ -68,24 +69,23 @@ Click on `run`.
 skopeo inspect docker://[[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc | jq '.Digest' > sha256.vim
 ```
 
-<div style="border: 1px solid black; border-radius: 5px; padding-left: 1em; padding-bottom: 1em; background-color: lightgray; color: black; border-radius: 5px;">
-  <h3 style="color: black; border-radius: 5px;">✅ Use Tab: <strong>VM Console</strong></h3>
-</div>
-
 Check for updates within the running vm
 ===
+
 Click on the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-2) tab.
 
 > [!NOTE]
 > You may need to tap `enter` to wake up the console, you should still be logged in as `core`
 
 With the updated image available in the registry, let's see if `bootc` sees any updates available for the host.
+
 ```bash,run
 sudo bootc upgrade --check
 ```
 
 Initiate an update
 ===
+
 Since `bootc` tracks a tag in the repository, we see our update available. We are also see some details about what changes will be made. Let's go ahead and stage this update locally.
 
 ```bash,run
@@ -93,18 +93,21 @@ sudo bootc upgrade
 ```
 
 Let's see what happened on disk.
+
 ```bash,run
 sudo bootc status
 ```
+
 The `status` output shows us 4 main blocks of information, what image is booted, what image is staged, what image is cached for update, and what image is available for rollback. Look at each of these sections to see the URL of the image and the SHA256 digest.
 
 Set up a test to prove image mode won't clobber configurations in /etc
 ===
+
 When applying updates, bootc will pull any updates to `/usr` from the new image, letting us install new software. Any local changes to `/etc` will be merged with whats in the image, with local changes winning. Nothing in the bootc image `/var` structure will be applied, as this is considered machine state.
 
 Let's test this by changing our user password to `1redhat`
 ```bash,run
-passwd
+echo 'core:1redhat' | sudo chpasswd
 ```
 
 Once downloaded and prepared, we can activate this new image by rebooting whenever we're ready, for example if we needed to wait for a maintenance window. Let's do that now.
@@ -114,10 +117,20 @@ sudo reboot
 ```
 Once the system has completed rebooting, you can log in with the new credentials. This user was already in `/etc`, your new password will be in effect.
 
-Username: __core__
-Password: __1redhat__
+Username:
+
+```bash,run
+core
+```
+
+Password:
+
+```bash,run
+1redhat
+```
 
 Now let's make sure Apache is still running and we have `vim` installed.
+
 ```bash,run
 systemctl status httpd
 ```
