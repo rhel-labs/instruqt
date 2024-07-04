@@ -3,6 +3,7 @@ slug: deploy-an-image
 id: 8gatpzwi8ecq
 type: challenge
 title: Deploy the bootc image as a VM
+teaser: Deploy the bootc image as a VM in KVM.
 notes:
 - type: text
   contents: |
@@ -20,6 +21,8 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
+Prepare and run the bootc image
+===
 
 Copy the disk image we created to the default storage pool.
 
@@ -78,18 +81,12 @@ redhat
 The initial image included Apache, so let's check on it's status
 
 ```bash,run
-systemctl status httpd
+systemctl status httpd --no-pager
 ```
 
 The output will look like this.
 
 ![](../assets/httpd_service.png)
-
-To exit this output, type `q` to quit.
-
-```bash,run
-q
-```
 
 Let's check if the editor `vim` was installed.
 

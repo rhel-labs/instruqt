@@ -3,6 +3,7 @@ slug: create-an-image
 id: yhpyuxt9beme
 type: challenge
 title: Create a bootc image
+teaser: Create a bootc image and push it to a local container registry.
 notes:
 - type: text
   contents: |
