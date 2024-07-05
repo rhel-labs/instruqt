@@ -32,6 +32,7 @@ developers:
 - myee@redhat.com
 - smcbrien@redhat.com
 - wkibbe@redhat.com
+- nlager@redhat.com
 show_timer: true
 lab_config:
   overlay: false
@@ -39,4 +40,5 @@ lab_config:
   position: right
   feedback_recap_enabled: true
   loadingMessages: true
-checksum: "9107816286223273960"
+  hideStopButton: false
+checksum: "18134636176195831752"
