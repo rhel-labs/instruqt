@@ -13,7 +13,7 @@ notes:
     Now we need to fix the damage, but have no idea what happened, can you help?
 
 
-    You will have a total of 10 minutes (from when you see this message) to see if you can fix all the things **NATE** messed up.
+    You will have a total of about 50 minutes (from when you see this message) to see if you can fix all the things **NATE** messed up.
 
     Good luck!
     (you'll need it, man that Nate guy...)
