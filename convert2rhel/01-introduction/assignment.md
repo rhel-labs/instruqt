@@ -12,7 +12,8 @@ difficulty: basic
 timelimit: 3300
 ---
 
-## What is Convert2RHEL
+What is Convert2RHEL
+===
 
 Convert2RHEL is a command line utility that allows for self-service migration between RHEL-like distributions to officially supported Red Hat Enterprise Linux instances.
 
@@ -31,7 +32,8 @@ cat /etc/centos-release
 CentOS Linux release 7.9.2009 (Core)
 </pre>
 
-## Enabling the Convert2RHEL repository
+Enabling the Convert2RHEL repository
+===
 
 The Convert2RHEL RPM is an offical Red Hat package. Therefore it is readily availble from the Red Hat software repository (CDN). As your CentOS server is not subscribed to the Red Hat CDN, you will need to enable the Convert2RHEL repository.
 
@@ -73,3 +75,20 @@ curl -o /etc/yum.repos.d/convert2rhel.repo https://ftp.redhat.com/redhat/convert
                                  Dload  Upload   Total   Spent    Left  Speed
 100   247  100   247    0     0    509      0 --:--:-- --:--:-- --:--:--   510
 </pre>
+
+Change centos repo urls
+===
+
+Now that centos has reached its end of life, updates are only available at `vault.centos.org`. We'll have to change all the repository URLs in `/etc/yum.repos.d/`. Please run the following 3 commands.
+
+```bash,run
+sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/*.repo
+```
+
+```bash,run
+sed -i s/^#.*baseurl=http/baseurl=http/g /etc/yum.repos.d/*.repo
+```
+
+```bash,run
+sed -i s/^mirrorlist=http/#mirrorlist=http/g /etc/yum.repos.d/*.repo
+```
