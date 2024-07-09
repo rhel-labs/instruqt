@@ -24,13 +24,13 @@ A snapshot of a filesystem is a read/writeable thinly provisioned point in time 
 
 Create a snapshot of the filesystem. Name the snapshot `my_snapshot`.
 
-```
+```bash,run
 stratis filesystem snapshot my_pool my_fs my_snapshot
 ```
 
 Check that the snapshot was created successfully by listing the stratis filesystems.
 
-```
+```bash,run
 stratis fs
 ```
 ![snapshot](../assets/snapshotlist.png)
@@ -44,13 +44,13 @@ Here is an example of how a snapshot can be used to recover deleted files from a
 
 Delete the first file that you created in the previous step.
 
-```
+```bash,run
 rm -f /mnt/test_mnt/my_first_file
 ```
 
 Check that `my_first_file`` has been deleted.
 
-```
+```bash,run
 ls /mnt/test_mnt
 ```
 ![rm first file](../assets/removefirstfile.png)
@@ -59,19 +59,19 @@ You can see that `my_first_file` has been removed from the directory, and only `
 
 You can now mount the snapshot and get access to both files, since the snapshot was created before the file was deleted. First, create a new mountpoint to attach the snapshot into the filesystem, `/mnt/test_mnt_snap`.
 
-```
+```bash,run
 mkdir /mnt/test_mnt_snap
 ```
 
 Next, mount the snapshot, `my_snapshot`.
 
-```
+```bash,run
 mount /dev/stratis/my_pool/my_snapshot /mnt/test_mnt_snap
 ```
 
 Confirm that the snapshot was mounted successfully.
 
-```
+```bash,run
 mount
 ```
 ![mounted snapshot](../assets/mountedsnapshot.png)
@@ -80,7 +80,7 @@ From the output above, the snapshot is mounted on `/mnt/test_mnt_snap`.
 
 List the files stored within the snapshot on `/mnt/test_mnt_snap`.
 
-```
+```bash,run
 ls /mnt/test_mnt_snap
 ```
 
@@ -95,13 +95,13 @@ Both files are listed!
 
 To do this, copy the file, `my_first_file` back into the original filesytem.
 
-```
+```bash,run
 cp /mnt/test_mnt_snap/my_first_file /mnt/test_mnt
-``````
+```
 
 Lastly, confirm that `my_first_file` has been copied to `/mnt/test_mnt`.
 
-```
+```bash,run
 ls /mnt/test_mnt
 ```
 
