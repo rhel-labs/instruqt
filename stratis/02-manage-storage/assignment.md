@@ -24,7 +24,7 @@ This lab simulates block devices so we won't be using actual drives. This limita
 
 Use the command `lsblk`. The output will be similar to below.
 
-```
+```bash,run
 lsblk
 ```
 
@@ -45,13 +45,13 @@ Stratis creates a /dev/stratis/my-pool/ directory for each pool. This directory 
 
 Create the pool `my_pool` from the block device `/dev/loop1` with the command below.
 
-```
+```bash,run
 stratis pool create my_pool /dev/loop1
 ```
 
 List the pool you just created.
 
-```
+```bash,run
 stratis pool list
 ```
 
@@ -68,14 +68,14 @@ You can add additional block devices to a pool as data devices, thereby increasi
 
 The pool you created, `my_pool``, has 1 GiB of space. Add /dev/loop2 as a data device to my_pool.
 
-```
+```bash,run
 stratis pool add-data my_pool /dev/loop2
 ```
 
 List the block devices.
 =======================
 
-```
+```bash,run
 stratis blockdev list
 ```
 

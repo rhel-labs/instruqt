@@ -30,25 +30,25 @@ Second, the Stratis command-line interface, stratis-cli:
 
 To start off, install the stratisd and stratis-cli packages using a software package manager.
 
-```
+```bash,run
 dnf -y install stratisd stratis-cli
 ```
 
 You can check the stratis-cli version.
 
-```
+```bash,run
 stratis --version
 ```
 
 Now, enable and start the stratisd systemd service using the systemctl utility.
 
-```
+```bash,run
 systemctl --now enable stratisd
 ```
 
 At any point, you may also check the status of stratisd.
 
-```
+```bash,run
 systemctl status stratisd --no-pager
 ```
 ![service listing](../assets/service.png)

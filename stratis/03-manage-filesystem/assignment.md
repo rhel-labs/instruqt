@@ -24,7 +24,7 @@ A filesystem is a hierarchy of directories that is used to organize files on a s
 
 Create my_first_fs from the pool that you created, my_pool.
 
-```
+```bash,run
 stratis filesystem create my_pool my_first_fs
 ```
 
@@ -32,11 +32,12 @@ List filesystems
 ================
 At any point, you may list all existing Stratis filesystems.
 
-```
+```bash,run
 stratis filesystem list
 ```
 
-_*NOTE:*_ There is a shortcut command `stratis fs` that performs the same operation.
+> [!NOTE]
+> There is a shortcut command `stratis fs` that performs the same operation.
 
 ![list fs](../assets/listfs.png)
 
@@ -47,13 +48,13 @@ It is possible to rename a filesystem. This may be useful for a variety of reaso
 
 Rename `my_first_fs` to a new name, `my_fs`.
 
-```
+```bash,run
 stratis filesystem rename my_pool my_first_fs my_fs
 ```
 
 Then list the result.
 
-```
+```bash,run
 stratis fs
 ```
 
@@ -66,13 +67,13 @@ Mounting a filesystem means making the particular filesystem accessible at a cer
 
 Choose a mount point, the directory in which the filesystem will be mounted. You will mount the filesystem, `my_fs`, in the directory `/mnt/test_mnt`.
 
-```
+```bash,run
 mkdir /mnt/test_mnt
 ```
 
 Mount the filesystem using the `mount` command.
 
-```
+```bash,run
 mount /dev/stratis/my_pool/my_fs /mnt/test_mnt
 ```
 
@@ -82,7 +83,7 @@ _*Warning:*_ If you do not choose an empty directory, the directory's previous c
 
 Confirm that the filesystem has been mounted by running the mount command.
 
-```
+```bash,run
 mount
 ```
 ![mount output](../assets/mountoutput.png)
@@ -94,16 +95,16 @@ Create files on mounted filesystem
 
 Create two empty files in the filesystem, my_fs.
 
-```
+```bash,run
 touch /mnt/test_mnt/my_first_file
 ```
 
-```
+```bash,run
 touch /mnt/test_mnt/my_second_file
 ```
 Check that the files have been created.
 
-```
+```bash,run
 ls /mnt/test_mnt
 ```
 
