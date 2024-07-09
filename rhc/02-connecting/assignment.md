@@ -16,9 +16,10 @@ In this step, we're going to connect and register our system to Red Hat using th
 
 We have an activation key stored as an environment variable in this system, so we'll connect this system using that key.
 
->_NOTE:_ When using an activation key, you also need to specify your organization ID.  You can create activation keys in the [Customer Portal](https://access.redhat.com/management/activation_keys).  The details page of your activation key once created, displays your Organization ID.
+> [!NOTE]
+> When using an activation key, you also need to specify your organization ID.  You can create activation keys in the [Customer Portal](https://access.redhat.com/management/activation_keys).  The details page of your activation key once created, displays your Organization ID.
 
-```bash
+```bash,run
 rhc connect --activation-key ${KEY} --organization 12451665
 ```
 
@@ -36,10 +37,12 @@ This might take a few seconds.
 Manage your Red Hat connector systems: https://red.ht/connector
 </pre>
 
-Connecting a system using `rhc` will accomplish a few things for you. First, it connects your system to Red Hat Insights. Insights is a service that you have access to simply because you are running RHEL. It will also enable remote remediation of issues identified by Inishgts with the proper add-on subscription.  And lastly, if your organization has Simple Content Access enabled, your system will be setup to receive updates from Red Hat.
+Connecting a system using `rhc` will accomplish a few things for you. First, it connects your system to Red Hat Insights. Insights is a service that you have access to simply because you are running RHEL. It will also enable remote remediation of issues identified by Insights with the proper add-on subscription.  And lastly, if your organization has Simple Content Access enabled, your system will be setup to receive updates from Red Hat.
 
->_NOTE:_ If your orgnaization does not have Simple Content Access enabled, you will need to attach a subscription after connecting with `rhc` using the `subscription manager` tool.
+> [!NOTE]
+> If your organization does not have Simple Content Access enabled, you will need to attach a subscription after connecting with `rhc` using the `subscription manager` tool.
 
->_NOTE:_If you are connecting a cloud system in a pay-as-you-go model, no subscription is required, and rhc will not consume one.
+> [!NOTE]
+> If you are connecting a cloud system in a pay-as-you-go model, no subscription is required, and rhc will not consume one.
 
 In the next step, we'll have a look at what we can do with Insights and the Hybrid Cloud Console.
