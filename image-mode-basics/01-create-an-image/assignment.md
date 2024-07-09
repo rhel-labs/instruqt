@@ -3,6 +3,7 @@ slug: create-an-image
 id: yhpyuxt9beme
 type: challenge
 title: Create a bootc image
+teaser: Create a bootc image and push it to a local container registry.
 notes:
 - type: text
   contents: |
@@ -20,50 +21,79 @@ tabs:
 difficulty: basic
 timelimit: 3000
 ---
+
 Welcome to this lab experience for Red Hat Enterprise Linux.
 
 The system displayed beside this text is a Red Hat Enterprise Linux 9
 system registered with Subscription Manager.
 
-Image mode uses standard container tools to define, build, and transport bootc images. Podman has already been installed on this host as a build environement, along with some additional files.
+Image mode uses standard container tools to define, build, and transport bootc images. Podman has already been installed on this host as a build environment, along with some additional files.
+
+Examine the containerfile
+===
+
+In the [button label="Terminal" background="#ee0000" color="#c7c7c7"](tab-0) tab, run the command below by clicking on `run`.
 
 ```bash,run
 podman images
 ```
 
-<div style="border: 1px solid black; border-radius: 5px; padding-left: 1em; padding-bottom: 1em; background-color: lightgray; color: black; border-radius: 5px;">
-  <h3 style="color: black; border-radius: 5px;">✅ Use Tab: <strong>Containerfile</strong></h3>
-</div>
+The output is a listing of the container image stored on the system.
 
-If not already shown, select Containerfile in the list on the right side of the tab.
+![](../assets/image_listing.png)
 
-Image mode relies on standard Containerfiles for defining the OS. The `FROM` line defines the base image, the RUN directives add software and start services, and the ADD line allows us to add the complete contents of a directory at once.
+Switch to the [button label="Containerfile" background="#ee0000" color="#c7c7c7"](tab-1) tab.
 
-Once you are done examining the Containerfile, return to the Terminal.
+Click on `Containerfile`.
 
-<div style="border: 1px solid black; border-radius: 5px; padding-left: 1em; padding-bottom: 1em; background-color: lightgray; color: black; border-radius: 5px;">
-  <h3 style="color: black; border-radius: 5px;">✅ Use Tab: <strong>Terminal</strong></h3>
-</div>
+![](../assets/containerfile_scripteditor.png)
 
-Build the container like you would any other application container with `podman build`. The `REGISTRY` variable is a convience to save typing during the lab and is the FQDN of this host and the standard container registry port 5000.
+Image mode relies on standard Containerfiles for defining the OS.
+
+1. The `FROM` line defines the base image.
+2. The `ADD` line allows us to add the complete contents of a directory at once.
+3. The `RUN` directives add software and start services.
+
+![](../assets/containerfile_elements.png)
+
+Once you are done examining the Containerfile, click on the [button label="Terminal" background="#ee0000" color="#c7c7c7"](tab-0) tab.
+
+Build and push the container to the registry
+===
+
+Build the container like you would any other application container with `podman build`.
 
 ```bash,run
-podman build -t ${REGISTRY}/test-bootc .
+podman build -t [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc .
 ```
+
 Once the container has been built, we can push it to our registry for distribution. We are using a simple registry in this lab, but enterprise registries will provide ways to inspect contents, history, manage tags and more.
 
 ```bash,run
-podman push ${REGISTRY}/test-bootc
+podman push [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
 ```
+
+Inspect the image
+===
 
 With the image available in the registry, we can use standard container tools to get information about it. Let's use `skopeo` to get the SHA256 image digest of this image. We will use that later in the lab, so we'll store the output in a file.
+
 ```bash,run
-skopeo inspect docker://${REGISTRY}/test-bootc | jq '.Digest' | tee sha256.orig
+skopeo inspect docker://[[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc| jq '.Digest' | tee sha256.orig
 ```
 
-To this point, we've been dealing with standard OCI images and tools. But container images themselves aren't designed to be run outside of a container engine. To run this image as a host, we install it to disk using `bootc`.
+The SHA256 image digest of our image is used to compute changes between versions of the image. RHEL image mode can update the the running system if a new version of the is detected in the container registry.
 
-For bare metal, we can use Anaconda with `bootc` supoort to install to disk, but to create a QCOW2 image for a KVM virtual machine we'll use `bootc-image-builder`. This is a containerized version of image builder that includes the bootc tooling to install the container image contents to disk. This can also create other types of disk images like AMIs or VMDKs.
+Launch bootc-image-builder
+===
+
+To this point, we've been dealing with standard OCI images and tools. The container images we have built isn't designed to be run outside of a container engine.
+
+To run this image as a host, we install it to disk using `bootc`.
+
+For bare metal, we can use Anaconda with `bootc` support to install to disk.
+
+For the purposes of this lab, we'll create a QCOW2 image to be run on a KVM virtual machine. To build the QCOW2 image we'll use a tool called `bootc-image-builder`. This tool is a containerized version of image builder that includes the bootc tooling to install the container image contents to a virtual disk. Supported formats include AMIs or VMDKs.
 
 ```bash,run
 podman run --rm --privileged \
@@ -72,7 +102,10 @@ podman run --rm --privileged \
         registry.redhat.io/rhel9/bootc-image-builder:latest \
         --type qcow2 \
         --config config.json \
-         ${REGISTRY}/test-bootc
+         [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
 ```
 
-Let's deploy this disk image using KVM in the next step
+> [!NOTE]
+> This operation will take 5 minutes to complete.
+
+When the previous operation has completed, we'll deploy this disk image using KVM in the next step

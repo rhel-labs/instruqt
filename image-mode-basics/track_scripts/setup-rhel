@@ -25,7 +25,7 @@ echo redhat | passwd --stdin rhel
 # set up SSL for fully functioning registry
 # Enable EPEL for RHEL 9
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-dnf install -y certbot 
+dnf install -y certbot
 
 # stop the process that is using TCP port 80; we need that port open for certbot
 fuser -k 80/tcp
@@ -50,6 +50,10 @@ echo "%wheel  ALL=(ALL)   NOPASSWD: ALL" >> ~/etc/sudoers.d/wheel
 
 # create the etc/hosts override to let the target VM see the registry
 echo $(getent hosts ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io) >> ~/etc/hosts
+
+# add hostname to runtime variable
+
+agent variable set CONTAINER_REGISTRY_ENDPOINT ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000
 
 # turn off complexity checks in target for passwords to ease the learner experience
 mkdir -p ~/etc/security
