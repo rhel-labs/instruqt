@@ -21,7 +21,6 @@ tags:
 - image builder
 owner: rhel
 developers:
-- wkibbe@redhat.com
 - nlager@redhat.com
 - myee@redhat.com
 show_timer: true
@@ -31,4 +30,5 @@ lab_config:
   position: right
   feedback_recap_enabled: true
   loadingMessages: true
-checksum: "15448419494500738003"
+  hideStopButton: false
+checksum: "10298054906047058145"

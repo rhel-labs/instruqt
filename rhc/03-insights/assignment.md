@@ -20,13 +20,13 @@ In the pane on the left, where your terminal was, you should now have a button t
 
 Login:
 
-```bash
+```text
 rhel-df93
 ```
 
 Password:
 
-```bash
+```text
 Redhat1!
 ```
 ![Red Hat Login screen](../assets/cloud-console-login.png)
