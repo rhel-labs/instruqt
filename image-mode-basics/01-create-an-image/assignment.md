@@ -31,28 +31,17 @@ Image mode uses standard container tools to define, build, and transport bootc i
 
 Examine the containerfile
 ===
-
-In the [button label="Terminal" background="#ee0000" color="#c7c7c7"](tab-0) tab, run the command below by clicking on `run`.
-
-```bash,run
-podman images
-```
-
-The output is a listing of the container image stored on the system.
-
-![](../assets/image_listing.png)
-
 Switch to the [button label="Containerfile" background="#ee0000" color="#c7c7c7"](tab-1) tab.
 
 Click on `Containerfile`.
 
 ![](../assets/containerfile_scripteditor.png)
 
-Image mode relies on standard Containerfiles for defining the OS.
+Image mode uses standard Containerfiles for defining the OS contents.
 
-1. The `FROM` line defines the base image.
-2. The `ADD` line allows us to add the complete contents of a directory at once.
-3. The `RUN` directives add software and start services.
+1. The `FROM` line defines the base image, in this case our new `bootc` base images, not a typical UBI application base image.
+2. The `ADD` line allows us to add the complete contents of a directory at once, just like an application container.
+3. The `RUN` directives add software and start services, just like an application container.
 
 ![](../assets/containerfile_elements.png)
 
@@ -61,39 +50,26 @@ Once you are done examining the Containerfile, click on the [button label="Termi
 Build and push the container to the registry
 ===
 
-Build the container like you would any other application container with `podman build`.
+Image mode uses standard container tools to build bootc images, like any other application container. Let's build this image with `podman build`.
 
 ```bash,run
 podman build -t [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc .
 ```
 
-Once the container has been built, we can push it to our registry for distribution. We are using a simple registry in this lab, but enterprise registries will provide ways to inspect contents, history, manage tags and more.
+Once built, bootc images use standard container registries for distribution. We are using a simple registry in this lab, but enterprise registries will provide ways to inspect contents, history, manage tags and more.
 
 ```bash,run
 podman push [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
 ```
 
-Inspect the image
-===
-
-With the image available in the registry, we can use standard container tools to get information about it. Let's use `skopeo` to get the SHA256 image digest of this image. We will use that later in the lab, so we'll store the output in a file.
-
-```bash,run
-skopeo inspect docker://[[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc| jq '.Digest' | tee sha256.orig
-```
-
-The SHA256 image digest of our image is used to compute changes between versions of the image. RHEL image mode can update the the running system if a new version of the is detected in the container registry.
-
 Launch bootc-image-builder
 ===
 
-To this point, we've been dealing with standard OCI images and tools. The container images we have built isn't designed to be run outside of a container engine.
+To this point, we've been dealing with standard OCI images and tools. However, bootc images are intended to be systems, not run like application containers.
 
-To run this image as a host, we install it to disk using `bootc`.
+To boot this image as a host, we install it to the filesystem using `bootc`. But `bootc` doesn't know anything about creating disks or machines.
 
-For bare metal, we can use Anaconda with `bootc` support to install to disk.
-
-For the purposes of this lab, we'll create a QCOW2 image to be run on a KVM virtual machine. To build the QCOW2 image we'll use a tool called `bootc-image-builder`. This tool is a containerized version of image builder that includes the bootc tooling to install the container image contents to a virtual disk. Supported formats include AMIs or VMDKs.
+For the purposes of this lab, we'll create a QCOW2 image to be run on a KVM virtual machine. To build the QCOW2 image we'll use a tool called `bootc-image-builder`. This tool is a containerized version of image builder that includes the `bootc` tooling to unpack the container image contents to the virtual disk. Supported output formats include AMIs and VMDKs. For bare metal, we can use Anaconda with `bootc` support to install to physical disk.
 
 ```bash,run
 podman run --rm --privileged \
