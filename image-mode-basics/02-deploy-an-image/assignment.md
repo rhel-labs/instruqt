@@ -24,13 +24,13 @@ timelimit: 1
 Prepare and run the bootc image
 ===
 
-Copy the disk image we created to the default storage pool.
+Copy the QCOW2 disk image we created to the default libvirt storage pool.
 
 ```bash,run
 cp qcow2/disk.qcow2 /var/lib/libvirt/images/bootc-vm.qcow2
 ```
 
-Using virt-install we can define a simple VM and import the new disk image.
+Using `virt-install` we can define a simple VM and import the new disk image.
 
 ```bash,run
 virt-install --name bootc \
@@ -43,15 +43,13 @@ virt-install --name bootc \
 --noreboot
 ```
 
-Once the VM has been defined, we're ready to start it.
-
-Click on `run` to run the command below.
+Once the VM has been defined, we can start it.
 
 ```bash,run
 virsh start bootc
 ```
 
-Attach to the console of the VM running our container image
+Attach to the console of the VM running our bootc image
 ===
 
 Next, attach to the console. Switch to the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-1) tab.
@@ -59,7 +57,7 @@ Next, attach to the console. Switch to the [button label="VM console" background
 > [!NOTE]
 > If the console hasn't connected or there is an error, you can reconnect by clicking Refresh next to the tab name. The prompt will look like this. ![](../assets/terminal_prompt.png)
 
-Check the vm is running the image we created
+Check the VM is running the applications we installed
 ===
 
 Once the system has finished booting, you can log in with the following credentials. These were injected by `bootc-image-builder` when creating the disk image. There are several ways to handle user creation and authentication methods, customizing the disk image with `bootc-image-builder` is just one.
