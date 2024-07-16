@@ -17,7 +17,7 @@ To start, how do you know that ruby 3.1 is availble?  Additional software for Re
 
 List the available ruby modules.
 
-```bash
+```bash,run
 dnf module list ruby
 ```
 
@@ -34,13 +34,13 @@ From the above output, you can see that ruby 3.1 is available and can be install
 
 In order to upgrade the system, first remove ruby 3.0.
 
-```bash
+```bash,run
 dnf -y remove ruby
 ```
 
 Take a look at the machine to validate the removal of ruby 3.0.
 
-```bash
+```bash,run
 dnf list ruby
 ```
 
