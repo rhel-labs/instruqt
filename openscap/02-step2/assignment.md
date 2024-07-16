@@ -19,7 +19,7 @@ timelimit: 1
 
 You can display all available profiles in the datastream file using the *openscap info* command. For this lab, you will be using the RHEL9 datastream file.
 
-```
+```bash,run
 oscap info /usr/share/xml/scap/ssg/content/ssg-rhel9-ds.xml
 ```
 
@@ -76,11 +76,12 @@ The output has several profiles including PCI-DSS, [DRAFT] DISA STIG, and ACSC E
 << OUTPUT ABRIDGED >>
 </pre>
 
->__NOTE:__ Each profile in the output has a title which describes the profile and corresponding Id. For this lab, we are interested in the PCI-DSS profile, and the corresponding Id is *xccdf_org.ssgproject.content_profile_pci-dss*.
+> [!NOTE]
+> Each profile in the output has a title which describes the profile and corresponding Id. For this lab, we are interested in the PCI-DSS profile, and the corresponding Id is *xccdf_org.ssgproject.content_profile_pci-dss*.
 
 A profile contains generic security recommendations that apply to all Red Hat Enterprise Linux installations and additional security recommendations that are specific to the intended usage of a system. To obtain information about a specific profile, specify the profile Id using the *--profile* option.
 
-```
+```bash,run
 oscap info --profile xccdf_org.ssgproject.content_profile_pci-dss /usr/share/xml/scap/ssg/content/ssg-rhel9-ds.xml
 ```
 
@@ -100,4 +101,5 @@ Profile
         Description: Ensures PCI-DSS v3.2.1 security configuration settings are applied.
 </pre>
 
->__NOTE:__ The datastream file makes references to remote OVAL content that is regularly updated. During scanning, OpenSCAP attempts to download the resources locally if *--fetch-remote-resources* option is provided.
+> [!NOTE]
+> The datastream file makes references to remote OVAL content that is regularly updated. During scanning, OpenSCAP attempts to download the resources locally if *--fetch-remote-resources* option is provided.
