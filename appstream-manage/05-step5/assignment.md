@@ -13,7 +13,7 @@ timelimit: 1
 ---
 Now that the ruby 3.1 is installed, you can also look at how the modular package management is reported by `dnf`.
 
-```bash
+```bash,run
 dnf module list ruby
 ```
 
@@ -32,6 +32,6 @@ As Red Hat releases updated application streams, you will use a similar process 
 
 To see the full list of available modular packaged application streams an their versions available for your system:
 
-```bash
+```bash,run
 dnf module list
 ```

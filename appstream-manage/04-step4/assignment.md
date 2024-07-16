@@ -15,13 +15,13 @@ Now you can install ruby version 3.1 on the system.  However, it is also importa
 
 However, for our application, that is fine because we expect continued development and will likely be upgrading to an even newer version of ruby at some point during our application life.  Go ahead and install ruby 3.1 on the system:
 
-```bash
+```bash,run
 dnf -y module install ruby:3.1
 ```
 
 You can verify that ruby 3.1 is now available on the system by checking the version reported by ruby:
 
-```bash
+```bash,run
 ruby --version
 ```
 

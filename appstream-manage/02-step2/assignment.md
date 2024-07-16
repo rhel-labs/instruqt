@@ -13,13 +13,13 @@ timelimit: 1
 ---
 To support the web application deployed on this machine, install ruby version 3.0.
 
-```bash
+```bash,run
 dnf -y install ruby
 ```
 
 After the installation is complete, verify that ruby version 3.0 is installed on the system.
 
-```bash
+```bash,run
 dnf list ruby
 ```
 
@@ -32,7 +32,7 @@ ruby.x86_64                     3.0.4-160.el9_0                      @rhel-9-for
 
 Finally, run the ruby command to inspect the version it reports.
 
-```bash
+```bash,run
 ruby --version
 ```
 
