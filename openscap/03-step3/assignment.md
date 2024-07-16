@@ -23,11 +23,12 @@ configuration rules that meet the PCI regulation.
 To start scanning using OpenSCAP, use the *oscap xccdf eval* command with the profile Id, option to fetch remote resources, output XML results file, and
 the datastream file.
 
-```
+```bash,run
 oscap xccdf eval --fetch-remote-resources --profile xccdf_org.ssgproject.content_profile_pci-dss --results /tmp/scan-xccdf-results.xml /usr/share/xml/scap/ssg/content/ssg-rhel9-ds.xml
 ```
 
->__NOTE:__ This scan can take a few minutes to complete as it has to evaluate all the rules, and generate a XML file that has the results.
+> [!NOTE]
+> This scan can take a few minutes to complete as it has to evaluate all the rules, and generate a XML file that has the results.
 
 Once the scan completes, you can look at the pass/fail status of each rule in the output -
 
@@ -88,7 +89,7 @@ Result  pass
 
 The XML results file can be transformed into HTML or plain-text format for easier readability -
 
-```
+```bash,run
 oscap xccdf generate report /tmp/scan-xccdf-results.xml > /var/www/html/index.html
 ```
 
