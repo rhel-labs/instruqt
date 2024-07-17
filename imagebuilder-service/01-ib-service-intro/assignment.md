@@ -13,7 +13,6 @@ notes:
     # Concepts included in this scenario:
     * Using the Image Builder service to define a custom image.
     * Using local tools to further customize the resulting image.
-    * Testing this image using a local virtual machine.
 
     # Example use case:
     Your organization has specific requirements for their system builds, and you would like to build
