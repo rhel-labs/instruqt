@@ -37,9 +37,9 @@ Now press the `Next` button.
 
 ## Step 3: OpenSCAP Profile
 ===========================
-In Step 4, you can select an OpenSCAP profile.  This will apply an OpenSCAP compliance policy to this image when it is built.  This is great for environments that must adhere to compliance standards, or admins that are just looking to add some security best practices to their base image.  
+In Step 3, you can select an OpenSCAP profile.  This will apply an OpenSCAP compliance policy to this image when it is built.  This is great for environments that must adhere to compliance standards, or admins that are just looking to add some security best practices to their base image.
 
-For this lab, we'll leave this set to None, and press Next.  
+For this lab, we'll leave this set to None, and press Next.
 
 ## Step 4: Partitioning storage
 ===============================
