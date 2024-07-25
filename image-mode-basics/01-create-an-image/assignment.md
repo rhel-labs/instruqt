@@ -9,7 +9,10 @@ notes:
   contents: |
     # Goal:
 
-    In this lab you will build, deploy, and manage a virtual machine that is running in image mode. You will create a new bootc image, push it to a registry, and convert it to a disk image for KVM.
+    In this lab you will build, deploy, and manage a virtual machine that is running in image mode. As you move through the exercises, there will be blocks marked `bash` with commands to be run in the right side bar. These may also have a `copy` feature to place the command into your buffer for pasting, and a `run` feature which will automatically execute the command. You can use any of these methods to complete the exercises.
+
+    In the first exercise, you will get familiar with using bootc images that can be used to launch systems. We will start with the build phase, creating our first image by defining software we want available on our host.
+    
 tabs:
 - title: Terminal
   type: terminal
@@ -43,45 +46,40 @@ Image mode uses standard Containerfiles for defining the OS contents.
 2. The `ADD` line allows us to add the complete contents of a directory at once, just like an application container.
 3. The `RUN` directives add software and start services, just like an application container.
 
+Unlike an application container, we're using `systemctl` to enable the service rather than an `ENTRYPOINT` or a `CMD` directive. These images will become hosts, so these configuration directives used by container engines for launching processes don't apply. We will have `systemd` running as PID1 once booted.
+
 ![](../assets/containerfile_elements.png)
 
 Once you are done examining the Containerfile, click on the [button label="Terminal" background="#ee0000" color="#c7c7c7"](tab-0) tab.
 
+Examining the configurations added
+===
+
+We have a set of files we want to add to `/etc` on the host to affect system configuration. Let's have a quick look at one of those.
+```bash,run
+cat etc/sudoers.d/wheel
+```
+
+We're using a drop-in file to apply a NOPASSWD rule to the `wheel` group. This is just one example of how you can set policies within an image build.
+```
+%wheel  ALL=(ALL)   NOPASSWD: ALL
+```
+
 Build and push the container to the registry
 ===
 
-Image mode uses standard container tools to build bootc images, like any other application container. Let's build this image with `podman build`.
+Image mode uses OCI standard container tools to build bootc images, like any other application container. Let's build this image with `podman build`.
 
 ```bash,run
 podman build -t [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc .
 ```
+>[!NOTE]
+> You may see a few informational warnings during the build process, these do not effect the install, but are side effects of a containerized install.
 
-Once built, bootc images use standard container registries for distribution. We are using a simple registry in this lab, but enterprise registries will provide ways to inspect contents, history, manage tags and more.
+Once built, bootc images use OCI standard container registries for distribution. We are using a simple registry in this lab, but enterprise registries will provide ways to inspect contents, history, manage tags and more.
 
 ```bash,run
 podman push [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
 ```
 
-Launch bootc-image-builder
-===
-
-To this point, we've been dealing with standard OCI images and tools. However, bootc images are intended to be systems, not run like application containers.
-
-To boot this image as a host, we install it to the filesystem using `bootc`. But `bootc` doesn't know anything about creating disks or machines.
-
-For the purposes of this lab, we'll create a QCOW2 image to be run on a KVM virtual machine. To build the QCOW2 image we'll use a tool called `bootc-image-builder`. This tool is a containerized version of image builder that includes the `bootc` tooling to unpack the container image contents to the virtual disk. Supported output formats include AMIs and VMDKs. For bare metal, we can use Anaconda with `bootc` support to install to physical disk.
-
-```bash,run
-podman run --rm --privileged \
-        --volume .:/output \
-         --volume ./config.json:/config.json \
-        registry.redhat.io/rhel9/bootc-image-builder:latest \
-        --type qcow2 \
-        --config config.json \
-         [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
-```
-
-> [!NOTE]
-> This operation will take 5 minutes to complete.
-
-When the previous operation has completed, we'll deploy this disk image using KVM in the next step
+This is really all that is needed for a simple web server! We can add any common administrative or application software to our images, just like any other RHEL host. Let's see how we move from build to deploy in the next exercise.

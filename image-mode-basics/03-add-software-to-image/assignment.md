@@ -9,7 +9,10 @@ notes:
   contents: |
     # Goal:
 
-    You will update the software available to the VM.
+    Providing updates and sofware changes to a host is part of the standard life cycle. It can be even more common during the design part of our standar operating environments. This process is where image mode hosts deviate the most from typical package based hosts. 
+    
+    In this exercise, we'll explore how to make changes in images for our hosts to use.
+
 tabs:
 - title: Terminal
   type: terminal
@@ -32,7 +35,9 @@ If not already shown, select Containerfile in the list on the right side of the 
 
 ![](../assets/containerfile_scripteditor.png)
 
-To the end of the `dnf install` line, add `vim`.
+Sofware is controlled via the Containerfile. To change or add packages, they need to be defined here before build time. Updating already built images with later versions would only need a rebuild.
+
+To the end of the `dnf install` line, add `vim` to the list of packages installed.
 
 ![](../assets/containerfile_add_vim.png)
 
@@ -40,7 +45,7 @@ The editor will automatically save changes. Once you see Changes Saved in the up
 
 Use podman to update the image.
 ===
-With our updated Containerfile, we can re-run the `podman build` command to get an updated image.
+With our changes in the Containerfile, we can re-run the `podman build` command to get an updated image.
 
 ```bash,run
 podman build -t [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc .

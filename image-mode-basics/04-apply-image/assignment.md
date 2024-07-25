@@ -6,10 +6,13 @@ title: Apply the new image
 teaser: Apply the new image changes to the system
 notes:
 - type: text
-  contents: |
+  contents: |-
     # Goal:
 
-    You will apply the updated image. You will also roll back to a previous version of the VM, without needing to snapshot it.
+    Managing changes to a bootc host is centralized in one tool, bootc. You will explore this tool, understand the information it provides, and how to apply an update to a host. Understanding how bootc manages images on disk is key to day 2 management. 
+    
+    In this exercise, we'll apply the updated image we created containing vim.
+
 tabs:
 - title: Terminal
   type: terminal
@@ -76,7 +79,7 @@ Exploring system status
 
 Let's see what happened on disk.
 
-The `staged` section has the same fields now as `booted`, but with the details of the new image. This has been prepared by `bootc upgrade` and is ready to be activated on the next boot. 
+The `staged` section has the same fields now as `booted`, but with the details of the new image. This has been prepared by `bootc upgrade` and is ready to be activated on the next boot.
 ```bash,run
 sudo bootc status | grep staged: -A 8
 ```
