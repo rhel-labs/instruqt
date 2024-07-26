@@ -124,7 +124,7 @@ POD ID        NAME              STATUS      CREATED         INFRA ID      # OF C
 </pre>
 
 ```bash
-pomdan ps
+podman ps
 ```
 
 <pre>

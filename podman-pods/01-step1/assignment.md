@@ -40,7 +40,7 @@ You should see output similar to this:
 
 <pre class="file">
  # podman --version
-podman version 4.4.1
+podman version 4.9.4-rhel
 </pre>
 
 ## Introduction to Podman Pods
