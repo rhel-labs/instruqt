@@ -21,3 +21,6 @@ tags
 instruqt.code-workspace
 .DS_Store
 .vscode
+.vscode/settings.json
+.markdownlint.json
+.gitignore
