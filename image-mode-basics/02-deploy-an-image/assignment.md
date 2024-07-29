@@ -12,7 +12,6 @@ notes:
     The deployment phase is how we move from the OCI image to a running host. This is essentially an installation but with a slight variation in tools. This only needs to be done once in the lifetime of a host. We'll look at how updates operate later.
 
     In this exercise, we'll convert the OCI image into a disk image we can launch as a VM.
-
 tabs:
 - title: Terminal
   type: terminal
@@ -31,7 +30,7 @@ To this point, we've been dealing with standard OCI images and tools. However, b
 
 To boot this image as a host, we install it to the filesystem using `bootc`. But `bootc` doesn't know anything about creating disks or machines.
 
-There are several ways to deploy a bootc image to a host, depending on the target environment. For the purposes of this lab, we'll create a QCOW2 image to be run on a KVM virtual machine. To build the QCOW2 image we'll use a tool called `bootc-image-builder`. 
+There are several ways to deploy a bootc image to a host, depending on the target environment. For the purposes of this lab, we'll create a QCOW2 image to be run on a KVM virtual machine. To build the QCOW2 image we'll use a tool called `bootc-image-builder`.
 
 > [!NOTE]
 > This operation will take 5 minutes to complete.
@@ -46,7 +45,7 @@ podman run --rm --privileged \
          [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
 ```
 
-This tool is a containerized version of image builder that includes the `bootc` tooling to unpack the container image contents to the virtual disk. Supported output formats include AMIs and VMDKs. For bare metal, we can use Anaconda with `bootc` support to install to physical disk. Other typical ways we'd install a RHEL host, like over PXE or HTTP Boot are also available to us. 
+This tool is a containerized version of image builder that includes the `bootc` tooling to unpack the container image contents to the virtual disk. Supported output formats include AMIs and VMDKs. For bare metal, we can use Anaconda with `bootc` support to install to physical disk. Other typical ways we'd install a RHEL host, like over PXE or HTTP Boot are also available to us.
 
 Prepare and run the bootc image
 ===

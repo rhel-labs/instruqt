@@ -9,10 +9,9 @@ notes:
   contents: |-
     # Goal:
 
-    Managing changes to a bootc host is centralized in one tool, bootc. You will explore this tool, understand the information it provides, and how to apply an update to a host. Understanding how bootc manages images on disk is key to day 2 management. 
-    
-    In this exercise, we'll apply the updated image we created containing vim.
+    Managing changes to a bootc host is centralized in one tool, bootc. You will explore this tool, understand the information it provides, and how to apply an update to a host. Understanding how bootc manages images on disk is key to day 2 management.
 
+    In this exercise, we'll apply the updated image we created containing vim.
 tabs:
 - title: Terminal
   type: terminal

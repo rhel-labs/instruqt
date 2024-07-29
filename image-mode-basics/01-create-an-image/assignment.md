@@ -12,7 +12,6 @@ notes:
     In this lab you will build, deploy, and manage a virtual machine that is running in image mode. As you move through the exercises, there will be blocks marked `bash` with commands to be run in the right side bar. These may also have a `copy` feature to place the command into your buffer for pasting, and a `run` feature which will automatically execute the command. You can use any of these methods to complete the exercises.
 
     In the first exercise, you will get familiar with using bootc images that can be used to launch systems. We will start with the build phase, creating our first image by defining software we want available on our host.
-    
 tabs:
 - title: Terminal
   type: terminal
