@@ -24,13 +24,13 @@ What if we know that the `cowsay` binary is trusted, and we want to allow it on 
 
 The second option seems better for this scenario - let's update the file-backed trust database. We can use the `fapolicyd-cli` to update the trust source:
 
-```bash
+```bash,run
 sudo fapolicyd-cli --file add /home/rhel/cowsay
 ```
 
 If we take a look at the file `/etc/fapolicyd/fapolicyd.trust` we can see that changes that have been made:
 
-```bash
+```bash,run
 sudo cat /etc/fapolicyd/fapolicyd.trust
 ```
 
@@ -42,13 +42,13 @@ Remember that we have `integrity = none` in our fapolicyd config file? These las
 
 Now you can update the daemon:
 
-```bash
+```bash,run
 sudo fapolicyd-cli --update
 ```
 
 Let's try the binary again:
 
-```bash
+```bash,run
 ./cowsay "mooooo"
 ```
 

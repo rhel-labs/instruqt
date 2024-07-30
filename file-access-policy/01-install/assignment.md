@@ -21,13 +21,13 @@ The File Access Policy Daemon (fapolicyd) controls the execution of applications
 
 First, install the fapolicyd package on your Red Hat Enterprise Linux system.
 
-```bash
+```bash,run
 dnf install -y fapolicyd
 ```
 
 Next, inspect the fapolicyd configuration that has been created.
 
-```bash
+```bash,run
 cat /etc/fapolicyd/fapolicyd.conf
 ```
 
