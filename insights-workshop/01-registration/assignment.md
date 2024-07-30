@@ -39,13 +39,13 @@ timelimit: 3000
 
 In most Red Hat Enterprise Linux 9 installations, the insights-client software will be installed by default.  However, the minimal package set does not include installing the insights-client package and other versions of Red Hat Enterprise Linux, while the package is available, will likely need it installed.  Install the insights-client package on the system.
 
-```bash
+```bash,run
 dnf -y install insights-client
 ```
 
 Next, register your system with Red Hat Insights.
 
-```bash
+```bash,run
 insights-client --register
 ```
 
@@ -61,7 +61,7 @@ From the above output, you can observe that the system has been successfully reg
 
 For future reference, make note of your system hostname.
 
-```bash
+```bash,run
 hostname
 ```
 
@@ -73,7 +73,7 @@ rhel-2e23a
 
 At any time in the future, you can get information about Insights registration by using the `--status` option to `insights-client`.
 
-```bash
+```bash,run
 insights-client --status
 ```
 

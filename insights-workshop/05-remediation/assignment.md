@@ -14,13 +14,13 @@ timelimit: 1
 
 We'll apply the recommendation to disallow `root` logins via SSH. Run the following command.
 
-```bash
+```bash,run
 sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
 ```
 
 To view the results, enter the following command.
 
-```bash
+```bash,run
 cat /etc/ssh/sshd_config | grep PermitRootLogin
 ```
 
@@ -28,7 +28,7 @@ cat /etc/ssh/sshd_config | grep PermitRootLogin
 
 Force a Red Hat Insights checkin so that a new batch of system data is uploaded to Insights.
 
-```bash
+```bash,run
 insights-client
 ```
 
