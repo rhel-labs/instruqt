@@ -19,23 +19,23 @@ timelimit: 1
 ---
 Let's take a quick look at fapolicyd and integrity. The `more` command is installed via the RPM database, so it's trusted to execute on the system:
 
-```bash
+```bash,run
 sudo rpm -qf /bin/more
 ```
 
 What if the more command was substituted out for something malicious? First, let's verify that fapolicyd is still running:
 
-```bash
+```bash,run
 sudo systemctl status fapolicyd
 ```
 
 Now let's substitute the `more` command for the `cowsay` binary in our user's home directory:
 
-```bash
+```bash,run
 sudo /bin/cp ./cowsay /bin/more
 ```
 
-```bash
+```bash,run
 /bin/more "mooooo"
 ```
 
