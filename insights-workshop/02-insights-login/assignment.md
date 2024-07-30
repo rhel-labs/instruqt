@@ -41,6 +41,6 @@ Redhat1!
 
 ![Red Hat Password screen](../assets/redhat-login-02.png)
 
-Once you are logged in using the credentials provided above, navigate to _RHEL_ inside the _Red Hat Insights_ box.
+Once you are logged in using the credentials provided above, navigate to _Red Hat Enterprise Linux_ inside the _Services_ drop-down, under _Platform_.
 
-![cloud.redhat.com Homepage](../assets/RHEl_insights_select.png)
+![cloud.redhat.com Homepage](../assets/rhel-menu.png)

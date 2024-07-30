@@ -25,3 +25,5 @@ Once you are on the Inventory page, find and click your hostname to pull up info
 ![View your machine](../assets/inventory-homepage-v2.png)
 
 >_NOTE:_ Your host may not be the first one listed, as depicted in the graphic above.  You may find it necessary to use the _Find system by name_ search function at the top of the list of hosts to more quickly find your system.
+
+>_NOTE:_ If you do not see your host in the inventory list, it may be necessary to re-run the `insights-client` command on your RHEL host.
