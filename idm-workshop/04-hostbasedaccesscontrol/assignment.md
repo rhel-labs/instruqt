@@ -142,9 +142,11 @@ Of course, you can define your own services and service groups.
 
 ### Exercise 4.2 - Creating HBAC Rules
 
-If you select "HBAC Rules" you are presented with a list with only a single rule **allow_all**. The allow_all rule does exactly what you would think, it allows all users to access any host from any host using any service. To start what we will do is to create another rule **admins_allow_all**
+If you select "HBAC Rules" you are presented with a list with only two rules **allow_all** and **allow_systemd-user**. The allow_all rule does exactly what you would think, it allows all users to access any host from any host using any service. The **allow_systemd-user** rules is present to ensure that systemd can still create a users session when allow_all is disabled. 
 
-We will set this up so that only the admins group is allowed to access all systems just the same as the allow_all rule. Once that is accomplished and our admins can't get locked out, we will **disable** the allow_all rule.
+To start creating our own HBAC rules we will create another rule called **admins_allow_all**
+
+We will set this up so that only the admins group is allowed to access all systems just the same as the allow_all rule. Once that is accomplished and our admins can't get locked out, we will **disable** the allow_all rule. We do **not** want to disable **allow_systemd-user**.
 
 Again you can choose to use the Web UI to accomplish this task or use the CLI.
 
