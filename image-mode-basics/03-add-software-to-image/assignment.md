@@ -9,10 +9,9 @@ notes:
   contents: |
     # Goal:
 
-    Providing updates and sofware changes to a host is part of the standard life cycle. It can be even more common during the design part of our standar operating environments. This process is where image mode hosts deviate the most from typical package based hosts. 
-    
-    In this exercise, we'll explore how to make changes in images for our hosts to use.
+    Providing updates and sofware changes to a host is part of the standard life cycle. It can be even more common during the design part of our standar operating environments. This process is where image mode hosts deviate the most from typical package based hosts.
 
+    In this exercise, we'll explore how to make changes in images for our hosts to use.
 tabs:
 - title: Terminal
   type: terminal
