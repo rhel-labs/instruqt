@@ -34,7 +34,7 @@ Sudo is a program that allows users to run programs as another user with differe
 
 With IdM, all this can be managed centrally instead of on each individual server. This generates a higher degree of consistency in the configuration, simplifies administration, and reduces user error.
 
-<hr>
+<hr></hr>
 
 ### Exercise 5.1 - Configure a sudo rule policy
 
@@ -221,7 +221,7 @@ We Now have sudo access!
 
 You have created your first simple sudo policy. We will now make something a little more restrictive for user ***bob***
 
-<hr>
+<hr></hr>
 
 ### Exercise 5.2 - Creating sudo commands, command groups, and using them in rules.
 
@@ -237,7 +237,7 @@ For this exercise, use the skills you have learned so far to do the following:
 
 The shell commands to perform this are provided at the end of this section.
 
-<hr>
+<hr></hr>
 
 Once you have completed creating the above prerequisites, ***bob*** should be able to login to your client, however, he can not use ``su -l`` to create a login shell.
 
@@ -267,7 +267,7 @@ Last login: Wed Jun 26 17:55:51 EDT 2024 from 10.5.2.41 on pts/1
 Sorry, user bob is not allowed to execute '/bin/systemctl restart httpd' as root on idmclient1.[[ Instruqt-Var key="realm" hostname="idmserver1" ]].
 </pre>
 
-<hr>
+<hr></hr>
 
 #### Exercise 5.2.2 - Add the commands, command groups and rules
 
@@ -361,7 +361,7 @@ Sorry, user bob is not allowed to execute '/bin/id' as root on...
 > NOTE: The solution for ***Exercise 5.2.1*** command line example is below.
 
 
-<hr>
+<hr></hr>
 
 This concludes the unit 5 and IdM Workshop - Part I, your Red Hat Team thanks you for participating!
 
