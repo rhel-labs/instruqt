@@ -98,7 +98,7 @@ Logout of alice's context by typing ``kdestroy -A``.
 kinit as the admin user ``kinit admin``.
 
 If you were to repeat the previous example now as admin, you would find that you would be successful in setting the motd.
-As we mentioned earlier, the IdM 'admins' group is like a super user for the realm.
+As we mentioned earlier, the IdM *admins* group is like a super user for the realm.
 Alice as a member of the sysadmins group does not have the same privilege.
 Separating the realm administration from system administratrion is good security practice.
 
@@ -247,7 +247,8 @@ Password:
 su: Permission denied
 </pre>
 
-Bob also can't restart the httpd service using sudo. You will find that the error is different for ***bob*** than it was for ***alice***. This is because where the hbac rule for *alice* was created with ``--servicecat=all``, the hbac rule for *bob* was create to limit access to ***sshd***
+
+Bob also can't restart the httpd service using sudo. You will find that the error is different for ***bob*** than it was for ***alice***. This is because where the hbac rule for *alice* was created with **--servicecat=all**, the hbac rule for *bob* was create to limit access to ***sshd***
 
 As a webadmin controlling the web services ***bob*** needs to run both ``su -l`` and ``sudo``. Make sure that both commands are added to the list of allowed services in the host based access control rule **allow_webadmins_webservers_sshd**
 

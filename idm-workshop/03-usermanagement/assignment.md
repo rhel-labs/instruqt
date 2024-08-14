@@ -64,7 +64,7 @@ performed here, or via the **ipa** CLI program.  The web UI should be very intui
 Use the Web UI to perform the following actions:
 
 1. Add a *User* with the username **alice** with an initial password of **test123**.
-2. Verify that a *User Group* for system administrators named **sysadmins** exists.
+2. Ensure that a *User Group* for system administrators named **sysadmins** exists. Create it if necessary.
 3. Add **alice** to the **sysadmins** user group.
 4. Add a new *User Group* for developers named **developers** with a description of **Application Developers** and accept the default settings.
 5. Verify that the default **admin** user is a member of the **admins** user group.
