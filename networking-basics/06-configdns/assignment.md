@@ -4,7 +4,8 @@ id: mdgtf1tyajet
 type: challenge
 title: Configure DNS
 tabs:
-- title: Host 1
+- id: oxnyntuarazt
+  title: Host 1
   type: terminal
   hostname: host1
 difficulty: basic

@@ -8,7 +8,8 @@ notes:
   contents: |
     We'll install `NMState` to capture our current networking configuration.
 tabs:
-- title: Host 1
+- id: agf3rhpz2c3x
+  title: Host 1
   type: terminal
   hostname: host1
 difficulty: basic
