@@ -5,11 +5,13 @@ type: challenge
 title: Fix conversion inhibitors
 teaser: Fix the conversion inhibitors in your host.
 tabs:
-- title: centos
+- id: 7mc7u9vjznxz
+  title: centos
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@centos
-- title: Red Hat Insights
+- id: hq9dklh21pex
+  title: Red Hat Insights
   type: browser
   hostname: insights
 difficulty: basic

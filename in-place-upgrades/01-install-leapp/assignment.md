@@ -24,7 +24,8 @@ notes:
 
     Note: This process works similarly for RHEL 8 and 9.
 tabs:
-- title: RHEL
+- id: tsdpmrw354r3
+  title: RHEL
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel07

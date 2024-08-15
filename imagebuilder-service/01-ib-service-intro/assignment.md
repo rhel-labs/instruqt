@@ -18,7 +18,8 @@ notes:
     Your organization has specific requirements for their system builds, and you would like to build
     those requirements into a custom image that you can then deploy to your public cloud provider.
 tabs:
-- title: Red Hat Hybrid Cloud Console
+- id: dne7aqmsfdvg
+  title: Red Hat Hybrid Cloud Console
   type: browser
   hostname: console
 difficulty: basic

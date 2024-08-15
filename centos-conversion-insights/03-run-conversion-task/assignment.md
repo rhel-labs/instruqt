@@ -5,11 +5,13 @@ type: challenge
 title: Run the conversion task
 teaser: Run the conversion task to convert your host to Red Hat Enterprise Linux.
 tabs:
-- title: centos
+- id: 5laib1nuqaqc
+  title: centos
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@centos
-- title: Red Hat Insights
+- id: xay44l4zrctb
+  title: Red Hat Insights
   type: browser
   hostname: insights
 difficulty: basic

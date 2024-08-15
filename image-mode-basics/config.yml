@@ -5,11 +5,12 @@ virtualmachines:
   shell: /bin/bash
   environment:
     TERM: xterm
-  machine_type: n1-standard-1
+  machine_type: n2-standard-2
   allow_external_ingress:
   - http
   - https
   - high-ports
+  nested_virtualization: true
 secrets:
 - name: REG_SVC_ACCT
 - name: ACTIVATION_KEY

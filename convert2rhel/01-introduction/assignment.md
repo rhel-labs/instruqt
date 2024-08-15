@@ -4,7 +4,8 @@ id: hmlyy4hna4nv
 type: challenge
 title: Introduction
 tabs:
-- title: centos
+- id: mz5tbwfxufah
+  title: centos
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@centos

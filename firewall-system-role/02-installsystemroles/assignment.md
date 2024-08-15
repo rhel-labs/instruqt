@@ -8,15 +8,18 @@ notes:
 - type: text
   contents: Install the firewall RHEL system role.
 tabs:
-- title: controlnode
+- id: fawzh4mfupxy
+  title: controlnode
   type: terminal
   hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing"
-- title: rhelvm
+- id: xjo3jxzqs5od
+  title: rhelvm
   type: terminal
   hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing-rhelvm"
-- title: controlnode Web Console
+- id: dl1pzm38ev9g
+  title: controlnode Web Console
   type: external
   url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic

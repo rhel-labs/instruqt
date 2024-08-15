@@ -8,15 +8,18 @@ notes:
 - type: text
   contents: Open an arbitrary port.
 tabs:
-- title: controlnode
+- id: p7soqhzqy88r
+  title: controlnode
   type: terminal
   hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing"
-- title: rhelvm
+- id: pyl08dgqyhlx
+  title: rhelvm
   type: terminal
   hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing-rhelvm"
-- title: controlnode Web Console
+- id: b8hlw7ggzclv
+  title: controlnode Web Console
   type: external
   url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
