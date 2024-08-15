@@ -4,10 +4,12 @@ id: xoahc2x5gjd1
 type: challenge
 title: guestfish
 tabs:
-- title: Terminal
+- id: sobw5mssop2q
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: Red Hat Hybrid Cloud Console
+- id: hqmabjwzrlet
+  title: Red Hat Hybrid Cloud Console
   type: external
   url: https://cloud.redhat.com
 difficulty: basic

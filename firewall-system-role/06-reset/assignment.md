@@ -8,15 +8,18 @@ notes:
 - type: text
   contents: Remove all the changes we made to the firewall rules.
 tabs:
-- title: controlnode
+- id: f3yybsmkw61s
+  title: controlnode
   type: terminal
   hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing"
-- title: rhelvm
+- id: bxbcchheqmw7
+  title: rhelvm
   type: terminal
   hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing-rhelvm"
-- title: controlnode Web Console
+- id: aujpxtpak9ps
+  title: controlnode Web Console
   type: external
   url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic

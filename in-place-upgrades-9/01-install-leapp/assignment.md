@@ -24,7 +24,8 @@ notes:
 
     Note: Curious about performing a RHEL 7 upgrade? https://www.redhat.com/en/interactive-labs/perform-in-place-upgrade-with-leapp
 tabs:
-- title: RHEL
+- id: cmem5l9wm3xg
+  title: RHEL
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel08

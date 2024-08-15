@@ -9,15 +9,18 @@ notes:
   contents: Open the port to enable external connections to the httpd service on port
     80.
 tabs:
-- title: controlnode
+- id: aja3vlwfhadg
+  title: controlnode
   type: terminal
   hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing"
-- title: rhelvm
+- id: jjy6ddnfvsfb
+  title: rhelvm
   type: terminal
   hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing-rhelvm"
-- title: controlnode Web Console
+- id: 5tlhuxjaynsa
+  title: controlnode Web Console
   type: external
   url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic

@@ -4,11 +4,13 @@ id: poqkilv0g3m5
 type: challenge
 title: Running the Upgrade
 tabs:
-- title: RHEL
+- id: dwbffvdxzmee
+  title: RHEL
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel07
-- title: RHEL Web Console
+- id: 3ugfxcwzdzpv
+  title: RHEL Web Console
   type: browser
   hostname: webconsole
 difficulty: basic

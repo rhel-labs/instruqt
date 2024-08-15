@@ -10,5 +10,6 @@ virtualmachines:
   - http
   - https
   - high-ports
+  nested_virtualization: true
 secrets:
 - name: ACTIVATION_KEY

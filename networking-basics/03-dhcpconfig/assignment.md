@@ -8,7 +8,8 @@ notes:
   contents: |
     We'll configure a connection with a dynamically assigned IP address.
 tabs:
-- title: Host 1
+- id: scjlng4cjpaw
+  title: Host 1
   type: terminal
   hostname: host1
 difficulty: basic

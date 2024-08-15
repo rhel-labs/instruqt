@@ -8,15 +8,18 @@ notes:
 - type: text
   contents: Learn about the components of this lab.
 tabs:
-- title: controlnode
+- id: d2teuijqhcov
+  title: controlnode
   type: terminal
   hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing"
-- title: rhelvm
+- id: yapmn6f1xgcj
+  title: rhelvm
   type: terminal
   hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing-rhelvm"
-- title: controlnode Web Console
+- id: 3nmln4oousqe
+  title: controlnode Web Console
   type: external
   url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic

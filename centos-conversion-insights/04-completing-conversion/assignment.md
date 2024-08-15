@@ -5,11 +5,13 @@ type: challenge
 title: Complete the conversion
 teaser: Complete the conversion of the CentOS host.
 tabs:
-- title: centos
+- id: 20ezsnpssj04
+  title: centos
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@centos
-- title: Red Hat Insights
+- id: zjawg2m0udba
+  title: Red Hat Insights
   type: browser
   hostname: insights
 difficulty: basic

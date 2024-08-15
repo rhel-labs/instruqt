@@ -8,15 +8,18 @@ notes:
 - type: text
   contents: Forward TCP requests to port 9999 to port 12345.
 tabs:
-- title: controlnode
+- id: 2dhre6usylvv
+  title: controlnode
   type: terminal
   hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing"
-- title: rhelvm
+- id: nnyy6ah7iqm2
+  title: rhelvm
   type: terminal
   hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing-rhelvm"
-- title: controlnode Web Console
+- id: 3kbmycpyr2no
+  title: controlnode Web Console
   type: external
   url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic

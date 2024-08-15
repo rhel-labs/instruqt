@@ -4,7 +4,8 @@ id: 1jx3d2n3b2fj
 type: challenge
 title: Fixing inhibited results
 tabs:
-- title: RHEL
+- id: 4hdpjj5gism6
+  title: RHEL
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel07
