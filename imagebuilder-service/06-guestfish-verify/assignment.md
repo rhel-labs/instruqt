@@ -4,10 +4,12 @@ id: foasxwtdrx9f
 type: challenge
 title: Verify changes with Guestfish
 tabs:
-- title: Terminal
+- id: xaoshsbrahdv
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: Red Hat Hybrid Cloud Console
+- id: nkfm4jswfdqo
+  title: Red Hat Hybrid Cloud Console
   type: external
   url: https://cloud.redhat.com
 difficulty: basic

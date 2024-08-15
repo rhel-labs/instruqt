@@ -8,7 +8,8 @@ notes:
   contents: |
     Activate the connection.
 tabs:
-- title: Host 1
+- id: glniyyaki0ay
+  title: Host 1
   type: terminal
   hostname: host1
 difficulty: basic

@@ -13,14 +13,17 @@ notes:
 
     In this exercise, we'll explore how to make changes in images for our hosts to use.
 tabs:
-- title: Terminal
+- id: 7ktbrfhhck1y
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: Containerfile
+- id: 7lstyrl6ixiy
+  title: Containerfile
   type: code
   hostname: rhel
   path: Containerfile
-- title: VM console
+- id: knueqzeeypop
+  title: VM console
   type: terminal
   hostname: rhel
   cmd: virsh console bootc

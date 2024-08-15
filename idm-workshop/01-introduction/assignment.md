@@ -182,7 +182,7 @@ Do you want to configure chrony with NTP server or pool address? [no]:
 </pre>
 
 Time servers are already configured by the environment.
-Accept the default or type yes.
+Accept the default or type **no**.
 
 You will then be prompted to confirm that you wish to proceed with the installation using the stated configuration.
 

@@ -4,7 +4,8 @@ id: jtppuyrfsxln
 type: challenge
 title: Running the Pre-upgrade Assistant
 tabs:
-- title: RHEL
+- id: jnc7adqthbzs
+  title: RHEL
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel07

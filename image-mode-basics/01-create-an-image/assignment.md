@@ -13,10 +13,12 @@ notes:
 
     In the first exercise, you will get familiar with using bootc images that can be used to launch systems. We will start with the build phase, creating our first image by defining software we want available on our host.
 tabs:
-- title: Terminal
+- id: znuu8yo2vefk
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: Containerfile
+- id: nafs9waqr8rp
+  title: Containerfile
   type: code
   hostname: rhel
   path: Containerfile

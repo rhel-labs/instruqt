@@ -4,7 +4,8 @@ id: ghyablsfoxf8
 type: challenge
 title: Installing Convert2RHEL
 tabs:
-- title: centos
+- id: yugltsi2ovqj
+  title: centos
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@centos

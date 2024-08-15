@@ -4,7 +4,8 @@ id: soq9k5zzogbl
 type: challenge
 title: Defining a Red Hat Enterprise Linux blueprint in Image Builder
 tabs:
-- title: Red Hat Hybrid Cloud Console
+- id: vrqbvbuyqzjy
+  title: Red Hat Hybrid Cloud Console
   type: browser
   hostname: console
 difficulty: basic

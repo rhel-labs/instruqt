@@ -8,7 +8,8 @@ notes:
   contents: |
     Configure a static IP address.
 tabs:
-- title: Host 1
+- id: zvxji0fx6b3i
+  title: Host 1
   type: terminal
   hostname: host1
 difficulty: basic

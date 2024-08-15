@@ -23,10 +23,12 @@ notes:
     * Update this connection to use static IP address assignment
     * Validate and configure DNS server settings
 tabs:
-- title: Host 1
+- id: bo5xb5yyovkq
+  title: Host 1
   type: terminal
   hostname: host1
-- title: rhel Web Console
+- id: ujmky5mbwqns
+  title: rhel Web Console
   type: external
   url: https://host1.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic

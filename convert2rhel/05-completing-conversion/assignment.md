@@ -4,7 +4,8 @@ id: wewab4rcftii
 type: challenge
 title: Completing the Conversion
 tabs:
-- title: centos
+- id: kexteecosfz6
+  title: centos
   type: terminal
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@centos

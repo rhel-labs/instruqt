@@ -8,11 +8,13 @@ notes:
 - type: text
   contents: Manage storage devices with Stratis.
 tabs:
-- title: Shell
+- id: kdhqyjgudyox
+  title: Shell
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: RHEL Web Console
+- id: 3gylmgeuuamu
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic

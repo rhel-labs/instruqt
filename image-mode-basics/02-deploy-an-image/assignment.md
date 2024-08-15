@@ -13,10 +13,12 @@ notes:
 
     In this exercise, we'll convert the OCI image into a disk image we can launch as a VM.
 tabs:
-- title: Terminal
+- id: esza0euexzd8
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: VM console
+- id: artmeele676g
+  title: VM console
   type: terminal
   hostname: rhel
   cmd: virsh console bootc

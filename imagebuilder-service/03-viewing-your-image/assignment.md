@@ -4,10 +4,12 @@ id: o3ph6jhzvufh
 type: challenge
 title: Viewing your downloaded image
 tabs:
-- title: Terminal
+- id: cyug3j4cmgdx
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: Red Hat Hybrid Cloud Console
+- id: ckgubqymhy6g
+  title: Red Hat Hybrid Cloud Console
   type: external
   url: https://cloud.redhat.com
 difficulty: basic

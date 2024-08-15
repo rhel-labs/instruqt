@@ -13,14 +13,17 @@ notes:
 
     In this exercise, we'll apply the updated image we created containing vim.
 tabs:
-- title: Terminal
+- id: 1yjdpi8srzix
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: Containerfile
+- id: pzj6sgp9ncuu
+  title: Containerfile
   type: code
   hostname: rhel
   path: Containerfile
-- title: VM console
+- id: yr6lhrue8afd
+  title: VM console
   type: terminal
   hostname: rhel
   cmd: virsh console bootc

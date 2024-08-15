@@ -4,10 +4,12 @@ id: xthofgtzv34q
 type: challenge
 title: The virt-customize tool
 tabs:
-- title: Terminal
+- id: yizkymmy4qcx
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: Red Hat Hybrid Cloud Console
+- id: ejxoml36ldgs
+  title: Red Hat Hybrid Cloud Console
   type: external
   url: https://cloud.redhat.com
 difficulty: basic
