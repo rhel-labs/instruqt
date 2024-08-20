@@ -1,0 +1,116 @@
+#!/bin/bash
+
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+
+# Log into terms based registry and stage bootc and bib images
+podman login -u='1979710|rhel-tmm' -p=${REG_SVC_ACCT} registry.redhat.io
+podman pull registry.redhat.io/rhel9/rhel-bootc:latest registry.redhat.io/rhel9/bootc-image-builder:latest
+
+# Some shortcuts for users
+# reglogin - uses podman secret to log into the terms based registry in case creds time out or initial pull fails
+# registry ENV variable -  the registry target created for the lab
+printf ${REG_SVC_ACCT} | podman secret create regpass -
+cat <<EOF >> /root/.bashrc
+export REGISTRY="${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000"
+alias reglogin="podman login -u='1979710|rhel-tmm' --secret regpass registry.redhat.io"
+alias bc-build="podman build -t ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000/test-bootc ."
+alias bc-push="podman push ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000/test-bootc"
+EOF
+
+echo "Adding wheel" > /root/post-run.log
+usermod -aG wheel rhel
+
+echo "setting password" >> /root/post-run.log
+echo redhat | passwd --stdin rhel
+
+# Start the target VM, created from the image-mode-basics lab image and maintained in the GCP compute image for this lab
+
+virsh start bootc
+
+# set up SSL for fully functioning registry
+# Enable EPEL for RHEL 9
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf install -y certbot
+
+# stop the process that is using TCP port 80; we need that port open for certbot
+fuser -k 80/tcp
+
+# request certificates
+certbot certonly --standalone --preferred-challenges http -d ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io --non-interactive --agree-tos -m trackbot@instruqt.com -v
+
+# run a local registry with the provided certs
+podman run --privileged -d \
+  --name registry \
+  -p 5000:5000 \
+  -v /etc/letsencrypt/live/${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io/fullchain.pem:/certs/fullchain.pem \
+  -v /etc/letsencrypt/live/${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io/privkey.pem:/certs/privkey.pem \
+  -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/fullchain.pem \
+  -e REGISTRY_HTTP_TLS_KEY=/certs/privkey.pem \
+  registry:2
+
+# For the target bootc system build, we need to set up a few config files to operate in the lab environment
+# create sudoers drop in and etc structure to add to container
+mkdir -p ~/etc/sudoers.d/
+echo "%wheel  ALL=(ALL)   NOPASSWD: ALL" >> ~/etc/sudoers.d/wheel
+
+# create the etc/hosts override to let the target VM see the registry
+echo $(getent hosts ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io) >> ~/etc/hosts
+
+# add hostname to runtime variable
+
+agent variable set CONTAINER_REGISTRY_ENDPOINT ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000
+
+# create config.json for BIB to add a user / pass
+cat <<EOF> ~/config.json
+{
+  "blueprint": {
+    "customizations": {
+      "user": [
+        {
+          "name": "core",
+          "password": "redhat",
+           "groups": [
+	            "wheel"
+	          ]
+        }
+      ]
+    }
+  }
+}
+EOF
+
+# create updated bootc containerfile from image-mode-basics
+cat <<EOF> Containerfile
+FROM registry.redhat.io/rhel9/rhel-bootc
+
+ADD etc /etc
+
+RUN dnf install -y httpd vim
+RUN systemctl enable httpd
+
+EOF
+
+# create V3 index.html relocated containerfile
+cat <<EOM> Containerfile.index
+FROM registry.redhat.io/rhel9/rhel-bootc
+
+ADD etc /etc
+
+RUN dnf install -y httpd vim
+
+RUN <<EOF 
+    mv /var/www /usr/share/www
+    sed -i 's-/var/www-/usr/share/www-' /etc/httpd/conf/httpd.conf
+EOF
+
+RUN echo "New application coming soon!" > /usr/share/www/html/index.html
+
+RUN systemctl enable httpd
+
+EOM
+
+
+podman build -t ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000/test-bootc .
+podman push ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000/test-bootc
+
