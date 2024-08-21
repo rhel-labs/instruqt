@@ -1,8 +1,9 @@
 ---
-slug: create-an-image
+slug: switch-registries
+id: oxcota2jthao
 type: challenge
-title: Create a bootc image
-teaser: Create a bootc image and push it to a local container registry.
+title: Change bootc tracking details
+teaser: Explore and control image tracking with bootc
 notes:
 - type: text
   contents: |
@@ -12,11 +13,11 @@ notes:
 
     In the first exercise, you will get familiar with managing hosts running from bootc images. we will start by examining a running VM and the image currently being tracked.
 tabs:
-- id: znuu8yo2vefk
+- id: 2pnkoae5eysy
   title: Terminal
   type: terminal
   hostname: rhel
-- id: nafs9waqr8rp
+- id: whmk4doq1uth
   title: VM console
   type: terminal
   hostname: rhel
@@ -72,9 +73,9 @@ The output will look like this.
 Check the iamge the VM is using
 ===
 
-Hosts created from bootc images will track a particular image in the registry, this is how `bootc` knows when an update is available. 
+Hosts created from bootc images will track a particular image in the registry, this is how `bootc` knows when an update is available.
 
-The `spec` section of `bootc status` provides the information about the image in use and where `bootc` is looking for it. 
+The `spec` section of `bootc status` provides the information about the image in use and where `bootc` is looking for it.
 ```bash,run
 sudo bootc status | grep spec: -A 4
 ```
@@ -85,7 +86,7 @@ hostname
 echo $REGISTRY
 ```
 
-Since this VM was created in a different lab, the registry that was used doesn't exist any more. Have we broken our Vm? 
+Since this VM was created in a different lab, the registry that was used doesn't exist any more. Have we broken our Vm?
 
 Switch to a new image
 ===

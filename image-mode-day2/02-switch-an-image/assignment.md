@@ -1,5 +1,6 @@
 ---
-slug: deploy-an-image
+slug: switch-an-image
+id: 3w4soqjgbyuy
 type: challenge
 title: Deploy the bootc image as a VM
 teaser: Deploy the bootc image as a VM in KVM.
@@ -12,16 +13,16 @@ notes:
 
     In this exercise, we'll convert the OCI image into a disk image we can launch as a VM.
 tabs:
-- id: esza0euexzd8
+- id: xhriew7zh0lw
   title: Terminal
   type: terminal
   hostname: rhel
-- id: 7lstyrl6ixiy
+- id: klnfkbonngvt
   title: Containerfile
   type: code
   hostname: rhel
   path: Containerfile
-- id: artmeele676g
+- id: bh9cdab24nro
   title: VM console
   type: terminal
   hostname: rhel

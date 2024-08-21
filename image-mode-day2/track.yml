@@ -1,5 +1,5 @@
 slug: image-mode-day2
-id: sklxw9pb7b9b
+id: sydb5rcrwypr
 title: Day 2 ops with Image mode for Red Hat Enterprise Linux
 description: |
   # Goal:
@@ -29,4 +29,4 @@ lab_config:
     name: original
   override_challenge_layout: false
   hideStopButton: false
-checksum: "8861412315699243011"
+checksum: "5447866652492387146"

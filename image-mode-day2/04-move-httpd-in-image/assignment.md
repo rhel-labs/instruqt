@@ -1,5 +1,6 @@
 ---
-slug: apply-image
+slug: move-httpd-in-image
+id: wk2prgx5hyyr
 type: challenge
 title: Apply the new image
 teaser: Apply the new image changes to the system
@@ -12,16 +13,16 @@ notes:
 
     In this exercise, we'll apply the updated image we created containing vim.
 tabs:
-- id: 1yjdpi8srzix
+- id: t7590hucex6u
   title: Terminal
   type: terminal
   hostname: rhel
-- id: pzj6sgp9ncuu
+- id: cbjbwkhibx7x
   title: Containerfile
   type: code
   hostname: rhel
   path: Containerfile
-- id: yr6lhrue8afd
+- id: 9s7ytfxishy7
   title: VM console
   type: terminal
   hostname: rhel
@@ -57,7 +58,7 @@ Select Containerfile.index from the list on the right side of the tab.
 
 Look at the new `RUN` command that uses the `heredoc` format to wrap several lines. This block will move the default directory and files installed by Apache to a new directory under `/var`. The second line will update the default config file to change the default document root to our new directory.  Note that since we haven't made any local changes to this file in `/etc` on the host, this change will show up on the host. If you had made local changes to the config, you may need to to create a drop-in file or use some other means to update the Apache config.
 
-Once you feel you understand the change, you can return to the [button label="Terminal" background="#ee0000" color="#c7c7c7"](tab-0) tab 
+Once you feel you understand the change, you can return to the [button label="Terminal" background="#ee0000" color="#c7c7c7"](tab-0) tab
 Use podman to update the image.
 ===
 We can pass this file to the `podman build` command to get an updated image, but this time with a `v3` tag.

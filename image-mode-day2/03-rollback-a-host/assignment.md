@@ -1,5 +1,6 @@
 ---
-slug: add-software-to-image
+slug: rollback-a-host
+id: ii7woss9bdxe
 type: challenge
 title: Add software to image
 teaser: Add the vim editor to the image.
@@ -12,16 +13,16 @@ notes:
 
     In this exercise, we'll explore how to make changes in images for our hosts to use.
 tabs:
-- id: 7ktbrfhhck1y
+- id: zje6jrqczgve
   title: Terminal
   type: terminal
   hostname: rhel
-- id: 7lstyrl6ixiy
+- id: tpkjptwwk0eu
   title: Containerfile
   type: code
   hostname: rhel
   path: Containerfile
-- id: knueqzeeypop
+- id: fzmfm00uw2yp
   title: VM console
   type: terminal
   hostname: rhel
