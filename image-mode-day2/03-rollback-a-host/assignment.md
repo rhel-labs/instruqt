@@ -37,7 +37,7 @@ timelimit: 1
 
 We have a new built-in option available to image mode systems that typically takes more preparation with package mode operations: the rollback.
 
-Since bootc manages state on disk, we have the previous working system available to us. Normally, we’d need to have set up snapshots or refer to a backup but bootc automatically provides us the rollback built in.
+Since `bootc` manages state on disk, we have the previous working system available to us. Normally, we’d need to have set up snapshots or refer to a backup but bootc automatically provides us the rollback built in.
 
 This isn't the sort of issue we'd normal need to recover from, but let's go ahead and check for an available rollback option to get us back to the previous image.
 
@@ -45,11 +45,9 @@ This isn't the sort of issue we'd normal need to recover from, but let's go ahea
 sudo bootc status | grep rollback: -A 8
 ```
 
-Take note of the image name. You should see this is the image tagged as `latest`, our original image. You may recall when we first looked at `bootc status` on this VM, that section was empty. Not all of the status sections will have information at all times.
-
-Rollbacks are as simple as running one command. Let’s get this image back to the previous state then we can dig into what happened.
+You should see our original image, without the `v2` tag. Rollbacks are as simple as running one command. Let’s get this image back to the previous state then we can dig into what happened.
 ```bash,run
-sudo bootc status | grep rollback: -A 8
+sudo bootc rollback
 ```
 
 The command should return very fast and the output looks like this:
@@ -58,7 +56,7 @@ bootfs is sufficient for calculated new size: 0 bytes
 Next boot: rollback deployment
 ````
 
-You should see the value of rollbackQueued has been updated as well. This can be useful to check before restarting a sysytem.
+You should see the value of `rollbackQueued` has been updated as well. This can be useful to check before restarting a sysytem.
 ```bash,run
 sudo bootc status | grep Queued
 ```
@@ -75,6 +73,7 @@ sudo bootc status | grep Order
 ````
 bootOrder: rollback
 ````
+Feel free to explore `bootc status` further before moving on.
 
 As usual, a reboot is needed to apply changes. After the reboot, the rollback image will become the booted image, and will also become the new default in the boot order.
 ```bash,run

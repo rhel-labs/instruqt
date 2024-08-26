@@ -50,17 +50,18 @@ Add the following line after the `dnf install` line:
 RUN echo "New application coming soon!" > /var/www/html/index.html
 ````
 
-![](../assets/containerfile_add_vim.png)
+![](../assets/containerfile_add_index.png)
 
 The editor will automatically save changes. Once you see Changes Saved in the upper right, you can return to the [button label="Terminal" background="#ee0000" color="#c7c7c7"](tab-0) tab.
 
 Use podman to update the image.
 ===
-With our changes in the Containerfile, we can run the `podman build` command to get an updated image, but this time with a specific `v2` tag.
+With our changes in the Containerfile saved, we can run the `podman build` command to get an updated image, but this time with a specific `v2` tag.
 
 ```bash,run
 podman build -t [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:v2 .
 ```
+Tags communicate information to people, not the container tools. The tools will use the IDs associated to tag when doing operations. This means we can use tags to carry different kinds of information for users.
 
 Push the image to the registry
 ===
@@ -71,17 +72,23 @@ Once the updated image has been built, we can push it to the registry. Once agai
 podman push [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:v2
 ```
 
-Tags communicate information to people, not the container tools. The tools will use the IDs associated to tag when doing operations. This means we can use tags to carry different kinds of information for users.
-
 There can also be more than one tag associated with an image. Let's say this image was for the development environment and not for production use. We could add a `dev` tag to our new image, and push that to the registry.
 ```bash,run
 podman image tag [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:v2 [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:dev
+```
+```bash,run
 podman push [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:dev
 ```
 
-With more sophiscated tools than in this environment, the flexibility afforded by tags can be very powerful.
+Let's take a look at the different imames created.
+```bash,run
+podman images test-bootc
+```
+You can see we have 3 images listed, but a closer look at the `IMAGE ID` column shows that 2 of them are the same.
 
-Reattach to the VM console
+With more sophiscated tools than available in this environment, the flexibility afforded by tags can be very powerful.
+
+Switch to the v2 image
 ===
 
 Click on the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-2) tab.
@@ -89,17 +96,16 @@ Click on the [button label="VM console" background="#ee0000" color="#c7c7c7"](ta
 > [!NOTE]
 > You may need to tap `enter` to wake up the console, you should still be logged in as `core`
 
-Switch to latest version
-===
-The latest version of our image didn't use the `atest` tag, so the changes won't show up as an update.
+
+The new version of our image didn't use the `latest` tag, so the changes won't show up as an update.
 
 ```bash,run
 sudo bootc upgrade --check
 ```
 
-Like in the first exercise where we chnaged registries, we can use `bootc switch` to change between tags. Using `bootc switch` we can use any of the image three identifiers (registry, name, and tag) to handle a host of different scenarios.
+Like in the first exercise where we chnaged registries, we can use `bootc switch` to change between tags. Using `bootc switch` we can use any of the image three identifiers (registry, name, and tag) to handle a variety of different scenarios.
 ```bash,run
-sudo bootc switch [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-boot:v2
+sudo bootc switch [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:v2
 ```
 
 We need to restart the system now to get our changes.
@@ -112,6 +118,7 @@ Check the VM is running the v2 image
 ===
 
 Once the system has completed rebooting, you can log back in.
+
 Username:
 
 ```bash,run

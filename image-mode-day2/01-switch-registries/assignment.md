@@ -28,25 +28,27 @@ timelimit: 3000
 
 Welcome to this lab experience for Red Hat Enterprise Linux.
 
-The system displayed beside this text is a Red Hat Enterprise Linux 9
-system registered with Subscription Manager.
+The system displayed beside this text is a Red Hat Enterprise Linux 9 system registered with Subscription Manager.
 
 Image mode uses standard container tools to define, build, and transport bootc images. Podman has already been installed on this host as a build environment, along with some additional files.
 
+Let's check on the name of the registry we're using in this lab. During setup, a variable called `REGISTRY` was set.
+```bash,run
+echo $REGISTRY
+```
+This is the hostname of the instance in the Terminal.
+
+In a previous lab, we created a virtual machine from a bootc image. That bootc VM was imported intp this lab.
+
 Attach to the console of the VM running our bootc image
 ===
-
-In a previous lab, we created a virtual machine from a bootc image.
 
 Let's attach to the console. Switch to the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-1) tab.
 
 > [!NOTE]
 > If the console hasn't connected or there is an error, you can reconnect by clicking Refresh next to the tab name. The prompt will look like this. ![](../assets/terminal_prompt.png)
 
-Check the VM is running the applications we installed
-===
-
-A user was created when that VM was created, you can use the following credentials to log in.
+A user was created when the VM was created, you can use the following credentials to log in.
 
 Username:
 
@@ -60,6 +62,9 @@ Password:
 redhat
 ```
 
+Check the VM is running the applications we installed
+===
+
 The initial image included Apache, so let's check on it's status.
 
 ```bash,run
@@ -70,23 +75,18 @@ The output will look like this.
 
 ![](../assets/httpd_service.png)
 
-Check the iamge the VM is using
+
+Check the image the VM is using
 ===
 
-Hosts created from bootc images will track a particular image in the registry, this is how `bootc` knows when an update is available.
+Hosts created from bootc images track a particular image in a registry, this is how `bootc` knows when an update is available.
 
 The `spec` section of `bootc status` provides the information about the image in use and where `bootc` is looking for it.
 ```bash,run
 sudo bootc status | grep spec: -A 4
 ```
 
-The hostname in that output doesn't look right for the registry that is running our host in this lab.
-```bash,run
-hostname
-echo $REGISTRY
-```
-
-Since this VM was created in a different lab, the registry that was used doesn't exist any more. Have we broken our Vm?
+Since this VM was created in a different lab, the registry that was used doesn't exist any more. Have we broken our VM?
 
 Switch to a new image
 ===
@@ -97,7 +97,7 @@ sudo bootc switch [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rh
 
 Like a `bootc update`, switch will download and prepared the new image to a local deployment location on disk. It will then stage that image to become active at the next boot.
 ```bash,run
-sudo bootc status | grep staged:
+sudo bootc status | grep staged: -A 8
 ```
 
 If we needed to wait for a maintenance window we could stage changes immediately, then schedule the reboot. Let's go ahead and restart the system now to get our changes.
@@ -129,4 +129,4 @@ You can also look at the `booted` section to see this is now the current default
 sudo bootc status | grep booted: -A 8
 ```
 
-Now that our VM is tracking an image in our current environment, let's explore a little more of what `bootc switch` can do for us.
+Now that our VM is tracking an image in our current environment, let's explore a little more of what this new `bootc switch` command can do for us.
