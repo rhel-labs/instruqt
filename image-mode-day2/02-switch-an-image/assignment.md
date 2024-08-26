@@ -41,7 +41,7 @@ Click on the [button label="Containerfile" background="#ee0000" color="#c7c7c7"]
 
 If not already shown, select Containerfile in the list on the right side of the tab.
 
-![](../assets/containerfile_scripteditor.png)
+![](../assets/containerfile_scripteditor1.png)
 
 
 Add the following line after the `dnf install` line:

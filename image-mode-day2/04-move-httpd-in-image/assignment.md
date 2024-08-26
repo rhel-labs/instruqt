@@ -56,7 +56,7 @@ Click on the [button label="Containerfile" background="#ee0000" color="#c7c7c7"]
 
 Select Containerfile.index from the list on the right side of the tab.
 
-![](../assets/containerfile_scripteditor.png)
+![](../assets/containerfile_scripteditor2.png)
 
 Look at the new `RUN` command that uses the `heredoc` format to wrap several lines.
 
@@ -92,7 +92,7 @@ Switch the VM to our newest version
 To update the VM, return to the the VM Console by clicking on the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-2) tab.
 
 > [!NOTE]
-> If the console hasn't connected or there is an error, you can reconnect by clicking Refresh next to the tab name. The prompt will look like this. ![](../assets/terminal_prompt.png)
+> If the console hasn't connected or there is an error, you can reconnect by clicking Refresh next to the tab name. The prompt will look like this. ![](../assets/terminal_prompt.png) If you are already logged in, you may not have rebooted after the rollback.
 
 Log in with the following credentials:
 
@@ -108,7 +108,7 @@ Password:
 redhat
 ```
 
-Just like in the first exercise, we can use `bootc switch` to change to the image we just created with the updated Apache config.
+Just like in the other exercises, we can use `bootc switch` to change to the image we just created with the updated Apache config.
 ```bash,run
 sudo bootc switch [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:v3
 ```
@@ -122,7 +122,7 @@ You can also check the boot order in the spec block to see what has been sent to
 sudo bootc status | grep Order
 ```
 
-Let's go ahead and restart the system once more to get our changes.
+Let's go ahead and restart the system one last time to get our changes.
 ```bash,run
 sudo reboot
 ```
