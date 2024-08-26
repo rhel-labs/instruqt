@@ -58,11 +58,11 @@ Select Containerfile.index from the list on the right side of the tab.
 
 ![](../assets/containerfile_scripteditor.png)
 
-Look at the new `RUN` command that uses the `heredoc` format to wrap several lines. 
+Look at the new `RUN` command that uses the `heredoc` format to wrap several lines.
 
 ![](../assets/containerfile_heredoc_index.png)
 
-This block will move the default directory and files installed by Apache to a new directory under `/var`. The second line will update the default config file to change the default document root to our new directory.  
+This block will move the default directory and files installed by Apache to a new directory under `/var`. The second line will update the default config file to change the default document root to our new directory.
 
 Note that since we haven't made any local changes to this file in `/etc` on the host, this change will show up on the host. If you had made local changes to the config, you may need to to create a drop-in file or use some other means to update the Apache config.
 
