@@ -65,6 +65,35 @@ tee ~/config.yml << EOF
   remote_user: root
 
   tasks:
+  # - name: "Enable RHEL 9 BaseOS RPMs repository with label"
+  #   redhat.satellite.repository_set:
+  #     username: "admin"
+  #     password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
+  #     server_url: "https://satellite.lab"
+  #     organization: "Acme Org"
+  #     label: rhel-9-for-x86_64-baseos-rpms
+  #     repositories:
+  #       - releasever: "9"
+
+  # - name: "Enable RHEL 9 AppStream RPMs repository with label"
+  #   redhat.satellite.repository_set:
+  #     username: "admin"
+  #     password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
+  #     server_url: "https://satellite.lab"
+  #     organization: "Acme Org"
+  #     label: rhel-9-for-x86_64-appstream-rpms
+  #     repositories:
+  #       - releasever: "9"
+
+  # - name: "Satellite 6 client repository with label without specifying base arch"
+  #   redhat.satellite.repository_set:
+  #     username: "admin"
+  #     password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
+  #     server_url: "https://satellite.lab"
+  #     organization: "Acme Org"
+  #     label: satellite-client-6-for-rhel-9-x86_64-rpms
+  #     all_repositories: true
+  #     state: enabled
   - name: "Create an activation key."
     redhat.satellite.activation_key:
       username: "admin"
