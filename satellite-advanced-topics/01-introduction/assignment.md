@@ -8,13 +8,16 @@ notes:
 - type: text
   contents: Familiarize yourself with the lab environment.
 tabs:
-- title: Satellite Server
+- id: srohvnbo6zzv
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: 3fmagpkgssdv
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
+- id: a0e9cjfownvg
+  title: rhel1
   type: terminal
   hostname: rhel1
 difficulty: basic

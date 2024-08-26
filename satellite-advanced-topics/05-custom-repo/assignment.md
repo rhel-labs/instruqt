@@ -8,13 +8,16 @@ notes:
 - type: text
   contents: Satellite makes it easy to provision custom software through custom repositories.
 tabs:
-- title: Satellite Server
+- id: cdqqosbggylx
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: 8lp5antqakue
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
+- id: gtz0iu56tqid
+  title: rhel1
   type: terminal
   hostname: rhel1
 difficulty: ""

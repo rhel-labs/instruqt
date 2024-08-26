@@ -6,7 +6,7 @@ until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]; do
     sleep 1
 done
 
-subscription-manager config --rhsm.manage_repos=1
+#subscription-manager config --rhsm.manage_repos=1
 rm -rf /etc/yum.repos.d/google-cloud.repo
 #subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
