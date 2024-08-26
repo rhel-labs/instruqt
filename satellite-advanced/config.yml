@@ -15,7 +15,7 @@ virtualmachines:
   - https
   - high-ports
 - name: satellite
-  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-advanced-server-05-06-24
+  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-advanced-server-08-26-24
   shell: /bin/bash
   environment:
     TERM: xterm
@@ -27,7 +27,7 @@ virtualmachines:
   - https
   - high-ports
 - name: satellite-2
-  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-advanced-server-2-04-25-24-2
+  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-advanced-server-2-08-26-24
   shell: /bin/bash
   environment:
     TERM: xterm

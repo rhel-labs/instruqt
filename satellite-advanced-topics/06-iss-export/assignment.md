@@ -9,19 +9,24 @@ notes:
   contents: Inter-Satellite Sync export sync enables you to export software to air-gapped
     or disconnected satellite servers.
 tabs:
-- title: Satellite Server
+- id: 2fubywrc5ryt
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: pna8vrire4rd
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: Satellite Server 2
+- id: n7lxbd5x8qvp
+  title: Satellite Server 2
   type: terminal
   hostname: satellite-2
-- title: Satellite 2 Web UI
+- id: hg2g0a35hink
+  title: Satellite 2 Web UI
   type: external
   url: https://satellite-2.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
+- id: nr2omdli5gde
+  title: rhel1
   type: terminal
   hostname: rhel1
 difficulty: ""
