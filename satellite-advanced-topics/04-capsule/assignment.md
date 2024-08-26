@@ -10,19 +10,24 @@ notes:
     software and updates through the capsule servers while enabling you to manage
     them through the main Satellite server.
 tabs:
-- title: Satellite Server
+- id: 6swbiwuex42g
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: fjkurecebige
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: Capsule
+- id: 1iwozab7ymic
+  title: Capsule
   type: terminal
   hostname: capsule
-- title: rhel1
+- id: fdfpbbeuzcst
+  title: rhel1
   type: terminal
   hostname: rhel1
-- title: Notepad
+- id: kt86uwqyrcvt
+  title: Notepad
   type: code
   hostname: rhel1
   path: /tmp/notepad

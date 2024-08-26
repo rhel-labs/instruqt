@@ -9,13 +9,16 @@ notes:
 - type: text
   contents: Configure Remote Execution pull mode.
 tabs:
-- title: Satellite Server
+- id: gicwnz2n2oyk
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: 0hsw9uydzw4h
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
+- id: gdgib0ywtpsj
+  title: rhel1
   type: terminal
   hostname: rhel1
 difficulty: ""
