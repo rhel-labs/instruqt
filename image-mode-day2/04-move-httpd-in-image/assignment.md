@@ -2,8 +2,9 @@
 slug: move-httpd-in-image
 id: wk2prgx5hyyr
 type: challenge
-title: Apply the new image
-teaser: Apply the new image changes to the system
+title: Local state versus image state
+teaser: Understand the difference between the image and a host deployed from that
+  image
 notes:
 - type: text
   contents: |-
@@ -27,7 +28,8 @@ tabs:
   type: terminal
   hostname: rhel
   cmd: virsh console bootc
-difficulty: ""
+difficulty: basic
+timelimit: 1
 ---
 Image vs host state
 ===

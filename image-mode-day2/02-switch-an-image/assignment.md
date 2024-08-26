@@ -2,8 +2,8 @@
 slug: switch-an-image
 id: 3w4soqjgbyuy
 type: challenge
-title: Deploy the bootc image as a VM
-teaser: Deploy the bootc image as a VM in KVM.
+title: Using tags in combination with updates
+teaser: Tracking image versions in registries and on hosts
 notes:
 - type: text
   contents: |
@@ -11,7 +11,7 @@ notes:
 
     The deployment phase is how we move from the OCI image to a running host. This is essentially an installation but with a slight variation in tools. This only needs to be done once in the lifetime of a host. We'll look at how updates operate later.
 
-    In this exercise, we'll convert the OCI image into a disk image we can launch as a VM.
+    In this exercise, we'll build an upate for our host and use tags to convey some additional information for admins and users.
 tabs:
 - id: xhriew7zh0lw
   title: Terminal

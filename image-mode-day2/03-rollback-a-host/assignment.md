@@ -2,8 +2,8 @@
 slug: rollback-a-host
 id: ii7woss9bdxe
 type: challenge
-title: Add software to image
-teaser: Add the vim editor to the image.
+title: Rolling back software updates
+teaser: Roll back changes to a deployed host
 notes:
 - type: text
   contents: |
@@ -28,7 +28,7 @@ tabs:
   hostname: rhel
   cmd: virsh console bootc
 difficulty: basic
-timelimit: 600
+timelimit: 1
 ---
 > [!NOTE]
 > You should still be in the VM Console tab. If not,

@@ -17,7 +17,6 @@ developers:
 - mmicene@redhat.com
 show_timer: true
 idle_timeout: 300
-timelimit: 1200
 lab_config:
   overlay: false
   width: 33
@@ -29,4 +28,4 @@ lab_config:
     name: original
   override_challenge_layout: false
   hideStopButton: false
-checksum: "5447866652492387146"
+checksum: "2249418307585138347"
