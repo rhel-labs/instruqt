@@ -8,13 +8,16 @@ notes:
 - type: text
   contents: Configure a newly installed Satellite server with an Ansible Playbook
 tabs:
-- title: Satellite Server
+- id: bvfpcgkvzc8f
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: smapvbcitfpo
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
+- id: 7vtmszkypic0
+  title: rhel1
   type: terminal
   hostname: rhel1
 difficulty: basic

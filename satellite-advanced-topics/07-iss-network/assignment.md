@@ -9,19 +9,24 @@ notes:
   contents: ISS network sync is useful for configuring satellite server to obtain
     software indirectly from the internet through another satellite server.
 tabs:
-- title: Satellite Server
+- id: cb7asctcpqot
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: w6yi6cmcehtb
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: Satellite Server 2
+- id: yvkcqbcxvv1o
+  title: Satellite Server 2
   type: terminal
   hostname: satellite-2
-- title: Satellite 2 Web UI
+- id: xlvrilrvslcq
+  title: Satellite 2 Web UI
   type: external
   url: https://satellite-2.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
+- id: e7ltpvhubyib
+  title: rhel1
   type: terminal
   hostname: rhel1
 difficulty: ""
