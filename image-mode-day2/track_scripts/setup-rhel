@@ -99,14 +99,14 @@ ADD etc /etc
 
 RUN dnf install -y httpd vim
 
+RUN systemctl enable httpd
+
 RUN <<EOF 
     mv /var/www /usr/share/www
     sed -i 's-/var/www-/usr/share/www-' /etc/httpd/conf/httpd.conf
 EOF
 
 RUN echo "New application coming soon!" > /usr/share/www/html/index.html
-
-RUN systemctl enable httpd
 
 EOM
 

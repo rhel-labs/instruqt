@@ -9,9 +9,11 @@ notes:
   contents: |
     # Goal:
 
-    In this lab you will build, deploy, and manage a virtual machine that is running in image mode. As you move through the exercises, there will be blocks marked `bash` with commands to be run in the right side bar. These may also have a `copy` feature to place the command into your buffer for pasting, and a `run` feature which will automatically execute the command. You can use any of these methods to complete the exercises.
+    In this lab you will manage a virtual machine that is running in image mode. You'll explore how bootc tracks images, changing host purposes, and rolling back changes.
 
-    In the first exercise, you will get familiar with managing hosts running from bootc images. we will start by examining a running VM and the image currently being tracked.
+    In the first exercise, you will explore how `bootc` tracks images and get an imported VM using a new registry.
+
+    As you move through the exercises, there will be blocks marked `bash` with commands to be run in the right side bar. These may also have a `copy` feature to place the command into your buffer for pasting, and a `run` feature which will automatically execute the command. You can use any of these methods to complete the exercises.
 tabs:
 - id: 2pnkoae5eysy
   title: Terminal
@@ -30,15 +32,9 @@ Welcome to this lab experience for Red Hat Enterprise Linux.
 
 The system displayed beside this text is a Red Hat Enterprise Linux 9 system registered with Subscription Manager.
 
-Image mode uses standard container tools to define, build, and transport bootc images. Podman has already been installed on this host as a build environment, along with some additional files.
+In a previous image mode lab, we created a virtual machine from a bootc image. That VM was imported into this lab to further explore management of bootc hosts. We'll explore how bootc tracks images, changing host purposes, and rolling back changes.
 
-Let's check on the name of the registry we're using in this lab. During setup, a variable called `REGISTRY` was set.
-```bash,run
-echo $REGISTRY
-```
-This is the hostname of the instance in the Terminal.
-
-In a previous lab, we created a virtual machine from a bootc image. That bootc VM was imported intp this lab.
+First, we need get our imported VM working with the infrastructure available in this lab.
 
 Attach to the console of the VM running our bootc image
 ===
@@ -61,32 +57,25 @@ Password:
 ```bash,run
 redhat
 ```
-
-Check the VM is running the applications we installed
-===
-
-The initial image included Apache, so let's check on it's status.
-
-```bash,run
-systemctl status httpd --no-pager
-```
-
-The output will look like this.
-
-![](../assets/httpd_service.png)
-
+> [!NOTE]
+> Since we are attached to the console and not an SSH session, you may see dmesg output on certain commands. These can be ignored as informational.
 
 Check the image the VM is using
 ===
-
-Hosts created from bootc images track a particular image in a registry, this is how `bootc` knows when an update is available.
+Hosts created from bootc images track a particular image in a specific registry, this is how `bootc` knows when an update is available.
 
 The `spec` section of `bootc status` provides the information about the image in use and where `bootc` is looking for it.
 ```bash,run
 sudo bootc status | grep spec: -A 4
 ```
-
 Since this VM was created in a different lab, the registry that was used doesn't exist any more. Have we broken our VM?
+
+Let's check if `bootc` can reach the host listed.
+
+```bash,run
+sudo bootc upgrade --check
+```
+You will see a timeout error, since that host is no longer available. The hostname for the registry in this lab is [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]].
 
 Switch to a new image
 ===
@@ -95,7 +84,8 @@ Well we can't get updates from that source any more, but we can tell the host to
 sudo bootc switch [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
 ```
 
-Like a `bootc update`, switch will download and prepared the new image to a local deployment location on disk. It will then stage that image to become active at the next boot.
+Like a `bootc update`, `bootc switch` will download and prepare the new image to a local deployment location on disk. It will then stage that image to become active at the next boot.
+
 ```bash,run
 sudo bootc status | grep staged: -A 8
 ```
@@ -119,7 +109,7 @@ Password:
 redhat
 ```
 
-Let's check what the `spec` section of `bootc status` now says about where we're looking for updates.
+Let's check what the `spec` section of `bootc status` now says about where updates are coming from.
 ```bash,run
 sudo bootc status | grep spec: -A 4
 ```
@@ -129,4 +119,11 @@ You can also look at the `booted` section to see this is now the current default
 sudo bootc status | grep booted: -A 8
 ```
 
-Now that our VM is tracking an image in our current environment, let's explore a little more of what this new `bootc switch` command can do for us.
+Let's confirm that `bootc` is using our new registry to check for any updates.
+
+```bash,run
+sudo bootc upgrade --check
+```
+Since we just installed this image and haven't made any updates to it, `bootc` won't have any changes to make.
+
+Once a host it running, changing the image in use is very straightforward, and can be useful for a number of reasons beyond changing image locations. Let's explore a little more of what this new `bootc switch` command can do for us in the next few exercises.

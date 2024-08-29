@@ -9,9 +9,9 @@ notes:
   contents: |
     # Goal:
 
-    Providing updates and sofware changes to a host is part of the standard life cycle. It can be even more common during the design part of our standar operating environments. This process is where image mode hosts deviate the most from typical package based hosts.
+    Recovering from software problems is typically an expensive proposition that requires a lot of preparatory work. Operating in image mode, roll back is a native capability.
 
-    In this exercise, we'll explore how to make changes in images for our hosts to use.
+    In this exercise, we'll explore how to revert to an earlier image already on disk.
 tabs:
 - id: zje6jrqczgve
   title: Terminal
@@ -37,7 +37,7 @@ timelimit: 1
 
 We have a new built-in option available to image mode systems that typically takes more preparation with package mode operations: the rollback.
 
-Since `bootc` manages state on disk, we have the previous working system available to us. Normally, we’d need to have set up snapshots or refer to a backup but bootc automatically provides us the rollback built in.
+Since `bootc` manages state on disk, we have the previous working system available to us. Normally, we’d need to have set up snapshots or refer to a backup but `bootc` automatically provides us the rollback built in.
 
 This isn't the sort of issue we'd normal need to recover from, but let's go ahead and check for an available rollback option to get us back to the previous image.
 
@@ -45,7 +45,7 @@ This isn't the sort of issue we'd normal need to recover from, but let's go ahea
 sudo bootc status | grep rollback: -A 8
 ```
 
-You should see our original image, without the `v2` tag. Rollbacks are as simple as running one command. Let’s get this image back to the previous state then we can dig into what happened.
+You should see our original image, without the `v2` tag. Rollbacks are as simple as running one command. Let’s get this image back to the previous state then we can dig into what happened in the Containerfile.
 ```bash,run
 sudo bootc rollback
 ```

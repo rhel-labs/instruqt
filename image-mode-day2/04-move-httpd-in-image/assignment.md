@@ -10,9 +10,9 @@ notes:
   contents: |-
     # Goal:
 
-    Managing changes to a bootc host is centralized in one tool, bootc. You will explore this tool, understand the information it provides, and how to apply an update to a host. Understanding how bootc manages images on disk is key to day 2 management.
+    Part of what makes image mode different is how directories are managed from the bootc image to the disk. In the previous exercise we deliberately tripped over this difference.
 
-    In this exercise, we'll apply the updated image we created containing vim.
+    In this exercise, we'll look at what you need to know about the design of image mode hosts and where changes can and can't be made locally.
 tabs:
 - id: t7590hucex6u
   title: Terminal
@@ -31,16 +31,20 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-Image vs host state
+Did the build fail?
 ===
 
 You can return to the [button label="Terminal" background="#ee0000" color="#c7c7c7"](tab-0) tab to explore what happened to the new index.html file
 
-Did the new index get created in the image? We can check without needing to update the `bootc` host. Run the image as a container and inspect the directory.
+Did the new index get created when we built the image?
+
+We can check by running the image as a container and inspecting the directory. Another benefit to using standard container tools is extra ways to iterate and inspect images before needing to install them.
 
 ```bash,run
 podman run --rm [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:v2 ls /var/www/html
 ```
+Image vs host state
+===
 
 The file is there, so why didn't it show up on the host? In the image mode basics lab, we discussed how `/etc` is treated in image mode. The `/var` hierarchy is also treated specially.
 
@@ -50,7 +54,12 @@ The file is there, so why didn't it show up on the host? In the image mode basic
 |/etc|host|merge|
 |/var|host|ignore|
 
-Since `/var` is considered to be local machine state, we need to change the webroot of Apache to somehwere we can control from the image. Let's look at a new Containerfile to see how we can do that.
+The `/var` directory is considered by `bootc` to be controlled by the host as local state. If we want to manage web content at build time and version it with the image, we'll need to move it somewhere `bootc` will control.
+
+Versioning files with the image
+===
+
+Let's look at a new Containerfile to see how we can do that.
 
 Click on the [button label="Containerfile" background="#ee0000" color="#c7c7c7"](tab-1) tab.
 
@@ -62,15 +71,15 @@ Look at the new `RUN` command that uses the `heredoc` format to wrap several lin
 
 ![](../assets/containerfile_heredoc_index.png)
 
-This block will move the default directory and files installed by Apache to a new directory under `/var`. The second line will update the default config file to change the default document root to our new directory.
+This block will move the default directory and files installed by Apache to a new directory under `/var`. The second line will update the htttpd config file to change the default document root to our new directory.
 
 Note that since we haven't made any local changes to this file in `/etc` on the host, this change will show up on the host. If you had made local changes to the config, you may need to to create a drop-in file or use some other means to update the Apache config.
 
 Once you feel you understand the change, you can return to the [button label="Terminal" background="#ee0000" color="#c7c7c7"](tab-0) tab
 
-Use podman to update the image.
+Use podman to build the image.
 ===
-We can pass this file to the `podman build` command to get an updated image, but this time with a `v3` tag.
+We can pass this new file to the `podman build` command and this time with a `v3` tag. Using this sort of semantics can help folks understand what's current.
 
 ```bash,run
 podman build -t [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:v3 -f Containerfile.index
