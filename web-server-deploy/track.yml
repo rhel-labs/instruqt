@@ -1,0 +1,45 @@
+slug: web-server-deploy
+id: khhvvgl5ygbg
+title: Deploy web server & apps
+teaser: Add an existing application to a Red Hat universal base image container and
+  deploy it.
+description: |+
+  # Goal:
+  After completing this scenario, users will be able to install additional
+  software into a container image.
+
+  # Concepts included in this scenario:
+  * Downloading a Red Hat Universal Base Image (UBI)
+  * Positioning or configuring a container to use 3rd party repositories
+  * Install 3rd party software into the container image
+  * Commit changes to create a new container image
+  * Validate the containerized application
+
+  # Example Usecase:
+  You have a piece of software that you would like to deploy within a container
+  image rather than installing it natively on the host system.  By using a
+  container image, you can copy the entire environment for the software to
+  several different hosts or run multiple copies of it on the same system.
+
+
+
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- smcbrien@redhat.com
+- myee@redhat.com
+show_timer: true
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+  feedback_recap_enabled: true
+  loadingMessages: true
+  lab_v2: false
+  theme:
+    name: original
+  override_challenge_layout: false
+  hideStopButton: false
+checksum: "12232460255478523273"
