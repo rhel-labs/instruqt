@@ -8,16 +8,20 @@ notes:
 - type: text
   contents: Activation Keys help you configure access to content by your hosts.
 tabs:
-- title: Satellite Server
+- id: a3va01yl1yb4
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: maglfuybublw
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
+- id: nqhjpzc05pxj
+  title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel2
+- id: zutpckbqmwfa
+  title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic

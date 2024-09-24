@@ -5,16 +5,20 @@ type: challenge
 title: Conclusion
 teaser: Yay we've reached the end.
 tabs:
-- title: Satellite Server
+- id: ng0tfyzttmhh
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: dceygdrjmpsm
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
+- id: jx7xcdpqhkig
+  title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel2
+- id: 3xyd3ksvsbgs
+  title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic

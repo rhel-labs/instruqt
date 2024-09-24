@@ -8,16 +8,20 @@ notes:
 - type: text
   contents: Register a host to Satellite
 tabs:
-- title: Satellite Server
+- id: vyrz5oaexkt9
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: cbbw5uwjeedb
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
+- id: lavwew148wgu
+  title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel2
+- id: nyqdzjqw7emy
+  title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic

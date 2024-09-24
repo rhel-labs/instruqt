@@ -24,6 +24,7 @@ tags:
 owner: rhel
 developers:
 - nlager@redhat.com
+- myee@redhat.com
 show_timer: true
 idle_timeout: 300
 timelimit: 3060
@@ -34,4 +35,4 @@ lab_config:
   feedback_recap_enabled: true
   loadingMessages: true
   hideStopButton: false
-checksum: "2474774829585197005"
+checksum: "7377352236908875211"

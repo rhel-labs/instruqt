@@ -8,16 +8,20 @@ notes:
 - type: text
   contents: Apply Errata to hosts
 tabs:
-- title: Satellite Server
+- id: wlbcvnp7oyqo
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: ulz2lawcnyep
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
+- id: hppq5nexq0rn
+  title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel2
+- id: yq1vxy35ihbh
+  title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic

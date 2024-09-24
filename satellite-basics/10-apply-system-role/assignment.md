@@ -10,16 +10,20 @@ notes:
     a stable and consistent configuration interface to automate and manage multiple
     releases of Red Hat Enterprise Linux.
 tabs:
-- title: Satellite Server
+- id: 0tzweiczqoep
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: spuxldjqctt6
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
+- id: yyks3xg7kuit
+  title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel2
+- id: d3g4aypyivbx
+  title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic

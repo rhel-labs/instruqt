@@ -9,16 +9,20 @@ notes:
 - type: text
   contents: Block software from being installed
 tabs:
-- title: Satellite Server
+- id: ohxpa4fpwc9z
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: nlvg8hn2c0fp
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
+- id: aeae2miso0w9
+  title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel2
+- id: agyhixqdtdps
+  title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic

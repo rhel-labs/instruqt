@@ -10,16 +10,20 @@ notes:
   contents: Install and enable the Tracer service on the hosts to detect services
     that require restarting.
 tabs:
-- title: Satellite Server
+- id: xnity3zhbgql
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: lilwuo0cvv3o
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
+- id: tj2ljddzd7kx
+  title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel2
+- id: y7hmyapzugpj
+  title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic

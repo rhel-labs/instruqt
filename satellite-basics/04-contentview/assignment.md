@@ -10,16 +10,20 @@ notes:
     your hosts. You can use a content view to control the access to updated software
     to your hosts.
 tabs:
-- title: Satellite Server
+- id: vyoghhnrvcty
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: 3tjymy6ii53c
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
+- id: wzc1xcr6eg0v
+  title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel2
+- id: jrkyusfc1tcu
+  title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic

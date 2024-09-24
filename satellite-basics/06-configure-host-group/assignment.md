@@ -5,16 +5,20 @@ type: challenge
 title: Configure a Host Group
 teaser: Host groups are used to organize and configure sets of hosts.
 tabs:
-- title: Satellite Server
+- id: e5owmbz2vvio
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: i4qmzddftqqe
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
+- id: p3cy3m6eirxn
+  title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel2
+- id: qenmisbancda
+  title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic

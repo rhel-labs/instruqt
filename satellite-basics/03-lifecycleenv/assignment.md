@@ -10,16 +10,20 @@ notes:
     so that it suits your specifications. Each stage in the application life cycle
     is called an environment in Satellite.
 tabs:
-- title: Satellite Server
+- id: giuit19zjazq
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: ygsuhisjw67s
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
+- id: kjmuipxf2onv
+  title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel2
+- id: xlx5kxxl9xho
+  title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic

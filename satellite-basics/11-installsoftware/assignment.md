@@ -8,16 +8,20 @@ notes:
 - type: text
   contents: Install Software on hosts
 tabs:
-- title: Satellite Server
+- id: m5exeizukkvp
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: cg85xublcsac
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
+- id: fwjvdmln7fn0
+  title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel2
+- id: gdctnycepbeq
+  title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic

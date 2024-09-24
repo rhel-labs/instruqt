@@ -9,16 +9,20 @@ notes:
   contents: In this step, we'll synchronize Red Hat Enterprise Linux 9 BaseOS and
     AppStream repositories from the content delivery network.
 tabs:
-- title: Satellite Server
+- id: 3kdr21aarxyo
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: g9o7m5vzf1a3
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
+- id: ujz8gyyklqeh
+  title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel2
+- id: clcop72jm00d
+  title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic
