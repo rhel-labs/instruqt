@@ -4,42 +4,43 @@ id: cvway6cd669m
 type: challenge
 title: Installing Leapp
 notes:
-  - type: text
-    contents: |
-      # Overview
+- type: text
+  contents: |
+    # Overview
 
-      After completing this scenario, users will be able to upgrade from one major version of Red Hat Enterprise Linux 8 to 9.latest
+    After completing this scenario, users will be able to upgrade from one major version of Red Hat Enterprise Linux 8 to 9.latest
 
-      ## Concepts included in this scenario:
+    ## Concepts included in this scenario:
 
       * Run pre-upgrade analysis and troubleshoot
       * Perform an in-place upgrade with Leapp
 
-      For additional information refer to the leapp tool's documentation:
-      https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/upgrading_from_rhel_8_to_rhel_9/index
+    For additional information refer to the leapp tool's documentation:
+    https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/upgrading_from_rhel_8_to_rhel_9/index
 
-      ## Example Usecase:
+    ## Example Usecase:
 
-      A Systems Administrator needs to upgrade deployed Red Hat Enterprise Linux servers from their current version to the next major version to take advantage of a longer lifecycle and new features without needing to perform a clean install.
+    A Systems Administrator needs to upgrade deployed Red Hat Enterprise Linux servers from their current version to the next major version to take advantage of a longer lifecycle and new features without needing to perform a clean install.
 
-      Note: Curious about performing a RHEL 7 upgrade? https://www.redhat.com/en/interactive-labs/perform-in-place-upgrade-with-leapp
+    Note: Curious about performing a RHEL 7 upgrade? https://www.redhat.com/en/interactive-labs/perform-in-place-upgrade-with-leapp
 tabs:
-  - id: cmem5l9wm3xg
-    title: RHEL
-    type: terminal
-    hostname: host
-    cmd: ssh -o "StrictHostKeyChecking no" root@rhel08
+- id: cmem5l9wm3xg
+  title: RHEL
+  type: terminal
+  hostname: host
+  cmd: ssh -o "StrictHostKeyChecking no" root@rhel08
 difficulty: basic
 timelimit: 3000
 ---
-
-# What is Leapp?
+What is Leapp?
+===
 
 Red Hat's leapp tool provides existing Red Hat Enterprise Linux instances to an upgrade path from one major version to the next. This can be done on a one-to-one basis or en mass with a tool like Satellite. The Leapp tooling also includes a pre-upgrade assistant that makes it easy to identify breaking changes or warn about potential issues before any lasting changes are made to the system.
 
 Before diving in, the question you have to ask is: is this workload worth executing a rebuild from scratch? That process can be tedious and time consuming. Doing an in-place upgrade retains the subscription, installed packages, user data, and configurations all while saving the time and resources required to deploy fresh.
 
-# Installing Leapp
+Installing Leapp
+===
 
 To get started, it is highly recommended that you update all packages on your system to the latest version available.
 

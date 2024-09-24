@@ -1,7 +1,7 @@
 slug: in-place-upgrades-9
 id: jbcdhmiqgfue
 title: Upgrade to Red Hat Enterprise Linux 9 in place with Leapp
-teaser: Performing an in-place upgrade with Leapp
+teaser: Performing an in-place upgrade with LEAPP
 description: |-
   # Overview
 
@@ -10,7 +10,7 @@ description: |-
   ## Concepts included in this scenario:
 
   * Run pre-upgrade analysis and troubleshoot
-  * Perform an in-place upgrade with Leapp
+  * Perform an in-place upgrade with LEAPP
 
   For additional information refer to the leapp tool's documentation:
   https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/upgrading_from_rhel_8_to_rhel_9/index
@@ -22,12 +22,12 @@ description: |-
   Note: Curious about performing a RHEL 7 upgrade? https://www.redhat.com/en/interactive-labs/perform-in-place-upgrade-with-leapp
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags:
-  - rhel
-  - upgrades
+- rhel
+- upgrades
 owner: rhel
 developers:
-  - ehendric@redhat.com
-  - myee@redhat.com
+- ehendric@redhat.com
+- myee@redhat.com
 show_timer: true
 timelimit: 3060
 lab_config:
@@ -38,4 +38,4 @@ lab_config:
   loadingMessages: true
   lab_v2: true
   hideStopButton: false
-checksum: "10791300671151139176"
+checksum: "16272090702286586726"

@@ -9,11 +9,13 @@ notes:
     console. This gives you a graphical view of your containers and can help simplify
     container configuration.
 tabs:
-- title: Terminal
+- id: qcaysqfzqx5c
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: RHEL Web Console
+- id: g7k5bxz61mnk
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic

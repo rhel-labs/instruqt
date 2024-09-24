@@ -17,11 +17,13 @@ notes:
     * SQL
     * Data visualization
 tabs:
-- title: Terminal
+- id: 9soygmeyzon3
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: RHEL Web Console
+- id: rnwyihxdpmxn
+  title: RHEL Web Console
   type: external
   port: 3000
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090

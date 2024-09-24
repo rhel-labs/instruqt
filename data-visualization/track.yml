@@ -1,6 +1,6 @@
 slug: data-visualization
 id: illqyinnjdgy
-title: Data Visualization
+title: Data Visualization with Grafana
 description: |
   # Goal: Visualize data with Grafana
   # Overview:
@@ -22,6 +22,7 @@ tags:
 owner: rhel
 developers:
 - wkibbe@redhat.com
+- myee@redhat.com
 timelimit: 3000
 sandbox_preset: devel-101
 lab_config:
@@ -31,4 +32,4 @@ lab_config:
   feedback_recap_enabled: true
   loadingMessages: true
   hideStopButton: false
-checksum: "13339687153355109984"
+checksum: "9698371628674356840"
