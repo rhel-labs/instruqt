@@ -8,14 +8,17 @@ notes:
   contents: In this step, you will test the container you configured through the RHEL
     web console.
 tabs:
-- title: Terminal
+- id: cigws4x9owsy
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: RHEL Web Console
+- id: nx8ku7dw2gek
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
-- title: Grafana (Podman)
+- id: vtjho1yc3zou
+  title: Grafana (Podman)
   type: service
   hostname: rhel
   port: 3000

@@ -18,11 +18,13 @@ notes:
     * Networking
     * Cockpit
 tabs:
-- title: Terminal
+- id: 9cirszlxcn1f
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: RHEL Web Console
+- id: 9oo9nfvy2jfr
+  title: RHEL Web Console
   type: external
   port: 3000
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
