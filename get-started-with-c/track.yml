@@ -1,6 +1,6 @@
 slug: get-started-with-c
 id: kd3aymebw01x
-title: Get Started with C/C++ on RHEL
+title: Get Started with C/C++ on Red Hat Enterprise Linux
 description: |
   # Goal: Run a program in C or C++
   # Overview
@@ -23,10 +23,14 @@ tags:
 owner: rhel
 developers:
 - wkibbe@redhat.com
+- myee@redhat.com
 timelimit: 3060
 sandbox_preset: devel-101
 lab_config:
   overlay: false
   width: 33
   position: right
-checksum: "17877388892399906302"
+  feedback_recap_enabled: true
+  loadingMessages: true
+  hideStopButton: false
+checksum: "9340435254172112518"
