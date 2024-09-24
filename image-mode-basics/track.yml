@@ -1,6 +1,6 @@
 slug: image-mode-basics
 id: rajqo0ahqobt
-title: Image mode for Red Hat Enterprise Linux basics
+title: Introduction to image mode for Red Hat Enterprise Linux
 description: |
   # Goal:
 
@@ -24,7 +24,8 @@ lab_config:
   feedback_recap_enabled: true
   loadingMessages: true
   lab_v2: false
+  theme:
+    name: original
   override_challenge_layout: false
   hideStopButton: false
-checksum: "1097812132967189118"
-
+checksum: "3010595696907751506"
