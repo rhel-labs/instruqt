@@ -4,7 +4,8 @@ id: agpbsnjyhy3d
 type: challenge
 title: 'Step 2: Configure a Virtual Environment'
 tabs:
-- title: Terminal
+- id: r1sxwgerwglx
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1

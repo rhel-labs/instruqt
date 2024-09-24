@@ -4,7 +4,8 @@ id: c3npev5ruw2f
 type: challenge
 title: 'Step 3: Run a Test Program'
 tabs:
-- title: Terminal
+- id: eyoj28spsiyb
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1

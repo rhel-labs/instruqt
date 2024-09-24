@@ -4,7 +4,8 @@ id: kpn6evljuxfa
 type: challenge
 title: 'Step 1: Install RHEL Developer Toolset'
 tabs:
-- title: Terminal
+- id: ppt8ndy3jys9
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
