@@ -4,7 +4,8 @@ id: v3onpk2nnndk
 type: challenge
 title: Filtering your subscription reports
 tabs:
-- title: Red Hat Hybrid Cloud Console
+- id: iwrvlnzkxr2f
+  title: Red Hat Hybrid Cloud Console
   type: browser
   hostname: console
 difficulty: basic

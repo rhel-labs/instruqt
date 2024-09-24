@@ -4,7 +4,8 @@ id: xzd6mwsqcxsw
 type: challenge
 title: The default view
 tabs:
-- title: Red Hat Hybrid Cloud Console
+- id: igbpsnwxpge7
+  title: Red Hat Hybrid Cloud Console
   type: browser
   hostname: console
 difficulty: basic

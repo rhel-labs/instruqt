@@ -4,7 +4,8 @@ id: wu3yxgagwnho
 type: challenge
 title: The subscriptions Chart
 tabs:
-- title: Red Hat Hybrid Cloud Console
+- id: wjeknurmu2df
+  title: Red Hat Hybrid Cloud Console
   type: browser
   hostname: console
 difficulty: basic

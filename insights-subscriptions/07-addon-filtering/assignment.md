@@ -4,7 +4,8 @@ id: dd37x20fjmd9
 type: challenge
 title: Filtering for addon subscriptions
 tabs:
-- title: Red Hat Hybrid Cloud Console
+- id: k55xicohyeg4
+  title: Red Hat Hybrid Cloud Console
   type: browser
   hostname: console
 difficulty: basic

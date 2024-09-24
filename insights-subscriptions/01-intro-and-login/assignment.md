@@ -19,7 +19,8 @@ notes:
 
     * You administer a fleet of RHEL systems, and need to keep your subscriptions within compliance.
 tabs:
-- title: Red Hat Hybrid Cloud Console
+- id: omlx7hybo6ck
+  title: Red Hat Hybrid Cloud Console
   type: browser
   hostname: console
 difficulty: basic

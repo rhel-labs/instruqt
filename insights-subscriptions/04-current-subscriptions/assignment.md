@@ -4,7 +4,8 @@ id: knum5uedqhc2
 type: challenge
 title: The Current Subscriptions Tab.
 tabs:
-- title: Red Hat Hybrid Cloud Console
+- id: 1x9bwzvpwz3l
+  title: Red Hat Hybrid Cloud Console
   type: browser
   hostname: console
 difficulty: basic

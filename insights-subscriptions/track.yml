@@ -1,6 +1,6 @@
 slug: insights-subscriptions
 id: kbmkic7jo7kw
-title: Subscription Management with Insights
+title: Subscription management basics
 description: |-
   # Overview
 
@@ -33,4 +33,5 @@ lab_config:
   position: right
   feedback_recap_enabled: true
   loadingMessages: true
-checksum: "15931451018941021041"
+  hideStopButton: false
+checksum: "2474774829585197005"

@@ -4,7 +4,8 @@ id: l6vx93e9fxdf
 type: challenge
 title: The Current Instances tab
 tabs:
-- title: Red Hat Hybrid Cloud Console
+- id: lr5fuyxhjejv
+  title: Red Hat Hybrid Cloud Console
   type: browser
   hostname: console
 difficulty: basic
