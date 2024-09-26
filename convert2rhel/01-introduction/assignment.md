@@ -41,7 +41,7 @@ The Convert2RHEL RPM is an offical Red Hat package. Therefore it is readily avai
 First, you will pull down the GPG signing key:
 
 ```bash,run
-curl -o /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release https://www.redhat.com/security/data/fd431d51.txt
+curl -o /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release https://access.redhat.com/security/data/fd431d51.txt
 ```
 
 <pre class='file'>
