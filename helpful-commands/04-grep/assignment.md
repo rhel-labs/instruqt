@@ -4,14 +4,15 @@ id: jvpastubgocy
 type: challenge
 title: Searching for text within files and outputs
 tabs:
-- title: Terminal
+- id: h3ebmtxupblv
+  title: Terminal
   type: terminal
   hostname: rhel
 difficulty: basic
 timelimit: 1
 ---
 
-`find` is great if you are looking for criteria about a file, but if you instead want to locate specific file contents, the `grep` command is what you need. To illustrate this, search for the words you added to the _messages_ log file. The command below uses the `-r` option to search recursively from the starting directory (_/var/log_). This will return all locations in any file residing in a subdirectory of _/var/log_ that contain the string "Hello World".
+`find` is great if you are looking for file based on some criteria, but if you instead want to locate specific file contents, the `grep` command is what you need. To illustrate this, search for the words you added to the _messages_ log file. The command below uses the `-r` option to search recursively from the starting directory (_/var/log_). This will return all locations in any file residing in a subdirectory of _/var/log_ that contain the string "Hello World".
 
 ```bash
 grep -r "Hello World" /var/log

@@ -4,7 +4,8 @@ id: c2xebnl6zqg1
 type: challenge
 title: Viewing processes
 tabs:
-- title: Terminal
+- id: tsqqcnmhlfdl
+  title: Terminal
   type: terminal
   hostname: rhel
 difficulty: basic

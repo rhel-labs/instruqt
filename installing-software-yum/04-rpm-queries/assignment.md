@@ -4,7 +4,8 @@ id: efl9q8tbr9jl
 type: challenge
 title: Using RPM to run detailed queries
 tabs:
-- title: Terminal
+- id: 7d5vrdbau1xj
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1

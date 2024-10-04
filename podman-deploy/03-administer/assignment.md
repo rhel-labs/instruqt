@@ -4,11 +4,13 @@ id: eenmpzvvlzpp
 type: challenge
 title: Administer the container
 tabs:
-- title: Podman
+- id: togzfvjxx3vl
+  title: Podman
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "podman" > /dev/null 2>&1
-- title: RHEL Host
+- id: z9bbhvaxg9rx
+  title: RHEL Host
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "host" > /dev/null 2>&1

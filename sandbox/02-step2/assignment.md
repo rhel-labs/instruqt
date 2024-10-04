@@ -20,10 +20,12 @@ notes:
     </p>
     </blockquote>
 tabs:
-- title: Terminal
+- id: 3uesohk9kwox
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
+- id: hky1ukhacywt
+  title: RHEL Web Console
   type: website
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
   new_window: true

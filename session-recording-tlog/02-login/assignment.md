@@ -4,10 +4,12 @@ id: 5gmf0ltgl4de
 type: challenge
 title: Logging in and navigating Web Console
 tabs:
-- title: Terminal
+- id: 3myozyhufxrn
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
+- id: n4wqcxzvr8sn
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic

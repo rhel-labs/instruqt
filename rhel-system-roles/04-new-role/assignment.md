@@ -8,11 +8,13 @@ notes:
 - type: text
   contents: 'Step 4: Configuring and updating system configurations with System Roles.'
 tabs:
-- title: Shell
+- id: a5adouar92lh
+  title: Shell
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: client1
+- id: t10wdx2raxdp
+  title: client1
   type: terminal
   hostname: client1
 difficulty: basic

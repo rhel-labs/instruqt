@@ -17,8 +17,23 @@ notes:
     * Update and remove packages with `dnf`
     * Roll back a transaction with `dnf history`
     * Use `rpm` for detailed queries
+
+    # Lab Feedback
+    If you would like to report any bugs or make suggestions on how we can improve our labs, [please leave us a message here](https://github.com/rhel-labs/instruqt/discussions/categories/general).
+
+    # YouTube
+    For more information about Red Hat Enterprise Linux, we invite you to view our [YouTube channel]([**red.ht/rhel-youtube**](https://red.ht/4etqJ1T)). [**red.ht/rhel-youtube**](https://red.ht/4etqJ1T)
+
+    If you are interested in learning critical administration skills for Red Hat Enterprise Linux, you might be interested in our show [Into the Terminal](https://www.youtube.com/playlist?list=PLXJyD2dL4oqeX-C3MvsMUJuEzWM4vLK2C).
+
+    Here are our [playlists](https://www.youtube.com/@RedHatEnterpriseLinux/playlists). You can find various playlists on topics such as product updates and Satellite configuration and administration.
+
+    # Reddit
+    Come find us on Reddit at r/redhat.
+    https://www.reddit.com/r/redhat/
 tabs:
-- title: Terminal
+- id: csw4vlra7xyz
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1

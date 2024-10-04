@@ -4,11 +4,13 @@ id: b509nwihtx3h
 type: challenge
 title: Deploy a container image into an interactive container runtime
 tabs:
-- title: Podman
+- id: j6b7ylqdmvc3
+  title: Podman
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "podman" > /dev/null 2>&1
-- title: RHEL Host
+- id: sjs2zaa9rg25
+  title: RHEL Host
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "host" > /dev/null 2>&1
