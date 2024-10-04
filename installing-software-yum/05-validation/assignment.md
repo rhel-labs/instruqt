@@ -4,7 +4,8 @@ id: batycjhys7gr
 type: challenge
 title: Validating package files using `rpm`
 tabs:
-- title: Terminal
+- id: g7ahdyescyrf
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1

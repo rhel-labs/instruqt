@@ -4,7 +4,8 @@ id: zdwvplncife9
 type: challenge
 title: Viewing the end of log files with `tail`
 tabs:
-- title: Terminal
+- id: c47gejpoeisa
+  title: Terminal
   type: terminal
   hostname: rhel
 difficulty: basic
@@ -13,7 +14,7 @@ timelimit: 1
 
 Some files are large enough that it is not practical to display their contents with `cat`. A common example is log files, which are often packed full of information.
 
-Since `tail` only displays the last ten lines of a file, it is particularly useful for viewing recent entries in log files. Take a look at the final ten lines of the _boot_ log.
+Since `tail` only displays the last ten lines of a file, it is particularly useful for viewing recent entries in log files. Take a look at the final ten lines of the _audit_ log.
 
 ```bash
 tail /var/log/audit/audit.log
@@ -30,7 +31,7 @@ type=ADD_GROUP msg=audit(1654785503.853:205): pid=1591 uid=0 auid=4294967295 ses
 If you wish to then see the entire file, a text viewer like `less` or `view`
 will show the entire file.
 
-Adding the `-f` option will follow the log file so that you can see new entries.
+Adding the `-f` option will follow the log file so that you can see new entries. Follow the system log for any new entries.
 
 ```bash
 tail -f /var/log/messages
@@ -52,7 +53,7 @@ Dec  8 18:37:15 rhel systemd[1]: run-rcd7035fb3d1d4176bf081e5732f65f65.service: 
 ^C
 </pre>
 
-The `logger` utility will write to this _messages_ log. From the original terminal,
+The `logger` utility will make entries to the system log from provided input. From the terminal,
 write to this log:
 
 ```bash

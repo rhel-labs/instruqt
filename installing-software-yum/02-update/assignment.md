@@ -4,7 +4,8 @@ id: rrse9imezbf8
 type: challenge
 title: Updating a package
 tabs:
-- title: Terminal
+- id: bicca77qnnqm
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1

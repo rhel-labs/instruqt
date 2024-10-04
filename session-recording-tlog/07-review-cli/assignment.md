@@ -4,10 +4,12 @@ id: gm9z6fjvygoa
 type: challenge
 title: Reviewing a recorded session from the command-line
 tabs:
-- title: Terminal
+- id: ikprcm1tykvd
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
+- id: 6lyvssppivjh
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
@@ -18,7 +20,7 @@ The command to use to review recorded sessions from the command-line is `tlog-pl
 
 In the default configuration, recorded session data is sent to the __journald__ managed log.  As a result, to determine the available session data, you will use the command `journalctl`.  The following command will search through the journal log and locate strings that contain the `rec` string, plus the identifier included in that message.
 
-```bash
+```bash,run
 journalctl -o verbose | grep -P "\"rec\".*?\,"
 ```
 
@@ -38,7 +40,7 @@ To replay the session, you run `tlog-play` with the session identifier, using th
 
 Your session identifier is going to be different, the following command will use some shell tools to isolate the first recording from your journal.  As you replay the session, your existing terminal session will be used for the replay. Once the replay is complete, your session will be returned to your control.  You can interrupt the playback with a `<CTRL>-C`.
 
-```bash
+```bash,run
 tlog-play -r journal -M TLOG_REC=$(journalctl -o verbose | grep -P "\"rec\".*?\." | cut -d, -f3 | cut -d: -f2 | head -n 1 | sed -e s/\"//g)
 ```
 

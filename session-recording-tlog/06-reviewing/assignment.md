@@ -4,10 +4,12 @@ id: kkqnmkfry4au
 type: challenge
 title: Reviewing a recorded session in Web Console
 tabs:
-- title: Terminal
+- id: 88on0mhphjix
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
+- id: zloxmsr7yyrh
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic

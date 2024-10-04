@@ -4,7 +4,8 @@ id: agw3147hja2r
 type: challenge
 title: Using `dnf history` to roll back a transaction
 tabs:
-- title: Terminal
+- id: cpdd9bkmoxym
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1

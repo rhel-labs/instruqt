@@ -4,10 +4,12 @@ id: daen6fqjhmtc
 type: challenge
 title: Configuring and enabling session recording
 tabs:
-- title: Terminal
+- id: fnf4ackwev81
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
+- id: 7ispnydo6igp
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic

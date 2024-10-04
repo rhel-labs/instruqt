@@ -20,8 +20,8 @@ tags:
 - rhel
 owner: rhel
 developers:
-- myee@redhat.com
 - wkibbe@redhat.com
+- myee@redhat.com
 show_timer: true
 lab_config:
   overlay: false
@@ -29,5 +29,8 @@ lab_config:
   position: right
   feedback_recap_enabled: true
   loadingMessages: true
+  lab_v2: true
   hideStopButton: false
-checksum: "3086251395032283572"
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 25
+checksum: "11167106952784933785"
