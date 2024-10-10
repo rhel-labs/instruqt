@@ -75,7 +75,7 @@ Image mode uses OCI standard container tools to build bootc images, like any oth
 podman build -t [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc .
 ```
 >[!NOTE]
-> You may see a few informational warnings during the build process, these do not effect the install, but are side effects of a containerized install.
+> You may see a few informational warnings during the build process, these do not affect the install, but are side effects of a containerized install.
 
 Once built, bootc images use OCI standard container registries for distribution. We are using a simple registry in this lab, but enterprise registries will provide ways to inspect contents, history, manage tags and more.
 
