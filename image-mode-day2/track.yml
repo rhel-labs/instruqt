@@ -1,0 +1,31 @@
+slug: image-mode-day2
+id: sydb5rcrwypr
+title: Day 2 operations with image mode for Red Hat Enterprise Linux
+description: |
+  # Goal:
+
+    Get familliar with the new image mode for RHEL operating model.
+
+    In this lab you will manage the on-going operations of an image mode VM. You'll explore tracking tags for updates, rolling back software changes, and changing the role of a host.
+
+    You will also update the software available to the VM.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- mmicene@redhat.com
+show_timer: true
+idle_timeout: 300
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+  feedback_recap_enabled: true
+  loadingMessages: true
+  lab_v2: false
+  theme:
+    name: original
+  override_challenge_layout: false
+  hideStopButton: false
+checksum: "2852634778537840253"
