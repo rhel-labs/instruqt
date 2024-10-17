@@ -67,7 +67,6 @@ With our changes in the Containerfile saved, we will run `podman build` to get a
 ```bash,run
 podman build -t [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:v2 .
 ```
-Tags communicate information to people, not the container tools. The tools will use the IDs associated to tag when doing operations. This means we can use tags to carry different kinds of information for users.
 
 Push multiple tagged versions to the registry
 ===
@@ -77,8 +76,9 @@ Once the updated image has been built, we can push it to the registry. Once agai
 ```bash,run
 podman push [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:v2
 ```
+Tags communicate information to people, not the container tools. The tools will use the IDs associated to tag when doing operations. This means we can use tags to carry different kinds of information for users.
 
-Let's say we also wanted to let people know this was for the development environment and not for production use. We could add a `dev` tag to our new image with the `podman image` subcommand, and push that to the registry as well.
+Let's say we also wanted to let people know this image was for the development environment and not for production use. We could add a `dev` tag to our new image with the `podman image tag` subcommand. This tag is only applied locally, so we need push that to the registry as well.
 ```bash,run
 podman image tag [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:v2 [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:dev
 ```

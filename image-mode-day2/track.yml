@@ -23,9 +23,10 @@ lab_config:
   position: right
   feedback_recap_enabled: true
   loadingMessages: true
-  lab_v2: false
   theme:
     name: original
   override_challenge_layout: false
   hideStopButton: false
-checksum: "2852634778537840253"
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 33
+checksum: "6005253095858433236"

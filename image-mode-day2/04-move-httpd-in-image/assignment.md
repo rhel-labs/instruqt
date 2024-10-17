@@ -38,7 +38,7 @@ You can return to the [button label="Terminal" background="#ee0000" color="#c7c7
 
 Did the new index get created when we built the image?
 
-We can check by running the image as a container and inspecting the directory. Another benefit to using standard container tools is extra ways to iterate and inspect images before needing to install them.
+We can check by running the image as a container and inspecting the directory. Another benefit to using standard container tools is new ways to iterate and inspect images without needing to install them.
 
 ```bash,run
 podman run --rm [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:v2 ls /var/www/html

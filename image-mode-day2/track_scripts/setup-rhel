@@ -55,7 +55,7 @@ mkdir -p ~/etc/sudoers.d/
 echo "%wheel  ALL=(ALL)   NOPASSWD: ALL" >> ~/etc/sudoers.d/wheel
 
 # create the etc/hosts override to let the target VM see the registry
-echo $(getent hosts ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io) >> ~/etc/hosts
+# echo $(getent hosts ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io) >> ~/etc/hosts
 
 # add hostname to runtime variable
 
