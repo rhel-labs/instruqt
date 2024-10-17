@@ -1,6 +1,6 @@
 slug: image-mode-basics
 id: rajqo0ahqobt
-title: Image mode for Red Hat Enterprise Linux basics
+title: Introduction to image mode for Red Hat Enterprise Linux
 description: |
   # Goal:
 
@@ -29,4 +29,5 @@ lab_config:
   hideStopButton: false
   default_layout: AssignmentRight
   default_layout_sidebar_size: 33
-checksum: "9529601682175863399"
+checksum: "760900542313485442"
+
