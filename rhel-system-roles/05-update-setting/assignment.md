@@ -8,11 +8,13 @@ notes:
 - type: text
   contents: 'Step 5: Update an existing setting.'
 tabs:
-- title: Shell
+- id: 5lealj8appjo
+  title: Shell
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: client1
+- id: 4xnnbdhc6wqi
+  title: client1
   type: terminal
   hostname: client1
 difficulty: basic

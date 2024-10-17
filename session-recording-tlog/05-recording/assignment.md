@@ -4,10 +4,12 @@ id: i8mwfd7dhxuv
 type: challenge
 title: Recording a session
 tabs:
-- title: Terminal
+- id: 8dc7nlcc2qwj
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
+- id: i4gur9bfc6ai
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
@@ -16,7 +18,7 @@ timelimit: 1
 
 Change user to the __rhel__ user so that the session can be recorded.
 
-```bash
+```bash,run
 su - rhel
 ```
 
@@ -36,24 +38,24 @@ ATTENTION! Your session is being recorded!
 
 Run some commands in the __rhel__ user's session.
 
-```bash
+```bash,run
 ls /tmp
 ```
 
-```bash
+```bash,run
 who
 ```
 
-```bash
+```bash,run
 df -hP
 ```
 
-```bash
+```bash,run
 dnf list installed
 ```
 
 Now that you have some data in a recorded session, you can log out of the user's terminal session.
 
-```bash
+```bash,run
 exit
 ```

@@ -4,7 +4,8 @@ id: sduycmmpj4rb
 type: challenge
 title: Using `df` to check disk usage
 tabs:
-- title: Terminal
+- id: uldf0yggx8in
+  title: Terminal
   type: terminal
   hostname: rhel
 difficulty: basic

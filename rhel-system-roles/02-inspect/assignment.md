@@ -8,11 +8,13 @@ notes:
 - type: text
   contents: 'Step 2: Inspecting a pre-made example playbook and applying it.'
 tabs:
-- title: Shell
+- id: exvvpkkxvpfi
+  title: Shell
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: client1
+- id: utexnxdesjuk
+  title: client1
   type: terminal
   hostname: client1
 difficulty: basic

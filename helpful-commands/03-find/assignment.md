@@ -4,7 +4,8 @@ id: nvypxpvt3e3t
 type: challenge
 title: Locating files
 tabs:
-- title: Terminal
+- id: 8wxyjhzesxgg
+  title: Terminal
   type: terminal
   hostname: rhel
 difficulty: basic
@@ -41,6 +42,9 @@ locate messages
 </pre>
 
 This command finds a variety of files containing _messages_ in their name, including the log file that you are looking for, `/var/log/messages`. The database that `locate` uses to optimize the search process is updated once per day by default, so that means if you are trying to locate a newly created file it will not be present in the database.
+
+> [!NOTE]
+> `locate` returns matches based on partial matches to _messages_ where `find` returned exact matches. To have `find` return the same set of partial matches, you can add the `*` glob character to on either side of the filename you are looking for. For example, `find / -name *messages*` should return the same list as `locate messages`. For more information on available patterns for either tool, you can refer to their man pages.
 
 Create a new file with `touch`:
 

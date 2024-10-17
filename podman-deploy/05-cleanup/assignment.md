@@ -4,11 +4,13 @@ id: y8mb6lrbgrq7
 type: challenge
 title: Cleanup
 tabs:
-- title: Podman
+- id: d3myv6g4nkcb
+  title: Podman
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "podman" > /dev/null 2>&1
-- title: RHEL Host
+- id: ftlsuedlvhad
+  title: RHEL Host
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "host" > /dev/null 2>&1

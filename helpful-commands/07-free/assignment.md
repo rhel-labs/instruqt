@@ -4,7 +4,8 @@ id: exmnks4vybca
 type: challenge
 title: Using `free` to view information about the system memory usage
 tabs:
-- title: Terminal
+- id: uwu6uvwoxa3h
+  title: Terminal
   type: terminal
   hostname: rhel
 difficulty: basic

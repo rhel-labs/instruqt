@@ -1,6 +1,6 @@
 ---
 slug: updateerratum
-id: l2qmabvqkuxe
+id: 6avxsxdtotch
 type: challenge
 title: Apply Errata to hosts
 teaser: Apply Errata to hosts
@@ -8,137 +8,92 @@ notes:
 - type: text
   contents: Apply Errata to hosts
 tabs:
-- title: Satellite Server
+- id: 8bkdkvcukbt7
+  title: Satellite Server
   type: terminal
   hostname: satellite
-- title: Satellite Web UI
+- id: 0mbidhp7ew9w
+  title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- title: rhel1
+- id: hlvsszaclx6p
+  title: rhel1
   type: terminal
   hostname: rhel1
-- title: rhel1 Web Console
-  type: external
-  url: https://rhel1.${_SANDBOX_ID}.instruqt.io:9090
-- title: rhel2
+- id: u6fkmsirvwur
+  title: rhel2
   type: terminal
   hostname: rhel2
-- title: rhel2 Web Console
-  type: external
-  url: https://rhel2.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
 ---
-<!-- markdownlint-disable MD033 -->
-
-Red Hat Product Errata are contain advisories on bug fixes, security, and enhancement on software installed on your RHEL host, based on analysis by Red Hat engineers. Red Hat Satellite provides a simple method for applying these fixes to hosts. We'll walk through those steps.
+Introduction
+===
+Red Hat Product Errata are advisories on bug fixes, security, and enhancement on software installed on your RHEL host, based on analysis by Red Hat engineers. Red Hat Satellite provides a simple method for applying these fixes to hosts. We'll walk through those steps.
 
 For more information on Red Hat Errata, [please visit this page](https://access.redhat.com/articles/2130961).
 
-To view Errata in Satellite, click on `Content` and `Errata`.
+Apply errata
+===
 
-<a href="#1">
- <img alt="An example image" src="../assets/erratamenubar.png" />
-</a>
+To view Errata in Satellite, click on `Content`, `Content Types`, and `Errata`.
 
-<a href="#" class="lightbox" id="1">
- <img alt="An example image" src="../assets/erratamenubar.png" />
-</a>
+![](../assets/erratamenubar.png)
 
 You'll be taken to a page containing all the Errata contained in the repositories we originally synchronized in the second challenge of this lab.
 
-Not all of these Errata apply to the hosts we've added to this Satellite server. To view applicable and installable Errata, click on the `Applicable` and `Installable` radio boxes.
+Not all of these Errata apply to the hosts we've added to this Satellite server. To view applicable and installable Errata, click on the `Installable` radio boxes.
 
-<a href="#2">
- <img alt="An example image" src="../assets/applicableandinstallable.png" />
-</a>
+![](../assets/applicableandinstallable.png)
 
-<a href="#" class="lightbox" id="2">
- <img alt="An example image" src="../assets/applicableandinstallable.png" />
-</a>
-
-Let's install all the applicable Errata to our two hosts.
+Let's install all the Installable Errata to our two hosts.
 
 Select all of the Errata we just filtered.
 
-<a href="#3">
- <img alt="An example image" src="../assets/selectallerrata.png" />
-</a>
+![](../assets/selectallerrata.png)
 
-<a href="#" class="lightbox" id="3">
- <img alt="An example image" src="../assets/selectallerrata.png" />
-</a>
-
-_**Note:**_ Increase the pager size to select all the errata.
+>[!NOTE]
+>Increase the page size to select all the errata. If the number of errata exceed the maximum page size, you'll have to run this operation multiple times or run it from the host > content > errata menu. For the purposes of this lab, it's not necessary to apply all errata.
 
 ![pager](../assets/pagersize.png)
 
 You'll be taken to the Apply Errata menu where you should do the following:
 
 1) Select the hosts to apply the Errata. In this case we'll select all hosts.
+
 2) Click `Next`.
 
-<a href="#4">
- <img alt="An example image" src="../assets/applyerratawizard.png" />
-</a>
-
-<a href="#" class="lightbox" id="4">
- <img alt="An example image" src="../assets/applyerratawizard.png" />
-</a>
+![](../assets/applyerratawizard.png)
 
 Click confirm to apply the errata.
 
 To view the application of Errata in real-time, click on the host `rhel1`.
 
-<a href="#5">
- <img alt="An example image" src="../assets/viewapplicationoferratahost.png" />
-</a>
-
-<a href="#" class="lightbox" id="5">
- <img alt="An example image" src="../assets/viewapplicationoferratahost.png" />
-</a>
+![](../assets/viewapplicationoferratahost.png)
 
 On the following page, you'll be able to see the application process.
 
-<a href="#6">
- <img alt="An example image" src="../assets/process.png" />
-</a>
-
-<a href="#" class="lightbox" id="6">
- <img alt="An example image" src="../assets/process.png" />
-</a>
+![](../assets/process.png)
 
 To return to the job status page, click `Back to Job`.
 
-<a href="#7">
- <img alt="An example image" src="../assets/backtojob.png" />
-</a>
-
-<a href="#" class="lightbox" id="7">
- <img alt="An example image" src="../assets/backtojob.png" />
-</a>
+![](../assets/backtojob.png)
 
 When the job is complete, the page will look like this.
 
-<a href="#8">
- <img alt="An example image" src="../assets/completejobstatus.png" />
-</a>
-
-<a href="#" class="lightbox" id="8">
- <img alt="An example image" src="../assets/completejobstatus.png" />
-</a>
+![](../assets/completejobstatus.png)
 
 Go to Hosts > All Hosts.
 
-<a href="#9">
- <img alt="An example image" src="../assets/allhosts.png" />
-</a>
+![](../assets/allhostsagain.png)
 
-<a href="#" class="lightbox" id="9">
- <img alt="An example image" src="../assets/allhosts.png" />
-</a>
+All hosts managed by Satellite will still display in an orange font signifying there are status warnings. This is because the Tracer application has detected services that require restarting. If the kernel or systemd has been updated, the hosts will require a reboot.
 
-All hosts managed by Satellite will still display in a red font signifying there are error statuses. This is because the Tracer application has detected services that require restarting. If the kernel or systemd has been updated, the hosts will require a reboot.
+![](../assets/tracesorange.png)
+
+Resolve Traces (Restart services that require it)
+===
+When software is updated on a host, software that runs as a service require a restart before the updated software is loaded into memory. Tracer will detect which of these services need to be restarted.
 
 Click on a host (it doesn't matter which, you'll have to perform this procedure twice.)
 
@@ -146,36 +101,17 @@ Click on a host (it doesn't matter which, you'll have to perform this procedure 
 
 Do the following to resolve the traces.
 
-1) Click on the `Traces` tab.
+1) Click on the `Traces` tab. All the services that require restarting are listed here. If no services require restart, this list would be blank.
+
 2) Select all the services listed.
+
 3) Click `Restart app`.
 
 ![restart](../assets/tracesrestart.png)
 
-_**NOTE:**_ Resolving traces might take a few minutes, especially for a reboot, since the host will wait 60 seconds before initiating the reboot.
+>[!NOTE]
+>Resolving traces might take a few minutes, especially for a reboot, since the host will wait 60 seconds before initiating the reboot.
+
+When you view the `Traces` menu, the list will be empty signifying no services require restart.
 
 Repeat the procedure to resolve Traces with the remaining host.
-
-<style>
-.lightbox {
-  display: none;
-  position: fixed;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.8);
-}
-
-.lightbox:target {
-  display: flex;
-}
-
-.lightbox img {
-  max-height: 100%;
-}
-</style>

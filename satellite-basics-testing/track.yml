@@ -1,7 +1,6 @@
 slug: satellite-basics-testing
-id: mo0gftdn3bj8
-title: Satellite Basics Testing
-teaser: Learn the basics of using Red Hat Satellite.
+id: rq4y1ilfxtyr
+title: Red Hat Satellite Basics Testing 10/7/24
 description: |
   # Overview:
   Red Hat Satellite manages Red Hat Enterprise Linux hosts, including patching, content management, provisioning and more. In this lab, we'll learn the basics of
@@ -27,14 +26,19 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
-maintenance: true
 show_timer: true
-skipping_enabled: true
-idle_timeout: 2700
+idle_timeout: 1800
 timelimit: 7200
 sandbox_preset: satellite
 lab_config:
   overlay: false
-  width: 50
+  width: 33
   position: right
-checksum: "8521971918747644023"
+  feedback_recap_enabled: true
+  loadingMessages: true
+  lab_v2: true
+  override_challenge_layout: false
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 50
+checksum: "2170483911746496861"

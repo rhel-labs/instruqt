@@ -8,11 +8,13 @@ notes:
 - type: text
   contents: 'Step 3: Verify the system roles and configurations were applied.'
 tabs:
-- title: Shell
+- id: 4cslm1sedhc1
+  title: Shell
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: client1
+- id: u5nygmib6y7b
+  title: client1
   type: terminal
   hostname: client1
 difficulty: basic
