@@ -41,7 +41,7 @@ The `bootc` command is what controls the state of the running host and the avail
 
 The `spec` section provides the information about the image in use and where `bootc` is looking for it. Our host is pulling from a container registry.
 ```bash,run
-sudo bootc status | grep spec: -A 4
+sudo bootc status | grep spec: -A 10
 ```
 
 The `staged` section provides information about what's been pulled down to disk for the next boot. Since we just did a fresh install, this is null at the moment.
