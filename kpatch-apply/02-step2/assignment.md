@@ -35,7 +35,7 @@ Our lab system is running kernel version (also known as release, hence the -r
 option used by uname) 5.14.0-362.8.1.el9_3.x86_64.
 
 Now that you know the version of the kernel running on the lab machine, look
-at all of the aviailable kpatch packages avaiable from the Red Hat Enterprise
+at all of the aviailable kpatch packages available from the Red Hat Enterprise
 Linux repos.
 
 ```bash
