@@ -32,17 +32,19 @@ Welcome to this lab experience for Red Hat Enterprise Linux.
 
 The system displayed beside this text is a Red Hat Enterprise Linux 9 system registered with Subscription Manager.
 
-In a previous image mode lab, we created a virtual machine from a bootc image. Adapting to changes in infrastructure or role is core to how bootc hosts operate. We'll explore how `bootc` tracks images, changes host purposes, and rolls back changes.
+In a [previous image mode lab](https://www.redhat.com/en/introduction-to-image-mode-for-red-hat-enterprise-linux-interactive-lab), we created a virtual machine from a bootc image. Adapting to changes in infrastructure or role is core to how bootc hosts operate. We'll explore how `bootc` tracks images, changes host purposes, and rolls back changes.
 
 Changing registries for our bootc image
 ===
 
-In the normal course of operations, available infrastructure is often changed or decommissioned in favor of newer options. In our environment, the registry server we've been using has been swapped out for a new server. There's native tooling in `bootc` that let's us change the image that a particular host is using. Unfortunately, this host was missed during that migration and we need to get it back on track.
+In the normal course of operations, available infrastructure is often changed or decommissioned in favor of newer options. In our environment, the registry server we've been using has been swapped out for a new server.
 
-Attach to the console of the VM running our bootc image
+Unfortunately, this host was missed during that migration and we need to get it back on track. There's native tooling in `bootc` that let's us change the image that a particular host is using.
+
+Connect to the console of the VM running our bootc image
 ===
 
-Let's attach to the console. Switch to the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-1) tab.
+Let's connect to the virutal machine's console. Switch to the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-1) tab.
 
 > [!NOTE]
 > If the console hasn't connected or there is an error, you can reconnect by clicking Refresh next to the tab name. The prompt will look like this. ![](../assets/terminal_prompt.png)
@@ -65,16 +67,13 @@ redhat
 
 Check the image the VM is using
 ===
-Hosts created from bootc images track a particular image in a specific registry, this is how `bootc` knows when an update is available.  Let's check what happens when `bootc` tries to look for an update.
+Hosts created from bootc images track a particular image in a specific registry, this is how `bootc` knows when an update is available.  When `bootc` tries to look for an update, you get a `no such host` error.
 
 ```bash,run
 sudo bootc upgrade --check
 ```
 
-You will see a `no such host` error, since our decommissioned registry name is part of the path for the image.
-
-The spec section of bootc status provides the information about the image in use and where bootc is looking for it.
-bash
+The spec section of bootc status provides the information about the image in use and where `bootc` is looking for it.
 
 ```bash,run
 sudo bootc status | grep spec: -A 4
@@ -83,27 +82,28 @@ In the output you can see the hostname (and port if needed) as well as the image
 
 Switch to a new image
 ===
-The hostname for our new central registry is [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]].
+The hostname for our new central registry is **[[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]**.
 We can migrate this host to our new registry with `bootc switch`. Note that we haven't changed the repository name or tag, just the registry hostname.
 ```bash,run
 sudo bootc switch [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
 ```
 
-At first glance, `bootc switch` doesn't look very different from `bootc upgrade`. It will download and prepare the new image to a local deployment location on disk. You'll notice that since this image has a different SHA from our original image, so it will pull all of the layers even though the images are identical. 
+At first glance, `bootc switch` doesn't look very different from `bootc upgrade`. It will download and prepare the new image to a local deployment location on disk. It downloads any layers it detects are different based on the metadata availble in the registry.
 
-We can confirm that this image has been pulled from our new registry by checking the staged section of `bootc status` and looking at the image path.
+We can see in the output of `bootc switch` that our new image has been queued to be activated the next time the host boots. We can also see if there's any changes waiting by checking the staged section of `bootc status`. If there was no image staged for use, that section would read `null`.
 
 ```bash,run
 sudo bootc status | grep staged: -A 8
 ```
 
-If we needed to wait for a maintenance window we could stage changes immediately, then schedule the reboot. Let's restart the system now to get our changes.
+If we needed to wait for a maintenance window we could stage the changes, then schedule the reboot. Let's restart the system now to get our changes.
 
 ```bash,run
 sudo reboot
 ```
 
 Once the system has completed rebooting, you can log back in.
+
 Username:
 
 ```bash,run
@@ -116,16 +116,21 @@ Password:
 redhat
 ```
 
-Since update tracking is one of the key features that needs up to date and correct locations, let's confirm that `bootc` is using our new registry to check for any updates.
+Since update tracking is one of the key features that needs current and correct locations, let's confirm that `bootc` is using our new registry to check for any updates.
 
 ```bash,run
 sudo bootc upgrade --check
 ```
-We haven't made any updates so `bootc` won't detect any changes, but we've confirmed we're using the new registry.
+We've confirmed we're using the new registry, and we've got the lastest version of our image running.
 
 You can also check what the current `spec` section of `bootc status` now says about where updates are coming from.
 ```bash,run
 sudo bootc status | grep spec: -A 4
 ```
+You can also see the `staged` section is now set to `null` since there's no prepared changes.
 
-Once a host it running, changing the image in use is very straightforward, and can be useful for a number of reasons beyond changing image locations. Let's explore a little more of what this new `bootc switch` command can do for us in the next few exercises.
+```bash,run
+sudo bootc status | grep staged:
+```
+
+Once a host it running, changing the image in use is very straightforward, and can be useful for a number of reasons beyond changing image locations. Let's explore a little more of what `bootc switch` can do for us in the next few exercises.
