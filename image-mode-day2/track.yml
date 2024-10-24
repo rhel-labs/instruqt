@@ -19,13 +19,14 @@ show_timer: true
 idle_timeout: 300
 lab_config:
   overlay: false
-  width: 33
-  position: right
+  width: 0
+  position: ""
   feedback_recap_enabled: true
   loadingMessages: true
-  lab_v2: false
   theme:
     name: original
   override_challenge_layout: false
   hideStopButton: false
-checksum: "2852634778537840253"
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 33
+checksum: "1984155068880328904"

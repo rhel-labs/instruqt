@@ -35,17 +35,17 @@ timelimit: 1
 > Click on the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-2) tab.
 > You may need to tap `enter` to wake up the console, you should still be logged in as `core`
 
-We have a new built-in option available to image mode systems that typically takes more preparation with package mode operations: the rollback.
+Image mode systems have a native capability that typically takes more preparation with package mode operations: the rollback.
 
-Since `bootc` manages state on disk, we have the previous working system available to us. Normally, we’d need to have set up snapshots or refer to a backup but `bootc` automatically provides us the rollback built in.
+Since `bootc` unpacks images locally, we still have the previous version of the host on disk. Our `v2` image was unpacked along side of the original image, then the set as the primary target in the bootloader. To restore the previous version of a package mode system, we’d need to have set up snapshots before changes were made or refer to a backup. With `bootc` we have a single command that can revert to the last booted image.
 
-This isn't the sort of issue we'd normal need to recover from, but let's go ahead and check for an available rollback option to get us back to the previous image.
+A missing web page isn't the sort of issue we'd normally need to recover from a backup, but this is a lab after all. Let's go ahead and check for an available rollback option to get us back to the previous image.
 
 ```bash,run
 sudo bootc status | grep rollback: -A 8
 ```
 
-You should see our original image, without the `v2` tag. Rollbacks are as simple as running one command. Let’s get this image back to the previous state then we can dig into what happened in the Containerfile.
+This section of the status output shows the available image target. You should see our original image, without the `v2` tag. To trigger the rollback, we issue one command.
 ```bash,run
 sudo bootc rollback
 ```
@@ -56,7 +56,7 @@ bootfs is sufficient for calculated new size: 0 bytes
 Next boot: rollback deployment
 ````
 
-You should see the value of `rollbackQueued` has been updated as well. This can be useful to check before restarting a sysytem.
+There are two additional places in the status you can look for information about what will happen at the next boot. You should see the value of `rollbackQueued` has been updated. This can be useful to check before restarting a sysytem.
 ```bash,run
 sudo bootc status | grep Queued
 ```
@@ -65,7 +65,7 @@ sudo bootc status | grep Queued
 rollbackQueued: true
 ````
 
-You can also check the boot order in the spec block to see what has been sent to the bootloader.
+You can also check the boot order in the spec block to see what has been sent to the bootloader. This should match one of `default` or `rollback`. The `default` order will use the image from the `spec` section of the status.
 ```bash,run
 sudo bootc status | grep Order
 ```
@@ -79,3 +79,5 @@ As usual, a reboot is needed to apply changes. After the reboot, the rollback im
 ```bash,run
 sudo reboot
 ```
+
+While the system reboots and returns to the previous state, let's dig into what happened in the Containerfile and explore why our index.html update didn't go the way we expected.

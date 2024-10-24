@@ -31,22 +31,23 @@ tabs:
 difficulty: basic
 timelimit: 1
 ---
-Did the build fail?
+What happened to our index file?
 ===
 
 You can return to the [button label="Terminal" background="#ee0000" color="#c7c7c7"](tab-0) tab to explore what happened to the new index.html file
 
-Did the new index get created when we built the image?
+We didn't see any errors from the `podman build` when we created the image, so what happened inside the image?
 
-We can check by running the image as a container and inspecting the directory. Another benefit to using standard container tools is extra ways to iterate and inspect images before needing to install them.
+Since bootc images are still standard OCI images, we can test changes by running the image as a local container. Using standard container tools gives us new ways to iterate and inspect hosts without needing to completely install them first.
 
+Let's launch the container and list the contents of the directory. Instead of running interactively and attaching a shell, we can just pass the command we want run to the container as an argument. We're also adding the `--rm` flag to make sure the container that runs the `ls` command is removed after the command exits.
 ```bash,run
 podman run --rm [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:v2 ls /var/www/html
 ```
+
 Image vs host state
 ===
-
-The file is there, so why didn't it show up on the host? In the image mode basics lab, we discussed how `/etc` is treated in image mode. The `/var` hierarchy is also treated specially.
+The file is there, so why didn't it show up on the host? In [the image mode basics lab](https://www.redhat.com/en/introduction-to-image-mode-for-red-hat-enterprise-linux-interactive-lab), we discussed how `/etc` is treated in image mode. The `/var` hierarchy is also treated specially.
 
 |directory|owner|bootc action|
 |---|---|---|
@@ -54,11 +55,10 @@ The file is there, so why didn't it show up on the host? In the image mode basic
 |/etc|host|merge|
 |/var|host|ignore|
 
-The `/var` directory is considered by `bootc` to be controlled by the host as local state. If we want to manage web content at build time and version it with the image, we'll need to move it somewhere `bootc` will control.
+The `/var` directory is considered by `bootc` to be controlled by the host as local state. Since we want to manage web content at build time and version it with the image, we'll need to move it somewhere `bootc` will control.
 
 Versioning files with the image
 ===
-
 Let's look at a new Containerfile to see how we can do that.
 
 Click on the [button label="Containerfile" background="#ee0000" color="#c7c7c7"](tab-1) tab.
@@ -71,29 +71,29 @@ Look at the new `RUN` command that uses the `heredoc` format to wrap several lin
 
 ![](../assets/containerfile_heredoc_index.png)
 
-This block will move the default directory and files installed by Apache to a new directory under `/var`. The second line will update the htttpd config file to change the default document root to our new directory.
+The first command in this block will move the directories and files installed by Apache to a new directory under `/usr`. The second will update the htttpd config file to change the default document root to our new directory.
 
-Note that since we haven't made any local changes to this file in `/etc` on the host, this change will show up on the host. If you had made local changes to the config, you may need to to create a drop-in file or use some other means to update the Apache config.
+Since we haven't made any changes on our bootc host to this file in `/etc`, this change will be applied by `bootc`. If you had made local changes to the httpd config, you may need to create a drop-in file or use some other means to update the Apache config.
 
 Once you feel you understand the change, you can return to the [button label="Terminal" background="#ee0000" color="#c7c7c7"](tab-0) tab
 
 Use podman to build the image.
 ===
-We can pass this new file to the `podman build` command and this time with a `v3` tag. Using this sort of semantics can help folks understand what's current.
+We can pass this new file to the `podman build` command with the `-f` option and we'll also give it a `v3` tag. Adding this kind of versioning semantics can help folks understand what's current in a series of updated images.
 
 ```bash,run
 podman build -t [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:v3 -f Containerfile.index
 ```
 
-Once the updated image has been built, we can push it to the registry. Once again, note how only the changed layers need to be added to the registry even though we created a new tag.
+Let's test the new image for our new file location the same way we did earlier, by running the container locally.
+```bash,run
+podman run --rm [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:v3 ls /usr/share/www/html
+```
+
+Now that we're sure we have the changes we need, we can push it to the registry. Once again, note how only the changed layers need to be added to the registry even though we changed directory contents and created a new tag.
 
 ```bash,run
 podman push [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:v3
-```
-
-Let's inspect the new image for our new file location
-```bash,run
-podman run --rm [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:v3 ls /usr/share/www/html
 ```
 
 Switch the VM to our newest version
