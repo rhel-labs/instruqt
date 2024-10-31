@@ -2,7 +2,10 @@ version: "3"
 virtualmachines:
 - name: rhel
   image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-4-05-27-24
+  environment:
+    cla_version: command-line-assistant-0.1.0-1.20241031014238097363.pr15.el9.noarch
   machine_type: n2-standard-2
+  shell: /bin/bash
   allow_external_ingress:
   - https
   provision_ssl_certificate: true
