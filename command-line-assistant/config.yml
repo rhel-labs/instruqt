@@ -1,0 +1,10 @@
+version: "3"
+virtualmachines:
+- name: rhel
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-4-05-27-24
+  environment:
+    watsonx-api-key: 0Cw_unldRWX7QXJg2tMCR1CH-9MPHMAVLUnqnJBQAwIL
+  machine_type: n2-standard-2
+  allow_external_ingress:
+  - https
+  provision_ssl_certificate: true
