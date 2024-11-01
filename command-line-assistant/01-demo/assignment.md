@@ -8,6 +8,7 @@ tabs:
   title: rhel
   type: terminal
   hostname: rhel
+  cmd: sleep 10
 - id: gidxx3iodhaz
   title: rcs
   type: terminal
