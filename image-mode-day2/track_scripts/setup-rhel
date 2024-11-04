@@ -35,7 +35,7 @@ dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarc
 dnf install -y certbot
 
 # stop the process that is using TCP port 80; we need that port open for certbot
-fuser -k 80/tcp
+# fuser -k 80/tcp
 
 # request certificates
 certbot certonly --standalone --preferred-challenges http -d ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io --non-interactive --agree-tos -m trackbot@instruqt.com -v

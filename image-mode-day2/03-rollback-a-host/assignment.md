@@ -29,6 +29,7 @@ tabs:
   cmd: virsh console bootc
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 > [!NOTE]
 > You should still be in the VM Console tab. If not,
@@ -51,7 +52,7 @@ sudo bootc rollback
 ```
 
 The command should return very fast and the output looks like this:
-````
+````nocopy
 bootfs is sufficient for calculated new size: 0 bytes
 Next boot: rollback deployment
 ````
@@ -61,18 +62,18 @@ There are two additional places in the status you can look for information about
 sudo bootc status | grep Queued
 ```
 
-````
+```nocopy
 rollbackQueued: true
-````
+```
 
 You can also check the boot order in the spec block to see what has been sent to the bootloader. This should match one of `default` or `rollback`. The `default` order will use the image from the `spec` section of the status.
 ```bash,run
 sudo bootc status | grep Order
 ```
 
-````
+```nocopy
 bootOrder: rollback
-````
+```
 Feel free to explore `bootc status` further before moving on.
 
 As usual, a reboot is needed to apply changes. After the reboot, the rollback image will become the booted image, and will also become the new default in the boot order.

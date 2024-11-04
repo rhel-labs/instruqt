@@ -29,6 +29,7 @@ tabs:
   cmd: virsh console bootc
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 A word about tags
 ===
@@ -151,7 +152,7 @@ Let's check what the `spec` section of `bootc status` now says about where we're
 sudo bootc status | grep spec: -A 4
 ```
 
-What about our new placeholder index page?
+There's the `v2` tag, so what about our new placeholder index page?
 
 ```bash,run
 curl localhost

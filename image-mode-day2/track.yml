@@ -18,10 +18,8 @@ developers:
 show_timer: true
 idle_timeout: 300
 lab_config:
-  overlay: false
-  width: 0
-  position: ""
   feedback_recap_enabled: true
+  feedback_tab_enabled: false
   loadingMessages: true
   theme:
     name: original
@@ -29,4 +27,5 @@ lab_config:
   hideStopButton: false
   default_layout: AssignmentRight
   default_layout_sidebar_size: 33
-checksum: "1984155068880328904"
+checksum: "9200472003432348126"
+enhanced_loading: false
