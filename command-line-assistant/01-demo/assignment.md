@@ -8,7 +8,6 @@ tabs:
   title: rhel
   type: terminal
   hostname: rhel
-  cmd: sleep 10
 - id: gidxx3iodhaz
   title: rcs
   type: terminal
@@ -24,3 +23,6 @@ Try asking CLA something.
 ```bash,run
 c "how do I configure the timezone to Vancouver Canada"
 ```
+> [!IMPORTANT]
+> The first time you run a query, it will fail because the CLA needs to create configuration files.
+> The second query should work.
