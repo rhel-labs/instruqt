@@ -29,7 +29,6 @@ developers:
 show_timer: true
 idle_timeout: 1800
 timelimit: 7200
-sandbox_preset: satellite
 lab_config:
   feedback_recap_enabled: true
   feedback_tab_enabled: false
@@ -38,5 +37,5 @@ lab_config:
   hideStopButton: false
   default_layout: AssignmentRight
   default_layout_sidebar_size: 50
-checksum: "10809158216594976781"
-enhanced_loading: false
+checksum: "8535664030394474952"
+enhanced_loading: true

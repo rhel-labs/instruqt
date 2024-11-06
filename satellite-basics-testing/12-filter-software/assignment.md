@@ -1,6 +1,6 @@
 ---
 slug: filter-software
-id: ylaa4cxzotxp
+id: ywjedlvjenm9
 type: challenge
 title: Apply a Content View filter
 teaser: Block software from being installed. Without these filters, a Content View
@@ -9,19 +9,19 @@ notes:
 - type: text
   contents: Block software from being installed
 tabs:
-- id: boe7dd5ph2ye
+- id: pvvldoqwalyh
   title: Satellite Server
   type: terminal
   hostname: satellite
-- id: 6dpik6l5vazb
+- id: u9ge5pwvxfxo
   title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- id: d1aqw1hyktgy
+- id: dhrkmqqctyzw
   title: rhel1
   type: terminal
   hostname: rhel1
-- id: ztyiacorx9li
+- id: gkh1eljgmqe9
   title: rhel2
   type: terminal
   hostname: rhel2

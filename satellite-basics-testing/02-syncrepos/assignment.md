@@ -1,6 +1,6 @@
 ---
 slug: syncrepos
-id: 88io2qt3ixiz
+id: fgaarq7og0oc
 type: challenge
 title: Synchronize Red Hat repositories
 teaser: Synchronize Red Hat repositories
@@ -9,19 +9,19 @@ notes:
   contents: In this step, we'll synchronize Red Hat Enterprise Linux 9 BaseOS and
     AppStream repositories from the content delivery network.
 tabs:
-- id: gdoebhlncvlr
+- id: dnodi29zfs14
   title: Satellite Server
   type: terminal
   hostname: satellite
-- id: vwnhwybyswuq
+- id: quzfeuupxrhm
   title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- id: opjyynaaqdpv
+- id: popuwewyxbrg
   title: rhel1
   type: terminal
   hostname: rhel1
-- id: fu8rg5vhhmiq
+- id: cezn6bz0jyl3
   title: rhel2
   type: terminal
   hostname: rhel2

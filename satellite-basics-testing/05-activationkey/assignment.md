@@ -1,6 +1,6 @@
 ---
 slug: activationkey
-id: y9paxmqyup9s
+id: xwynb4xr8cig
 type: challenge
 title: Create an Activation Key
 teaser: Create an Activation Key
@@ -8,19 +8,19 @@ notes:
 - type: text
   contents: Activation Keys help you configure access to content by your hosts.
 tabs:
-- id: fzkgp1irzsnd
+- id: p7ihdzerpfcx
   title: Satellite Server
   type: terminal
   hostname: satellite
-- id: swp1mexvleth
+- id: z2o1hcdahlfq
   title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- id: ttvi9p74hjlf
+- id: wdg0nlxqf4ap
   title: rhel1
   type: terminal
   hostname: rhel1
-- id: tr0so6piw0ek
+- id: jt7wxbqm81ud
   title: rhel2
   type: terminal
   hostname: rhel2

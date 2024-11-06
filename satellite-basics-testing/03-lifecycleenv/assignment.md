@@ -1,6 +1,6 @@
 ---
 slug: lifecycleenv
-id: tdyvcyz442il
+id: qonqpm0guwjp
 type: challenge
 title: Manage Lifecycle Environments
 teaser: Manage Lifecycle Environments
@@ -10,19 +10,19 @@ notes:
     so that it suits your specifications. Each stage in the application life cycle
     is called an environment in Satellite.
 tabs:
-- id: golul68hp6wn
+- id: 9mrwhi8fbzew
   title: Satellite Server
   type: terminal
   hostname: satellite
-- id: kg2e6um2mej2
+- id: 53okoccg6dyq
   title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- id: yozf8fd6bsgh
+- id: rqbzdjvydq0n
   title: rhel1
   type: terminal
   hostname: rhel1
-- id: weg9zl6wz81b
+- id: kgzc7ed4hhsr
   title: rhel2
   type: terminal
   hostname: rhel2

@@ -1,6 +1,6 @@
 ---
 slug: updateerratum
-id: rtcoq9done7j
+id: 3dtqcvqsx4uc
 type: challenge
 title: Apply Errata to hosts
 teaser: Apply Errata to hosts
@@ -8,19 +8,19 @@ notes:
 - type: text
   contents: Apply Errata to hosts
 tabs:
-- id: ytgbgrvdtxzo
+- id: ryghrk4girps
   title: Satellite Server
   type: terminal
   hostname: satellite
-- id: dj1mq5kdxz8r
+- id: mhgrczefstfq
   title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- id: ivpjt9fvaykv
+- id: lxph6slscyjo
   title: rhel1
   type: terminal
   hostname: rhel1
-- id: tyyvamqmhmth
+- id: 0fegwfqgykqn
   title: rhel2
   type: terminal
   hostname: rhel2

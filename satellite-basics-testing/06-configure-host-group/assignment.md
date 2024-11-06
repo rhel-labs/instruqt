@@ -1,23 +1,23 @@
 ---
 slug: configure-host-group
-id: ccecyxkcui4v
+id: ksqe0sbcybww
 type: challenge
 title: Configure a Host Group
 teaser: Host groups are used to organize and configure sets of hosts.
 tabs:
-- id: 8cn95eqdgcei
+- id: w4nsdaygtesc
   title: Satellite Server
   type: terminal
   hostname: satellite
-- id: 9iroqtarzpfp
+- id: tg7setvbnrqo
   title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- id: ay5vnja2ypyw
+- id: ybomivnhixqi
   title: rhel1
   type: terminal
   hostname: rhel1
-- id: kgssn6sxovxc
+- id: hiq9wqisluls
   title: rhel2
   type: terminal
   hostname: rhel2
