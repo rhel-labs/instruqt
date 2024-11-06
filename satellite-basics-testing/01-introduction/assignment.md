@@ -1,6 +1,6 @@
 ---
 slug: introduction
-id: cgo76spnn2fb
+id: gvdqqibphorv
 type: challenge
 title: Familiarize yourself with the Lab Environment.
 teaser: This is an introduction to the lab environment.
@@ -8,24 +8,25 @@ notes:
 - type: text
   contents: Familiarize yourself with the lab environment.
 tabs:
-- id: otsxibyieqbk
+- id: fmgkrntlfaja
   title: Satellite Server
   type: terminal
   hostname: satellite
-- id: crozln5d7vhl
+- id: kgnazpxbok0q
   title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- id: t4nx333ahczc
+- id: kxfo4iwbbeiw
   title: rhel1
   type: terminal
   hostname: rhel1
-- id: rosohuxgjknr
+- id: 7itutxmw3y2r
   title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic
 timelimit: 3420
+enhanced_loading: null
 ---
 <!-- markdownlint-disable MD033 -->
 The lab environment consists of the following

@@ -1,28 +1,29 @@
 ---
 slug: conclusion
-id: 9f7pyvhvozvx
+id: 8jyekeuygtlg
 type: challenge
 title: Conclusion
 teaser: Yay we've reached the end.
 tabs:
-- id: rhlwxsp6lhqg
+- id: cd9zbxhvlov4
   title: Satellite Server
   type: terminal
   hostname: satellite
-- id: puhy9ratnm42
+- id: 7lujqgko3kyc
   title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- id: snqjiq0wlhju
+- id: olcloxapxnpo
   title: rhel1
   type: terminal
   hostname: rhel1
-- id: owd8nt8ag9jo
+- id: spjo4734dfr9
   title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 <!-- markdownlint-disable MD033 -->
 
