@@ -30,6 +30,7 @@ tabs:
   cmd: virsh console bootc
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 What happened to our index file?
 ===
