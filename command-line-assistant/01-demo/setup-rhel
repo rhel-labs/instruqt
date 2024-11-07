@@ -67,3 +67,5 @@ EOF
 chmod +x /root/rcs.sh
 
 tmux new-session -d -s "rcs" /root/rcs.sh
+
+echo "export PROJECT=cla" >> /root/.bash_profile
