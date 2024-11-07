@@ -7,19 +7,20 @@ dnf copr enable -y @rhel-lightspeed/command-line-assistant
 # echo `agent variable get cla_version` > /root/ver.txt
 dnf install -y `agent variable get cla_version`
 
-git clone https://github.com/road-core/service
-cd service
+git clone https://github.com/rhel-lightspeed/rcs
+cd rcs
+git checkout cla-customization
 make install-deps
 
-echo ${WATSONX_API_KEY} > /root/service/.watsonx_api_key
+echo ${WATSONX_API_KEY} > /root/rcs/.watsonx_api_key
 
-tee -a /root/service/rcsconfig.yaml << EOF
+tee -a /root/rcs/rcsconfig.yaml << EOF
 llm_providers:
  - name: watsonx
    type: watsonx
    url: "https://us-south.ml.cloud.ibm.com"
    credentials_path: .watsonx_api_key
-   project_id: a74348df-2d24-4f95-b623-37bda7cff0d1
+   project_id: ed56b9aa-bbd2-4794-a420-380e016d6a81
    models:
      - name: ibm/granite-3-8b-instruct
 ols_config:
@@ -49,7 +50,7 @@ ols_config:
    transcripts_storage: "/tmp/data/transcripts"
 dev_config:
  # config options specific to dev environment - launching OLS in local
- enable_dev_ui: true
+ enable_dev_ui: false
  disable_auth: true
  disable_tls: true
  # llm_params:
@@ -58,7 +59,7 @@ dev_config:
 EOF
 
 tee -a /root/rcs.sh << EOF
-cd /root/service
+cd /root/rcs
 source .venv/bin/activate
 make run
 EOF
