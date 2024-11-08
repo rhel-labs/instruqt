@@ -61,6 +61,7 @@ EOF
 tee -a /root/rcs.sh << EOF
 cd /root/rcs
 source .venv/bin/activate
+export PROJECT=cla
 make run
 EOF
 
