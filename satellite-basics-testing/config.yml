@@ -21,7 +21,7 @@ virtualmachines:
   - https
   - high-ports
 - name: satellite
-  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-server-10-07-24
+  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-server-11-8-24
   shell: /bin/bash
   environment:
     TERM: xterm
@@ -32,3 +32,5 @@ virtualmachines:
   - high-ports
 secrets:
 - name: ACTIVATION_KEY
+- name: WIREGUARD_SATELLITE_PRIVATE_KEY
+- name: WIREGUARD_SATELLITE_PUBLIC_KEY
