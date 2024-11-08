@@ -77,3 +77,6 @@ EOT
 # Bring up wireguard interface
 nmcli con import type wireguard file /etc/wireguard/wg0.conf
 nmcli con up wg0
+
+# dnsmasq is set to start up automatically. Since wg0 doesn't exist at startup, dnsmasq will error out since it's configured to do stuff with wg0.
+systemctl restart dnsmasq
