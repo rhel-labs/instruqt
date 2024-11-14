@@ -1,6 +1,6 @@
 ---
 slug: contentview
-id: v1yi1zjoy43q
+id: 6vydczdaybpi
 type: challenge
 title: Create a content view
 teaser: Create a content view
@@ -10,24 +10,25 @@ notes:
     your hosts. You can use a content view to control the access to updated software
     to your hosts.
 tabs:
-- id: chybx6bhhdiq
+- id: 2qty53vc2kpx
   title: Satellite Server
   type: terminal
   hostname: satellite
-- id: os5v2sl21m69
+- id: nwa9xlsb4hyw
   title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- id: fordesw3y3jr
+- id: mkkuokrcch3f
   title: rhel1
   type: terminal
   hostname: rhel1
-- id: 2ilvd9nsfcvx
+- id: ftdx1kobegsg
   title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Introduction
 ===

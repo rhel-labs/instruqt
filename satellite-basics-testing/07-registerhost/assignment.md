@@ -1,6 +1,6 @@
 ---
 slug: registerhost
-id: j83lenjyq7dq
+id: uijwhr9d2nd8
 type: challenge
 title: Register a host to Satellite
 teaser: Register a host to Satellite
@@ -8,24 +8,25 @@ notes:
 - type: text
   contents: Register a host to Satellite
 tabs:
-- id: hzwxlafpqurg
+- id: yilw91raaw4r
   title: Satellite Server
   type: terminal
   hostname: satellite
-- id: zddqlfqmrfac
+- id: h2chg99icev7
   title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- id: 59p8fxbabsfo
+- id: zpbbrgwffubr
   title: rhel1
   type: terminal
   hostname: rhel1
-- id: 4pj042vrtohp
+- id: cu9ezexwxufu
   title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Introduction
 ===

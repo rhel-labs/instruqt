@@ -1,6 +1,6 @@
 ---
 slug: tracer
-id: 6d38vrowtfnf
+id: t20jnpldly3y
 type: challenge
 title: Enable the ability to monitor when services require restarting
 teaser: When software services are updated, they may require restarting. The tracer
@@ -10,24 +10,25 @@ notes:
   contents: Install and enable the Tracer service on the hosts to detect services
     that require restarting.
 tabs:
-- id: khhtlscgo4rb
+- id: 2lmdlpqraamo
   title: Satellite Server
   type: terminal
   hostname: satellite
-- id: whdh61t3tooo
+- id: ffst0e4wno3t
   title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- id: vxfcqbx6nagl
+- id: ysi5uwh2tsev
   title: rhel1
   type: terminal
   hostname: rhel1
-- id: ba9yqgwdbybu
+- id: e9ewkrdu9owz
   title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 <!-- markdownlint-disable MD033 MD029-->
 

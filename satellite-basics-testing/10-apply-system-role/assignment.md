@@ -1,6 +1,6 @@
 ---
 slug: apply-system-role
-id: wi8xslvrmiju
+id: kscgoxtbmmr5
 type: challenge
 title: Apply System Role
 teaser: Apply System Role to hosts
@@ -10,24 +10,25 @@ notes:
     a stable and consistent configuration interface to automate and manage multiple
     releases of Red Hat Enterprise Linux.
 tabs:
-- id: khu7j4zphrrd
+- id: wmhykdatf3y1
   title: Satellite Server
   type: terminal
   hostname: satellite
-- id: his7ackisxum
+- id: jskef3m0qx8l
   title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- id: uyjwuyk5rp73
+- id: mqy2krw3foqn
   title: rhel1
   type: terminal
   hostname: rhel1
-- id: ykpztnnfzqi4
+- id: 6gu80rlfjgca
   title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Introduction
 ===

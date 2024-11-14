@@ -1,6 +1,6 @@
 ---
 slug: installsoftware
-id: kgo6envixh3t
+id: 31ihywbbg1vw
 type: challenge
 title: Install Software
 teaser: Install Software on hosts
@@ -8,24 +8,25 @@ notes:
 - type: text
   contents: Install Software on hosts
 tabs:
-- id: ybl936ozixmc
+- id: pcltpjd6szln
   title: Satellite Server
   type: terminal
   hostname: satellite
-- id: kjqymwqcwrbg
+- id: zg8k5k74bqyj
   title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- id: vwy9uufli8qc
+- id: 9mvn4yooczrg
   title: rhel1
   type: terminal
   hostname: rhel1
-- id: bqe3j3dlytqq
+- id: 7zffoymvtqgx
   title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Introduction
 ===

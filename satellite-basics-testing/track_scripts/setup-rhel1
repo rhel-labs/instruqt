@@ -1,0 +1,47 @@
+#!/bin/bash
+set -euxo pipefail
+
+until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]; do
+    echo "Waiting for instruqt bootstrap to complete"
+    sleep 1
+done
+
+#subscription-manager config --rhsm.manage_repos=1
+#subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+
+useradd rhel
+usermod -aG wheel rhel
+
+echo redhat | passwd --stdin rhel
+
+timedatectl set-timezone America/New_York
+
+# Edit the wireguard if wg0 to point at satellite. Then create the interface with nmcli.
+sed -i "/^Endpoint /s/=.*$/= satellite.${_SANDBOX_ID}.svc.cluster.local:51820/" /etc/wireguard/wg0.conf
+sed -i "s/Address =/#Address =/" /etc/wireguard/wg0.conf
+nmcli con mod wg0 ipv4.dns 192.0.2.1
+nmcli con up wg0
+wg syncconf wg0 /etc/wireguard/wg0.conf
+
+cat <<EOT >> /etc/systemd/system/wg-startup.service
+[Unit]
+Description=Start up wireguard.
+After=default.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/wg-startup.sh
+
+[Install]
+WantedBy=default.target
+EOT
+
+cat <<EOT >> /usr/local/sbin/wg-startup.sh
+#!/bin/bash
+nmcli con up wg0
+wg syncconf wg0 /etc/wireguard/wg0.conf
+EOT
+
+chmod 700 /usr/local/sbin/wg-startup.sh
+restorecon -Fvvv /usr/local/sbin/wg-startup.sh
+systemctl enable wg-startup

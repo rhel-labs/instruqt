@@ -1,6 +1,6 @@
 ---
 slug: syncrepos
-id: pnoaqm4squtk
+id: fgaarq7og0oc
 type: challenge
 title: Synchronize Red Hat repositories
 teaser: Synchronize Red Hat repositories
@@ -9,30 +9,31 @@ notes:
   contents: In this step, we'll synchronize Red Hat Enterprise Linux 9 BaseOS and
     AppStream repositories from the content delivery network.
 tabs:
-- id: 40hl2tpctry1
+- id: dnodi29zfs14
   title: Satellite Server
   type: terminal
   hostname: satellite
-- id: unemwd8d5ddu
+- id: quzfeuupxrhm
   title: Satellite Web UI
   type: external
   url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- id: bt2oqmb4zykv
+- id: popuwewyxbrg
   title: rhel1
   type: terminal
   hostname: rhel1
-- id: lwzwrdxnireb
+- id: cezn6bz0jyl3
   title: rhel2
   type: terminal
   hostname: rhel2
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Introduction
 ===
 This section documents the process to synchronize Red Hat Enterprise Linux 9 BaseOS and AppStream repositories from the content delivery network.
 > [!IMPORTANT]
-> In order to speed up the lab, the RHEL 9 BaseOS and AppStream repos have been pre-synchronized. If you are familiar with this process please feel free to skip to the next assigment by clicking on the next button at the bottom. ![image.png](../assets/image.png)
+> In order to speed up the lab, the RHEL 9 BaseOS and AppStream repos have been pre-synchronized. If you are familiar with this process please feel free to skip to the next assigment by clicking on the next button at the bottom. ![image.png](../assets/image.png) If you decide to run through this procedure, please do not attempt to re-synchronize the repositories.
 
 Synchronize repositories
 ===
