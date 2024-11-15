@@ -11,6 +11,7 @@ tabs:
   cmd: ssh -o "StrictHostKeyChecking no" root@centos
 difficulty: basic
 timelimit: 3300
+enhanced_loading: null
 ---
 
 What is Convert2RHEL
