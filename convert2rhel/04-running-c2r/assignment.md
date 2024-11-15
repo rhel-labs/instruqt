@@ -11,6 +11,7 @@ tabs:
   cmd: ssh -o "StrictHostKeyChecking no" root@centos
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 
 Running the conversion

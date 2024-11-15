@@ -11,6 +11,7 @@ tabs:
   cmd: ssh -o "StrictHostKeyChecking no" root@centos
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 
 You will need to reboot the system in order to put the changes into effect.
