@@ -35,7 +35,7 @@ convert2rhel --org < ORG ID > --activationkey  < KEY >
 In order to automate this process as much as possible, you will kick off the conversion analysis using the activation key combination from #3 above:
 
 ```bash,run
-convert2rhel analyze --org 12451665 --activationkey convert2rhel
+convert2rhel analyze --org 12451665 --activationkey convert2rhel -y
 ```
 
 >**Note:** This process will take some time!
@@ -81,6 +81,18 @@ When the analysis process is complete, you will noticed a couple of errors. The 
     1. yum install kernel-3.10.0-1160.108.1.el7 -y
     2. reboot
 </pre>
+
+You man also see an error similar to this:
+
+<pre class='file'>
+File /etc/system-release restored.
+CRITICAL - Rollback of system wasn't completed successfully.
+The system is left in an undetermined state that Convert2RHEL cannot fix.
+It is strongly recommended to store the Convert2RHEL logs for later investigation, and restore the system from a backup.
+Following errors were captured during rollback:
+Error while rolling back a RestorableDisableRepositories:
+</pre>
+
 
 To remediate this issue, enter the following command:
 

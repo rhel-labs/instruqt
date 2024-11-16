@@ -26,10 +26,10 @@ tags:
 - conversions
 owner: rhel
 developers:
-- ehendric@redhat.com
 - myee@redhat.com
+- ehendric@redhat.com
 show_timer: true
-timelimit: 3060
+timelimit: 3600
 lab_config:
   extend_ttl: 1800
   feedback_recap_enabled: true
@@ -38,5 +38,5 @@ lab_config:
   hideStopButton: false
   default_layout: AssignmentRight
   default_layout_sidebar_size: 33
-checksum: "18321211024806423668"
+checksum: "14523052847395715896"
 enhanced_loading: false
