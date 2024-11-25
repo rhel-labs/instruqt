@@ -52,5 +52,5 @@ An unprivileged user also exists on the system.
 Username: __rhel__
 Password: __redhat__
 
-Enjoy your unstructured lab time, the system will disconnect after about
+Enjoy your unstructured lab time. The system will disconnect after about
 60 minutes.

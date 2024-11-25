@@ -7,12 +7,11 @@ description: |
   Depends on you!
 
   This is an environment without pre-planned lab content intended
-  to be a place where you can explore a Red Hat Enterprise Linux 9 system on
+  to be a place where you can explore a Red Hat Enterprise Linux 10 Beta system on
   a topic of your choosing.
 
   >**NOTE:** This lab environment will expire in about 60 minutes.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
-level: beginner
 tags:
 - rhel
 owner: rhel
@@ -27,5 +26,5 @@ lab_config:
   hideStopButton: false
   default_layout: AssignmentRight
   default_layout_sidebar_size: 33
-checksum: "13505587944448169572"
+checksum: "15876546926442643994"
 enhanced_loading: false
