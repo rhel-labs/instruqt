@@ -15,6 +15,7 @@ tabs:
   type: browser
   hostname: insights
 difficulty: basic
+enhanced_loading: null
 ---
 Fix the inhibitors
 ==================
@@ -23,7 +24,7 @@ This CentOS host has a very basic configuration and is easily remediated with an
 
 Update the host and reboot. Rebooting is required to load the updated kernel.
 
-```
+```bash,run
 yum update -y && reboot
 ```
 
