@@ -15,6 +15,7 @@ tabs:
   type: browser
   hostname: insights
 difficulty: basic
+enhanced_loading: null
 ---
 Run the Convert2RHEL conversion task
 ====================================
@@ -27,7 +28,7 @@ Run the Convert2RHEL conversion task.
 ![conversion task](../assets/conver2rhelconversiontask.png)
 
 1. Click on `Tasks` under `Automation Toolkit`.
-2. Under `Convert2RHEL`, click `Run task`.
+2. Under `Convert to RHEL from CentOS Linux 7`, click `Select systems`.
 
 Configure the task the following way.
 
@@ -38,7 +39,11 @@ Configure the task the following way.
 Convert2RHEL task for [[ Instruqt-Var key="vmid" hostname="host" ]]
 ```
 2. Select the host `[[ Instruqt-Var key="vmid" hostname="host" ]]`.
-3. Click `Execute task`.
+3. Click `Next`.
+
+Finally, click `Run task`.
+
+![](../assets/newruntask.png)
 
 The conversion takes around 15 minutes to complete.
 
@@ -49,7 +54,7 @@ Just as in the first challenge of this lab, there are 2 ways to check on the sta
 
 To view the `convert2rhel` logs, enter the following in the cli of the `centos` host.
 
-```
+```bash,run
 tail -f /var/log/convert2rhel/convert2rhel.log
 ```
 ![tail logs](../assets/viewlogs.png)
