@@ -13,9 +13,9 @@ description: |+
   * Subscribing to additional repositories
   * Convert2RHEL utility
 
-  ## Example Usecase:
+  ## Example use case:
 
-  In order to standardize your infrasturcture under a single platform, you need to convert your RPM-based servers over to Red Hat Enterprise Linux.
+  In order to standardize your infrastructure under a single platform, you need to convert your RPM-based servers over to Red Hat Enterprise Linux.
 
   ## Resources:
   https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/converting_from_an_rpm-based_linux_distribution_to_rhel
@@ -38,5 +38,5 @@ lab_config:
   hideStopButton: false
   default_layout: AssignmentRight
   default_layout_sidebar_size: 33
-checksum: "14523052847395715896"
+checksum: "15012677287473675174"
 enhanced_loading: false
