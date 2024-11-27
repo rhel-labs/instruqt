@@ -4,15 +4,18 @@ id: bucn78vox34o
 type: challenge
 title: Step 2
 tabs:
-- title: Terminal
+- id: rzy60aklpmxm
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: RHEL Web Console
+- id: ncihror5vobr
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 ## Determine what Kernel Live Patches are available
 
@@ -23,7 +26,7 @@ Image from the [Red Hat Kernel Adminstration Guide](https://access.redhat.com/do
 
 This means that a kpatch is produced and tied to a specific version of the kernel.  Before you look at available kernel patches, you should first know the version of the kernel running on your target system.
 
-```bash
+```bash,run
 uname -r
 ```
 
@@ -35,10 +38,10 @@ Our lab system is running kernel version (also known as release, hence the -r
 option used by uname) 5.14.0-362.8.1.el9_3.x86_64.
 
 Now that you know the version of the kernel running on the lab machine, look
-at all of the aviailable kpatch packages available from the Red Hat Enterprise
+at all of the aviailable kpatch packages avaiable from the Red Hat Enterprise
 Linux repos.
 
-```bash
+```bash,run
 dnf list available kpatch-patch*362*
 ```
 

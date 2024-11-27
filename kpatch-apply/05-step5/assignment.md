@@ -4,15 +4,18 @@ id: cmdhommrbymn
 type: challenge
 title: Step 5
 tabs:
-- title: Terminal
+- id: 6botdyf4wm7f
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: RHEL Web Console
+- id: blvmczi32p1r
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 ## Identifying CVEs within kpatches
 
@@ -22,7 +25,7 @@ patchset and which CVE it applies.  You can view the changelog by using the
 command-line scripting to make sure that the package referenced for the
 changelog is the one you installed earlier.
 
-```bash
+```bash,run
 rpm -q --changelog $(rpm -qa | grep kpatch-patch)
 ```
 
