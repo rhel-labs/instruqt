@@ -28,15 +28,18 @@ notes:
     organization to determine when this window occurs rather than the release of
     a fix for a Critical CVE.
 tabs:
-- title: Terminal
+- id: fhxvx14ymvh2
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: RHEL Web Console
+- id: dvqyivgyynmf
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 3000
+enhanced_loading: null
 ---
 ## Getting started with Kernel Live Patching
 
@@ -54,14 +57,14 @@ system downtime to apply a kernel update to address the CVE.
 
 To get started, install the `kpatch` package:
 
-```bash
+```bash,run
 dnf -y install kpatch
 ```
 
 Now that the `kpatch` application is installed, you can verify that the
 system does not currently have any kpatches loaded into the kernel.
 
-```bash
+```bash,run
 kpatch list
 ```
 

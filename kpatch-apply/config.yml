@@ -12,3 +12,5 @@ virtualmachines:
   - high-ports
 secrets:
 - name: ACTIVATION_KEY
+
+# DO NOT UPDATE THIS LAB TO NEWER IMAGES. This lab is written to apply specific kernel patch versions. Updating the image, and consequently, the kernel means the lab will break.

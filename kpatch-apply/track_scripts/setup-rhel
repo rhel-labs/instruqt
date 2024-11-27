@@ -5,9 +5,7 @@ do
    sleep 1
 done
 
-dnf remove -y google-rhui-client-rhel8.noarch
-dnf clean all
-subscription-manager config --rhsm.manage_repos=1
+subscription-manager clean
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
 echo "Adding wheel" > /root/post-run.log
@@ -37,7 +35,7 @@ EOF
 
 #step 2: make it executable
 chmod +x ~/startup-tmux.sh
-#step 3: use cron to execute 
+#step 3: use cron to execute
 echo "@reboot ~/startup-tmux.sh" | crontab -
 
 #step 4: start tmux for the lab

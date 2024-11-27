@@ -4,15 +4,18 @@ id: fo8cabox6ogu
 type: challenge
 title: Step 4
 tabs:
-- title: Terminal
+- id: h9iibsa7vxf2
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: RHEL Web Console
+- id: 8umbmnn08fhe
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 # Verifying a Kernel Live Patch
 
@@ -20,7 +23,7 @@ To validate that you have properly applied the Kernel Live Patch, run the
 same `kpatch list` command you ran on the first step.  You will notice that
 this time the output is no longer blank.
 
-```bash
+```bash,run
 kpatch list
 ```
 

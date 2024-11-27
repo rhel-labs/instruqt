@@ -4,17 +4,20 @@ id: o3ebey9xpnps
 type: challenge
 title: Step 3
 tabs:
-- title: Terminal
+- id: ydbjzr8fl8pp
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: RHEL Web Console
+- id: w5cxcqxy2iw9
+  title: RHEL Web Console
   type: service
   hostname: rhel
   path: /
   port: 9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 ## Applying a Kernel Live Patch
 
@@ -26,7 +29,7 @@ recommends using a dnf install or update command that embeds a uname -r
 command to dynamically determine the running kernel version and utilize it
 when making the decision of which kpatch to install:
 
-```bash
+```bash,run
 dnf -y install "kpatch-patch = $(uname -r)"
 ```
 
