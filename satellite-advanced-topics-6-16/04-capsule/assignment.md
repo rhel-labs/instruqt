@@ -47,13 +47,13 @@ Synchronize the repositories containing capsule server software to the Satellite
 
 We need to provide the following repositories to the capsule server.
 
-- `rhel-8-for-x86_64-baseos-rpms`
+- `rhel-9-for-x86_64-baseos-rpms`
 
-- `rhel-8-for-x86_64-appstream-rpms`
+- `rhel-9-for-x86_64-appstream-rpms`
 
-- `satellite-capsule-6.15-for-rhel-8-x86_64-rpms`
+- `satellite-capsule-6.16-for-rhel-9-x86_64-rpms`
 
-- `satellite-maintenance-6.15-for-rhel-8-x86_64-rpms`
+- `satellite-maintenance-6.16-for-rhel-9-x86_64-rpms`
 
 Copy and paste the following playbook to the satellite server in the [button label="Satellite Server"](tab-0) terminal.
 
@@ -65,25 +65,25 @@ tee ~/capsulerepos.yml << EOF
   remote_user: root
 
   tasks:
-  - name: "Enable RHEL 8 BaseOS RPMs repository with label"
+  - name: "Enable RHEL 9 BaseOS RPMs repository with label"
     redhat.satellite.repository_set:
       username: "admin"
       password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
       server_url: "https://satellite.lab"
       organization: "Acme Org"
-      label: rhel-8-for-x86_64-baseos-rpms
+      label: rhel-9-for-x86_64-baseos-rpms
       repositories:
-        - releasever: "8"
+        - releasever: "9"
 
-  - name: "Enable RHEL 8 AppStream RPMs repository with label"
+  - name: "Enable RHEL 9 AppStream RPMs repository with label"
     redhat.satellite.repository_set:
       username: "admin"
       password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
       server_url: "https://satellite.lab"
       organization: "Acme Org"
-      label: rhel-8-for-x86_64-appstream-rpms
+      label: rhel-9-for-x86_64-appstream-rpms
       repositories:
-        - releasever: "8"
+        - releasever: "9"
 
   - name: "Satellite 6 client repository with label without specifying base arch"
     redhat.satellite.repository_set:
@@ -91,27 +91,27 @@ tee ~/capsulerepos.yml << EOF
       password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
       server_url: "https://satellite.lab"
       organization: "Acme Org"
-      label: satellite-client-6-for-rhel-8-x86_64-rpms
+      label: satellite-client-6-for-rhel-9-x86_64-rpms
       all_repositories: true
       state: enabled
 
-  - name: "Satellite capsule software for 6.15"
+  - name: "Satellite capsule software for 6.16"
     redhat.satellite.repository_set:
       username: "admin"
       password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
       server_url: "https://satellite.lab"
       organization: "Acme Org"
-      label: satellite-capsule-6.15-for-rhel-8-x86_64-rpms
+      label: satellite-capsule-6.16-for-rhel-9-x86_64-rpms
       all_repositories: true
       state: enabled
 
-  - name: "Satellite maintenance software for 6.15"
+  - name: "Satellite maintenance software for 6.16"
     redhat.satellite.repository_set:
       username: "admin"
       password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
       server_url: "https://satellite.lab"
       organization: "Acme Org"
-      label: satellite-maintenance-6.15-for-rhel-8-x86_64-rpms
+      label: satellite-maintenance-6.16-for-rhel-9-x86_64-rpms
       all_repositories: true
       state: enabled
 
@@ -120,15 +120,15 @@ tee ~/capsulerepos.yml << EOF
       username: "admin"
       password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
       server_url: "https://satellite.lab"
-      name: "RHEL8"
+      name: "RHEL9"
       organization: "Acme Org"
       lifecycle_environment: "Library"
       content_overrides:
-          - label: satellite-client-6-for-rhel-8-x86_64-rpms
+          - label: satellite-client-6-for-rhel-9-x86_64-rpms
             override: enabled
-          - label: satellite-maintenance-6.15-for-rhel-8-x86_64-rpms
+          - label: satellite-maintenance-6.16-for-rhel-9-x86_64-rpms
             override: enabled
-          - label: satellite-capsule-6.15-for-rhel-8-x86_64-rpms
+          - label: satellite-capsule-6.16-for-rhel-9-x86_64-rpms
             override: enabled
 EOF
 ```
@@ -144,7 +144,7 @@ ansible-playbook capsulerepos.yml
 > [!NOTE]
 > In the playbook we just ran, we did not synchronize the repositories since they were pre-synchronized. This measure was taken to save time.
 
-The RHEL 8 repositories were synchronized in the background of this lab. The synchronization step should only take a few seconds.
+The RHEL 9 repositories were synchronized in the background of this lab. The synchronization step should only take a few seconds.
 
 Register the Capsule host with Satellite
 ===
@@ -154,7 +154,7 @@ Register the host `capsule` with satellite.
 You can generate a host registration script on the [button label="Satellite Server"](tab-0) terminal with the following command.
 
 >  [!NOTE]
->  This registration script is specific to the capsule and provides access to RHEL 8 repos.
+>  This registration script is specific to the capsule and provides access to RHEL 9 repos.
 
 ```bash,run
 hammer host-registration generate-command --insecure 1 --setup-insights 0 --force 1 --activation-key RHEL8
@@ -174,20 +174,11 @@ subscription-manager repos --disable "*"
 Now enable the repositories the required repositories.
 
 ```bash,run
-subscription-manager repos --enable=rhel-8-for-x86_64-baseos-rpms \
---enable=rhel-8-for-x86_64-appstream-rpms \
---enable=satellite-capsule-6.15-for-rhel-8-x86_64-rpms \
---enable=satellite-maintenance-6.15-for-rhel-8-x86_64-rpms
+subscription-manager repos --enable=rhel-9-for-x86_64-baseos-rpms \
+--enable=rhel-9-for-x86_64-appstream-rpms \
+--enable=satellite-capsule-6.16-for-rhel-9-x86_64-rpms \
+--enable=satellite-maintenance-6.16-for-rhel-9-x86_64-rpms
 ```
-
-Enable the satellite module.
-
-```bash,run
-dnf module enable satellite-capsule:el8 -y
-```
-
->[!WARNING]
->Enabling the `satellite-capsule:el8` module will throw several warnings. Ignore them since there are no installations of ruby or postgresql on this host.
 
 Install the capsule software
 ===
