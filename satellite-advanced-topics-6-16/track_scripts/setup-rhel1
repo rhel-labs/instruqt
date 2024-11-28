@@ -6,27 +6,30 @@ until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]; do
     sleep 1
 done
 
-#subscription-manager config --rhsm.manage_repos=1
-rm -rf /etc/yum.repos.d/google-cloud.repo
-#subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
-echo "Adding wheel" > /root/post-run.log
-useradd rhel
-usermod -aG wheel rhel
+dnf install wireguard-tools -y
 
-echo "setting password" >> /root/post-run.log
-echo redhat | passwd --stdin rhel
+subscription-manager unregister
 
-echo "DONE" >> /root/post-run.log
+# Create a stock wg0.conf.
+cat <<EOT > /etc/wireguard/wg0.conf
+[Interface]
+Address = 192.0.2.2/24
+PrivateKey = qIicy0R6xdgMThB/3gWZ6ZUFS7WABBUkeGjc4bEPwl0=
+DNS = 192.0.2.1
 
-timedatectl set-timezone America/New_York
+[Peer]
+PublicKey = 1Y7yWRJZxLK3kKKwGLPffsSf/E2nw6mxHg+yvnfvOV4=
+AllowedIPs = 192.0.2.0/24
+Endpoint = 10.128.0.14:51820
+PersistentKeepalive = 20
+EOT
 
-# Edit the wireguard if wg0 to point at satellite. Then create the interface with nmcli.
+# Edit the wireguard if wg0 to point at satellite's ip. Satellite's IP is dynamic. Then create the interface with nmcli.
 sed -i "/^Endpoint /s/=.*$/= satellite.${_SANDBOX_ID}.svc.cluster.local:51820/" /etc/wireguard/wg0.conf
-sed -i "s/Address =/#Address =/" /etc/wireguard/wg0.conf
-nmcli con mod wg0 ipv4.dns 192.0.2.1
-nmcli con up wg0
-wg syncconf wg0 /etc/wireguard/wg0.conf
+
+nmcli connection import type wireguard file /etc/wireguard/wg0.conf
 
 cat <<EOT >> /etc/systemd/system/wg-startup.service
 [Unit]
