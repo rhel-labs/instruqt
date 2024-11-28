@@ -5,33 +5,32 @@ type: challenge
 title: Configure a Capsule Server
 teaser: Configure a capsule server.
 notes:
-  - type: text
-    contents:
-      Capsule servers enable you to scale your Satellite infrastructure by providing
-      software and updates through the capsule servers while enabling you to manage
-      them through the main Satellite server.
+- type: text
+  contents: Capsule servers enable you to scale your Satellite infrastructure by providing
+    software and updates through the capsule servers while enabling you to manage
+    them through the main Satellite server.
 tabs:
-  - id: rmqgbwu2xgag
-    title: Satellite Server
-    type: terminal
-    hostname: satellite
-  - id: y67rqamjfoif
-    title: Satellite Web UI
-    type: external
-    url: https://satellite.${_SANDBOX_ID}.instruqt.io
-  - id: d50hfy6rsq8h
-    title: Capsule
-    type: terminal
-    hostname: capsule
-  - id: yazr3uk82ens
-    title: rhel1
-    type: terminal
-    hostname: rhel1
-  - id: a7jlv9nvpp1v
-    title: Notepad
-    type: code
-    hostname: rhel1
-    path: /tmp/notepad
+- id: rmqgbwu2xgag
+  title: Satellite Server
+  type: terminal
+  hostname: satellite
+- id: y67rqamjfoif
+  title: Satellite Web UI
+  type: external
+  url: https://satellite.${_SANDBOX_ID}.instruqt.io
+- id: d50hfy6rsq8h
+  title: Capsule
+  type: terminal
+  hostname: capsule
+- id: yazr3uk82ens
+  title: rhel1
+  type: terminal
+  hostname: rhel1
+- id: a7jlv9nvpp1v
+  title: Notepad
+  type: code
+  hostname: rhel1
+  path: /tmp/notepad
 difficulty: ""
 timelimit: 0
 enhanced_loading: null
@@ -43,7 +42,8 @@ Red Hat Satellite Capsule Servers mirror content from Red Hat Satellite Server t
 
 Capsule Servers decrease the load on the central server, increase redundancy, and reduce bandwidth usage.
 
-# Synchronize the repositories containing capsule server software to the Satellite server
+Synchronize the repositories containing capsule server software to the Satellite server
+===
 
 We need to provide the following repositories to the capsule server.
 
@@ -147,7 +147,8 @@ ansible-playbook capsulerepos.yml
 
 The RHEL 9 repositories were synchronized in the background of this lab. The synchronization step should only take a few seconds.
 
-# Register the Capsule host with Satellite
+Register the Capsule host with Satellite
+===
 
 Register the host `capsule` with satellite.
 
@@ -163,7 +164,8 @@ hammer host-registration generate-command --insecure 1 --setup-insights 0 --forc
 > [!IMPORTANT]
 > Copy the output of this command from the [button label="Satellite Server"](tab-0) terminal, paste it into the [button label="Capsule"](tab-2) terminal, and run it.
 
-# Configure the repositories on the Capsule host
+Configure the repositories on the Capsule host
+===
 
 To install the capsule software, we have to configure the correct repositories. Run the following command in the [button label="Capsule"](tab-2) terminal to disable repos.
 
@@ -180,7 +182,8 @@ subscription-manager repos --enable=rhel-9-for-x86_64-baseos-rpms \
 --enable=satellite-maintenance-6.16-for-rhel-9-x86_64-rpms
 ```
 
-# Install the capsule software
+Install the capsule software
+===
 
 On the [button label="Capsule"](tab-2) server run the following command to install the capsule software.
 
@@ -191,7 +194,8 @@ dnf install satellite-capsule -y
 > [!NOTE]
 > While the capsule software is installing, you can proceed to the next step.
 
-# Export the Default SSL Certificate from the Satellite server
+Export the Default SSL Certificate from the Satellite server
+===
 
 On the [button label="Satellite Server"](tab-0), in the `Satellite Server` terminal, create a directory to store the SSL certificate.
 
@@ -219,7 +223,8 @@ Here's what the output should look like.
 > A Notepad has been provided in the [button label="Notepad"](tab-4) tab. You can copy and paste the registration command to it.
 > ![](../assets/notepad.png) > ![](../assets/notepad2.png)
 
-# Copy the certificate from `satellite.lab` to `capsule.lab`
+Copy the certificate from `satellite.lab` to `capsule.lab`
+===
 
 Copy the certificate from[button label="Satellite Server"](tab-0) to `capsule.lab`. In the [button label="Satellite Server"](tab-0) run the following command.
 
@@ -229,7 +234,8 @@ scp -o StrictHostKeyChecking=no /root/capsule_cert/capsule.lab-certs.tar capsule
 
 ![scp cert](../assets/scpcerts.png)
 
-# Run the capsule configuration task
+Run the capsule configuration task
+===
 
 Before proceeding, check that the capsule software installation is complete.
 
@@ -246,7 +252,8 @@ Here's what the output should look like.
 > [!WARNING]
 > Capsule configuration takes about 5 minutes to complete.
 
-# Configure lifecycle environment and content views
+Configure lifecycle environment and content views
+===
 
 At present, the capsule server `capsule.lab` cannot provide any software. To do so, we must synchronize metadata to `capsule.lab`, that is, information about the software and repositories available to `satellite.lab`. It is possible to synchronize all metadata and software packages to `capsule.lab` but it can take a lot of time and consume a lot of storage. We control the synchronization of software repositories to capsule servers through lifecycle environments.
 
@@ -315,7 +322,8 @@ This playbook creates the LCE named "Capsule Production" and the content view "R
 > [!NOTE]
 > For the purposes of this lab, all of this content has been seeded to the satellite server so the synchronization should take only a few minutes.
 
-# Configure satellite.lab to replicate the Capsule Production lifecycle environment to capsule.lab
+Configure satellite.lab to replicate the Capsule Production lifecycle environment to capsule.lab
+===
 
 In the `Satellite Web UI`, navigate to the capsule menu.
 
@@ -356,7 +364,8 @@ Click on `Optimized Sync` to synchronize repo metadata to the capsule.
 >
 > We left the `Download Policy` on the default setting of `On Demand`. This means that metadata will be synchronized to the capsule server but the software will only be synchronized on-demand, when a host makes the request to the capsule server to install software.
 
-# Migrate rhel1 to the capsule server.
+Migrate rhel1 to the capsule server.
+===
 
 In the [button label="rhel1"](tab-3) terminal enter the following command to view the redhat.repo file.
 
