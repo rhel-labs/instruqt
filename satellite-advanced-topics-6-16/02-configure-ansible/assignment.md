@@ -62,7 +62,7 @@ Next, click `run` below to write the following ansible playbook.
 ```bash,run
 tee ~/config.yml << EOF
 ---
-- name: Configure Satellite 6.15
+- name: Configure Satellite 6.16
   hosts: localhost
   remote_user: root
 
