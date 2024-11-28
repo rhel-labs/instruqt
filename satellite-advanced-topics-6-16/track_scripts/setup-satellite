@@ -6,6 +6,9 @@ until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]; do
     sleep 1
 done
 
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+subscription-manager repos --enable=rhel-9-for-x86_64-baseos-rpms --enable=rhel-9-for-x86_64-appstream-rpms --enable=satellite-6.16-for-rhel-9-x86_64-rpms --enable=satellite-maintenance-6.16-for-rhel-9-x86_64-rpms
+
 echo "export LANG=en_US.UTF-8" >> /root/.bashrc
 
 # Add the following hosts to /etc/hosts

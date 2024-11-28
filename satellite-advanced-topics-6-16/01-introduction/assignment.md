@@ -27,7 +27,7 @@ enhanced_loading: null
 <!-- markdownlint-disable MD033 -->
 The lab environment consists of the following
 
-1. Two Red Hat Satellite 6.15.x Servers (Satellite is preinstalled)
+1. Two Red Hat Satellite Servers (Satellite is preinstalled)
 2. One Red Hat Enterprise Linux 9 host
 3. One capsule server.
 
