@@ -6,8 +6,6 @@ virtualmachines:
   environment:
     TERM: xterm
   machine_type: n1-standard-1
-  memory: 4096
-  cpus: 1
   allow_external_ingress:
   - http
   - https
@@ -18,8 +16,6 @@ virtualmachines:
   environment:
     TERM: xterm
   machine_type: n1-standard-4
-  memory: 16384
-  cpus: 4
   allow_external_ingress:
   - http
   - https
@@ -30,8 +26,6 @@ virtualmachines:
   environment:
     TERM: xterm
   machine_type: n1-standard-4
-  memory: 16384
-  cpus: 4
   allow_external_ingress:
   - http
   - https
@@ -42,8 +36,6 @@ virtualmachines:
   environment:
     TERM: xterm
   machine_type: n1-standard-1
-  memory: 4096
-  cpus: 1
   allow_external_ingress:
   - http
   - https
