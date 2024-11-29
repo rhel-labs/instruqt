@@ -24,11 +24,11 @@ Now that you have verified the RHEL system meets all the expected conditions, it
 (Note: This process will take awhile.)
 
 ```bash,run
-leapp upgrade --target 9.4
+leapp upgrade --target 9.5
 ```
 
 <pre class=file>
-# leapp upgrade --target 9.4
+# leapp upgrade --target 9.5
 ==> Processing phase `configuration_phase`
 ====> * ipu_workflow_config
         IPU workflow config actor

@@ -19,11 +19,11 @@ Running the pre-upgrade assistant and resolving issues
 Built into the leapp tool is a utility that collects data about the system, assesses upgradability, and generates a pre-upgrade report. On your lab system, perform the pre-upgrade test: (This process will take a couple minutes.)
 
 ```bash,run
-leapp preupgrade --target 9.4
+leapp preupgrade --target 9.5
 ```
 
 <pre class=file>
-# leapp preupgrade --target 9.4
+# leapp preupgrade --target 9.5
 ==> Processing phase `configuration_phase`
 ====> * ipu_workflow_config
         IPU workflow config actor
