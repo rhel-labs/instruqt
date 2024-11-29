@@ -11,6 +11,7 @@ tabs:
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel08
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Running the pre-upgrade assistant and resolving issues
 ===

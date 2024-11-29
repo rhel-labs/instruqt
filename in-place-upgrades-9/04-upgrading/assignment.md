@@ -15,6 +15,7 @@ tabs:
   hostname: webconsole
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Running the upgrade
 ===
