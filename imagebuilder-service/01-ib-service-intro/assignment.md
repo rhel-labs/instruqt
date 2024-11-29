@@ -24,6 +24,7 @@ tabs:
   hostname: console
 difficulty: basic
 timelimit: 3000
+enhanced_loading: null
 ---
 >_NOTE:_ To make the inline images larger, expand this window.
 ![Menu Slider](../assets/slider.png)
