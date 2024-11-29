@@ -53,3 +53,13 @@ EOT
 chmod 700 /usr/local/sbin/wg-startup.sh
 restorecon -Fvvv /usr/local/sbin/wg-startup.sh
 systemctl enable wg-startup
+
+# add hosts entry for 192.0.2.5 capsule.lab capsule
+hostnamectl set-hostname capsule.lab
+cat <<EOT >> /etc/hosts
+192.0.2.5 capsule.lab capsule
+EOT
+
+# DISABLE COCKPIT
+systemctl stop cockpit.socket
+systemctl disable cockpit.socket

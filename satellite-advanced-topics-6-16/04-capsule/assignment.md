@@ -158,7 +158,7 @@ You can generate a host registration script on the [button label="Satellite Serv
 > This registration script is specific to the capsule and provides access to RHEL 9 repos.
 
 ```bash,run
-hammer host-registration generate-command --insecure 1 --setup-insights 0 --force 1 --activation-key RHEL8
+hammer host-registration generate-command --insecure 1 --setup-insights 0 --force 1 --activation-key RHEL9
 ```
 
 > [!IMPORTANT]
