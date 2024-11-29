@@ -28,6 +28,7 @@ tabs:
   title: RHEL
   type: terminal
   hostname: host
+  cmd: ssh -o "StrictHostKeyChecking no" root@rhel08
 difficulty: basic
 timelimit: 3000
 enhanced_loading: null
