@@ -52,3 +52,6 @@ nmcli con import type wireguard file /etc/wireguard/wg0.conf
 
 # dnsmasq is set to disabled. Since wg0 doesn't exist at startup, dnsmasq will error out since it's configured to do stuff with wg0.
 systemctl enable --now dnsmasq
+
+# This file is needed for challenge 5.
+wget https://github.com/myee111/hello-rpm/releases/download/0.0.1/hello-0.0.1-1.el9.noarch.rpm
