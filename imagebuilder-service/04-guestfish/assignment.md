@@ -14,6 +14,7 @@ tabs:
   url: https://cloud.redhat.com
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 `guestfish` is the Guest Filesystem Shell, and is one tool that can be used to view or modify your newly created image. Today we're going to use it to check that the partition table we asked Image Builder to layout actually applied.
 

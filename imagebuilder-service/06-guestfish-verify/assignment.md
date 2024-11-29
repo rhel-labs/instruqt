@@ -14,6 +14,7 @@ tabs:
   url: https://cloud.redhat.com
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Now that we think our changes in place, it's a good idea to verify them.  We can go back to guestfish and look at the files in place on the system.
 

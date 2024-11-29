@@ -14,6 +14,7 @@ tabs:
   url: https://cloud.redhat.com
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 `virt-customize` is another libguestfs interface tool that will let you edit a disk image.  `guestfish` is great for interactive editing (and is of course able to be scripted), and `virt-customize` is better for actions that are carried out automatically.
 

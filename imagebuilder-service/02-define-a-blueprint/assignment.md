@@ -10,11 +10,14 @@ tabs:
   hostname: console
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 >_NOTE:_ To make the inline images larger, expand this window.
 ![Menu Slider](../assets/slider.png)
 
-Press the `Create blueprint` button and you will be brought to the Create image wizard.  This wizard will ask you to define several aspects of your new image.  Image builder can define a custom filesystem layout, add packages to your image, and even send it right to your cloud provier if you'd like.
+Press the `Create blueprint` button and you will be brought to the Create image wizard.  This wizard will ask you to define several aspects of your new image.  Image builder can define a custom filesystem layout, add packages to your image, and even send it right to your cloud provider if you'd like.
+
+![](../assets/createblueprintbutton.png)
 
 ## Step 1: Specify image format
 =======================
@@ -30,7 +33,7 @@ With these options selected, Press `Next`.
 ==========================================
 Step 2 is all about how you would like to register this system.  Even in the cloud, this type of image assumes you will be bringing your own subscription.  You can register automatically with an activation key, or you can choose to register yourself later (either manually or using automation).
 
-To keep this lab simple, let's choose to `Register later`
+To keep this lab simple, let's clear the checkbox from `Automatically register and enable advanced capabilities`
 
 ![Image Builder Step 2](../assets/ib-step2.png)
 
@@ -40,7 +43,7 @@ Now press the `Next` button.
 ===========================
 In Step 3, you can select an OpenSCAP profile.  This will apply an OpenSCAP compliance policy to this image when it is built.  This is great for environments that must adhere to compliance standards, or admins that are just looking to add some security best practices to their base image.
 
-For this lab, we'll leave this set to None, and press Next.
+For this lab, we'll leave this dropdown field blank, and press Next.
 
 ## Step 4: Partitioning storage
 ===============================
@@ -60,13 +63,17 @@ Once your partition table looks like the one pictured above, press `Next`.
 
 ## Step 5: Specify software
 ===========================
-Step 5 lets us select packages that we would like installed on our system.  The base image produced by Image Builder is intended to be small, and make very few assumptions about your desired package set.  So having the ability to add in packages here can save you time later.  For this lab, let's leave the default package set in place.  Just be aware that if you wanted to add some packages, you could do so in this step.
+Step 5 lets us select packages that we would like installed on our system.  The base image produced by Image Builder is intended to be small, and make very few assumptions about your desired package set.  So having the ability to add in packages here can save you time later.  For this lab, let's leave the default package set in place by leaving the radio button to select `Use latest content`. Just be aware that if you wanted to add some packages, you could do so in this step.
 
 Press the `Next` button.
 
+Click `Next` until you reach the `Details` menu.
+
+![](../assets/detailsmenu.png)
+
 ## Step 6: Name your image
 ==========================
-On Step 6 you'll just need to give your image a name.  This should be unique, so try something like `rhelworkshop-(your initials)`
+On Step 6 you'll just need to give your image blueprint a name.  This should be unique, so try something like `rhelworkshop-(your initials)`
 
 ![Image Builder Step 5](../assets/ib-step5.png)
 

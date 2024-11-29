@@ -14,6 +14,7 @@ tabs:
   url: https://cloud.redhat.com
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 In the tab labelled `Terminal` you should find a RHEL 9 system.  On that system, in your home directory, there is a disk image named:
 
