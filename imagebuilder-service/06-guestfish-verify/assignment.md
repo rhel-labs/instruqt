@@ -20,7 +20,7 @@ Now that we think our changes in place, it's a good idea to verify them.  We can
 
 >_NOTE_: The -i option for guestfish tells the tool to inspect the disk, and mount it for you. So we won't have to go through the steps of listing, and then mounting disk partitions.
 
-```bash
+```bash,run
 guestfish -a ./composer-api-ee3492f7-5d95-4c1b-a223-bbf04b9adef4-disk.qcow2 -i
 ```
 
@@ -44,7 +44,7 @@ Operating system: Red Hat Enterprise Linux 9.1 (Plow)
 
 In the last step, we set the root password, and we added a sudoers drop-in.  Let's make sure both of the changes are in place.
 
-```bash
+```bash,run
 grep root /etc/shadow
 ```
 
@@ -59,7 +59,7 @@ root:$6$f.IB9InB1qla9fYT$OeOiVqhs5CMg/qx3xD7tvan0gIz.0mVJM.P3y0FEhRQqcTJhgiHPlDw
 
 Now, what about that sudoers drop in?
 
-```bash
+```bash,run
 ll /etc/sudoers.d
 ```
 
@@ -75,7 +75,7 @@ drwxr-xr-x. 92 root root 8192 Mar 27 16:48 ..
 
 We can see that the file `superusers` is present, and the permissions are as we expect them.  Let's view the contents
 
-```bash
+```bash,run
 cat /etc/sudoers.d/superusers
 ```
 <pre>
@@ -87,7 +87,7 @@ Cmnd_Alias SERVICES = /usr/bin/systemctl start sshd, /usr/bin/systemctl stop ssh
 
 You can now exit guestfish with `exit`
 
-```bash
+```bash,run
 exit
 ```
 

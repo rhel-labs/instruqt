@@ -20,7 +20,7 @@ enhanced_loading: null
 
 First lets launch guestfish this utility is part of the libguestfs-tools package, and has already been installed on this system.
 
-```bash
+```bash,run
 guestfish -a composer-api-ee3492f7-5d95-4c1b-a223-bbf04b9adef4-disk.qcow2
 ```
 
@@ -39,13 +39,13 @@ Type: ‘help’ for help on commands
 
 Once we're at the `<fs>` prompt, we have to tell guestfish to initialize the libguestfs library and attach to the disk with the `run` command.
 
-```bash
+```bash,run
 run
 ```
 
 And then we can ask it to list filesystems with the `list-filesystems` command
 
-```bash
+```bash,run
 list-filesystems
 ```
 
@@ -63,12 +63,12 @@ You should see the following:
 
 You can also view, or edit files interactively with guestfish. You'll need to mount a filesystem, and then you can interact with it similarly to bash. Let's try that.
 
-```bash
+```bash,run
 mount /dev/rootvg/rootlv /
 ```
 Then let's see what `ls /` gives us.
 
-```bash
+```bash,run
 ls /
 ```
 
@@ -104,7 +104,7 @@ In the next step we'll look at another libguestfs related tool, `virt-customize`
 
 You can exit guestfish with `exit`
 
-```bash
+```bash,run
 exit
 ```
 

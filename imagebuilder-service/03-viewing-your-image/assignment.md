@@ -26,7 +26,7 @@ This image was built using the Image Builder service, using the same instruction
 
 Using the `file` command line utility shows us that the resulting image is a QEMU qcow2 disk image.
 
-```bash
+```bash,run
 file composer-api-ee3492f7-5d95-4c1b-a223-bbf04b9adef4-disk.qcow2
 ```
 `composer-api-ee3492f7-5d95-4c1b-a223-bbf04b9adef4-disk.qcow2: QEMU QCOW2 Image (v3), 18991808512 bytes`
