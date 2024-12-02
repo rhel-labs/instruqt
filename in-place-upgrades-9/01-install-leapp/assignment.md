@@ -120,5 +120,5 @@ leapp --version
 
 <pre class=file>
 # leapp --version
-leapp version 0.17.0
+leapp version 0.18.0
 </pre>

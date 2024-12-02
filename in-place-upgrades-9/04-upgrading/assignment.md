@@ -11,8 +11,13 @@ tabs:
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel08
 - id: kecxhjymlzyy
   title: RHEL Web Console
-  type: browser
-  hostname: webconsole
+  type: website
+  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
+- id: 5fqpqelmm5ok
+  title: Terminal Session
+  type: terminal
+  hostname: host
+  cmd: virsh console rhel08
 difficulty: basic
 timelimit: 1
 enhanced_loading: null
