@@ -28,7 +28,6 @@ owner: rhel
 developers:
 - ehendric@redhat.com
 - myee@redhat.com
-maintenance: true
 show_timer: true
 timelimit: 3060
 lab_config:
@@ -39,5 +38,5 @@ lab_config:
   hideStopButton: false
   default_layout: AssignmentRight
   default_layout_sidebar_size: 33
-checksum: "17331783139953062630"
+checksum: "13672482477776544322"
 enhanced_loading: false
