@@ -14,6 +14,7 @@ tabs:
   type: browser
   hostname: webconsole
 difficulty: basic
+enhanced_loading: null
 ---
 # Running the upgrade
 
