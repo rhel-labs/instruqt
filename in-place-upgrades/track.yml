@@ -28,14 +28,16 @@ owner: rhel
 developers:
 - ehendric@redhat.com
 - myee@redhat.com
+maintenance: true
 show_timer: true
 timelimit: 3060
 lab_config:
   feedback_recap_enabled: true
   feedback_tab_enabled: false
   loadingMessages: true
+  override_challenge_layout: false
   hideStopButton: false
   default_layout: AssignmentRight
   default_layout_sidebar_size: 33
-checksum: "6486768010175293188"
+checksum: "11577890390152324047"
 enhanced_loading: false
