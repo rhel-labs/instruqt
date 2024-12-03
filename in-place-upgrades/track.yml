@@ -33,7 +33,9 @@ timelimit: 3060
 lab_config:
   feedback_recap_enabled: true
   feedback_tab_enabled: false
+  feedback_tab_enabled: false
   loadingMessages: true
+  override_challenge_layout: false
   override_challenge_layout: false
   hideStopButton: false
   default_layout: AssignmentRight
