@@ -4,30 +4,55 @@ id: jpf3l5dgonih
 type: challenge
 title: Running the Upgrade
 tabs:
-- id: t70ednspl4ez
-  title: RHEL
+- id: 5fqpqelmm5ok
+  title: Serial Port
   type: terminal
   hostname: host
-  cmd: ssh -o "StrictHostKeyChecking no" root@rhel08
-- id: kecxhjymlzyy
-  title: RHEL Web Console
-  type: browser
-  hostname: webconsole
+  cmd: virsh console rhel08
 difficulty: basic
 timelimit: 1
+lab_config:
+  custom_layout: '{"root":{"children":[{"leaf":{"tabs":["t70ednspl4ez","5fqpqelmm5ok"],"activeTabId":"5fqpqelmm5ok","size":66}},{"leaf":{"tabs":["assignment"],"activeTabId":"assignment","size":32}}],"orientation":"Horizontal"}}'
+enhanced_loading: null
 ---
-Running the upgrade
+
+Log into the serial port console
+===
+
+This challenge will be run from the `Serial Port` tab which is a serial port console.
+
+Hit enter on your keyboard to bring up the login prompt.
+
+Login as the user `rhel`.
+
+```bash,run
+rhel
+```
+
+Enter the password `redhat`.
+
+```bash,run
+redhat
+```
+
+Change to the super user account.
+
+```bash,run
+sudo -i
+```
+
+Run the upgrade
 ===
 
 Now that you have verified the RHEL system meets all the expected conditions, it is time to kick off the upgrade process:
 (Note: This process will take awhile.)
 
 ```bash,run
-leapp upgrade --target 9.4
+leapp upgrade --target 9.5 --reboot
 ```
 
 <pre class=file>
-# leapp upgrade --target 9.4
+# leapp upgrade --target 9.5
 ==> Processing phase `configuration_phase`
 ====> * ipu_workflow_config
         IPU workflow config actor
@@ -55,99 +80,43 @@ A report has been generated at /var/log/leapp/leapp-report.txt
 Answerfile has been generated at /var/log/leapp/answerfile
 </pre>
 
-> [!IMPORTANT]
-> The Leapp process can take upwards of 15 minutes to run.
-<!-- The Leapp process can take upwards of 15 minutes to run. Instead of waiting for that process to complete, a second server has been running the upgrade in the background. If you would like to save some time switch to the 'webconsole' tab to finish the **Verifying the upgrade** section. -->
+Leapp is performing several actions inside a temporary environment. This includes creating a new initramfs image, relabeling SELinux contexts, and well as cleaning up any remaining RHEL 8 packages. Included is a reboot process that can take up to 15 minutes.
 
-<!-- ![rhelTabs.png](../assets/rhelTabs.png)
+Verify the upgrade
+===
+Once the new initramfs image is in place, package updates run, and SELinux relabel completion, the system will perform one final reboot.
 
-The upgrade has only been _staged_; it has not been completed at this point. A reboot is required for the RHEL 9-based initial RAM disk image (initramfs), upgrades all packages and automatically reboots to the RHEL 9 system. -->
-If you would like to proceed with the lab without waiting for the upgrade to complete, click on the `Upgraded RHEL` tab and continue in that terminal. You can skip the reboot step below. Proceed to the step `Verifying the upgrade` below.
+Once that is done, you must log into the system's terminal.
 
-A reboot is required for the RHEL 9-based initial RAM disk image (initramfs), upgrades all packages and automatically reboots to the RHEL 9 system.
-
-> [!NOTE]
-> You can combine these two steps with the --reboot option
-> `leapp upgrade --target 9.4 --reboot`
-
+Log in with this username.
 ```bash,run
-reboot
-```
-
-Now, leapp is performing several actions inside a temporary environment. This includes creating a new initramfs image, relabeling SELinux contexts, and well as cleaning up any remaining RHEL 8 packages. The reboot process can take up to 15 minutes.
-
-The `Optional step` below shows how you can view the reboot/upgrade process.
-
-Verifying Reboot (Optional)
-=============
-This step is optional but it may provide insight into the upgrade process. This lab provides a web console UI to the virtual machine host. You can log into the web UI to view the upgrade process after `reboot` has been executed.
-
-Click on `RHEL Web Console`to log into the web UI.
-
-![web console tab](../assets/rhelwebconsoletab.png)
-
-Use the following credentials to log into the web console.
-
-Username
-```
 rhel
 ```
 
-Password
-```
+Enter this password.
+```bash,run
 redhat
 ```
 
-![web ui login](../assets/webuilogin.png)
+Finally, we will verify the update was successful by looking at the release file we referenced earlier in the lab:
 
-Next, give yourself administrative access by clicking on the button `Turn on administrative access` and entering the password `redhat` again.
-
-![admin](../assets/adminaccess.png)
-
-Navigate to `Virtual machines`
-
-![vms](../assets/virtualmachines.png)
-
-Click on `rhel08`
-![rhel07](../assets/rhel07.png)
-
-Select the `Serial Console`.
-
-![](../assets/serialconsole.png)
-
-You can now view the upgrade process in the console window.
-
-![console](../assets/console.png)
-
-Please continue to `Verifying the upgrade` below.
-
-Verifying the upgrade
-=====================
-Once the new initramfs image is in place, package updates run, and SELinux relabel completion, the system will perform one final reboot.
-
-Refresh the Instruqt console to log back into your host, by clicking the button shown below.
-
-![console](../assets/refreshbutton.png)
-
-Once that is done, you will be logged into the system's terminal once more. Finally, we will verify the update was successful by looking at the release file we referenced earlier in the lab:
+Run the following command in the `RHEL` terminal.
 
 ```bash,run
 cat /etc/redhat-release
-
 ```
 
 Note that we are now running the latest version of RHEL 9!
 
 <pre class=file>
 # cat /etc/redhat-release
-Red Hat Enterprise Linux release 9.4 (Plow)
+Red Hat Enterprise Linux release 9.5 (Plow)
 </pre>
 
 OPTIONAL: You may also review the log file if you so choose. The full output is available at /var/log/leapp/leapp-upgrade.log
 
 ```bash,run
 sudo less /var/log/leapp/leapp-upgrade.log
-
 ```
 
 There are other methods for upgrading to the latest version of RHEL using the leapp tooling including the Web Console and Satellite. For those operations, refer to the documentation on Red Hat's website.

@@ -11,6 +11,7 @@ tabs:
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel08
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 
 You saw in the last step how Leapp produced an error in order to prevent a broken upgrade.  In order to fix this issue, you will need to disable this feature in the sshd configuration file:
@@ -19,7 +20,7 @@ You saw in the last step how Leapp produced an error in order to prevent a broke
 sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
 ```
 
-There are other risks that were identified. If you are curious what else LEAPP found, take a closer look at the log file mentioned in the previous step:
+There are other risks that were identified. If you are curious what else Leapp found, take a closer look at the log file mentioned in the previous step:
 
 ```bash,run
 cat /var/log/leapp/leapp-report.txt
@@ -28,11 +29,11 @@ cat /var/log/leapp/leapp-report.txt
 Re-run the preupgrade check to verify the change satisfied the result
 
 ```bash,run
-leapp preupgrade --target 9.4
+leapp preupgrade --target 9.5
 ```
 
 <pre class=file>
-# leapp preupgrade --target 9.4
+# leapp preupgrade --target 9.5
 ==> Processing phase `configuration_phase`
 ====> * ipu_workflow_config
         IPU workflow config actor

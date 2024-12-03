@@ -12,8 +12,8 @@ notes:
 
     ## Concepts included in this scenario:
 
-    * Run pre-upgrade analysis and troubleshoot
-    * Perform an in-place upgrade with LEAPP
+      * Run pre-upgrade analysis and troubleshoot
+      * Perform an in-place upgrade with Leapp
 
     For additional information refer to the leapp tool's documentation:
     https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/upgrading_from_rhel_8_to_rhel_9/index
@@ -31,6 +31,7 @@ tabs:
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel08
 difficulty: basic
 timelimit: 3000
+enhanced_loading: null
 ---
 What is Leapp?
 ===
@@ -119,5 +120,5 @@ leapp --version
 
 <pre class=file>
 # leapp --version
-leapp version 0.17.0
+leapp version 0.18.0
 </pre>
