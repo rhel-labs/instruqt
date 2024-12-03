@@ -11,9 +11,6 @@ echo "${SSHKEY}" > /root/.ssh/id_rsa
 chmod 600 /root/.ssh/id_rsa
 ssh-keygen -f /root/.ssh/id_rsa -y > /root/.ssh/id_rsa.pub
 
-# This sleep call is to give libvirt-nss time to find the ip address of the vm.
-sleep 20
-
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
 # Attempt to register the vm 3 times, waiting 30 seconds for each attempt.
