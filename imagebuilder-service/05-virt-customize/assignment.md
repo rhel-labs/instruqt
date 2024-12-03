@@ -43,7 +43,7 @@ virt-customize -a ./composer-api-ee3492f7-5d95-4c1b-a223-bbf04b9adef4-disk.qcow2
 [  13.3] Finishing off
 </pre>
 
-`virt-customize` will also let us copy files in place. and set permissions.  Let's say we've got a sudoers drop-in we'd like in place on all of our systems.  In your home directory is a drop-in to allow users in the `superusers` group to control the `sshd` service.
+`virt-customize` will also let us copy files in place and set permissions.  Let's say we've got a sudoers drop-in we'd like in place on all of our systems.  In your home directory is a drop-in to allow users in the `superusers` group to control the `sshd` service.
 
 ```bash,run
 virt-customize -a ./composer-api-ee3492f7-5d95-4c1b-a223-bbf04b9adef4-disk.qcow2 --copy-in superusers:/etc/sudoers.d/
