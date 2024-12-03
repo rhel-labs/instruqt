@@ -10,6 +10,7 @@ tabs:
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel07
 difficulty: basic
+enhanced_loading: null
 ---
 Running the pre-upgrade assistant and resolving issues
 ===
