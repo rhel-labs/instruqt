@@ -24,6 +24,7 @@ tabs:
   url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 
 Now we'll install system roles.

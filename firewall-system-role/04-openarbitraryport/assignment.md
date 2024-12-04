@@ -24,6 +24,7 @@ tabs:
   url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 
 In this challenge we'll open port 9999 on `rhelvm`.

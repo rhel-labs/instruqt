@@ -24,6 +24,7 @@ tabs:
   url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 
 The firewall system role can reset all settings to the default configuration found immediately after Red Hat Enterprise Linux is installed.

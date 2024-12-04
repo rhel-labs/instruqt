@@ -20,6 +20,7 @@ tabs:
   url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 
 For more details on using the firewall system role, please read this blog post: <https://www.redhat.com/en/blog/automating-firewall-configuration-rhel-system-roles>

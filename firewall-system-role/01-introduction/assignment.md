@@ -39,6 +39,7 @@ tabs:
   url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 3000
+enhanced_loading: null
 ---
 
 > _NOTE:_ To make the inline images larger, expand this window. ![Menu Slider](../assets/slider.png)
