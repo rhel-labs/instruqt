@@ -22,14 +22,16 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
+maintenance: true
 show_timer: true
 skipping_enabled: true
 lab_config:
   feedback_recap_enabled: true
   feedback_tab_enabled: false
   loadingMessages: true
+  override_challenge_layout: false
   hideStopButton: false
   default_layout: AssignmentRight
   default_layout_sidebar_size: 33
-checksum: "11125271368300955011"
+checksum: "6975420003751985480"
 enhanced_loading: false
