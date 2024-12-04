@@ -29,10 +29,11 @@ developers:
 show_timer: true
 timelimit: 3000
 lab_config:
-  overlay: false
-  width: 25
-  position: right
   feedback_recap_enabled: true
+  feedback_tab_enabled: false
   loadingMessages: true
   hideStopButton: false
-checksum: "10870154030118367799"
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 25
+checksum: "405929616339159266"
+enhanced_loading: false
