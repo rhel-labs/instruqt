@@ -14,10 +14,10 @@ tabs:
   hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing"
 - id: nnyy6ah7iqm2
-  title: rhelvm
+  title: vm1
   type: terminal
   hostname: controlnode
-  cmd: tmux attach-session -t "firewall-testing-rhelvm"
+  cmd: tmux attach-session -t "firewall-testing-vm1"
 - id: 3kbmycpyr2no
   title: controlnode Web Console
   type: external
@@ -27,7 +27,7 @@ timelimit: 1
 enhanced_loading: null
 ---
 
-In this challenge we'll forward incoming tcp requests to rhelvm on port 9999 to 12345.
+In this challenge we'll forward incoming tcp requests to vm1 on port 9999 to 12345.
 
 In the [button label="controlnode"](tab-0) terminal, add the lines `- forward_port: '9999/tcp;12345;'` and
 `state: enabled`.
@@ -35,7 +35,7 @@ In the [button label="controlnode"](tab-0) terminal, add the lines `- forward_po
 <pre>
 all:
   hosts:
-    rhelvm:
+    vm1:
   vars:
     firewall:
       - service: http
@@ -61,7 +61,7 @@ Now run the playbook in the [button label="controlnode"](tab-0) terminal.
 ansible-playbook -i hosts -b firewall.yml
 ```
 
-In the [button label="rhelvm"](tab-1) terminal, run `nc`, listening on port 12345.
+In the [button label="vm1"](tab-1) terminal, run `nc`, listening on port 12345.
 
 ```bash,run
 nc -l 12345
@@ -70,7 +70,7 @@ nc -l 12345
 In the [button label="controlnode"](tab-0) terminal, run `nc` and then type some stuff.
 
 ```bash,run
-nc rhelvm 9999
+nc vm1 9999
 ```
 
 ![ncport9999](../assets/portforward.png)

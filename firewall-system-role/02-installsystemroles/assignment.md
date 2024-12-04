@@ -14,10 +14,10 @@ tabs:
   hostname: controlnode
   cmd: tmux attach-session -t "firewall-testing"
 - id: xjo3jxzqs5od
-  title: rhelvm
+  title: vm1
   type: terminal
   hostname: controlnode
-  cmd: tmux attach-session -t "firewall-testing-rhelvm"
+  cmd: tmux attach-session -t "firewall-testing-vm1"
 - id: dl1pzm38ev9g
   title: controlnode Web Console
   type: external
