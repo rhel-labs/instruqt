@@ -9,6 +9,7 @@ tabs:
   type: terminal
   hostname: host1
 difficulty: basic
+enhanced_loading: null
 ---
 Configuring DNS
 ===
