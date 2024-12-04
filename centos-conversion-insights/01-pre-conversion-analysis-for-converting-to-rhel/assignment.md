@@ -124,7 +124,7 @@ In the search bar, enter the following.
 rhel tasks
 ```
 
-2) Click on `RHEL Tasks`
+2) Click on `Tasks | RHEL`
 
 ![](../assets/tasksnew.png)
 
@@ -173,6 +173,13 @@ To view the `convert2rhel` logs, enter the following in the cli of the `centos` 
 tail -f /var/log/convert2rhel/convert2rhel.log
 ```
 ![tail logs](../assets/viewlogs.png)
+
+> [!WARNING]
+> The `tail -f /var/log/convert2rhel/convert2rhel.log` may result in the following error below because there may be a delay between the previous operation to run the pre-conversion analysis and your centos host running the task.
+> ```
+> tail: cannot open ‘/var/log/convert2rhel/convert2rhel.log’ for reading: No such file or directory
+> tail: no files remaining
+> ```
 
 To view the status of the task in Insights, click on the `Activity` tab.
 
