@@ -1,11 +1,11 @@
 version: "3"
 virtualmachines:
 - name: controlnode
-  image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-4-06-04-24
+  image: projects/tmm-instruqt-11-26-2021/global/images/virt-rhel-9-5-11-29-24
   shell: /bin/bash
   environment:
     TERM: xterm
-  machine_type: n1-standard-2
+  machine_type: n1-standard-4
   allow_external_ingress:
   - http
   - https

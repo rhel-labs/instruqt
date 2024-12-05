@@ -12,18 +12,20 @@ tabs:
   title: controlnode
   type: terminal
   hostname: controlnode
-  cmd: tmux attach-session -t "firewall-testing"
 - id: xjo3jxzqs5od
-  title: rhelvm
+  title: vm1
   type: terminal
   hostname: controlnode
-  cmd: tmux attach-session -t "firewall-testing-rhelvm"
+  cmd: ssh -i /root/.ssh/id_rsa -o "StrictHostKeyChecking no" root@vm1
 - id: dl1pzm38ev9g
   title: controlnode Web Console
   type: external
   url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
+lab_config:
+  custom_layout: '{"root":{"children":[{"branch":{"size":66,"children":[{"leaf":{"tabs":["fawzh4mfupxy","dl1pzm38ev9g"],"activeTabId":"fawzh4mfupxy","size":49}},{"leaf":{"tabs":["xjo3jxzqs5od"],"activeTabId":"xjo3jxzqs5od","size":49}}]}},{"leaf":{"tabs":["assignment"],"activeTabId":"assignment","size":33}}],"orientation":"Horizontal"}}'
+enhanced_loading: null
 ---
 
 Now we'll install system roles.
@@ -37,6 +39,9 @@ Enter the following command.
 ```bash,run
 dnf install rhel-system-roles -y
 ```
+> [!NOTE]
+> You can click on the `run` button and select the terminal where you wish to run the command.
+> ![](../assets/runbutton.png)
 
 The resulting output will look similar to the output below.
 
