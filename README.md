@@ -13,16 +13,6 @@ Learn about how you can obtain a free Red Hat Enterprise Linux subscription here
 Documentation for this repository is stored in the wiki section here:
 [https://github.com/rhel-labs/instruqt/wiki](https://github.com/rhel-labs/instruqt/wiki)
 
-## Helper Script
-
-This script is used for making bulk changes to the labs like modifying all the VM images.
-
-<https://github.com/rhel-labs/instruqt-update-helper>
-
-## Red Hat Internal Documentation
-
-[Google Doc](https://docs.google.com/document/d/1WozkbDSJD7L850HAfIrQw7ifXuJlm-hDzU7-CCe6S7Q/edit#heading=h.pi65ypczlg9y)
-
 ## Requests for new labs, bugs
 
 To request new features, labs, or to report bugs, please create a new issue.
