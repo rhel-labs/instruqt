@@ -27,18 +27,19 @@ tabs:
   title: controlnode
   type: terminal
   hostname: controlnode
-  cmd: tmux attach-session -t "firewall-testing"
 - id: yapmn6f1xgcj
   title: vm1
   type: terminal
   hostname: controlnode
-  cmd: tmux attach-session -t "firewall-testing-vm1"
+  cmd: ssh -i /root/.ssh/id_rsa -o "StrictHostKeyChecking no" root@vm1
 - id: 3nmln4oousqe
   title: controlnode Web Console
   type: external
   url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 3000
+lab_config:
+  custom_layout: '{"root":{"children":[{"branch":{"size":66,"children":[{"leaf":{"tabs":["d2teuijqhcov","3nmln4oousqe"],"activeTabId":"d2teuijqhcov","size":49}},{"leaf":{"tabs":["yapmn6f1xgcj"],"activeTabId":"yapmn6f1xgcj","size":49}}]}},{"leaf":{"tabs":["assignment"],"activeTabId":"assignment","size":33}}],"orientation":"Horizontal"}}'
 enhanced_loading: null
 ---
 
