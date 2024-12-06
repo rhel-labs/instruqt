@@ -25,7 +25,6 @@ description: |
   Compliance, Patch, and more.  We may add additional labs targeted to those
   Insights applications as well.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
-level: beginner
 tags:
 - rhel
 - insights
@@ -34,13 +33,15 @@ developers:
 - wkibbe@redhat.com
 - myee@redhat.com
 - nlager@redhat.com
+maintenance: true
 show_timer: true
 lab_config:
   feedback_recap_enabled: true
   feedback_tab_enabled: false
   loadingMessages: true
+  override_challenge_layout: false
   hideStopButton: false
   default_layout: AssignmentRight
   default_layout_sidebar_size: 25
-checksum: "5513668101406263961"
+checksum: "7539978593567654254"
 enhanced_loading: false
