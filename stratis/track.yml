@@ -1,6 +1,6 @@
 slug: stratis
 id: sxgqw12euntx
-title: Configure Stratis with the cli
+title: Configure Stratis with the command line interface
 description: |-
   This lab is intended to provide an introduction to using Stratis,
 
@@ -30,10 +30,11 @@ show_timer: true
 skipping_enabled: true
 timelimit: 3060
 lab_config:
-  overlay: false
-  width: 33
-  position: right
   feedback_recap_enabled: true
+  feedback_tab_enabled: false
   loadingMessages: true
   hideStopButton: false
-checksum: "18049535970445622798"
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 33
+checksum: "6161574547896302378"
+enhanced_loading: false

@@ -32,6 +32,7 @@ tabs:
   type: external
   url: https://host1.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
+enhanced_loading: null
 ---
 What is NetworkManager?
 ===

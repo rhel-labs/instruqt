@@ -27,18 +27,20 @@ tabs:
   title: controlnode
   type: terminal
   hostname: controlnode
-  cmd: tmux attach-session -t "firewall-testing"
 - id: yapmn6f1xgcj
-  title: rhelvm
+  title: vm1
   type: terminal
   hostname: controlnode
-  cmd: tmux attach-session -t "firewall-testing-rhelvm"
+  cmd: ssh -i /root/.ssh/id_rsa -o "StrictHostKeyChecking no" root@vm1
 - id: 3nmln4oousqe
   title: controlnode Web Console
   type: external
   url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 3000
+lab_config:
+  custom_layout: '{"root":{"children":[{"branch":{"size":66,"children":[{"leaf":{"tabs":["d2teuijqhcov","3nmln4oousqe"],"activeTabId":"d2teuijqhcov","size":49}},{"leaf":{"tabs":["yapmn6f1xgcj"],"activeTabId":"yapmn6f1xgcj","size":49}}]}},{"leaf":{"tabs":["assignment"],"activeTabId":"assignment","size":33}}],"orientation":"Horizontal"}}'
+enhanced_loading: null
 ---
 
 > _NOTE:_ To make the inline images larger, expand this window. ![Menu Slider](../assets/slider.png)
@@ -46,17 +48,17 @@ timelimit: 3000
 This lab is composed of two hosts.
 
 1. controlnode
-2. rhelvm
+2. vm1
 
-In this lab, we will use the host `controlnode` as the "control node" or the node where we will install and run the firewall system role. Firewall changes will be applied to `rhelvm`.
+In this lab, we will use the host `controlnode` as the "control node" or the node where we will install and run the firewall system role. Firewall changes will be applied to `vm1`.
 
 We'll perform the following 3 tasks.
 
-1. We will use the firewall system role to open the appropriate port to access web servers on `rhelvm`. This exercise is to show how to open firewall ports by service.
+1. We will use the firewall system role to open the appropriate port to access web servers on `vm1`. This exercise is to show how to open firewall ports by service.
 
-2. As well, we will also use the firewall system role to open port 9999 on `rhelvm` to enable inbound tcp connections. This exercise is to show how to open an arbitrary firewall port.
+2. As well, we will also use the firewall system role to open port 9999 on `vm1` to enable inbound tcp connections. This exercise is to show how to open an arbitrary firewall port.
 
-3. Finally, we'll configure port forwarding from 9999 to port 12345 on `rhelvm`.
+3. Finally, we'll configure port forwarding from 9999 to port 12345 on `vm1`.
 
 ![afterapplying](../assets/firewallsystemrolesoverview.png)
 

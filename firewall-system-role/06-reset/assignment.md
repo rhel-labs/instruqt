@@ -12,32 +12,34 @@ tabs:
   title: controlnode
   type: terminal
   hostname: controlnode
-  cmd: tmux attach-session -t "firewall-testing"
 - id: bxbcchheqmw7
-  title: rhelvm
+  title: vm1
   type: terminal
   hostname: controlnode
-  cmd: tmux attach-session -t "firewall-testing-rhelvm"
+  cmd: ssh -i /root/.ssh/id_rsa -o "StrictHostKeyChecking no" root@vm1
 - id: aujpxtpak9ps
   title: controlnode Web Console
   type: external
   url: https://controlnode.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
+lab_config:
+  custom_layout: '{"root":{"children":[{"branch":{"size":66,"children":[{"leaf":{"tabs":["f3yybsmkw61s","aujpxtpak9ps"],"activeTabId":"f3yybsmkw61s","size":49}},{"leaf":{"tabs":["bxbcchheqmw7"],"activeTabId":"bxbcchheqmw7","size":49}}]}},{"leaf":{"tabs":["assignment"],"activeTabId":"assignment","size":33}}],"orientation":"Horizontal"}}'
+enhanced_loading: null
 ---
 
 The firewall system role can reset all settings to the default configuration found immediately after Red Hat Enterprise Linux is installed.
 
-We'll reset the firewall configuration in the `rhelvm` host.
+We'll reset the firewall configuration in the `vm1` host.
 
-First, in the [button label="rhelvm"](tab-1) terminal, list the current rules.
+First, in the [button label="vm1"](tab-1) terminal, list the current rules.
 
 ```bash,run
 firewall-cmd --list-all
 ```
 
 <pre>
-[root@rhelvm ~]# firewall-cmd --list-all
+[root@vm1 ~]# firewall-cmd --list-all
 public (active)
   target: default
   icmp-block-inversion: no
@@ -61,14 +63,14 @@ In the [button label="controlnode"](tab-0) terminal, we'll create a new host fil
 tee -a /root/reset << EOF
 all:
   hosts:
-    rhelvm:
+    vm1:
   vars:
     firewall:
       - previous: replaced
 EOF
 ```
 
-From the [button label="controlnode"](tab-0) terminal, run the playbook to reset the firewall rules on the `rhelvm` host.
+From the [button label="controlnode"](tab-0) terminal, run the playbook to reset the firewall rules on the `vm1` host.
 
 ```bash,run
 ansible-playbook -i reset -b firewall.yml
@@ -76,14 +78,14 @@ ansible-playbook -i reset -b firewall.yml
 
 ![reset output](../assets/resetplaybook.png)
 
-When the playbook as stopped running, switch to the [button label="rhelvm"](tab-1) terminal and check that the firewall rules have been reset.
+When the playbook as stopped running, switch to the [button label="vm1"](tab-1) terminal and check that the firewall rules have been reset.
 
 ```bash,run
 firewall-cmd --list-all
 ```
 
 <pre>
-[root@rhelvm ~]# firewall-cmd --list-all
+[root@vm1 ~]# firewall-cmd --list-all
 public (active)
   target: default
   icmp-block-inversion: no

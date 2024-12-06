@@ -10,6 +10,7 @@ tabs:
   hostname: host
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel07
 difficulty: basic
+enhanced_loading: null
 ---
 
 You saw in the last step how Leapp produced an error. In this scenario, PAM modules are not in use. It is therefore safe to skip this check. To do so, replace the commented line `# confirm =` with a true statement.
