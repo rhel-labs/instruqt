@@ -4,12 +4,14 @@ id: ooam5wxh9ddj
 type: challenge
 title: Navigating the Insights service
 tabs:
-- title: Terminal
+- id: dpyml0m6wpbp
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 
 Now that you have opened Red Hat Insights for Red Hat Enterprise Linux, you will see a summary dashboard of all systems registered to your organization.

@@ -4,12 +4,14 @@ id: 3e7gkedyjhxw
 type: challenge
 title: Remediating the reported Insight
 tabs:
-- title: Terminal
+- id: 6elkldy8ifsp
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 
 We'll apply the recommendation to disallow `root` logins via SSH. Run the following command.

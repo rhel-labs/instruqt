@@ -4,12 +4,14 @@ id: armxehykuxil
 type: challenge
 title: Logging into Red Hat Insights service
 tabs:
-- title: Terminal
+- id: p6u9slwadlyc
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 
 >_NOTE:_ To make the inline images larger, expand this window.

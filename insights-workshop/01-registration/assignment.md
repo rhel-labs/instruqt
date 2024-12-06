@@ -29,12 +29,14 @@ notes:
     Compliance, Patch, and more.  We may add additional labs targeted to those
     Insights applications as well.
 tabs:
-- title: Terminal
+- id: hogkg9kex1mt
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 3000
+enhanced_loading: null
 ---
 
 In most Red Hat Enterprise Linux 9 installations, the insights-client software will be installed by default.  However, the minimal package set does not include installing the insights-client package and other versions of Red Hat Enterprise Linux, while the package is available, will likely need it installed.  Install the insights-client package on the system.

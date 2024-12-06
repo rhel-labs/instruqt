@@ -4,12 +4,14 @@ id: ysyqwp3patkj
 type: challenge
 title: Reviewing system Insights
 tabs:
-- title: Terminal
+- id: xbtdcqy5goao
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 
 After selecting your system from the Inventory page and reviewing some overall data about it, click on the _Advisor_ tab to view the Red Hat Insights data that applies to this host.
