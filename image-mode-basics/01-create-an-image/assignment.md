@@ -24,6 +24,7 @@ tabs:
   path: Containerfile
 difficulty: basic
 timelimit: 3000
+enhanced_loading: null
 ---
 
 Welcome to this lab experience for Red Hat Enterprise Linux.
