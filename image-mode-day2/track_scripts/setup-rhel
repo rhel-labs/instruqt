@@ -5,8 +5,11 @@ subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
 # Log into terms based registry and stage bootc and bib images
+BOOTC_RHEL_VER=9.4
+agent variable set BOOTC_RHEL_VERSION $BOOTC_RHEL_VER
+
 podman login -u='1979710|rhel-tmm' -p=${REG_SVC_ACCT} registry.redhat.io
-podman pull registry.redhat.io/rhel9/rhel-bootc:latest registry.redhat.io/rhel9/bootc-image-builder:latest
+podman pull registry.redhat.io/rhel9/rhel-bootc:$BOOTC_RHEL_VER registry.redhat.io/rhel9/bootc-image-builder:$BOOTC_RHEL_VER
 
 # Some shortcuts for users
 # reglogin - uses podman secret to log into the terms based registry in case creds time out or initial pull fails
@@ -83,7 +86,7 @@ EOF
 
 # create updated bootc containerfile from image-mode-basics
 cat <<EOF> Containerfile
-FROM registry.redhat.io/rhel9/rhel-bootc
+FROM registry.redhat.io/rhel9/rhel-bootc:$BOOTC_RHEL_VER
 
 ADD etc /etc
 
@@ -94,7 +97,7 @@ EOF
 
 # create V3 index.html relocated containerfile
 cat <<EOM> Containerfile.index
-FROM registry.redhat.io/rhel9/rhel-bootc
+FROM registry.redhat.io/rhel9/rhel-bootc:$BOOTC_RHEL_VER
 
 ADD etc /etc
 

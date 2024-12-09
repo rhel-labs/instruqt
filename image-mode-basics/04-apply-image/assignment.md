@@ -17,17 +17,13 @@ tabs:
   title: Terminal
   type: terminal
   hostname: rhel
-- id: pzj6sgp9ncuu
-  title: Containerfile
-  type: code
-  hostname: rhel
-  path: Containerfile
 - id: yr6lhrue8afd
   title: VM console
   type: terminal
   hostname: rhel
-  cmd: virsh console bootc
+  cmd: virsh console bootc-vm
 difficulty: ""
+enhanced_loading: null
 ---
 Exploring system status
 ===
@@ -41,7 +37,7 @@ The `bootc` command is what controls the state of the running host and the avail
 
 The `spec` section provides the information about the image in use and where `bootc` is looking for it. Our host is pulling from a container registry.
 ```bash,run
-sudo bootc status | grep spec: -A 10
+sudo bootc status | grep spec: -A 4
 ```
 
 The `staged` section provides information about what's been pulled down to disk for the next boot. Since we just did a fresh install, this is null at the moment.

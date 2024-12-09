@@ -22,13 +22,9 @@ tabs:
   type: code
   hostname: rhel
   path: Containerfile
-- id: knueqzeeypop
-  title: VM console
-  type: terminal
-  hostname: rhel
-  cmd: virsh console bootc
 difficulty: basic
 timelimit: 600
+enhanced_loading: null
 ---
 
 Click on the [button label="Containerfile" background="#ee0000" color="#c7c7c7"](tab-1) tab.
