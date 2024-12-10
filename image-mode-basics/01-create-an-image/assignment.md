@@ -24,14 +24,17 @@ tabs:
   path: Containerfile
 difficulty: basic
 timelimit: 3000
+enhanced_loading: null
 ---
 
 Welcome to this lab experience for Red Hat Enterprise Linux.
 
-The system displayed beside this text is a Red Hat Enterprise Linux 9
-system registered with Subscription Manager.
+The system displayed beside this text is a Red Hat Enterprise Linux 9 system registered with Subscription Manager.
 
-Image mode uses standard container tools to define, build, and transport bootc images. Podman has already been installed on this host as a build environment, along with some additional files.
+Image mode uses standard container tools to define, build, and transport bootc images. Podman has already been installed on this host as a build environment, along with some additional files and required images. If you see an error related to authentication like the one below, you can use the `reglogin` command provided to log into the Red Hat Container Registry and re-run the command.
+```
+unable to retrieve auth token: invalid username/password: unauthorized: Please login to the Red Hat Registry using your Customer Portal credentials.
+```
 
 Examine the containerfile
 ===

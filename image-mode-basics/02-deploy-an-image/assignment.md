@@ -21,9 +21,10 @@ tabs:
   title: VM console
   type: terminal
   hostname: rhel
-  cmd: virsh console bootc
+  cmd: virsh console bootc-vm
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Launch bootc-image-builder
 ===
@@ -41,7 +42,7 @@ There are several ways to deploy a bootc image to a host, depending on the targe
 podman run --rm --privileged \
         --volume .:/output \
          --volume ./config.json:/config.json \
-        registry.redhat.io/rhel9/bootc-image-builder:latest \
+        registry.redhat.io/rhel9/bootc-image-builder:[[ Instruqt-Var key="BOOTC_RHEL_VERSION" hostname="rhel" ]] \
         --type qcow2 \
         --config config.json \
          [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
@@ -55,14 +56,14 @@ Prepare and run the bootc image
 To launch a KVM guest, copy the QCOW2 disk image we created to the default libvirt storage pool.
 
 ```bash,run
-cp qcow2/disk.qcow2 /var/lib/libvirt/images/bootc-vm.qcow2
+cp qcow2/disk.qcow2 /var/lib/libvirt/images/bootc[[ Instruqt-Var key="BOOTC_RHEL_VERSION" hostname="rhel" ]]-vm.qcow2
 ```
 
 Using `virt-install` we can define a simple VM and import the new disk image.
 
 ```bash,run
-virt-install --name bootc \
- --disk /var/lib/libvirt/images/bootc-vm.qcow2 \
+virt-install --name bootc-vm \
+--disk /var/lib/libvirt/images/bootc[[ Instruqt-Var key="BOOTC_RHEL_VERSION" hostname="rhel" ]]-vm.qcow2 \
 --import \
 --memory 2048 \
 --graphics none \
@@ -74,7 +75,7 @@ virt-install --name bootc \
 Once the VM has been defined, we can start it.
 
 ```bash,run
-virsh start bootc
+virsh start bootc-vm
 ```
 
 Attach to the console of the VM running our bootc image
