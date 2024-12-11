@@ -33,7 +33,10 @@ tabs:
   title: Terminal
   type: terminal
   hostname: rhel
-  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
+- id: 7mb05xpz9aai
+  title: Red Hat Insights
+  type: browser
+  hostname: insights
 difficulty: basic
 timelimit: 3000
 enhanced_loading: null
@@ -67,11 +70,9 @@ For future reference, make note of your system hostname.
 hostname
 ```
 
-<pre class=file>
-rhel-2e23a
-</pre>
-
->_NOTE:_ Your hostname will be different than the one listed in the output above
+```nocopy
+[[ Instruqt-Var key="newhostname" hostname="rhel" ]]
+```
 
 At any time in the future, you can get information about Insights registration by using the `--status` option to `insights-client`.
 

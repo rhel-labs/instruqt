@@ -1,4 +1,7 @@
 version: "3"
+virtualbrowsers:
+- name: insights
+  url: https://console.redhat.com
 virtualmachines:
 - name: rhel
   image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-5-11-27-24

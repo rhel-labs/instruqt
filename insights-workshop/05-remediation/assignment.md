@@ -4,11 +4,14 @@ id: 3e7gkedyjhxw
 type: challenge
 title: Remediating the reported Insight
 tabs:
-- id: 6elkldy8ifsp
+- id: urnaozrkxydr
+  title: Red Hat Insights
+  type: browser
+  hostname: insights
+- id: kis2zmgg3mfx
   title: Terminal
   type: terminal
   hostname: rhel
-  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 enhanced_loading: null

@@ -4,11 +4,14 @@ id: ysyqwp3patkj
 type: challenge
 title: Reviewing system Insights
 tabs:
-- id: xbtdcqy5goao
+- id: afego6uajqkv
+  title: Red Hat Insights
+  type: browser
+  hostname: insights
+- id: otcgvjukrbue
   title: Terminal
   type: terminal
   hostname: rhel
-  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 enhanced_loading: null

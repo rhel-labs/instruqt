@@ -4,11 +4,14 @@ id: ooam5wxh9ddj
 type: challenge
 title: Navigating the Insights service
 tabs:
-- id: dpyml0m6wpbp
+- id: wx7w6nwlmfxp
+  title: Red Hat Insights
+  type: browser
+  hostname: insights
+- id: en1ck68e8tzz
   title: Terminal
   type: terminal
   hostname: rhel
-  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 enhanced_loading: null

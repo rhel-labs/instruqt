@@ -4,11 +4,14 @@ id: b1upagrvqxd9
 type: challenge
 title: Verify issue resolved
 tabs:
-- id: dupgbnkkkyeq
+- id: soropxfx6tga
+  title: Red Hat Insights
+  type: browser
+  hostname: insights
+- id: 2yb0mzyojzue
   title: Terminal
   type: terminal
   hostname: rhel
-  cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
 enhanced_loading: null
