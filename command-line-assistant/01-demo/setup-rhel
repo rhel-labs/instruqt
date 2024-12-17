@@ -1,16 +1,9 @@
 #!/bin/bash
-
-dnf group install -y "Development Tools"
-dnf install -y python3-pip
+mkdir -p /root/rcs
+dnf install -y python3-pip container-tools
 dnf copr enable -y @rhel-lightspeed/command-line-assistant
 
-# echo `agent variable get cla_version` > /root/ver.txt
 dnf install -y `agent variable get cla_version`
-
-git clone https://github.com/rhel-lightspeed/rcs
-cd rcs
-git checkout cla-customization
-make install-deps
 
 echo ${WATSONX_API_KEY} > /root/rcs/.watsonx_api_key
 
@@ -58,15 +51,6 @@ dev_config:
  # k8s_auth_token: optional_token_when_no_available_kube_config
 EOF
 
-tee -a /root/rcs.sh << EOF
-cd /root/rcs
-source .venv/bin/activate
-export PROJECT=cla
-make run
-EOF
-
-chmod +x /root/rcs.sh
-
-tmux new-session -d -s "rcs" /root/rcs.sh
-
-echo "export PROJECT=cla" >> /root/.bash_profile
+docker pull ghcr.io/rhel-lightspeed/rcs:73014baaf4c32276493b8f3820eea1ec6ed475f5
+podman run -d --volume /root/rcs/rcsconfig.yaml:/app-root/rcsconfig.yaml:z --volume /root/rcs/.watsonx_api_key:/app-root/.watsonx_api_key:z -p 8080:8080 -e PROJECT=cla ghcr.io/rhel-lightspeed/rcs:73014baaf4c32276493b8f3820eea1ec6ed475f5
+systemctl enable clad && systemctl start clad
