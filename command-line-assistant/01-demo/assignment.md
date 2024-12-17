@@ -8,11 +8,6 @@ tabs:
   title: rhel
   type: terminal
   hostname: rhel
-- id: gidxx3iodhaz
-  title: rcs
-  type: terminal
-  hostname: rhel
-  cmd: tmux attach-session -t "rcs" > /dev/null 2>&1
 difficulty: ""
 enhanced_loading: null
 ---
