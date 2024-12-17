@@ -5,7 +5,7 @@ virtualmachines:
   shell: /bin/bash
   environment:
     cla_version: command-line-assistant*.develop*.el9.noarch
-  machine_type: n2-standard-2
+  machine_type: n2-standard-4
   allow_external_ingress:
   - https
   provision_ssl_certificate: true
