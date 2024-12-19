@@ -34,15 +34,15 @@ enhanced_loading: null
 A word about tags
 ===
 
-To this point, we've been letting podman automatically create tags for the images we've built. As a review, the naming convention for container images is `registry/name:tag`. We've been setting the registry and name in the command line, which means all of the tags are set to `latest` by default.
+To this point, we've been letting podman automatically create tags for the images we've built. As a review, the naming convention for container images is `registry/name:tag`.
 
-If you look at all of the images available in the lab, you'll see most of them have `latest` in the tag column. The `docker.io/library/registry` image is the only one that has a unique tag that tries to convey some information via it's tag.
+If you look at all of the images available in the lab, you'll see most of them have a version number in the tag column. The image we've built is the only one that uses `latest`, which signals the most recent build and is auto-generated if you don't specify a tag.
 
 ```bash,run
 podman images
 ```
 
-While this is convenient, it can create a lot of confusion. Which `latest` was really created last? What in that `latest` container? Which updates did we provide? Have you seen the `latest` tag in any of the `bootc status` output so far?
+While this is convenient, it can create a lot of confusion. What in that `latest` container? Which updates did we provide? Have you seen the `latest` tag in any of the `bootc status` output so far?
 
 
 Using tags for identifying image contents

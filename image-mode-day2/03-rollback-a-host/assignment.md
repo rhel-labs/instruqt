@@ -17,11 +17,6 @@ tabs:
   title: Terminal
   type: terminal
   hostname: rhel
-- id: tpkjptwwk0eu
-  title: Containerfile
-  type: code
-  hostname: rhel
-  path: Containerfile
 - id: fzmfm00uw2yp
   title: VM console
   type: terminal
