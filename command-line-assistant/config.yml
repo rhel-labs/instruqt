@@ -4,7 +4,7 @@ virtualmachines:
   image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-5-11-27-24
   shell: /bin/bash
   environment:
-    cla_version: command-line-assistant*.develop*.el9.noarch
+    cla_version: command-line-assistant*.lab*.el9.noarch
   machine_type: n2-standard-4
   allow_external_ingress:
   - https
