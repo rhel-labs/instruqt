@@ -4,16 +4,19 @@ id: ctt5tlturftm
 type: challenge
 title: Step 2
 tabs:
-- title: Terminal
+- id: okfwfam3w7jh
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: OpenSCAP Report
+- id: fpnz4en6iruv
+  title: OpenSCAP Report
   type: service
   hostname: rhel
   path: /
   port: 80
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 # Displaying available profiles
 

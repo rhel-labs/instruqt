@@ -4,16 +4,19 @@ id: 0wwlwbbruxwd
 type: challenge
 title: Step 4
 tabs:
-- title: Terminal
+- id: ynenk79ecsix
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: OpenSCAP Report
+- id: qnis2jpmhcki
+  title: OpenSCAP Report
   type: service
   hostname: rhel
   path: /
   port: 80
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 # Remediating and rescanning against a profile
 

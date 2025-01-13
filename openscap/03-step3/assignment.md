@@ -4,16 +4,19 @@ id: 3rjgjunusovl
 type: challenge
 title: Step 3
 tabs:
-- title: Terminal
+- id: wrjtx5pjzpj7
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: OpenSCAP Report
+- id: nwgyykzm47cz
+  title: OpenSCAP Report
   type: service
   hostname: rhel
   path: /
   port: 80
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 # Scan and generate a report
 

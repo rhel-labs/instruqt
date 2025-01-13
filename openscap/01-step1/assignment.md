@@ -18,16 +18,19 @@ notes:
     # Example Usecase:
     The Chief Security Officer (CSO) of your organization has requested that a compliance scan be conducted to meet the PCI-DSS requirements.
 tabs:
-- title: Terminal
+- id: bqix8looxqh4
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: OpenSCAP Report
+- id: cyyxgvmbssjk
+  title: OpenSCAP Report
   type: service
   hostname: rhel
   path: /
   port: 80
 difficulty: basic
 timelimit: 3000
+enhanced_loading: null
 ---
 # Installing the SCAP packages
 
