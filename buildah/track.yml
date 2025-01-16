@@ -13,20 +13,22 @@ description: |
   # Example Usecase:
   Using *podman* with a Containerfile or Dockerfile input is a common way to build containers from base images. However, this lab, Building containers with **buildah**, provides better control over layer creation and image contents.
 
-  > _NOTE:_ Throughout these steps there are UUIDs in output blocks that may not match your output exactly.
+  > _NOTE:_ Throughout these steps there are UUIDs and package versions in output blocks that may not match your output exactly.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
-level: beginner
 tags:
 - rhel
 owner: rhel
 developers:
 - myee@redhat.com
 - wkibbe@redhat.com
+- mmicene@redhat.com
 show_timer: true
 lab_config:
-  overlay: false
-  width: 33
-  position: right
   feedback_recap_enabled: true
+  feedback_tab_enabled: false
   loadingMessages: true
-checksum: "4439459089275206563"
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 33
+checksum: "3993939467424642919"
+enhanced_loading: false

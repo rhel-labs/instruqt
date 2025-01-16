@@ -4,23 +4,20 @@ id: 2kckmwxzcjim
 type: challenge
 title: Creating an application image from scratch
 tabs:
-- title: Terminal
+- id: yf7inbytbila
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "buildah-session" > /dev/null 2>&1
-- title: RHEL Web Console
-  type: service
-  hostname: rhel
-  path: /
-  port: 9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 In order to install `httpd` in the scratch container, use `yum` on the host with the `installroot` option targeting the mount point of the container's filesystem.
 
 > _NOTE:_ Setting the `releasever` and `module_platform_id` are required as this will be operating in a chroot environment where `yum` config files are not available.
 
-```bash
+```bash,run
 yum install --installroot ${scratchmnt} httpd --releasever 9 --setopt=module_platform_id="platform:el9" -y
 ```
 
@@ -42,11 +39,11 @@ Installing:
 Complete!
 </pre>
 
-Many more packages required than using the base image, but we have `httpd` and `systemd` but not other tools like `yum`.
+This method installs more packages than using the pre-built base image, but we have `httpd` and `systemd` but not other typical system tools like `yum`.
 
 To enable `httpd` to start when the container is run using systemd, use the following `buildah` command.
 
-```bash
+```bash,run
 buildah run working-container systemctl enable httpd
 ```
 
@@ -56,19 +53,19 @@ Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /u
 
 Deploying web content to the container image can be done using a `cp` command on the host to the working container mount point. We've included an html index file in /root called `index2.html`.
 
-```bash
+```bash,run
 cp index2.html ${scratchmnt}/var/www/html/index.html
 ```
 
 After installing packages and adding the index file, unmount the filesystem with the `buildah unmount` subcommand.
 
-```bash
+```bash,run
 buildah unmount working-container
 ```
 
 To expose the web server port and set systemd to start when the container is run, modify the metadata with the `buildah config` subcommand.
 
-```bash
+```bash,run
 buildah config --port 80 --cmd "/usr/sbin/init" working-container
 ```
 
@@ -78,7 +75,7 @@ These options to `buildah config` are equivalent to the EXPOSE and CMD directive
 
 Once the contents of the working container are complete, and the metadata has been updated, save the working container as the target application image using `buildah commit`.
 
-```bash
+```bash,run
 buildah commit working-container el-httpd2
 ```
 

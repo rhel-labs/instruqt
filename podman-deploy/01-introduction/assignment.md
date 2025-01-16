@@ -45,6 +45,7 @@ tabs:
   cmd: tmux attach-session -t "host" > /dev/null 2>&1
 difficulty: basic
 timelimit: 3000
+enhanced_loading: null
 ---
 In this lab we have two terminals to make navigation easier. The `Podman` terminal will be used for podman related tasks. The `RHEL Host` tab will be used for host related tasks.
 
@@ -54,7 +55,7 @@ Click on the `Podman` tab.
 
 Enter the following command to view the existing images on the RHEL host.
 
-```bash
+```bash,run
 podman images
 ```
 

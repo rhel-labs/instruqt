@@ -4,15 +4,17 @@ id: agpbsnjyhy3d
 type: challenge
 title: 'Step 2: Configure a Virtual Environment'
 tabs:
-- title: Terminal
+- id: r1sxwgerwglx
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
+enhanced_loading: null
 ---
 First, create a virtual environment in Python:
 
-```bash
+```bash,run
 python -m venv /home/python/sampleenvironment
 ```
 
@@ -24,7 +26,7 @@ python -m venv /home/python/sampleenvironment
 
 Next, activate your new virtual environment:
 
-```bash
+```bash,run
 source /home/python/sampleenvironment/bin/activate
 ```
 
@@ -39,7 +41,7 @@ Upon completing this step, the beginning of your command line should look like t
 
 Ensure that Pip, Python's package manager, is up to date by running the following command:
 
-```bash
+```bash,run
 pip install --upgrade pip
 ```
 
@@ -51,18 +53,18 @@ The commands below are necessary for our test program, but the packages you inst
 
 In your new environment, run the following command to install the requests library, which will allow you to make API calls in your program:
 
-```bash
+```bash,run
 pip install requests
 ```
 
 Next, run the following command to install the Pandas library, which allows for more readable terminal output of JSON files:
 
-```bash
+```bash,run
 pip install pandas
 ```
 
 Finally, install the package for Tabulate, which will turn our Pandas output into a table for terminal output:
 
-```bash
+```bash,run
 pip install tabulate
 ```

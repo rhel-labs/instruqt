@@ -4,17 +4,19 @@ id: gc9ul9x4zde4
 type: challenge
 title: Managing Pods with Systemd and Quadlet
 tabs:
-- title: Terminal
+- id: sxvsntlnwfib
+  title: Terminal
   type: terminal
   hostname: rhel
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 ## Quadlet
 
 Quadlet is a systemd generator, that will take your pod definition, and register it as a service in systemd.  We have provided a quadlet pod defintion for you.
 
-```bash
+```bash,run
 cat my-networked-pod.kube
 ```
 
@@ -44,19 +46,19 @@ As you can see, the path to the pod yaml is `/etc/containers/systemd/my-networke
 
 Let's copy the files into place.
 
-```bash
+```bash,run
 cp ~/my-networked-pod.yaml /etc/containers/systemd
 ```
 
 And then
 
-```bash
+```bash,run
 cp ~/my-networked-pod.kube /etc/containers/systemd
 ```
 
 Now, if we reload systemd, quadlet will generate a service unit for our pod.  You can also test the generation using quadlet in a dry-run.
 
-```bash
+```bash,run
 /usr/libexec/podman/quadlet -dryrun
 ```
 
@@ -101,13 +103,13 @@ Notice the `ExecStart` command in the service.  You can see the `--replace` flag
 
 This looks fine, so let's get this definiteion in place.
 
-```bash
+```bash,run
 systemctl daemon-reload
 ```
 
 Now we can start the service up, but first, let's check podman, and make sure we dont already have our pod running.
 
-```bash
+```bash,run
 podman pod ps
 ```
 
@@ -118,13 +120,13 @@ POD ID      NAME        STATUS      CREATED     INFRA ID    # OF CONTAINERS
 
 Looks good, Let's start our pod up.
 
-```bash
+```bash,run
 systemctl start my-networked-pod.service
 ```
 
 This should go and download any container images that are neccessary, and then start up our pod.
 
-```bash
+```bash,run
 systemctl status my-networked-pod.service
 ```
 
@@ -145,7 +147,7 @@ root@rhel:~# systemctl status my-networked-pod
 
 And
 
-```bash
+```bash,run
 podman pod ps
 ```
 

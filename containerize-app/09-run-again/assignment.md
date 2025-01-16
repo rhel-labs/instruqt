@@ -4,21 +4,24 @@ id: xp5ewqc3x5ek
 type: challenge
 title: Running the container and using the software
 tabs:
-- title: Terminal
+- id: qizqmvnylw9x
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: Containerized Web App
+- id: ena0qm8u7sh3
+  title: Containerized Web App
   type: service
   hostname: rhel
   path: /
   port: 8080
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 In the previous step, you committed your container image.  You can look at the images in the local container respository by using `podman image list`.
 
-```bash
+```bash,run
 podman image list
 ```
 
@@ -32,7 +35,7 @@ registry.access.redhat.com/ubi8/ubi  latest      168c58a38365  15 minutes ago 22
 
 Now that the image is available, you can run the container.  Because this application is managed by a service, you will use the `-d` option to run the container in a detatched mode.  Additionally, you will map content coming to port 8080 on the host system to be routed to the application running on the container's port 80.
 
-```bash
+```bash,run
 podman run -d -p 8080:80 clumsy-bird
 ```
 

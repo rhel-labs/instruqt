@@ -4,23 +4,25 @@ id: tzc1xgcbicue
 type: challenge
 title: Launching and inspecting the application container
 tabs:
-- title: Terminal
+- id: 01sizbfrdv94
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "buildah-session" > /dev/null 2>&1
-- title: RHEL Web Console
+- id: knc2sqdxuemh
+  title: Index page
   type: service
   hostname: rhel
-  path: /
-  port: 9090
+  port: 80
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 More information on managing containers with `podman` can be found in the ["Deploying containers with container tools"](https://lab.redhat.com/podman-deploy) scenario.
 
 Inspect the images available on the host using `podman images`
 
-```bash
+```bash,run
 podman images
 ```
 
@@ -34,7 +36,7 @@ Note the name matches what was set using `buildah commit`. The `localhost` prepe
 
 `podman` and `buildah` use the same storage locations on the host, which lets us immediately run the image we just built via `podman`.
 
-```bash
+```bash,run
 podman run -d -p 80:80 el-httpd1
 ```
 
@@ -44,7 +46,7 @@ f4d9db69e9b512517f9490d3bcc5096e69cca5e9b3a50b3890430da39ae46573
 
 Check the status of the application container using `podman`.
 
-```bash
+```bash,run
 podman ps
 ```
 
@@ -57,7 +59,7 @@ Note the ports and command match the metadata set using `buildah config`.
 
 Inspect the image metadata for the application container using `buildah inspect`.
 
-```bash
+```bash,run
 buildah inspect localhost/el-httpd1 | grep -A 8 rootfs
 ```
 
@@ -73,11 +75,11 @@ buildah inspect localhost/el-httpd1 | grep -A 8 rootfs
 },
 </pre>
 
-Look for the `rootfs` section in the JSON output. You will see layers for each of the `buildah` subcommands run.
+Look for the `rootfs` section in the JSON output. You will see one layer for each of the `buildah` subcommands run in the previous steps.
 
-Run the following curl command to check that the container is serving an index page on port 80.
+Run the following curl command to check that the container is serving an index page on port 80. Alternatively, you can view the page in the Index page tab.
 
-```bash
+```bash,run
 curl localhost:80
 ```
 
@@ -93,6 +95,6 @@ curl localhost:80
 
 Stop all running containers before moving to the next step:
 
-```bash
+```bash,run
 podman stop -a
 ```

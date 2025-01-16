@@ -4,18 +4,20 @@ id: quql4u07g26a
 type: challenge
 title: Install additional pre-requisite software
 tabs:
-- title: Terminal
+- id: koj36blxtiz2
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 In this step, you will install web server software to support the web application you will position in the next step.
 
 Install the apache web server from the configured UBI software repository.
 
-```bash
+```bash,run
 buildah run ubi-working-container-1 -- dnf -y install httpd
 ```
 
@@ -35,7 +37,7 @@ Complete!
 
 Next, enable the httpd service so that when the container starts, apache will also start.
 
-```bash
+```bash,run
 buildah run ubi-working-container-1 -- systemctl enable httpd
 ```
 
@@ -45,7 +47,7 @@ Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /u
 
 Configure the container to listen on port 80 so that traffic being sent to the container is being routed to the apache web server within the container.
 
-```bash
+```bash,run
 buildah config --port 80 --cmd "/usr/sbin/init" ubi-working-container-1
 ```
 

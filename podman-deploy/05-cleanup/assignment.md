@@ -16,10 +16,11 @@ tabs:
   cmd: tmux attach-session -t "host" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Unlike interactive containers, detached containers are stopped using __podman stop <CONTAINER ID>__.
 
-```bash
+```bash,run
 podman stop $(podman ps -a | grep Up | cut -d" " -f1)
 ```
 
@@ -27,7 +28,7 @@ In the command above, we use a bit of bash scripting to determine the __CONTAINE
 
 You can verify that the container is now exited:
 
-```bash
+```bash,run
 podman ps -a
 ```
 

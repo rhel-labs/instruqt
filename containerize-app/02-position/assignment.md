@@ -4,12 +4,14 @@ id: xz5d9zx17xlq
 type: challenge
 title: Positioning yum Repository
 tabs:
-- title: Terminal
+- id: 7bcwpxwizkv1
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 In this lab, you are going to containerize a software package that is already
 packaged in RPM format and stored in the Extra Packages for Enterprise Linux
@@ -30,7 +32,7 @@ executed from within the container, which means the results will be applied into
 the container image.  Lastly, you are providing the `dnf` command to install a
 package that defines all of the repositories from EPEL, `epel-release-latest-9`.
 
-```bash
+```bash,run
 buildah run ubi-working-container -- dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 ```
 
@@ -60,7 +62,7 @@ From the above output, you can see that the epel-release RPM was installed
 successfully inside the container.  You could verify this was not completed
 on the host by looking for the RPM on the host system.
 
-```bash
+```bash,run
 rpm -q epel-release
 ```
 

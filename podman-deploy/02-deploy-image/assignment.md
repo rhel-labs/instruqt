@@ -16,11 +16,12 @@ tabs:
   cmd: tmux attach-session -t "host" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 The __rhel9-httpd__ container includes a bash shell.  In this step, you will
 deploy the container in an interactive fashion, which will allow you to run commands within the deployed container. In the `Podman` tab run the following:
 
-```bash
+```bash,run
 podman run -it rhel9-httpd /bin/bash
 ```
 
@@ -31,7 +32,7 @@ bash-5.1#
 
 In the `Podman` tab, the displayed shell is running inside the container image, not the host operating system.  To confirm this, take a look at the mounted filesystems:
 
-```bash
+```bash,run
 df -hP
 ```
 
@@ -53,7 +54,7 @@ You will notice that all of the filesystem contents are either memory-based (tmp
 
 Switch to the `RHEL Host` tab. Use this terminal to verify that the container is running:
 
-```bash
+```bash,run
 podman ps -a
 ```
 

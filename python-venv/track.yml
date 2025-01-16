@@ -1,6 +1,6 @@
 slug: python-venv
 id: zxfafmxu6jys
-title: Python Virtual Environments in RHEL
+title: Python Virtual Environments in Red Hat Enterprise Linux
 description: |
   # Goal: Create a virtual environment for Python
   # Overview
@@ -22,12 +22,15 @@ developers:
 - wkibbe@redhat.com
 - myee@redhat.com
 - nlager@redhat.com
+- mmicene@redhat.com
 timelimit: 3060
 lab_config:
-  overlay: false
-  width: 33
-  position: right
   feedback_recap_enabled: true
+  feedback_tab_enabled: false
   loadingMessages: true
+  override_challenge_layout: false
   hideStopButton: false
-checksum: "979300449820308847"
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 33
+checksum: "18085006293336432448"
+enhanced_loading: false

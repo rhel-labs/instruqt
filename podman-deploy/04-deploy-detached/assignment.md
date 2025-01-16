@@ -16,6 +16,7 @@ tabs:
   cmd: tmux attach-session -t "host" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Running an interactive container is all well and good, however, if the container is offering applications or services, you do not need to interact with it.
 
@@ -23,13 +24,13 @@ The __rhel9-httpd__ container, for example, is configured with an Apache web ser
 
 Run the following command in the `Podman` tab.
 
-```bash
+```bash,run
 podman run -dt -p 8081:80/tcp rhel9-httpd
 ```
 
 You can verify the state of the container using __podman ps__
 
-```bash
+```bash,run
 podman ps -a
 ```
 
@@ -42,7 +43,7 @@ Observe that the __STATUS__ is __Up__ and there is a new section in the output _
 
 Test the webserver on the container with `curl`.
 
-```bash
+```bash,run
 curl localhost:8081
 ```
 
