@@ -18,27 +18,31 @@ notes:
     * Running programs written in Python
     * Machine learning
 tabs:
-- title: Terminal
+- id: m6oeg6f7kx2x
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
+enhanced_loading: null
 ---
-The first step to configure PyTorch is to install Conda, which allows us to set up programming environments. Before we can install it, we must add its repository to the package manager. To enable this, we need to add EPEL (Extra Packages for Enterprise Linux). EPEL is a series of community-derived packages designed to increase the flexibility of working with Red Hat Enterprise Linux.
-```bash
+There are several ways to install and manage versions of PyTorch, we're going to use Conda. Conda is an open source package and environment manager for Python, popular in the data science community.  This is an alternative to solutions like pipenv, venvs, or other Python package managers.
+
+We'll install Conda from  Extra Packages for Enterprise Linux (EPEL),  a series of community-derived packages designed to increase the flexibility of working with Red Hat Enterprise Linux. We will also need some development packages provided by the CodeReady Linux Builder (CRB) repository. Certain packages within EPEL may have runtime dependencies on these packages not included with the usual RHEL repositories.
+```bash,run
 subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
-dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm -y
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 ```
 
-You are now ready to install Conda. To install, run the following commands:
+You are now ready to install Conda via dnf. To configure `conda` we'll run the init subcommand to configure our shell. This permanently adds the appropriate shell functions to our login envionrment. In this case, we are using the `bash` shell, but conda supports other shells as well.  To ensure we pick up the changes written to the global shell configurtions without having to log out and log back in, we'll reexec our current shell.
 
-```bash
-dnf install conda -y #installs Conda
-conda init bash #configures Conda to our shell
-exec $SHELL #restarts the shell to finish installation of Conda
+```bash,run
+dnf install -y conda
+conda init bash
+exec $SHELL
 ```
 
-Finally, run the following command to verify the installation of Conda. It will print out the version of Conda that is installed to confirm that the installation of Conda is complete:
-```bash
+Note that the prompt now shows `(base)` in front of the user name. This is the default environment Conda creates. Finally, run the following command to verify the installation of Conda. It will print out the version of Conda that is installed to confirm that the installation of Conda is complete:
+```bash,run
 conda -V
 ```

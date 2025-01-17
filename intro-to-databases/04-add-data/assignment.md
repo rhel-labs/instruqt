@@ -11,16 +11,19 @@ notes:
     In this step, you will be challenged to complete a task, and we will provide you
     with guidance to help you along!
 tabs:
-- title: Terminal
+- id: mye8dlg1scg2
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: RHEL Web Console
+- id: k9qxctnqh5wk
+  title: RHEL Web Console
   type: website
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
   new_window: true
 difficulty: basic
 timelimit: 600
+enhanced_loading: null
 ---
 To understand how we organize databases, it is helpful to understand the definition of a relational database, a relational database management system, and SQL. For an overview, [check out this helpful article.](https://www.codecademy.com/article/what-is-rdbms-sql)
 
@@ -37,7 +40,7 @@ In this diagram:
 Now that you are familiar with the database you will build, you are ready to start creating tables.
 
 Next, create the table for `Room` with the following command:
-```sql
+```sql,run
 CREATE TABLE Room(
 Name varchar (255) NOT NULL,
 Size int,
@@ -46,7 +49,7 @@ PRIMARY KEY (Name)
 ```
 
 Now create the table for `Item`.
-```sql
+```sql,run
 CREATE TABLE Item(
   Room varchar(255) NOT NULL,
   Name varchar(255),
@@ -58,7 +61,7 @@ CREATE TABLE Item(
 ```
 
 Finally, run the following command to insert some entries into your database. In the real world, you will customize the entries depending on your needs, but for the purpose of demonstration, run this MySQL command:
-```sql
+```sql,run
 INSERT INTO Room(Name, Size)
 VALUES('Living Room',500);
 INSERT INTO Room(Name, Size)
@@ -75,4 +78,7 @@ INSERT INTO Item(Room, Name, Value)
 VALUES('Living Room','Chair',500);
 ```
 
-In the next step, you'll be able to see what you have just built!
+In the next step, you'll be able to see what you have just built! First, quit your MySQL session by running the following command:
+```sql,run
+quit;
+```

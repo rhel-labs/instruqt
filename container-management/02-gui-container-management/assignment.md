@@ -9,19 +9,23 @@ notes:
     console. This gives you a graphical view of your containers and can help simplify
     container configuration.
 tabs:
-- title: Terminal
+- id: jqvsymz8zu3q
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: RHEL Web Console
+- id: u2gnypy7zfxi
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
-- title: Grafana (Podman)
+- id: xu8fvpme1ogy
+  title: Grafana (Podman)
   type: service
   hostname: rhel
   port: 3000
 difficulty: basic
 timelimit: 600
+enhanced_loading: null
 ---
 First, you will install and run it through the RHEL web console. After that, you will install and configure the Grafana container through Podman's command line interface (CLI). The RHEL web console gives you a graphical view of your containers and can help you customize your containers more simply.
 

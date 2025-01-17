@@ -10,19 +10,23 @@ notes:
     from 1950 to 2022. Your dashboard will create a time-series visualization of this
     data.
 tabs:
-- title: Terminal
+- id: xjp1oyyar3gm
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: RHEL Web Console
+- id: hkjfplczl6dg
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
-- title: Grafana (Podman)
+- id: ho8ff9nreunl
+  title: Grafana (Podman)
   type: service
   hostname: rhel
   port: 3000
 difficulty: basic
 timelimit: 600
+enhanced_loading: null
 ---
 Click on the `Grafana (Podman)` tab in the lab environment. You can now explore this website hosted on your machine. If you see a login page, you have configured your container correctly.
 

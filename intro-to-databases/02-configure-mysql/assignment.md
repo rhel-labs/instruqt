@@ -7,26 +7,29 @@ notes:
 - type: text
   contents: Next, you will configure the security settings for your SQL server.
 tabs:
-- title: Terminal
+- id: fi7nohlpnubg
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: RHEL Web Console
+- id: pzhqym5pacgn
+  title: RHEL Web Console
   type: website
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
   new_window: true
 difficulty: basic
 timelimit: 600
+enhanced_loading: null
 ---
 To begin the security configuration process for your database, run the following command:
-```bash
+```bash,run
 mysql_secure_installation
 ```
 
 Next, you will be asked by the installer if you wish to enable the `Validate Password` component. For our installation, we will not enable it. To leave the feature disabled, press enter.
 
 After this, you will be asked to enter a root password. For your own SQL server, you should select a secure password. For our lab environment, enter the following password:
-```bash
+```bash,run
 rhel
 ```
 

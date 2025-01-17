@@ -1,6 +1,6 @@
 slug: container-management
 id: fgvqrjuvzxed
-title: Running Containers
+title: Running Containers on Red Hat Enterprise Linux
 description: |
   # Goal: Run containers in RHEL using Podman
   # Overview
@@ -23,14 +23,17 @@ owner: rhel
 developers:
 - wkibbe@redhat.com
 - nlager@redhat.com
+- myee@redhat.com
+- mmicene@redhat.com
 show_timer: true
 timelimit: 3000
 sandbox_preset: devel-101
 lab_config:
-  overlay: false
-  width: 33
-  position: right
   feedback_recap_enabled: true
+  feedback_tab_enabled: false
   loadingMessages: true
   hideStopButton: false
-checksum: "4137139690712166369"
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 33
+checksum: "16820389404082933663"
+enhanced_loading: false

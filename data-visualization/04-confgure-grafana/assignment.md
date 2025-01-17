@@ -7,19 +7,23 @@ notes:
 - type: text
   contents: In this final step, you will create your data dashboard.
 tabs:
-- title: Terminal
+- id: 2qtyljakwhym
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: RHEL Web Console
+- id: cvxdegz3kxkp
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
-- title: Grafana (Podman)
+- id: wjrgrxfdyfqk
+  title: Grafana (Podman)
   type: service
   hostname: rhel
   port: 3000
 difficulty: basic
 timelimit: 600
+enhanced_loading: null
 ---
 In this step, you will visualize the data from your MySQL database.
 

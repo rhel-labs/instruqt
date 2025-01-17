@@ -9,19 +9,22 @@ notes:
     commands (generally) end in a semicolon. This is somewhat different from Linux,
     and it is a distinction that you should remember when working with databases.
 tabs:
-- title: Terminal
+- id: xtgvy5eimx2p
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: RHEL Web Console
+- id: xh3434zw9phw
+  title: RHEL Web Console
   type: website
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
   new_window: true
 difficulty: basic
 timelimit: 600
+enhanced_loading: null
 ---
 First, begin a MySQL session by running the following command:
-```bash
+```bash,run
 mysql -p
 ```
 >Note: the -p flag at the end of the command allows you to log into MySQL with a password.
@@ -39,7 +42,7 @@ Server version: 8.0.32 source distribution
 </pre>
 
 Next, create a database called `MyDatabase`
-```sql
+```sql,run
 CREATE DATABASE MyDatabase;
 ```
 Creating your database will result in an output resembling this:
@@ -48,7 +51,7 @@ Query OK, 1 row affected (0.00 sec)
 </pre>
 
 Now, select your new server for use by running this command:
-```sql
+```sql,run
 USE MyDatabase;
 ```
 This will result in the following output:

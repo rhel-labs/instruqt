@@ -7,20 +7,23 @@ notes:
 - type: text
   contents: In this step, you will run and test the Jupyter Notebook.
 tabs:
-- title: Terminal
+- id: zywykd7dbh1m
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: Juypter Notebook
+- id: qgv8a0g4kc2l
+  title: Juypter Notebook
   type: service
   hostname: rhel
   port: 8888
   new_window: true
 difficulty: basic
 timelimit: 600
+enhanced_loading: null
 ---
 First, launch Jupyter Lab:
-```bash
+```bash,run
 jupyter notebook --ip=* --no-browser --allow-root -NotebookApp.password='redhat' -NotebookApp.token='redhat' --notebook-dir="/root/notebook"
 ```
 >Explanation of the command:
