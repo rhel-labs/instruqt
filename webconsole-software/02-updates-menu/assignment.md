@@ -4,14 +4,17 @@ id: a2hxquq1ajjb
 type: challenge
 title: Navigate to Software Updates application
 tabs:
-- title: Terminal
+- id: o9lgxcl7m6mw
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
+- id: at3cokkabyc7
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Now that you are logged into the Web Console, we must turn on administrative access.
 
@@ -48,7 +51,7 @@ Navigate to the **Software Updates** application.
  <img alt="An example image" src="../assets/Nav-Updates.png" />
 </a>
 
-It will take a little while to check software status.
+It may take a little while to update available package information. You may move on to the next step.
 
 <a href="#checking">
  <img alt="An example image" src="../assets/checking.png" />

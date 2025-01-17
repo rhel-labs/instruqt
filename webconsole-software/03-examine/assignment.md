@@ -4,17 +4,22 @@ id: esbrescoyngg
 type: challenge
 title: Examine available updates
 tabs:
-- title: Terminal
+- id: ef6pu1ikbx1m
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
+- id: zbjhbnlf0pyk
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 
 You can see on the **Software Updates** application that there are several updates available for your system.
+> [!NOTE]
+> The available updates may not match the following screenshots
 
 <a href="#available">
  <img alt="An example image" src="../assets/Available-Updates.png" />
