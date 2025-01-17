@@ -4,23 +4,20 @@ id: dxw52pb8igmv
 type: challenge
 title: Creating an application image from scratch
 tabs:
-- title: Terminal
+- id: wd2vpqvpurcq
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "buildah-session" > /dev/null 2>&1
-- title: RHEL Web Console
-  type: service
-  hostname: rhel
-  path: /
-  port: 9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Starting from an existing base container isn't the only option available to `buildah`.  `Buildah` can create a minimal container image that contains metadata and a filesystem stub.
 
 To create this style of image use the `scratch` special target for `buildah from`.
 
-```bash
+```bash,run
 buildah from scratch
 ```
 
@@ -34,11 +31,11 @@ We can start working with the scratch container using tools on the host by mount
 
 > _NOTE:_ We capture the output of the `buildah` command in the variable *scratchmnt* to make it easier to work with the filesystem path in these exercises.
 
-```bash
+```bash,run
 scratchmnt=$(buildah mount working-container)
 ```
 
-```bash
+```bash,run
 echo ${scratchmnt}
 ```
 
@@ -48,7 +45,7 @@ echo ${scratchmnt}
 
 Right now, that directory is empty.
 
-```bash
+```bash,run
 ls -l ${scratchmnt}
 ```
 

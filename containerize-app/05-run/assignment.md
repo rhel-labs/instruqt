@@ -4,15 +4,18 @@ id: xfniocpityc8
 type: challenge
 title: Running the new containerized software
 tabs:
-- title: Terminal
+- id: v2x6l8to3y75
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
-- title: Terminal 2
+- id: qaxwdljsm0kg
+  title: Terminal 2
   type: terminal
   hostname: rhel
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Now the software has been installed and a new container image created.  It is
 time to spawn a runtime of the container image and validate the software.  The
@@ -20,7 +23,7 @@ software we are using is a commandline command.  When you `run` the container,
 it will be in interactive (`-it`) mode, based on the `moon-buggy` container
 image, and the command run interactively will be `/usr/bin/moon-buggy`.
 
-```bash
+```bash,run
 podman run -it moon-buggy /usr/bin/moon-buggy
 ```
 
@@ -50,7 +53,7 @@ game, which will terminate the container.
 Alternatively you can use `podman` to kill the running container from
 **Terminal 2**.
 
-```bash
+```bash,run
 podman kill $(podman ps | grep -v CONTAINER | cut -f1 -d" " )
 ```
 

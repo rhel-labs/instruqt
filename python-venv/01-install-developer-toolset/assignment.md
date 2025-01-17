@@ -4,15 +4,17 @@ id: kpn6evljuxfa
 type: challenge
 title: 'Step 1: Install RHEL Developer Toolset'
 tabs:
-- title: Terminal
+- id: ppt8ndy3jys9
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
+enhanced_loading: null
 ---
 The first step is to install Red Hat Enterprise Linux Developer Toolset. This is a group of packages which contains helpful development tools for Python, including those needed for virtual environments. It is included in all RHEL subscriptions, including the free Developer Subscription for Individuals. To install, run the following command:
 
-```bash
+```bash,run
 dnf group install "Development Tools" -y
 ```
 

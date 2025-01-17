@@ -4,19 +4,21 @@ id: itk74ew8goge
 type: challenge
 title: Position application content
 tabs:
-- title: Terminal
+- id: jygy0qjuaqzo
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Next you will pull down our application content from github and position it within the container image.
 
 
 First, clone the application content from github.  For our example, we are using a javascript based web application.
 
-```bash
+```bash,run
 git clone https://github.com/ellisonleao/clumsy-bird
 ```
 
@@ -32,7 +34,7 @@ From the above output, you can see that the clone has been successful and in the
 
 Now, you will position this software within the container image you are building.
 
-```bash
+```bash,run
 buildah copy ubi-working-container-1 clumsy-bird /var/www/html
 ```
 
@@ -42,7 +44,7 @@ buildah copy ubi-working-container-1 clumsy-bird /var/www/html
 
 At this point, all the software needed for the container is in the image contents.  You can commit hte working container to a new container image called `clumsy-bird`.
 
-```bash
+```bash,run
 buildah commit ubi-working-container-1 clumsy-bird
 ```
 

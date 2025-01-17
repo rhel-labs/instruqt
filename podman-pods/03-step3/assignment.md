@@ -4,24 +4,26 @@ id: k0eef5fijgyf
 type: challenge
 title: Operationalizing Pods with kube
 tabs:
-- title: Terminal
+- id: y2eh8kjpuznx
+  title: Terminal
   type: terminal
   hostname: rhel
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 ## Podman generate, and podman play
 Another great feature of pods is that you can generate a yaml definition of your pod, and use it to re-create your pod using `podman generate` and `podman play`.
 
 Let's generate a definition for your newly networked pod.
 
-```bash
+```bash,run
 podman generate kube my-networked-pod > my-networked-pod.yaml
 ```
 
 Now, we can see what we generated
 
-```bash
+```bash,run
 cat my-networked-pod.yaml
 ```
 
@@ -53,13 +55,13 @@ status: {}
 
 Now, if we stop, and remove our pod.
 
-```bash
+```bash,run
 podman pod stop my-networked-pod && podman pod rm my-networked-pod
 ```
 
 We can re-create it easily with podman play.
 
-```bash
+```bash,run
 podman play kube my-networked-pod.yaml
 ```
 
@@ -75,7 +77,7 @@ f87d81a769a3cef7b5caf52e958426fd4f3f614e130bbb5e91c193ac36b3a27d
 
 Now, if we check on `podman pod ps` and `podman ps` we will see a new pod, and container within it.
 
-```bash
+```bash,run
 podman pod ps
 ```
 <pre>
@@ -84,7 +86,7 @@ POD ID        NAME              STATUS      CREATED        INFRA ID      # OF CO
 2f3d42d6cac7  my-networked-pod  Running     3 minutes ago  d9f73884ad91  2
 </pre>
 
-```bash
+```bash,run
 podman ps
 ```
 <pre>
@@ -96,7 +98,7 @@ f87d81a769a3  docker.io/library/httpd:latest           httpd-foreground  3 minut
 
 Now, if you try your curl command from earlier, you should get your test site just as before.  You can see how this is a great way to save the deployment information and re-deploy quickly.
 
-```bash
+```bash,run
 curl http://127.0.0.1:8080
 ```
 

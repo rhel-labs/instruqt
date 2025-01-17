@@ -4,23 +4,25 @@ id: apvnzu9i9ywg
 type: challenge
 title: Launching and inspecting the application container
 tabs:
-- title: Terminal
+- id: h59oeqs5mqdp
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "buildah-session" > /dev/null 2>&1
-- title: RHEL Web Console
+- id: viwsm4vteigy
+  title: Index page
   type: service
   hostname: rhel
-  path: /
-  port: 9090
+  port: 80
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 More information on managing containers with `podman` can be found in the ["Deploying containers with container tools"](https://lab.redhat.com/podman-deploy) scenario.
 
 Inspect the images available on the host using `podman images`
 
-```bash
+```bash,run
 podman images
 ```
 
@@ -35,7 +37,7 @@ Note the name matches what was set using `buildah commit`.
 
 `Podman` and `buildah` use the same storage locations on the host, which lets us immediately run the image we just built via `podman`.
 
-```bash
+```bash,run
 podman run -d -p 80:80 el-httpd2
 ```
 
@@ -45,7 +47,7 @@ podman run -d -p 80:80 el-httpd2
 
 Check the status of the application container using `podman`.
 
-```bash
+```bash,run
 podman ps
 ```
 
@@ -58,7 +60,7 @@ Note the ports and command match the metadata set using `buildah config`.
 
 Inspect the image metadata for the application container using `buildah inspect`.
 
-```bash
+```bash,run
 buildah inspect localhost/el-httpd2 | grep -A 8 rootfs
 ```
 
@@ -87,9 +89,9 @@ buildah inspect localhost/el-httpd2 | grep -A 8 rootfs
 
 Look for the `rootfs` section in the JSON output. You will see the single layer created by the `buildah commit` subcommand.
 
-Run the following `curl` command to check that the container is serving a web page.
+Run the following `curl` command to check that the container is serving a web page. Alternatively, you can view the page in the Index page tab.
 
-```bash
+```bash,run
 curl localhost:80
 ```
 

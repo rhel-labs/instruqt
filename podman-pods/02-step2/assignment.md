@@ -4,11 +4,13 @@ id: 6nhyrdwcs7ns
 type: challenge
 title: Pods and pod networking
 tabs:
-- title: Terminal
+- id: jygvxy7fnvwl
+  title: Terminal
   type: terminal
   hostname: rhel
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 ## More on pods
 
@@ -16,7 +18,7 @@ Pods are good for more than just organization though.  A pod also containerizes 
 
 If we run the same httpd container from earlier, without putting it inside of a pod, we can then access whatever ports we have exposed on the container, via localhost on our container host.
 
-```bash
+```bash,run
 podman run -d -p 8080:80 --rm --name my-bare-httpd httpd
 ```
 
@@ -24,7 +26,7 @@ This tells podman to run the same container image, with a new name, and forward 
 
 Now if we look at `podman ps` again, we'll see a new httpd container, notice that it says its listening on `0.0.0.0:8080`
 
-```bash
+```bash,run
 podman ps
 ```
 
@@ -39,7 +41,7 @@ CONTAINER ID  IMAGE                                    COMMAND           CREATED
 
 And we can even test that out with `curl`
 
-```bash
+```bash,run
 curl http://127.0.0.1:8080
 ```
 
@@ -50,7 +52,7 @@ curl http://127.0.0.1:8080
 
 Lets try to make a new httpd container, inside of our pod, that forwards in the same way.  First let's stop our new httpd container.
 
-```bash
+```bash,run
 podman stop my-bare-httpd
 ```
 
@@ -60,7 +62,7 @@ Now, we still have an httpd container running, but we can't access it, not just 
 
 Let's run a container that lets us get to a bash shell within our podfrom earlier, to show that the httpd service is in fact accessible, just not from outside the pod.
 
-```bash
+```bash,run
 podman run -it --pod my-pod --rm registry.access.redhat.com/ubi9/ubi
 ```
 
@@ -73,7 +75,7 @@ In this example, we're running a container, interactively, insdie of our pod.  Y
 
 This container doesn't run any services, but if we try to use curl on localhost, we'll see that in fact we get a response!
 
-```bash
+```bash,run
 curl http://127.0.0.1
 ```
 
@@ -85,7 +87,7 @@ curl http://127.0.0.1
 
 You can exit that shell with
 
-```bash
+```bash,run
 exit
 ```
 
@@ -97,24 +99,24 @@ root@rhel:~#
 
 So let's re-create our pod, and make it listen on port 8080.  Let's stop, and then delete our pod.
 
-```bash
+```bash,run
 podman pod stop my-pod && podman pod rm my-pod
 ```
 
 Now let's make a new pod, with a new httpd container, and have the pod forward port 8080 to port 80 inside the pod.
 
-```bash
+```bash,run
 podman pod create --name my-networked-pod -p 8080:80
 ```
 
 And then we'll need a container to listen on port 80, but we don't need to tell the container to forward anything, that's handled at the pod level.
 
-```bash
+```bash,run
 podman run -d --pod my-networked-pod --name my-networked-httpd httpd
 ```
 
 Now, if we check `podman pod ps` and `podman ps` we'll see that both the pod container, and the container itself show the port 8080 forward, even though we didnt specify that on the container.
-```bash
+```bash,run
 podman pod ps
 ```
 <pre>
@@ -123,7 +125,7 @@ POD ID        NAME              STATUS      CREATED         INFRA ID      # OF C
 63c4292d1879  my-networked-pod  Running     19 seconds ago  74be17e394e6  2
 </pre>
 
-```bash
+```bash,run
 podman ps
 ```
 
@@ -136,7 +138,7 @@ CONTAINER ID  IMAGE                                    COMMAND           CREATED
 
 And we should be able to test that with `curl` now.
 
-```bash
+```bash,run
 curl http://127.0.0.1:8080
 ```
 

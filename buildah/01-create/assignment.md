@@ -19,17 +19,14 @@ notes:
 
     > _NOTE:_ Throughout these steps there are UUIDs in output blocks that may not match your output exactly.
 tabs:
-- title: Terminal
+- id: wb3urlpcwdcw
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "buildah-session" > /dev/null 2>&1
-- title: RHEL Web Console
-  type: service
-  hostname: rhel
-  path: /
-  port: 9090
-difficulty: basic
+difficulty: ""
 timelimit: 3000
+enhanced_loading: null
 ---
 **Buildah** has two main ways to create images:
 
@@ -38,11 +35,11 @@ timelimit: 3000
 
 First, we'll look at using subcommands to modify the container contents before saving an image.  Many **buildah** subcommands act like directives from a Containerfile.  This allows for a familiar experience while automating builds.
 
-The Red Hat Enterprise Linux 8 Universal Base Image is provided as the starting point for creating containers with Red Hat Enterprise Linux packages.  More information on UBI can be found in the [introductory blog post.](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image)
+The Red Hat Universal Base Image is provided as the starting point for creating containers with Red Hat Enterprise Linux packages.  More information on UBI can be found in the [introductory blog post.](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image)
 
 To build an application container from the `ubi-init` base image, we will create a working container with `buildah`.  A working container is a temporary container used as the target for buildah commands.
 
-```bash
+```bash,run
 buildah from registry.access.redhat.com/ubi9/ubi-init
 ```
 

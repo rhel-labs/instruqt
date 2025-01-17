@@ -20,11 +20,13 @@ notes:
     # Example Use case:
     An administrator wants to run a service on a podman container host, that has dependent services.
 tabs:
-- title: Terminal
+- id: smyvxuuokckv
+  title: Terminal
   type: terminal
   hostname: rhel
 difficulty: basic
 timelimit: 3000
+enhanced_loading: null
 ---
 ## Validate the environment
 
@@ -32,7 +34,7 @@ timelimit: 3000
 
 The feature we will be working with is specific to Podman version 4 and newer, so first let's check that podman 4.0.x or newer is installed on the system.
 
-```bash
+```bash,run
 podman --version
 ```
 
@@ -47,7 +49,7 @@ podman version 4.9.4-rhel
 
 A pod within podman is a way of grouping containers that make up services.  We can create a pod easily, with the following command.
 
-```bash
+```bash,run
 podman pod create --name my-pod
 ```
 You should see output similar to this:
@@ -59,7 +61,7 @@ You should see output similar to this:
 
 Now we can create a container within that pod simply by tellig podman what pod to create the container in.
 
-```bash
+```bash,run
 podman run --pod my-pod -d --name my-httpd httpd
 ```
 
@@ -73,7 +75,7 @@ Again, you should see output similar to this:
 
 Now, we can see that our container is running with
 
-```bash
+```bash,run
 podman ps
 ```
 
@@ -89,7 +91,7 @@ But what is that extra container? `2d95aa4fdaee-infra`
 
 That is a special container that runs our pod.  We can see that the pod is up and running, with two containers, even though we only started a single container inside of it.
 
-```bash
+```bash,run
 podman pod ps
 ```
 

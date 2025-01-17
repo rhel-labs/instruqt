@@ -4,21 +4,18 @@ id: vmy0cfk0cxdf
 type: challenge
 title: Creating an application image from an existing base
 tabs:
-- title: Terminal
+- id: ainnojjw50vj
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "buildah-session" > /dev/null 2>&1
-- title: RHEL Web Console
-  type: service
-  hostname: rhel
-  path: /
-  port: 9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 The `ubi-init` image is very complete, including tools like `yum` and `systemd`.  You can install `httpd` via `yum` in the container using the `buildah run` subcommand.
 
-```bash
+```bash,run
 buildah run ubi-init-working-container -- yum -y install httpd
 ```
 
@@ -63,17 +60,17 @@ This subcommand acts like the RUN directive in an Containerfile.  Since the `yum
 
 Once the packages are installed in the working container, enable `httpd` to start when the container is run via systemd using the `buildah run` subcommand.
 
-```bash
-buildah run ubi-init-working-container -- systemctl enable httpd
+```bash,run
+buildah run ubi-init-working-container systemctl enable httpd
 ```
 
 <pre class="file">
 Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /usr/lib/systemd/system/httpd.service.
 </pre>
 
-Deploying web content to the container image can be done using the `buildah copy` subcommand. In the /root directory we've included an html index file `index1.html`. Copy this file into the container with `buildah copy` with the command below.
+Deploying web content to the container image can be done using the `buildah copy` subcommand. In the /root directory we've included an html index file `index1.html`. Copy this file into the container with the `buildah copy` command below.
 
-```bash
+```bash,run
 buildah copy ubi-init-working-container index1.html /var/www/html/index.html
 ```
 
@@ -81,7 +78,7 @@ This subcommand acts like the COPY directive in a Containerfile.
 
 To expose the web server port and set systemd to start when the container is run, modify the metadata with the `buildah config` subcommand.
 
-```bash
+```bash,run
 buildah config --port 80 --cmd "/usr/sbin/init" ubi-init-working-container
 ```
 
@@ -91,7 +88,7 @@ These options to `buildah config` are equivalent to the EXPOSE and CMD directive
 
 Once the contents of the working container are complete, and the metadata has been updated, save the working container as the target application image using `buildah commit`. We are naming the contianer `el-httpd1`.
 
-```bash
+```bash,run
 buildah commit ubi-init-working-container el-httpd1
 ```
 

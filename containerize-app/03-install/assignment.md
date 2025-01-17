@@ -4,18 +4,20 @@ id: s0nj42hpefg0
 type: challenge
 title: Installing the target software
 tabs:
-- title: Terminal
+- id: jr2hecedmhuz
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Now that the yum repositories are defined within the container, you can use
 another `dnf install`, executed within the container, to install the target
 software: `moon-buggy`.
 
-```bash
+```bash,run
 buildah run ubi-working-container -- dnf -y install moon-buggy
 ```
 

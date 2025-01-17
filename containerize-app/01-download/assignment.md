@@ -26,12 +26,14 @@ notes:
 
 
 tabs:
-- title: Terminal
+- id: cg1daagtjk0z
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 3000
+enhanced_loading: null
 ---
 The Red Hat Universal Base Image (UBI) is produced by Red Hat and is an easy
 place to start when containerizing applications.  If you want to read more
@@ -48,7 +50,7 @@ UBI image (as opposed to the Minimal or Multi-service images).
 By executing the command below, your system will download the Standard UBI
 image from Red Hat's registry.
 
-```bash
+```bash,run
 buildah from registry.access.redhat.com/ubi9/ubi
 ```
 
