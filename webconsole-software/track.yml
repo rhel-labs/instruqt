@@ -11,20 +11,21 @@ description: |+
   * Apply software updates using the **Software Updates** application
 
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
-level: beginner
 tags:
 - rhel
 owner: rhel
 developers:
 - myee@redhat.com
 - wkibbe@redhat.com
+maintenance: true
 show_timer: true
 lab_config:
   feedback_recap_enabled: true
   feedback_tab_enabled: false
   loadingMessages: true
+  override_challenge_layout: false
   hideStopButton: false
   default_layout: AssignmentRight
   default_layout_sidebar_size: 33
-checksum: "17013309771438829839"
+checksum: "15504097937899659752"
 enhanced_loading: false
