@@ -16,13 +16,15 @@ tags:
 - rhel
 owner: rhel
 developers:
-- wkibbe@redhat.com
 - myee@redhat.com
+- wkibbe@redhat.com
 show_timer: true
 lab_config:
-  overlay: false
-  width: 33
-  position: right
   feedback_recap_enabled: true
+  feedback_tab_enabled: false
   loadingMessages: true
-checksum: "5006739063652529456"
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 33
+checksum: "17013309771438829839"
+enhanced_loading: false

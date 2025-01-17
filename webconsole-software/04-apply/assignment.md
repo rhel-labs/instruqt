@@ -4,22 +4,24 @@ id: fu3txdp5srhg
 type: challenge
 title: Apply security updates
 tabs:
-- title: Terminal
+- id: o2olkecwdddh
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
+- id: brqm2ghb8tnw
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 
 Notice that there are a mix of updates available for the system.  Some of these are identified as __Security Updates__ by the shield icon in the __Severity__ field.
 
-Also, you will notice that there is a button in the upper left corner entitled
-__Install Security Updates__.
+Security updates can be applied separately from other updates.
 
-Use the __Install Security Updates__ button to apply this set of updates.
+Use the __Install Security Updates__ button to apply just this set of updates.
 
 <a href="#security">
  <img alt="An example image" src="../assets/Apply-Security-Updates.png" />
@@ -33,6 +35,10 @@ After the security updates are applied, you are prompted to restart the system s
 
 ![Ignore Restart Request](../assets/Restart-request.png)
 
+> [!NOTE]
+>  If an update to the web console is applied, you will be presented with the option to Reconnect. Press this button, and reenter the username and password. Note that you are taken back to the Software updates page, and administrative access is still enabled.
+
+You may move on to the next step.
 <style>
 .lightbox {
   display: none;

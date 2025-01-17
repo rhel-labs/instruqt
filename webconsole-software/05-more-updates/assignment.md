@@ -4,17 +4,20 @@ id: 1bkacff1hbjm
 type: challenge
 title: Apply remaining available updates
 tabs:
-- title: Terminal
+- id: k2gtyql0jpfw
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
+- id: xjpzhet2omha
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 
-In addition to targeting security updates, you may also apply all the updates on the system.
+In addition to targeting security updates, you may also apply all available updates on the system.
 
 When you are ready, apply the available updates by clicking the __Install All Updates__ button.
 
@@ -28,10 +31,11 @@ When you are ready, apply the available updates by clicking the __Install All Up
 
 Again you are asked to restart the system. This time, you can if you choose to do so.
 
-Now your system reports that it has been updated and requires a `Reboot` or `Restart services`.
+Now your system reports that it has been updated and presents the options to `Reboot system` or `Restart services`.
 
 ![Ignore Restart Request](../assets/Restart-request.png)
 
+This lab is now complete!
 <style>
 .lightbox {
   display: none;

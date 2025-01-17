@@ -15,28 +15,23 @@ notes:
     * Apply software updates using the **Software Updates** application
 
 tabs:
-- title: Terminal
+- id: cdtsw1xxv3jq
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
+- id: oky0rvpmn0xu
+  title: RHEL Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 3000
+enhanced_loading: null
 ---
 
-Click on the tab titled **RHEL Web Console** at the top of  your lab system interface. Selecting this tab will open the lab system's Web Console in a
-new browser tab or window.
+Click on the tab titled **RHEL Web Console** at the top of  your lab system interface. Selecting this tab will open the lab system's Web Console in a new browser tab or window.
 
-![web console](../assets/pop-out-2.png)
-
-Click `Advanced`
-
-![Connection not private](../assets/connection-not-private.png)
-
-Then click `Proceed to rhel.xxxx.instruqt.io`
-
-![Proceed](../assets/proceed.png)
+> [!NOTE]
+> If you have issues logging into the web console, try using a Private window or a different browser. Using Chrome, you may get a warning that the password is insecure or found in a breach. Since this is a temporary resource, we aren't using a very secure password and this warning can be ignored.
 
 Once the login page is presented, use the following credentials to log into the Web Console:
 
@@ -53,3 +48,5 @@ redhat
 ```
 
 ![](../assets/Web-console-login.png)
+
+Once logged in, proceed to the next step.
