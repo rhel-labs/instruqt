@@ -1,56 +1,10 @@
 #!/bin/bash
-mkdir -p /root/rcs
 dnf install -y python3-pip container-tools
 dnf copr enable -y @rhel-lightspeed/command-line-assistant
 
 dnf install -y `agent variable get cla_version`
 
-echo ${WATSONX_API_KEY} > /root/rcs/.watsonx_api_key
-
-tee -a /root/rcs/rcsconfig.yaml << EOF
-llm_providers:
- - name: watsonx
-   type: watsonx
-   url: "https://us-south.ml.cloud.ibm.com"
-   credentials_path: .watsonx_api_key
-   project_id: ed56b9aa-bbd2-4794-a420-380e016d6a81
-   models:
-     - name: ibm/granite-3-8b-instruct
-ols_config:
- reference_content:
- conversation_cache:
-   type: memory
-   memory:
-     max_entries: 1000
- logging_config:
-   app_log_level: info
-   lib_log_level: warning
-   uvicorn_log_level: info
- default_provider: watsonx
- default_model: ibm/granite-3-8b-instruct
- # query_filters:
- #   - name: foo_filter
- #     pattern: '\b(?:foo)\b'
- #     replace_with: "deployment"
- #   - name: bar_filter
- #     pattern: '\b(?:bar)\b'
- #     replace_with: "openshift"
- query_validation_method: llm
- user_data_collection:
-   feedback_disabled: false
-   feedback_storage: "/tmp/data/feedback"
-   transcripts_disabled: false
-   transcripts_storage: "/tmp/data/transcripts"
-dev_config:
- # config options specific to dev environment - launching OLS in local
- enable_dev_ui: false
- disable_auth: true
- disable_tls: true
- # llm_params:
- #   temperature_override: 0
- # k8s_auth_token: optional_token_when_no_available_kube_config
-EOF
-
-docker pull ghcr.io/rhel-lightspeed/rcs:73014baaf4c32276493b8f3820eea1ec6ed475f5
-podman run -d --volume /root/rcs/rcsconfig.yaml:/app-root/rcsconfig.yaml:z --volume /root/rcs/.watsonx_api_key:/app-root/.watsonx_api_key:z -p 8080:8080 -e PROJECT=cla ghcr.io/rhel-lightspeed/rcs:73014baaf4c32276493b8f3820eea1ec6ed475f5
-systemctl enable clad && systemctl start clad
+podman run -d -e WATSONX_API_KEY=${WATSONX_API_KEY} \
+	-e WATSONX_PROJECT_ID="a74348df-2d24-4f95-b623-37bda7cff0d1" \
+	-e USE_RAG=false \
+	quay.io/redhat-user-workloads/rhel-lightspeed-tenant/rlsapi/rlsapi:latest 
