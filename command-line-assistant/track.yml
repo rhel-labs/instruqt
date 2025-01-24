@@ -9,12 +9,12 @@ developers:
 - myee@redhat.com
 show_timer: true
 idle_timeout: 1200
-timelimit: 3600
+timelimit: 14400
 lab_config:
   extend_ttl: 300
   feedback_recap_enabled: true
   feedback_tab_enabled: false
   loadingMessages: true
   hideStopButton: false
-checksum: "3376003916112187752"
+checksum: "10430640794524196551"
 enhanced_loading: false
