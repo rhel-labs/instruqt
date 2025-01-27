@@ -4,7 +4,7 @@ dnf copr enable -y @rhel-lightspeed/command-line-assistant
 
 dnf install -y `agent variable get cla_version`
 
-podman run -d -e WATSONX_API_KEY=${WATSONX_API_KEY} \
+podman run -d -e WATSONX_APIKEY=${WATSONX_API_KEY} \
 	-e WATSONX_PROJECT_ID="a74348df-2d24-4f95-b623-37bda7cff0d1" \
 	-e USE_RAG=false \
 	quay.io/redhat-user-workloads/rhel-lightspeed-tenant/rlsapi/rlsapi:latest 
