@@ -45,7 +45,7 @@ Unfortunately, this host was missed during that migration and we need to get it 
 Connect to the console of the VM running our bootc image
 ===
 
-Let's connect to the virutal machine's console. Switch to the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-1) tab.
+Let's connect to the virtual machine's console. Switch to the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-1) tab.
 
 > [!NOTE]
 > If the console hasn't connected or there is an error, you can reconnect by clicking Refresh next to the tab name. The prompt will look like this. ![](../assets/terminal_prompt.png)
@@ -89,7 +89,7 @@ We can migrate this host to our new registry with `bootc switch`. Note that we h
 sudo bootc switch [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
 ```
 
-At first glance, `bootc switch` doesn't look very different from `bootc upgrade`. It will download and prepare the new image to a local deployment location on disk. It downloads any layers it detects are different based on the metadata availble in the registry.
+At first glance, `bootc switch` doesn't look very different from `bootc upgrade`. It will download and prepare the new image to a local deployment location on disk. It downloads any layers it detects are different based on the metadata available in the registry.
 
 We can see in the output of `bootc switch` that our new image has been queued to be activated the next time the host boots. We can also see if there's any changes waiting by checking the staged section of `bootc status`. If there was no image staged for use, that section would read `null`.
 
@@ -122,7 +122,7 @@ Since update tracking is one of the key features that needs current and correct 
 ```bash,run
 sudo bootc upgrade --check
 ```
-We've confirmed we're using the new registry, and we've got the lastest version of our image running.
+We've confirmed we're using the new registry, and we've got the latest version of our image running.
 
 You can also check what the current `spec` section of `bootc status` now says about where updates are coming from.
 ```bash,run

@@ -52,7 +52,7 @@ bootfs is sufficient for calculated new size: 0 bytes
 Next boot: rollback deployment
 ````
 
-There are two additional places in the status you can look for information about what will happen at the next boot. You should see the value of `rollbackQueued` has been updated. This can be useful to check before restarting a sysytem.
+There are two additional places in the status you can look for information about what will happen at the next boot. You should see the value of `rollbackQueued` has been updated. This can be useful to check before restarting a system.
 ```bash,run
 sudo bootc status | grep Queued
 ```
