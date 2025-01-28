@@ -35,10 +35,18 @@ notes:
     https://www.reddit.com/r/redhat/
 tabs:
 - id: iksv8aygupm1
-  title: Terminal
+  title: RHEL 10 Terminal
   type: terminal
   hostname: rhel
   cmd: ssh -o "StrictHostKeyChecking no" root@rhel10beta
+- id: l2amt2dod1me
+  title: RHEL 9 Virtualization Host
+  type: terminal
+  hostname: rhel
+- id: 5iuqkc5pxrpy
+  title: RHEL 9 Virtualization Host Web Console
+  type: external
+  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 3000
 enhanced_loading: null

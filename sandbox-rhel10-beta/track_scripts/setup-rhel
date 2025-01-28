@@ -17,4 +17,4 @@ sleep 30
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
 # Attempt to register the vm 3 times, waiting 30 seconds for each attempt.
-(r=3;while ! ssh -i /root/.ssh/id_rsa -o "StrictHostKeyChecking no" root@rhel10beta "subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force" ; do ((--r))||exit;sleep 30;done)
+(r=3;while ! ssh -i /root/.ssh/id_rsa -o "StrictHostKeyChecking no" root@rhel10beta "subscription-manager clean && subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force" ; do ((--r))||exit;sleep 30;done)
