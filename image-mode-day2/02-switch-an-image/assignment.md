@@ -48,7 +48,7 @@ While this is convenient, it can create a lot of confusion. What in that `latest
 Using tags for identifying image contents
 ===
 
-Let's add some new content to our webserver in prepartion for deploying an application, then build it with a new tag.
+Let's add some new content to our webserver in preparation for deploying an application, then build it with a new tag.
 
 Click on the [button label="Containerfile" background="#ee0000" color="#c7c7c7"](tab-1) tab.
 
@@ -90,7 +90,7 @@ podman images test-bootc
 ```
 You can see we have 3 images listed, but a closer look at the `IMAGE ID` column shows that 2 of them are the same.
 
-With more sophiscated tools than available in this lab environment, the flexibility afforded by tags can be very powerful.
+With more sophisticated tools than available in this lab environment, the flexibility afforded by tags can be very powerful.
 
 With our updated images, we need to push them to the registry to make them available for use. Notice that the `dev` tagged image only copies a config layer since all of the other layers are identical to the `v2` image.
 
