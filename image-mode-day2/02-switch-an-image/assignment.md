@@ -42,7 +42,7 @@ If you look at all of the images available in the lab, you'll see most of them h
 podman images
 ```
 
-While this is convenient, it can create a lot of confusion. What in that `latest` container? Which updates did we provide? Have you seen the `latest` tag in any of the `bootc status` output so far?
+While this is convenient, it can create a lot of confusion. What is in that `latest` container? Which updates did we provide? Have you seen the `latest` tag in any of the `bootc status` output so far?
 
 
 Using tags for identifying image contents
@@ -67,7 +67,7 @@ RUN echo "New application coming soon!" > /var/www/html/index.html
 
 The editor will automatically save changes. Once you see Changes Saved in the upper right, you can return to the [button label="Terminal" background="#ee0000" color="#c7c7c7"](tab-0) tab. You can also use 'Ctrl s' or 'Cmd s' to save depending on your OS.
 
-Use podman to build the image.
+Use podman to build the image
 ===
 With our changes in the Containerfile saved, we will run `podman build` to get a new image. But this time we'll set a specific tag by adding `v2` to the end of the container name. The container tools once again reuse the pre-existing layers, only adding one for our new web page.
 
@@ -92,7 +92,7 @@ You can see we have 3 images listed, but a closer look at the `IMAGE ID` column 
 
 With more sophisticated tools than available in this lab environment, the flexibility afforded by tags can be very powerful.
 
-With our updated images, we need to push them to the registry to make them available for use. Notice that the `dev` tagged image only copies a config layer since all of the other layers are identical to the `v2` image.
+We need to push our updated images to the registry to make them available for use. Notice that the `dev` tagged image only copies a config layer since all of the other layers are identical to the `v2` image.
 
 ```bash,run
 podman push [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:v2
@@ -107,7 +107,7 @@ Switch to the v2 image
 Click on the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-2) tab.
 
 > [!NOTE]
-> You may need to tap `enter` to wake up the console, you should still be logged in as `core`
+> You may need to tap `enter` to wake up the console. You should still be logged in as `core`
 
 
 The new images we pushed to the registry didn't use the `latest` tag, so they won't be seen as an update by `bootc`. Notice there's nothing after the name `test-bootc` in the output.
