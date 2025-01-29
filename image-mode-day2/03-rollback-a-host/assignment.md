@@ -28,12 +28,12 @@ enhanced_loading: null
 ---
 > [!NOTE]
 > You should still be in the VM Console tab. If not,
-> Click on the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-2) tab.
-> You may need to tap `enter` to wake up the console, you should still be logged in as `core`
+> click on the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-2) tab.
+> You may need to tap `enter` to wake up the console. You should still be logged in as `core`
 
 Image mode systems have a native capability that typically takes more preparation with package mode operations: the rollback.
 
-Since `bootc` unpacks images locally, we still have the previous version of the host on disk. Our `v2` image was unpacked along side of the original image, then the set as the primary target in the bootloader. To restore the previous version of a package mode system, we’d need to have set up snapshots before changes were made or refer to a backup. With `bootc` we have a single command that can revert to the last booted image.
+Since `bootc` unpacks images locally, we still have the previous version of the host on disk. Our `v2` image was unpacked alongside the original image, then set as the primary target in the bootloader. To restore the previous version of a package mode system, we’d need to have set up snapshots before changes were made or refer to an external backup. With `bootc` we have a single command that can revert to the last booted image.
 
 A missing web page isn't the sort of issue we'd normally need to recover from a backup, but this is a lab after all. Let's go ahead and check for an available rollback option to get us back to the previous image.
 

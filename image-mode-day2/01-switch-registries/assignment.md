@@ -9,7 +9,7 @@ notes:
   contents: |
     # Goal:
 
-    In this lab you will manage a virtual machine that is running in image mode. You'll explore how bootc tracks images, changing host purposes, and rolling back changes.
+    In this lab you will manage a virtual machine running in image mode. You'll explore how bootc tracks images, changes host purposes, and rolls back changes.
 
     In the first exercise, you will explore how `bootc` tracks images and get an imported VM using a new registry.
 
@@ -40,7 +40,7 @@ Changing registries for our bootc image
 
 In the normal course of operations, available infrastructure is often changed or decommissioned in favor of newer options. In our environment, the registry server we've been using has been swapped out for a new server.
 
-Unfortunately, this host was missed during that migration and we need to get it back on track. There's native tooling in `bootc` that let's us change the image that a particular host is using.
+Unfortunately, this host was missed during that migration and we need to get it back on track. There's native tooling in `bootc` that lets us change the image that a particular host is using.
 
 Connect to the console of the VM running our bootc image
 ===
@@ -68,7 +68,7 @@ redhat
 
 Check the image the VM is using
 ===
-Hosts created from bootc images track a particular image in a specific registry, this is how `bootc` knows when an update is available.  When `bootc` tries to look for an update, you get a `no such host` error.
+Hosts created from bootc images track a particular image in a specific registry. This is how `bootc` knows when an update is available.  When `bootc` tries to look for an update, you get a `no such host` error.
 
 ```bash,run
 sudo bootc upgrade --check
@@ -91,7 +91,7 @@ sudo bootc switch [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rh
 
 At first glance, `bootc switch` doesn't look very different from `bootc upgrade`. It will download and prepare the new image to a local deployment location on disk. It downloads any layers it detects are different based on the metadata available in the registry.
 
-We can see in the output of `bootc switch` that our new image has been queued to be activated the next time the host boots. We can also see if there's any changes waiting by checking the staged section of `bootc status`. If there was no image staged for use, that section would read `null`.
+We can see in the output of `bootc switch` that our new image has been queued to be activated the next time the host boots. We can also see if there are any changes waiting by checking the staged section of `bootc status`. If there was no image staged for use, that section would read `null`.
 
 ```bash,run
 sudo bootc status | grep staged: -A 8
@@ -128,7 +128,7 @@ You can also check what the current `spec` section of `bootc status` now says ab
 ```bash,run
 sudo bootc status | grep spec: -A 4
 ```
-You can also see the `staged` section is now set to `null` since there's no prepared changes.
+You can also see the `staged` section is now set to `null` since there are no prepared changes.
 
 ```bash,run
 sudo bootc status | grep staged:
