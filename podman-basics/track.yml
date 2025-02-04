@@ -1,0 +1,33 @@
+slug: podman-basics
+id: 6bme8i9w8xsa
+title: Learn some container basics with Podman.
+description: |
+  # Goal:
+  After completing this scenario users will be able to create podman containers, map in persistent storage, and map through ports.
+
+  # Concepts included in this scenario:
+  * Verify whether podman is installed on the system
+  * Run a container in podman
+  * Run a container with persistent storage
+  * Run a container that is accessible over the network
+
+  # Example Use case:
+  An administrator wants to run a service on a podman container host, that has dependent services.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- nlager@redhat.com
+show_timer: true
+idle_timeout: 600
+timelimit: 3300
+lab_config:
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 25
+checksum: "10906689766238722013"
+enhanced_loading: false
