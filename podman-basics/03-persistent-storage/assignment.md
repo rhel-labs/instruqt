@@ -16,11 +16,12 @@ difficulty: basic
 timelimit: 1
 enhanced_loading: null
 ---
-A container is ephemeral.  It's designed to be.  The whole idea of a container is, that if its not functioning properly, it can be killed and started back up fresh.  If it's compromised and someone lays down malware, just kill it and rebuilt it.  If there are upates pushed to the code that runs in the container... You guessed it, kill it and rebuild it.  This sort of lack of persistence is very freeing, but it means... well.. You don't have any persistence.
+A container is ephemeral.  It's designed to be.  The whole idea of a container is, that if its not functioning properly, it can be killed and started back up fresh.  If it's compromised and someone lays down malware, just kill it and rebuilt it.  If there are updates  pushed to the code that runs in the container... You guessed it, kill it and rebuild it.  This sort of lack of persistence is very freeing, but it means... well.. You don't have any persistence.
 
 No persistence is a problem for most applications.  Sure you could store all of your content in a database, or on some CDN, but sometimes you just need local files.  For that, you really need a place to store files, that doesn't go away when the container is deleted and re-created.  Podman, and docker, give us a few ways to accomplish this.  You can create named volumes, in a that support a variety of back-ends.  Or you can just map a local directory into your container.  This second method is what we'll cover here.
 
 ## Adding persistent storage
+
 Adding local storage is pretty easy, there's a command-line argument that will pass along the local path, to the container path you'd like it mapped to. Let's try it.
 
 You'll find a super-businessey web site inside of `~root/my-httpd/html`, let's map that to the location inside of this httpd container, that we know the web root exists in.
@@ -53,7 +54,8 @@ If you were to edit `~/my-httpd/html/index.html` those changes would immediately
 But this only gets us one step closer to successfully running httpd inside of a container.  Without any network access, this container is still pretty useless.
 
 ## How container ports work
-When a container image is written, the author adds special commands to the container definition that tells it what ports its supposed to listen on.  But you, as the container host administrator, need to then open those ports, much like you would in a firewall.  Podman doesn't do it automatically, for lots of reasons.  In the case of httpd, we know that it will listen on ports 80, and probably 443 if its configured with a TLS certificate.  But this one isnt.  If you look at the top of your lab environment, you'll see a tab that says `Test HTTPD Container`.  If you click on that, it'll open up a new browser tab and attempt to access our container, it should fail.
+
+When a container image is written, the author adds special commands to the container definition that tells it what ports its supposed to listen on.  But you, as the container host administrator, need to then open those ports, much like you would in a firewall.  Podman doesn't do it automatically, for lots of reasons.  In the case of httpd, we know that it will listen on ports 80, and probably 443 if its configured with a TLS certificate.  But this one isn't.  If you look at the top of your lab environment, you'll see a tab that says `Test HTTPD Container`.  If you click on that, it'll open up a new browser tab and attempt to access our container, it should fail.
 
 It fails because we haven't told podman to open port 80.  So let's do that.
 

@@ -68,7 +68,7 @@ CONTAINER ID  IMAGE       COMMAND     CREATED     STATUS      PORTS       NAMES
 root@rhel:~#
 </pre>
 
-Remember how I said UBI was meant to be a base for building containers?  It's not configured out of the box to actually run anything if you just run it.  We only got a bash shell that first time becasue we ran it in the foreground.  Without a `CMD` to run the container simply exits.  We wont cover how to build a container from UBI in this particular lab, as we're here to cover the basics.
+Remember how I said UBI was meant to be a base for building containers?  It's not configured out of the box to actually run anything if you just run it.  We only got a bash shell that first time because we ran it in the foreground.  Without a `CMD` to run the container simply exits.  We wont cover how to build a container from UBI in this particular lab, as we're here to cover the basics.
 
 If you check `podman ps -a` you'll find our new container there, stopped.  Because it ran, and exited as it was supposed to.
 
@@ -112,7 +112,7 @@ AH00558: httpd: Could not reliably determine the server's fully qualified domain
 [Mon Feb 03 23:23:16.731518 2025] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
 </pre>
 
-Commonly, when you run a process inside of a container, it's not run by any sort of init system.  It just runs as though you'd run it in the foreground.  But it's in the foreground, in this detatched state, inside of the container.  It's fully up and active like it was run in the background by an init system like systemd, but its not running under systemd, its running in the container.
+Commonly, when you run a process inside of a container, it's not run by any sort of init system.  It just runs as though you'd run it in the foreground.  But it's in the foreground, in this detached state, inside of the container.  It's fully up and active like it was run in the background by an init system like systemd, but its not running under systemd, its running in the container.
 
 So, what if for some reason you need to get a shell inside of that container?  Well we can do that too, with `podman exec`.  This command can run any executable that exists in the container.  You can run `bash`, or `ls`, or most other bash built-ins.  You can also run any utilities that have been baked into the container.  Let's try a few.
 
@@ -126,4 +126,4 @@ Or, we can get a shell by invoking bash, but remember we want this one to run in
 podman exec -it my-httpd /bin/bash
 ```
 
-You should get a shell inside of your container, and you can look around and see where files live and what user permissions are.  This can come in handy when you're trying to figure out where to map in peristent storage.  Persistent storage is something we'll be covering in the next step, along with mapping in ports so our container can do something more than just sit there.
+You should get a shell inside of your container, and you can look around and see where files live and what user permissions are.  This can come in handy when you're trying to figure out where to map in persistent storage.  Persistent storage is something we'll be covering in the next step, along with mapping in ports so our container can do something more than just sit there.
