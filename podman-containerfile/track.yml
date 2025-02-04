@@ -1,0 +1,33 @@
+slug: podman-containerfile
+id: vnhklh9yyhsd
+title: Build a custom container from a containerfile in podman
+description: |
+  # Goal:
+  After completing this scenario users will be able to create a new container image, using a Containerfile, using podman.
+
+  # Concepts included in this scenario:
+  * Containerfile basics
+  * Building and tagging a container image
+  * Modifying your container image
+  * Running a container using your new container image.
+
+  # Example Use case:
+  An application developer wants to containerize their application.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- nlager@redhat.com
+show_timer: true
+idle_timeout: 600
+timelimit: 3300
+lab_config:
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 25
+checksum: "9164855001820204197"
+enhanced_loading: false

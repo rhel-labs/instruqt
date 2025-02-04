@@ -1,0 +1,14 @@
+#!/bin/bash
+#podman stop -a
+#podman rm -a
+
+mkdir -p ~root/my-container/app
+cat << EOF >> ~root/my-container/app/index.html
+<HTML>
+<HEAD>
+<TITLE>My Web App</TITLE>
+</HEAD>
+This is my web app
+</HTML>
+EOF
+
