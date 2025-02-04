@@ -75,6 +75,6 @@ podman run -d -v ~/my-httpd/html:/usr/local/apache2/htdocs/:Z --name my-httpd -p
 
 You'll see we added `-p 80:80` this tells podman to forward port 80 on our host to port 80 in the container.  If you wanted instead to forward the host port 8080 to 80, you'd enter `-p 8080:80`.  You can even forward a specific IP address's port to your containers port, if you have a system with several IP's associated with it.  That would look like `-p 10.2.3.4:80:80`.
 
-Let's see if our container works now.  You should see my super-businessey web site! 
+Let's see if our container works now.  You should see my super-businessey web site!
 
 
