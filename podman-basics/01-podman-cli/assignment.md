@@ -13,11 +13,13 @@ timelimit: 1
 enhanced_loading: null
 ---
 ## Podman CLI
-The first thing we'll work with is the podman CLI.  If you are familair with containers on docker, you'll find a lot of the work here to be almost identical to the command-line you're used to on docker.  This is on purpose.  Podman has a docker compatible command set, it also runs the same Open Container Initiative (OCI) compliant images that you may be used to running on docker.
 
-Thruout this lab we'll be using container images, in fact, that came right from docker hub, but we'll also see container images from other sources.
+The first thing we'll work with is the podman CLI.  If you are familiar with containers on docker, you'll find a lot of the work here to be almost identical to the command-line you're used to on docker.  This is on purpose.  Podman has a docker compatible command set, it also runs the same Open Container Initiative (OCI) compliant images that you may be used to running on docker.
+
+Throughout this lab we'll be using container images, in fact, that came right from docker hub, but we'll also see container images from other sources.
 
 ## Verifying that podman is installed
+
 First, let's see what version of podman we're working with.
 
 ```bash,run
@@ -43,6 +45,7 @@ registry.access.redhat.com/ubi9/ubi  latest      4d9d35858951  3 weeks ago  234 
 </pre>
 
 ## Look for running containers
+
 Now let's see if there are any containers running
 
 ```bash,run
@@ -64,7 +67,7 @@ To stop a container, you use the ```podman stop [identifier]``` command.  The `i
 podman stop default-httpd
 ```
 
-Podman confirms this action only by returning the container's ID or Name (depending on the podman version) that you stopped.  Now, ```podman ps``` will show no running containers, but the container isnt gone, you can see all containers, using the ```podman ps -a``` command. Let's try that.
+Podman confirms this action only by returning the container's ID or Name (depending on the podman version) that you stopped.  Now, ```podman ps``` will show no running containers, but the container isn't gone, you can see all containers, using the ```podman ps -a``` command. Let's try that.
 
 ```bash,run
 podman ps -a
@@ -105,7 +108,8 @@ root@rhel:~#
 </pre>
 
 ## Working with Images
-What if we need a new image from our container registry?  A container registry is sort of like a package repository, or even a code repository.  It's a central place where our container images live.  Those images will usually have different builds, or versions associated with them, seperated by Tags.  By default podman will pull the `latest` tag.  Let's try to pull a specific build of the mariadb image, from the Docker Hub public registry.
+
+What if we need a new image from our container registry?  A container registry is sort of like a package repository, or even a code repository.  It's a central place where our container images live.  Those images will usually have different builds, or versions associated with them, separated by Tags.  By default podman will pull the `latest` tag.  Let's try to pull a specific build of the mariadb image, from the Docker Hub public registry.
 
 ```bash,run
 podman pull docker.io/mariadb:lts-ubi9
@@ -137,7 +141,7 @@ Much like parfait, images have layers.  These multiple lines of "copying blob...
 
 Now, you'll find the `mariadb:lts-ubi9` image in your local list of container images.
 
-A note on tags.  in this example, we downloaded the mariadb build based on the RHEL 9 Universal Base Image.  This is denoted by the tag `lts-ubi9`.  If you left off the tag, podman would have defaulted to downloading `mariadb:latest` which in this case is a container built on an entirely different base.  Containers give us this sort of flexibilty.
+A note on tags.  in this example, we downloaded the mariadb build based on the RHEL 9 Universal Base Image.  This is denoted by the tag `lts-ubi9`.  If you left off the tag, podman would have defaulted to downloading `mariadb:latest` which in this case is a container built on an entirely different base.  Containers give us this sort of flexibility.
 
 ```bash,run
 podman image list
