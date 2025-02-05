@@ -8,10 +8,11 @@ tabs:
   title: Terminal
   type: terminal
   hostname: rhel
-- id: hy5bytr3vtwd
-  title: Test HTTPD container
-  type: external
-  url: http://rhel.${_SANDBOX_ID}.instruqt.io
+- id: betryoal0rqx
+  title: Containerfile
+  type: code
+  hostname: rhel
+  path: /root/my-container/Containerfile
 difficulty: basic
 timelimit: 1
 enhanced_loading: null
@@ -32,7 +33,7 @@ FROM registry.access.redhat.com/ubi9/ubi-init
 Now, we also need to enable the httpd service within systemd. So, somewhere after httpd is installed, but before the `CMD` you should add the following:
 
 ```
-systemctl enable httpd
+RUN systemctl enable httpd
 ```
 
 In our example we add this as the last line before `CMD`.

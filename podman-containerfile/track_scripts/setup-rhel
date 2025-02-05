@@ -1,5 +1,5 @@
 !#/bin/bash
-LOG=/root/post-run.log
+LOG=/dev/null
 
 while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
 do
