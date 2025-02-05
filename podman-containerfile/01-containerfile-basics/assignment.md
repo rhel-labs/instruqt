@@ -103,7 +103,10 @@ podman image list
 <pre type="file">
 REPOSITORY                           TAG         IMAGE ID      CREATED         SIZE
 localhost/my-container               latest      bf4d4b1cd4bd  19 minutes ago  440 MB
+registry.access.redhat.com/ubi9/ubi  latest      b21b662817da  33 hours ago    234 MB
 </pre>
+
+> NOTE: You will also see the image that you based your container on.
 
 Now we can run a container from our image!
 
