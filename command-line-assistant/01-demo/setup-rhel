@@ -1,5 +1,5 @@
 #!/bin/bash
-dnf install -y python3-pip container-tools
+dnf install -y python3-pip container-tools tcsh
 dnf copr enable -y @rhel-lightspeed/command-line-assistant
 
 dnf install -y `agent variable get cla_version`

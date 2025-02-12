@@ -18,6 +18,12 @@ Try asking CLA something.
 ```bash,run
 c "how do I configure the timezone to Vancouver Canada"
 ```
+
+Now ask it how to do more things!
+
 > [!IMPORTANT]
 > The first time you run a query, it will fail because the CLA needs to create configuration files.
 > The second query should work.
+
+Answer needs improvement?  Provide feedback to engineering!
+[Command Line Assistant Feedback Form](https://docs.google.com/forms/d/e/1FAIpQLSeoTP2JSiL7ryosJ8S-QHLipX-0G0b854hYc-CiFvvevu2XkQ/viewform)
