@@ -12,13 +12,15 @@ tags:
 owner: rhel
 developers:
 - smcbrien@redhat.com
+- nlager@redhat.com
 show_timer: true
 timelimit: 3120
 lab_config:
-  overlay: false
-  width: 33
-  position: right
   feedback_recap_enabled: true
+  feedback_tab_enabled: false
   loadingMessages: true
   hideStopButton: false
-checksum: "12494607573552295388"
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 33
+checksum: "11166609582430439444"
+enhanced_loading: false
