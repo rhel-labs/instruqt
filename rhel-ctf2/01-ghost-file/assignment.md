@@ -1,8 +1,8 @@
 ---
 slug: ghost-file
-id: nywz6yhss7h1
+id: bqfibrg8xz29
 type: challenge
-title: Deleted File
+title: Figure out what's filling the disk
 notes:
 - type: text
   contents: |
@@ -12,7 +12,7 @@ notes:
 
     Can you figure out why the disk is full and fix it?
 tabs:
-- id: umwuuo1lu9d1
+- id: ynyxuiy1l9tx
   title: RHEL
   type: terminal
   hostname: rhel

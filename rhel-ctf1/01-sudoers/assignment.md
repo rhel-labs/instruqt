@@ -1,6 +1,6 @@
 ---
 slug: sudoers
-id: b50xqiiorqoz
+id: yoxxtoynnjlp
 type: challenge
 title: Sudo is hard
 notes:
@@ -16,11 +16,11 @@ notes:
 
     Can you fix his sudoers drop-in so that it let's the "webteam" user restart (and otherwise manage) httpd via systemd?  **Scott** got started on one in `/etc/sudoers.d/webteam-sudo` but..well.. Contrary to his belief, it's not working.
 tabs:
-- id: ypg2ydvlcz3l
+- id: r0pn6qre9wgw
   title: RHEL
   type: terminal
   hostname: rhel
-difficulty: basic
+difficulty: ""
 timelimit: 1
 enhanced_loading: null
 ---
@@ -31,3 +31,7 @@ enhanced_loading: null
 Scott's drop-in is in ```/etc/sudoers.d/webteam-sudo```
 
 Can you configure sudo to allow the `webteam` user to run `systemctl` commands on the `httpd` service through sudo **without** requiring a password? (This should include things like, start, stop, restart, status, and reload)
+
+Webteam user credentials
+**username: webteam
+password: redhat**

@@ -12,11 +12,13 @@ notes:
 
     Can you figure out why the disk is full and fix it?
 tabs:
-- title: RHEL
+- id: bkxsmi4pentx
+  title: RHEL
   type: terminal
   hostname: rhel
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 # Full Filesystem
 

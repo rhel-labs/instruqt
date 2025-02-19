@@ -1,6 +1,6 @@
-slug: rhel-ts2
-id: yxnqqhsuuaz3
-title: RHEL Troubleshooting Challenge Two
+slug: rhel-ctf1
+id: xxecize5pbgf
+title: Sudo is Hard
 teaser: Can you fix this broken RHEL system?
 description: |-
   You've walked in to the office, and barely feel the warmth of your first mug of coffee when your boss, **Scott**, calmly walks up to you.
@@ -11,15 +11,15 @@ tags:
 - rhel
 owner: rhel
 developers:
+- smcbrien@redhat.com
 - nlager@redhat.com
 show_timer: true
+idle_timeout: 300
 timelimit: 3120
 lab_config:
   feedback_recap_enabled: true
   feedback_tab_enabled: false
   loadingMessages: true
   hideStopButton: false
-  default_layout: AssignmentLeft
-  default_layout_sidebar_size: 33
-checksum: "4234980069962508152"
+checksum: "4619701451743629392"
 enhanced_loading: false
