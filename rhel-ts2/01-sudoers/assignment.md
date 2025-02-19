@@ -16,11 +16,13 @@ notes:
 
     Can you fix his sudoers drop-in so that it let's the "webteam" user restart (and otherwise manage) httpd via systemd?  **Scott** got started on one in `/etc/sudoers.d/webteam-sudo` but..well.. Contrary to his belief, it's not working.
 tabs:
-- title: RHEL
+- id: ypg2ydvlcz3l
+  title: RHEL
   type: terminal
   hostname: rhel
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 # SUDO is hard
 

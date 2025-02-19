@@ -1,4 +1,3 @@
 dd if=/dev/zero of=/var/log/biglog bs=10M count=1700
+sleep 5
 tmux new -dsfoo 'vim /var/log/biglog'
-sleep 10
-#rm -f /var/log/biglog
