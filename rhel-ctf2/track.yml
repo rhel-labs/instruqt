@@ -1,0 +1,25 @@
+slug: rhel-ctf2
+id: gawvxfbj2e7q
+title: Someone ate the disk space
+teaser: Can you fix this broken RHEL system?
+description: |-
+  You've walked in to the office, and barely feel the warmth of your first mug of coffee when your boss, **Scott**, calmly walks up to you.
+
+  "Yeah, so look, theres a problem.  You were out yesterday, and... you know, I _couldn't_ bother you because of that pesky company policy thing...  Anyway, you know before being a manager, I did the same work as you, so I handled a few things for you.  You're welcome!"
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- smcbrien@redhat.com
+- nlager@redhat.com
+show_timer: true
+idle_timeout: 300
+timelimit: 3120
+lab_config:
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+checksum: "12476874428971552775"
+enhanced_loading: false
