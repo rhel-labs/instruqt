@@ -1,0 +1,23 @@
+slug: rhel-ctf3
+id: 2qii623zasqw
+title: My file is gone!
+teaser: My file was JUST THERE!
+description: Unbelievable, I had a file in /var/tmp, and now its GONE!  It was there
+  yesterday, can you help me figure out what happened to it?
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- smcbrien@redhat.com
+- nlager@redhat.com
+show_timer: true
+idle_timeout: 300
+timelimit: 3120
+lab_config:
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+checksum: "10365701427136801811"
+enhanced_loading: false

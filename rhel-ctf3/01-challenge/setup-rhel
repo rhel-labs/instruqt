@@ -1,0 +1,5 @@
+# Something something make a mount in /var/tmp
+
+echo "6j6qUETN" > /var/tmp/.flag
+echo "/dev/sdb  /var/tmp    ext4    defaults    0 0" >> /etc/fstab
+mount -a
