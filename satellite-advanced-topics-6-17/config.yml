@@ -11,7 +11,7 @@ virtualmachines:
   - https
   - high-ports
 - name: satellite
-  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-server-11-27-24
+  image: projects/tmm-instruqt-11-26-2021/global/images/satellite-prep-image-03-04-25
   shell: /bin/bash
   environment:
     TERM: xterm
@@ -40,3 +40,5 @@ virtualmachines:
   - http
   - https
   - high-ports
+secrets:
+- name: ACTIVATION_KEY
