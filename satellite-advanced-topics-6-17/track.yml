@@ -1,0 +1,41 @@
+slug: satellite-advanced-topics-6-17
+id: cfwfyyzjrxqt
+title: Satellite Advanced Topics 6.17
+description: |
+  # Overview:
+  Red Hat Satellite manages Red Hat Enterprise Linux hosts, including patching, content management, provisioning and more. In this lab, we'll learn the basics of
+  managing hosts with Satellite.
+
+  This lab is estimated to take 30 minutes. This lab is provisioned with a lifetime of 2 hours.
+
+  # Goal:
+
+  Configure a new Satellite server to manage RHEL hosts.
+
+  # Concepts included in this scenario:
+
+  * Synchronizing content to Satellite.
+  * Configuring Satellite to provide content to RHEL hosts.
+  * Adding hosts to be managed by Satellite.
+  * Updating hosts' errata (patching).
+  * Installing new software on multiple hosts.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+- satellite
+owner: rhel
+developers:
+- myee@redhat.com
+show_timer: true
+idle_timeout: 1800
+timelimit: 6900
+lab_config:
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  override_challenge_layout: false
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 50
+checksum: "5275175810906137396"
+enhanced_loading: false
