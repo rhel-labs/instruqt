@@ -103,10 +103,13 @@ tee ~/config.yml << EOF
       password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
       server_url: "https://satellite.lab"
       name: "RHEL9"
+      content_view: "Default Organization View"
       organization: "Acme Org"
       lifecycle_environment: "Library"
       content_overrides:
           - label: satellite-client-6-for-rhel-9-x86_64-rpms
+            override: enabled
+          - label: Acme_Org_Satellite_Extras_Satellite
             override: enabled
 EOF
 ```

@@ -251,7 +251,7 @@ Unregister the host rhel1
 In the [button label="Satellite Server"](tab-0) terminal run the following command.
 
 ```bash,run
-ssh -o "StrictHostKeyChecking no" rhel1 "subscription-manager unregister" && hammer host delete --name rhel1 && ssh -o "StrictHostKeyChecking no" rhel1 "dnf remove -y katello-pull-transport-migrate"
+ssh -o "StrictHostKeyChecking no" rhel1 "subscription-manager unregister" && ssh -o "StrictHostKeyChecking no" rhel1 "dnf remove -y katello-pull-transport-migrate"
 ```
 
 This command is run to remove `rhel1` from the satellite server so that we can register it again to show REX pull mode is automatically enabled.
