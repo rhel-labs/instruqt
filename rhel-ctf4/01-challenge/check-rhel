@@ -1,6 +1,8 @@
 #!/bin/bash
 
-if ! mysql -u root -p'9X2he9gK' -e 'show databases' >/dev/null ; then
+if mysql -u root -e 'show databases' >/dev/null; then
+  fail-mesage "You forgot to set root's password..."
+elif ! mysql -u root -p'9X2he9gK' -e 'show databases' >/dev/null ; then
   fail-message "It seems that Root cannot authenticate to the database";
   exit 1
 elif mysql -u root -p'9X2he9gK' -N -e "show grants for erpuser@localhost"  | grep businesscorp | egrep -i 'ALL PRIVILEGES|DROP' >/dev/null ; then

@@ -8,7 +8,7 @@ notes:
   contents: |
     # Restore my Database
 
-    For this challenge, we've placed a database backup in `/root/database/backup.sql`, your task is to complete the following setup:
+    For this challenge, we've placed a database backup in `/tmp/database/backup.sql`, your task is to complete the following setup:
     * Get the database up and running under MariaDB
     * Make sure the database is named `businesscorp`
     * Create a user named `erpuser` with a password of `ErHE3zop`, with standard privileges (no grant, or administrative rights) with access to ONLY the `businesscorp` database. They should be able to read and write data to the database, but not delete the database, or add other privileges.
@@ -25,7 +25,7 @@ enhanced_loading: null
 ---
 # Restore my Database
 
-For this challenge, we've placed a database backup in `/root/database/backup.sql`, your task is to complete the following setup:
+For this challenge, we've placed a database backup in `/tmp/database/backup.sql`, your task is to complete the following setup:
 * Get the database up and running under MariaDB
 * Make sure the database is named `businesscorp`
 * Create a user named `erpuser` with a password of `ErHE3zop`, with standard privileges (no grant, or administrative rights) with access to ONLY the `businesscorp` database. They should be able to read and write data to the database, but not delete the database, or add other privileges.
