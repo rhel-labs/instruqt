@@ -1,5 +1,5 @@
-if lsof | grep biglog
+if [[ ! -f /var/tmp/.flag ]]
 then
-  fail-message "It looks like the problem still exists"
+  fail-message "My file still isn't there, it's super-important that you get it back!!"
   exit 2
 fi
