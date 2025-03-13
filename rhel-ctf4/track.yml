@@ -1,9 +1,8 @@
-slug: rhel-ctf3
-id: 2qii623zasqw
-title: My file is gone!
-teaser: My file was JUST THERE!
-description: Unbelievable, I had a file in /var/tmp, and now its GONE!  It was there
-  yesterday, can you help me figure out what happened to it?
+slug: rhel-ctf4
+id: ivynxvmfoznk
+title: Restore my Database
+teaser: Can you restore this MariaDB Database, with permissions?
+description: I need you to restore my database, and user permissions.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags:
 - rhel
@@ -19,5 +18,5 @@ lab_config:
   feedback_tab_enabled: false
   loadingMessages: true
   hideStopButton: false
-checksum: "1604581634074411061"
+checksum: "9211638247848424882"
 enhanced_loading: false

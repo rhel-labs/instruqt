@@ -1,0 +1,9 @@
+dnf -y install unzip 
+mkdir -p /tmp/database/
+curl -o /tmp/database/database.zip https://www.mysqltutorial.org/wp-content/uploads/2023/10/mysqlsampledatabase.zip
+pushd /tmp/database
+unzip database.zip
+rm database.zip
+popd
+mv /tmp/database/mysqlsampledatabase.sql /tmp/database/backup.sql
+sed -i 's/classicmodels/businesscorp/g' /tmp/database/backup.sql

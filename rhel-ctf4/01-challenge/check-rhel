@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if ! mysql -u root -p'9X2he9gK' -e 'show databases' >/dev/null ; then
+  fail-message "It seems that Root cannot authenticate to the database";
+  exit 1
+elif mysql -u root -p'9X2he9gK' -N -e "show grants for erpuser@localhost"  | grep businesscorp | egrep -i 'ALL PRIVILEGES|DROP' >/dev/null ; then
+  fail-message "Permissions are too open for erpuser"
+  exit 2
+elif [[ `mysql -u erpuser -p'ErHE3zop' businesscorp -N -e 'select count(customerNumber) FROM customers'` -ne 122 ]]; then
+  fail-message "erpuser cannot select data from businesscorp"
+  exit 3
+fi
