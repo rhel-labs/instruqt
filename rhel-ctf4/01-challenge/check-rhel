@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if mysql -u root -e 'show databases' >/dev/null; then
-  fail-mesage "You forgot to set root's password..."
+if mysql -u root -e 'show databases' >/dev/null 2>/dev/null; then
+  fail-message "You forgot to set root's password..."
 elif ! mysql -u root -p'9X2he9gK' -e 'show databases' >/dev/null ; then
   fail-message "It seems that Root cannot authenticate to the database";
   exit 1
