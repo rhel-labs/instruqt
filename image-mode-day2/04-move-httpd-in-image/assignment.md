@@ -124,7 +124,7 @@ sudo bootc switch [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rh
 ```
 Check that the new image has been staged for the next boot.
 ```bash,run
-sudo bootc status | grep staged: -A 8
+sudo bootc status
 ```
 
 You can also check the boot order in the spec block to see what has been sent to the bootloader. Notice it's back to `default`.

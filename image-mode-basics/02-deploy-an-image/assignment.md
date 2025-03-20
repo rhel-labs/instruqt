@@ -41,14 +41,16 @@ There are several ways to deploy a bootc image to a host, depending on the targe
 ```bash,run
 podman run --rm --privileged \
         --volume .:/output \
-         --volume ./config.json:/config.json \
-        registry.redhat.io/rhel9/bootc-image-builder:[[ Instruqt-Var key="BOOTC_RHEL_VERSION" hostname="rhel" ]] \
+        --volume ./config.json:/config.json \
+        --volume /var/lib/containers/storage:/var/lib/containers/storage \
+        registry.redhat.io/rhel9/bootc-image-builder:latest \
+        --local \
         --type qcow2 \
         --config config.json \
          [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
 ```
 
-This tool is a containerized version of image builder that includes the `bootc` tooling to unpack the container image contents to the virtual disk. Supported output formats include AMIs and VMDKs. For bare metal, we can use Anaconda with `bootc` support to install to physical disk. Other typical ways we'd install a RHEL host, like over PXE or HTTP Boot are also available to us.
+This tool is a containerized version of image builder that includes the `bootc` tooling to unpack the container image contents to the virtual disk. Supported output formats include AMIs and VMDKs. For bare metal, we can use Anaconda with `bootc` support to install to physical disk. Other typical ways we'd install a RHEL host, like over PXE or HTTP Boot are also available to us. Using the `--local` option and adding the system container storage path as a volume allows `bootc-image-builder` to use the image directly from disk. You can also pull the image from the remote registry by omitting these lines.
 
 Prepare and run the bootc image
 ===

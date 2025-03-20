@@ -91,10 +91,10 @@ sudo bootc switch [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rh
 
 At first glance, `bootc switch` doesn't look very different from `bootc upgrade`. It will download and prepare the new image to a local deployment location on disk. It downloads any layers it detects are different based on the metadata available in the registry.
 
-We can see in the output of `bootc switch` that our new image has been queued to be activated the next time the host boots. We can also see if there are any changes waiting by checking the staged section of `bootc status`. If there was no image staged for use, that section would read `null`.
+We can see in the output of `bootc switch` that our new image has been queued to be activated the next time the host boots. We can also see if there are any changes waiting by checking `bootc status`. 
 
 ```bash,run
-sudo bootc status | grep staged: -A 8
+sudo bootc status
 ```
 
 If we needed to wait for a maintenance window we could stage the changes, then schedule the reboot. Let's restart the system now to get our changes.
@@ -128,10 +128,10 @@ You can also check what the current `spec` section of `bootc status` now says ab
 ```bash,run
 sudo bootc status | grep spec: -A 4
 ```
-You can also see the `staged` section is now set to `null` since there are no prepared changes.
+You can also see `No staged image present` in `bootc status` since there are no prepared changes.
 
 ```bash,run
-sudo bootc status | grep staged:
+sudo bootc status
 ```
 
 Once a host it running, changing the image in use is very straightforward, and can be useful for a number of reasons beyond changing image locations. Let's explore a little more of what `bootc switch` can do for us in the next few exercises.
