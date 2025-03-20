@@ -18,10 +18,10 @@ tabs:
   type: terminal
   hostname: rhel
 - id: artmeele676g
-  title: VM console
+  title: VM SSH session
   type: terminal
   hostname: rhel
-  cmd: virsh console bootc-vm
+  cmd: ssh core@bootc-vm
 difficulty: basic
 timelimit: 1
 enhanced_loading: null
@@ -36,21 +36,23 @@ To boot this image as a host, we install it to the filesystem using `bootc`. But
 There are several ways to deploy a bootc image to a host, depending on the target environment. For the purposes of this lab, we'll create a QCOW2 image to be run on a KVM virtual machine. To build the QCOW2 image we'll use a tool called `bootc-image-builder`.
 
 > [!NOTE]
-> This operation will take 5 minutes to complete.
+> This operation will take about 4 minutes to complete.
 
 ```bash,run
 podman run --rm --privileged \
         --volume .:/output \
         --volume ./config.json:/config.json \
         --volume /var/lib/containers/storage:/var/lib/containers/storage \
-        registry.redhat.io/rhel9/bootc-image-builder:latest \
+        registry.redhat.io/rhel9/bootc-image-builder:9.5 \
         --local \
         --type qcow2 \
         --config config.json \
          [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
 ```
 
-This tool is a containerized version of image builder that includes the `bootc` tooling to unpack the container image contents to the virtual disk. Supported output formats include AMIs and VMDKs. For bare metal, we can use Anaconda with `bootc` support to install to physical disk. Other typical ways we'd install a RHEL host, like over PXE or HTTP Boot are also available to us. Using the `--local` option and adding the system container storage path as a volume allows `bootc-image-builder` to use the image directly from disk. You can also pull the image from the remote registry by omitting these lines.
+This tool is a containerized version of image builder that includes the `bootc` tooling to unpack the container image contents to the virtual disk. Supported output formats include AMIs and VMDKs. For bare metal, we can use Anaconda with `bootc` support to install to physical disk. Other typical ways we'd install a RHEL host, like over PXE or HTTP Boot are also available to us.
+
+Using the `--local` option and adding the system container storage path as a volume allows `bootc-image-builder` to use the image directly from disk. You can also pull the image from the remote registry by omitting these lines.
 
 Prepare and run the bootc image
 ===
@@ -80,26 +82,17 @@ Once the VM has been defined, we can start it.
 virsh start bootc-vm
 ```
 
-Attach to the console of the VM running our bootc image
+SSH to the VM running our bootc image
 ===
 
-Next, attach to the console. Switch to the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-1) tab.
+Next, log into the VM. Switch to the [button label="VM SSH session" background="#ee0000" color="#c7c7c7"](tab-1) tab.
 
 > [!NOTE]
-> If the console hasn't connected or there is an error, you can reconnect by clicking Refresh next to the tab name. The prompt will look like this. ![](../assets/terminal_prompt.png)
-
-Check the VM is running the applications we installed
-===
+> If the SSH session hasn't connected or there is an error, you can reconnect by clicking Refresh next to the tab name. The prompt will look like this. ![](../assets/terminal_prompt.png)
 
 Once the system has finished booting, you can log in with the following credentials. These were injected by `bootc-image-builder` when creating the disk image. There are several ways to handle user creation and authentication methods, customizing the disk image with `bootc-image-builder` is just one.
 
-In the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-1) tab, log into the vm with the following credentials.
-
-Username:
-
-```bash,run
-core
-```
+Log into the vm with the following credentials.
 
 Password:
 
