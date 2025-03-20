@@ -38,10 +38,10 @@ Since `bootc` unpacks images locally, we still have the previous version of the 
 A missing web page isn't the sort of issue we'd normally need to recover from a backup, but this is a lab after all. Let's go ahead and check for an available rollback option to get us back to the previous image.
 
 ```bash,run
-sudo bootc status | grep rollback: -A 8
+sudo bootc status
 ```
 
-This section of the status output shows the available image target. You should see our original image, without the `v2` tag. To trigger the rollback, we issue one command.
+This bottom section of the status output shows the available image target. You should see our original image, without the `v2` tag. To trigger the rollback, we issue one command.
 ```bash,run
 sudo bootc rollback
 ```

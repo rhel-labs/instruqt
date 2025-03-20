@@ -33,9 +33,18 @@ Click on the [button label="VM console" background="#ee0000" color="#c7c7c7"](ta
 > [!NOTE]
 > You may need to tap `enter` to wake up the console, you should still be logged in as `core`
 
-The `bootc` command is what controls the state of the running host and the available images on disk. This is how we get the current state, if updates are available, change roles, and more. The `bootc status` command is how we explore that state. Let's take a look at relevant parts each of the sections individually with the power of `grep`. Feel free to explore the full output of `bootc status`.
+The `bootc` command is what controls the state of the running host and the available images on disk. This is how we get the current state, if updates are available, change roles, and more. The `bootc status` command is how we explore that state. 
 
-The `spec` section provides the information about the image in use and where `bootc` is looking for it. Our host is pulling from a container registry.
+```bash,run
+sudo bootc status
+```
+
+You can see the booted image, and if there are any staged or rollback images on the host. The name, version, and digest for each image are listed in this base view. We'll talk more about what that means later.
+
+> [!TIP]
+>The `bootc` command will detect if we pass the output to a pipe and automatically output the full status details in YAML. You can control that ouput by passing the `--format` option with either YAML or JSON arguments to get your preferred output. 
+
+Let's explore the detailed output section by section using `grep` to focus on certain parts. The `spec` section provides the information about the image in use and where `bootc` is looking for it. Our host is pulling from a container registry.
 ```bash,run
 sudo bootc status | grep spec: -A 4
 ```
@@ -77,10 +86,11 @@ Exploring system status
 
 Let's see what happened on disk.
 
-The `staged` section has the same fields now as `booted`, but with the details of the new image. This has been prepared by `bootc upgrade` and is ready to be activated on the next boot.
 ```bash,run
-sudo bootc status | grep staged: -A 8
+sudo bootc status
 ```
+
+The `staged` section now shows the details of our updated image. This has been prepared by `bootc upgrade` and is will be activated on the next boot.
 
 Testing persistence in /etc
 ===
