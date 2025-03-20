@@ -5,7 +5,7 @@ subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
 # Log into terms based registry and stage bootc and bib images
-BOOTC_RHEL_VER=9.4
+BOOTC_RHEL_VER=9.5
 agent variable set BOOTC_RHEL_VERSION $BOOTC_RHEL_VER
 
 podman login -u='1979710|rhel-tmm' -p=${REG_SVC_ACCT} registry.redhat.io
@@ -30,7 +30,7 @@ echo redhat | passwd --stdin rhel
 
 # Start the target VM, created from the image-mode-basics lab image and maintained in the GCP compute image for this lab
 
-virsh start bootc
+virsh start bootc2
 
 # set up SSL for fully functioning registry
 # Enable EPEL for RHEL 9
@@ -114,7 +114,7 @@ RUN echo "New application coming soon!" > /usr/share/www/html/index.html
 
 EOM
 
-
+podman rmi rhel.pdnis0xkcq.instruqt.io:5000/test-bootc
 podman build -t ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000/test-bootc .
 podman push ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000/test-bootc
 

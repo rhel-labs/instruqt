@@ -33,7 +33,7 @@ Click on the [button label="VM console" background="#ee0000" color="#c7c7c7"](ta
 > [!NOTE]
 > You may need to tap `enter` to wake up the console, you should still be logged in as `core`
 
-The `bootc` command is what controls the state of the running host and the available images on disk. This is how we get the current state, if updates are available, change roles, and more. The `bootc status` command is how we explore that state. 
+The `bootc` command is what controls the state of the running host and the available images on disk. This is how we get the current state, if updates are available, change roles, and more. The `bootc status` command is how we explore that state.
 
 ```bash,run
 sudo bootc status
@@ -42,7 +42,7 @@ sudo bootc status
 You can see the booted image, and if there are any staged or rollback images on the host. The name, version, and digest for each image are listed in this base view. We'll talk more about what that means later.
 
 > [!TIP]
->The `bootc` command will detect if we pass the output to a pipe and automatically output the full status details in YAML. You can control that ouput by passing the `--format` option with either YAML or JSON arguments to get your preferred output. 
+>The `bootc` command will detect if we pass the output to a pipe and automatically output the full status details in YAML. You can control that ouput by passing the `--format` option with either YAML or JSON arguments to get your preferred output.
 
 Let's explore the detailed output section by section using `grep` to focus on certain parts. The `spec` section provides the information about the image in use and where `bootc` is looking for it. Our host is pulling from a container registry.
 ```bash,run
