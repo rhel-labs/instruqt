@@ -91,7 +91,7 @@ sudo bootc switch [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rh
 
 At first glance, `bootc switch` doesn't look very different from `bootc upgrade`. It will download and prepare the new image to a local deployment location on disk. It downloads any layers it detects are different based on the metadata available in the registry.
 
-We can see in the output of `bootc switch` that our new image has been queued to be activated the next time the host boots. We can also see if there are any changes waiting by checking `bootc status`. 
+We can see in the output of `bootc switch` that our new image has been queued to be activated the next time the host boots. We can also see if there are any changes waiting by checking `bootc status`.
 
 ```bash,run
 sudo bootc status

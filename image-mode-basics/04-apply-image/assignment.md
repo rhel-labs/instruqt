@@ -18,22 +18,30 @@ tabs:
   type: terminal
   hostname: rhel
 - id: yr6lhrue8afd
-  title: VM console
+  title: VM SSH session
   type: terminal
   hostname: rhel
-  cmd: virsh console bootc-vm
+  cmd: ssh core@bootc-vm
 difficulty: ""
 enhanced_loading: null
 ---
 Exploring system status
 ===
 
-Click on the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-2) tab.
+Click on the [button label="VM SSH session" background="#ee0000" color="#c7c7c7"](tab-2) tab.
 
 > [!NOTE]
-> You may need to tap `enter` to wake up the console, you should still be logged in as `core`
+> If the SSH session hasn't connected or there is an error, you can reconnect by clicking Refresh next to the tab name. The prompt will look like this. ![](../assets/terminal_prompt.png)
 
-The `bootc` command is what controls the state of the running host and the available images on disk. This is how we get the current state, if updates are available, change roles, and more. The `bootc status` command is how we explore that state. 
+Log into the vm with the following credentials.
+
+Password:
+
+```bash,run
+redhat
+```
+
+The `bootc` command is what controls the state of the running host and the available images on disk. This is how we get the current state, if updates are available, change roles, and more. The `bootc status` command is how we explore that state.
 
 ```bash,run
 sudo bootc status
@@ -42,7 +50,7 @@ sudo bootc status
 You can see the booted image, and if there are any staged or rollback images on the host. The name, version, and digest for each image are listed in this base view. We'll talk more about what that means later.
 
 > [!TIP]
->The `bootc` command will detect if we pass the output to a pipe and automatically output the full status details in YAML. You can control that ouput by passing the `--format` option with either YAML or JSON arguments to get your preferred output. 
+>The `bootc` command will detect if we pass the output to a pipe and automatically output the full status details in YAML. You can control that ouput by passing the `--format` option with either YAML or JSON arguments to get your preferred output.
 
 Let's explore the detailed output section by section using `grep` to focus on certain parts. The `spec` section provides the information about the image in use and where `bootc` is looking for it. Our host is pulling from a container registry.
 ```bash,run
@@ -72,14 +80,14 @@ With the updated image available in the registry, let's see if `bootc` detects i
 ```bash,run
 sudo bootc upgrade --check
 ```
-> [!NOTE]
-> Since we are attached to the console and not a login session, you may see some errors. These are system logs that can be ignored
 
 Since `bootc` tracks the image as listed in the `spec`, we see updates as soon as they hit the registry. We are shown some details about what changes will be made, like the SHA and version. Let's go ahead and stage this update for use.
 
 ```bash,run
 sudo bootc upgrade
 ```
+
+Notice how the update is pulled in layers. This is based on the contents of the container image we built. Since our `vim` install created a fairly sizable change, we need to pull in a large update.
 
 Exploring system status
 ===
@@ -109,11 +117,8 @@ sudo reboot
 ```
 Once the system has completed rebooting, you can log in with the new credentials. Since this user's credentials are stored in `/etc`, the new password will be in effect.
 
-Username:
-
-```bash,run
-core
-```
+> [!NOTE]
+> Remember to reconnect by clicking Refresh next to the tab name. The prompt will look like this. ![](../assets/terminal_prompt.png)
 
 Password:
 
