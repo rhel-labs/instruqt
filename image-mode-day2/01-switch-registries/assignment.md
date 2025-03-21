@@ -42,7 +42,7 @@ In the normal course of operations, available infrastructure is often changed or
 
 Unfortunately, this host was missed during that migration and we need to get it back on track. There's native tooling in `bootc` that lets us change the image that a particular host is using.
 
-Connect to the console of the VM running our bootc image
+Connect to the VM running our bootc image
 ===
 
 Let's connect to the virtual machine via SSH. Switch to the [button label="VM SSH session" background="#ee0000" color="#c7c7c7"](tab-1) tab.

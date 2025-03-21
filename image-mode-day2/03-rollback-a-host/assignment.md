@@ -26,7 +26,7 @@ difficulty: basic
 timelimit: 1
 enhanced_loading: null
 ---
-Click on the [button label="VM SSH session" background="#ee0000" color="#c7c7c7"](tab-2) tab.
+Click on the [button label="VM SSH session" background="#ee0000" color="#c7c7c7"](tab-1) tab.
 
 > [!NOTE]
 > If the SSH session hasn't connected or there is an error, you can reconnect by clicking Refresh next to the tab name. The prompt will look like this. ![](../assets/terminal_prompt.png)
