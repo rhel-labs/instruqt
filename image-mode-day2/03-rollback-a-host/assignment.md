@@ -18,18 +18,26 @@ tabs:
   type: terminal
   hostname: rhel
 - id: fzmfm00uw2yp
-  title: VM console
+  title: VM SSH session
   type: terminal
   hostname: rhel
-  cmd: virsh console bootc
+  cmd: ssh core@bootc2
 difficulty: basic
 timelimit: 1
 enhanced_loading: null
 ---
+Click on the [button label="VM SSH session" background="#ee0000" color="#c7c7c7"](tab-2) tab.
+
 > [!NOTE]
-> You should still be in the VM Console tab. If not,
-> click on the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-2) tab.
-> You may need to tap `enter` to wake up the console. You should still be logged in as `core`
+> If the SSH session hasn't connected or there is an error, you can reconnect by clicking Refresh next to the tab name. The prompt will look like this. ![](../assets/terminal_prompt.png)
+
+You can use the following credentials to log in.
+
+Password:
+
+```bash,run
+redhat
+```
 
 Image mode systems have a native capability that typically takes more preparation with package mode operations: the rollback.
 
