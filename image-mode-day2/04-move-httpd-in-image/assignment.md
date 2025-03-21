@@ -24,10 +24,10 @@ tabs:
   hostname: rhel
   path: Containerfile.index
 - id: 9s7ytfxishy7
-  title: VM console
+  title: VM SSH session
   type: terminal
   hostname: rhel
-  cmd: virsh console bootc
+  cmd: ssh core@bootc2
 difficulty: basic
 timelimit: 1
 enhanced_loading: null
@@ -99,18 +99,12 @@ podman push [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]
 
 Switch the VM to our newest version
 ===
-To update the VM, return to the the VM Console by clicking on the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-2) tab.
+To update the VM, return to the the VM by clicking on the [button label="VM SSH session" background="#ee0000" color="#c7c7c7"](tab-2) tab.
 
 > [!NOTE]
-> If the console hasn't connected or there is an error, you can reconnect by clicking Refresh next to the tab name. The prompt will look like this. ![](../assets/terminal_prompt.png) If you are already logged in, you may not have rebooted after the rollback.
+> If the session hasn't connected or there is an error, you can reconnect by clicking Refresh next to the tab name. The prompt will look like this. ![](../assets/terminal_prompt.png) If you are already logged in, you may not have rebooted after the rollback.
 
 Log in with the following credentials:
-
-Username:
-
-```bash,run
-core
-```
 
 Password:
 
@@ -138,11 +132,6 @@ sudo reboot
 ```
 
 Once the system has completed rebooting, you can log back in.
-Username:
-
-```bash,run
-core
-```
 
 Password:
 

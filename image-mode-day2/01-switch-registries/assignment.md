@@ -20,10 +20,10 @@ tabs:
   type: terminal
   hostname: rhel
 - id: whmk4doq1uth
-  title: VM console
+  title: VM SSH session
   type: terminal
   hostname: rhel
-  cmd: virsh console bootc
+  cmd: ssh core@bootc2
 difficulty: basic
 timelimit: 3000
 enhanced_loading: null
@@ -45,26 +45,18 @@ Unfortunately, this host was missed during that migration and we need to get it 
 Connect to the console of the VM running our bootc image
 ===
 
-Let's connect to the virtual machine's console. Switch to the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-1) tab.
+Let's connect to the virtual machine via SSH. Switch to the [button label="VM SSH session" background="#ee0000" color="#c7c7c7"](tab-1) tab.
 
 > [!NOTE]
-> If the console hasn't connected or there is an error, you can reconnect by clicking Refresh next to the tab name. The prompt will look like this. ![](../assets/terminal_prompt.png)
+> If the SSH session hasn't connected or there is an error, you can reconnect by clicking Refresh next to the tab name. The prompt will look like this. ![](../assets/terminal_prompt.png)
 
 You can use the following credentials to log in.
-
-Username:
-
-```bash,run
-core
-```
 
 Password:
 
 ```bash,run
 redhat
 ```
-> [!NOTE]
-> Since we are attached to the console and not an SSH session, you may see dmesg output on certain commands. These can be ignored as informational.
 
 Check the image the VM is using
 ===
@@ -103,13 +95,7 @@ If we needed to wait for a maintenance window we could stage the changes, then s
 sudo reboot
 ```
 
-Once the system has completed rebooting, you can log back in.
-
-Username:
-
-```bash,run
-core
-```
+Once the system has completed rebooting, you can log back in by clicking the refresh button.
 
 Password:
 

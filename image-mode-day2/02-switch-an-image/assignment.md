@@ -23,10 +23,10 @@ tabs:
   hostname: rhel
   path: Containerfile
 - id: bh9cdab24nro
-  title: VM console
+  title: VM SSH session
   type: terminal
   hostname: rhel
-  cmd: virsh console bootc
+  cmd: ssh core@bootc2
 difficulty: basic
 timelimit: 1
 enhanced_loading: null
@@ -104,10 +104,18 @@ podman push [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]
 Switch to the v2 image
 ===
 
-Click on the [button label="VM console" background="#ee0000" color="#c7c7c7"](tab-2) tab.
+Click on the [button label="VM SSH session" background="#ee0000" color="#c7c7c7"](tab-2) tab.
 
 > [!NOTE]
-> You may need to tap `enter` to wake up the console. You should still be logged in as `core`
+> If the SSH session hasn't connected or there is an error, you can reconnect by clicking Refresh next to the tab name. The prompt will look like this. ![](../assets/terminal_prompt.png)
+
+You can use the following credentials to log in.
+
+Password:
+
+```bash,run
+redhat
+```
 
 
 The new images we pushed to the registry didn't use the `latest` tag, so they won't be seen as an update by `bootc`. Notice there's nothing after the name `test-bootc` in the output.
@@ -133,13 +141,7 @@ sudo reboot
 Check the VM is running the v2 image
 ===
 
-Once the system has completed rebooting, you can log back in.
-
-Username:
-
-```bash,run
-core
-```
+Once the system has completed rebooting, you can log back in by clicking the refresh button.
 
 Password:
 
