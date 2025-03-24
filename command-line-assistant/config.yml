@@ -11,4 +11,3 @@ virtualmachines:
   provision_ssl_certificate: true
 secrets:
 - name: ACTIVATION_KEY
-- name: WATSONX_API_KEY

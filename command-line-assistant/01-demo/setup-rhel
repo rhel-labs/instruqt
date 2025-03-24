@@ -1,18 +1,6 @@
 #!/bin/bash
-dnf install -y python3-pip container-tools tcsh
+dnf install -y tcsh
+
 dnf copr enable -y @rhel-lightspeed/command-line-assistant
 
 dnf install -y `agent variable get cla_version`
-
-# Change endpoint
-sed -i 's/endpoint = .*/endpoint = "http:\/\/localhost:8000"/' /etc/xdg/command-line-assistant/config.toml
-
-# Disable ssl verification
-sed -i 's/verify_ssl = .*/verify_ssl = false/' /etc/xdg/command-line-assistant/config.toml
-
-# Run the RLSAPI container
-podman run -d -e WATSONX_APIKEY=${WATSONX_API_KEY} \
-	-e WATSONX_PROJECT_ID="a74348df-2d24-4f95-b623-37bda7cff0d1" \
-	-e USE_RAG=false \
-	-p 8000:8000 \
-	quay.io/redhat-user-workloads/rhel-lightspeed-tenant/rlsapi/rlsapi:latest
