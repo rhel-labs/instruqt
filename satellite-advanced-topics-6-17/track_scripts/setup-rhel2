@@ -58,3 +58,28 @@ hostnamectl set-hostname rhel2.lab
 cat <<EOT >> /etc/hosts
 192.0.2.3 rhel2.lab rhel2
 EOT
+
+## Disable partial images.  Fixes the zstd:chunkedcd / bugzilla that will brick the box if run on this lab
+## Related to https://github.com/bootc-dev/bootc/issues/1204
+sed -ie 's/enable_partial_images = "true"/enable_partial_images = "false"/' /etc/containers/storage.conf
+
+## Convert the system to Image Mode
+podman run --rm --privileged -v /dev:/dev -v /var/lib/containers:/var/lib/containers -v /:/target --pid=host --security-opt label=type:unconfined_t quay.io/toharris/rhel-bootc:instruqt-wg bootc install to-existing-root --root-ssh-authorized-keys /target/root/.ssh/authorized_keys --acknowledge-destructive
+
+## Stage existing wg0.conf in next deploy so it exists on boot
+cp /etc/wireguard/wg0.conf /ostree/deploy/default/deploy/*/etc/wireguard/
+
+## Populate the rc.local to check for wg0 nmconnection and import/up if it doesn’t exist
+## reboot again to make sure it comes up on reboots when condition is true
+cat <<EOT >> /ostree/deploy/default/deploy/*/etc/rc.d/rc.local
+if [ ! -e "/etc/NetworkManager/system-connections/wg0.nmconnection" ]; then
+ nmcli connection import type wireguard file /etc/wireguard/wg0.conf
+ nmcli connection up wg0
+fi
+EOT
+
+## Make sure rc.local executable
+chmod +x /ostree/deploy/default/deploy/*/etc/rc.d/rc.local
+
+## Reboot system 
+reboot
