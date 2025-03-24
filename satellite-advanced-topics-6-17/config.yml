@@ -10,6 +10,16 @@ virtualmachines:
   - http
   - https
   - high-ports
+- name: rhel2
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-5-11-27-24
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-1
+  allow_external_ingress:
+  - http
+  - https
+  - high-ports
 - name: satellite
   image: projects/tmm-instruqt-11-26-2021/global/images/satellite-server-03-05-25
   shell: /bin/bash
