@@ -105,6 +105,7 @@ tee ~/config.yml << EOF
       name: "RHEL9"
       organization: "Acme Org"
       lifecycle_environment: "Library"
+      content_view: "Default Organization View"
       content_overrides:
           - label: satellite-client-6-for-rhel-9-x86_64-rpms
             override: enabled
