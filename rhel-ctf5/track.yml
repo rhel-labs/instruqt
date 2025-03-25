@@ -1,0 +1,23 @@
+slug: rhel-ctf5
+id: qs2vcirnvsof
+title: Get the Check-list
+teaser: Can you get this system into
+description: Manager Scott wants you to achieve at least an 85% compliance against
+  the CIS Server Level 1 policy.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- smcbrien@redhat.com
+- nlager@redhat.com
+show_timer: true
+idle_timeout: 300
+timelimit: 3120
+lab_config:
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+checksum: "13730036759822231912"
+enhanced_loading: false
