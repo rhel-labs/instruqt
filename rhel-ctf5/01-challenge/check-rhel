@@ -1,0 +1,26 @@
+#!/bin/bash
+SCAP=/tmp/oscgrd.xml
+ADDED=0
+
+if ! which oscap;
+then
+ADDED=1
+dnf -yq install scap-security-guide
+fi
+
+oscap xccdf eval --profile xccdf_org.ssgproject.content_profile_cis_server_l1 --results $SCAP  /usr/share/xml/scap/ssg/content/ssg-rhel9-ds.xml > /dev/null
+
+SCORE=$(grep '<score' $SCAP | awk -F \> '{print $2}' | awk -F\. '{print $1}')
+
+rm -f $SCAP
+
+if [ $ADDED -eq 1 ];
+then
+  dnf remove -yq scap-security-guide
+fi
+
+if [ $SCORE -lt 90 ]
+then
+  fail-message "You have not reached an adequate compliance score."
+fi
+
