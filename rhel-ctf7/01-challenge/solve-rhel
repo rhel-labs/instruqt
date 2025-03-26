@@ -1,0 +1,2 @@
+#!/bin/bash
+for i in `grep -ri dingo /srv/tree | awk -F\: '{print $1}'`;do sed -i 's/dingo/kangaroo/g' $i;done

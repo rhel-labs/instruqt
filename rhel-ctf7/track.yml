@@ -1,0 +1,22 @@
+slug: rhel-ctf7
+id: yy0ar9zi2uc6
+title: Deep swaps
+teaser: Can you replace all of this text?
+description: ""
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- smcbrien@redhat.com
+- nlager@redhat.com
+show_timer: true
+idle_timeout: 300
+timelimit: 3120
+lab_config:
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+checksum: "10128352792757597136"
+enhanced_loading: false
