@@ -2,7 +2,8 @@
 slug: timezone
 id: pgm4qpkpiqqy
 type: challenge
-title: Demo
+title: Get acquainted with Command Line Assistant
+teaser: Let's ask Command Line Assistant for help.
 tabs:
 - id: s6abcoi7xolp
   title: rhel
@@ -33,7 +34,7 @@ Here's the output.
 Let's execute the suggested solution.
 
 ```bash,run
-sudo timedatectl set-timezone America/Vancouver
+timedatectl set-timezone America/Vancouver
 ```
 
 To view the result, run the following, as suggested by CLA.
