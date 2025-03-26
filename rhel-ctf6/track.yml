@@ -1,0 +1,22 @@
+slug: rhel-ctf6
+id: ff5mbcmj6oka
+title: Tricky permissions.
+teaser: How's your user permissions skills?
+description: We have some very specific user permissions requirements...
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- smcbrien@redhat.com
+- nlager@redhat.com
+show_timer: true
+idle_timeout: 300
+timelimit: 3120
+lab_config:
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+checksum: "8735348234039023005"
+enhanced_loading: false
