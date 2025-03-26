@@ -1,0 +1,34 @@
+#!/bin/bash
+for i in managers sales payroll;
+do
+  groupadd $i
+  if [ $i == "sales" ]
+  then
+    for u in nate paul
+    do
+      groupmems -g $i -a $u
+    done
+    chgrp -R $i /srv/sales
+    chmod -R 770 /srv/sales
+    setfacl -R -m g:$i:rwx /srv/$i
+  elif [ $i == "payroll" ]
+  then
+    for u in matt lin
+    do
+      groupmems -g $i -a $u
+    done
+    chgrp -R $i /srv/payroll
+    chmod -R 770 /srv/payroll
+    setfacl -R -m g:$i:rwx /srv/$i
+  elif [ $i == "managers" ]
+  then
+    for u in scott alice
+    do 
+      groupmems -g $i -a $u
+    done
+  fi
+done
+for i in sales payroll
+do
+  setfacl -R -m g:managers:rx /srv/$i
+done

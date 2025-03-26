@@ -1,0 +1,54 @@
+#!/bin/bash
+
+#Check if payroll users can access payroll data
+if ! sudo -u matt ls /srv/payroll
+then
+  fail-message "Matt cannot access /srv/payroll"
+elif ! sudo -u matt touch /srv/payroll/payroll-data
+then
+  fail-message "Matt cannot change /srv/payroll/payroll-data"
+elif ! sudo -u lin ls /srv/payroll
+then
+  fail-message "Lin cannot access /srv/payroll"
+elif ! sudo -u lin touch /srv/payroll/payroll-data
+then
+  fail-message "Lin cannot change /srv/payroll/payroll-data"
+# Now can the sales people access the sales data
+elif ! sudo -u nate ls /srv/sales
+then
+  fail-message "Nate cannot access /srv/sales"
+elif ! sudo -u nate touch /srv/sales/sales-data
+then
+  fail-message "nate cannot change /srv/sales/sales-data"
+elif ! sudo -u paul ls /srv/sales
+then
+  fail-message "Paul cannot access /srv/sales"
+elif ! sudo -u paul touch /srv/sales/sales-data
+then
+  fail-message "paul cannot change /srv/sales/sales-data"
+# Finally, can the managers read everything but not write?
+elif ! sudo -u scott ls /srv/payroll
+then
+  fail-message "Scott cannot read /srv/payroll"
+elif ! sudo -u scott ls /srv/sales
+then
+  fail-message "Scott cannot read /srv/sales"
+elif ! sudo -u alice ls /srv/payroll
+then
+  fail-message "Alice cannot read /srv/payroll"
+elif ! sudo -u alice ls /srv/sales
+then
+  fail-message "Alice cannot read /srv/sales"
+elif sudo -u scott touch /srv/payroll/payroll-data
+then
+  fail-message "Scott is able to write to /srv/payroll/payroll-data"
+elif sudo -u scott touch /srv/sales/sales-data
+then
+  fail-message "Scott is able to write to /srv/sales/sales-data"
+elif sudo -u alice touch /srv/payroll/payroll-data
+then
+  fail-message "Alice is able to write to /srv/payroll/payroll-data"
+elif sudo -u alice touch /srv/sales/sales-data
+then
+  fail-message "Alice is able to write to /srv/sales/sales-data"
+fi
