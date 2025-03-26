@@ -1,0 +1,18 @@
+slug: command-line-assistant-problem-solving
+title: command-line-assistant-problem-solving
+description: ""
+icon: ""
+tags: []
+owner: rhel
+developers:
+- myee@redhat.com
+show_timer: true
+idle_timeout: 3000
+timelimit: 14400
+lab_config:
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  override_challenge_layout: false
+  hideStopButton: false
+enhanced_loading: false

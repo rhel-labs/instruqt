@@ -1,0 +1,6 @@
+#!/bin/bash
+dnf install -y tcsh
+
+dnf copr enable -y @rhel-lightspeed/command-line-assistant
+
+dnf install -y `agent variable get cla_version`
