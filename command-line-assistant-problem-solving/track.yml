@@ -1,5 +1,6 @@
 slug: command-line-assistant-problem-solving
-title: command-line-assistant-problem-solving
+id: knbknjikqhwo
+title: Solve problems with Command Line Assistant
 description: ""
 icon: ""
 tags: []
@@ -13,6 +14,9 @@ lab_config:
   feedback_recap_enabled: true
   feedback_tab_enabled: false
   loadingMessages: true
+  theme:
+    name: modern-dark
   override_challenge_layout: false
   hideStopButton: false
+checksum: "8520491160604171845"
 enhanced_loading: false
