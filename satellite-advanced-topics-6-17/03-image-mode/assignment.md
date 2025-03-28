@@ -26,9 +26,11 @@ tabs:
 difficulty: ""
 enhanced_loading: null
 ---
-<some preamble about image mode and what it is and why satellite supports it>
+Image mode is a new approach to operating system (OS) deployment that lets users build, deploy, and manage Red Hat Enterprise Linux as a bootc container image.
 
+It reduces complexity across the enterprise by letting development, operations, and solution providers use the same container-native tools and techniques to manage everything from applications to the underlying OS.
 
+Red Hat Satellite 6.17 supports the management of RHEL image mode systems. In this assignment, we'll walk through the steps of registering and updating an image mode system.
 
 Create a container repository in Satellite
 ===
@@ -48,9 +50,7 @@ Then we'll create a product called `bootc`.
 
 Create an activation key for our image mode host
 ===
-In this lab environment, we have a ready-built host called `rhel2`.
-
-<fill in later>
+In this lab environment, we have a ready-built image mode host named `rhel2`. We will generate an activation key and register `rhel2` to the Satellite server.
 
 Go to the Activation Keys menu.
 
@@ -75,7 +75,7 @@ Switch to the Satellite terminal.
 
 ![](../assets/satelliteservertab.png)
 
-Run the following script.
+From the `Satellite Server` terminal, run the following script.
 ```bash,run
 export regscript=$(hammer host-registration generate-command --activation-key bootc-summit --setup-insights false --insecure true --force 1)
 ssh -o "StrictHostKeyChecking no" rhel2 $regscript
@@ -87,6 +87,7 @@ Here's what the successful registration looks like.
 
 Verify image mode host details in Satellite
 ===
+Let's explore the image mode information available in Satellite.
 
 Navigate back to the Satellite Web UI.
 
@@ -130,10 +131,11 @@ Scroll down to the "Image mode details" card.
 
 Here you can also see the "Running image" details which we will need to use in the next step. This information is populated only after the bootc status job is run or approximately every 4 hours.
 
-Update image mode hosts
+Update the container image
 ===
+The container image running on `rhel2` is stored in a quay.io registry. We want to modify that image. We'll use the host `rhel1` to pull down that container image from quay.io and update it.
 
-Navigate to the rhel1 terminal.
+Navigate to the `rhel1` terminal.
 
 ```bash,run
 cat <<EOT > Containerfile
@@ -146,7 +148,11 @@ EOT
 podman build -f Containerfile -t satellite.lab/acme_org/bootc/rhel10beta:summit-2025
 ```
 
-Next, log into Satellite container registry.
+Push the new container to Satellite's container registry
+===
+Now we'll push the updated container image from `rhel1` to the Satellite container registry.
+
+Log into Satellite container registry.
 ```bash,run
 podman login --tls-verify=false satellite.lab
 ```
@@ -154,19 +160,22 @@ podman login --tls-verify=false satellite.lab
 Use the following credentials.
 
 Admin
-```bash,run
+```bash
 admin
 ```
 
 Password
-```bash,run
+```bash
 bc31c9a6-9ff0-11ec-9587-00155d1b0702
 ```
 
-Push our modified image to Satellite.
+Now we'll push our updated container image to Satellite.
 ```bash,run
 podman push satellite.lab/acme_org/bootc/rhel10beta:summit-2025 --tls-verify=false
 ```
+
+Enable unauthenticated pull operations for container images on Satellite
+===
 
 Next we want to enable unauthenticated pull for container images.
 
