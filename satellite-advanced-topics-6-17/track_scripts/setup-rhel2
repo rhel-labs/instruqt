@@ -64,7 +64,7 @@ EOT
 sed -ie 's/enable_partial_images = "true"/enable_partial_images = "false"/' /etc/containers/storage.conf
 
 ## Convert the system to Image Mode
-podman run --rm --privileged -v /dev:/dev -v /var/lib/containers:/var/lib/containers -v /:/target --pid=host --security-opt label=type:unconfined_t quay.io/toharris/rhel-bootc:instruqt-wg bootc install to-existing-root --root-ssh-authorized-keys /target/root/.ssh/authorized_keys --acknowledge-destructive
+podman run --rm --privileged -v /dev:/dev -v /var/lib/containers:/var/lib/containers -v /:/target --pid=host --security-opt label=type:unconfined_t quay.io/toharris/rhel-bootc:summit-2025 bootc install to-existing-root --root-ssh-authorized-keys /target/root/.ssh/authorized_keys --acknowledge-destructive
 
 ## Stage existing wg0.conf in next deploy so it exists on boot
 cp /etc/wireguard/wg0.conf /ostree/deploy/default/deploy/*/etc/wireguard/
@@ -75,11 +75,12 @@ cat <<EOT >> /ostree/deploy/default/deploy/*/etc/rc.d/rc.local
 if [ ! -e "/etc/NetworkManager/system-connections/wg0.nmconnection" ]; then
  nmcli connection import type wireguard file /etc/wireguard/wg0.conf
  nmcli connection up wg0
+ hostnamectl set-hostname rhel2.lab
 fi
 EOT
 
 ## Make sure rc.local executable
 chmod +x /ostree/deploy/default/deploy/*/etc/rc.d/rc.local
 
-## Reboot system 
+## Reboot system
 reboot
