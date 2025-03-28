@@ -3,3 +3,5 @@ git clone https://gist.github.com/1c8afb3087be6e4ec8f1df0a5e50124d.git
 mv 1c8afb3087be6e4ec8f1df0a5e50124d/users.csv .
 rm -rf 1c8afb3087be6e4ec8f1df0a5e50124d
 dnf install -y tcsh
+touch /root/createuser.sh
+chmod +x /root/createuser.sh

@@ -10,7 +10,14 @@ tabs:
   title: rhel
   type: terminal
   hostname: rhel
+- id: sfuxkslgvsng
+  title: Editor
+  type: code
+  hostname: rhel
+  path: /root/createuser.sh
 difficulty: ""
+lab_config:
+  custom_layout: '{"root":{"children":[{"branch":{"size":62,"children":[{"leaf":{"tabs":["i5jlyzt8f2kg"],"activeTabId":"i5jlyzt8f2kg","size":49}},{"leaf":{"tabs":["sfuxkslgvsng"],"activeTabId":"sfuxkslgvsng","size":49}}]}},{"leaf":{"tabs":["assignment"],"activeTabId":"assignment","size":36}}],"orientation":"Horizontal"}}'
 enhanced_loading: null
 ---
 It may be the case that you will have to perform a repetitive task, such as creating user accounts, at least once in your life. Command Line Assistant can help you reduce the burden of such a task.
