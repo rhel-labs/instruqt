@@ -75,21 +75,11 @@ Switch to the Satellite terminal.
 
 ![](../assets/satelliteservertab.png)
 
-Run the following command.
+Run the following script.
 ```bash,run
-hammer host-registration generate-command --activation-key bootc-summit --setup-insights false --insecure true
+export regscript=$(hammer host-registration generate-command --activation-key bootc-summit --setup-insights false --insecure true --force 1)
+ssh -o "StrictHostKeyChecking no" rhel2 $regscript
 ```
-
-![](../assets/copyregistrationscript.png)
-
-Copy this registration script.
-
-Next we'll register rhel2 to Satellite.
-1) ssh to rhel2.
-2) Type yes to continue connecting.
-3) Paste and run the registration script we just copied.
-
-![](../assets/registerrhel2.png)
 
 Here's what the successful registration looks like.
 
