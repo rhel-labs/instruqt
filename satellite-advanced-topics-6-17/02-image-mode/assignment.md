@@ -193,7 +193,7 @@ Password
 bc31c9a6-9ff0-11ec-9587-00155d1b0702
 ```
 
-Now we'll push our updated container image to Satellite.
+From `rhel1` we'll push our updated container image to Satellite.
 ```bash,run
 podman push satellite.lab/acme_org/bootc/rhel10beta:summit-2025 --tls-verify=false
 ```
@@ -284,7 +284,7 @@ Enter the following to reboot into the new container image.
 ```bash,run
 reboot
 ```
-Log back into `rhel2`.
+Log back into `rhel2`. This may require a few attempts as it takes a couple minutes for `rhel2` to boot up.
 
 ```bash,run
 ssh rhel2
