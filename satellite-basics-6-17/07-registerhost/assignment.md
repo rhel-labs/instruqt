@@ -53,33 +53,29 @@ The output of this command is a curl command similar to this (don't copy paste t
 ```nocopy
 set -o pipefail && curl -sS --insecure 'https://satellite.lab/register?force=true&hostgroup_id=1&setup_insights=false' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJpYXQiOjE2ODI2MjkyNzcsImp0aSI6ImQ1YjFkYThmYzM4OGY5ZjY0MmEyZjc0ZGFhNjRkMmZjODVmZDhiNjU1Y2E3NmM3ODEyYWQ5ZjQzNWE0NWE5Y2UiLCJleHAiOjE2ODI2NDM2NzcsInNjb3BlIjoicmVnaXN0cmF0aW9uI2dsb2JhbCByZWdpc3RyYXRpb24jaG9zdCJ9.bgS1XqSYd4bsY46Suq7QqC5OSKm3bSsN57c3lddiOkU' | bash
 ```
-Copy the output by highlighting the selected text. Once the primary click mouse, button is released, the text will be automatically saved to the clipboard.
-
-![](../assets/copypaste.gif)
 
 Register hosts
 ===
-Now click on the [button label="rhel1"](tab-2) tab.
 
-![](../assets/rhel1.png)
+In the interest of minimizing copy/paste errors, a script has been created below to register the hosts `rhel1` and `rhel2` to our Satellite server.
 
-Right click and select paste to paste the command into the terminal. Finally type enter to execute the registration command.
+Simply click on `run` in the right hand corner of the code block below.
 
-![](../assets/registrationrhel1.gif)
+```bash,run
+export REGISTRATION_SCRIPT=$(hammer host-registration generate-command --hostgroup "Application Servers" --insecure 1 --setup-insights 0 --force 1)
+ssh -o StrictHostKeyChecking=no rhel1 $REGISTRATION_SCRIPT
+ssh -o StrictHostKeyChecking=no rhel2 $REGISTRATION_SCRIPT
+```
 
-When your host is registered, the output will resemble something similar below.
+This script obtains the global registration script and runs it on `rhel1` and `rhel2` via SSH.
 
-![](../assets/registrationofhost.png)
-
-Register `rhel2` with the Satellite server by pasting the registration command into the CLI of `rhel2`.
-
-In the Satellite Web UI, navigate to `All Hosts` to view the newly registered host.
+In the Satellite Web UI, navigate to `All Hosts` to view the newly registered hosts.
 
 ![](../assets/registeredhost.png)
 
 ![](../assets/webuiregistered.png)
 
-You can check that your host repos are configured for the Satellite server `satellite.lab` by running the following:
+On [button label="rhel1"](tab-2) or [button label="rhel2"](tab-3), you can check that your host repos are configured for the Satellite server `satellite.lab` by running the following:
 
 ```bash,run
 cat /etc/yum.repos.d/redhat.repo
