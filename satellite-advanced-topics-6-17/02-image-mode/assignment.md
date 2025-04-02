@@ -94,6 +94,11 @@ Switch to the [button label="Satellite Server" background="#ee0000" color="#c7c7
 ![](../assets/satelliteservertab.png)
 
 From the [button label="Satellite Server" background="#ee0000" color="#c7c7c7"](tab-0) terminal, run the following script.
+
+> [!NOTE]
+> You can automatically run the codeblocks in the terminal in focus by clicking on `run`.
+> ![](../assets/runbutton.png)
+
 ```bash,run
 export regscript=$(hammer host-registration generate-command --activation-key bootc-summit --setup-insights false --insecure true --force 1)
 ssh -o "StrictHostKeyChecking no" rhel2 $regscript
