@@ -1,5 +1,6 @@
 ---
 slug: introduction
+id: mlc81xffzfxe
 type: challenge
 title: Familiarize yourself with the Lab Environment.
 teaser: This is an introduction to the lab environment.

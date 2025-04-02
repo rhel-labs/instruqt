@@ -1,5 +1,6 @@
 ---
 slug: updateerratum
+id: xuiefrtxclec
 type: challenge
 title: Apply Errata to hosts
 teaser: Apply Errata to hosts

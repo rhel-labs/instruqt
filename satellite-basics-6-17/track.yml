@@ -1,5 +1,6 @@
 slug: satellite-basics-6-17
-title: satellite-basics-6-17
+id: enoxusjkfn25
+title: Red Hat Satellite Basics 6.17
 description: |
   # Overview:
   Red Hat Satellite manages Red Hat Enterprise Linux hosts, including patching, content management, provisioning and more. In this lab, we'll learn the basics of
@@ -36,4 +37,5 @@ lab_config:
   hideStopButton: false
   default_layout: AssignmentRight
   default_layout_sidebar_size: 50
+checksum: "7955247163365547885"
 enhanced_loading: false

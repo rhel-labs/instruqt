@@ -1,5 +1,6 @@
 ---
 slug: registerhost
+id: 6sndovc6398z
 type: challenge
 title: Register a host to Satellite
 teaser: Register a host to Satellite

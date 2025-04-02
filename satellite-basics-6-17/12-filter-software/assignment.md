@@ -1,5 +1,6 @@
 ---
 slug: filter-software
+id: d68pf0nxt8lp
 type: challenge
 title: Apply a Content View filter
 teaser: Block software from being installed. Without these filters, a Content View

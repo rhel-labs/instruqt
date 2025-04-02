@@ -1,5 +1,6 @@
 ---
 slug: activationkey
+id: qwafvqt2hsvo
 type: challenge
 title: Create an Activation Key
 teaser: Create an Activation Key

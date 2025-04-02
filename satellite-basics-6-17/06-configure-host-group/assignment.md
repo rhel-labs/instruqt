@@ -1,5 +1,6 @@
 ---
 slug: configure-host-group
+id: zyyurjvil3ub
 type: challenge
 title: Configure a Host Group
 teaser: Host groups are used to organize and configure sets of hosts.

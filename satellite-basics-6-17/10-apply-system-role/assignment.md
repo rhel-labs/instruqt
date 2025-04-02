@@ -1,5 +1,6 @@
 ---
 slug: apply-system-role
+id: hyoxr3tcadzi
 type: challenge
 title: Apply System Role
 teaser: Apply System Role to hosts

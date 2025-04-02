@@ -1,5 +1,6 @@
 ---
 slug: lifecycleenv
+id: znmfukglz7mx
 type: challenge
 title: Manage Lifecycle Environments
 teaser: Manage Lifecycle Environments

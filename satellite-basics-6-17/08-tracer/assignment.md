@@ -1,5 +1,6 @@
 ---
 slug: tracer
+id: kmxxaxomyhia
 type: challenge
 title: Enable the ability to monitor when services require restarting
 teaser: When software services are updated, they may require restarting. The tracer
