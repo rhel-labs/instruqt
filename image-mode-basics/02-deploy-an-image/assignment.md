@@ -44,7 +44,6 @@ podman run --rm --privileged \
         --volume ./config.json:/config.json \
         --volume /var/lib/containers/storage:/var/lib/containers/storage \
         registry.redhat.io/rhel9/bootc-image-builder:9.5 \
-        --local \
         --type qcow2 \
         --config config.json \
          [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
@@ -52,7 +51,7 @@ podman run --rm --privileged \
 
 This tool is a containerized version of image builder that includes the `bootc` tooling to unpack the container image contents to the virtual disk. Supported output formats include AMIs and VMDKs. For bare metal, we can use Anaconda with `bootc` support to install to physical disk. Other typical ways we'd install a RHEL host, like over PXE or HTTP Boot are also available to us.
 
-Using the `--local` option and adding the system container storage path as a volume allows `bootc-image-builder` to use the image directly from disk. You can also pull the image from the remote registry by omitting these lines.
+When building, `bootc-image-builder` uses the image directly from disk. Since it requires elevated privileges (eg needs to be run as root) for certain operations, the image needs to be in the system storage location. If the original build was done as a normal user, the image can be copied to system storage using `podman image scp`.
 
 Prepare and run the bootc image
 ===
