@@ -42,7 +42,7 @@ Here are the configuration considerations:
 2. Capsule servers (and Capsule services) must be configured to support either REX SSH mode or REX pull mode. You cannot configure a Capsule to support both REX modes.
 3. For existing hosts running the katello agent, you can migrate to REX pull mode by installing the katello-pull-transport-migrate package. Documentation is provided at the bottom of this post. The katello agent has been deprecated as of Satellite 6.7.
 
-Katello Agent is removed from Satellite 6.16.
+Katello Agent is removed from Satellite 6.17.
 
 Register the host rhel1 to the Satellite server
 ===
@@ -99,7 +99,7 @@ Copy and run this in the [button label="Satellite Server" background="#ee0000" c
 ```bash,run
 tee ~/rexsetting.yml << EOF
 ---
-- name: Configure Satellite 6.16
+- name: Configure Satellite 6.17
   hosts: localhost
   remote_user: root
 
@@ -191,7 +191,7 @@ At present, Satellite will register hosts in REX SSH mode by default. We'll need
 ```bash,run
 tee ~/rexdefault.yml << EOF
 ---
-- name: Configure Satellite 6.16
+- name: Configure Satellite 6.17
   hosts: localhost
   remote_user: root
 
@@ -226,6 +226,7 @@ You can see the newly created global parameter is set.
 
 Register rhel1 to verify automatic configuration of REX pull mode
 ===
+
 Let's unregister `rhel1` from our Satellite server. After that we'll register `rhel1` again to show that REX pull mode is automatically enabled.
 
 In the [button label="Satellite Server" background="#ee0000" color="#c7c7c7"](tab-0) terminal run the following command.
