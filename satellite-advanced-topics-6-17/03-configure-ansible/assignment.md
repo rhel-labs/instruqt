@@ -57,10 +57,6 @@ Click this button [button label="Satellite Server" background="#ee0000" color="#
 
 ![sat term](../assets/satellite-server-tab.png)
 
-> [!NOTE]
-> You can automatically run the codeblocks in the terminal in focus by clicking on `run`.
-> ![](../assets/runbutton.png)
-
 Next, click `run` below to write the following ansible playbook.
 
 ```bash,run
