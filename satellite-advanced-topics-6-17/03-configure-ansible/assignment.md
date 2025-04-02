@@ -24,7 +24,7 @@ difficulty: basic
 timelimit: 0
 enhanced_loading: null
 ---
-The first activity in this lab is to create an ansible playbook to automatically configure the Satellite server. Red Hat provides an Ansible collection to manage Red Hat Satellite configuration. Ansible playbooks are useful for building disaster recovery instances of Satellite, or any other task that requires a second Satellite server, including testing, and upgrades.
+ In this assignment, we'll create an ansible playbook to automatically configure the Satellite server. Red Hat provides an Ansible collection to manage Red Hat Satellite configuration. Ansible playbooks are useful for building disaster recovery instances of Satellite, or any other task that requires a second Satellite server, including testing, and upgrades.
 
 Documentation for the Satellite Ansible collection can be found [here](https://console.redhat.com/ansible/automation-hub/repo/published/redhat/satellite/docs) (Red Hat account required).
 
@@ -53,9 +53,13 @@ The playbook below is simply an example.
 > [!WARNING]
 > Never put clear text passwords in your playbook.
 
-Click this button [button label="Satellite Server"](tab-0) to switch to the `Satellite Server` terminal.
+Click this button [button label="Satellite Server" background="#ee0000" color="#c7c7c7"](tab-0) to switch to the `Satellite Server` terminal.
 
 ![sat term](../assets/satellite-server-tab.png)
+
+> [!NOTE]
+> You can automatically run the codeblocks in the terminal in focus by clicking on `run`.
+> ![](../assets/runbutton.png)
 
 Next, click `run` below to write the following ansible playbook.
 
@@ -67,56 +71,25 @@ tee ~/config.yml << EOF
   remote_user: root
 
   tasks:
-  - name: "Enable RHEL 9 BaseOS RPMs repository with label"
-    redhat.satellite.repository_set:
-      username: "admin"
-      password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
-      server_url: "https://satellite.lab"
-      organization: "Acme Org"
-      label: rhel-9-for-x86_64-baseos-rpms
-      repositories:
-        - releasever: "9"
-
-  - name: "Enable RHEL 9 AppStream RPMs repository with label"
-    redhat.satellite.repository_set:
-      username: "admin"
-      password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
-      server_url: "https://satellite.lab"
-      organization: "Acme Org"
-      label: rhel-9-for-x86_64-appstream-rpms
-      repositories:
-        - releasever: "9"
-
-  - name: "Satellite 6 client repository with label without specifying base arch"
-    redhat.satellite.repository_set:
-      username: "admin"
-      password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
-      server_url: "https://satellite.lab"
-      organization: "Acme Org"
-      label: satellite-client-6-for-rhel-9-x86_64-rpms
-      all_repositories: true
-      state: enabled
-
   - name: "Create an activation key."
     redhat.satellite.activation_key:
       username: "admin"
       password: "bc31c9a6-9ff0-11ec-9587-00155d1b0702"
       server_url: "https://satellite.lab"
       name: "RHEL9"
+      content_view: "Default Organization View"
       organization: "Acme Org"
       lifecycle_environment: "Library"
       content_overrides:
           - label: satellite-client-6-for-rhel-9-x86_64-rpms
             override: enabled
+          - label: Acme_Org_Satellite_Extras_Satellite
+            override: enabled
 EOF
 ```
+This playbook creates an `activation key` which is used to control access to repositories on Satellite. In this particular `activation key`, the Satellite 6 client repository is overridden to enabled.
 
-Here's what each of the tasks does.
-1. The first two playbook tasks, `Enable RHEL 9 BaseOS RPMs repository with label` and `Enable RHEL 9 AppStream RPMs repository with label` will enable the RHEL 9 BaseOS and AppStream repositories. Labels don't contain space characters, unlike names.
-
-2. The next task enables the `satellite-client-6-for-rhel-9-x86_64-rpms` repository. This task enables the repository without specifying base arch (as some repos do not require it). The Satellite 6 client repo contains software such as `Tracer` and `yggdrasild`. `yggdrasild` will be required later in the lab to enable Remote Execution Pull Mode.
-
-3. The next task creates an `activation key` which is used to control access to repositories on Satellite. In this particular `activation key`, the Satellite 6 client repository is overridden to enabled, as well as the repos required for capsule configuration.
+The RHEL 9 BaseOS and AppStream, and Satellite Client repos have already been synchronized and enabled to save time. These repos are available through the default `Library` lifecycle environment.
 
 Execute the playbook
 =====================
@@ -129,3 +102,5 @@ ansible-playbook config.yml
 
 >[!NOTE]
 >The repositories configured have already been synchronized to save time.
+
+Click next to advance to the next assignment.

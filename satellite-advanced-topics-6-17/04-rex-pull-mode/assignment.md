@@ -51,44 +51,23 @@ We'll register the host `rhel1` to our Satellite server using the command line i
 
 It is also possible to generate a registration command from the Satellite WebUI but due to the limitations of DNS in this lab environment, we'll use the cli utility `hammer` to simplify the process.
 
-Click on the [button label="Satellite Server"](tab-0) tab.
+Click on the [button label="Satellite Server" background="#ee0000" color="#c7c7c7"](tab-0) tab.
 
 ![satellite server tab](../assets/satellite-server-tab.png)
 
 Run the following command.
 
 ```bash,run
-hammer host-registration generate-command --insecure 1 --setup-insights 0 --force 1 --activation-key RHEL9
+export regscript=$(hammer host-registration generate-command --activation-key RHEL9 --setup-insights 0 --insecure 1 --force 1)
+ssh -o "StrictHostKeyChecking no" rhel1 $regscript
 ```
 
-This hammer command create a registration script that uses the RHEL9 activation key. It also ignores self signed certificate erros (`--insecure 1`), ignores insights setup (`--setup-insights 0`), and forces registration with the satellite server (`--force 1`).
-
-The output of this command is a script similar to this (don't copy paste this):
-
-```nocopy
-set -o pipefail && curl -sS --insecure 'https://satellite.lab/register?force=true&hostgroup_id=1&setup_insights=false' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJpYXQiOjE2ODI2MjkyNzcsImp0aSI6ImQ1YjFkYThmYzM4OGY5ZjY0MmEyZjc0ZGFhNjRkMmZjODVmZDhiNjU1Y2E3NmM3ODEyYWQ5ZjQzNWE0NWE5Y2UiLCJleHAiOjE2ODI2NDM2NzcsInNjb3BlIjoicmVnaXN0cmF0aW9uI2dsb2JhbCByZWdpc3RyYXRpb24jaG9zdCJ9.bgS1XqSYd4bsY46Suq7QqC5OSKm3bSsN57c3lddiOkU' | bash
-```
-
-Copy the output by highlighting the selected text. Once the primary click mouse, button is released, the text will be automatically saved to the clipboard.
-
-![copy paste](../assets/copypaste.gif)
-
-Click this button [button label="rhel1"](tab-2) to switch to the `rhel1` terminal.
-
-> [!IMPORTANT]
-> Paste the command into the rhel1 terminal.
-
-> [!WARNING]
-> If you paste and run this command in the `Satellite Server` you will register the satellite server to itself and you will have to re-start the lab.
-
-Finally type enter to execute the registration command.
-
-![copy paste rhel1](../assets/registrationrhel1.gif)
+In order to save time, the command used above creates a global registration script that uses the RHEL9 activation key and runs it via SSH on `rhel1`.
 
 Enable pull mode on the Satellite server
 ===
 
-Click this button [button label="Satellite Server"](tab-0) to switch to the `Satellite Server` terminal and click `run` to run the following command. This command installs the MQTT broker on the `Satellite Server`.
+Click this button [button label="Satellite Server" background="#ee0000" color="#c7c7c7"](tab-0) to switch to the `Satellite Server` terminal and click `run` to run the following command. This command installs the MQTT broker on the `Satellite Server`.
 
 ```bash,run
 satellite-installer --foreman-proxy-plugin-remote-execution-script-mode pull-mqtt
@@ -97,7 +76,7 @@ satellite-installer --foreman-proxy-plugin-remote-execution-script-mode pull-mqt
 Open required firewall ports on the Satellite server
 ===
 
-Open the required firewall ports with the following command in the [button label="Satellite Server"](tab-0) tab.
+Open the required firewall ports with the following command in the [button label="Satellite Server" background="#ee0000" color="#c7c7c7"](tab-0) tab.
 
 ```bash,run
 firewall-cmd --permanent --add-port="1883/tcp" && firewall-cmd --reload
@@ -115,7 +94,7 @@ Configure jobs to be sent through the capsule service that the host was register
 
 The following setting enables hosts to receive REX jobs through the satellite or capsule server they were registered through. If this setting is not made, REX jobs would be dispatched through a satellite or capsule server depending on the following [rules in this document](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.16/html/managing_hosts/configuring_and_setting_up_remote_jobs_managing-hosts#remote-execution-workflow_managing-hosts).
 
-Copy and run this in the [button label="Satellite Server"](tab-0) terminal.
+Copy and run this in the [button label="Satellite Server" background="#ee0000" color="#c7c7c7"](tab-0) terminal.
 
 ```bash,run
 tee ~/rexsetting.yml << EOF
@@ -207,7 +186,7 @@ The `messages` log file should display something similar to this.
 Configure Satellite to automatically configure REX pull mode when registering new hosts
 ===
 
-At present, Satellite will register hosts in REX SSH mode by default. We'll need to set a new Global Parameter to enable pull mode by default, with a global parameter. In the [button label="Satellite Server"](tab-0) terminal, enter the following command.
+At present, Satellite will register hosts in REX SSH mode by default. We'll need to set a new Global Parameter to enable pull mode by default, with a global parameter. In the [button label="Satellite Server" background="#ee0000" color="#c7c7c7"](tab-0) terminal, enter the following command.
 
 ```bash,run
 tee ~/rexdefault.yml << EOF
@@ -229,7 +208,7 @@ tee ~/rexdefault.yml << EOF
 EOF
 ```
 
-Run the playbook in the [button label="Satellite Server"](tab-0) terminal.
+Run the playbook in the [button label="Satellite Server" background="#ee0000" color="#c7c7c7"](tab-0) terminal.
 
 ```bash,run
 ansible-playbook rexdefault.yml
@@ -245,32 +224,24 @@ You can see the newly created global parameter is set.
 
 ![global param set](../assets/rexpulltrue.png)
 
-Unregister the host rhel1
+Register rhel1 to verify automatic configuration of REX pull mode
 ===
+Let's unregister `rhel1` from our Satellite server. After that we'll register `rhel1` again to show that REX pull mode is automatically enabled.
 
-In the [button label="Satellite Server"](tab-0) terminal run the following command.
+In the [button label="Satellite Server" background="#ee0000" color="#c7c7c7"](tab-0) terminal run the following command.
 
 ```bash,run
-ssh -o "StrictHostKeyChecking no" rhel1 "subscription-manager unregister" && hammer host delete --name rhel1 && ssh -o "StrictHostKeyChecking no" rhel1 "dnf remove -y katello-pull-transport-migrate"
+ssh -o "StrictHostKeyChecking no" rhel1 "subscription-manager unregister" && ssh -o "StrictHostKeyChecking no" rhel1 "dnf remove -y katello-pull-transport-migrate"
 ```
 
 This command is run to remove `rhel1` from the satellite server so that we can register it again to show REX pull mode is automatically enabled.
 
-Register rhel1 to verify automatic configuration of REX pull mode
-===
-
-You can re-use the registration command created at the beginning of this activity to register `rhel1`. It will be configured with REX pull mode on.
-
-Or if you wish, in the [button label="Satellite Server"](tab-0) terminal, you can regenerate a new registration command with the original hammer command.
+From the Satellite server, we'll register `rhel1` to Satellite again.
 
 ```bash,run
-hammer host-registration generate-command --insecure 1 --setup-insights 0 --force 1 --activation-key RHEL9
+export regscript=$(hammer host-registration generate-command --activation-key RHEL9 --setup-insights 0 --insecure 1 --force 1)
+ssh -o "StrictHostKeyChecking no" rhel1 $regscript
 ```
-
-Switch to the [button label="rhel1"](tab-2) tab and paste the registration script.
-
-> [!NOTE]
-> If you are still tailing the yggdrasild log on the rhel1 host, type ctrl-c to quit.
 
 Here's what the registration operation output looks like for `rhel1`.
 

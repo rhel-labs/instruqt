@@ -15,8 +15,8 @@ subscription-manager unregister
 # Create a stock wg0.conf.
 cat <<EOT > /etc/wireguard/wg0.conf
 [Interface]
-Address = 192.0.2.5/24
-PrivateKey = 8PElRmDB+qgplOZoFZX5JKRhXNrVKuu6HXL3CD9Yl10=
+Address = 192.0.2.3/24
+PrivateKey = 4MNE07Auu6f2L6ahmYoXB332H+lxQupBQjOP+aAX7UI=
 DNS = 192.0.2.1
 
 [Peer]
@@ -54,12 +54,7 @@ chmod 700 /usr/local/sbin/wg-startup.sh
 restorecon -Fvvv /usr/local/sbin/wg-startup.sh
 systemctl enable wg-startup
 
-# add hosts entry for 192.0.2.5 capsule.lab capsule
-hostnamectl set-hostname capsule.lab
+hostnamectl set-hostname rhel2.lab
 cat <<EOT >> /etc/hosts
-192.0.2.5 capsule.lab capsule
+192.0.2.3 rhel2.lab rhel2
 EOT
-
-# DISABLE COCKPIT
-systemctl stop cockpit.socket
-systemctl disable cockpit.socket

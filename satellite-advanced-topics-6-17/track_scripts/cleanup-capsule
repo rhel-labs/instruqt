@@ -1,9 +1,0 @@
-#!/bin/bash
-set -euxo pipefail
-
-until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]; do
-    echo "Waiting for instruqt bootstrap to complete"
-    sleep 1
-done
-
-subscription-manager unregister

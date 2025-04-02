@@ -26,6 +26,7 @@ tags:
 owner: rhel
 developers:
 - myee@redhat.com
+- toharris@redhat.com
 show_timer: true
 idle_timeout: 1800
 timelimit: 6900
@@ -37,5 +38,5 @@ lab_config:
   hideStopButton: false
   default_layout: AssignmentRight
   default_layout_sidebar_size: 50
-checksum: "14621833849710058009"
+checksum: "4650163417060440515"
 enhanced_loading: false
