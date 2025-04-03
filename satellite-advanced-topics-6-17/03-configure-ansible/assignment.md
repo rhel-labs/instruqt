@@ -24,29 +24,31 @@ difficulty: basic
 timelimit: 0
 enhanced_loading: null
 ---
- In this assignment, we'll create an ansible playbook to automatically configure the Satellite server. Red Hat provides an Ansible collection to manage Red Hat Satellite configuration. Ansible playbooks are useful for building disaster recovery instances of Satellite, or any other task that requires a second Satellite server, including testing, and upgrades.
+
+In this assignment, we'll create an ansible playbook to automatically configure the Satellite server. Red Hat provides an Ansible collection to manage Red Hat Satellite configuration. Ansible playbooks are useful for building disaster recovery instances of Satellite, or any other task that requires a second Satellite server, including testing, and upgrades.
 
 Documentation for the Satellite Ansible collection can be found [here](https://console.redhat.com/ansible/automation-hub/repo/published/redhat/satellite/docs) (Red Hat account required).
 
 Install the Satellite Ansible collection
-========================================
+===
+
 > [!NOTE]
 > To reduce the amount of time waiting for for satellite operations to complete, the Satellite Ansible Collection has been preinstalled. Please read over this section and go to the next step.
 
 > [!WARNING]
 > Proceed to the next step.
 
->[!NOTE]
->For reference, the following command installs the Satellite Ansible Collection.
+> [!NOTE]
+> For reference, the following command installs the Satellite Ansible Collection.
 >
->```nocopy
->satellite-maintain packages install -y ansible-collection-redhat-satellite
->```
+> ```nocopy
+> satellite-maintain packages install -y ansible-collection-redhat-satellite
+> ```
 
 ![output](../assets/ansiblecollectionoutput.png)
 
 Create a playbook to configure the Satellite server
-===================================================
+===
 
 The playbook below is simply an example.
 
@@ -62,7 +64,7 @@ Next, click `run` below to write the following ansible playbook.
 ```bash,run
 tee ~/config.yml << EOF
 ---
-- name: Configure Satellite 6.16
+- name: Configure Satellite 6.17
   hosts: localhost
   remote_user: root
 
@@ -83,12 +85,13 @@ tee ~/config.yml << EOF
             override: enabled
 EOF
 ```
+
 This playbook creates an `activation key` which is used to control access to repositories on Satellite. In this particular `activation key`, the Satellite 6 client repository is overridden to enabled.
 
 The RHEL 9 BaseOS and AppStream, and Satellite Client repos have already been synchronized and enabled to save time. These repos are available through the default `Library` lifecycle environment.
 
 Execute the playbook
-=====================
+===
 
 Execute the playbook by clicking on `run`.
 
@@ -96,7 +99,7 @@ Execute the playbook by clicking on `run`.
 ansible-playbook config.yml
 ```
 
->[!NOTE]
->The repositories configured have already been synchronized to save time.
+> [!NOTE]
+> The repositories configured have already been synchronized to save time.
 
 Click next to advance to the next assignment.

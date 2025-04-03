@@ -28,7 +28,7 @@ enhanced_loading: null
 Exploring system status
 ===
 
-Click on the [button label="VM SSH session" background="#ee0000" color="#c7c7c7"](tab-2) tab.
+Click on the [button label="VM SSH session" background="#ee0000" color="#c7c7c7"](tab-1) tab.
 
 > [!NOTE]
 > If the SSH session hasn't connected or there is an error, you can reconnect by clicking Refresh next to the tab name. The prompt will look like this. ![](../assets/terminal_prompt.png)
@@ -49,8 +49,8 @@ sudo bootc status
 
 You can see the booted image, and if there are any staged or rollback images on the host. The name, version, and digest for each image are listed in this base view. We'll talk more about what that means later.
 
-> [!TIP]
->The `bootc` command will detect if we pass the output to a pipe and automatically output the full status details in YAML. You can control that ouput by passing the `--format` option with either YAML or JSON arguments to get your preferred output.
+> [!NOTE]
+>The `bootc status` command will detect if we pass the output to a pipe and automatically output the full status details in YAML. You can control that output by passing the `--format` option with either YAML or JSON arguments to get your preferred output.
 
 Let's explore the detailed output section by section using `grep` to focus on certain parts. The `spec` section provides the information about the image in use and where `bootc` is looking for it. Our host is pulling from a container registry.
 ```bash,run
