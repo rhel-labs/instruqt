@@ -59,7 +59,7 @@ Register hosts
 
 In the interest of minimizing copy/paste errors, a script has been created below to register the hosts `rhel1` and `rhel2` to our Satellite server.
 
-Simply click on `run` in the right hand corner of the code block below.
+Make sure you are in the [button label="Satellite Server"](tab-0). Click on `run` in the right hand corner of the code block below.
 
 ```bash,run
 export REGISTRATION_SCRIPT=$(hammer host-registration generate-command --hostgroup "Application Servers" --insecure 1 --setup-insights 0 --force 1)
