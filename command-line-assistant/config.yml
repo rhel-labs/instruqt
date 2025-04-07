@@ -8,6 +8,8 @@ virtualmachines:
   machine_type: n2-standard-4
   allow_external_ingress:
   - https
+  - http
+  - high-ports
   provision_ssl_certificate: true
 secrets:
 - name: ACTIVATION_KEY
