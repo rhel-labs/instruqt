@@ -9,6 +9,7 @@ done
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
 dnf install wireguard-tools -y
+dnf remove google-rhui-client-rhel9 -y
 
 subscription-manager unregister
 
