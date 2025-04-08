@@ -42,7 +42,7 @@ Navigate to the `Recommendations` menu.
 
 In this menu we can see all the Insights advisor `Recommendations` for each host. Click on the "kebab" button to review the knowledge base article associated with an advisory.
 
-![](../assets/recommendations.png)
+![](../assets/remediations-kebab.png)
 
 Notice that each of these recommendations has an ansible playbook to remediate the the detected problem.
 
