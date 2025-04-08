@@ -5,27 +5,28 @@ type: challenge
 title: Apply System Role
 teaser: Apply System Role to hosts
 notes:
-- type: text
-  contents: RHEL System Roles is a collection of Ansible roles and modules that provide
-    a stable and consistent configuration interface to automate and manage multiple
-    releases of Red Hat Enterprise Linux.
+  - type: text
+    contents:
+      RHEL System Roles is a collection of Ansible roles and modules that provide
+      a stable and consistent configuration interface to automate and manage multiple
+      releases of Red Hat Enterprise Linux.
 tabs:
-- id: drz7tfr71qc4
-  title: Satellite Server
-  type: terminal
-  hostname: satellite
-- id: 0t94clo9tdkd
-  title: Satellite Web UI
-  type: external
-  url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- id: 9z7ymzrsgvog
-  title: rhel1
-  type: terminal
-  hostname: rhel1
-- id: a2tjh2hf6eye
-  title: rhel2
-  type: terminal
-  hostname: rhel2
+  - id: drz7tfr71qc4
+    title: Satellite Server
+    type: terminal
+    hostname: satellite
+  - id: 0t94clo9tdkd
+    title: Satellite Web UI
+    type: external
+    url: https://satellite.${_SANDBOX_ID}.instruqt.io
+  - id: 9z7ymzrsgvog
+    title: rhel1
+    type: terminal
+    hostname: rhel1
+  - id: a2tjh2hf6eye
+    title: rhel2
+    type: terminal
+    hostname: rhel2
 difficulty: basic
 timelimit: 1
 enhanced_loading: null
@@ -43,11 +44,11 @@ Once again, navigate to `All Hosts`.
 
 Next we'll do the following.
 
-1) Select both hosts.
+1. Select both hosts.
 
-2) Click `Select Action`.
+2. Click `Select Action`.
 
-3) Select `Run all Ansible roles`.
+3. Select `Run all Ansible roles`.
 
 ![apply system roles](../assets/applysystemroles.png)
 
@@ -61,7 +62,7 @@ If you want, click on a host to view the application of the system role.
 
 You can verify that port 80/tcp has been opened by doing the following.
 
-Click on one of these buttons for [button label="rhel1"](tab-2) **or** [button label="rhel2"](tab-4).
+Click on one of these buttons for [button label="rhel1" background="#ee0000" color="#c7c7c7"](tab-2) **or** [button label="rhel2" background="#ee0000" color="#c7c7c7"](tab-4).
 
 ![host tab](../assets/hosttab.png)
 

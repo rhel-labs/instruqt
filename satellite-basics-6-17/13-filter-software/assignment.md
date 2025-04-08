@@ -3,28 +3,29 @@ slug: filter-software
 id: d68pf0nxt8lp
 type: challenge
 title: Apply a Content View filter
-teaser: Block software from being installed. Without these filters, a Content View
+teaser:
+  Block software from being installed. Without these filters, a Content View
   includes everything from the selected repositories.
 notes:
-- type: text
-  contents: Block software from being installed
+  - type: text
+    contents: Block software from being installed
 tabs:
-- id: 6rd16ih29xhb
-  title: Satellite Server
-  type: terminal
-  hostname: satellite
-- id: a7t6cdb2x0x1
-  title: Satellite Web UI
-  type: external
-  url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- id: 3ul4888l2mow
-  title: rhel1
-  type: terminal
-  hostname: rhel1
-- id: pxyznjfph2yt
-  title: rhel2
-  type: terminal
-  hostname: rhel2
+  - id: 6rd16ih29xhb
+    title: Satellite Server
+    type: terminal
+    hostname: satellite
+  - id: a7t6cdb2x0x1
+    title: Satellite Web UI
+    type: external
+    url: https://satellite.${_SANDBOX_ID}.instruqt.io
+  - id: 3ul4888l2mow
+    title: rhel1
+    type: terminal
+    hostname: rhel1
+  - id: pxyznjfph2yt
+    title: rhel2
+    type: terminal
+    hostname: rhel2
 difficulty: basic
 timelimit: 1
 enhanced_loading: null
@@ -43,21 +44,21 @@ Click on the `RHEL9` content view.
 
 Do the following.
 
-1) Click on the `Filters` tab.
+1. Click on the `Filters` tab.
 
-2) Click `Create filter`.
+2. Click `Create filter`.
 
 ![filter](../assets/filter.png)
 
 Create a filter with the following steps.
 
-1) Name the filter `emacs`.
+1. Name the filter `emacs`.
 
-2) Select `Exclude filter`.
+2. Select `Exclude filter`.
 
-3) Give the filter a description. We're going to exclude emacs from being included in the `RHEL9` content view.
+3. Give the filter a description. We're going to exclude emacs from being included in the `RHEL9` content view.
 
-4) Click `Create filter`.
+4. Click `Create filter`.
 
 ![create filter](../assets/createfilter.png)
 
@@ -67,11 +68,11 @@ Next, click `Add RPM rule`.
 
 Configure your RPM rule in the following way.
 
-1) Since we're filtering `emacs`, enter `emacs`.
+1. Since we're filtering `emacs`, enter `emacs`.
 
-2) Select `All versions`.
+2. Select `All versions`.
 
-3) Click `Add rule`.
+3. Click `Add rule`.
 
 ![add rpm rule](../assets/addrpmruleemacs.png)
 
@@ -81,21 +82,22 @@ Click `Publish new version` to publish a new version of the `RHEL9` content view
 
 The new content view will make `emacs` unavailable for hosts to install.
 
-1) Add a description to the content view version. In this case, `added emacs filter`.
+1. Add a description to the content view version. In this case, `added emacs filter`.
 
-2) Select `Promote`.
+2. Select `Promote`.
 
-3) Select the `Test` lifecycle environment.
+3. Select the `Test` lifecycle environment.
 
-4) Click `Next`.
+4. Click `Next`.
 
 ![publish](../assets/publishfiltercv.png)
 
 Ensure the details of this new version are correct and then click `Finish`. Make sure to wait for the content view to finish publishing or else the filter won't work properly.
+
 > [!WARNING]
 > It can take up to 5 minutes for this particular task to complete publishing the content view.
 
-Next, click on one of these buttons for [button label="rhel1"](tab-2) **or** [button label="rhel2"](tab-3) and run the following command.
+Next, click on one of these buttons for [button label="rhel1" background="#ee0000" color="#c7c7c7"](tab-2) **or** [button label="rhel2" background="#ee0000" color="#c7c7c7"](tab-3) and run the following command.
 
 ```bash,run
 dnf install -y emacs

@@ -5,25 +5,25 @@ type: challenge
 title: Register a host to Satellite
 teaser: Register a host to Satellite
 notes:
-- type: text
-  contents: Register a host to Satellite
+  - type: text
+    contents: Register a host to Satellite
 tabs:
-- id: xmydgnukwa14
-  title: Satellite Server
-  type: terminal
-  hostname: satellite
-- id: pv4zonuai9bx
-  title: Satellite Web UI
-  type: external
-  url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- id: no3tuq3j0l7i
-  title: rhel1
-  type: terminal
-  hostname: rhel1
-- id: xob0hd4ftzlf
-  title: rhel2
-  type: terminal
-  hostname: rhel2
+  - id: xmydgnukwa14
+    title: Satellite Server
+    type: terminal
+    hostname: satellite
+  - id: pv4zonuai9bx
+    title: Satellite Web UI
+    type: external
+    url: https://satellite.${_SANDBOX_ID}.instruqt.io
+  - id: no3tuq3j0l7i
+    title: rhel1
+    type: terminal
+    hostname: rhel1
+  - id: xob0hd4ftzlf
+    title: rhel2
+    type: terminal
+    hostname: rhel2
 difficulty: basic
 timelimit: 1
 enhanced_loading: null
@@ -75,9 +75,10 @@ In the Satellite Web UI, navigate to `All Hosts` to view the newly registered ho
 
 ![](../assets/webuiregistered.png)
 
-On [button label="rhel1"](tab-2) or [button label="rhel2"](tab-3), you can check that your host repos are configured for the Satellite server `satellite.lab` by running the following:
+On [button label="rhel1" background="#ee0000" color="#c7c7c7"](tab-2) or [button label="rhel2" background="#ee0000" color="#c7c7c7"](tab-3), you can check that your host repos are configured for the Satellite server `satellite.lab` by running the following:
 
 ```bash,run
 cat /etc/yum.repos.d/redhat.repo
 ```
+
 ![](../assets/repolist.png)
