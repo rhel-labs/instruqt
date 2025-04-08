@@ -125,7 +125,7 @@ Migrate the rhel1 host to REX pull mode
 
 At the beginning of this assignment, we registered the host `rhel1` to use REX in "push" or SSH mode. We'll now migrate it to "pull" mode.
 
-Click this button [button label="rhel1"](tab-2) to switch to the `rhel1` tab and install `katello-pull-transport-migrate` by running the following command.
+Click this button [button label="rhel1" background="#ee0000" color="#c7c7c7"](tab-2) to switch to the `rhel1` tab and install `katello-pull-transport-migrate` by running the following command.
 
 ```bash,run
 dnf install katello-pull-transport-migrate -y
@@ -147,7 +147,7 @@ The output should look like the screenshot below.
 Test out REX pull mode
 ===
 
-Now we'll run a test to confirm that REX pull mode is working. On [button label="rhel1"](tab-2), run the following command to tail the `messages` log file.
+Now we'll run a test to confirm that REX pull mode is working. On [button label="rhel1" background="#ee0000" color="#c7c7c7"](tab-2), run the following command to tail the `messages` log file.
 
 ```bash,run
 tail -f /var/log/messages
@@ -250,7 +250,7 @@ Here's what the registration operation output looks like for `rhel1`.
 
 Notice the installation of `yggdrasild` components.
 
-You can check to see if REX pull mode was successfully configured on[button label="rhel1"](tab-2) by checking the yggdrasild demon is running.
+You can check to see if REX pull mode was successfully configured on[button label="rhel1" background="#ee0000" color="#c7c7c7"](tab-2) by checking the yggdrasild demon is running.
 
 ```bash,run
 systemctl status yggdrasild
@@ -261,7 +261,7 @@ Force a single errata to be detected on rhel1
 
 In this step, we'll downgrade `vim` in to compel Satellite to detect that at least one errata is installable on `rhel1`. This prepares `rhel1` for the next step where we will install errata with REX pull mode.
 
-Run the following command in the [button label="rhel1"](tab-2) tab.
+Run the following command in the [button label="rhel1" background="#ee0000" color="#c7c7c7"](tab-2) tab.
 
 ```bash,run
 dnf downgrade -y vim

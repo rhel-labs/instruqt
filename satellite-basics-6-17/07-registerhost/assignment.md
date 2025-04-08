@@ -34,7 +34,7 @@ Now we'll register the hosts `rhel1` and `rhel2` to our Satellite server. We'll 
 
 It is also possible to generate a registration command from the Satellite WebUI but due to the limitations of DNS in this lab environment, we'll use the cli utility `hammer` to simplify the process.
 
-In our registration command, we'll specify that the new host should be added to the `Application Servers` host group we just created. As well, we'll ignore certificate errors (since we're using a self signed certificate) and we won't set up Insights.
+In our registration command, we'll specify that the new host should be added to the `Application Servers` host group we just created. As well, we'll ignore certificate errors (since we're using a self signed certificate) and we will set up Insights.
 
 Create a registration script
 ===
@@ -45,7 +45,7 @@ Click on the [button label="Satellite Server"](tab-0) tab.
 Click on the `run` button to run the following command in the `Satellite Server` terminal.
 
 ```bash,run
-hammer host-registration generate-command --hostgroup "Application Servers" --insecure 1 --setup-insights 0 --force 1
+hammer host-registration generate-command --hostgroup "Application Servers" --insecure 1 --setup-insights 1 --force 1
 ```
 
 The output of this command is a curl command similar to this (don't copy paste this):
@@ -62,7 +62,7 @@ In the interest of minimizing copy/paste errors, a script has been created below
 Make sure you are in the [button label="Satellite Server"](tab-0). Click on `run` in the right hand corner of the code block below.
 
 ```bash,run
-export REGISTRATION_SCRIPT=$(hammer host-registration generate-command --hostgroup "Application Servers" --insecure 1 --setup-insights 0 --force 1)
+export REGISTRATION_SCRIPT=$(hammer host-registration generate-command --hostgroup "Application Servers" --insecure 1 --setup-insights 1 --force 1)
 ssh -o StrictHostKeyChecking=no rhel1 $REGISTRATION_SCRIPT
 ssh -o StrictHostKeyChecking=no rhel2 $REGISTRATION_SCRIPT
 ```
@@ -75,9 +75,10 @@ In the Satellite Web UI, navigate to `All Hosts` to view the newly registered ho
 
 ![](../assets/webuiregistered.png)
 
-On [button label="rhel1"](tab-2) or [button label="rhel2"](tab-3), you can check that your host repos are configured for the Satellite server `satellite.lab` by running the following:
+On [button label="rhel1" background="#ee0000" color="#c7c7c7"](tab-2) or [button label="rhel2" background="#ee0000" color="#c7c7c7"](tab-3), you can check that your host repos are configured for the Satellite server `satellite.lab` by running the following:
 
 ```bash,run
 cat /etc/yum.repos.d/redhat.repo
 ```
+
 ![](../assets/repolist.png)

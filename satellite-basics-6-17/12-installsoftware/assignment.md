@@ -49,8 +49,8 @@ Click `Create Host Collection`.
 
 Next, do the following:
 
-1) Name the `Host Collection`. In this case we'll name it `TMUX installation`.
-2) Click `Save`.
+1. Name the `Host Collection`. In this case we'll name it `TMUX installation`.
+2. Click `Save`.
 
 ![](../assets/tmuxinstallationhostcollection.png)
 
@@ -79,11 +79,11 @@ Click on `Package Installation, Removal, and Update`.
 
 Do the following:
 
-1) Type in the package name. In this case we'll install `tmux`.
+1. Type in the package name. In this case we'll install `tmux`.
 
-2) Click `install`.
+2. Click `install`.
 
-3) Click `yes`.
+3. Click `yes`.
 
 ![](../assets/updatepackages.png)
 
@@ -95,7 +95,7 @@ You can check on the real-time installation progress by clicking on a host.
 
 ![](../assets/installtmuxstatusonhost.png)
 
-When the installation has completed, click on one of these buttons for [button label="rhel1"](tab-2) **or** [button label="rhel2"](tab-3) and run the command `tmux`.
+When the installation has completed, click on one of these buttons for [button label="rhel1" background="#ee0000" color="#c7c7c7"](tab-2) **or** [button label="rhel2" background="#ee0000" color="#c7c7c7"](tab-3) and run the command `tmux`.
 
 ```bash,run
 tmux

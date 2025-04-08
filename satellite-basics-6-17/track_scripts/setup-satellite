@@ -46,3 +46,5 @@ nmcli con import type wireguard file /etc/wireguard/wg0.conf
 
 # dnsmasq is set to disabled. Since wg0 doesn't exist at startup, dnsmasq will error out since it's configured to do stuff with wg0.
 systemctl enable --now dnsmasq
+
+systemctl restart iop-advisor-engine.service

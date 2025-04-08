@@ -132,7 +132,7 @@ ansible-playbook customrepopublishpromote.yml
 Enable "My custom repository"
 ===
 
-View the repositories available to `rhel1`. In the [button label="rhel1"](tab-2) terminal, run the following.
+View the repositories available to `rhel1`. In the [button label="rhel1" background="#ee0000" color="#c7c7c7"](tab-2) terminal, run the following.
 
 ```bash,run
 subscription-manager repos
@@ -142,7 +142,7 @@ Here's the output.
 
 ![repos](../assets/reposavailable.png)
 
-In the [button label="rhel1"](tab-2) terminal, run the following command to enable `My custom repository`.
+In the [button label="rhel1" background="#ee0000" color="#c7c7c7"](tab-2) terminal, run the following command to enable `My custom repository`.
 
 ```bash,run
 subscription-manager repos --enable Acme_Org_My_custom_product_My_custom_repository
@@ -151,7 +151,7 @@ subscription-manager repos --enable Acme_Org_My_custom_product_My_custom_reposit
 Install the rpm on rhel1
 ===
 
-In the [button label="rhel1"](tab-2) terminal run the following command.
+In the [button label="rhel1" background="#ee0000" color="#c7c7c7"](tab-2) terminal run the following command.
 
 ```bash,run
 dnf install -y hello
@@ -159,7 +159,7 @@ dnf install -y hello
 
 ![install](../assets/helloinstall.png)
 
-Test the installation by running the following command in the [button label="rhel1"](tab-2) terminal.
+Test the installation by running the following command in the [button label="rhel1" background="#ee0000" color="#c7c7c7"](tab-2) terminal.
 
 ```bash,run
 hello.sh

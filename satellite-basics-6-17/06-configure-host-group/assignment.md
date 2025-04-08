@@ -59,7 +59,7 @@ In the host group menu do the following:
 
 In the Ansible Roles menu do the following:
 
-1) Navigate to the second page of system roles.
+1) Navigate to the first page of system roles.
 
 2) Click on `rhel-system-roles.firewall`.
 
