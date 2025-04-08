@@ -5,25 +5,25 @@ type: challenge
 title: Install Software
 teaser: Install Software on hosts
 notes:
-  - type: text
-    contents: Install Software on hosts
+- type: text
+  contents: Install Software on hosts
 tabs:
-  - id: p1cwhv1avm2w
-    title: Satellite Server
-    type: terminal
-    hostname: satellite
-  - id: vc1hbbcakayn
-    title: Satellite Web UI
-    type: external
-    url: https://satellite.${_SANDBOX_ID}.instruqt.io
-  - id: ce9t3bvibfyq
-    title: rhel1
-    type: terminal
-    hostname: rhel1
-  - id: rcdpj9twbmmc
-    title: rhel2
-    type: terminal
-    hostname: rhel2
+- id: p1cwhv1avm2w
+  title: Satellite Server
+  type: terminal
+  hostname: satellite
+- id: vc1hbbcakayn
+  title: Satellite Web UI
+  type: external
+  url: https://satellite.${_SANDBOX_ID}.instruqt.io
+- id: ce9t3bvibfyq
+  title: rhel1
+  type: terminal
+  hostname: rhel1
+- id: rcdpj9twbmmc
+  title: rhel2
+  type: terminal
+  hostname: rhel2
 difficulty: basic
 timelimit: 1
 enhanced_loading: null

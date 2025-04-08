@@ -3,29 +3,28 @@ slug: filter-software
 id: d68pf0nxt8lp
 type: challenge
 title: Apply a Content View filter
-teaser:
-  Block software from being installed. Without these filters, a Content View
+teaser: Block software from being installed. Without these filters, a Content View
   includes everything from the selected repositories.
 notes:
-  - type: text
-    contents: Block software from being installed
+- type: text
+  contents: Block software from being installed
 tabs:
-  - id: 6rd16ih29xhb
-    title: Satellite Server
-    type: terminal
-    hostname: satellite
-  - id: a7t6cdb2x0x1
-    title: Satellite Web UI
-    type: external
-    url: https://satellite.${_SANDBOX_ID}.instruqt.io
-  - id: 3ul4888l2mow
-    title: rhel1
-    type: terminal
-    hostname: rhel1
-  - id: pxyznjfph2yt
-    title: rhel2
-    type: terminal
-    hostname: rhel2
+- id: 6rd16ih29xhb
+  title: Satellite Server
+  type: terminal
+  hostname: satellite
+- id: a7t6cdb2x0x1
+  title: Satellite Web UI
+  type: external
+  url: https://satellite.${_SANDBOX_ID}.instruqt.io
+- id: 3ul4888l2mow
+  title: rhel1
+  type: terminal
+  hostname: rhel1
+- id: pxyznjfph2yt
+  title: rhel2
+  type: terminal
+  hostname: rhel2
 difficulty: basic
 timelimit: 1
 enhanced_loading: null

@@ -5,28 +5,27 @@ type: challenge
 title: Apply System Role
 teaser: Apply System Role to hosts
 notes:
-  - type: text
-    contents:
-      RHEL System Roles is a collection of Ansible roles and modules that provide
-      a stable and consistent configuration interface to automate and manage multiple
-      releases of Red Hat Enterprise Linux.
+- type: text
+  contents: RHEL System Roles is a collection of Ansible roles and modules that provide
+    a stable and consistent configuration interface to automate and manage multiple
+    releases of Red Hat Enterprise Linux.
 tabs:
-  - id: drz7tfr71qc4
-    title: Satellite Server
-    type: terminal
-    hostname: satellite
-  - id: 0t94clo9tdkd
-    title: Satellite Web UI
-    type: external
-    url: https://satellite.${_SANDBOX_ID}.instruqt.io
-  - id: 9z7ymzrsgvog
-    title: rhel1
-    type: terminal
-    hostname: rhel1
-  - id: a2tjh2hf6eye
-    title: rhel2
-    type: terminal
-    hostname: rhel2
+- id: drz7tfr71qc4
+  title: Satellite Server
+  type: terminal
+  hostname: satellite
+- id: 0t94clo9tdkd
+  title: Satellite Web UI
+  type: external
+  url: https://satellite.${_SANDBOX_ID}.instruqt.io
+- id: 9z7ymzrsgvog
+  title: rhel1
+  type: terminal
+  hostname: rhel1
+- id: a2tjh2hf6eye
+  title: rhel2
+  type: terminal
+  hostname: rhel2
 difficulty: basic
 timelimit: 1
 enhanced_loading: null
