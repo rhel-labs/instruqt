@@ -21,10 +21,10 @@ In this challenge, we'll get acquainted with the Command Line Assistant.
 
 Run the Command Line Assistant
 ===
-Let's ask Command Line Assistant (CLA) how to configure the timezone of our RHEL system to Vancouver, Canada.
+Let's ask Command Line Assistant (CLA) how to configure the timezone of our RHEL system to Vancouver, Canada. Click the run button in the top right corner of the code block below.
 
 ```bash,run
-c "how do I configure the timezone to Vancouver Canada on the cli"
+c "how do I configure the timezone to Vancouver Canada on the cli in RHEL 9"
 ```
 
 Here's the output.
