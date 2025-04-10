@@ -1,0 +1,20 @@
+useradd webuser
+loginctl enable-linger webuser
+mkdir /srv/app
+cat << EOF > /srv/app/index.php
+<?php
+\$query = "uptime | awk '{print \$3, \$4}' | sed s/\,//";
+\$days = shell_exec(\$query); 
+\$days = str_replace(PHP_EOL, '', \$days);
+echo "<head>
+<title>
+Super BusinessCorp
+</title>
+<body bgcolor=#AAAAAA>
+<h1>Welcome to Super Businesscorp</h1>
+Proudly serving you for " . \$days . ".
+</body>
+</html>";
+?>
+EOF
+
