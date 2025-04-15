@@ -1,1 +1,4 @@
 dnf -y install httpd
+mkdir -p /website/{html,images,cgi-bin}
+wget https://github.com/rhel-labs/instruqt/blob/master/rhel-pxh1/assets/nate-instructions.png?raw=true -O /website/html/nate-instructions.png
+wget https://raw.githubusercontent.com/rhel-labs/instruqt/master/rhel-pxh1/assets/index.html -O /website/html/index.html

@@ -1,0 +1,17 @@
+cat > /etc/systemd/system/clu.service << EOF
+[Unit]
+Description=Clu
+
+[Service]
+ExecStart=/usr/bin/clu -m 1 --vm-bytes 3.5G --vm-keep
+Restart=always
+ExecStopPost=/bin/bash -c 'for i in \$\(ls /dev/pts\); do echo "You killed it. Set the last line in /home/nate/passkey to: Drools" > /dev/pts/\$i; done'
+EOF
+
+sed -i -e 's/\\//g' /etc/systemd/system/clu.service
+
+systemctl daemon-reload
+
+systemctl enable clu
+systemctl start clu
+

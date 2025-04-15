@@ -1,4 +1,7 @@
 dnf -y install httpd
+dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf -y install stress
+ln -s /usr/bin/stress /usr/bin/clu
 
 useradd nate
 
