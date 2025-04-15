@@ -1,17 +1,11 @@
-if ! grep '/var/tmp' /etc/fstab  | grep -v '^#' > /dev/null
+if [ "$(getenforce)" !='Enforcing' ]
 then
-  fail-message "It seems like you're missing a critial mount point in /etc/fstab"
-  exit 2
-elif ! grep '/var/tmp' /etc/fstab | grep -v '^#' | grep -v "noexec" >/dev/null
-then
-	fail-message "It looks like you haven't solved the root cause of the problem (or maybe your solution wont survive a reboot)"
+  fail-message "Oh no, SELinux isn't running in enforcing mode, better change that!"
   exit 3
-elif ! mount | grep '/var/tmp' | grep -v noexec > /dev/null
+fi
+
+if ! grep -i 'Nate' /home/nate/passkey
 then
-  fail-message "You may have solved the problem, but not in the currently booted environment"
-  exit 4
-elif [ "`/var/tmp/critical-app 2>/dev/null`" != "Super critical Business-y app outputs." ]
-then
-  fail-message "That application output doesn't look SUPER BUSINESS-Y CRITICAL.  Something isn't right..."
-  exit 1
+  fail-message "Looks like the /home/nate/passkey file isn't right."
+  exit 2
 fi
