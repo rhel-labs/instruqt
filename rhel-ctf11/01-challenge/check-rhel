@@ -1,0 +1,37 @@
+#!/bin/bash
+#Checks are a series of conditionals, with fail-message "text" as the failure output
+if [ ! -f /srv/container-defs/application.yml ]; then
+  fail-message "/srv/container-defs/application.yml does not exist";
+  exit
+elif ! egrep -v '#' /srv/container-defs/application.yml | egrep 'image.*ubi.*httpd-24' > /dev/null; then
+  fail-message "It does not look like you've used ubi9/httpd-24 as your image";
+  exit
+elif ! egrep -v '#' /srv/container-defs/application.yml | egrep -i 'hostPort.*8080' > /dev/null; then
+  fail-message "It does not look like your application is set to listen on the right port";
+  exit
+elif ! egrep -v '#' /srv/container-defs/application.yml | egrep -i 'name.*my-app' > /dev/null; then
+  fail-message "I don't think your pod is named properly, it should be my-app";
+  exit
+elif ! egrep -v '#' /srv/container-defs/application.yml | egrep -i 'mountPath:.*/var/www/html' > /dev/null; then
+  fail-message "I do not see a container volume path for /var/www/html in your yaml";
+  exit
+elif ! egrep -v '#' /srv/container-defs/application.yml | egrep -i 'path:.*/srv/container-data/my-app/www' > /dev/null; then
+  fail-message "I do not see a host-mapping to /srv/container-data/my-app/www in your yaml";
+  exit
+fi
+
+podman pod stop -a
+podman pod rm -a
+podman stop -a
+podman rm -a
+
+if ! podman play kube /srv/container-defs/application.yml > /dev/null; then
+  fail-message "I tried to start your application from its yaml, and it failed"
+  exit
+fi
+sleep 10
+if ! curl http://127.0.0.1:8080 | grep Businessey > /dev/null; then
+  fail-message "Something isnt right with your application, it looks like it started, but its not serving our web page"
+  exit
+fi
+
