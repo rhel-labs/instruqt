@@ -1,0 +1,19 @@
+#!/bin/bash
+mkdir -p /srv/container-data/my-app/www
+mkdir -p /srv/container-defs/
+cat << EOF > /srv/container-data/my-app/www/index.html
+<html>
+<head>
+<title>
+SuperBusinessey Business Site
+</title>
+</head>
+<body>
+<h1>Super Businessey</h1>
+Business things 
+</body>
+</html>
+EOF
+
+semanage fcontext -a -t container_file_t /srv/container-data"(/.*)?"
+restorecon -vFR /srv/container-data
