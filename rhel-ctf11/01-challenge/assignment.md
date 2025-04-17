@@ -30,8 +30,8 @@ enhanced_loading: null
 
   * Place your yaml file in: `/srv/container-defs/application.yml`
   * Make sure your application is inside of a pod, call the pod `my-app`
-  * Make sure the the application is available on port 8080
-  * Make the application run the image `registry.access.redhat.com/ubi9/httpd-24`
+  * Make sure that the application is available on port 8080
+  * Make the application run the image `registry.access.redhat.com/ubi9/httpd-24` (Note that this httpd container also listens on port 8080)
   * Map the filesystem path `/srv/container-data/my-app/www` to `/var/www/html/` within the container
 
   >NOTE: The check script will stop and delete any running pods.
