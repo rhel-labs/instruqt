@@ -1,1 +1,2 @@
 #!/bin/bash
+systemctl enable --now httpd.service
