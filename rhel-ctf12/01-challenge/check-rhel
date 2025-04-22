@@ -1,0 +1,12 @@
+#!/bin/bash
+#Checks are a series of conditionals, with fail-message "text" as the failure output
+
+if ps awx | grep -v grep | grep "nc -l 3306"  >/dev/null; then
+  fail-message "Things still seem off"
+elif -f /var/spool/cron/rhel; then
+  if grep '\.s' /var/spool/cron/rhel>/dev/null; then
+    fail-message "Maybe you found the problem, but it keeps coming back"
+  fi
+elif echo "ls" | nc 127.0.0.1 3306; then
+  fail-message "I still see malicious behavior"
+fi
