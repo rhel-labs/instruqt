@@ -9,7 +9,7 @@ developers:
 - myee@redhat.com
 show_timer: true
 idle_timeout: 3000
-timelimit: 14400
+timelimit: 3600
 lab_config:
   sidebar_enabled: true
   feedback_recap_enabled: true
@@ -19,5 +19,5 @@ lab_config:
     name: modern-dark
   override_challenge_layout: false
   hideStopButton: false
-checksum: "10792747998633575105"
+checksum: "2174830970338534982"
 enhanced_loading: false
