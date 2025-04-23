@@ -1,5 +1,6 @@
 slug: command-line-assistant-problem-solving
-title: command-line-assistant-problem-solving
+id: knbknjikqhwo
+title: Solve problems with Command Line Assistant
 description: ""
 icon: ""
 tags: []
@@ -8,11 +9,15 @@ developers:
 - myee@redhat.com
 show_timer: true
 idle_timeout: 3000
-timelimit: 14400
+timelimit: 3600
 lab_config:
+  sidebar_enabled: true
   feedback_recap_enabled: true
   feedback_tab_enabled: false
   loadingMessages: true
+  theme:
+    name: modern-dark
   override_challenge_layout: false
   hideStopButton: false
+checksum: "2174830970338534982"
 enhanced_loading: false
