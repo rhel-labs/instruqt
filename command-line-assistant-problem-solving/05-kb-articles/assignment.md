@@ -25,14 +25,26 @@ For example, let's try asking CLA the following question.
 c "what is simple content access"
 ```
 
+Simple Content Access (SCA) is a simplified subscription model and CLA can return the full definition and links to additional documentation.
+
+![](../assets/sca.png)
+
+On the topic of subscriptions, let's ask CLA how to use `subscription-manager`.
+
 ```bash,run
 c "what is subscription-manager"
 ```
+
+As you can see we are provided a summary on how to use `subscription-manager`.
+
+![](../assets/subscription_manager.png)
+
+Ansible core is included with a RHEL subscription. Ask CLA what it is.
 
 ```bash,run
 c "what is ansible-core"
 ```
 
-```bash,run
-c "how do I convert my rhel system to image mode"
-```
+![](../assets/ansible_core.png)
+
+That concludes this lab. Thank you for taking the time to learn more about Command Line Assistant.
