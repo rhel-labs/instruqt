@@ -5,6 +5,9 @@ type: challenge
 title: Network Configuration and Troubleshooting
 teaser: Learn how Command Line Assistant can help configure and troubleshoot networking
   on your system.
+notes:
+- type: text
+  contents: CLA can also help troubleshoot and configure networking on your RHEL system.
 tabs:
 - id: nz5rrydnhp6x
   title: rhel

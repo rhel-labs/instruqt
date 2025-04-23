@@ -4,6 +4,10 @@ id: bkayqe1bni3t
 type: challenge
 title: Search the Red Hat Knowledge Base
 teaser: Search the Red Hat Knowledge Base with Command Line Assistant.
+notes:
+- type: text
+  contents: CLA provides an interface to knowledge and solutions authored by Red Hat
+    subject matter experts. In this assignment we'll work through some examples.
 tabs:
 - id: rq56mcadmlns
   title: rhel

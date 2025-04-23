@@ -5,6 +5,10 @@ type: challenge
 title: Set up and troubleshoot a web server
 teaser: Command line assistant can help you set up software, as well as troubleshoot
   configuration problems.
+notes:
+- type: text
+  contents: Command Line Assistant can offer convenient tips on how to configure applications
+    and services. We'll use CLA to set up and troubleshoot a web server.
 tabs:
 - id: kqhu68kelwub
   title: rhel

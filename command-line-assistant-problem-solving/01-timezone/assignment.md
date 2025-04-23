@@ -4,6 +4,10 @@ id: pgm4qpkpiqqy
 type: challenge
 title: Get acquainted with Command Line Assistant
 teaser: Let's ask Command Line Assistant for help.
+notes:
+- type: text
+  contents: |
+    Command Line Assistant is intended to make information quick and easy to access. It incorporates knowledge from resources such as the Red Hat Enterprise Linux documentation and makes it easier to find through natural language queries in the command line.
 tabs:
 - id: s6abcoi7xolp
   title: rhel
