@@ -31,9 +31,13 @@ Welcome to this lab experience for Red Hat Enterprise Linux.
 
 The system displayed beside this text is a Red Hat Enterprise Linux 9 system registered with Subscription Manager.
 
-Image mode uses standard container tools to define, build, and transport bootc images. Podman has already been installed on this host as a build environment, along with some additional files and required images. If you see an error related to authentication like the one below, you can use the `reglogin` command provided to log into the Red Hat Container Registry and re-run the command.
-```
-unable to retrieve auth token: invalid username/password: unauthorized: Please login to the Red Hat Registry using your Customer Portal credentials.
+Image mode uses standard container tools to define, build, and transport bootc images. Podman has already been installed on this host as a build environment, along with some additional files and required images.
+
+> [!NOTE]
+> If you see an error related to authentication like the one below, you can use the `reglogin` command provided to log into the Red Hat Container Registry and re-run the command.
+
+```nocopy
+Please login to the Red Hat Registry using your Customer Portal credentials.
 ```
 
 Examine the containerfile
@@ -65,7 +69,7 @@ cat etc/sudoers.d/wheel
 ```
 
 We're using a drop-in file to apply a NOPASSWD rule to the `wheel` group. This is just one example of how you can set policies within an image build.
-```
+```nocopy
 %wheel  ALL=(ALL)   NOPASSWD: ALL
 ```
 

@@ -1,0 +1,6 @@
+#!/bin/bash
+useradd jsmith
+
+mkdir -p /var/tmp/super/
+echo "Your code is r9b4wzVu" > /var/tmp/super/note\~.txt
+chown -R jsmith /var/tmp/super

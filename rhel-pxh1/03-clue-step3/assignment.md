@@ -10,19 +10,34 @@ notes:
 
     Hopefully you can find the next clue he needs to escape the machine...
 tabs:
-- title: Terminal
+- id: xmmgnrx2ysbi
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: Local website
+- id: jp3vev7v9d6w
+  title: Local website
   type: service
   hostname: rhel
   port: 80
 difficulty: ""
 timelimit: 1
+enhanced_loading: null
 ---
-In case you have forgotten, this is the last bit of the clue you recieved from Nate:
-`
-I was able to drop the next bit of the passkey into an image in a web content directory in /website.
+>Congratulations on completing the second step, your second flag code is: `NdLk4J3q`
 
-I know, it's super weird but I could not get into /var.  To access the data, you will have to configure a web server to share /website.  Also, make sure SELinux is running in enforcing mode, it's keeping some crazy processes contained, and if it's disabled, they may escape and do things niether of us want (especially me).
-`
+
+In case you have forgotten, this is the last bit of the clue you recieved from Nate:
+
+
+```nocopy
+I was able to drop the next bit of the passkey into an
+image in a web content directory in /website.
+
+I know, it's super weird but I could not get into /var.  To
+access the data, you will have to configure a web server
+to share /website as the default site.  Also, make sure
+SELinux is running in enforcing mode, it's keeping
+some crazy processes contained, and if it's disabled,
+they may escape and do things niether of us want
+(especially me).
+```

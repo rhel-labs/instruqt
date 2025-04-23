@@ -1,0 +1,7 @@
+#!/bin/bash
+
+
+cd ~root
+git clone http://git.undrground.org/gangrif/randotree.git
+mv ~root/randotree/tree /srv
+rm -rf ~root/randotree

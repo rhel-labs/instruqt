@@ -1,0 +1,4 @@
+#!/bin/bash
+#Checks are a series of conditionals, with fail-message "text" as the failure output
+
+

@@ -44,7 +44,7 @@ ISS network sync configuration consists of the following.
 The downstream satellite server must contain a manifest with valid Red Hat subscriptions.
 
 Import the ssl certificate from satellite.lab
-=============================================
+===
 
 In order to secure the synchronization process between upstream and downstream satellite servers, we need to import the upstream (`satellite.lab`) SSL certificate into the downstream satellite server (`satellite-2.lab`).
 
@@ -66,7 +66,7 @@ hammer content-credential create \
 ```
 
 Configure the downstream satellite server to use the upstream satellite server as a CDN
-=======================================================================================
+===
 
 In the `Satellite Server 2 Web UI`, log in with the following credentials.
 
@@ -135,7 +135,7 @@ Acme_Org
 ![](../assets/networksyncconfig.png)
 
 Verify that satellite-2.lab can synchronize software from satellite.lab
-=======================================================================
+===
 
 Navigate to the `Red Hat Repositories` menu.
 
@@ -167,6 +167,6 @@ Sync all the products.
 >You can skip to the next assignment without waiting for the synchronization to complete.
 
 Optional self-directed exercise for the reader
-================================
+===
 
 Deregister rhel1.lab from satellite.lab and register it to satellite-2.lab and install software.

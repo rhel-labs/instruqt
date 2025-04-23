@@ -1,0 +1,23 @@
+firewall-cmd --add-service=ssh --permanent
+firewall-cmd --add-port=15778-15779/tcp --permanent
+firewall-cmd --permanent --zone=trusted --set-target=default
+firewall-cmd --reload 
+
+dnf -y install httpd
+sed -i "s/ServerRoot \"\/etc\/httpd\"/ServerRoot \"\/etc\/httpf\"/" /etc/httpd/conf/httpd.conf
+systemctl enable --now httpd
+
+cat << EOF > /var/www/html/index.html
+<html>
+<head>
+<title>
+SuperBusinessey Business Site
+</title>
+</head>
+<body>
+<h1>Super Businessey</h1>
+Business things 
+</body>
+</html>
+
+EOF

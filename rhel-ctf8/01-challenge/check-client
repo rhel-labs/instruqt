@@ -1,0 +1,5 @@
+if ! curl http://rhel; then
+  fail-message "I Can't seem to see the Super-businessy web site"
+elif ! curl http://rhel | grep Businessey; then
+  fail-message "I can reach the site, but its not my super-businessey site!"
+fi

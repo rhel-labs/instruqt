@@ -1,4 +1,4 @@
-if grep "Scott" /home/nate/passkey &> /dev/null
+if grep -i "Scott" /home/nate/passkey &> /dev/null
 then
   echo "Thanks"
 else

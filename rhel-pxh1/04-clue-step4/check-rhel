@@ -1,0 +1,12 @@
+
+if ps aux | grep [c]lu &>/dev/null 
+then
+  fail-message "Looks like the large memory process is still running."
+  exit 1
+fi
+
+if ! grep -i 'Drools' /home/nate/passkey
+then
+  fail-message "The /home/nate/passkey file does not have the right content."
+  exit 2
+fi

@@ -1,0 +1,22 @@
+slug: rhel-ctf10
+id: ciqmqn8v2nld
+title: Find the File
+teaser: Can you find my lost file?
+description: ""
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- smcbrien@redhat.com
+- nlager@redhat.com
+show_timer: true
+idle_timeout: 300
+timelimit: 3120
+lab_config:
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+checksum: "13937086698631320244"
+enhanced_loading: false

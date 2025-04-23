@@ -1,0 +1,22 @@
+slug: rhel-ctf8
+id: aigswobzxfvg
+title: The Web site is not accessible
+teaser: Can you fix this broken rhel server?
+description: The web site on this server is not accessible, can you fix it?
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- smcbrien@redhat.com
+- nlager@redhat.com
+show_timer: true
+idle_timeout: 300
+timelimit: 3120
+lab_config:
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+checksum: "17690134927990787595"
+enhanced_loading: false

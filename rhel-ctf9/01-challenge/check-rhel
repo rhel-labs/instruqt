@@ -1,0 +1,9 @@
+#!/bin/bash
+pushd /tmp
+if ! sudo -u webuser podman ps | grep 8000; then
+  fail-message "I don't see a container on port 8000 running as webuser";
+elif ! curl http://127.0.0.1:8000 | grep 'Super Business'; then
+  fail-message "I can connect to the web site, but its not Super Businessey, Are you sure you put our app in there?";
+elif ! curl http://127.0.0.1:8000 | grep 'min.'; then
+  fail-message "The site's up, but it doesn't seem to be executing our code properly";
+fi

@@ -41,7 +41,7 @@ Create a new content view
 
 In order to save time, we'll create a new content view with a minimal amount of software.
 
-Copy and paste the following playbook into the [button label="Satellite Server"](tab-0) terminal.
+Copy and paste the following playbook into the [button label="Satellite Server" background="#ee0000" color="#c7c7c7"](tab-0) terminal.
 
 ```bash,run
 tee ~/createandpublishissexport.yml << EOF
@@ -76,7 +76,7 @@ EOF
 
 This playbook creates a new content view called `ISS export` containing the repository `My custom repository`. Then the playbook publishes and promotes the content view `ISS Export` to the `Library` lifecycle environment.
 
-Run the `createandpublishissexport.yml` playbook in the [button label="Satellite Server"](tab-0) terminal.
+Run the `createandpublishissexport.yml` playbook in the [button label="Satellite Server" background="#ee0000" color="#c7c7c7"](tab-0) terminal.
 
 ```bash,run
 ansible-playbook createandpublishissexport.yml
@@ -87,7 +87,7 @@ Create an Inter-Satellite Sync export
 
 Now we'll export the content view `ISS Export` as an ISS export.
 
-Copy and paste the following command into the [button label="Satellite Server"](tab-0) terminal.
+Copy and paste the following command into the [button label="Satellite Server" background="#ee0000" color="#c7c7c7"](tab-0) terminal.
 
 ```bash,run
 hammer content-export complete version --content-view "ISS Export" --version "1.0" --organization "Acme Org"
@@ -96,7 +96,7 @@ hammer content-export complete version --content-view "ISS Export" --version "1.
 Copy the exported data to satellite-2.lab
 ===
 
-On the [button label="Satellite Server"](tab-0), you can find the exported data in `/var/lib/pulp/exports/Acme_Org/Default_Organization_View/1.0/`.
+On the [button label="Satellite Server" background="#ee0000" color="#c7c7c7"](tab-0), you can find the exported data in `/var/lib/pulp/exports/Acme_Org/Default_Organization_View/1.0/`.
 
 ```bash,run
 ls /var/lib/pulp/exports/Acme_Org/ISS_Export/1.0/*/
@@ -104,7 +104,7 @@ ls /var/lib/pulp/exports/Acme_Org/ISS_Export/1.0/*/
 
 ![](../assets/exportedcv.png)
 
-In the[button label="Satellite Server"](tab-0) terminal run the following command.
+In the[button label="Satellite Server" background="#ee0000" color="#c7c7c7"](tab-0) terminal run the following command.
 
 ```bash,run
 scp -o "StrictHostKeyChecking no" -rp /var/lib/pulp/exports/Acme_Org/ISS_Export/1.0/*/ satellite-2.lab:/var/lib/pulp/imports/Acme_Org/
@@ -143,9 +143,9 @@ Password
 bc31c9a6-9ff0-11ec-9587-00155d1b0702
 ```
 
->[!IMPORTANT]
->Ensure that you are in `Acme Org` organization and the `Kicking Horse` location.
->![](../assets/exportedissexport.png)
+> [!IMPORTANT]
+> Ensure that you are in `Acme Org` organization and the `Kicking Horse` location.
+> ![](../assets/exportedissexport.png)
 
 Click on `ISS Export`.
 

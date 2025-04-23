@@ -1,0 +1,16 @@
+#!/bin/bash
+#Checks are a series of conditionals, with fail-message "text" as the failure output
+
+if [ ! -d /srv/tree ]; then
+  fail-message "I think you've misunderstood the assignment.. The tree is gone"
+elif [ $(grep -ri dingo /srv/tree | wc -l) -ne 0 ]; then
+  fail-message "I still see some dingo's";
+elif [ $(grep -ri outback /srv/tree | wc -l) -ne 54691 ]; then
+  fail-message "I think you've changed too much data";
+elif [ $(grep -ri kangaroo /srv/tree | wc -l) -ne 54691 ]; then
+  fail-message "I think you modified files you weren't supposed to, or lost some files"
+elif [ $(grep -ri groundhog /srv/tree | wc -l) -ne 7804 ]; then
+  fail-message "I think you modified files you weren't supposed to, or lost some files"
+elif [ $(grep -ri wallaby /srv/tree | wc -l) -ne 15625 ]; then
+  fail-message "I think you modified files you weren't supposed to, or lost some files"
+fi
