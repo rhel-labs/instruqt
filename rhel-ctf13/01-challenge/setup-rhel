@@ -1,0 +1,25 @@
+#!/bin/bash
+cat << EOF > /tmp/flag.c
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+    FILE *f;
+    while(1) {
+        f=fopen("/var/tmp/gerfafl/ffile", "w");
+        fprintf(f, "your Flag Is: aUhSea24\n");
+        fclose(f);
+        sleep(10);
+    }
+    return 0;
+}
+EOF
+mkdir -p /var/tmp/gerfafl/
+dnf -y install gcc
+gcc -o /usr/bin/noflaghere /tmp/flag.c
+dnf -y remove gcc
+
+chmod +x /usr/bin/flag
+systemd-run /usr/bin/noflaghere > /dev/null
+rm -f /tmp/flag*
+rm -f /usr/bin/noflaghere
