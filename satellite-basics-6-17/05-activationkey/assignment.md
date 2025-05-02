@@ -30,7 +30,7 @@ enhanced_loading: null
 ---
 Introduction
 ===
-Activation keys provide a method to automate system registration and subscription attachment. You can create multiple keys and associate them with different environments and Content Views. For example, you might create a basic activation key with a subscription for Red Hat Enterprise Linux workstations and associate it with Content Views from a particular environment.
+Activation keys provide a method to automate system registration. You can create multiple keys and associate them with different attributes to assign to hosts. For example, you might create a basic activation key that enables certain Red Hat repositories and associate it with the appropriate content view environments.
 
 You can use activation keys during content host registration to improve the speed, simplicity and consistency of the process. Note that activation keys are used only when hosts are registered. If changes are made to an activation key, it is applicable only to hosts that are registered with the amended activation key in the future. The changes are not made to existing hosts.
 
