@@ -65,6 +65,10 @@ In the Ansible Roles menu do the following:
 
 3) Click on `Parameters`.
 
+>[!NOTE]
+>`Host Group Parameters` are variables that can be applied by RHEL System Roles or Ansible Roles. You can find a list of available variables by clicking on Configure > Ansible > Variables. `Host Group Parameters` can help you configure subsets of hosts using RHEL System Roles with different variables, according to your requirements.
+>![variables](../assets/variables.png)
+
 ![2](../assets/createhostgroup2.png)
 
 We need to tell the firewall system role to allow incoming connections to port 80/tcp.
@@ -90,10 +94,6 @@ In the Parameters menu do the following:
 5) Click `Activation Keys`.
 
 ![3](../assets/createhostgroup3.png)
-
->[!NOTE]
->`Host Group Parameters` are variables that can be applied by RHEL System Roles or Ansible Roles. You can find a list of available variables by clicking on Configure > Ansible > Variables. `Host Group Parameters` can help you configure subsets of hosts using RHEL System Roles with different variables, according to your requirements.
->![variables](../assets/variables.png)
 
 We will assign the `RHEL9` activation key to this group.
 
