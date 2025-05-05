@@ -5,39 +5,40 @@ type: challenge
 title: Synchronize Red Hat repositories
 teaser: Synchronize Red Hat repositories
 notes:
-- type: text
-  contents: |-
-    In this step, we'll review the process to synchronize Red Hat Enterprise Linux 9 BaseOS and AppStream repositories from the content delivery network.
-    Please do not synchronize the repositories. This assignment has already been done for you in order to speed up the lab. This assignment is being presented for your documentation purposes.
+  - type: text
+    contents: |-
+      In this step, we'll review the process to synchronize Red Hat Enterprise Linux 9 BaseOS and AppStream repositories from the content delivery network.
+      Please do not synchronize the repositories. This assignment has already been done for you in order to speed up the lab. This assignment is being presented for your documentation purposes.
 tabs:
-- id: crcxazjmauxd
-  title: Satellite Server
-  type: terminal
-  hostname: satellite
-- id: szkzs99z4wja
-  title: Satellite Web UI
-  type: external
-  url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- id: sgr60watkhcr
-  title: rhel1
-  type: terminal
-  hostname: rhel1
-- id: ck2p7ghsm9gd
-  title: rhel2
-  type: terminal
-  hostname: rhel2
+  - id: crcxazjmauxd
+    title: Satellite Server
+    type: terminal
+    hostname: satellite
+  - id: szkzs99z4wja
+    title: Satellite Web UI
+    type: external
+    url: https://satellite.${_SANDBOX_ID}.instruqt.io
+  - id: sgr60watkhcr
+    title: rhel1
+    type: terminal
+    hostname: rhel1
+  - id: ck2p7ghsm9gd
+    title: rhel2
+    type: terminal
+    hostname: rhel2
 difficulty: basic
 timelimit: 1
 enhanced_loading: null
 ---
-Introduction
-===
-This section documents the process to synchronize Red Hat Enterprise Linux 9 BaseOS and AppStream repositories from the content delivery network. Please do not synchronize the repositories.
-> [!IMPORTANT]
-> In order to speed up the lab, the RHEL 9 BaseOS and AppStream repos have been pre-synchronized. If you are familiar with this process please feel free to skip to the next assigment by clicking on the next button at the bottom. ![image.png](../assets/image.png) If you decide to run through this procedure, please do not attempt to re-synchronize the repositories.
 
-Synchronize repositories
-===
+# Introduction
+
+This section documents the process to synchronize Red Hat Enterprise Linux 9 BaseOS and AppStream repositories from the content delivery network. Please do not synchronize the repositories.
+
+> [!IMPORTANT]
+> In order to speed up the lab, the RHEL 9 BaseOS and AppStream repos have been pre-synchronized. If you are familiar with this process please feel free to skip to the next assignment by clicking on the next button at the bottom. ![image.png](../assets/image.png) If you decide to run through this procedure, please do not attempt to re-synchronize the repositories.
+
+# Synchronize repositories
 
 Navigate to the Red Hat Repositories menu by clicking on `Red Hat Repositories` in the menu context below.
 
@@ -47,8 +48,8 @@ The Red Hat Repositories menu will provide a list of available repositories. You
 
 Red Hat Enterprise Linux 9 is distributed through two main repositories:
 
-* BaseOS
-* AppStream
+- BaseOS
+- AppStream
 
 Both repositories are required for a basic RHEL installation, and are available with all RHEL subscriptions.
 
@@ -56,8 +57,7 @@ Content in the BaseOS repository provides the core set of the underlying OS func
 
 Content in the AppStream repository includes additional user-space applications, runtime languages, and databases in support of the varied workloads and use cases.
 
-Select repositories
-===
+# Select repositories
 
 Click on the `Recommended Repositories` button to create a more succinct view of available repos (the image below displays the button in the off position; turn it on).
 
@@ -71,8 +71,7 @@ And here's an animation.
 
 ![](../assets/2022-08-11_09-02-27.gif)
 
-Synchronize repositories
-===
+# Synchronize repositories
 
 Next, we'll navigate to the `Products` menu.
 
@@ -89,4 +88,3 @@ To view the status of the sync operation, click on `Sync Status`.
 Expand the menu widgets to see a detailed report on the sync status.
 
 ![](../assets/syncstatusdetailed.png)
-
