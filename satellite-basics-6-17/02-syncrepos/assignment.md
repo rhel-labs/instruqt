@@ -6,8 +6,9 @@ title: Synchronize Red Hat repositories
 teaser: Synchronize Red Hat repositories
 notes:
 - type: text
-  contents: In this step, we'll review the process to synchronize Red Hat Enterprise
-    Linux 9 BaseOS and AppStream repositories from the content delivery network.
+  contents: |-
+    In this step, we'll review the process to synchronize Red Hat Enterprise Linux 9 BaseOS and AppStream repositories from the content delivery network.
+    Please do not synchronize the repositories. This assignment has already been done for you in order to speed up the lab.
 tabs:
 - id: crcxazjmauxd
   title: Satellite Server
