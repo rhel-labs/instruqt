@@ -8,7 +8,7 @@ notes:
 - type: text
   contents: |-
     In this step, we'll review the process to synchronize Red Hat Enterprise Linux 9 BaseOS and AppStream repositories from the content delivery network.
-    Please do not synchronize the repositories. This assignment has already been done for you in order to speed up the lab.
+    Please do not synchronize the repositories. This assignment has already been done for you in order to speed up the lab. This assignment is being presented for your documentation purposes.
 tabs:
 - id: crcxazjmauxd
   title: Satellite Server
