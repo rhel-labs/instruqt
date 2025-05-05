@@ -5,27 +5,27 @@ type: challenge
 title: Synchronize Red Hat repositories
 teaser: Synchronize Red Hat repositories
 notes:
-  - type: text
-    contents: |-
-      In this step, we'll review the process to synchronize Red Hat Enterprise Linux 9 BaseOS and AppStream repositories from the content delivery network.
-      Please do not synchronize the repositories. This assignment has already been done for you in order to speed up the lab. This assignment is being presented for your documentation purposes.
+- type: text
+  contents: |-
+    In this step, we'll review the process to synchronize Red Hat Enterprise Linux 9 BaseOS and AppStream repositories from the content delivery network.
+    Please do not synchronize the repositories. This assignment has already been done for you in order to speed up the lab. This assignment is being presented for your documentation purposes.
 tabs:
-  - id: crcxazjmauxd
-    title: Satellite Server
-    type: terminal
-    hostname: satellite
-  - id: szkzs99z4wja
-    title: Satellite Web UI
-    type: external
-    url: https://satellite.${_SANDBOX_ID}.instruqt.io
-  - id: sgr60watkhcr
-    title: rhel1
-    type: terminal
-    hostname: rhel1
-  - id: ck2p7ghsm9gd
-    title: rhel2
-    type: terminal
-    hostname: rhel2
+- id: crcxazjmauxd
+  title: Satellite Server
+  type: terminal
+  hostname: satellite
+- id: szkzs99z4wja
+  title: Satellite Web UI
+  type: external
+  url: https://satellite.${_SANDBOX_ID}.instruqt.io
+- id: sgr60watkhcr
+  title: rhel1
+  type: terminal
+  hostname: rhel1
+- id: ck2p7ghsm9gd
+  title: rhel2
+  type: terminal
+  hostname: rhel2
 difficulty: basic
 timelimit: 1
 enhanced_loading: null
