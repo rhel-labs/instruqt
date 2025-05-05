@@ -305,3 +305,9 @@ bootc status
 ![](../assets/updatedbootcstatus.png)
 
 You can now see that the image mode host `rhel2` is now running our updated image labelled `satellite.lab/acme_org/bootc/rhel10beta:summit-2025` and you'll also see that you can roll back to the previous image if required.
+
+_Optional_: To see the updated information in the web UI, you can manually update facts from the `rhel2` host:
+
+```bash,run
+subscription-manager facts --update
+```

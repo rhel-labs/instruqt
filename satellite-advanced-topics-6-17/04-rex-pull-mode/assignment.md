@@ -40,9 +40,7 @@ Here are the configuration considerations:
 
 1. Port 1883 (MQTT) must be opened on the Satellite server running the Capsule service to allow incoming requests to subscribe to REX pull notifications, and the host must be allowed to connect to the Capsule server on port 443 (HTTPS) to enable REX pull mode.
 2. Capsule servers (and Capsule services) must be configured to support either REX SSH mode or REX pull mode. You cannot configure a Capsule to support both REX modes.
-3. For existing hosts running the katello agent, you can migrate to REX pull mode by installing the katello-pull-transport-migrate package. Documentation is provided at the bottom of this post. The katello agent has been deprecated as of Satellite 6.7.
-
-Katello Agent is removed from Satellite 6.17.
+3. For existing, registered hosts, you can migrate to REX pull mode by installing the katello-pull-transport-migrate package. Documentation is provided at the bottom of this post.
 
 Register the host rhel1 to the Satellite server
 ===
