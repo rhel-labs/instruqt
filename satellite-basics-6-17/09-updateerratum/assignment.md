@@ -88,7 +88,7 @@ Go to Hosts > All Hosts.
 
 ![](../assets/allhostsagain.png)
 
-All hosts managed by Satellite will still display in an orange font signifying there are status warnings. This is because the Tracer application has detected services that require restarting. If the kernel or systemd has been updated, the hosts will require a reboot.
+All hosts managed by Satellite will still display in an orange or red font signifying there are status warnings or errors. This is because the Tracer application has detected services that require restarting. If the kernel or systemd has been updated, the hosts will require a reboot.
 
 ![](../assets/tracesorange.png)
 
@@ -106,7 +106,7 @@ Do the following to resolve the traces.
 
 2) Select all the services listed.
 
-3) Click `Restart app`.
+3) Click `Restart app`. If the host requires a reboot, the button will display `Reboot host`.
 
 ![restart](../assets/tracesrestart.png)
 
