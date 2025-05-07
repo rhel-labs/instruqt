@@ -5,25 +5,25 @@ type: challenge
 title: Register a host to Satellite
 teaser: Register a host to Satellite
 notes:
-- type: text
-  contents: Register a host to Satellite
+  - type: text
+    contents: Register a host to Satellite
 tabs:
-- id: xmydgnukwa14
-  title: Satellite Server
-  type: terminal
-  hostname: satellite
-- id: pv4zonuai9bx
-  title: Satellite Web UI
-  type: external
-  url: https://satellite.${_SANDBOX_ID}.instruqt.io
-- id: no3tuq3j0l7i
-  title: rhel1
-  type: terminal
-  hostname: rhel1
-- id: xob0hd4ftzlf
-  title: rhel2
-  type: terminal
-  hostname: rhel2
+  - id: xmydgnukwa14
+    title: Satellite Server
+    type: terminal
+    hostname: satellite
+  - id: pv4zonuai9bx
+    title: Satellite Web UI
+    type: external
+    url: https://satellite.${_SANDBOX_ID}.instruqt.io
+  - id: no3tuq3j0l7i
+    title: rhel1
+    type: terminal
+    hostname: rhel1
+  - id: xob0hd4ftzlf
+    title: rhel2
+    type: terminal
+    hostname: rhel2
 difficulty: basic
 timelimit: 1
 enhanced_loading: null
@@ -59,7 +59,7 @@ Register hosts
 
 In the interest of minimizing copy/paste errors, a script has been created below to register the hosts `rhel1` and `rhel2` to our Satellite server.
 
-Make sure you are in the [button label="Satellite Server"](tab-0). Click on `run` in the right hand corner of the code block below.
+Make sure you are in the [button label="Satellite Server" background="#ee0000" color="#c7c7c7"](tab-0). Click on `run` in the right hand corner of the code block below.
 
 ```bash,run
 export REGISTRATION_SCRIPT=$(hammer host-registration generate-command --hostgroup "Application Servers" --insecure 1 --setup-insights 1 --force 1)
