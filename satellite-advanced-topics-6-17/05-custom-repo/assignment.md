@@ -140,7 +140,7 @@ subscription-manager repos
 
 Here's the output.
 
-![repos](../assets/reposavailable.png)
+![repos](../assets/custom_repo_disabled.png)
 
 In the [button label="rhel1" background="#ee0000" color="#c7c7c7"](tab-2) terminal, run the following command to enable `My custom repository`.
 
