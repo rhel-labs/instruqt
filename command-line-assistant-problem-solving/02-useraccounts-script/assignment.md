@@ -26,11 +26,11 @@ lab_config:
 enhanced_loading: null
 ---
 
-It may be the case that you will have to perform a repetitive task, such as creating user accounts, at least once in your life. command line assistant can help you reduce the burden of such a task.
+It may be the case that you will have to perform a repetitive task, such as creating user accounts, at least once in your life. Command line assistant can help you reduce the burden of such a task.
 
 In this assignment, we'll pretend that you've been provided with an input file containing a list of users and their preferred shells. You have been asked to use this input file to generate user accounts.
 
-Comma Separated Value input file
+Comma separated value input file
 ===
 
 Let's take a look at the provided a comma separated value (csv) file containing usernames and preferred terminal shells.
