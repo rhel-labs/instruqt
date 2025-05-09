@@ -1,0 +1,8 @@
+#!/bin/bash
+set -euxo pipefail
+
+if [[ "$(bootc status --format json | jq -r '.status.booted.image.image.image')" = "$(bootc status --format json | jq -r '.status.rollback.image.image.image')" ]]
+then
+    echo "FAIL: The same tag was used for the new image, everyone will be confused!" >&2
+    exit 1
+fi

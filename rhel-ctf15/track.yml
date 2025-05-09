@@ -1,0 +1,28 @@
+slug: rhel-ctf15
+id: pgyaqv10nxvw
+title: Upgrade an image mode machine
+teaser: Upgrade image mode CTF
+description: |-
+  The development team heard all about RHEL 10 and want to look at it running the website. They'll need to test any changes and want to deploy the website just like it is today but on RHEL 10.
+
+  Oh, and we don't have any free systems or VMs to deploy on. Figure it out.
+
+  # Goal
+
+  Update an image mode host with a RHEL 10 version of an existing image to give the development team a way to start testing.
+icon: ""
+tags: []
+owner: rhel
+developers:
+- mmicene@redhat.com
+idle_timeout: 600
+timelimit: 3060
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  override_challenge_layout: false
+  hideStopButton: false
+checksum: "8456531713919620277"
+enhanced_loading: false
