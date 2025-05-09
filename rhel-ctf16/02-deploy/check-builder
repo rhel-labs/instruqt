@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+if ! curl webserver | grep -i super
+then
+    fail-message "The website is still blank, try again"
+    exit 1
+fi

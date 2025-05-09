@@ -1,0 +1,18 @@
+version: "3"
+virtualmachines:
+- name: builder
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-5-11-27-24
+  machine_type: n2-standard-2
+  allow_external_ingress:
+  - high-ports
+  provision_ssl_certificate: true
+- name: webserver
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-5-11-27-24
+  machine_type: n2-standard-2
+  allow_external_ingress:
+  - http
+  - https
+  provision_ssl_certificate: true
+secrets:
+- name: ACTIVATION_KEY
+- name: REG_SVC_ACCT

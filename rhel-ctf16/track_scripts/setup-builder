@@ -1,0 +1,95 @@
+#!/bin/bash
+set -euxo pipefail
+
+until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]; do
+    echo "Waiting for instruqt bootstrap to complete"
+    sleep 1
+done
+
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+
+# Log into terms based registry and stage bootc and bib images
+dnf -y install skopeo
+BOOTC_RHEL_VER=9.5
+agent variable set BOOTC_RHEL_VERSION $BOOTC_RHEL_VER
+# podman login -u='1979710|rhel-tmm' -p=${REG_SVC_ACCT} registry.redhat.io
+# podman pull registry.redhat.io/rhel9/rhel-bootc:$BOOTC_RHEL_VER registry.redhat.io/rhel9/bootc-image-builder:$BOOTC_RHEL_VER
+
+# Some shortcuts for users
+# reglogin - uses podman secret to log into the terms based registry in case creds time out or initial pull fails
+# registry ENV variable -  the registry target created for the lab
+printf ${REG_SVC_ACCT} | podman secret create regpass -
+cat <<EOF >> /root/.bashrc
+export REGISTRY="${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000"
+alias reglogin="podman login -u='1979710|rhel-tmm' --secret regpass registry.redhat.io"
+reglogin
+EOF
+
+# Try the new SSL certs in UI
+curl -s -o /etc/ssl/certs/fullchain.pem -H "Metadata-Flavor: Google" \
+    "http://metadata.google.internal/computeMetadata/v1/instance/attributes/ssl-certificate"
+curl -s -o /etc/ssl/certs/privkey.pem -H "Metadata-Flavor: Google" \
+    "http://metadata.google.internal/computeMetadata/v1/instance/attributes/ssl-certificate-key"
+
+# run a local registry with the provided certs
+podman run --privileged -d \
+  --name registry \
+  -p 5000:5000 \
+  -v /etc/ssl/certs/fullchain.pem:/certs/fullchain.pem \
+  -v /etc/ssl/certs/privkey.pem:/certs/privkey.pem \
+  -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/fullchain.pem \
+  -e REGISTRY_HTTP_TLS_KEY=/certs/privkey.pem \
+  registry:2
+
+# add hostname to runtime variable
+# agent variable set CONTAINER_REGISTRY_ENDPOINT ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000
+
+# add good image for first install to registry
+skopeo copy docker://quay.io/mmicene/ecommsite:good docker://${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000/ecommsite:latest
+
+# create the website deployment
+mkdir -p ~/site/www/html
+cat <<'EOF'> ~/site/www/deploy.sh
+#/bin/bash
+cat <<FOOT >>$1
+
+<footer>
+   <small>
+	<p>Powered by $(cat /etc/redhat-release)
+   </small>
+</footer>
+FOOT
+
+EOF
+
+cat <<EOF> ~/site/www/html/index.hmlt 
+<h1>
+Welcome to Super Store Site, your one shop stop for super deals
+</h1>
+<h2>
+The May flowers are in full bloom which means a discount on all tyres!
+</h2>
+EOF
+
+# create basic bootc containerfile
+cat <<'EOC'> Containerfile
+FROM registry.redhat.io/rhel9/rhel-bootc:$BOOTC_RHEL_VER
+
+RUN dnf -y install httpd
+
+RUN systemctl enable httpd.service
+
+RUN <<EOF
+    set -euxo pipefail
+    mv /var/www /usr/share/www
+    sed -i 's-/var/www-/usr/share/www-' /etc/httpd/conf/httpd.conf
+EOF
+
+ADD site/www /usr/share/www
+
+RUN /usr/share/www/deploy.sh /usr/share/www/html/index.html
+
+EOC
+
+rm /root/google-cloud.repo /root/rh-cloud.repo

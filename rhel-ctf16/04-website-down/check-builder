@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+ssh webserver shutdown -r now "Scott says: I decided to redploy the site now, this better work!"
+
+while [[ "$(curl -s -o /dev/null -m 3 -L -w '%{http_code}' webserver)" != "200" ]]
+    do echo "Waiting for httpd server" && sleep 2
+done
+
+if ! curl -s webserver | grep -i tyres
+then
+    fail-message "The website still doesn't have the new sale on it, try again"
+    exit 1
+fi
