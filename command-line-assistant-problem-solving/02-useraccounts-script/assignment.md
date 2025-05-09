@@ -3,15 +3,13 @@ slug: useraccounts-script
 id: ucoyyjpxk6jv
 type: challenge
 title: Use command line assistant to perform repetitive tasks
-teaser:
-  We'll use Command Line Assistant to complete a repetitive task, such as creating
+teaser: We'll use Command Line Assistant to complete a repetitive task, such as creating
   user accounts.
 notes:
-  - type: text
-    contents:
-      Command Line Assistant can be used to automate repetitive tasks. command line assistant can
-      help you author shell scripts to perform actions in bulk. In this assignment we'll
-      use command line assistant to create a script to create user accounts.
+- type: text
+  contents: Command Line Assistant can be used to automate repetitive tasks. CLA can
+    help you author shell scripts to perform actions in bulk. In this assignment we'll
+    use CLA to create a script to create user accounts.
 tabs:
   - id: i5jlyzt8f2kg
     title: rhel
