@@ -2,7 +2,7 @@
 slug: useraccounts-script
 id: ucoyyjpxk6jv
 type: challenge
-title: Use Command Line Assistant to perform repetitive tasks
+title: Use command line assistant to perform repetitive tasks
 teaser: We'll use Command Line Assistant to complete a repetitive task, such as creating
   user accounts.
 notes:
@@ -26,11 +26,12 @@ lab_config:
 enhanced_loading: null
 ---
 
-It may be the case that you will have to perform a repetitive task, such as creating user accounts, at least once in your life. Command Line Assistant can help you reduce the burden of such a task.
+It may be the case that you will have to perform a repetitive task, such as creating user accounts, at least once in your life. command line assistant can help you reduce the burden of such a task.
 
 In this assignment, we'll pretend that you've been provided with an input file containing a list of users and their preferred shells. You have been asked to use this input file to generate user accounts.
 
-# Comma Separated Value input file
+Comma Separated Value input file
+===
 
 Let's take a look at the provided a comma separated value (csv) file containing usernames and preferred terminal shells.
 
@@ -42,7 +43,8 @@ cat ~/users.csv
 
 We'll ask CLA to create a shell script to take the file `users.csv` as input and create users with their preferred shells.
 
-# Create the script
+Create the script
+===
 
 It's important to be very specific when asking CLA to write any sort of code. For example, we'll run the following request.
 
@@ -76,7 +78,8 @@ while IFS=, read -r username shell; do
 done < "$1"
 ```
 
-# Run the script to create the new accounts
+Run the script to create the new accounts
+===
 
 Run the script.
 

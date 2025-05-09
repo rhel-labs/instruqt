@@ -7,7 +7,7 @@ teaser: Command line assistant can help you set up software, as well as troubles
   configuration problems.
 notes:
 - type: text
-  contents: Command Line Assistant can offer convenient tips on how to configure applications
+  contents: Command line assistant can offer convenient tips on how to configure applications
     and services. We'll use CLA to set up and troubleshoot a web server.
 tabs:
 - id: kqhu68kelwub
@@ -22,6 +22,7 @@ difficulty: ""
 timelimit: 0
 enhanced_loading: null
 ---
+
 In this assignment, we will troubleshoot selinux related problems commonly encountered with customized web servers.
 
 Set up an selinux violation
@@ -35,6 +36,7 @@ mkdir /www
 ```
 
 Create the test html page.
+
 ```bash,run
 cat << EOF > /www/test.html
 <!DOCTYPE html>
@@ -42,7 +44,7 @@ cat << EOF > /www/test.html
 <body>
 
 <h1>I love Red Hat Enterprise Linux</h1>
-<p>Command Line Assistant is awesome.</p>
+<p>command line assistant is awesome.</p>
 
 </body>
 </html>
@@ -186,6 +188,7 @@ restorecon -Rv /www
 ```
 
 Restart the web server.
+
 ```bash,run
 systemctl restart httpd.service
 ```
@@ -193,4 +196,3 @@ systemctl restart httpd.service
 Now reload the webpage. You should obtain the following result.
 
 ![](../assets/success_relable.png)
-

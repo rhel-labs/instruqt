@@ -2,12 +2,12 @@
 slug: timezone
 id: pgm4qpkpiqqy
 type: challenge
-title: Get acquainted with Command Line Assistant
-teaser: Let's ask Command Line Assistant for help.
+title: Get acquainted with command line assistant
+teaser: Let's ask command line assistant for help.
 notes:
 - type: text
   contents: |
-    Command Line Assistant is intended to make information quick and easy to access. It incorporates knowledge from resources such as the Red Hat Enterprise Linux documentation and makes it easier to find through natural language queries in the command line.
+    Command line assistant is intended to make information quick and easy to access. It incorporates knowledge from resources such as the Red Hat Enterprise Linux documentation and makes it easier to find through natural language queries in the command line.
 tabs:
 - id: s6abcoi7xolp
   title: rhel
@@ -17,15 +17,17 @@ difficulty: ""
 timelimit: 0
 enhanced_loading: null
 ---
-Welcome to the Command Line Assistant problem solving lab.
 
-Command Line Assistant is intended to provide rapid access to Red Hat knowledge to help users solve problems as quickly as possible, through a natural language interface.
+Welcome to the command line assistant problem solving lab.
 
-In this challenge, we'll get acquainted with the Command Line Assistant.
+command line assistant is intended to provide rapid access to Red Hat knowledge to help users solve problems as quickly as possible, through a natural language interface.
 
-Run the Command Line Assistant
+In this challenge, we'll get acquainted with the command line assistant.
+
+Run the command line assistant
 ===
-Let's ask Command Line Assistant (CLA) how to configure the timezone of our RHEL system to Vancouver, Canada. Click the run button in the top right corner of the code block below.
+
+Let's ask command line assistant (CLA) how to configure the timezone of our RHEL system to Vancouver, Canada. Click the run button in the top right corner of the code block below.
 
 ```bash,run
 c "how do I configure the timezone to Vancouver Canada on the cli in RHEL 9"
@@ -42,6 +44,7 @@ timedatectl set-timezone America/Vancouver
 ```
 
 To view the result, run the following, as suggested by CLA.
+
 ```bash,run
 timedatectl
 ```
