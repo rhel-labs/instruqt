@@ -3,23 +3,22 @@ slug: web-server
 id: lb1uyln7wuc8
 type: challenge
 title: Set up and troubleshoot a web server
-teaser:
-  Command line assistant can help you set up software, as well as troubleshoot
+teaser: Command line assistant can help you set up software, as well as troubleshoot
   configuration problems.
 notes:
-  - type: text
-    contents:
-      Command line assistant can offer convenient tips on how to configure applications
-      and services. We'll use command line assistant to set up and troubleshoot a web server.
+- type: text
+  contents: Command line assistant can offer convenient tips on how to configure applications
+    and services. We'll use command line assistant to set up and troubleshoot a web
+    server.
 tabs:
-  - id: kqhu68kelwub
-    title: rhel
-    type: terminal
-    hostname: rhel
-  - id: anczpls3psz4
-    title: Web Server port 80
-    type: external
-    url: http://rhel.${_SANDBOX_ID}.instruqt.io/test.html
+- id: kqhu68kelwub
+  title: rhel
+  type: terminal
+  hostname: rhel
+- id: anczpls3psz4
+  title: Web Server port 80
+  type: external
+  url: http://rhel.${_SANDBOX_ID}.instruqt.io/test.html
 difficulty: ""
 timelimit: 0
 enhanced_loading: null

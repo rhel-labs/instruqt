@@ -3,17 +3,17 @@ slug: network
 id: vvyn06qu8ioy
 type: challenge
 title: Network Configuration and Troubleshooting
-teaser:
-  Learn how command line assistant can help configure and troubleshoot networking
+teaser: Learn how command line assistant can help configure and troubleshoot networking
   on your system.
 notes:
-  - type: text
-    contents: Command line assistant can also help troubleshoot and configure networking on your RHEL system.
+- type: text
+  contents: Command line assistant can also help troubleshoot and configure networking
+    on your RHEL system.
 tabs:
-  - id: nz5rrydnhp6x
-    title: rhel
-    type: terminal
-    hostname: rhel
+- id: nz5rrydnhp6x
+  title: rhel
+  type: terminal
+  hostname: rhel
 difficulty: ""
 enhanced_loading: null
 ---

@@ -5,15 +5,15 @@ type: challenge
 title: Search the Red Hat Knowledge Base
 teaser: Search the Red Hat Knowledge Base with command line assistant.
 notes:
-  - type: text
-    contents:
-      Command line assistant provides an interface to knowledge and solutions authored by Red Hat
-      subject matter experts. In this assignment we'll work through some examples.
+- type: text
+  contents: Command line assistant provides an interface to knowledge and solutions
+    authored by Red Hat subject matter experts. In this assignment we'll work through
+    some examples.
 tabs:
-  - id: rq56mcadmlns
-    title: rhel
-    type: terminal
-    hostname: rhel
+- id: rq56mcadmlns
+  title: rhel
+  type: terminal
+  hostname: rhel
 difficulty: ""
 enhanced_loading: null
 ---
