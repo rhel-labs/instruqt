@@ -1,0 +1,7 @@
+#!/bin/bash
+set -euxo pipefail
+
+if ! curl webserver | grep -i 10.0
+then
+    fail-message "The website is still on 9.5, try again"
+fi
