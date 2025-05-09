@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euxo pipefail
+
+# Getting a consistent exit code terraform recognizes from a reboot is hard...
+# ssh -o StrictHostKeyChecking=no webserver shutdown -r now "Testing oldskool"
+# rm /root/.ssh/known_hosts
+
+# add bad image for update to registry
+skopeo copy docker://quay.io/mmicene/ecommsite:bad docker://${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000/ecommsite:latest

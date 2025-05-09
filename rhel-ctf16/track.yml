@@ -1,0 +1,26 @@
+slug: rhel-ctf16
+id: tugold5iew8d
+title: New production website prep
+teaser: Testing image mode CTF
+description: |-
+  There's an update coming for the new website to advertise a spring sale. Once the dev team is ready, we'll need to deploy the update to production. We been using image mode for RHEL on this host to make updating the website simpler.
+
+  ##Goal
+
+  Deploy the updated image to the production system so we can schedule a maintenance window for the reboot with the marketing team.
+icon: ""
+tags: []
+owner: rhel
+developers:
+- mmicene@redhat.com
+show_timer: true
+idle_timeout: 600
+timelimit: 3060
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+checksum: "14641072824068338753"
+enhanced_loading: false

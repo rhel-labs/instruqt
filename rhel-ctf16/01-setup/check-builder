@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euxo pipefail
+
+STATUS=$(ssh webserver bootc status --format json | jq -r '.status.staged')
+
+if [[ "$STATUS" = "null" ]]
+then
+    fail-message "The update hasn't been staged on the webserver!"
+fi
