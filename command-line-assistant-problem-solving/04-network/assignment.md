@@ -3,26 +3,26 @@ slug: network
 id: vvyn06qu8ioy
 type: challenge
 title: Network Configuration and Troubleshooting
-teaser: Learn how command line assistant can help configure and troubleshoot networking
+teaser:
+  Learn how command line assistant can help configure and troubleshoot networking
   on your system.
 notes:
-- type: text
-  contents: CLA can also help troubleshoot and configure networking on your RHEL system.
+  - type: text
+    contents: Command line assistant can also help troubleshoot and configure networking on your RHEL system.
 tabs:
-- id: nz5rrydnhp6x
-  title: rhel
-  type: terminal
-  hostname: rhel
+  - id: nz5rrydnhp6x
+    title: rhel
+    type: terminal
+    hostname: rhel
 difficulty: ""
 enhanced_loading: null
 ---
 
-The command line assistant is useful for configuring and troubleshooting RHEL networking. In this assignment we'll use CLA to help us configure DNS as well as port redirection.
+The command line assistant is useful for configuring and troubleshooting RHEL networking. In this assignment we'll use command line assistant to help us configure DNS as well as port redirection.
 
-Configuring DNS
-===
+# Configuring DNS
 
-Let's ask CLA what our DNS is configured to.
+Let's ask command line assistant what our DNS is configured to.
 
 ```bash,run
 c "how do I determine my dns server in rhel9"
@@ -115,13 +115,13 @@ Configure port redirection
 ===
 Let's configure our system to redirect requests to port 9000 to port 80. That way when we run `curl` against port 9000, we'll obtain the test webpage we created in the previous assignment.
 
-Let's ask CLA how to do this.
+Let's ask command line assistant how to do this.
 
 ```bash,run
 c "how do I forward requests to port 9000 to 80"
 ```
 
-We'll run the commands recommended by CLA.
+We'll run the commands recommended by command line assistant.
 
 ```bash,run
 firewall-cmd --zone=trusted --add-forward-port=port=9000:proto=tcp:toport=80 --permanent
