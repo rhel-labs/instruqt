@@ -43,7 +43,7 @@ Let's execute the suggested solution.
 timedatectl set-timezone America/Vancouver
 ```
 
-To view the result, run the following, as suggested by CLA.
+To view the result, run the following, as suggested by command line assistant.
 
 ```bash,run
 timedatectl
