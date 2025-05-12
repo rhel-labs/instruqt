@@ -15,6 +15,7 @@ tags: []
 owner: rhel
 developers:
 - mmicene@redhat.com
+- nlager@redhat.com
 idle_timeout: 600
 timelimit: 3060
 lab_config:
@@ -24,5 +25,5 @@ lab_config:
   loadingMessages: true
   override_challenge_layout: false
   hideStopButton: false
-checksum: "8456531713919620277"
+checksum: "4085409038495936923"
 enhanced_loading: false
