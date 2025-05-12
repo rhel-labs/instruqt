@@ -6,4 +6,6 @@ title: Flag 1
 difficulty: ""
 enhanced_loading: null
 ---
-Medium flag
+Your flag for the first part of this challenge is **emj9USHw**
+
+ut you're not done yet!  There is a second challenge yet to come (click next)
