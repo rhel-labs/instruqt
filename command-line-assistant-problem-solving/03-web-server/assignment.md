@@ -76,7 +76,7 @@ A new browser tab will open and you'll receive the following error.
 
 ![](../assets/error_message_web_page.png)
 
-Ask Command Line Assistant how to solve selinux problems
+Ask command line assistant how to solve selinux problems
 ===
 
 Ask command line assistant how to fix selinux policy problems.

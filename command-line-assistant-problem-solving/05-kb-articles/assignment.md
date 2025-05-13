@@ -18,7 +18,7 @@ difficulty: ""
 enhanced_loading: null
 ---
 
-command line assistant has the ability to return answers that make use of a Retrieval Augmented Generation database that provides Red Hat Enterprise Linux specific knowledge.
+Command line assistant has the ability to return answers that make use of a Retrieval Augmented Generation database that provides Red Hat Enterprise Linux-specific knowledge.
 
 For example, let's try asking command line assistant the following question.
 
