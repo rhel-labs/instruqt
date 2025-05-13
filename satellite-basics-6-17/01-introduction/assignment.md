@@ -2,7 +2,7 @@
 slug: introduction
 id: mlc81xffzfxe
 type: challenge
-title: Familiarize yourself with the Lab Environment.
+title: Familiarize yourself with the lab environment.
 teaser: This is an introduction to the lab environment.
 notes:
 - type: text
@@ -29,7 +29,7 @@ timelimit: 3420
 enhanced_loading: null
 ---
 <!-- markdownlint-disable MD033 -->
-The lab environment consists of the following
+The lab environment consists of the following:
 
 1) Red Hat Satellite 6.17.0 Server (Satellite is preinstalled)
 2) Red Hat Enterprise Linux 9 hosts.
@@ -39,7 +39,7 @@ The lab environment consists of the following
 Log into the Web UI
 ===
 
-First, we'll log into the Red Hat Satellite Web User Interface (UI). Satellite has been preinstalled and installation is out of scope for this lab.
+First, we'll log into the Red Hat Satellite web user interface (UI). Satellite has been preinstalled and installation is out of scope for this lab.
 
 Click on the tab labelled Satellite Web UI as shown in the image below.
 
@@ -51,7 +51,7 @@ Ignore the security message about insecure connections by clicking on `Advanced`
 
 ![](../assets/insecure-warning.png)
 
-Next click on `Proceed`.
+Next, click on `Proceed`.
 
 ![](../assets/proceed.png)
 

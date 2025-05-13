@@ -33,7 +33,7 @@ enhanced_loading: null
 Introduction
 ===
 
-The application life cycle is a concept central to Red Hat Satellite 6’s content management functions. The application life cycle defines how a particular system and its software look at a particular stage. For example, an application life cycle might be simple; you might only have a development stage and production stage. In this case the application life cycle might look like this:
+The application lifecycle is a concept central to Red Hat Satellite 6’s content management functions. The application lifecycle defines how a particular system and its software look at a particular stage. For example, an application lifecycle might be simple; you might only have a development stage and production stage. In this case the application lifecycle might look like this:
 
 - Development
 - Production
@@ -42,7 +42,7 @@ However, a more complex application life cycle might have further stages, such a
 
 - Development
 - Testing
-- Beta Release
+- Beta release
 - Production
 
 To find out more about lifecycle environments, please refer to [Satellite documentation](https://access.redhat.com/documentation/fr-fr/red_hat_satellite/6.15/html/managing_content/managing_application_lifecycles_content-management).

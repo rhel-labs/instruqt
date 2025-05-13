@@ -6,7 +6,7 @@ title: Create a content view
 teaser: Create a content view
 notes:
 - type: text
-  contents: Content Views allow you to customize content, such as RPM packages, for
+  contents: Content views allow you to customize content, such as RPM packages, for
     your hosts. You can use a content view to control the access to updated software
     to your hosts.
 tabs:
@@ -32,9 +32,9 @@ enhanced_loading: null
 ---
 Introduction
 ===
-In this challenge we'll create a Content View. Red Hat Satellite uses Content Views to create customized subsets of repositories from the full repositories synchronized to the Red Hat Satellite server. You can use Content Views to define which software versions a particular environment uses. For example, a Production environment might use a Content View containing older package versions, while a Development environment might use a Content View containing newer package versions.
+In this challenge we'll create a Content view. Red Hat Satellite uses content views to create customized subsets of repositories from the full repositories synchronized to the Red Hat Satellite server. You can use content views to define which software versions a particular environment uses. For example, a production environment might use a content view containing older package versions, while a development environment might use a content view containing newer package versions.
 
-Since this is a basic introduction to Satellite, we will only create a Content View for the purpose of providing content to RHEL hosts, without regard for Test, Production lifecycle use cases.
+Since this is a basic introduction to Satellite, we will only create a Content View for the purpose of providing content to RHEL hosts, without regard for test, production lifecycle use cases.
 
 To learn more about Content Views and how to use them to manage content for different lifecycle environments, please see [Managing Content Views](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.15/html/managing_content/managing_content_views_content-management) in Satellite documentation.
 
