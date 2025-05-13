@@ -1,4 +1,69 @@
 #!/bin/bash
 #Checks are a series of conditionals, with fail-message "text" as the failure output
+check_password() {
+    USER=$1
+    ALG=$(grep $USER /etc/shadow | awk -F\: '{print $2}'| awk -F\$ '{print $2}')
+    SALT=$(grep $USER /etc/shadow | awk -F\: '{print $2}'| awk -F\$ '{print $3}')
+    HASH=$(grep $USER /etc/shadow | awk -F\: '{print $2}')
+    #echo "Hash is $HASH"
+    #echo "Calculated hash is $(openssl passwd -${ALG} -salt ${SALT} superb1z) from salt ${SALT} and alg ${ALG}"
+    if [ $HASH == $(openssl passwd -${ALG} -salt ${SALT} superb1z) ] ; then
+      return 0
+    else
+      return 1
+    fi
+}
 
+check_expire() {
+    if [ $(grep $1 /etc/shadow | awk -F\: '{print $3}') == 0 ]; then
+        return 0
+    else
+        return 1
+    fi
+}
 
+if ! id jenniferdecker; then
+  fail-message "I tested a few users, and they do not all seem to exist"
+elif ! id twright; then
+    fail-message "I tested a few users, and they do not all seem to exist"
+elif ! id beckycampbell; then
+    fail-message "I tested a few users, and they do not all seem to exist"
+elif ! id patrickm; then
+    fail-message "I tested a few users, and they do not all seem to exist"
+elif ! id rharris; then
+    fail-message "I tested a few users, and they do not all seem to exist"
+elif ! id jason21; then
+    fail-message "I tested a few users, and they do not all seem to exist"
+elif ! id bstanley; then
+    fail-message "I tested a few users, and they do not all seem to exist"
+elif id Username; then
+    fail-message "It looks like you added the column-headings as a user entry..."
+elif ! check_password jenniferdecker; then
+    fail-message "I tested a few passwords, and they do not appear correct"
+elif ! check_password twright; then
+    fail-message "I tested a few passwords, and they do not appear correct"
+elif ! check_password beckycampbell; then
+    fail-message "I tested a few passwords, and they do not appear correct"
+elif ! check_password patrickm; then
+    fail-message "I tested a few passwords, and they do not appear correct"
+elif ! check_password rharris; then
+    fail-message "I tested a few passwords, and they do not appear correct"
+elif ! check_password jason21; then
+    fail-message "I tested a few passwords, and they do not appear correct"
+elif ! check_password bstanley; then
+    fail-message "I tested a few passwords, and they do not appear correct"
+elif ! check_expire jenniferdecker; then
+    fail-message "I tested a few expirations, and they do not appear correct"
+elif ! check_expire twright; then
+    fail-message "I tested a few expirations, and they do not appear correct"
+elif ! check_expire beckycampbell; then
+    fail-message "I tested a few expirations, and they do not appear correct"
+elif ! check_expire patrickm; then
+    fail-message "I tested a few expirations, and they do not appear correct"
+elif ! check_expire rharris; then
+    fail-message "I tested a few expirations, and they do not appear correct"
+elif ! check_expire jason21; then
+    fail-message "I tested a few expirations, and they do not appear correct"
+elif ! check_expire bstanley; then
+    fail-message "I tested a few expirations, and they do not appear correct"
+fi

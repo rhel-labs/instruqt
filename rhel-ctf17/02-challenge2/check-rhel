@@ -1,0 +1,16 @@
+#!/bin/bash
+if id jenniferdecker; then
+  fail-message "I tested a few users, and they still seem to exist"
+elif id twright; then
+    fail-message "I tested a few users, and they still seem to exist"
+elif id beckycampbell; then
+    fail-message "I tested a few users, and they still seem to exist"
+elif id patrickm; then
+    fail-message "I tested a few users, and they still seem to exist"
+elif id rharris; then
+    fail-message "I tested a few users, and they still seem to exist"
+elif id jason21; then
+    fail-message "I tested a few users, and they still seem to exist"
+elif id bstanley; then
+    fail-message "I tested a few users, and they still seem to exist"
+fi
