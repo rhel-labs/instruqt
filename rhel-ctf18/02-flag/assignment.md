@@ -1,6 +1,6 @@
 ---
 slug: flag
-id: 78mupbzwqsmp
+id: 
 type: challenge
 title: Congratulations
 notes:
@@ -8,12 +8,12 @@ notes:
   contents: |
     # Congrats! You did it!
 
-    Your flag is **F6UwiNuh**
+    Your flag is **Ker68AU8**
 difficulty: basic
 timelimit: 1
 enhanced_loading: null
 ---
   # Congrats! You did it!
 
-  Your flag is **F6UwiNuh**
+  Your flag is **Ker68AU8**
 
