@@ -1,0 +1,9 @@
+if ! mount -a &>/dev/null
+then
+  fail-message "It looks like the problem still exists. Please fix it, the machine will not survive a reboot!"
+  exit 2
+fi
+if ! ls /data/super-secret-data && grep root /data/super-secret-data
+then
+  fail-message "My data still is not in /data.  Can you fix it?"
+fi
