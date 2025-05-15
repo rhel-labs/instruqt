@@ -1,0 +1,21 @@
+fdisk /dev/sda <<EEOF
+n
+3
+
+
+w
+EEOF
+
+partprobe
+
+mkfs -t ext4 /dev/sda3
+
+mkdir /data
+
+echo "/dev/sda  /dat  ext4  defaults 0 0 " >>/etc/fstab
+
+mount /dev/sda3 /mnt
+cp /etc/passwd /mnt/super-secret-data
+umount /mnt
+
+systemctl daemon-reload
