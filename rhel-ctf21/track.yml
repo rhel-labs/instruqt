@@ -1,0 +1,30 @@
+slug: rhel-ts1
+id: 8xoqudrwlk9e
+title: RHEL Troubleshooting Challenge One
+teaser: Can you fix this broken RHEL system?
+description: |
+  # Goal:
+
+  Oh sheesh, the new guy, **Nate**, is at it again.  He just started applying ansible playbooks without paying attention to what they were doing.  Now, the systems are messed up!
+
+  Guess what?
+
+  You get to fix them!
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+tags:
+- rhel
+owner: rhel
+developers:
+- smcbrien@redhat.com
+- nlager@redhat.com
+show_timer: true
+timelimit: 3120
+lab_config:
+  overlay: false
+  width: 33
+  position: left
+  feedback_recap_enabled: true
+  loadingMessages: true
+  hideStopButton: false
+checksum: "3763053582904454250"

@@ -1,0 +1,8 @@
+dnf -y install httpd
+mkdir -p /web/{html,cgi-bin,}
+sed -i -e 's/DocumentRoot .\/var\/www\/html./DocumentRoot \"\/web\/html/\"' /etc/httpd/conf/httpd.conf
+sed -i -e 's/\/var\/www\/html/\/web\/html/g' /etc/httpd/conf/httpd.conf
+wget https://raw.githubusercontent.com/rhel-labs/Other-assets/main/index.html -O /web/html/index.html
+chown -R apache:apache /web
+
+systemctl enable httpd --now

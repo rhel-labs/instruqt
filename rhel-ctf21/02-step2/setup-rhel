@@ -1,0 +1,9 @@
+echo -e "n\np\n\n\n\nw\n" | fdisk /dev/sda
+mkfs -t ext4 /dev/sda3
+
+echo "/dev/sda3               /var/tmp                    ext4    defaults,noexec 0 0" >>/etc/fstab
+mount -a
+
+echo '#!/bin/bash' >> /var/tmp/critical-app
+echo 'echo "Super critical Business-y app outputs."' >> /var/tmp/critical-app
+chmod +x /var/tmp/critical-app
