@@ -1,22 +1,22 @@
-slug: rhel-ctfCHANGEME
-id: 
-title: 
-teaser: 
-description: 
+slug: rhel-ctf22
+id: vygoywbxbuju
+title: Get your cape
+teaser: It's time to put on your cape and fight the injustices of technical debt
+description: ""
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 tags:
 - rhel
 owner: rhel
 developers:
-- smcbrien@redhat.com
 - nlager@redhat.com
 show_timer: true
-idle_timeout: 300
-timelimit: 3120
+idle_timeout: 1200
+timelimit: 6240
 lab_config:
+  sidebar_enabled: true
   feedback_recap_enabled: true
   feedback_tab_enabled: false
   loadingMessages: true
   hideStopButton: false
-checksum: 
+checksum: "14070269801576453529"
 enhanced_loading: false

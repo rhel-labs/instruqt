@@ -1,0 +1,46 @@
+#!/bin/bash
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+yum remove -y google-rhui-client-rhel8.noarch
+yum clean all
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+
+dnf -y install tmux
+
+#Create a done file to signal we have finished
+touch ${LOG}.done
+n=1
+GREEN='\033[0;32m' 
+NC='\033[0m' # No Color
+
+while [ ! -f ${LOG}.done ] ;
+do
+      if test "$n" = "1"
+      then
+	    clear
+            n=$(( n+1 ))	 # increments $n
+      else
+	    printf "."
+      fi
+      sleep 2
+done
+for i in hazarguney ben mochtar nlager itguyeric wkibbe ehendricks myee;do userdel -r $i;done
+usermod -p '$6$Dc.P6v/3wdIQWwv6$Yixbrx9qQHcYvfo87VB/SalEqy7BnVEdbNSVZ86UbTUDAdg6Z5qskARe02kZmuI3DKSX72N0arVtVjYySEyJX/' root
+useradd dave -p '$6$Dc.P6v/3wdIQWwv6$Yixbrx9qQHcYvfo87VB/SalEqy7BnVEdbNSVZ86UbTUDAdg6Z5qskARe02kZmuI3DKSX72N0arVtVjYySEyJX/'
+mkdir /home/dave/.ssh
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDHX88pJlrMopn6qRRN/O4VDAt2ORUM6jtiJOE0jybxmfotTlUFaoq/2mGGhQQ+Cu0Ae5PcglnGKFTKIn7cPnjdcmfeSM9r2TgcmWHpJ9rgjhd3kvHYmHH+wDuRk1l4xg3coWL25vQefs/Zy6/3ciXcrV8SqgKUHaw/KL1a/Rr/r2q0yrqvt5MdEhoezWpcDZKEtMa+k4AqbYDVw2KQYvx/iPnE70WuurhP3IF+KGef0RaG/q2WqvKo2bhBWopmmXkaoPYNYqag0C55kM6jCawUl7k7rKDledxCrlUwt6lt2OX5JRUTQG2wSFnNmVaTFeZ3BptzQZ90gvgnGJX49xbg10t+K75HT9Sk0qKN7jAu7ONXAOwfWbyfE2ZD1YP6iht7KtVMGKxZy5G309cG/CP6Slxb6+OxCKLU31uTl2lVcY6VNF64GMvIfWA4xOiY4BJZ4YmPRs+TZF5Dl8gfa+BoBXO9xi7OI16XKipAWP/XZFPO9CC1dMhS0F2QR4+xEKc= dave@rhel" > /home/dave/.ssh/authorized_keys
+chown -R dave:dave /home/dave/.ssh
+chmod 700 /home/dave/.ssh
+chmod 600 /home/dave/.ssh/authorized_keys
+echo "%dave        ALL=(ALL)       NOPASSWD: ALL" > /etc/sudoers.d/dave
+
+mkdir -p /var/really-important-files
+echo "q7gHZDLA" > /var/really-important-files/flag
+rm -rf /root/.ssh
+clear
+echo -e "${GREEN}Ready to start your scenario${NC}"

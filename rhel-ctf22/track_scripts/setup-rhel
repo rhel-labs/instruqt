@@ -31,7 +31,56 @@ do
 done
 for i in hazarguney ben mochtar nlager itguyeric wkibbe ehendricks myee;do userdel -r $i;done
 usermod -p '$6$Dc.P6v/3wdIQWwv6$Yixbrx9qQHcYvfo87VB/SalEqy7BnVEdbNSVZ86UbTUDAdg6Z5qskARe02kZmuI3DKSX72N0arVtVjYySEyJX/' root
+usermod -p '$6$H7YEkqGqBaYGYVYN$o1Z6uKw.MG90q7S.JcQ14ZlpEtkBAppnY19gWsoVA4GLGbUNITw8GJzG77N/Z1XyGWHmp.cgX1p5nYYlkDJ/V.' rhel
 useradd dave -p '$6$Dc.P6v/3wdIQWwv6$Yixbrx9qQHcYvfo87VB/SalEqy7BnVEdbNSVZ86UbTUDAdg6Z5qskARe02kZmuI3DKSX72N0arVtVjYySEyJX/'
+mkdir -p /home/dave/.ssh
+cat << EOF >> /home/dave/.ssh/id_rsa
+-----BEGIN OPENSSH PRIVATE KEY-----
+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
+-----END OPENSSH PRIVATE KEY-----
+EOF
+chown -R dave:dave /home/dave/.ssh
+chmod 600 /home/dave/.ssh/id_rsa
+chmod 700 /home/dave/.ssh
+for i in {1..20};do echo "ssh dave@server1" >> /home/dave/.bash_history;done
 
+#echo "rhel  ALL=/bin/more *" >> /etc/sudoers.d/rhel
+echo "rhel  ALL=/bin/vim /var/tmp/ansible/playbook.yml" >> /etc/sudoers.d/rhel
+rm -rf /root/.ssh
 clear
 echo -e "${GREEN}Ready to start your scenario${NC}"
