@@ -1,6 +1,6 @@
-slug: rhel-ts1
-id: 8xoqudrwlk9e
-title: RHEL Troubleshooting Challenge One
+slug: rhel-ctf21
+id: e3ynldtazvvf
+title: Super Important Script
 teaser: Can you fix this broken RHEL system?
 description: |
   # Goal:
@@ -16,15 +16,16 @@ tags:
 - rhel
 owner: rhel
 developers:
-- smcbrien@redhat.com
 - nlager@redhat.com
+- smcbrien@redhat.com
 show_timer: true
+idle_timeout: 300
 timelimit: 3120
 lab_config:
-  overlay: false
-  width: 33
-  position: left
+  sidebar_enabled: true
   feedback_recap_enabled: true
+  feedback_tab_enabled: false
   loadingMessages: true
   hideStopButton: false
-checksum: "3763053582904454250"
+checksum: "12567346569223636487"
+enhanced_loading: false

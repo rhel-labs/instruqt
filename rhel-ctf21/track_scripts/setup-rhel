@@ -18,4 +18,6 @@ systemctl --now enable cockpit
 echo "trashing GCP repos" >> /root/post-run.log
 mv /etc/yum.repos.d/google-cloud.repo /root
 
+for i in hazarguney ben mochtar nlager itguyeric wkibbe ehendricks myee;do userdel -r $i;done
+
 echo "DONE" >> /root/post-run.log

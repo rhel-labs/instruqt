@@ -1,6 +1,6 @@
 ---
-slug: step2
-id: szwxtorgpvzz
+slug: challenge
+id: rzzkfw1c16k6
 type: challenge
 title: Fixing a critical application
 notes:
@@ -14,18 +14,15 @@ notes:
 
     Can you make it so that we can run this app again?
 
-    Keep an eye on the time!
-
     That **NATE** guy must be getting fired today...
 tabs:
-- title: Terminal
+- id: 1mxpogtykhnh
+  title: Terminal
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
-  type: external
-  url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Our critical business app isn't running correctly.
 
