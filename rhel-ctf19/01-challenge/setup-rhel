@@ -1,0 +1,2 @@
+firewall-cmd --add-service=ssh --permanent
+firewall-cmd --permanent --zone=trusted --set-target=default
