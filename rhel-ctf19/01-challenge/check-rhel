@@ -1,0 +1,6 @@
+#!/bin/bash
+set -euxo pipefail
+
+if [ ! -f /root/ansible/*_system_report.txt ]; then
+    fail-message "No report files found "
+fi

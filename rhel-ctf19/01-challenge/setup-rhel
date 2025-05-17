@@ -1,0 +1,76 @@
+firewall-cmd --add-service=ssh --permanent
+firewall-cmd --permanent --zone=trusted --set-target=default
+
+dnf install ansible-core -y
+
+mkdir ~/ansible
+
+ansible-config init --disabled > ~/ansible/ansible.cfg
+
+cat <<EOL > ~/ansible/hosts
+[bastion]
+localhost
+
+[nodes]
+node05
+EOL
+
+cat <<EOL > ~/ansible/PPS_Gather_And_Report_v2.yml
+
+---
+- name: Gather Facts and Generate Report
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: Capture current date
+      set_fact:
+        current_date: "{{ ansible_date_time.iso8601 }}"
+
+    - name: Gather hostname
+      ansible.builtin.debug:
+        msg: "Hostname: {{ ansible_hostname }}"
+      register: hostname_output
+
+    - name: Gather OS version
+      ansible.builtin.debug:
+        msg: "OS Version: {{ ansible_distribution }} {{ ansible_distribution_version }}"
+
+    - name: Gather network information
+      ansible.builtin.debug:
+        msg: "Network Info: {{ ansible_all_ipv4_addresses }}"
+
+    - name: Gather open ports, protocols, and running services
+      ansible.builtin.shell: "ss -tulnp"
+      register: open_ports_output
+
+    - name: Generate report
+      ansible.builtin.template:
+        src: report_template.j2
+        dest: "/tmp/{{ ansible_hostname }}_{{ current_date }}_system_report.txt"
+      vars:
+        hostname: "{{ ansible_hostname }}"
+        os_version: "{{ ansible_distribution }} {{ ansible_distribution_version }}"
+        network_info: "{{ ansible_all_ipv4_addresses }}"
+        open_ports_info: "{{ open_ports_output.stdout_lines }}"
+
+    - name: Copy report to rhel host
+      ansible.builtin.fetch:
+        src: "/tmp/{{ ansible_hostname }}_{{ current_date }}_system_report.txt"
+        dest: "~/ansible/"
+        flat: yes
+EOL
+
+cat <<EOL > ~/ansible/report_template.j3
+System Report - Generated on {{ current_date }}
+
+Hostname: {{ hostname }}
+
+OS Version: {{ os_version }}
+
+Network Info: {{ network_info | join(', ') }}
+
+Open Ports, Protocols, and Running Services:
+{% for line in open_ports_info %}
+{{ line }}
+{% endfor %}
+EOL
