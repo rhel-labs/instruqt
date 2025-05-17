@@ -1,6 +1,6 @@
 ---
 slug: flag
-id: 
+id: ajfpo6n7psou
 type: challenge
 title: Flag
 notes:

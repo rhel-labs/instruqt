@@ -1,4 +1,6 @@
 #!/bin/bash
-#Checks are a series of conditionals, with fail-message "text" as the failure output
+set -euxo pipefail
 
-
+if [ ! -f /root/ansible/*_system_report.txt ]; then
+    fail-message "No report files found "
+fi
