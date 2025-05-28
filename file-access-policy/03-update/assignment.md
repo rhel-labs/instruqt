@@ -8,14 +8,17 @@ notes:
 - type: text
   contents: Update the File Access Policy
 tabs:
-- title: rhel
+- id: yicir9eaf3pn
+  title: rhel
   type: terminal
   hostname: rhel
-- title: rhel Web Console
+- id: auxvn5ilyeed
+  title: rhel Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 What if we know that the `cowsay` binary is trusted, and we want to allow it on the system? We have a couple of options:
 

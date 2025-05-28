@@ -8,14 +8,17 @@ notes:
 - type: text
   contents: Configure fapolicyd integrity controls
 tabs:
-- title: rhel
+- id: kwugxnry5pys
+  title: rhel
   type: terminal
   hostname: rhel
-- title: rhel Web Console
+- id: lbqnsjylf0ca
+  title: rhel Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 To mitigate situations where a trusted binary is substituted, fapolicyd supports different types of file integrity:
 

@@ -25,10 +25,12 @@ developers:
 - nlager@redhat.com
 show_timer: true
 lab_config:
-  overlay: false
-  width: 33
-  position: right
+  sidebar_enabled: true
   feedback_recap_enabled: true
+  feedback_tab_enabled: false
   loadingMessages: true
   hideStopButton: false
-checksum: "323042850528249638"
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 33
+checksum: "736652149776872022"
+enhanced_loading: false

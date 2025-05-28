@@ -8,14 +8,17 @@ notes:
 - type: text
   contents: Explore fapolicyd integrity
 tabs:
-- title: rhel
+- id: 78xtteyjstpu
+  title: rhel
   type: terminal
   hostname: rhel
-- title: rhel Web Console
+- id: skehzp4whubh
+  title: rhel Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Let's take a quick look at fapolicyd and integrity. The `more` command is installed via the RPM database, so it's trusted to execute on the system:
 

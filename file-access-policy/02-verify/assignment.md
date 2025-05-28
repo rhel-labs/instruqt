@@ -8,14 +8,17 @@ notes:
 - type: text
   contents: Verify the File Access Policy
 tabs:
-- title: rhel
+- id: axauqcui65bn
+  title: rhel
   type: terminal
   hostname: rhel
-- title: rhel Web Console
+- id: 4sdjpmgzxsk4
+  title: rhel Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Now that we've seen how the daemon is configured, let's see it in action.
 

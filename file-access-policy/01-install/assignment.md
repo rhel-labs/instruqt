@@ -8,14 +8,17 @@ notes:
 - type: text
   contents: Install the File Access Policy Package
 tabs:
-- title: rhel
+- id: 5ibyyaes5v7r
+  title: rhel
   type: terminal
   hostname: rhel
-- title: rhel Web Console
+- id: bcbmgppgm9y5
+  title: rhel Web Console
   type: external
   url: https://rhel.${_SANDBOX_ID}.instruqt.io:9090
 difficulty: basic
 timelimit: 3000
+enhanced_loading: null
 ---
 The File Access Policy Daemon (fapolicyd) controls the execution of applications based on a user-defined policy, and is one of the most effective ways to mitigate the risk of untrusted and possibly malicious applications on the system.
 
