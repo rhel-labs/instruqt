@@ -39,6 +39,7 @@ tabs:
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 3000
+enhanced_loading: null
 ---
 
 Package managers are programs which install, update, and remove software. Doing these operations by hand would be tedious and prone to mistakes. Bundling these functionalities into a single tool gives users a more streamlined experience.

@@ -11,6 +11,7 @@ tabs:
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 
 If a program is suddenly misbehaving, it could be related to some key files not being installed properly. `rpm` has a validation option (`-V`) which will compare the local files with the expected files for the package. Remove a file from the Wireshark package to test out this validation functionality:

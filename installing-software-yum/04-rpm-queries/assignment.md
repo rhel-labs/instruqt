@@ -11,6 +11,7 @@ tabs:
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 
 DNF is the standard package manager, but this does not mean that RPM is obsolete. Detailed queries can be carried out using RPM using the query option (`-q`). This step will walk you through three examples of how to use this option.

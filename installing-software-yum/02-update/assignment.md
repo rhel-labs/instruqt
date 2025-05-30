@@ -11,6 +11,7 @@ tabs:
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 
 The `list` subcommand is useful for finding out which packages have available
