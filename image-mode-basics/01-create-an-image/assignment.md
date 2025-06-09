@@ -63,12 +63,12 @@ Once you are done examining the Containerfile, click on the [button label="Termi
 Examining the configurations added
 ===
 
-We have a set of files we want to add to `/etc` on the host to affect system configuration. Let's have a quick look at one of those.
+To mimic version controlled configuations, we have a local set of files we want to add to `/etc` on the host to affect system configuration. Let's have a quick look at one of those.
 ```bash,run
 cat etc/sudoers.d/wheel
 ```
 
-We're using a drop-in file to apply a NOPASSWD rule to the `wheel` group. This is just one example of how you can set policies within an image build.
+We're using a drop-in file to apply a NOPASSWD rule to the `wheel` group. This is just one example of how you can set policies or configurations within an image build.
 ```nocopy
 %wheel  ALL=(ALL)   NOPASSWD: ALL
 ```

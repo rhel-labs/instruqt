@@ -6,7 +6,7 @@ subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 -
 
 # Log into terms based registry and stage bootc and bib images
 dnf -y install podman skopeo
-BOOTC_RHEL_VER=9.5
+BOOTC_RHEL_VER=10.0
 agent variable set BOOTC_RHEL_VERSION $BOOTC_RHEL_VER
 podman login -u='1979710|rhel-tmm' -p=${REG_SVC_ACCT} registry.redhat.io
 podman pull registry.redhat.io/rhel9/rhel-bootc:$BOOTC_RHEL_VER registry.redhat.io/rhel9/bootc-image-builder:$BOOTC_RHEL_VER
@@ -27,12 +27,9 @@ echo "setting password" >> /root/post-run.log
 echo redhat | passwd --stdin rhel
 
 # set up SSL for fully functioning registry
-# Enable EPEL for RHEL 9
+# Enable EPEL for RHEL 9 host
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 dnf install -y certbot
-
-# stop the process that is using TCP port 80; we need that port open for certbot
-# fuser -k 80/tcp
 
 # request certificates
 certbot certonly --standalone --preferred-challenges http -d ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io --non-interactive --agree-tos -m trackbot@instruqt.com -v
@@ -163,7 +160,7 @@ EOF
 
 # create basic bootc containerfile
 cat <<EOF> Containerfile
-FROM registry.redhat.io/rhel9/rhel-bootc:$BOOTC_RHEL_VER
+FROM registry.redhat.io/rhel10/rhel-bootc:$BOOTC_RHEL_VER
 
 ADD etc /etc
 
