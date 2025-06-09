@@ -56,7 +56,6 @@ sudo bootc rollback
 
 The command should return very fast and the output looks like this:
 ````nocopy
-bootfs is sufficient for calculated new size: 0 bytes
 Next boot: rollback deployment
 ````
 

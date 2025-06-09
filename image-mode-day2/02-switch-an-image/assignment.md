@@ -34,15 +34,13 @@ enhanced_loading: null
 A word about tags
 ===
 
-To this point, we've been letting podman automatically create tags for the images we've built. As a review, the naming convention for container images is `registry/name:tag`.
-
-If you look at all of the images available in the lab, you'll see most of them have a version number in the tag column. The image we've built is the only one that uses `latest`, which signals the most recent build and is auto-generated if you don't specify a tag.
+As a review, the naming convention for container images is `registry/name:tag`. Let's examine the different images that are currently on this host.
 
 ```bash,run
 podman images
 ```
 
-While this is convenient, it can create a lot of confusion. What is in that `latest` container? Which updates did we provide? Have you seen the `latest` tag in any of the `bootc status` output so far?
+In the previous exercise, we used the `el10` tag when building the new RHEL 10 version of the image. You'll also see other images have version information in the TAG column. However, in other labs we didn't set an explicit tag, which means `podman` will use the default `latest` tag. While this is convenient, it can create a lot of confusion. What is in that `latest` container? Which updates did we provide? Have you seen the `latest` tag in any of the `bootc status` output so far?
 
 
 Using tags for identifying image contents
@@ -117,20 +115,13 @@ Password:
 redhat
 ```
 
-
-The new images we pushed to the registry didn't use the `latest` tag, so they won't be seen as an update by `bootc`. Notice there's nothing after the name `test-bootc` in the output.
-
-```bash,run
-sudo bootc upgrade --check
-```
-
-Since tags are part of the image name, our new `v2` image is a different image than what `bootc` is tracking. We can use `bootc switch` to install it like we did in the first exercise to change repositories. And since there are two tags that refer to the same image, you could use either `v2` or `dev` to install the new image.
+Since tags are part of the image name, our new `v2` image is a different image than what `bootc` is tracking. We can use `bootc switch` to install it like we did in the first exercise to change to RHEL 10 initially. And since there are two tags in the registry that refer to the same image, you could use either `v2` or `dev` to install the new image.
 ```bash,run
 sudo bootc switch [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:v2
 ```
 Unlike the first exercise, `bootc switch` only pulls down the one updated layer.
 
-Using `bootc switch` we can handle a variety of different scenarios that would require a different image than the one we booted that isn't a simple update. We could test the upgrade of a core application component like a Java JDK by providing a new base image for the application. Or test a whole OS upgrade, all while keeping our host information the same. We'll explore that a little later on.
+Using `bootc switch` we can handle a variety of different scenarios that would require a different image than the one we booted that isn't a simple file update. We could test the upgrade of a core application component like a Java JDK by providing a new base image for the application. These sorts of system software changes are likely to be more common use cases than our full RHEL 10 swap.
 
 We need to restart the system to apply our changes.
 
@@ -166,4 +157,4 @@ ls -alh /var/www/html/index.html
 
 The new index doesn’t appear, and it’s also not on disk. Yes, there's a deliberate error in the instructions. This is expected based on how bootc handles directories and image contents during changes.
 
-Stay logged into the VM to explore this in the next exercise.
+We'll explore this in the next exercise.

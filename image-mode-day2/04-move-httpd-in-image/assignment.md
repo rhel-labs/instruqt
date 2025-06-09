@@ -72,7 +72,11 @@ Look at the new `RUN` command that uses the `heredoc` format to wrap several lin
 
 ![](../assets/containerfile_heredoc_index.png)
 
-The first command in this block will move the directories and files installed by Apache to a new directory under `/usr`. The second will update the htttpd config file to change the default document root to our new directory.
+Heredoc support for Containerfiles is relatively new, but gives us a way to run a set of commands as a group that create a single layer. This works the same as stringing together several commands with `&`, which you've probably seen before. The `heredoc` is processed like a bash script, so you'll need to pay attention to things like variable expansion if you try to get complicated. 
+
+The first command in the `heredoc` makes sure we can see the commands as they get processed and exit the build if one of them fails. This way we don't have to wait until run time to see that `dnf` couldn't find a package we typo'd. 
+
+The rest of the `heredoc` does the work of relocating the docroot. The second command in this block will move the directories and files installed by Apache to a new directory under `/usr`. The third will update the htttpd config file to change the default document root to our new directory.
 
 Since we haven't made any changes on our bootc host to this file in `/etc`, this change will be applied by `bootc`. If you had made local changes to the httpd config, you may need to create a drop-in file or use some other means to update the Apache config.
 
@@ -116,6 +120,9 @@ Just like in the other exercises, we can use `bootc switch` to change to the ima
 ```bash,run
 sudo bootc switch [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:v3
 ```
+
+You may notice that there's a new line in the output of `bootc switch` that mentions pruning an image. One design element to keep in mind is that there will be at most 3 images on disk: the currently running image, the roll back target, and the next image to take effect. 
+
 Check that the new image has been staged for the next boot.
 ```bash,run
 sudo bootc status
