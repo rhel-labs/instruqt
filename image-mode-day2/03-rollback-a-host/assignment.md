@@ -53,8 +53,6 @@ This bottom section of the status output shows the available image target. You s
 ```bash,run
 sudo bootc rollback
 ```
-
-The command should return very fast and the output looks like this:
 ````nocopy
 Next boot: rollback deployment
 ````

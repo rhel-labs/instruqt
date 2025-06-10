@@ -64,7 +64,7 @@ agent variable set CONTAINER_REGISTRY_ENDPOINT ${HOSTNAME}.${INSTRUQT_PARTICIPAN
 
 # create RHEL9 bootc containerfile from image-mode-basics to modify
 cat <<EOF> Containerfile
-FROM registry.redhat.io/rhel9/rhel-bootc:9.6
+FROM registry.redhat.io/rhel9/rhel-bootc:9.5
 
 ADD etc /etc
 

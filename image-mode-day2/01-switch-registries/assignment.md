@@ -19,6 +19,11 @@ tabs:
   title: Terminal
   type: terminal
   hostname: rhel
+- id: smxtl8tawj2h
+  title: Containerfile
+  type: code
+  hostname: rhel
+  path: Containerfile
 - id: whmk4doq1uth
   title: VM SSH session
   type: terminal
@@ -35,7 +40,7 @@ The system displayed beside this text is a Red Hat Enterprise Linux 9 system reg
 
 In a [previous image mode lab](https://www.redhat.com/en/introduction-to-image-mode-for-red-hat-enterprise-linux-interactive-lab), we created a virtual machine from a bootc image. Adapting to changes in infrastructure or role is core to how bootc hosts operate. We'll explore how `bootc` tracks images, changes host purposes, and rolls back changes.
 
-Changing registries for our bootc image
+Changing OS versions for our bootc image
 ===
 
 In the normal course of operations, available infrastructure is often changed or decommissioned in favor of newer options. One of those newer options is a more recent version of RHEL. Typically, exploring the impact of a new version of RHEL on existing workloads means deploying a whole new set of servers and applications, migrating test data, and more. Finding available resources and time is challenging.
@@ -45,7 +50,7 @@ Image mode can make testing these sorts of changes much easier, not only by simp
 Update the Containerfile to RHEL 10
 ===
 
-Let's do something radical to explore changing the starting bootc image. In the previous lab, we were using RHEL 9. While we could just use a later minor version, let's see what happens if we use the RHEL 10 bootc base instead.  
+Let's do something radical to explore changing the starting bootc image. In the previous lab, we were using RHEL 9. While we could just use a later minor version, let's see what happens if we use the RHEL 10 bootc base instead.
 
 Click on the [button label="Containerfile" background="#ee0000" color="#c7c7c7"](tab-1) tab.
 
@@ -68,7 +73,11 @@ With our changes in the Containerfile saved, we will run `podman build` to get a
 podman build -t [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc:el10 .
 ```
 
-It's really that simple to build a new image based on a completely different version of RHEL. Keep in mind that we aren't upgrading in the same sense that `leapp` does. We've built a new thing from a new starting point. We need to account for any changes between RHEL 9 and RHEL 10 in the definitions and configurations. For example, if we'd been using the web console metrics, the functionality of the `cockpit-pcp` package from RHEL 9 was rolled into the RHEL 10 `cockpit-bridge` package. This means we would have caught that change at build time since `dnf` would have thrown an error trying to install the RHEL 9 package. These sorts of changes can be caught early in the cycle.
+It's really that simple to build a new image based on a completely different version of RHEL.
+
+Keep in mind that we aren't upgrading in the same sense that `leapp` does. We've built a new thing from a new starting point. We need to account for any changes between RHEL 9 and RHEL 10 in the definitions and configurations. For example, if we'd been using the web console metrics, the functionality of the `cockpit-pcp` package from RHEL 9 was rolled into the RHEL 10 `cockpit-bridge` package.
+
+This means we can catch changes like these at build time since `dnf` would have thrown an error trying to install the RHEL 9 package. This helps with the cycle of experimentation when building any new standardized image, not just for major versions.
 
 Once we push the new image to the registry, we can use it immediately on any available image mode host.
 ```bash,run
@@ -78,7 +87,7 @@ podman push [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]
 Connect to the VM running our bootc image
 ===
 
-Let's connect to the virtual machine via SSH. Switch to the [button label="VM SSH session" background="#ee0000" color="#c7c7c7"](tab-1) tab.
+Let's connect to the virtual machine via SSH. Switch to the [button label="VM SSH session" background="#ee0000" color="#c7c7c7"](tab-2) tab.
 
 > [!NOTE]
 > If the SSH session hasn't connected or there is an error, you can reconnect by clicking Refresh next to the tab name. The prompt will look like this. ![](../assets/terminal_prompt.png)
@@ -96,10 +105,10 @@ Check the image the VM is using
 Hosts created from bootc images track a particular image in a specific registry. This is how `bootc` knows when an update is available.  The `bootc status` command provides the information about the image in use and where `bootc` is looking for it.
 
 ```bash,run
-sudo bootc status 
+sudo bootc status
 ```
 
-In the output you can see the hostname (and port if needed) as well as the image name for the currently booted image. You will also see an image version that provides build time information about the base image. 
+In the output you can see the hostname (and port if needed) as well as the image name for the currently booted image. You will also see an image version that provides build time information about the base image.
 
 Switch to a new image
 ===
@@ -110,14 +119,16 @@ sudo bootc switch [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rh
 
 At first glance, `bootc switch` doesn't look very different from `bootc upgrade`. It will download and prepare the new image to a local deployment location on disk. It downloads any layers it detects are different based on the metadata available in the registry.
 
+Again, we aren't upgrading the host in the way that `leapp` does, rather we're deploying new system software alongside existing configuration and user data.
+
+> [!NOTE]
+> You may see SELinux errors during the switch that refer to Non-ASCII characters in a binary policy, these are harmless and we're looking at fixes now.
+
 We can see in the output of `bootc switch` that our new image has been queued to be activated the next time the host boots. We can also see if there are any changes waiting by checking `bootc status`. Check the version information under the currently staged image to verify it's RHEL 10.
 
 ```bash,run
 sudo bootc status
 ```
->[NOTE]
-> You may see SELinux errors during the switch that refer to Non-ASCII characters in a binary policy, these are harmless and we're looking at fixes now.
-
 If we needed to wait for a maintenance window we could stage the changes, then schedule the reboot. Let's restart the system now to get our changes.
 
 ```bash,run
@@ -138,7 +149,7 @@ You will be greeted with a new default MOTD, and notice your original user and p
 cat /etc/redhat-release
 ```
 
-You will also see the previous RHEL 9 image is still on disk as a roll back option. We'll discuss this in more detail in a later exercise, but this means if we run into any issues during testing we can quickly switch back to the previous RHEL 9 deployment to check behavior, missing packages, or other troubleshooting.  This makes for a simple A/B process to understand new major or minor releases in your own environments and applications. 
+You will also see the previous RHEL 9 image is still on disk as a roll back option. We'll discuss this in more detail in a later exercise, but this means if we run into any issues during testing we can quickly switch back to the previous RHEL 9 deployment to check behavior, missing packages, or other troubleshooting.  This makes for a simple A/B process to understand new major or minor releases in your own environments and applications.
 ```bash,run
 sudo bootc status
 ```
