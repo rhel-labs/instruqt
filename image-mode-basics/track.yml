@@ -18,6 +18,7 @@ developers:
 - myee@redhat.com
 show_timer: true
 lab_config:
+  sidebar_enabled: true
   feedback_recap_enabled: true
   feedback_tab_enabled: false
   loadingMessages: true
@@ -27,5 +28,5 @@ lab_config:
   hideStopButton: false
   default_layout: AssignmentRight
   default_layout_sidebar_size: 33
-checksum: "6521440449360227229"
+checksum: "7505338585403969094"
 enhanced_loading: false

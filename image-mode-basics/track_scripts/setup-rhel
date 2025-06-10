@@ -9,7 +9,7 @@ dnf -y install podman skopeo
 BOOTC_RHEL_VER=10.0
 agent variable set BOOTC_RHEL_VERSION $BOOTC_RHEL_VER
 podman login -u='1979710|rhel-tmm' -p=${REG_SVC_ACCT} registry.redhat.io
-podman pull registry.redhat.io/rhel9/rhel-bootc:$BOOTC_RHEL_VER registry.redhat.io/rhel9/bootc-image-builder:$BOOTC_RHEL_VER
+podman pull registry.redhat.io/rhel10/rhel-bootc:$BOOTC_RHEL_VER registry.redhat.io/rhel10/bootc-image-builder:$BOOTC_RHEL_VER
 
 # Some shortcuts for users
 # reglogin - uses podman secret to log into the terms based registry in case creds time out or initial pull fails

@@ -49,7 +49,7 @@ sudo bootc status
 
 You can see the booted image, and if there are any staged or rollback images on the host. The name, version, and digest for each image are listed in this base view. We'll talk more about what that means later.
 
-Detailed information can be found by adding the `--format` option with either YAML or JSON arguments to get your preferred output. 
+Detailed information can be found by adding the `--format` option with either YAML or JSON arguments to get your preferred output.
 ```bash,run
 sudo bootc status --format yaml
 ```
