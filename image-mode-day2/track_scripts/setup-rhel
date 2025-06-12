@@ -5,11 +5,11 @@ subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
 # Log into terms based registry and stage bootc and bib images
-BOOTC_RHEL_VER=9.5
+BOOTC_RHEL_VER=10.0
 agent variable set BOOTC_RHEL_VERSION $BOOTC_RHEL_VER
 
 podman login -u='1979710|rhel-tmm' -p=${REG_SVC_ACCT} registry.redhat.io
-podman pull registry.redhat.io/rhel9/rhel-bootc:$BOOTC_RHEL_VER registry.redhat.io/rhel9/bootc-image-builder:$BOOTC_RHEL_VER
+podman pull registry.redhat.io/rhel10/rhel-bootc:$BOOTC_RHEL_VER registry.redhat.io/rhel10/bootc-image-builder:$BOOTC_RHEL_VER
 
 # Some shortcuts for users
 # reglogin - uses podman secret to log into the terms based registry in case creds time out or initial pull fails
@@ -33,12 +33,9 @@ echo redhat | passwd --stdin rhel
 virsh start bootc2
 
 # set up SSL for fully functioning registry
-# Enable EPEL for RHEL 9
+# Enable EPEL for RHEL 9 lab host
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 dnf install -y certbot
-
-# stop the process that is using TCP port 80; we need that port open for certbot
-# fuser -k 80/tcp
 
 # request certificates
 certbot certonly --standalone --preferred-challenges http -d ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io --non-interactive --agree-tos -m trackbot@instruqt.com -v
@@ -65,28 +62,9 @@ echo "%wheel  ALL=(ALL)   NOPASSWD: ALL" >> ~/etc/sudoers.d/wheel
 
 agent variable set CONTAINER_REGISTRY_ENDPOINT ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000
 
-# create config.json for BIB to add a user / pass
-cat <<EOF> ~/config.json
-{
-  "blueprint": {
-    "customizations": {
-      "user": [
-        {
-          "name": "core",
-          "password": "redhat",
-           "groups": [
-	            "wheel"
-	          ]
-        }
-      ]
-    }
-  }
-}
-EOF
-
-# create updated bootc containerfile from image-mode-basics
+# create RHEL9 bootc containerfile from image-mode-basics to modify
 cat <<EOF> Containerfile
-FROM registry.redhat.io/rhel9/rhel-bootc:$BOOTC_RHEL_VER
+FROM registry.redhat.io/rhel9/rhel-bootc:9.5
 
 ADD etc /etc
 
@@ -97,7 +75,7 @@ EOF
 
 # create V3 index.html relocated containerfile
 cat <<EOM> Containerfile.index
-FROM registry.redhat.io/rhel9/rhel-bootc:$BOOTC_RHEL_VER
+FROM registry.redhat.io/rhel10/rhel-bootc:$BOOTC_RHEL_VER
 
 ADD etc /etc
 
@@ -106,6 +84,7 @@ RUN dnf install -y httpd vim
 RUN systemctl enable httpd
 
 RUN <<EOF 
+    set -euxo pipefail
     mv /var/www /usr/share/www
     sed -i 's-/var/www-/usr/share/www-' /etc/httpd/conf/httpd.conf
 EOF
@@ -115,6 +94,7 @@ RUN echo "New application coming soon!" > /usr/share/www/html/index.html
 EOM
 
 podman rmi rhel.pdnis0xkcq.instruqt.io:5000/test-bootc
-podman build -t ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000/test-bootc .
-podman push ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000/test-bootc
+rm containerfile.foo
+#podman build -t ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000/test-bootc .
+#podman push ${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000/test-bootc
 
