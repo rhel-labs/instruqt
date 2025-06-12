@@ -49,8 +49,13 @@ sudo bootc status
 
 You can see the booted image, and if there are any staged or rollback images on the host. The name, version, and digest for each image are listed in this base view. We'll talk more about what that means later.
 
+Detailed information can be found by adding the `--format` option with either YAML or JSON arguments to get your preferred output.
+```bash,run
+sudo bootc status --format yaml
+```
+
 > [!NOTE]
->The `bootc status` command will detect if we pass the output to a pipe and automatically output the full status details in YAML. You can control that output by passing the `--format` option with either YAML or JSON arguments to get your preferred output.
+>The `bootc status` command will detect if we pass the output to a pipe and automatically output the full status details in YAML.
 
 Let's explore the detailed output section by section using `grep` to focus on certain parts. The `spec` section provides the information about the image in use and where `bootc` is looking for it. Our host is pulling from a container registry.
 ```bash,run

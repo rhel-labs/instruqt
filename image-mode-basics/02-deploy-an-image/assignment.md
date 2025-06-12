@@ -43,7 +43,7 @@ podman run --rm --privileged \
         --volume .:/output \
         --volume ./config.json:/config.json \
         --volume /var/lib/containers/storage:/var/lib/containers/storage \
-        registry.redhat.io/rhel9/bootc-image-builder:9.5 \
+        registry.redhat.io/rhel10/bootc-image-builder:10.0 \
         --type qcow2 \
         --config config.json \
          [[ Instruqt-Var key="CONTAINER_REGISTRY_ENDPOINT" hostname="rhel" ]]/test-bootc
