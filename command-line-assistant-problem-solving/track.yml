@@ -7,6 +7,7 @@ tags: []
 owner: rhel
 developers:
 - myee@redhat.com
+maintenance: true
 show_timer: true
 idle_timeout: 3000
 timelimit: 3600
@@ -19,5 +20,5 @@ lab_config:
     name: modern-dark
   override_challenge_layout: false
   hideStopButton: false
-checksum: "13600726451852159211"
+checksum: "10060102037996721883"
 enhanced_loading: false
