@@ -34,7 +34,7 @@ usermod -p '$6$Dc.P6v/3wdIQWwv6$Yixbrx9qQHcYvfo87VB/SalEqy7BnVEdbNSVZ86UbTUDAdg6
 usermod -p '$6$H7YEkqGqBaYGYVYN$o1Z6uKw.MG90q7S.JcQ14ZlpEtkBAppnY19gWsoVA4GLGbUNITw8GJzG77N/Z1XyGWHmp.cgX1p5nYYlkDJ/V.' rhel
 useradd dave -p '$6$Dc.P6v/3wdIQWwv6$Yixbrx9qQHcYvfo87VB/SalEqy7BnVEdbNSVZ86UbTUDAdg6Z5qskARe02kZmuI3DKSX72N0arVtVjYySEyJX/'
 mkdir -p /home/dave/.ssh
-cat << EOF >> /home/dave/.ssh/id_rsa
+cat << EOF >> /home/dave/.ssh/daveskey
 -----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
 NhAAAAAwEAAQAAAYEAx1/PKSZazKKZ+qkUTfzuFQwLdjkVDOo7YiThNI8m8Zn6LU5VBWqK
@@ -75,12 +75,12 @@ xLp2XS66Vxc70AAAAebmF0ZUBweXRob250ZXN0LnVuZHJncm91bmQub3JnAQIDBAU=
 -----END OPENSSH PRIVATE KEY-----
 EOF
 chown -R dave:dave /home/dave/.ssh
-chmod 600 /home/dave/.ssh/id_rsa
+chmod 600 /home/dave/.ssh/daveskey
 chmod 700 /home/dave/.ssh
-for i in {1..20};do echo "ssh dave@server1" >> /home/dave/.bash_history;done
+for i in {1..20};do echo "ssh -i .ssh/daveskey dave@server1" >> /home/dave/.bash_history;done
 
-#echo "rhel  ALL=/bin/more *" >> /etc/sudoers.d/rhel
-echo "rhel  ALL=/bin/vim /var/tmp/ansible/playbook.yml" >> /etc/sudoers.d/rhel
+echo "rhel  ALL=/bin/more *" >> /etc/sudoers.d/rhel
+#echo "rhel  ALL=/bin/vim /var/tmp/ansible/playbook.yml" >> /etc/sudoers.d/rhel
 rm -rf /root/.ssh
 clear
 echo -e "${GREEN}Ready to start your scenario${NC}"
