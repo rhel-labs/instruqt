@@ -1,7 +1,7 @@
 version: "3"
 virtualmachines:
 - name: rhel
-  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-10-06-17-25-2
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-5-11-27-24
   shell: /bin/bash
   environment:
     cla_version: command-line-assistant*.main*.el9.noarch
