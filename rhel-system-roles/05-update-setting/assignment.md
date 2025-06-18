@@ -19,6 +19,7 @@ tabs:
   hostname: client1
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Now that you have a working ansible playbook to standardize the configuration of settings on your system, suppose that you realize one of the settings needs to be changed.
 

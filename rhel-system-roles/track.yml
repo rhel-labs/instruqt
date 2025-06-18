@@ -27,13 +27,12 @@ developers:
 show_timer: true
 skipping_enabled: true
 lab_config:
-  overlay: false
-  width: 25
-  position: right
+  sidebar_enabled: true
   feedback_recap_enabled: true
+  feedback_tab_enabled: false
   loadingMessages: true
-  lab_v2: true
   hideStopButton: false
   default_layout: AssignmentRight
   default_layout_sidebar_size: 25
-checksum: "3625390272102304160"
+checksum: "6164623999392162396"
+enhanced_loading: false

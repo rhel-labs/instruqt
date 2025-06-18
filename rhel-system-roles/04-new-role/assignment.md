@@ -19,6 +19,7 @@ tabs:
   hostname: client1
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 In this step, you will be making changes to the playbook. To refresh your memory, take a look at the initial playbook included by the lab.
 
