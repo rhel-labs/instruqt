@@ -20,7 +20,7 @@ enhanced_loading: null
 
 Welcome to the command line assistant problem solving lab.
 
-command line assistant is intended to provide rapid access to Red Hat knowledge to help users solve problems as quickly as possible, through a natural language interface.
+command line assistant powered by RHEL Lightspeed is intended to provide rapid access to Red Hat knowledge to help users solve problems as quickly as possible, through a natural language interface.
 
 In this challenge, we'll get acquainted with the command line assistant.
 
