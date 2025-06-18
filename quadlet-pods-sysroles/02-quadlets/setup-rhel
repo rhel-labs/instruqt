@@ -22,8 +22,8 @@ spec:
     - run-mysqld
     envFrom:
     - configMapRef:
-      name: my-app-env
-      optional: false
+        name: my-app-env
+        optional: false
     image: quay.io/fedora/mariadb-105:latest
     name: database
     securityContext:
@@ -48,9 +48,9 @@ WantedBy=default.target
 [Unit]
 
 [Kube]
-Yaml=/etc/containers/systemd/my-app.kube
+Yaml=/etc/containers/systemd/my-app.yaml
 PublishPort=8080:80/tcp
-ConfigMap=/etc/containers/systemd/my-app-configmap.yml
+ConfigMap=/etc/containers/systemd/my-app-configmap.yaml
 EOF
 
 podman stop -a

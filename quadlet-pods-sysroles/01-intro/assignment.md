@@ -64,17 +64,22 @@ POD ID        NAME        STATUS      CREATED         INFRA ID      # OF CONTAIN
 89f060fcc759  my-app      Running     12 minutes ago  e5906434e3f9  3
 </pre>
 
-now, we can generate a Kube definition of our pod, using `podman generate`.  We will use this later in our exercise. 
+We can check on the log output from the entire pod at once as well.
+```bash,run
+podman pod logs my-app
+```
+
+now, we can generate a Kube definition of our pod, using `podman generate`.  We will use this later in our exercise.
 
 ```bash,run
 podman generate kube my-app -f my-app.yaml
 ```
-Now you have a my-app.yaml in your working directory.  Feel free to have a look at it. 
+Now you have a my-app.yaml in your working directory.  Feel free to have a look at it.
 ```bash,run
 cat my-app.yaml
 ```
 
-Now, we can stop our pod, and delete it.  It can be re-created using this yaml definition. 
+Now, we can stop our pod, and delete it.  It can be re-created using this yaml definition.
 ```bash,run
 podman pod stop my-app&&podman pod rm my-app
 ```
