@@ -1,6 +1,6 @@
 ---
 slug: flag
-id: 
+id: te8flagwnemw
 type: challenge
 title: Flag
 notes:
