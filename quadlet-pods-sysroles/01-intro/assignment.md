@@ -35,27 +35,49 @@ enhanced_loading: null
   In this lab we will use all of these technologies to show you how to more easily manage container's on your Red Hat Enterprise Linux system.
 
   # Making our pod
-  Let's start out by creating a pod, and some containers.  Then later we'll export that pod's definition for use with Quadlet. 
+  Let's start out by creating a pod, and some containers.  Then later we'll export that pod's definition for use with Quadlet.
 
-  Making a pod is easy, we just use `podman pod create` and tell podman what to call our pod, and what Ports to forward into the containers within the pod. 
+  Making a pod is easy, we just use `podman pod create` and tell podman what to call our pod, and what Ports to forward into the containers within the pod.
 
   ```bash,run
   podman pod create --name my-app -p 8080:80
   ```
 
-  With the pod created, we will need to make some containers, and tell them what pod to attach to using the `--pod` command line options. 
+  With the pod created, we will need to make some containers, and tell them what pod to attach to using the `--pod` command line options.
 
   ```bash,run
   podman run -d --pod my-app --name http registry.access.redhat.com/ubi9/httpd-24
   ```
-  
-  We'll also create a second container within our pod for a database back-end. 
+
+  We'll also create a second container within our pod for a database back-end.
   ```bash,run
-  podman run -d --pod my-app --name database -e MYSQL_ROOT_PASSWORD="r3dh@t123" -e MYSQL_USER="dbuser" -e MYSQL_PASSWORD="redhat" -e MYSQL_DATABASE="testdb" docker.io/mariadb:11.8.2-ubi9
+  podman run -d --pod my-app --name database -e MYSQL_ROOT_PASSWORD="r3dh@t123" -e MYSQL_USER="dbuser" -e MYSQL_PASSWORD="redhat" -e MYSQL_DATABASE="testdb" quay.io/fedora/mariadb-105
   ```
 
   And now, if we check `podman pod ps` we should see our pod running with 3 containers (one of them is the infrastructure container for the pod).
   ```bash,run
   podman pod ps
   ```
-  
+<pre type=file>
+# podman pod ps
+POD ID        NAME        STATUS      CREATED         INFRA ID      # OF CONTAINERS
+89f060fcc759  my-app      Running     12 minutes ago  e5906434e3f9  3
+</pre>
+
+now, we can generate a Kube definition of our pod, using `podman generate`.  We will use this later in our exercise. 
+
+```bash,run
+podman generate kube my-app -f my-app.yaml
+```
+Now you have a my-app.yaml in your working directory.  Feel free to have a look at it. 
+```bash,run
+cat my-app.yaml
+```
+
+Now, we can stop our pod, and delete it.  It can be re-created using this yaml definition. 
+```bash,run
+podman pod stop my-app&&podman pod rm my-app
+```
+```bash,run
+podman play kube my-app.yaml
+```
