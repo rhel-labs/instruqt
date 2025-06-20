@@ -1,0 +1,9 @@
+#!/bin/bash
+if ! skopeo inspect docker://${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000/test-bootc 
+then
+    fail-message "The image needs to be available in the registry before moving to the next step. Did you push the image to the registry?"
+    exit 1
+else
+  skopeo inspect docker://${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io:5000/test-bootc |  jq ".Digest" > ~/image1.sha
+fi
+
