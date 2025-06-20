@@ -1,0 +1,33 @@
+slug: image-mode-basics-2h
+id: cxtobfx0puud
+title: Introduction to image mode for Red Hat Enterprise Linux - 2 hour
+description: |
+  # Goal:
+
+    Get familliar with the new image mode for RHEL operating model.
+
+    In this lab you will build, deploy, and manage a virtual machine that is running in image mode. You will create a new bootc image, push it to a registry, and convert it to a disk image for KVM.
+
+    You will also update the software available to the VM.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- nlager@redhat.com
+show_timer: true
+idle_timeout: 6000
+timelimit: 7200
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  theme:
+    name: original
+  override_challenge_layout: false
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 33
+checksum: "1997487598624944699"
+enhanced_loading: false
