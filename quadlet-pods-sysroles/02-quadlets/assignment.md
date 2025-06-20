@@ -97,14 +97,14 @@ And of course you should see the pod running in podman
 ```bash,run
 podman pod ps
 ```
-Now, if we stop the service, the pod will not just stop, but it gets removed. 
+Now, if we stop the service, the pod will not just stop, but it gets removed.
 
 ```bash,run
 systemctl stop my-app
 podman pod ps
 ```
 
-And of course if we start it back up, it will start with a new pod. 
+And of course if we start it back up, it will start with a new pod.
 
 ```bash,run
 systemctl start my-app
