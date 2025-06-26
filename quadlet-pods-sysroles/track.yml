@@ -11,7 +11,7 @@ owner: rhel
 developers:
 - nlager@redhat.com
 show_timer: true
-idle_timeout: 300
+idle_timeout: 600
 timelimit: 3120
 lab_config:
   sidebar_enabled: true
@@ -19,5 +19,5 @@ lab_config:
   feedback_tab_enabled: false
   loadingMessages: true
   hideStopButton: false
-checksum: "7419382448895811545"
+checksum: "9159794811164211374"
 enhanced_loading: false

@@ -20,6 +20,18 @@ enhanced_loading: null
 # Files
 We've created some clean files for you to use inside of `~/my-app`.  You will notice two files in that directory.  `my-app.yaml` and `my-app-configmap.yaml`.  We have taken the environment variables for the MariaDB container, and split them out into a ConfigMap.  A ConfigMap is a file which is meant to make it easier to maintain your environment and configuration settings.
 
+You can feel free to review the contents of these files.
+
+Pod deployment file
+```bash,run
+cat ~/my-app/my-app.yaml
+```
+
+ConfigMap file
+```bash,run
+cat ~/my-app/my-app-configmap.yaml
+```
+
 You can build a pod using these two files using the following command.
 
 ```bash,run
@@ -57,7 +69,7 @@ cat my-app.kube
 
 The `.kube` extension tells Quadlet that this is a generated Kube definition from Podman.  There are several other extensions that Quadlet supports, such as `.container`, `.pod`, and `.volume`.
 
-It doesnt really matter where you save your pod's Kube definition, or the Configmap Yaml, but it's good practice to place them somewhere common, and not in your home directory.  Unless you are creating systemd user units, which is possible with Quadlet as well, but we are not covering those in this lab.  You might notice that we've defined the paths to the two required files within the quadlet definition as `/etc/containers/systemd`.  This is also where the .kube file needs to be places for a system level unit file, so let's copy all of the files there.
+It doesnt really matter where you save your pod's Kube definition, or the Configmap Yaml, but it's good practice to place them somewhere common, and not in your home directory.  Unless you are creating systemd user units, which is possible with Quadlet as well, but we are not covering those in this lab.  You might notice that we've defined the paths to the two required files within the quadlet definition as `/etc/containers/systemd`.  This is also where the .kube file needs to be placed for a system level unit file, so let's copy all of the files there.
 
 ```bash,run
 cp ~/my-app/my-app.yaml ~/my-app/my-app-configmap.yaml ~/my-app/quadlet/my-app.kube /etc/containers/systemd
@@ -85,11 +97,11 @@ systemctl start my-app
 As you would with any systemd service, you can check the status and log output using the usual `systemctl` and `journalctl` commands.
 
 ```bash,run
-systemctl status my-app
+systemctl status --no-pager my-app
 ```
 
 ```bash,run
-journalctl -xeu my-app
+journalctl --no-pager -xeu my-app
 ```
 
 And of course you should see the pod running in podman
@@ -108,5 +120,7 @@ And of course if we start it back up, it will start with a new pod.
 
 ```bash,run
 systemctl start my-app
+podman pod ps
 ```
 
+In the next step, we'll automate the deployment of our pod using RHEL System Roles.

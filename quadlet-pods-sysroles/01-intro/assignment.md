@@ -7,7 +7,7 @@ notes:
 - type: text
   contents: |
     # Introduction
-    After completing this lab, you will have some introductory experience with several container management technologies included in Red Hat Enterprise Linux, Including
+    After completing this lab, you will have some introductory experience with several container management technologies included in Red Hat Enterprise Linux, Including:
     * Podman
     * Multi-container pods
     * Controling podman entities with SystemD through Quadlet
@@ -69,14 +69,16 @@ We can check on the log output from the entire pod at once as well.
 podman pod logs my-app
 ```
 
-now, we can generate a Kube definition of our pod, using `podman generate`.  We will use this later in our exercise.
+# Creating a re-deployable definition
+
+Now, we can generate a Kube definition of our pod, using `podman generate`.  We will use this later in our exercise.
 
 ```bash,run
-podman generate kube my-app -f my-app.yaml
+podman generate kube my-app -f ~/my-app/my-app.yaml
 ```
 Now you have a my-app.yaml in your working directory.  Feel free to have a look at it.
 ```bash,run
-cat my-app.yaml
+cat ~/my-app/my-app.yaml
 ```
 
 Now, we can stop our pod, and delete it.  It can be re-created using this yaml definition.
@@ -84,5 +86,7 @@ Now, we can stop our pod, and delete it.  It can be re-created using this yaml d
 podman pod stop my-app&&podman pod rm my-app
 ```
 ```bash,run
-podman play kube my-app.yaml
+podman play kube ~/my-app/my-app.yaml
 ```
+
+Now, in the next step we'll see how we can improve that pod definition, and turn it into a Systemd service.

@@ -1,5 +1,4 @@
 #!/bin/bash
-mkdir -p my-app/quadlet
 cat << EOF > ~/my-app/my-app.yaml
 apiVersion: v1
 kind: Pod
@@ -14,7 +13,7 @@ spec:
     image: registry.access.redhat.com/ubi9/httpd-24:latest
     name: http
     ports:
-    - containerPort: 80
+    - containerPort: 8080
       hostPort: 8080
     securityContext:
       runAsNonRoot: true
@@ -49,7 +48,7 @@ WantedBy=default.target
 
 [Kube]
 Yaml=/etc/containers/systemd/my-app.yaml
-PublishPort=8080:80/tcp
+PublishPort=8080:8080/tcp
 ConfigMap=/etc/containers/systemd/my-app-configmap.yaml
 EOF
 
