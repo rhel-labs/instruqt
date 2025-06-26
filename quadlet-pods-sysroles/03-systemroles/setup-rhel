@@ -1,0 +1,27 @@
+#!/bin/bash
+dnf -y install rhel-system-roles
+cat << EOF > /root/my-app/my-app-deploy.yaml
+---
+- name: Run the podman system role
+  hosts: ContainerHosts
+  become: yes
+  vars:
+    podman_run_as_user: root
+    podman_run_as_group: root
+    podman_firewall:
+      - port: 8080/tcp
+        state: enabled
+    podman_quadlet_specs:
+      - file_src: my-app-configmap.yaml
+      - file_src: my-app.yaml
+      - file_src: quadlet/my-app.kube
+        state: started
+  roles:
+    - rhel-system-roles.podman
+EOF
+
+cat << EOF > /root/my-app/inventory
+[ContainerHosts]
+containerhost
+EOF
+podman pod stop my-app && podman pod rm my-app

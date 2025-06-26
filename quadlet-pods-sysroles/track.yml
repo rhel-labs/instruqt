@@ -1,0 +1,23 @@
+slug: quadlet-pods-sysroles
+id: wzj8ysiissyy
+title: Managing Podman Pods with Quadlets, and System Roles
+teaser: Learn how to deploy a pre-defined Podman Pod using Quadlet and SystemD, then
+  automate it with RHEL System Roles!
+description: ""
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- nlager@redhat.com
+show_timer: true
+idle_timeout: 600
+timelimit: 3120
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+checksum: "9159794811164211374"
+enhanced_loading: false

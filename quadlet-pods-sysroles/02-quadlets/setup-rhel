@@ -1,0 +1,56 @@
+#!/bin/bash
+cat << EOF > ~/my-app/my-app.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: my-app
+  name: my-app
+spec:
+  containers:
+  - args:
+    - /usr/bin/run-httpd
+    image: registry.access.redhat.com/ubi9/httpd-24:latest
+    name: http
+    ports:
+    - containerPort: 8080
+      hostPort: 8080
+    securityContext:
+      runAsNonRoot: true
+  - args:
+    - run-mysqld
+    envFrom:
+    - configMapRef:
+        name: my-app-env
+        optional: false
+    image: quay.io/fedora/mariadb-105:latest
+    name: database
+    securityContext:
+      runAsNonRoot: true
+EOF
+
+cat << EOF > my-app/my-app-configmap.yaml
+kind: ConfigMap
+metadata:
+  name: my-app-env
+data:
+  MYSQL_PASSWORD: redhat
+  MYSQL_DATABASE: testdb
+  MYSQL_USER: dbuser
+  MYSQL_ROOT_PASSWORD: r3dh@t123
+EOF
+
+cat << EOF > ~/my-app/quadlet/my-app.kube
+[Install]
+WantedBy=default.target
+
+[Unit]
+
+[Kube]
+Yaml=/etc/containers/systemd/my-app.yaml
+PublishPort=8080:8080/tcp
+ConfigMap=/etc/containers/systemd/my-app-configmap.yaml
+EOF
+
+podman stop -a
+podman rm -a
