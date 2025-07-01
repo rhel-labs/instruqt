@@ -47,13 +47,13 @@ podman pod ps
 But the goal here is to try to run this using Quadlet, so instead, let's do that.
 
 ```bash,run
-podman pod stop my-app&&podman pod rm my-app
+podman pod stop my-app && podman pod rm my-app
 ```
 
 With the pod stopped and removed, let's move into how Quadlet works.
 
 # How Quadlet works
-Quadlet can be used to define podman resources such as containers, pods, even volumes, using systemd.  Quadlet is a systemd generator, which takes your podman definition, and turns it into a genuine systemd unit.  This unit will start a new instance of your resource when you start it, and destroy it when you stop it.  This fits container workflows very well, because there should be no reason to keep the old containers around once they're stopped, and starting a new instance of the container from the latest copy of the source image is also a good practice.
+Quadlet can be used to define podman resources such as containers, pods, even volumes, using systemd.  Quadlet is a systemd generator, which takes your podman definition, and turns it into a dynamically generated systemd unit.  This unit will start a new instance of your resource when you start it, and destroy it when you stop it.  This fits container workflows very well, because there should be no reason to keep the old containers around once they're stopped, and starting a new instance of the container from the latest copy (or the latest build of the tag you are following) of the source image is also a good practice.
 
 We have created some quadlet definitions for you inside of `~/my-app/quadlet`, so let's have a look at them.
 

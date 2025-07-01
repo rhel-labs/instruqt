@@ -6,7 +6,7 @@ title: System Roles
 notes:
 - type: text
   contents: |
-    # Let's tie it all together with Automation
+    # Let's tie it all together with automation
     As we mentioned at the start, we can take this one step further with Automation.  The Podman system role can deploy these definitions that we've created for us!
 tabs:
 - id: knpxmcwnsifj
@@ -95,7 +95,7 @@ The above block tells the role that port 8080 will be used to listen for request
       - file_src: quadlet/my-app.kube
         state: started
 </pre>
-The above block tells the system role to deploy the files required to deploy our pod under Systemd via quadlet.  It is important that files are deployed in the order in which they are needed.  For instance, the quadlet, `my-app.kube`, requires both `my-app-configmap.yaml` and `my-app.yaml`, so they must be defined first.
+The above block tells the system role to deploy the files required to deploy our pod under systemd via quadlet.  It is important that files are deployed in the order in which they are needed.  For instance, the quadlet, `my-app.kube`, requires both `my-app-configmap.yaml` and `my-app.yaml`, so they must be defined first.
 
 # Execute the playbook
 
@@ -109,7 +109,7 @@ ansible-playbook -i ./inventory ./my-app-deploy.yaml
 > _NOTE_: The execution of ansible-playbook will first attempt to connect to `containerhost`.  This will generate a question from ssh, asking whether you accept `containerhost`'s ssh key.  You will need to tell it `yes`
 ![Accept SSH Key](../assets/ssh-accept.png)
 
-You should see many lines of Ansible output as the playbook performs different tasks on `containerhost`, and once it is complete you will be returned to a bash prompt.
+You should see many lines of Ansible output as the playbook performs different tasks on `containerhost`, and once it is complete you will be returned to a bash prompt.  This may take some time as podman pulls down those container images.
 
 If everything succeeded, we should see a play recap that does not indicate any errors (OK, skipped, and changed are all good outputs here) and now find our application running on `containerhost`.
 
@@ -154,7 +154,7 @@ cat my-app-deploy.yaml
 ```
 Remember, the `hostPort` in the `my-app.yaml` should now be `80`, and the `PublishPort` in the `my-app.kube` should now be `80:8080/tcp`, lastly the `port` in `my-app-deploy.yaml` should be `80/tcp`.
 
-Now let's run the playbook again to apply our changes.
+Now let's run the playbook again to apply our changes.  Ansible will push the latest versions of our files to the managed host, and re-deploy our containers.
 
 ```bash,run
 ansible-playbook -i inventory my-app-deploy.yaml
