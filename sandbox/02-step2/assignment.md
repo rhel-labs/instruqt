@@ -31,6 +31,7 @@ tabs:
   new_window: true
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 No really, there are no instructions here, this is an unstructured, open lab environment.
 
