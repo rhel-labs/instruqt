@@ -18,8 +18,8 @@ owner: rhel
 developers:
 - smcbrien@redhat.com
 - wkibbe@redhat.com
-- myee@redhat.com
 - mmicene@redhat.com
+- myee@redhat.com
 show_timer: true
 lab_config:
   sidebar_enabled: true
@@ -30,5 +30,5 @@ lab_config:
   hideStopButton: false
   default_layout: AssignmentRight
   default_layout_sidebar_size: 33
-checksum: "6623370210935728324"
+checksum: "11013510939988113106"
 enhanced_loading: false
