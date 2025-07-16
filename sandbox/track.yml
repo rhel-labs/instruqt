@@ -12,23 +12,23 @@ description: |
 
   >**NOTE:** This lab environment will expire in about 60 minutes.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
-level: beginner
 tags:
 - rhel
 owner: rhel
 developers:
 - smcbrien@redhat.com
 - wkibbe@redhat.com
+- mmicene@redhat.com
 - myee@redhat.com
 show_timer: true
 lab_config:
-  overlay: false
-  width: 33
-  position: right
+  sidebar_enabled: true
   feedback_recap_enabled: true
+  feedback_tab_enabled: false
   loadingMessages: true
-  lab_v2: true
+  override_challenge_layout: false
   hideStopButton: false
   default_layout: AssignmentRight
   default_layout_sidebar_size: 33
-checksum: "4106173861939952568"
+checksum: "11013510939988113106"
+enhanced_loading: false

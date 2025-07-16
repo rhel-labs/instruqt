@@ -45,6 +45,7 @@ tabs:
   new_window: true
 difficulty: basic
 timelimit: 3000
+enhanced_loading: null
 ---
 Welcome to this open lab experience for Red Hat Enterprise Linux.
 

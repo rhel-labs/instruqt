@@ -39,10 +39,13 @@ certbot certonly --standalone --preferred-challenges http -d ${HOSTNAME}.${INSTR
 
 #configure our certificate for the web console (copy it into the cockpit certificate folder)
 cat /etc/letsencrypt/live/${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io/cert.pem >> /etc/cockpit/ws-certs.d/certificate.cert
-cat /etc/letsencrypt/live/${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io/privkey.pem >> /etc/cockpit/ws-certs.d/certificate.cert
+cat /etc/letsencrypt/live/${HOSTNAME}.${INSTRUQT_PARTICIPANT_ID}.instruqt.io/privkey.pem >> /etc/cockpit/ws-certs.d/certificate.key
 
 #remove the old self-signed certificates
 rm /etc/cockpit/ws-certs.d/0*
+
+#create missing disallowed-users
+echo "root" > /etc/cockpit/disallowed-users
 
 #restart cockpit to apply the changs
 systemctl restart cockpit
