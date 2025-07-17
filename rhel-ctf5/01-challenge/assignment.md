@@ -10,7 +10,7 @@ notes:
 
     Manager Scott left you a DM on slack last night, he says:
 
-    **Manager Scott** *(11:25PM)* :"Hey, I scheduled us months ago for our yearly compliance audit.  They're going to be here tomorrow.  I told them we follow the CIS Server Level 1 benchmark, that's cool right?  We definitely don't want to fail *another* audit."
+    **Manager Scott** *(11:25PM)* :"Hey, I scheduled us months ago for our yearly compliance audit.  They're going to be there tomorrow.  I told them we follow the CIS Server Level 1 benchmark, that's cool right?  We definitely don't want to fail -another- audit."
 
     Can you get this system within 90% compliance with the **CIS Server Level 1** benchmark?
 tabs:
@@ -26,7 +26,7 @@ enhanced_loading: null
 
   Manager Scott left you a DM on slack last night, he says:
 
-  **Manager Scott** *(11:25PM)* :"Hey, I scheduled us months ago for our yearly compliance audit.  They're going to be here tomorrow.  I told them we follow the CIS Server Level 1 benchmark, that's cool right?  We definitely don't want to fail *another* audit."
+  **Manager Scott** *(11:25PM)* :"Hey, I scheduled us months ago for our yearly compliance audit.  They're going to be there tomorrow.  I told them we follow the CIS Server Level 1 benchmark, that's cool right?  We definitely don't want to fail -another- audit."
 
   Can you get this system within 90% compliance with the **CIS Server Level 1** benchmark?
 
