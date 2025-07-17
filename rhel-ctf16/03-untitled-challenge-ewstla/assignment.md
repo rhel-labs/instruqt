@@ -8,4 +8,4 @@ enhanced_loading: null
 ---
 Your flag for the first part of this challenge is **emj9USHw**
 
-ut you're not done yet!  There is a second challenge yet to come (click next)
+But you're not done yet!  There is a second challenge yet to come (click next)
