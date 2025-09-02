@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+hello=/var/lib/mock/rhel-8-x86_64/result/pello-1.0.4-2.el8.noarch.rpm
+if ! [[ -f $hello ]]
+then
+    fail-message "$hello: No such file or directory"
+fi

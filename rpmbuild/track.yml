@@ -1,0 +1,30 @@
+slug: rpmbuild
+id: fykfvk0ndh1u
+title: Build software into RPM packages
+teaser: Build several different types of applications into RPM packages.
+description: RPM or Red Hat Package Manager is a tool used to package software for
+  easy installation, updating, and removal from your Linux systems. In this lab, you
+  will learn how to write RPM spec files, build software from source code into packages,
+  run quality checks on  packages, and install the packaged software.
+icon: ./assets/red-hat.svg
+tags:
+- rpm
+- packaging
+- rhel
+owner: rhel
+developers:
+- carl@redhat.com
+- smcbrien@redhat.com
+- dherrera@redhat.com
+show_timer: true
+timelimit: 3000
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 40
+checksum: "13365566559274145716"
+enhanced_loading: false
