@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+hello=/home/rhel/rpmbuild/RPMS/x86_64/cello-1.0-1.el9.x86_64.rpm
+if ! [[ -f $hello ]]
+then
+    fail-message "$hello: No such file or directory"
+fi

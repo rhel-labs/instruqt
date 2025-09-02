@@ -1,0 +1,4 @@
+#!/bin/bash
+# Unregister the host.
+subscription-manager unregister
+podman logout

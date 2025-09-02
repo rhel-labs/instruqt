@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+specs=/home/rhel/rpmbuild/SPECS
+if ! [[ -d $specs ]]
+then
+    fail-message "$specs: No such file or directory"
+fi
