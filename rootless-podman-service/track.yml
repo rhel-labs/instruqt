@@ -1,0 +1,26 @@
+slug: rootless-podman-service
+id: olghe3gyqvaq
+title: Configure a rootless Podman service
+teaser: Learn how to configure a docker image to run as a rootless podman service.
+description: In this lab we will set up an Apache web server container to run as a
+  rootless service on Red Hat Enterprise LInux 9.
+icon: ./assets/Logo-Red_Hat-C-Standard-RGB.svg
+tags:
+- rhel
+- podman
+owner: rhel
+developers:
+- myee@redhat.com
+show_timer: true
+idle_timeout: 300
+timelimit: 3600
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 33
+checksum: "5081994382887399315"
+enhanced_loading: false
