@@ -25,7 +25,7 @@ The command line assistant is useful for configuring and troubleshooting RHEL ne
 Let's ask command line assistant what our DNS is configured to.
 
 ```bash,run
-c "how do I determine my dns server in rhel9"
+c "how do I determine my dns server in rhel10"
 ```
 
 The output should look something like this.
@@ -84,21 +84,21 @@ Here's the output.
 
 ```bash,nocopy
 root@rhel:~# ip route | grep default
-default via 10.5.0.1 dev eth0 proto dhcp src 10.5.0.92 metric 100
+default via 10.5.0.1 dev ens4 proto dhcp src 10.5.0.251 metric 100
 ```
 
-We can see that the default route is set for eth0. eth0 is configured to `Wired connection 1`.
+We can see that the default route is set for ens4. ens4 is configured to `cloud-init ens4`.
 
 As per the instructions above, run the following command to configure the new DNS server.
 
 ```bash,run
-nmcli connection modify Wired\ connection\ 1 ipv4.dns 8.8.8.8
+nmcli connection modify cloud-init\ ens4 ipv4.dns 8.8.8.8
 ```
 
 Then we need to activate the connection.
 
 ```bash,run
-nmcli connection up Wired\ connection\ 1
+nmcli connection up cloud-init\ ens4
 ```
 
 Check the results.
