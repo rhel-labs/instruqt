@@ -24,6 +24,15 @@ command line assistant powered by RHEL Lightspeed is intended to provide rapid a
 
 In this challenge, we'll get acquainted with the command line assistant.
 
+Install command line assistant
+===
+
+Run the following command to install command line assistant.
+
+```bash,run
+dnf install -y command-line-assistant
+```
+
 Run the command line assistant
 ===
 
