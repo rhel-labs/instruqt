@@ -1,0 +1,37 @@
+slug: rhel-security-automation
+id: mzippjlii66t
+title: RHEL Security Automation
+teaser: Configuring and updating system configurations with System Roles. This track
+  has an estimated duration for completion of 10 minutes.
+description: |-
+  # Duration:
+  This track has an estimated time for completion of 10 minutes. The track will remain online for 50 minutes.
+  # Goal:
+  After completing this scenario, users will be able to configure systems using Red Hat Enterprise Linux (RHEL) System Roles.
+
+  # Concepts included in this scenario:
+  - Installing software needed for RHEL System Roles
+  - Configuring a system using RHEL System Roles
+  - Adding new configuration using RHEL System Roles to apply to systems
+  - Applying updated configuration settings to systems
+
+  # Example Usecase:
+  You have a set of database servers, these servers need kernel settings and time settings applied to them. Additionally, you want to record terminal sessions for auditing. When a change needs to be made to the configuration, you want to apply the changes to all your database servers to keep them all updated with the same configuration options.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags: []
+owner: rhel
+developers:
+- jloscar@redhat.com
+show_timer: true
+skipping_enabled: true
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  override_challenge_layout: false
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 25
+checksum: "7403877620531770179"
+enhanced_loading: false

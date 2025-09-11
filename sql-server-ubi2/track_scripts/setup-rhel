@@ -1,0 +1,37 @@
+!#/bin/bash
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+   echo "Waiting for Instruqt to finish booting the VM"
+   sleep 1
+done
+
+yum remove -y google-rhui-client*
+yum clean all
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=Instruqt_system_registration --org=12451665 --force
+dnf install -y python2
+
+touch /root/post-run.log
+
+echo "Adding wheel" > /root/post-run.log
+usermod -aG wheel rhel
+
+echo "setting password" >> /root/post-run.log
+echo redhat | passwd --stdin rhel
+
+echo "adding cockpit" >> /root/post-run.log
+yum -y install cockpit cockpit-packagekit
+
+echo "starting cockpit" >> /root/post-run.log
+systemctl start cockpit
+curl -O https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-server-ubi/imoltp.sql &>> /root/post-run.log 
+
+#Set the password expiry for the rhel user to never
+chage -M -1 rhel
+
+#Create a done file to signal we have finished
+touch /root/post-run.log.done
+
+# Enable ssh logins with a password.
+sudo sed -i "/^[^#]*PasswordAuthentication[[:space:]]no/c\PasswordAuthentication yes" /etc/ssh/sshd_config
+systemctl reload sshd 

@@ -1,0 +1,30 @@
+slug: quantum
+id: uplvfes4uc3b
+title: Quantum Simulation on RHEL
+description: |-
+  # Goal: Run quantum code on Red Hat Enterprise Linux
+  # Overview
+    After completing this scenario, users will be able to configure a quantum computing simulation stack and run quantum code with Red Hat Enterprise Linux.
+  # Concepts included in this scenario:
+    * Quantum computing
+    * Jupyter Notebooks
+    * Python
+  # Example use case:
+    You wish to learn about quantum computing or test quantum software on your own hardware
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags: []
+owner: rhel
+developers:
+- wkibbe@redhat.com
+timelimit: 3000
+sandbox_preset: devel-101
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 40
+checksum: "11494115685676109331"
+enhanced_loading: false

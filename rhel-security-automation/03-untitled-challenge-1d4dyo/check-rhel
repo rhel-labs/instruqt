@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Define the file path
+FILE_PATH="/etc/sudoers.d/webdev"
+
+# Check if the file exists
+if [ ! -f "$FILE_PATH" ]; then
+  echo "Error: The file $FILE_PATH has not been created."
+  exit 1
+else
+  echo "The file $FILE_PATH exists."
+  exit 0
+fi

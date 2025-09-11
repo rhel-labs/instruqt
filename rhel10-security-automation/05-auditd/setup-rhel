@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# This is placing a prewritten playbook in the default user directory 
+cat <<EOF > aide.yml
+---
+- name: Example aide role invocation
+  hosts: all
+  tasks:
+    - name: Include role aide
+      vars:
+        aide_db_fetch_dir: files
+        aide_install: true
+        aide_generate_config: true
+        aide_init: true
+        aide_check: false
+        aide_update: false
+      ansible.builtin.include_role:
+        name: rhel-system-roles.aide
+EOF

@@ -1,0 +1,35 @@
+slug: openscap-copy-blackhat
+id: uebiitl90ajq
+title: Using OpenSCAP for security compliance and vulnerability scanning BlackHat
+  8HR
+description: |
+  After completing this scenario, you will be able to run tools based on the Security Content Automation Protocol (SCAP) standard for compliance and vulnerability scanning
+
+  # Concepts included in this scenario:
+  * Download the packages necessary for OpenSCAP and the SCAP security guide
+  * Explore the scanning profiles available to use
+  * Run the scan and generate an HTML report
+  * Remediate an issue found during the scan
+  * Re-run the scan to ensure the issue is remediated
+
+  # Example Usecase:
+  The Chief Security Officer (CSO) of your organization has requested that a compliance scan be conducted to meet the PCI-DSS requirements.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- smcbrien@redhat.com
+show_timer: true
+timelimit: 28800
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  override_challenge_layout: false
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 25
+checksum: "13264901269763091725"
+enhanced_loading: false

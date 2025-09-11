@@ -1,0 +1,22 @@
+slug: testing-a-sandbox
+id: zv1iaytljkiv
+title: testing a sandbox
+description: ""
+icon: ""
+tags: []
+owner: rhel
+developers:
+- myee@redhat.com
+maintenance: true
+timelimit: 7200
+lab_config:
+  extend_ttl: 300
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 33
+checksum: "15812858099817576195"
+enhanced_loading: false

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+specs=/home/centos/rpmbuild/SPECS
+if ! [[ -d $specs ]]
+then
+    fail-message "$specs: No such file or directory"
+fi

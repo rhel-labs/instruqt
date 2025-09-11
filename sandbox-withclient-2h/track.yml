@@ -1,0 +1,31 @@
+slug: sandbox-withclient-2h
+id: mda3tjhrehhd
+title: Red Hat Enterprise Linux Open Lab - with client - 2 hour
+teaser: No instructions, just a system to experiment with!
+description: |-
+  # Goal:
+
+  Depends on you!
+
+  This is an evironment without pre-planned lab content intended
+  to be a place where you can explore a Red Hat Enterprise Linux 9 system on
+  a topic of your choosing.
+
+  >**NOTE:** This lab environment will expire in a little less than 2 hours.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- nlager@redhat.com
+show_timer: true
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 25
+checksum: "9781069642149152786"
+enhanced_loading: false

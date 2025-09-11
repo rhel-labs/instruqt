@@ -1,0 +1,6 @@
+version: "3"
+virtualmachines:
+- name: centos
+  image: centos-cloud/centos-stream-9
+  shell: /bin/bash
+  machine_type: n1-standard-1

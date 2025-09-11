@@ -1,0 +1,32 @@
+slug: dra-tutorial-kubeconeu-2025
+id: pi0yhazeex19
+title: DRA Tutorial - KubeCon Europe 2025
+teaser: Unlock the future of Kubernetes and accelerators (and all specialized hardware)
+  with Dynamic Resource Allocation
+description: |
+  # Unlock the future of Kubernetes and accelerators (and all specialized hardware) with Dynamic Resource Allocation
+
+  At the heart of the AI revolution are GPUs and the platform that provides access to them is  Kubernetes. Workloads historically access GPUs and other devices with the device plugin API but features are lacking. The new Dynamic Resource Allocation (DRA) feature helps maximize GPU utilization across workloads with additional features like the ability to control device sharing across Pods, use multiple GPU models per node, handle dynamic allocation of multi-instance GPU (MIG) and more. DRA is not limited to GPUs but any specialized hardware that a Pod may use including network attached resources such as edge devices like IP cameras.
+  DRA is a new way to request for resources like GPUs and gives the ability to precisely control how resources are shared between Pods.
+  This tutorial introduces DRA, reviews the “behind-the-scenes” of DRA in the Kubernetes cluster and walks through multiple ways to use DRA to request for GPU and a network attached resource.
+
+  >**NOTE:** This lab environment will expire in about 120 minutes.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- rlejano@redhat.com
+show_timer: true
+timelimit: 7200
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  override_challenge_layout: false
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 33
+checksum: "1034134210877490748"
+enhanced_loading: false

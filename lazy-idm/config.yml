@@ -1,0 +1,35 @@
+version: "3"
+virtualbrowsers:
+- name: idmconsole
+  url: https://idmsrv.${_SANDBOX_ID}.instruqt.io
+virtualmachines:
+- name: idmsrv
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-3-11-14-23
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-1
+  allow_external_ingress:
+  - http
+  - https
+  - high-ports
+- name: node1
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-3-11-14-23
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-1
+- name: node2
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-3-11-14-23
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-1
+- name: bastion
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-3-05-02-24-idm
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-1
+secrets:
+- name: ACTIVATION_KEY

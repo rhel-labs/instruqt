@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+echo "disabling unnecessary repos"
+dnf config-manager --set-disabled \*
+dnf config-manager --set-enabled baseos,appstream,extras-common
+
+echo "installing packages"
+dnf -y install bash-completion dnf-plugins-core nano tree vim-enhanced wget
+
+echo "always ignore invalid-url rpmlint warnings"
+mkdir /etc/rpmlint
+echo 'addFilter("W: invalid-url")' >> /etc/rpmlint/invalid-url.config
+
+echo "adding centos user"
+useradd -m centos
+
+echo "giving centos user sudo permission"
+echo 'centos ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/centos
+
+echo "configuring centos user bashrc"
+cat /root/.bashrc > /home/centos/.bashrc
+
+echo "creating centos downloads directory"
+mkdir /home/centos/downloads
+chown centos: /home/centos/downloads
+
+echo "DONE"

@@ -1,0 +1,32 @@
+slug: lazy-idm
+id: edjdsrnbhpsa
+title: Managing Red Hat Identity Manager as a Lazy Sysadmin
+teaser: If you want to manage IDM with the least possible effort, this lab's for you
+description: |-
+  # Goal:
+
+  Learn about, and deploy practical security goals on Red Hat Enterprise Linux
+
+  >**NOTE:** This lab environment will expire in a little less than 2 hours.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: intermediate
+tags:
+- rhel
+- security
+owner: rhel
+developers:
+- nlager@redhat.com
+maintenance: true
+show_timer: true
+idle_timeout: 1200
+timelimit: 7100
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+  default_layout: AssignmentLeft
+  default_layout_sidebar_size: 30
+checksum: "209632338812981564"
+enhanced_loading: false

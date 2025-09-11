@@ -1,0 +1,53 @@
+version: "3"
+containers:
+- name: cloud-client
+  image: gcr.io/instruqt/cloud-client
+  shell: /bin/bash
+  ports:
+  - 80
+virtualmachines:
+- name: rhel
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-2-6-20-23
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-1
+  allow_external_ingress:
+  - http
+  - https
+  - high-ports
+aws_accounts:
+- name: aws-iam-track
+  iam_policy: |-
+    {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+            "Sid":"EC2DefaultAllow",
+            "Effect": "Allow",
+            "Action": ["ec2:*", "iam:*"],
+            "Resource": "*"
+        }
+      ]
+    }
+  scp_policy: |-
+    {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Sid": "RequireLessThanXLInstanceType",
+          "Effect": "Deny",
+          "Action": "ec2:RunInstances",
+          "Resource": "arn:aws:ec2:::instance/*",
+          "Condition": {
+            "StringNotEquals": {
+              "ec2:InstanceType": [
+                "t2.medium"
+              ]
+            }
+          }
+        }
+      ]
+    }
+secrets:
+- name: ACTIVATION_KEY

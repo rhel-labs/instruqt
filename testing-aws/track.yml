@@ -1,0 +1,33 @@
+slug: testing-aws
+id: dceqlmosta6u
+title: testing-aws
+teaser: Learn how to build tracks with an AWS account
+description: |-
+  Learn how to use a sandboxed AWS account in your Instruqt track.
+
+  **This track demonstrates how to:**
+    - Link an AWS cloud account to your sandbox
+    - How to use the cloud client Docker container
+    - Use the AWS CLI and UI from our learn environment
+    - Limit usage of the cloud account using IAM and SCP policies
+
+  The default settings of this track only allow t2.nano sized ec2 instances. You should adjust the IAM policy to fit your own use case and application size.
+icon: https://cdn.instruqt.com/assets/templates/aws.png
+tags:
+- cloud account
+- docker
+owner: rhel
+developers:
+- myee@redhat.com
+maintenance: true
+timelimit: 7200
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 33
+checksum: "2925790482173067977"
+enhanced_loading: false

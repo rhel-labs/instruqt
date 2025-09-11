@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# This is placing a prewritten playbook in the default user directory 
+
+cat <<EOF > fapolicyd.yml
+---
+- name: Fapolicyd role invocation
+  hosts: all
+  vars:
+    fapolicyd_setup_enable_service: true
+    fapolicyd_setup_integrity: sha256
+    fapolicyd_setup_trust: rpmdb,file
+    fapolicyd_add_trusted_file:
+      - /etc/passwd
+      - /etc/fapolicyd/fapolicyd.conf
+      - /etc/krb5.conf
+  roles:
+    - role: rhel-system-roles.fapolicyd
+EOF

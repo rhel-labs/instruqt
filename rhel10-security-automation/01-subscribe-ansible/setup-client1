@@ -1,0 +1,6 @@
+
+sudo groupadd webdev
+
+sudo useradd -m -G webdev -s /bin/bash davidj
+
+echo 'davidj:redhat' | sudo chpasswd

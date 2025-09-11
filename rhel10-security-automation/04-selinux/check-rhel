@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Define the file path
+FILE_PATH="/etc/httpd/conf/httpd.conf"
+
+# Define the string to search for
+#SEARCH_STRING="<VirtualHost \*:\d{4}>"
+
+# Check if the file exists
+if [ ! -f "$FILE_PATH" ]; then
+  echo "Error: The file $FILE_PATH has not been created."
+  exit 1
+fi
+
+# Check if the file contains the search string
+#if ! grep -qE "$SEARCH_STRING" "$FILE_PATH"; then
+#  echo "Error: The file $FILE_PATH does not contain the string '$SEARCH_STRING'."
+#  exit 1
+#else
+#  echo "The file $FILE_PATH exists and contains the string '$SEARCH_STRING'."
+#  exit 0
+#fi

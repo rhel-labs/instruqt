@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# This script runs when the platform solve the challenge.
+#
+# The platform determines if the script was successful using the exit code of this
+# script. If the exit code is not 0, the script fails. 
+#
+stratis filesystem snapshot my_pool my_fs my_snapshot
+rm -f /mnt/test_mnt/my_first_file
+mkdir /mnt/test_mnt_snap
+mount /dev/stratis/my_pool/my_snapshot /mnt/test_mnt_snap
+cp /mnt/test_mnt_snap/my_first_file /mnt/test_mnt

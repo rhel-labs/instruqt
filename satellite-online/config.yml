@@ -1,0 +1,15 @@
+version: "3"
+virtualmachines:
+- name: rhel1
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-1-11-18-2022-4
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-1
+  allow_external_ingress:
+  - http
+  - https
+  - high-ports
+secrets:
+- name: summit_ssh_key
+- name: ACTIVATION_KEY
