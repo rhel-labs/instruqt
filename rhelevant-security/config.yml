@@ -1,0 +1,23 @@
+version: "3"
+virtualbrowsers:
+- name: webconsole
+  url: https://node1.${_SANDBOX_ID}.instruqt.io:9090
+virtualmachines:
+- name: node1
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-3-11-14-23
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-1
+  allow_external_ingress:
+  - http
+  - https
+  - high-ports
+- name: bastion
+  image: projects/tmm-instruqt-11-26-2021/global/images/rhel-9-3-11-14-23
+  shell: /bin/bash
+  environment:
+    TERM: xterm
+  machine_type: n1-standard-1
+secrets:
+- name: ACTIVATION_KEY

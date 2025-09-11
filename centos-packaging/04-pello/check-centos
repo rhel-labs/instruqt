@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+hello=/home/centos/rpmbuild/RPMS/noarch/pello-1.0.4-1.el9.noarch.rpm
+if ! [[ -f $hello ]]
+then
+    fail-message "$hello: No such file or directory"
+fi

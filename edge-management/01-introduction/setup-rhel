@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cat >> ~/.bashrc <<-EOF
+export EDGEMGMT_USER='rhel-0ab2'
+export EDGEMGMT_PASS='Redhat1!'
+EOF

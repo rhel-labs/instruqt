@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# This script runs when the platform solve the challenge.
+#
+# The platform determines if the script was successful using the exit code of this
+# script. If the exit code is not 0, the script fails. 
+#
+
+tee -a hosts.ini << EOF
+localhost  ansible_connection=local
+[clients]
+client1
+EOF
+
+sed -i '/^- hosts: localhost/ s/$/, clients/' soe.yml
+
+ansible-playbook soe.yml -i hosts.ini

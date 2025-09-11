@@ -1,0 +1,23 @@
+slug: command-line-assistant-problem-solving-summit-booth
+id: zp7d9byd5hag
+title: SUMMIT BOOTH - Solve problems with command line assistant Copy
+description: ""
+icon: ""
+tags: []
+owner: rhel
+developers:
+- myee@redhat.com
+show_timer: true
+idle_timeout: 3000
+timelimit: 30000
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  theme:
+    name: modern-dark
+  override_challenge_layout: false
+  hideStopButton: false
+checksum: "18088483522539747935"
+enhanced_loading: false

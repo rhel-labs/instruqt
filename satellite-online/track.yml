@@ -1,0 +1,28 @@
+slug: satellite-online
+id: b4rux9wynzev
+title: Red Hat Enterprise Linux Services
+teaser: Try out the Red Hat Enterprise Linux Services experience.
+description: The Lab provides the participants with an early hands-on experience of
+  the latest upcoming technologies to help your customers Provision and Maintain RHEL
+  within Insights. The focus is on the tooling that can be used to provide full lifecycle
+  management of a RHEL system, from the image creation to system instantiation and
+  maintenance.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags: []
+owner: rhel
+developers:
+- myee@redhat.com
+show_timer: true
+skipping_enabled: true
+idle_timeout: 1800
+timelimit: 7200
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 60
+checksum: "13686178846015118890"
+enhanced_loading: false

@@ -1,0 +1,43 @@
+slug: storage-web-console
+id: vs6ooye4stb9
+title: Configure storage through the web console
+description: |-
+  This lab is intended to provide an introduction to using Stratis,
+
+  Stratis is a local storage-management solution for Linux. It is focused on simplicity and ease of use, and gives you access to advanced storage features.
+
+  Stratis makes the following activities easier:
+
+  - Initial configuration of storage
+  - Making changes later
+  - Using advanced storage features
+
+  Stratis is a local storage management system that supports advanced storage features. The central concept of Stratis is a storage pool. This pool is created from one or more local disks or partitions, and file systems are created from the pool.
+
+  The pool enables many useful features, such as:
+
+  - File system snapshots
+  - Thin provisioning
+  - Tiering
+  - Encryption
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rhel
+owner: rhel
+developers:
+- myee@redhat.com
+maintenance: true
+show_timer: true
+skipping_enabled: true
+timelimit: 7200
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  override_challenge_layout: false
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 33
+checksum: "3874997856619407667"
+enhanced_loading: false

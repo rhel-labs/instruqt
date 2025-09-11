@@ -1,0 +1,41 @@
+cat <<EOF > bsa.yml
+---
+- name: Example Basic Security Automation (BSA) system roles
+  hosts: all
+  vars:
+    sudo_rules:
+    - name: "Audit-User"
+      users: ["audit-sa"]
+      commands: ["/usr/sbin/aide"]
+      tags: ["NOPASSWD"]
+    selinux_ports:
+    - ports: 1337
+      proto: tcp
+      setype: http_port_t
+      state: present
+      local: true
+    selinux_fcontexts:
+    - target: '/home/davidj/public_html'
+      setype: httpd_sys_content_t
+      ftype: d 
+      state: present
+    aide_db_fetch_dir: files
+    aide_install: true
+    aide_generate_config: true
+    aide_init: true
+    aide_check: false
+    aide_update: false
+    fapolicyd_setup_enable_service: true
+    fapolicyd_setup_integrity: sha256
+    fapolicyd_setup_trust: rpmdb,file
+    fapolicyd_add_trusted_file:
+      - /etc/passwd
+      - /etc/fapolicyd/fapolicyd.conf
+      - /etc/krb5.conf
+
+  roles:
+    - role: rhel-system-roles.sudo
+    - role: rhel-system-roles.selinux
+    - role: rhel-system-roles.aide
+    - role: rhel-system-roles.fapolicyd
+EOF

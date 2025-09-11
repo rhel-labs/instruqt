@@ -1,0 +1,33 @@
+slug: rh1-im-lab
+id: veuvloqwanwc
+title: Red Hat One image mode lab
+teaser: Full image mode lab for RH1
+description: |
+  # Goal:
+
+    Get familliar with the new image mode for RHEL operating model.
+
+    In this lab you will manage the on-going operations of an image mode VM. You'll explore tracking tags for updates, rolling back software changes, and changing the role of a host.
+
+    You will also update the software available to the VM.
+icon: ""
+tags:
+- rhel
+owner: rhel
+developers:
+- mmicene@redhat.com
+show_timer: true
+timelimit: 14400
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  theme:
+    name: modern-dark
+  override_challenge_layout: true
+  hideStopButton: true
+  default_layout: AssignmentBottom
+  default_layout_sidebar_size: 45
+checksum: "10117633400178928342"
+enhanced_loading: false

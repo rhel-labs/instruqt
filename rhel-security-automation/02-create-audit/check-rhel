@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# This script runs when the platform check the challenge.
+#
+# The platform determines if the script was successful using the exit code of this
+# script. If the exit code is not 0, the script fails. 
+#
+
+# Define the username to check
+USERNAME="johnp"
+
+# Check if the user exists in the /etc/passwd file
+if id "$USERNAME" &>/dev/null; then
+    echo "User '$USERNAME' exists."
+else
+    echo "User '$USERNAME' does not exist."
+fi

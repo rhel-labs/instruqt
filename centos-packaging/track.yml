@@ -1,0 +1,29 @@
+slug: centos-packaging
+id: xxbq28attjwh
+title: CentOS Packaging Workshop
+teaser: Learn how to package software using RPM.
+description: In this lab, you will learn how to package software using RPM, the native
+  packaging format for Fedora, CentOS Stream, and Red Hat Enterprise Linux.  You will
+  write RPM spec files, build software from source code into packages, run quality
+  checks on  packages, and install the packaged software.
+icon: ./assets/centos-symbol.svg
+tags:
+- rpm
+- packaging
+- centos
+owner: rhel
+developers:
+- carl@redhat.com
+- dherrera@redhat.com
+show_timer: true
+timelimit: 6600
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 40
+checksum: "2130744933649706654"
+enhanced_loading: false

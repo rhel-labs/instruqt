@@ -1,0 +1,7 @@
+#!/bin/bash
+instanceCount=$(aws ec2 describe-instances | jq -r '.Reservations[0].Instances | length')
+instanceStatus=$(aws ec2 describe-instances | jq -r '.Reservations[0].Instances[0].State.Code')
+
+if [[ $instanceCount -gt 0 && ($instanceStatus -eq 16 || $instanceStatus -eq 0) ]]; then # 16 is running
+    fail-message 'Please terminate instance to proceed'
+fi

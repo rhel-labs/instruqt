@@ -1,0 +1,145 @@
+#!/bin/sh
+
+sudo yum install httpd -y
+
+mkdir /home/davidj/public_html/
+
+
+cat <<EOF > /home/davidj/public_html/index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David - Designer</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <style>
+    .demo-card-wide.mdl-card {
+      width: 512px;
+    }
+    .demo-card-wide > .mdl-card__title {
+      color: #fff;
+      height: 176px;
+      background: url('https://picsum.photos/id/1005/800/600') center / cover;
+    }
+    .demo-card-wide > .mdl-card__menu {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">David - Designer</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+      David is a talented designer with a passion for creating beautiful and functional designs. He has a keen eye for detail and a deep understanding of design principles, which he uses to craft stunning visual experiences.
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+        View Portfolio
+      </a>
+    </div>
+    <div class="mdl-card__menu">
+      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+        <i class="material-icons">share</i>
+      </button>
+    </div>
+  </div>
+</body>
+</html>
+EOF
+
+
+cp /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.backup
+
+# sed -i 's/documentroot \/var\/www\/html/documentroot \/home\/johnp\/public_html/g' /etc/httpd/conf/httpd.conf
+
+# sed -i 's/<directory \"\/var\/www\/html\">/<directory \"\/home\/johnp\/public_html\">/g' /etc/httpd/conf/httpd.conf
+
+# sudo systemctl restart httpd
+
+
+# Set the username and website directory
+USERNAME="davidj"
+WEBSITE_DIR="/home/$USERNAME/public_html"
+
+# Set the Apache configuration file path
+if [ -f "/etc/httpd/conf/httpd.conf" ]; then
+    APACHE_CONF="/etc/httpd/conf/httpd.conf"
+elif [ -f "/etc/apache2/ports.conf" ]; then
+    APACHE_CONF="/etc/apache2/ports.conf"
+else
+    echo "Unable to locate Apache configuration file."
+    exit 1
+fi
+
+# Create the website directory in the user's home folder
+mkdir -p "$WEBSITE_DIR"
+
+# Move the website files to the new directory
+if [ -d "/var/www/html" ]; then
+    mv /var/www/html/* "$WEBSITE_DIR"
+elif [ -d "/var/www" ]; then
+    mv /var/www/* "$WEBSITE_DIR"
+else
+    echo "Unable to locate the default Apache document root."
+    exit 1
+fi
+
+# Update the Apache configuration to use the new directory and port
+sed -i "s|DocumentRoot \".*\"|DocumentRoot \"$WEBSITE_DIR\"|" "$APACHE_CONF"
+sed -i "s|Listen .*|Listen 1337|" "$APACHE_CONF"
+if grep -q "<VirtualHost *:80>" "$APACHE_CONF"; then
+    sed -i "s|<VirtualHost *:80>|<VirtualHost *:1337>|" "$APACHE_CONF"
+else
+    echo "<VirtualHost *:1337>" >> "$APACHE_CONF"
+    echo "    DocumentRoot \"$WEBSITE_DIR\"" >> "$APACHE_CONF"
+    echo "</VirtualHost>" >> "$APACHE_CONF"
+fi
+
+# Restart Apache to apply the changes
+if [ -f "/usr/sbin/httpd" ]; then
+    systemctl restart httpd
+elif [ -f "/usr/sbin/apache2" ]; then
+    systemctl restart apache2
+else
+    echo "Unable to locate the Apache service."
+    exit 1
+fi
+
+# Update the SELinux context for the website directory
+# chcon -R -t httpd_sys_content_t "$WEBSITE_DIR"
+
+# echo "Website files have been moved to $WEBSITE_DIR and Apache is now running on port 1337."
+
+chown -R davidj:users /home/davidj/public_html/
+
+chmod -R 755 /home/davidj/
+
+chmod -R 755 /home/davidj/public_html/
+
+cat <<EOF > selinux.yml
+
+---
+- hosts: localhost
+  vars:
+    selinux_ports:
+    - ports: 1337
+      proto: tcp
+      setype: http_port_t
+      state: present
+      local: true
+    selinux_fcontexts:
+    - target: '/home/davidj/public_html'
+      setype: httpd_sys_content_t
+      ftype: d 
+      state: present 
+      
+
+  roles:
+    - role: rhel-system-roles.selinux
+EOF
+

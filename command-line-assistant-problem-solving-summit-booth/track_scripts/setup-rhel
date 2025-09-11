@@ -1,0 +1,14 @@
+#!/bin/bash
+
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+
+usermod -aG wheel rhel
+echo redhat | passwd --stdin rhel
+
+hostnamectl set-hostname rhel.lab
+
+sed -i 's/rhel-9-1-6-20-2023.c.tmm-instruqt-11-26-2021.internal/rhel.lab/g' /etc/hosts
+sed -i 's/rhel-9-1-6-20-2023/rhel.lab/g' /etc/hosts
+
+rm /root/*.repo

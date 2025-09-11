@@ -1,0 +1,34 @@
+slug: rpm-packaging-workshop
+id: e0namfyx2vzp
+title: RPM Packaging Workshop
+description: |-
+  # Goal:
+
+  In this lab you will take a "Hello World" program written in bash and create an RPM package for it.
+
+  To accomplish this you will write RPM spec files.
+  This involves defining metadata in the preamble,
+  writing the build and install process in the body,
+  working with changelog entries,
+  and more.
+
+  >**NOTE:** This lab environment will expire in a little less than 1 hour.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- rpm
+- packaging
+- rhel
+owner: rhel
+developers:
+- smcbrien@redhat.com
+show_timer: true
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  hideStopButton: false
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 33
+checksum: "17589536406905437243"
+enhanced_loading: false

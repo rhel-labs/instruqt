@@ -1,0 +1,33 @@
+#!/bin/bash
+
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+
+echo "giving rhel user sudo permission" > /root/post-run.log
+echo 'rhel ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/rhel
+
+echo "setting password" >> /root/post-run.log
+echo redhat | passwd --stdin rhel
+
+echo "installing vim, nano, and tree" >> /root/post-run.log
+yum -y install vim-enhanced nano tree
+
+echo "trashing GCP repos" >> /root/post-run.log
+mv /etc/yum.repos.d/google-cloud.repo /root
+
+echo "downloading lab artifacts" >> /root/post-run.log
+wget -P /home/rhel/downloads \
+https://github.com/redhat-developer/rpm-packaging-guide/raw/master/example-code/bello-0.1.tar.gz \
+https://github.com/redhat-developer/rpm-packaging-guide/raw/master/example-code/cello-1.0.tar.gz \
+https://github.com/redhat-developer/rpm-packaging-guide/raw/master/example-code/cello-output-first-patch.patch \
+https://files.pythonhosted.org/packages/source/P/Pello/Pello-1.0.3.tar.gz
+chown -R rhel: /home/rhel/downloads
+
+echo "configuring rhel user bashrc" >> /root/post-run.log
+cat /root/.bashrc > /home/rhel/.bashrc
+
+echo "always ignore invalid-url rpmlint warnings" >> /root/post-run.log
+mkdir /etc/rpmlint
+echo 'addFilter("W: invalid-url")' >> /etc/rpmlint/invalid-url.config
+
+echo "DONE" >> /root/post-run.log

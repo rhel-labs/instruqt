@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+hello=/var/lib/mock/centos-stream-10-x86_64/result/pello-1.0.4-2.el10.noarch.rpm
+if ! [[ -f $hello ]]
+then
+    fail-message "$hello: No such file or directory"
+fi

@@ -1,0 +1,22 @@
+#!/bin/bash
+# Create the group "auditteam"
+sudo groupadd auditteam
+
+# Check if the group was created successfully
+if [ $? -eq 0 ]; then
+    echo "Group 'auditteam' created successfully."
+else
+    echo "Failed to create group 'auditteam'."
+    exit 1
+fi
+
+# Create the user "audit-sa"
+sudo useradd -m -s /bin/bash audit-sa
+
+# Check if the user was created successfully
+if [ $? -eq 0 ]; then
+    echo "User 'audit-sa' created successfully."
+else
+    echo "Failed to create user 'audit-sa'."
+    exit 1
+fi
