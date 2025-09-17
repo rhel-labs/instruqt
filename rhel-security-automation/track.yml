@@ -22,8 +22,8 @@ tags: []
 owner: rhel
 developers:
 - jloscar@redhat.com
+- mmicene@redhat.com
 show_timer: true
-skipping_enabled: false
 lab_config:
   sidebar_enabled: true
   feedback_recap_enabled: true
@@ -33,5 +33,5 @@ lab_config:
   hideStopButton: false
   default_layout: AssignmentRight
   default_layout_sidebar_size: 25
-checksum: "7403877620531770179"
+checksum: "857011057931669749"
 enhanced_loading: false

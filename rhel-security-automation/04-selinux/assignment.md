@@ -65,7 +65,7 @@ An Ansible playbook is like a recipe book for a computer. It tells the computer 
 - **rhel-system-roles.selinux**: This role sets up SELinux rules and contexts for Red Hat Enterprise Linux.
 
 ## Playbook summary
-By changing the types of both the port and our target directory to match the existing types for HTTPd services, SELinux will treat David's website the same as the default Apache installation. 
+By changing the types of both the port and our target directory to match the existing types for HTTPd services, SELinux will treat David's website the same as the default Apache installation.
 
 
 Now lets run it with ansible
