@@ -55,32 +55,18 @@ An Ansible playbook is like a recipe book for a computer. It tells the computer 
 ## What Does This Playbook Do?
 
 ### Title and Targets
-- **Name**: The playbook is named "Example Basic Security Automation (BSA) system roles."
 - **Hosts**: It will run on all the computers (hosts) that Ansible is managing.
 
 ### Variables
-- **sudo_rules**: This tells the computer which users can run certain commands without needing a password. In this case, the user "audit-sa" can run the command `/usr/sbin/aide` without a password.
 - **selinux_ports**: This sets up rules for SELinux (a security system) to allow traffic on port 1337 using the TCP protocol.
 - **selinux_fcontexts**: This sets up file context rules for SELinux. It says that the directory `/home/davidj/public_html` should have the type `httpd_sys_content_t`.
-- **aide_db_fetch_dir**: This tells where to fetch the AIDE (Advanced Intrusion Detection Environment) database from.
-- **aide_install, aide_generate_config, aide_init, aide_check, aide_update**: These are settings for AIDE. It tells the computer to install AIDE, generate its configuration, initialize it, but not to check or update it.
-- **fapolicyd_setup_enable_service, fapolicyd_setup_integrity, fapolicyd_setup_trust, fapolicyd_add_trusted_file**: These are settings for `fapolicyd`, a file access policy daemon. It tells the computer to enable the service, use SHA256 for integrity checks, trust certain files, and add specific files to the trusted list.
 
 ### Roles
-- **rhel-system-roles.sudo**: This role sets up sudo rules.
-- **rhel-system-roles.selinux**: This role sets up SELinux rules.
-- **rhel-system-roles.aide**: This role sets up AIDE for file integrity checking.
-- **rhel-system-roles.fapolicyd**: This role sets up `fapolicyd` for file access policies.
+- **rhel-system-roles.selinux**: This role sets up SELinux rules and contexts for Red Hat Enterprise Linux.
 
-## What Does It All Mean?
+## Playbook summary
+By changing the types of both the port and our target directory to match the existing types for HTTPd services, SELinux will treat David's website the same as the default Apache installation. 
 
-- **Security**: This playbook is all about making the computer more secure.
-- **Permissions**: It sets up who can do what without needing a password.
-- **File Access**: It controls which files can be accessed and how.
-- **File Integrity**: It checks if files have been changed unexpectedly.
-- **Network Security**: It controls which network ports can be used.
-
-In simple terms, this playbook is like a set of instructions to make a computer more secure by controlling who can do what, which files can be accessed, and which network ports can be used. It uses different tools and settings to achieve this.
 
 Now lets run it with ansible
 ```bash,run
