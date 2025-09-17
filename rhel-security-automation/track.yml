@@ -23,7 +23,7 @@ owner: rhel
 developers:
 - jloscar@redhat.com
 show_timer: true
-skipping_enabled: true
+skipping_enabled: false
 lab_config:
   sidebar_enabled: true
   feedback_recap_enabled: true
