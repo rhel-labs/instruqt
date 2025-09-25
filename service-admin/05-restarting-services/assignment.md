@@ -4,11 +4,13 @@ id: pfzkfvzlvi7h
 type: challenge
 title: Restarting a service to apply configuration changes
 tabs:
-- title: Terminal
+- id: wx2klvxdorno
+  title: Terminal
   type: terminal
   hostname: rhel
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 
 Restarting a service to apply configuration changes

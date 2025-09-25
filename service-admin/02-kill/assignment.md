@@ -4,11 +4,13 @@ id: hhhza1syfujr
 type: challenge
 title: Killing processes
 tabs:
-- title: Terminal
+- id: jl5n25acsdhx
+  title: Terminal
   type: terminal
   hostname: rhel
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Killing processes
 ===

@@ -25,15 +25,17 @@ tags:
 - admin101
 owner: rhel
 developers:
-- ehendric@redhat.com
 - wkibbe@redhat.com
 - myee@redhat.com
+- ehendric@redhat.com
 show_timer: true
 lab_config:
-  overlay: false
-  width: 25
-  position: right
+  sidebar_enabled: true
   feedback_recap_enabled: true
+  feedback_tab_enabled: false
   loadingMessages: true
   hideStopButton: false
-checksum: "1830304246294704258"
+  default_layout: AssignmentRight
+  default_layout_sidebar_size: 25
+checksum: "18176795991132650003"
+enhanced_loading: false

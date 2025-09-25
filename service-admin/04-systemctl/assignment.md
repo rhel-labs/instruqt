@@ -4,11 +4,13 @@ id: a91ihv7upxxd
 type: challenge
 title: Starting and enabling a service with systemctl
 tabs:
-- title: Terminal
+- id: fs9poubqvdnl
+  title: Terminal
   type: terminal
   hostname: rhel
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Starting and enabling a service with systemctl
 ===

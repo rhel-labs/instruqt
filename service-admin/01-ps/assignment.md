@@ -23,11 +23,13 @@ notes:
     * Enable a service with `systemctl` to make it persistent
     * Restart a service to activate configuration changes
 tabs:
-- title: Terminal
+- id: g9ubojfbw2wr
+  title: Terminal
   type: terminal
   hostname: rhel
 difficulty: basic
 timelimit: 3000
+enhanced_loading: null
 ---
 What are processes?
 ===

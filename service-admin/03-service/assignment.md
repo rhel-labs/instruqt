@@ -4,11 +4,13 @@ id: o6ckrxyvrymy
 type: challenge
 title: What is a service?
 tabs:
-- title: Terminal
+- id: pygnxnvkebhm
+  title: Terminal
   type: terminal
   hostname: rhel
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 What is a service?
 ===
