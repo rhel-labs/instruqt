@@ -4,12 +4,14 @@ id: wqzwhuf3kjve
 type: challenge
 title: Using PCP for System Metrics
 tabs:
-- title: Terminal
+- id: 8mryg30xesm1
+  title: Terminal
   type: terminal
   hostname: rhel
   cmd: tmux attach-session -t "rhel-session" > /dev/null 2>&1
 difficulty: basic
 timelimit: 1
+enhanced_loading: null
 ---
 Using PCP for system metrics
 ===
