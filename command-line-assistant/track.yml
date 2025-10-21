@@ -8,13 +8,13 @@ owner: rhel
 developers:
 - myee@redhat.com
 show_timer: true
-idle_timeout: 3000
 timelimit: 14400
 lab_config:
-  extend_ttl: 300
+  extend_ttl: 14400
+  sidebar_enabled: true
   feedback_recap_enabled: true
   feedback_tab_enabled: false
   loadingMessages: true
   hideStopButton: false
-checksum: "714983429386222061"
+checksum: "11504814290481104839"
 enhanced_loading: false
