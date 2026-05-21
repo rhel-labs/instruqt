@@ -114,8 +114,8 @@ ansible-playbook -i hosts.ini add-audit-user.yml
 
 ### Expanding your Automation
 
-Edit the `bsa.yml` playbook to add the `clients` host group.
-This tells ansible to apply the system roles in `bsa.yml` to `localhost` and `client1`.
+Edit the `hosts.ini` file  to add the `clients` host group.
+This tells ansible to apply the system roles in `add-audit-user.yml` to `localhost` and `client1`.
 ```bash,run
 cat > hosts.ini << EOF
 localhost  ansible_connection=local
